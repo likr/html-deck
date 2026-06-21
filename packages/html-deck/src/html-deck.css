@@ -1,5 +1,8 @@
 /* html-deck.css - Global Styles and Text Utility Decoration Classes */
 
+@import 'katex/dist/katex.min.css';
+@import 'prismjs/themes/prism.css';
+
 /* 1. Global Reset & Theme Variables */
 :root {
   /* Fonts */

@@ -1,14 +1,18 @@
 // HTML-Deck Main Module Entry File
-// Loads PrismJS and KaTeX dependencies synchronously, and registers deck custom elements.
+// Loads PrismJS and KaTeX dependencies from npm, and registers deck custom elements.
 
 import './html-deck.css';
-import '../vendor/katex/katex.min.js';
-import '../vendor/prismjs/prism.js';
 
-import katexCssText from '../vendor/katex/katex.min.css?raw';
-import prismCssText from '../vendor/prismjs/prism.css?raw';
+// Import KaTeX and PrismJS as proper npm modules and expose on window for component access
+import katex from 'katex';
+import Prism from 'prismjs';
+window.katex = katex;
+window.Prism = Prism;
 
-import { loadGlobalCSS } from './utils/loader.js';
+// Import their CSS as raw strings for bundling into html-deck.css and Shadow DOM injection
+import katexCssText from 'katex/dist/katex.min.css?raw';
+import prismCssText from 'prismjs/themes/prism.css?raw';
+
 import { HdDeck } from './components/html-deck/hd-deck.js';
 import { HdSlide } from './components/html-deck/hd-slide.js';
 import { HdHeading } from './components/html-deck/hd-heading.js';
@@ -25,11 +29,14 @@ import { HdTitleSlide } from './components/html-deck/hd-title-slide.js';
 import { HdFootnote } from './components/html-deck/hd-footnote.js';
 import { HdCallout } from './components/html-deck/hd-callout.js';
 
-// Load KaTeX global stylesheet immediately (needed for @font-face rules)
-loadGlobalCSS('vendor/katex/katex.min.css');
+// Resolve the base URL of fonts relative to the current module script.
+// The built fonts folder is co-located with html-deck.js inside dist/ (dist/fonts/)
+const currentModuleUrl = import.meta.url;
+const fontsBaseUrl = new URL('./fonts/', currentModuleUrl).href;
+const resolvedKatexCssText = katexCssText.replace(/url\(fonts\//g, `url(${fontsBaseUrl}`);
 
 // Pre-fetched CSS stylesheets resolved from bundled strings to avoid dynamic fetch at runtime
-export const katexCSSTextPromise = Promise.resolve(katexCssText);
+export const katexCSSTextPromise = Promise.resolve(resolvedKatexCssText);
 export const prismCSSTextPromise = Promise.resolve(prismCssText);
 
 // Register presentation custom elements

@@ -10,10 +10,8 @@
   <script type="module">
     import 'html-deck';
     import 'html-deck/css';
+    import './style.css'
   </script>
-
-  <!-- Custom presentation styling via CSS variables -->
-  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -249,7 +247,8 @@
     <!-- Slide 8: Scrollable Content Demo -->
     <hd-slide layout="title-body" title="Scrollable Code and Tables">
       <hd-heading slot="title" level="2">Scrollable Components</hd-heading>
-      <hd-text>When code blocks or tables are too large to fit in a slide, use the <code>scrollable</code> attribute to enable scrolling:</hd-text>
+      <hd-text>When code blocks or tables are too large to fit in a slide, use the <code>scrollable</code> attribute to
+        enable scrolling:</hd-text>
 
       <hd-columns>
         <hd-column>
@@ -354,20 +353,24 @@
         <hd-column>
           <hd-callout type="primary">
             <hd-text class="hd-bold">Primary Callout</hd-text>
-            <hd-text class="hd-text-sm">Use <code>&lt;hd-callout type="primary"&gt;</code> to highlight key points.</hd-text>
+            <hd-text class="hd-text-sm">Use <code>&lt;hd-callout type="primary"&gt;</code> to highlight key
+              points.</hd-text>
           </hd-callout>
-          
+
           <hd-callout type="secondary">
             <hd-text class="hd-bold">Secondary Callout</hd-text>
-            <hd-text class="hd-text-sm">Supports multiple color configurations like <code>type="secondary"</code> or <code>type="accent"</code>.</hd-text>
+            <hd-text class="hd-text-sm">Supports multiple color configurations like <code>type="secondary"</code> or
+              <code>type="accent"</code>.</hd-text>
           </hd-callout>
         </hd-column>
-        
+
         <hd-column>
           <div class="grid-card">
             <h3>Footnote Integration</h3>
-            <hd-text class="hd-text-sm">Use <code>&lt;hd-footnote&gt;</code> to place annotations at the bottom margin of the slide.</hd-text>
-            <hd-footnote inline>* This is an <strong>inline footnote</strong> using the <code>inline</code> attribute.</hd-footnote>
+            <hd-text class="hd-text-sm">Use <code>&lt;hd-footnote&gt;</code> to place annotations at the bottom margin
+              of the slide.</hd-text>
+            <hd-footnote inline>* This is an <strong>inline footnote</strong> using the <code>inline</code>
+              attribute.</hd-footnote>
           </div>
         </hd-column>
       </hd-columns>
@@ -378,7 +381,8 @@
         <h2>Speaker Notes: Callouts & Footnotes</h2>
         <ul>
           <li>Show the new callout component that eliminates inline styling for boxed alerts.</li>
-          <li>Demonstrate how footnotes automatically align to the bottom of the slide, or render inline when specified.</li>
+          <li>Demonstrate how footnotes automatically align to the bottom of the slide, or render inline when specified.
+          </li>
         </ul>
       </hd-notes>
     </hd-slide>
