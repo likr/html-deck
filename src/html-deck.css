@@ -219,3 +219,55 @@ hd-slide tr:nth-child(even), hd-title-slide tr:nth-child(even) {
   background-color: var(--hd-table-stripe-bg, rgba(0, 0, 0, 0.02));
 }
 
+/* 6. Layout & Spacing Utilities */
+
+/* Spacing (Margin Top) */
+.hd-mt-xs, .hd-mt-1 {
+  margin-top: 4px !important;
+}
+.hd-mt-sm, .hd-mt-2 {
+  margin-top: 8px !important;
+}
+.hd-mt-md, .hd-mt-3 {
+  margin-top: 16px !important;
+}
+.hd-mt-lg, .hd-mt-4 {
+  margin-top: 24px !important;
+}
+.hd-mt-xl, .hd-mt-5 {
+  margin-top: 32px !important;
+}
+.hd-mt-2xl, .hd-mt-6 {
+  margin-top: 48px !important;
+}
+
+/* Width Limiters & Centering */
+.hd-max-w-sm {
+  max-width: 400px !important;
+}
+.hd-max-w-md {
+  max-width: 600px !important;
+}
+.hd-max-w-lg {
+  max-width: 800px !important;
+}
+.hd-w-full {
+  width: 100% !important;
+}
+.hd-mx-auto {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  display: block !important;
+}
+
+/* Text Alignments */
+.hd-text-left {
+  text-align: left !important;
+}
+.hd-text-center {
+  text-align: center !important;
+}
+.hd-text-right {
+  text-align: right !important;
+}
+

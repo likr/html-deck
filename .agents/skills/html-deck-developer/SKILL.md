@@ -104,6 +104,13 @@ When slide content exceeds the standard 960x540 canvas boundaries, use `scrollab
 To avoid overriding default browser actions (such as `Ctrl + P` / `Cmd + P` for printing, or page refreshes), keydown event handlers must ignore events accompanied by modifier keys.
 - **Rule**: At the start of the `handleKeyDown` callback, return early if any modifier key flag is present:
 ```javascript
-if (event.ctrlKey || event.metaKey || event.altKey) return;
+  if (event.ctrlKey || event.metaKey || event.altKey) return;
+}
 ```
 
+### 10. Custom Element Naming & Prefixing (Zero Pollution)
+- **Rule**: All custom components and utility styling classes added to the library must be prefixed with `hd-` (e.g. `<hd-footnote>`, `<hd-callout>`, `.hd-mt-md`) to ensure they do not pollute the global namespace or clash with standard HTML elements and presentation author styles.
+
+### 11. Footnote Positioning Constraints
+- **Pattern**: By default, `<hd-footnote>` uses absolute positioning (`bottom: 12px; left: 16px;`) relative to the slide canvas, placing it in the bottom-left margin (analogous to the page number on the right).
+- **Pattern**: When footnotes are needed in-flow (e.g., inside column splits, grid cards, or table cells), the `inline` attribute must be specified on `<hd-footnote>` to swap its layout from absolute to static block flow.

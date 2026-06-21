@@ -74,6 +74,9 @@
       font-size: 1.1rem;
       color: var(--hd-primary);
     }
+    .grid-card-primary {
+      border-color: var(--hd-primary) !important;
+    }
   </style>
 </head>
 
@@ -90,9 +93,9 @@
       <div slot="location">demo/tutorial/index.html</div>
       <div slot="date">June 2026</div>
 
-      <div style="font-size: 0.7rem; opacity: 0.7; margin-top: 1.5rem;">
+      <hd-text class="hd-text-muted hd-text-xs hd-mt-lg">
         Press <span class="accent-text">Right Arrow</span> or <span class="accent-text">Space</span> to begin
-      </div>
+      </hd-text>
 
       <hd-notes>
         <h2>Speaker Notes: Intro Slide</h2>
@@ -177,7 +180,7 @@
           </div>
         </hd-column>
         <hd-column flex="2">
-          <div class="grid-card" style="border-color: var(--hd-primary);">
+          <div class="grid-card grid-card-primary">
             <h3>Column 2</h3>
             <hd-text>Flex factor = 2. This column is twice as wide as the others.</hd-text>
           </div>
@@ -394,14 +397,52 @@
       </hd-notes>
     </hd-slide>
 
-    <!-- Slide 10: Customizing Deck -->
+    <!-- Slide 10: Callouts & Footnotes -->
+    <hd-slide layout="title-body" title="Callouts & Footnotes">
+      <hd-heading slot="title" level="2">Callout Boxes & Footnotes</hd-heading>
+      <hd-text>HTML-Deck provides dedicated elements to add structure and annotation to your slides:</hd-text>
+
+      <hd-columns>
+        <hd-column>
+          <hd-callout type="primary">
+            <hd-text class="hd-bold">Primary Callout</hd-text>
+            <hd-text class="hd-text-sm">Use <code>&lt;hd-callout type="primary"&gt;</code> to highlight key points.</hd-text>
+          </hd-callout>
+          
+          <hd-callout type="secondary">
+            <hd-text class="hd-bold">Secondary Callout</hd-text>
+            <hd-text class="hd-text-sm">Supports multiple color configurations like <code>type="secondary"</code> or <code>type="accent"</code>.</hd-text>
+          </hd-callout>
+        </hd-column>
+        
+        <hd-column>
+          <div class="grid-card">
+            <h3>Footnote Integration</h3>
+            <hd-text class="hd-text-sm">Use <code>&lt;hd-footnote&gt;</code> to place annotations at the bottom margin of the slide.</hd-text>
+            <hd-footnote inline>* This is an <strong>inline footnote</strong> using the <code>inline</code> attribute.</hd-footnote>
+          </div>
+        </hd-column>
+      </hd-columns>
+
+      <hd-footnote>* Footnotes absolutely position themselves at the bottom-left of the slide by default.</hd-footnote>
+
+      <hd-notes>
+        <h2>Speaker Notes: Callouts & Footnotes</h2>
+        <ul>
+          <li>Show the new callout component that eliminates inline styling for boxed alerts.</li>
+          <li>Demonstrate how footnotes automatically align to the bottom of the slide, or render inline when specified.</li>
+        </ul>
+      </hd-notes>
+    </hd-slide>
+
+    <!-- Slide 11: Customizing Deck -->
     <hd-slide layout="title" title="Start Building!">
       <hd-heading level="2"><span class="gradient-heading">Customize it with CSS variables</span></hd-heading>
       <hd-text>Modify colors, padding, and fonts easily on the container:</hd-text>
-      <div style="max-width: 800px; margin: 0 auto; text-align: left;">
+      <div class="hd-max-w-lg hd-mx-auto hd-text-left">
         <hd-codeblock language="css" src="custom-theme.css"></hd-codeblock>
       </div>
-      <hd-text style="margin-top: 30px; font-weight: 600;">HTML-Deck: Easy slide decks for humans and agents
+      <hd-text class="hd-semibold hd-mt-xl">HTML-Deck: Easy slide decks for humans and agents
         alike.</hd-text>
 
       <hd-notes>

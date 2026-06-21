@@ -152,6 +152,51 @@ Slides display a "Current / Total" page number indicator at the bottom right cor
 - **Slide Override**: Disable page numbers on individual slides by adding the `no-page-number` attribute: `<hd-slide no-page-number>`.
 - Note: Page numbers are automatically hidden on slides using the `title` layout or on `<hd-title-slide>`.
 
+### 10. Callout Component (<hd-callout>)
+Wraps block text inside a cleanly styled box with a left accent border.
+- **Attributes**:
+  - `type`: Color variant. Can be `"primary"`, `"secondary"`, `"accent"`, `"danger"`, or `"warning"`.
+```html
+<hd-callout type="primary">
+  <hd-text class="hd-bold">Key Point</hd-text>
+  <hd-text class="hd-text-sm">This is a primary callout box.</hd-text>
+</hd-callout>
+```
+
+### 11. Footnote Component (<hd-footnote>)
+Used to write slide annotations or references.
+- **Default Position**: Absolutely positioned at the bottom-left corner of the slide (mirroring page numbers on the right).
+- **Inline Flow**: Add the `inline` attribute to render the footnote in-flow (static position, block layout) inside grid cards, column blocks, or standard flows.
+```html
+<!-- Absolutely positioned at the bottom-left -->
+<hd-footnote>* Reference: Research Team 2026</hd-footnote>
+
+<!-- In-flow footnote -->
+<div class="grid-card">
+  <hd-text>Card Content</hd-text>
+  <hd-footnote inline>* Card footnote annotation</hd-footnote>
+</div>
+```
+
+### 12. Spacing and Alignment Utility Classes
+To avoid using raw inline style attributes, use the built-in utility classes from `html-deck.css`:
+- **Vertical Spacing (Margin Top)**:
+  - `.hd-mt-xs` / `.hd-mt-1` (4px)
+  - `.hd-mt-sm` / `.hd-mt-2` (8px)
+  - `.hd-mt-md` / `.hd-mt-3` (16px)
+  - `.hd-mt-lg` / `.hd-mt-4` (24px)
+  - `.hd-mt-xl` / `.hd-mt-5` (32px)
+  - `.hd-mt-2xl` / `.hd-mt-6` (48px)
+- **Width Limiters**:
+  - `.hd-max-w-sm` (max-width: 400px)
+  - `.hd-max-w-md` (max-width: 600px)
+  - `.hd-max-w-lg` (max-width: 800px)
+  - `.hd-w-full` (width: 100%)
+- **Block Centering**:
+  - `.hd-mx-auto` (applies `margin-left: auto; margin-right: auto; display: block;`)
+- **Text Alignment**:
+  - `.hd-text-left`, `.hd-text-center`, `.hd-text-right`
+
 ---
 
 ## ⚠️ Important Coding Guidelines

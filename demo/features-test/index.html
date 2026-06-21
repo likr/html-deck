@@ -68,6 +68,11 @@
       font-size: 0.8rem;
       color: var(--hd-primary);
     }
+    .img-showcase {
+      width: 100%;
+      height: 80px;
+      object-fit: cover;
+    }
   </style>
 </head>
 <body>
@@ -83,7 +88,7 @@
       <hd-text class="hd-text-muted hd-text-sm">
         It is designed to match Google Slides 16:9 base proportions. Font sizes look much larger and more like an actual slide.
       </hd-text>
-      <hd-text class="hd-text-accent hd-semibold" style="margin-top: 10px;">
+      <hd-text class="hd-text-accent hd-semibold hd-mt-sm">
         Press Space/Right-Arrow to navigate. Press 'P' for Presenter View.
       </hd-text>
       
@@ -144,7 +149,7 @@
 
     <!-- Slide 3: Vertical Centering (Center-aligned layout-blank) -->
     <hd-slide layout="blank" center title="Vertical Centering Test">
-      <div class="feature-card" style="max-width: 600px; margin: 0 auto; text-align: center;">
+      <div class="feature-card hd-max-w-md hd-mx-auto hd-text-center">
         <div class="badge">VERTICAL CENTERING</div>
         <hd-heading level="2" class="hd-text-secondary">Fully Centered Content</hd-heading>
         <hd-text>This slide has the <span class="hd-text-accent hd-semibold">center</span> attribute enabled.</hd-text>
@@ -162,11 +167,11 @@
     <!-- Slide 4: Vertical Centering on Title-Body -->
     <hd-slide layout="title-body" center title="Vertical Centering (Title-Body)">
       <hd-heading slot="title" level="2">Vertical Center in Title-Body</hd-heading>
-      <div style="border-left: 2px solid var(--hd-primary); padding-left: 10px;">
+      <hd-callout type="primary">
         <hd-text class="hd-text-lg">The title remains fixed at the top of the slide...</hd-text>
         <hd-text>...while the body contents are <span class="hd-text-primary hd-bold">vertically centered</span> inside the remaining space!</hd-text>
         <hd-text class="hd-text-muted hd-text-sm">This creates a balanced composition without manually adjusting margins or paddings.</hd-text>
-      </div>
+      </hd-callout>
 
       <hd-notes>
         <h2>Speaker Notes: Slide 4</h2>
@@ -194,7 +199,7 @@
       <div slot="right" class="feature-card">
         <h3>Standard <code>&lt;img&gt;</code> Styling</h3>
         <hd-text class="hd-text-sm">Standard images are styled automatically within slides via <code>html-deck.css</code>:</hd-text>
-        <img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=400&q=80" alt="Standard Image Test" style="width: 100%; height: 80px; object-fit: cover;">
+        <img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=400&q=80" alt="Standard Image Test" class="img-showcase">
       </div>
 
       <hd-notes>
@@ -242,6 +247,8 @@
           <li>Awaited CSS pre-fetching keeps Shadow DOM style updates atomic.</li>
         </hd-list>
       </div>
+
+      <hd-footnote>* Note: Custom styling can be applied directly to math equations via standard CSS variables.</hd-footnote>
 
       <hd-notes>
         <h2>Speaker Notes: Slide 7</h2>

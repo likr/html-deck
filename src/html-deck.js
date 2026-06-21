@@ -19,6 +19,8 @@ import { HdNotes } from './components/hd-notes.js';
 import { HdImage } from './components/hd-image.js';
 import { HdTable } from './components/hd-table.js';
 import { HdTitleSlide } from './components/hd-title-slide.js';
+import { HdFootnote } from './components/hd-footnote.js';
+import { HdCallout } from './components/hd-callout.js';
 
 // Load KaTeX global stylesheet immediately (needed for @font-face rules)
 loadGlobalCSS('vendor/katex/katex.min.css');
@@ -41,3 +43,5 @@ customElements.define('hd-notes', HdNotes);
 customElements.define('hd-image', HdImage);
 customElements.define('hd-table', HdTable);
 customElements.define('hd-title-slide', HdTitleSlide);
+customElements.define('hd-footnote', HdFootnote);
+customElements.define('hd-callout', HdCallout);
