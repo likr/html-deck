@@ -42,6 +42,8 @@ connectedCallback() {
 `html-deck` maintains custom aspect ratios (like 16:9 or 4:3) by holding virtual slide dimensions (Width: `1920px`, Height: `1920 / ratio`) and scaling them down using CSS `transform: scale()` inside a `ResizeObserver`.
 - **Rule**: Do not apply responsive layout media queries (like `@media (max-width: 768px)`) inside slide contents or columns. Viewport-based media queries trigger layout collapsing even when the slide is scaled down, breaking the aspect ratio.
 - **Rule**: Ensure the layout container (`#layout-root` inside `<hd-slide>`) is always set to `display: flex; flex-direction: column; height: 100%; width: 100%;` so that content elements (like columns) do not collapse to height 0.
+- **Rule**: Ensure `.deck-container` has `flex-shrink: 0;` (or `flex: none;`) to prevent the browser from shrinking the virtual layout size (e.g. `1920px`) inside the parent flex wrapper before the scale transform is applied.
+
 
 ### 3. Printing & PDF Exporting (`@media print`)
 When printing, we must disable JavaScript scaling and let the browser format slides sequentially into paper pages.

@@ -30,6 +30,7 @@ TEMPLATE.innerHTML = `
     flex-direction: column;
     overflow: hidden;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    flex-shrink: 0;
   }
 
   /* Navigation UI controls */
