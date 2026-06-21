@@ -5,8 +5,8 @@ TEMPLATE.innerHTML = `
     display: flex;
     flex-direction: row;
     width: 100%;
-    gap: var(--hd-columns-gap, 40px);
-    margin-bottom: var(--hd-columns-margin-bottom, 1.5rem);
+    gap: var(--hd-columns-gap, 20px);
+    margin-bottom: var(--hd-columns-margin-bottom, 0.75rem);
   }
 </style>
 <slot></slot>

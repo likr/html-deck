@@ -6,10 +6,23 @@ export class HdList extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
+    this.depth = 0;
   }
 
   connectedCallback() {
+    this.detectDepth();
     this.render();
+  }
+
+  detectDepth() {
+    this.depth = 0;
+    let parent = this.parentElement;
+    while (parent) {
+      if (parent.tagName === 'HD-LIST') {
+        this.depth++;
+      }
+      parent = parent.parentElement;
+    }
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
@@ -18,25 +31,38 @@ export class HdList extends HTMLElement {
     }
   }
 
+  getListStyleType(tag) {
+    if (tag === 'ul') {
+      const types = ['disc', 'circle', 'square'];
+      return types[Math.min(this.depth, types.length - 1)];
+    } else {
+      const types = ['decimal', 'lower-alpha', 'lower-roman'];
+      return types[Math.min(this.depth, types.length - 1)];
+    }
+  }
+
   render() {
     const isOrdered = this.hasAttribute('ordered');
     const tag = isOrdered ? 'ol' : 'ul';
+    const listStyleType = this.getListStyleType(tag);
 
     this.shadowRoot.innerHTML = `
       <style>
         :host {
           display: block;
-          margin-bottom: var(--hd-list-margin-bottom, 1.5rem);
+          margin-bottom: ${this.depth > 0 ? '0' : 'var(--hd-list-margin-bottom, 0.75rem)'};
+          margin-top: ${this.depth > 0 ? '0.15rem' : '0'};
         }
         ${tag} {
           margin: 0;
-          padding-left: var(--hd-list-padding-left, 2.5rem);
-          font-size: var(--hd-list-font-size, 1.4rem);
+          padding-left: var(--hd-list-padding-left, 1.2rem);
+          font-size: ${this.depth > 0 ? '0.9em' : 'var(--hd-list-font-size, 0.85rem)'};
           line-height: var(--hd-list-line-height, 1.6);
           color: var(--hd-list-color, var(--hd-text-color, #f8fafc));
+          list-style-type: ${listStyleType};
         }
         ::slotted(li) {
-          margin-bottom: var(--hd-list-item-margin-bottom, 0.5rem);
+          margin-bottom: var(--hd-list-item-margin-bottom, 0.25rem);
         }
       </style>
       <${tag}><slot></slot></${tag}>

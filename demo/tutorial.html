@@ -6,8 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HTML-Deck Tutorial & Demo</title>
 
-  <!-- Load the main entry script for the library -->
-  <script type="module" src="../src/index.js"></script>
+  <!-- Load the main entry script for the library and its styles -->
+  <script type="module" src="../src/html-deck.js"></script>
+  <link rel="stylesheet" href="../src/html-deck.css">
 
   <!-- Custom presentation styling via CSS variables -->
   <style>
@@ -24,7 +25,7 @@
       --hd-font-family: 'Outfit', system-ui, -apple-system, sans-serif;
 
       /* Layout spacing */
-      --hd-slide-padding: 80px 100px;
+      --hd-slide-padding: 40px 50px;
     }
 
     /* Additional custom styling to make the demo beautiful */
@@ -44,21 +45,21 @@
 
     .badge {
       display: inline-block;
-      padding: 6px 12px;
+      padding: 3px 6px;
       background: rgba(59, 130, 246, 0.1);
       border: 1px solid rgba(59, 130, 246, 0.3);
       color: var(--hd-primary);
       border-radius: 9999px;
-      font-size: 0.9rem;
+      font-size: 0.55rem;
       font-weight: 600;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     }
 
     .grid-card {
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid rgba(255, 255, 255, 0.05);
-      border-radius: 12px;
-      padding: 30px;
+      border-radius: 6px;
+      padding: 15px;
       height: 100%;
       box-sizing: border-box;
       transition: background 0.3s;
@@ -70,7 +71,7 @@
 
     .grid-card h3 {
       margin-top: 0;
-      font-size: 1.8rem;
+      font-size: 1.1rem;
       color: var(--hd-primary);
     }
   </style>
@@ -86,7 +87,7 @@
       <div class="badge">AGENT-FIRST SLIDESHOW LIBRARY</div>
       <hd-heading level="1"><span class="gradient-heading">HTML-Deck</span></hd-heading>
       <hd-text>A Lightweight, Buildless WebComponents Slide Library</hd-text>
-      <hd-text style="font-size: 1.2rem; opacity: 0.7;">Press <span class="accent-text">Right Arrow</span> or <span
+      <hd-text style="font-size: 0.7rem; opacity: 0.7;">Press <span class="accent-text">Right Arrow</span> or <span
           class="accent-text">Space</span> to begin</hd-text>
 
       <hd-notes>

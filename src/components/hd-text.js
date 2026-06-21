@@ -3,10 +3,10 @@ TEMPLATE.innerHTML = `
 <style>
   :host {
     display: block;
-    margin-bottom: var(--hd-text-margin-bottom, 1rem);
+    margin-bottom: var(--hd-text-margin-bottom, 0.5rem);
   }
   p {
-    font-size: var(--hd-text-font-size, 1.5rem);
+    font-size: var(--hd-text-font-size, 0.9rem);
     line-height: var(--hd-text-line-height, 1.6);
     color: var(--hd-text-color-custom, var(--hd-text-color, #f8fafc));
     margin: 0;

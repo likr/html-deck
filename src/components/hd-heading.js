@@ -23,13 +23,13 @@ export class HdHeading extends HTMLElement {
     const tag = `h${level}`;
 
     // Size configuration based on level
-    let defaultFontSize = '3.5rem';
+    let defaultFontSize = '2rem';
     let defaultColor = 'var(--hd-primary, #3b82f6)';
     if (level === '2') {
-      defaultFontSize = '2.5rem';
+      defaultFontSize = '1.5rem';
       defaultColor = 'var(--hd-secondary, #a855f7)';
     } else if (level === '3') {
-      defaultFontSize = '1.8rem';
+      defaultFontSize = '1.1rem';
       defaultColor = 'var(--hd-text-color, #f8fafc)';
     }
 

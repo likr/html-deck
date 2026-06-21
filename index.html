@@ -307,7 +307,7 @@
         <div class="feature-card">
           <span class="feature-icon">⚡</span>
           <h3>Build-Free</h3>
-          <p>No bundling, Vite, or npm scripts needed. Just import index.js into a plain HTML file, and you are ready to write slides.</p>
+          <p>No bundling, Vite, or npm scripts needed. Just import html-deck.js and link html-deck.css into a plain HTML file, and you are ready to write slides.</p>
         </div>
 
         <div class="feature-card">
@@ -347,8 +347,9 @@
   &lt;<span class="tag">meta</span> <span class="attr">charset</span>=<span class="val">"UTF-8"</span>&gt;
   &lt;<span class="tag">title</span>&gt;My Presentation&lt;/<span class="tag">title</span>&gt;
   
-  <span class="comment">&lt;!-- 1. Load HTML-Deck Script --&gt;</span>
-  &lt;<span class="tag">script</span> <span class="attr">type</span>=<span class="val">"module"</span> <span class="attr">src</span>=<span class="val">"./src/index.js"</span>&gt;&lt;/<span class="tag">script</span>&gt;
+  <span class="comment">&lt;!-- 1. Load HTML-Deck Script & Styles --&gt;</span>
+  &lt;<span class="tag">script</span> <span class="attr">type</span>=<span class="val">"module"</span> <span class="attr">src</span>=<span class="val">"./src/html-deck.js"</span>&gt;&lt;/<span class="tag">script</span>&gt;
+  &lt;<span class="tag">link</span> <span class="attr">rel</span>=<span class="val">"stylesheet"</span> <span class="attr">href</span>=<span class="val">"./src/html-deck.css"</span>&gt;
   
   <span class="comment">&lt;!-- 2. Customize variables globally --&gt;</span>
   &lt;<span class="tag">style</span>&gt;

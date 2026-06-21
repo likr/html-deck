@@ -1,4 +1,4 @@
-import { loadScript, loadGlobalCSS, fetchCSS } from '../utils/loader.js';
+import { katexCSSTextPromise } from '../html-deck.js';
 
 export class HdMath extends HTMLElement {
   static get observedAttributes() {
@@ -17,7 +17,7 @@ export class HdMath extends HTMLElement {
         :host([block]) {
           display: block;
           text-align: center;
-          margin: var(--hd-math-block-margin, 1.5rem 0);
+          margin: var(--hd-math-block-margin, 0.75rem 0);
         }
       </style>
       <span id="math-output"></span>
@@ -39,14 +39,8 @@ export class HdMath extends HTMLElement {
 
   async setupKaTeX() {
     try {
-      // 1. Load KaTeX CSS globally (important for @font-face rules)
-      await loadGlobalCSS('vendor/katex/katex.min.css');
-
-      // 2. Load KaTeX script
-      await loadScript('vendor/katex/katex.min.js');
-
-      // 3. Inject CSS rules locally into Shadow DOM for layout styling
-      const cssText = await fetchCSS('vendor/katex/katex.min.css');
+      // Ensure KaTeX CSS is loaded and injected into Shadow DOM
+      const cssText = await katexCSSTextPromise;
       this.shadowRoot.getElementById('katex-style').textContent = cssText;
 
       this.renderMath();

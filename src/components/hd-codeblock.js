@@ -1,8 +1,8 @@
-import { loadScript, fetchCSS } from '../utils/loader.js';
+import { prismCSSTextPromise } from '../html-deck.js';
 
 export class HdCodeblock extends HTMLElement {
   static get observedAttributes() {
-    return ['language'];
+    return ['language', 'src'];
   }
 
   constructor() {
@@ -13,15 +13,15 @@ export class HdCodeblock extends HTMLElement {
       <style>
         :host {
           display: block;
-          margin-bottom: var(--hd-codeblock-margin-bottom, 1.5rem);
+          margin-bottom: var(--hd-codeblock-margin-bottom, 0.75rem);
           font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-          font-size: var(--hd-codeblock-font-size, 1.1rem);
+          font-size: var(--hd-codeblock-font-size, 0.7rem);
           border-radius: 8px;
           overflow: hidden;
         }
         pre {
           margin: 0 !important;
-          padding: 20px !important;
+          padding: 12px !important;
           background: var(--hd-codeblock-bg, #1e293b) !important;
           border: 1px solid rgba(255, 255, 255, 0.1);
           border-radius: 8px;
@@ -37,37 +37,61 @@ export class HdCodeblock extends HTMLElement {
   }
 
   async connectedCallback() {
-    // Keep a copy of original source code text
     this.rawCode = this.getAttribute('code') || this.innerHTML;
-    // Clear innerHTML to prevent rendering raw text on screen
     this.innerHTML = '';
     
     await this.setupHighlighting();
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
-    if (name === 'language' && oldValue !== newValue && this.rawCode) {
+    if (oldValue === newValue) return;
+    if (name === 'language' && this.rawCode) {
       this.highlight();
+    }
+    if (name === 'src' && newValue) {
+      this.loadExternalCode(newValue);
     }
   }
 
   async setupHighlighting() {
     try {
-      // 1. Ensure Prism.js script is loaded globally
-      await loadScript('vendor/prismjs/prism.js');
-      
-      // 2. Ensure Prism CSS is loaded and injected into Shadow DOM
-      const cssText = await fetchCSS('vendor/prismjs/prism.css');
+      // 1. Ensure Prism CSS is loaded and injected into Shadow DOM
+      const cssText = await prismCSSTextPromise;
       this.shadowRoot.getElementById('prism-style').textContent = cssText;
       
-      // 3. Perform highlighting
-      this.highlight();
+      // 2. Perform highlighting or load external file
+      const src = this.getAttribute('src');
+      if (src) {
+        await this.loadExternalCode(src);
+      } else {
+        this.highlight();
+      }
     } catch (err) {
       console.error('Failed to load PrismJS dependencies:', err);
       // Fallback: render raw code without highlight
       const codeOutput = this.shadowRoot.getElementById('code-output');
       if (codeOutput) {
         codeOutput.textContent = this.rawCode;
+      }
+    }
+  }
+
+  async loadExternalCode(src) {
+    const codeOutput = this.shadowRoot.getElementById('code-output');
+    if (codeOutput) {
+      codeOutput.textContent = `// Loading code from ${src}...`;
+    }
+    try {
+      const response = await fetch(src);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      this.rawCode = await response.text();
+      this.highlight();
+    } catch (err) {
+      console.error(`Failed to load external code from ${src}:`, err);
+      if (codeOutput) {
+        codeOutput.textContent = `// Error loading code from ${src}\n// ${err.message}`;
       }
     }
   }

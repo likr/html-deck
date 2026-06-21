@@ -7,10 +7,8 @@ TEMPLATE.innerHTML = `
     left: 0;
     width: 100%;
     height: 100%;
-    box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    padding: var(--hd-slide-padding, 60px 80px);
     background-color: var(--hd-slide-bg, #000000);
     color: var(--hd-slide-text-color, var(--hd-text-color, #f8fafc));
     opacity: 0;
@@ -34,13 +32,14 @@ TEMPLATE.innerHTML = `
     transition: none;
   }
 
-  /* Slide Content Box styling */
+  /* Slide Content Box styling - padding lives here, not on :host */
   .slide-content {
     display: flex;
     flex-direction: column;
     width: 100%;
     height: 100%;
     box-sizing: border-box;
+    padding: var(--hd-slide-padding, 30px 40px);
   }
 
   /* Layout variations */
@@ -58,7 +57,7 @@ TEMPLATE.innerHTML = `
     align-items: stretch;
   }
   :host([layout="title-body"]) .body-area {
-    margin-top: 40px;
+    margin-top: 20px;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -72,14 +71,14 @@ TEMPLATE.innerHTML = `
   :host([layout="split"]) .split-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 60px;
+    gap: 30px;
     flex-grow: 1;
-    margin-top: 40px;
+    margin-top: 20px;
     align-items: stretch;
   }
 
   /* 4. Blank Layout */
-  :host([layout="blank"]) {
+  :host([layout="blank"]) .slide-content {
     padding: 0;
   }
 
@@ -89,6 +88,17 @@ TEMPLATE.innerHTML = `
     flex-direction: column;
     width: 100%;
     height: 100%;
+  }
+
+  /* Vertical alignment centering */
+  :host([center]) .body-area {
+    justify-content: center;
+  }
+  :host([center]) .split-container {
+    align-items: center;
+  }
+  :host([center]) #layout-root.layout-blank {
+    justify-content: center;
   }
 
   /* Print optimization */
@@ -107,11 +117,11 @@ TEMPLATE.innerHTML = `
       color: var(--hd-slide-text-color, var(--hd-text-color, #f8fafc)) !important;
       -webkit-print-color-adjust: exact !important;
       print-color-adjust: exact !important;
-      box-sizing: border-box !important;
     }
     .slide-content {
       display: flex !important;
       height: 100% !important;
+      box-sizing: border-box !important;
     }
     #layout-root {
       display: flex !important;
