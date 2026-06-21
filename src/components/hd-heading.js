@@ -21,7 +21,7 @@ export class HdHeading extends HTMLElement {
   render() {
     const level = this.getAttribute('level') || '1';
     const tag = `h${level}`;
-    
+
     // Size configuration based on level
     let defaultFontSize = '3.5rem';
     let defaultColor = 'var(--hd-primary, #3b82f6)';
@@ -46,11 +46,6 @@ export class HdHeading extends HTMLElement {
           line-height: var(--hd-heading-line-height, 1.2);
           margin: 0;
           letter-spacing: -0.02em;
-        }
-        @media print {
-          ${tag} {
-            color: #000000 !important;
-          }
         }
       </style>
       <${tag}><slot></slot></${tag}>

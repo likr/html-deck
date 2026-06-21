@@ -38,11 +38,6 @@ export class HdList extends HTMLElement {
         ::slotted(li) {
           margin-bottom: var(--hd-list-item-margin-bottom, 0.5rem);
         }
-        @media print {
-          ${tag} {
-            color: #000000 !important;
-          }
-        }
       </style>
       <${tag}><slot></slot></${tag}>
     `;

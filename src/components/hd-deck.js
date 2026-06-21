@@ -133,6 +133,10 @@ TEMPLATE.innerHTML = `
 `;
 
 export class HdDeck extends HTMLElement {
+  static get observedAttributes() {
+    return ['aspect-ratio', 'presenter-url', 'transition'];
+  }
+
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
@@ -147,6 +151,29 @@ export class HdDeck extends HTMLElement {
     this.handleKeyDown = this.handleKeyDown.bind(this);
     this.handleResize = this.handleResize.bind(this);
     this.handleMessage = this.handleMessage.bind(this);
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (oldValue === newValue) return;
+    if (name === 'aspect-ratio') {
+      this.setupPrintStyles();
+      this.handleResize();
+    }
+    if (name === 'presenter-url') {
+      const presenterBtn = this.shadowRoot.getElementById('presenter-btn');
+      if (presenterBtn) {
+        if (newValue) {
+          presenterBtn.style.display = 'flex';
+        } else {
+          presenterBtn.style.display = 'none';
+        }
+      }
+    }
+    if (name === 'transition') {
+      if (this.slides) {
+        this.slides.forEach(slide => slide.setAttribute('transition-style', newValue || 'fade'));
+      }
+    }
   }
 
   connectedCallback() {
@@ -196,6 +223,7 @@ export class HdDeck extends HTMLElement {
 
       this.updateSlides();
       this.handleResize();
+      this.setupPrintStyles();
     }, 0);
   }
 
@@ -206,6 +234,11 @@ export class HdDeck extends HTMLElement {
     }
     this.channel.removeEventListener('message', this.handleMessage);
     this.channel.close();
+
+    const styleEl = document.getElementById('hd-deck-print-styles');
+    if (styleEl) {
+      styleEl.remove();
+    }
   }
 
   handleKeyDown(event) {
@@ -248,6 +281,35 @@ export class HdDeck extends HTMLElement {
     } else if (type === 'request-sync') {
       this.syncPresenter();
     }
+  }
+
+  setupPrintStyles() {
+    const ratio = this.getAspectRatio();
+    
+    // Scale print page box dimensions based on a standard 9-inch height
+    // to prevent fonts/paddings from becoming massive relative to page box size.
+    const height = 9;
+    const width = height * ratio;
+
+    let styleEl = document.getElementById('hd-deck-print-styles');
+    if (!styleEl) {
+      styleEl = document.createElement('style');
+      styleEl.id = 'hd-deck-print-styles';
+      document.head.appendChild(styleEl);
+    }
+
+    styleEl.textContent = `
+      @media print {
+        @page {
+          size: ${width}in ${height}in;
+          margin: 0;
+        }
+        body {
+          margin: 0 !important;
+          padding: 0 !important;
+        }
+      }
+    `;
   }
 
   getAspectRatio() {

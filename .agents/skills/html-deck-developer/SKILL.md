@@ -51,7 +51,8 @@ When printing, we must disable JavaScript scaling and let the browser format sli
 ```javascript
 if (window.matchMedia('print').matches) return;
 ```
-- **Rule**: Apply absolute landscape page bounds and pagebreaks in CSS. Enable color reproduction:
+- **Rule**: Dynamically calculate the aspect ratio and inject global `@page` rules to `document.head` (since Shadow DOM ignores `@page` rules). Specify the size in proportional physical units (e.g. `16in 9in` or `4in 3in`) to match the user-defined `aspect-ratio` without margins.
+- **Rule**: Within `<hd-slide>`, set slide dimensions to match the printing page box viewport exactly using relative viewport units. Avoid hardcoding A4 sizes (`297mm x 210mm`) to prevent aspect-ratio breakage.
 ```css
 @media print {
   :host {
@@ -59,8 +60,8 @@ if (window.matchMedia('print').matches) return;
     opacity: 1 !important;
     visibility: visible !important;
     position: relative !important;
-    width: 297mm !important; /* A4 Width */
-    height: 210mm !important; /* A4 Height */
+    width: 100vw !important; /* Fit the computed print page width */
+    height: 100vh !important; /* Fit the computed print page height */
     page-break-after: always !important;
     break-inside: avoid !important;
     overflow: hidden !important;

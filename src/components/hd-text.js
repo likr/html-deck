@@ -12,11 +12,6 @@ TEMPLATE.innerHTML = `
     margin: 0;
     letter-spacing: 0.01em;
   }
-  @media print {
-    p {
-      color: #000000 !important;
-    }
-  }
 </style>
 <p><slot></slot></p>
 `;

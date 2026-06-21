@@ -98,8 +98,8 @@ TEMPLATE.innerHTML = `
       opacity: 1 !important;
       visibility: visible !important;
       position: relative !important;
-      width: 297mm !important;
-      height: 210mm !important;
+      width: 100vw !important;
+      height: 100vh !important;
       page-break-after: always !important;
       break-inside: avoid !important;
       overflow: hidden !important;
