@@ -271,3 +271,13 @@ hd-slide tr:nth-child(even), hd-title-slide tr:nth-child(even) {
   text-align: right !important;
 }
 
+/* Absolute Positioning Utilities */
+.hd-absolute-bottom {
+  position: absolute !important;
+  bottom: 24px !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+}
+
+

@@ -3,6 +3,8 @@ TEMPLATE.innerHTML = `
 <style>
   :host {
     display: block;
+    width: 100%;
+    box-sizing: border-box;
     margin-bottom: var(--hd-text-margin-bottom, 8px);
   }
   p {
@@ -12,6 +14,7 @@ TEMPLATE.innerHTML = `
     color: var(--hd-text-color-custom, var(--hd-slide-text-color, var(--hd-text-color, #1e293b)));
     margin: 0;
     letter-spacing: 0.01em;
+    text-align: inherit;
   }
 </style>
 <p><slot></slot></p>

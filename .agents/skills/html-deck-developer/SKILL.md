@@ -154,3 +154,10 @@ To avoid overriding default browser actions (such as `Ctrl + P` / `Cmd + P` for 
 - **Trap (Dynamic Styles timing)**: Inserting `<style>` elements dynamically into a preview container's `innerHTML` causes browser styling computation delays. Synchronous dimension queries (`clientWidth`/`clientHeight`) immediately after will return `0`, breaking scale computations.
   - **Pattern**: Declare preview styling statically inside the WebComponent's constructor. Additionally, defer scale calculations using `requestAnimationFrame` to ensure the layout engine has updated.
 
+
+### 13. Custom Component Width and text-align Inheritance
+- **Trap (Flexbox Shrinking)**: When custom components with Shadow DOM (like `<hd-text>`) are placed inside flexbox containers (like `.slide-content` inside slides), their width can collapse to fit only the content size if `align-items` is not `stretch`. This prevents helper classes like `.hd-text-center` (which rely on the block occupying the full width) from actually centering text.
+  - **Rule**: Ensure text-based custom elements define `width: 100%; box-sizing: border-box;` in their `:host` styles by default.
+  - **Rule**: Explicitly declare `text-align: inherit;` on internal content wrapper elements (like `<p>` in `hd-text.js`) inside the Shadow DOM to guarantee that custom utility alignment classes (like `.hd-text-center` or `.hd-text-right`) correctly cascade down to the rendered text.
+
+

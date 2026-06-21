@@ -1,0 +1,46 @@
+    /* Theme switcher control panel floating on the top-left */
+    #theme-selector-panel {
+        position: fixed;
+        top: 15px;
+        left: 15px;
+        z-index: 1000;
+        background: rgba(15, 23, 42, 0.85);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(8px);
+        padding: 10px 15px;
+        border-radius: 8px;
+        color: #ffffff;
+        font-family: system-ui, -apple-system, sans-serif;
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+
+    #theme-selector-panel select {
+        background: #1e293b;
+        color: #ffffff;
+        border: 1px solid #475569;
+        padding: 6px 12px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: 600;
+    }
+
+    #theme-selector-panel select:focus {
+        outline: none;
+        border-color: #3b82f6;
+    }
+
+    #theme-selector-panel label {
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 0.05em;
+    }
+
+    /* Print styling support container overrides */
+    @media print {
+        #theme-selector-panel {
+            display: none !important;
+        }
+    }
