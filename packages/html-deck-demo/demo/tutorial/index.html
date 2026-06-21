@@ -7,8 +7,10 @@
   <title>HTML-Deck Tutorial & Demo</title>
 
   <!-- Load the main entry script for the library and its styles -->
-  <script type="module" src="../../src/html-deck.js"></script>
-  <link rel="stylesheet" href="../../src/html-deck.css">
+  <script type="module">
+    import 'html-deck';
+    import 'html-deck/css';
+  </script>
 
   <!-- Custom presentation styling via CSS variables -->
   <link rel="stylesheet" href="style.css">
@@ -88,7 +90,11 @@
       <div slot="right" class="grid-card">
         <h3>Right Pane Content</h3>
         <hd-text>You can insert lists, images, or custom divs inside <code>slot="right"</code>.</hd-text>
-        <hd-codeblock language="html" src="split-layout-example.html"></hd-codeblock>
+        <hd-codeblock language="html" id="split-layout-code"></hd-codeblock>
+        <script type="module">
+          import splitCode from './split-layout-example.html?raw';
+          document.getElementById('split-layout-code').setAttribute('code', splitCode);
+        </script>
       </div>
 
       <hd-notes>
@@ -180,7 +186,11 @@
       <hd-text>Code syntax highlighting is performed automatically inside the Shadow DOM using the local copy of
         PrismJS.</hd-text>
 
-      <hd-codeblock language="javascript" src="my-component.js"></hd-codeblock>
+      <hd-codeblock language="javascript" id="my-component-code"></hd-codeblock>
+      <script type="module">
+        import myComponentCode from './my-component.js?raw';
+        document.getElementById('my-component-code').setAttribute('code', myComponentCode);
+      </script>
 
       <hd-notes>
         <h2>Speaker Notes: Syntax Highlighting</h2>
@@ -245,7 +255,11 @@
         <hd-column>
           <div class="grid-card">
             <h3>Scrollable Code Block</h3>
-            <hd-codeblock language="javascript" src="scroll-demo.js" scrollable="180px"></hd-codeblock>
+            <hd-codeblock language="javascript" id="scroll-demo-code" scrollable="180px"></hd-codeblock>
+            <script type="module">
+              import scrollDemoCode from './scroll-demo.js?raw';
+              document.getElementById('scroll-demo-code').setAttribute('code', scrollDemoCode);
+            </script>
           </div>
         </hd-column>
         <hd-column>
@@ -374,7 +388,11 @@
       <hd-heading level="2"><span class="gradient-heading">Customize it with CSS variables</span></hd-heading>
       <hd-text>Modify colors, padding, and fonts easily on the container:</hd-text>
       <div class="hd-max-w-lg hd-mx-auto hd-text-left">
-        <hd-codeblock language="css" src="custom-theme.css"></hd-codeblock>
+        <hd-codeblock language="css" id="custom-theme-code"></hd-codeblock>
+        <script type="module">
+          import customThemeCode from './custom-theme.css?raw';
+          document.getElementById('custom-theme-code').setAttribute('code', customThemeCode);
+        </script>
       </div>
       <hd-text class="hd-semibold hd-mt-xl">HTML-Deck: Easy slide decks for humans and agents
         alike.</hd-text>

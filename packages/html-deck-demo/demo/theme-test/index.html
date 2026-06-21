@@ -11,8 +11,26 @@
   <!-- Load required fonts for Warm, Corporate, Serif, and Neon themes -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Outfit:wght@400;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
   
-  <!-- Main Library Style -->
-  <link rel="stylesheet" href="../../src/html-deck.css">
+  <!-- Main Library Style & Script -->
+  <script type="module">
+    import 'html-deck';
+    import 'html-deck/css';
+
+    // Import theme stylesheet URLs dynamically using Vite ?url parameter
+    import themeDark from 'html-deck/theme-dark?url';
+    import themeWarm from 'html-deck/theme-warm?url';
+    import themeCorporate from 'html-deck/theme-corporate?url';
+    import themeSerif from 'html-deck/theme-serif?url';
+    import themeNeon from 'html-deck/theme-neon?url';
+
+    window.themeUrls = {
+      'theme-dark': themeDark,
+      'theme-warm': themeWarm,
+      'theme-corporate': themeCorporate,
+      'theme-serif': themeSerif,
+      'theme-neon': themeNeon
+    };
+  </script>
   <!-- Theme style placeholder, dynamically swapped by JS -->
   <link id="theme-link" rel="stylesheet" href="">
 
@@ -65,8 +83,7 @@
     }
   </style>
   
-  <!-- Load Main Module Entry File -->
-  <script type="module" src="../../src/html-deck.js"></script>
+
 </head>
 <body>
 
@@ -148,7 +165,11 @@
         </hd-column>
         <hd-column>
           <hd-heading level="2">Syntax Highlighter</hd-heading>
-          <hd-codeblock language="javascript" src="scale-util.js"></hd-codeblock>
+          <hd-codeblock language="javascript" id="scale-code-block"></hd-codeblock>
+          <script type="module">
+            import scaleUtilCode from './scale-util.js?raw';
+            document.getElementById('scale-code-block').setAttribute('code', scaleUtilCode);
+          </script>
         </hd-column>
       </hd-columns>
     </hd-slide>
@@ -190,21 +211,25 @@
       <hd-text>
         For instance, in the default light theme, this slide becomes dark. In dark themes, it will become light.
       </hd-text>
-      <hd-codeblock language="html" src="invert-example.html"></hd-codeblock>
+      <hd-codeblock language="html" id="invert-code-block"></hd-codeblock>
+      <script type="module">
+        import invertExampleCode from './invert-example.html?raw';
+        document.getElementById('invert-code-block').setAttribute('code', invertExampleCode);
+      </script>
     </hd-slide>
 
   </hd-deck>
 
   <!-- Interactive script to load and swap theme stylesheets -->
-  <script>
+  <script type="module">
     const themeSelect = document.getElementById('theme-select');
     const themeLink = document.getElementById('theme-link');
 
     themeSelect.addEventListener('change', (event) => {
       const theme = event.target.value;
-      if (theme) {
+      if (theme && window.themeUrls && window.themeUrls[theme]) {
         // Load selected theme stylesheet
-        themeLink.href = `../../src/html-deck.${theme}.css`;
+        themeLink.href = window.themeUrls[theme];
       } else {
         // Clear theme (back to default)
         themeLink.href = '';

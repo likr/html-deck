@@ -83,14 +83,45 @@ if (window.matchMedia('print').matches) return;
 - **Rule**: Code highlights in `hd-codeblock` must map Prism token classes to CSS variables (like `--hd-token-keyword`, `--hd-token-string`) so they dynamically match the active theme.
 - **Rule**: Individual slide background and text overrides must be supported via attributes on `hd-slide` (e.g. `[invert]`, `[bg="primary"]`, `[bg="secondary"]`) and styled purely within `hd-slide.js` by overriding `--hd-slide-bg` and other variables inside their respective selector blocks.
 
-### 6. Code Architecture & Entry Points
-`src/index.js` has been deprecated. The codebase is organized into modular subdirectories:
-- `src/components/html-deck/`: Holds core slide elements (e.g. `hd-deck.js`, `hd-slide.js`).
-- `src/components/html-deck-presenter/`: Holds individual presenter elements (e.g. `hd-presenter-preview.js`, `hd-presenter-status.js`).
-- `src/html-deck.js`: The main library entry point that loads dependencies (KaTeX, Prism) and registers core components.
-- `src/html-deck-presenter.js`: The entry point for the presenter view that registers the presenter components.
-- `src/html-deck.css`: Holds global CSS resets, body margins, and user text-decoration utilities.
-Ensure any developer changes targeting library loading or presenter view update these respective files rather than single bundles.
+### 6. Code Architecture, Entry Points & Monorepo Structure
+The project is organized as an **npm workspaces monorepo** under `packages/`:
+
+- **`packages/html-deck/`** — the publishable library package:
+  - `src/components/html-deck/`: Core slide elements (`hd-deck.js`, `hd-slide.js`, etc.).
+  - `src/components/html-deck-presenter/`: Presenter dashboard elements.
+  - `src/html-deck.js`: Main library entry point — imports KaTeX/Prism JS and CSS as bundled strings (`?raw`), registers all core components.
+  - `src/html-deck-presenter.js`: Presenter view entry point.
+  - `src/html-deck.css`: Global CSS resets and utility classes.
+  - `vite.config.js`: Builds `dist/html-deck.js`, `dist/html-deck-presenter.js`, `dist/html-deck.css` using Vite library mode.
+- **`packages/html-deck-demo/`** — private demo/landing page package:
+  - Uses `html-deck` as a workspace dependency.
+  - Built as a multi-page Vite app.
+  - Slides import `html-deck` via `import 'html-deck'` and `import 'html-deck/css'`.
+- **`packages/create-html-deck/`** — publishable CLI scaffolding tool.
+- **`packages/slides/`** — private personal slides package.
+
+**Build commands** from the monorepo root:
+```bash
+npm run build -w html-deck        # Build the library dist/
+npm run build -w html-deck-demo   # Build the demo website
+npm run dev -w html-deck-demo     # Dev server for the demo
+npm run dev -w slides             # Dev server for personal slides
+```
+
+**Rule**: When modifying library source files in `packages/html-deck/src/`, run `npm run build -w html-deck` to update `dist/` before testing consumer packages.
+
+### 7. hd-codeblock: No Runtime `src` Fetching (DEPRECATED)
+The `src` attribute of `<hd-codeblock>` has been **fully removed**. Runtime fetching was unreliable (path resolution errors in presenter view, network dependency in offline use).
+- **New pattern**: Use Vite's `?raw` text import in a `<script type="module">` block and set the `code` attribute directly:
+```html
+<hd-codeblock language="javascript" id="my-block"></hd-codeblock>
+<script type="module">
+  import codeText from './file.js?raw';
+  document.getElementById('my-block').setAttribute('code', codeText);
+</script>
+```
+- The `code` attribute is now in `observedAttributes` and triggers re-highlighting when changed.
+
 
 ### 7. Encapsulated Table Slot Clone Pattern
 Because descendants of `::slotted(table)` (like `th`, `td`, `tr`) cannot be styled from within a component's Shadow DOM, components like `<hd-table>` must use the clone pattern:

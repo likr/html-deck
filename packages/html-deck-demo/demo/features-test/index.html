@@ -6,8 +6,10 @@
   <title>HTML-Deck Comprehensive Features Test</title>
   
   <!-- 1. Load HTML-Deck Script & Stylesheet -->
-  <script type="module" src="../../src/html-deck.js"></script>
-  <link rel="stylesheet" href="../../src/html-deck.css">
+  <script type="module">
+    import 'html-deck';
+    import 'html-deck/css';
+  </script>
 
   <!-- Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -215,7 +217,11 @@
         The code block below dynamically fetches its content from <span class="hd-text-secondary hd-bold">sample-code.js</span> using the <code>src</code> attribute:
       </hd-text>
       
-      <hd-codeblock language="javascript" src="sample-code.js"></hd-codeblock>
+      <hd-codeblock language="javascript" id="sample-code-block"></hd-codeblock>
+      <script type="module">
+        import sampleCode from './sample-code.js?raw';
+        document.getElementById('sample-code-block').setAttribute('code', sampleCode);
+      </script>
 
       <hd-notes>
         <h2>Speaker Notes: Slide 6</h2>

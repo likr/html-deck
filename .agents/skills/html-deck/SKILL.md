@@ -11,25 +11,28 @@ This skill explains how to build elegant presentation slide decks using the `htm
 
 ## 🚀 Generating a Boilerplate Slide Deck
 
-When the user asks to create a **new** presentation, do not write the HTML manually from scratch. Use the bundled Node.js CLI boilerplate utility:
+When the user asks to create a **new** presentation, do not write the HTML manually from scratch. Use the `create-html-deck` CLI package via npm workspaces:
 
 ```bash
-node .agents/skills/html-deck/scripts/create-deck.js <output-file.html> [options]
+node packages/create-html-deck/bin/create-html-deck.js <project-directory> [options]
 ```
 
 **Options**:
 - `--aspect <ratio>`: Sets ratio. Examples: `16:9` (default), `4:3`, `1.6`.
-- `--presenter`: Automatically includes `presenter-url="..."` attribute linked to the project presenter dashboard.
+- `--presenter`: Automatically includes `presenter-url="presenter.html"` and scaffolds a local presenter view dashboard.
 
 ---
 
 ## 🎨 Page Structuring Guidelines
 
-### 1. Include Global Stylesheet (html-deck.css)
-Always link the CSS utility stylesheet `src/html-deck.css` in the HTML document's `<head>`. It resets body margins, ensures proper presentation scrolling, and provides essential text decoration/utility classes.
+### 1. Include Global Stylesheet (html-deck/css)
+Always import the library script and the CSS utility stylesheet inside a `<script type="module">` block in your `<head>`. It resets body margins, ensures proper presentation scrolling, and provides essential text decoration/utility classes.
 
 ```html
-<link rel="stylesheet" href="src/html-deck.css">
+<script type="module">
+  import 'html-deck';
+  import 'html-deck/css';
+</script>
 ```
 
 ### 2. Flat Declarative DOM Tree
@@ -218,10 +221,14 @@ If you write raw `<hd-slide>` inside `<hd-codeblock>`, the browser will interpre
 </hd-codeblock>
 ```
 
-### 2. Loading External Files in Code Blocks
-You can render external files directly inside `<hd-codeblock>` by setting the `src` attribute. This is cleaner than inlining massive snippets.
+### 2. Loading External Files in Code Blocks (Vite Raw Imports)
+Do not use `src` attribute on `<hd-codeblock>` as it has been deprecated. Instead, import files using Vite's raw query `?raw` and set the code dynamically:
 ```html
-<hd-codeblock language="javascript" src="./demo/sample-code.js"></hd-codeblock>
+<hd-codeblock language="javascript" id="my-block"></hd-codeblock>
+<script type="module">
+  import codeText from './sample-code.js?raw';
+  document.getElementById('my-block').setAttribute('code', codeText);
+</script>
 ```
 
 ### 3. Math LaTeX Syntax

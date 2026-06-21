@@ -2,7 +2,7 @@ import { prismCSSTextPromise } from '../../html-deck.js';
 
 export class HdCodeblock extends HTMLElement {
   static get observedAttributes() {
-    return ['language', 'src', 'scrollable'];
+    return ['language', 'code', 'scrollable'];
   }
 
   constructor() {
@@ -86,8 +86,10 @@ export class HdCodeblock extends HTMLElement {
     if (name === 'language' && this.rawCode) {
       this.highlight();
     }
-    if (name === 'src' && newValue) {
-      this.loadExternalCode(newValue);
+    if (name === 'code') {
+      this.rawCode = newValue;
+      this.isInlineHTML = false;
+      this.highlight();
     }
     if (name === 'scrollable') {
       this.updateScrollable();
@@ -113,13 +115,8 @@ export class HdCodeblock extends HTMLElement {
       const cssText = await prismCSSTextPromise;
       this.shadowRoot.getElementById('prism-style').textContent = cssText;
       
-      // 2. Perform highlighting or load external file
-      const src = this.getAttribute('src');
-      if (src) {
-        await this.loadExternalCode(src);
-      } else {
-        this.highlight();
-      }
+      // 2. Perform highlighting
+      this.highlight();
     } catch (err) {
       console.error('Failed to load PrismJS dependencies:', err);
       // Fallback: render raw code without highlight
@@ -130,26 +127,7 @@ export class HdCodeblock extends HTMLElement {
     }
   }
 
-  async loadExternalCode(src) {
-    const codeOutput = this.shadowRoot.getElementById('code-output');
-    if (codeOutput) {
-      codeOutput.textContent = `// Loading code from ${src}...`;
-    }
-    try {
-      const response = await fetch(src);
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      this.rawCode = await response.text();
-      this.isInlineHTML = false;
-      this.highlight();
-    } catch (err) {
-      console.error(`Failed to load external code from ${src}:`, err);
-      if (codeOutput) {
-        codeOutput.textContent = `// Error loading code from ${src}\n// ${err.message}`;
-      }
-    }
-  }
+
 
   highlight() {
     const codeOutput = this.shadowRoot.getElementById('code-output');

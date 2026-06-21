@@ -1,0 +1,16 @@
+{
+  "name": "create-html-deck",
+  "version": "1.0.0",
+  "description": "Boilerplate initializer for HTML-Deck presentations",
+  "type": "module",
+  "bin": {
+    "create-html-deck": "./bin/create-html-deck.js"
+  },
+  "files": [
+    "bin",
+    "templates"
+  ],
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

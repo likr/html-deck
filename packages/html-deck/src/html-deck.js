@@ -1,11 +1,14 @@
 // HTML-Deck Main Module Entry File
 // Loads PrismJS and KaTeX dependencies synchronously, and registers deck custom elements.
 
+import './html-deck.css';
 import '../vendor/katex/katex.min.js';
 import '../vendor/prismjs/prism.js';
 
-import { loadGlobalCSS, fetchCSS } from './utils/loader.js';
+import katexCssText from '../vendor/katex/katex.min.css?raw';
+import prismCssText from '../vendor/prismjs/prism.css?raw';
 
+import { loadGlobalCSS } from './utils/loader.js';
 import { HdDeck } from './components/html-deck/hd-deck.js';
 import { HdSlide } from './components/html-deck/hd-slide.js';
 import { HdHeading } from './components/html-deck/hd-heading.js';
@@ -25,9 +28,9 @@ import { HdCallout } from './components/html-deck/hd-callout.js';
 // Load KaTeX global stylesheet immediately (needed for @font-face rules)
 loadGlobalCSS('vendor/katex/katex.min.css');
 
-// Pre-fetch CSS stylesheets for math and code components to avoid layout shifts and lazy load delay
-export const katexCSSTextPromise = fetchCSS('vendor/katex/katex.min.css');
-export const prismCSSTextPromise = fetchCSS('vendor/prismjs/prism.css');
+// Pre-fetched CSS stylesheets resolved from bundled strings to avoid dynamic fetch at runtime
+export const katexCSSTextPromise = Promise.resolve(katexCssText);
+export const prismCSSTextPromise = Promise.resolve(prismCssText);
 
 // Register presentation custom elements
 customElements.define('hd-deck', HdDeck);
