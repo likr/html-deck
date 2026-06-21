@@ -220,6 +220,37 @@
 
   </hd-deck>
 
+  <!-- Aspect Ratio Switcher Controls -->
+  <div class="aspect-ratio-controls">
+    <button class="aspect-btn active" data-aspect="16:9">16:9</button>
+    <button class="aspect-btn" data-aspect="4:3">4:3</button>
+  </div>
+
+  <script type="module">
+    const deck = document.querySelector('hd-deck');
+    const buttons = document.querySelectorAll('.aspect-btn');
+
+    // Set initial active state based on deck attribute
+    const currentAspect = deck.getAttribute('aspect-ratio') || '16:9';
+    buttons.forEach(btn => {
+      if (btn.dataset.aspect === currentAspect) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+    });
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        const aspect = button.dataset.aspect;
+        deck.setAttribute('aspect-ratio', aspect);
+        
+        buttons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+      });
+    });
+  </script>
+
 </body>
 
 </html>
