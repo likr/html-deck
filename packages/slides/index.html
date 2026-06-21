@@ -3,152 +3,401 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HTML-Deck イントロダクション</title>
+  <title>HTML-Deck Slides Workspace</title>
+  <meta name="description" content="Workspace index for browsing and launching HTML-Deck presentation slides.">
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Outfit:wght@400;600;700;800&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
-
-  <!-- Load HTML-Deck Script and CSS -->
-  <script type="module">
-    import 'html-deck';
-    import 'html-deck/css';
-  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --hd-slide-bg: #0b0f19;
-      --hd-text-color: #f1f5f9;
-      --hd-primary: #3b82f6;
-      --hd-secondary: #ec4899;
-      --hd-accent: #10b981;
-      --hd-font-family: 'Outfit', 'Noto Sans JP', sans-serif;
-      --hd-slide-padding: 60px 80px;
+      --bg: #0b0f19;
+      --bg-surface: rgba(20, 26, 46, 0.6);
+      --border: rgba(255, 255, 255, 0.06);
+      --border-hover: rgba(59, 130, 246, 0.3);
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --primary: #3b82f6;       /* Blue */
+      --secondary: #ec4899;     /* Pink */
+      --accent: #10b981;        /* Emerald */
+      --font-title: 'Outfit', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --font-mono: 'Fira Code', monospace;
     }
 
-    .gradient-text {
-      background: linear-gradient(135deg, var(--hd-primary), var(--hd-secondary));
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(59, 130, 246, 0.12) 0%, transparent 45%),
+        radial-gradient(circle at 85% 85%, rgba(236, 72, 153, 0.12) 0%, transparent 45%);
+      color: var(--text);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 24px;
+      width: 100%;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header */
+    header {
+      padding-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 48px;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-icon {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      color: white;
+      font-family: var(--font-title);
+      font-size: 18px;
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    }
+
+    .brand {
+      font-family: var(--font-title);
+      font-weight: 800;
+      font-size: 1.5rem;
+      background: linear-gradient(135deg, var(--text), var(--text-muted));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.02em;
+    }
+
+    .workspace-badge {
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    h1 {
+      font-family: var(--font-title);
+      font-size: 2.8rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      letter-spacing: -0.03em;
+    }
+
+    h1 span {
+      background: linear-gradient(135deg, var(--primary) 30%, var(--secondary));
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
-    .badge {
-      display: inline-block;
-      padding: 4px 10px;
-      background: rgba(59, 130, 246, 0.1);
-      border: 1px solid rgba(59, 130, 246, 0.3);
-      color: var(--hd-primary);
-      border-radius: 9999px;
-      font-size: 11px;
-      font-weight: 600;
-      margin-bottom: 12px;
+    .subtitle {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto;
     }
 
-    .feature-card {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.05);
+    /* Grid Section */
+    .section-title {
+      font-family: var(--font-title);
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-title::after {
+      content: "";
+      flex-grow: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+      margin-bottom: 64px;
+    }
+
+    /* Card */
+    .card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px -10px rgba(59, 130, 246, 0.15);
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card-meta {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .badge-primary {
+      background: rgba(59, 130, 246, 0.1);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      color: #60a5fa;
+    }
+
+    .badge-secondary {
+      background: rgba(236, 72, 153, 0.1);
+      border: 1px solid rgba(236, 72, 153, 0.2);
+      color: #f472b6;
+    }
+
+    .card h3 {
+      font-family: var(--font-title);
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin-bottom: 24px;
+      flex-grow: 1;
+    }
+
+    .card-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-family: var(--font-title);
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      gap: 6px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), #2563eb);
+      color: #ffffff;
+      border: none;
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(59, 130, 246, 0.3);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+
+    /* Help Section */
+    .instructions-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px dashed var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .instructions-card h2 {
+      font-family: var(--font-title);
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .instructions-card p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+    }
+
+    .code-box {
+      background: #060910;
+      border: 1px solid var(--border);
       border-radius: 8px;
       padding: 16px;
-      height: 100%;
-      box-sizing: border-box;
+      overflow-x: auto;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: #e2e8f0;
     }
 
-    .feature-card h3 {
-      font-size: 14px;
-      color: var(--hd-primary);
-      margin-top: 0;
-      margin-bottom: 8px;
+    .code-box span.comment {
+      color: #4b5563;
+    }
+
+    /* Footer */
+    footer {
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
     }
   </style>
 </head>
 <body>
 
-  <hd-deck transition="fade" aspect-ratio="16:9" presenter-url="presenter.html">
+  <div class="container">
+    <header>
+      <div class="logo-container">
+        <div class="logo-icon">H</div>
+        <div class="brand">HTML-DECK</div>
+      </div>
+      <div class="workspace-badge">Slides Workspace</div>
+    </header>
 
-    <!-- スライド1: タイトル -->
-    <hd-title-slide>
-      <div slot="title"><span class="gradient-text">HTML-Deck のご紹介</span></div>
-      <div slot="subtitle">AIエージェントと人間のための次世代Webスライドプラットフォーム</div>
-      <div slot="presenter">開発チーム</div>
-      <div slot="location">東京 / オンライン</div>
-      <div slot="date">2026年6月</div>
-      <hd-notes>
-        <h2>発表ノート: イントロダクション</h2>
-        <p>HTML-Deckの紹介スライドへようこそ！このスライド自体もHTML-Deckを使って作られています。</p>
-      </hd-notes>
-    </hd-title-slide>
+    <main>
+      <section class="hero">
+        <h1><span>My Presentations</span></h1>
+        <p class="subtitle">HTML-Deckで作成されたプレゼンテーションの一覧です。スライドの追加や編集は、ディレクトリを作成するだけで自動的に反映されます。</p>
+      </section>
 
-    <!-- スライド2: コアコンセプト -->
-    <hd-slide layout="title-body" title="コアコンセプト">
-      <hd-heading slot="title" level="2">なぜ HTML-Deck なのか？</hd-heading>
-      <hd-text>Reveal.js のような既存のフレームワークは複雑な階層構造（nested section）を持つため、AIエージェントがHTMLを編集する際に構造を壊しがちでした。HTML-Deckはフラットで直感的なDOM構成を維持します。</hd-text>
+      <section class="section-title">Decks</section>
       
-      <hd-columns>
-        <hd-column>
-          <div class="feature-card">
-            <h3>🤖 エージェントファースト</h3>
-            <hd-text class="hd-text-sm">フラットなマークアップとシンプルな属性定義により、LLMが迷わず正確にスライドを作成・修正できます。</hd-text>
+      <div class="grid">
+        <!-- Introduction Slide Deck Card -->
+        <div class="card">
+          <div class="card-meta">
+            <span class="badge badge-primary">16:9</span>
+            <span class="badge badge-secondary">4 Slides</span>
           </div>
-        </hd-column>
-        <hd-column>
-          <div class="feature-card">
-            <h3>⚡ 仮想解像度スケーリング</h3>
-            <hd-text class="hd-text-sm">960x540をベース解像度として、どんな画面サイズやブラウザのフォント設定でもアスペクト比を完璧に維持します。</hd-text>
+          <h3>HTML-Deck イントロダクション</h3>
+          <p>HTML-Deckのコアコンセプト、Vite連携、プレゼンター機能、PDF印刷などの基本機能を紹介するスライドです。</p>
+          <div class="card-actions">
+            <a href="slides/introduction/index.html" class="btn btn-primary">
+              <span>Launch</span>
+            </a>
+            <a href="slides/introduction/presenter.html" class="btn btn-secondary" target="_blank">
+              <span>Presenter View</span>
+            </a>
           </div>
-        </hd-column>
-      </hd-columns>
-    </hd-slide>
-
-    <!-- スライド3: コードブロックとViteインポート -->
-    <hd-slide layout="split" title="コードブロックとViteの連携">
-      <hd-heading slot="title" level="2">Vite によるソースコード読み込み</hd-heading>
-      
-      <div slot="left">
-        <hd-text><code>&lt;hd-codeblock&gt;</code> は、Vite の <code>?raw</code> クエリを使ったテキストインポートと完璧に連携します。</hd-text>
-        <hd-text class="hd-text-muted hd-text-sm">従来の実行時フェッチによるパスの狂いやプレゼンタービューでのリンクエラーがなくなり、完全にビルド時にコードが解決されます。</hd-text>
+        </div>
       </div>
 
-      <div slot="right">
-        <hd-codeblock language="javascript" id="vite-import-demo"></hd-codeblock>
-        <script type="module">
-          // Viteの生テキストインポートを使用して、コードブロックを設定
-          import myConfigCode from './vite.config.js?raw';
-          document.getElementById('vite-import-demo').textContent = myConfigCode;
-        </script>
-      </div>
-    </hd-slide>
-
-    <!-- スライド4: プレゼンター同期と印刷 -->
-    <hd-slide layout="title-body" title="プレゼンター機能とPDFエクスポート">
-      <hd-heading slot="title" level="2">実用的なプレゼンツール</hd-heading>
+      <section class="section-title" style="margin-bottom: 24px;">Adding New Slide Decks</section>
       
-      <hd-columns>
-        <hd-column>
-          <div class="feature-card">
-            <h3>🖥️ プレゼンタービュー (Pキー)</h3>
-            <hd-list>
-              <li><code>BroadcastChannel</code> によるローカル高速同期</li>
-              <li>経過タイマー、現在時刻、ノートの表示</li>
-              <li>次のスライドのライブプレビュー</li>
-            </hd-list>
-          </div>
-        </hd-column>
-        <hd-column>
-          <div class="feature-card">
-            <h3>🖨️ PDFエクスポート (Ctrl + P)</h3>
-            <hd-list>
-              <li>印刷用 CSS メディアクエリの自動最適化</li>
-              <li>ページサイズ（A4横等）への自動フィッティング</li>
-              <li>印刷時の不要なナビゲーションUIの非表示化</li>
-            </hd-list>
-          </div>
-        </hd-column>
-      </hd-columns>
-    </hd-slide>
+      <div class="instructions-card">
+        <h2>🛠️ 新しいスライドを追加する方法</h2>
+        <p>新しいプレゼンテーションを作成するには、<code>packages/slides/slides/</code> ディレクトリの下に新しいフォルダーを作成し、スライドを配置します。</p>
+        <div class="code-box">
+          <span class="comment"># 1. スライド用ディレクトリを作成する (例: my-slide)</span><br>
+          mkdir -p packages/slides/slides/my-slide<br><br>
+          <span class="comment"># 2. その中に index.html を作成してスライドを記述する</span><br>
+          touch packages/slides/slides/my-slide/index.html<br><br>
+          <span class="comment"># 3. 本インデックス(packages/slides/index.html)にカードを追記する</span>
+        </div>
+      </div>
+    </main>
 
-  </hd-deck>
+    <footer>
+      <p>&copy; 2026 HTML-Deck Workspace. Built with WebComponents.</p>
+    </footer>
+  </div>
 
 </body>
 </html>
