@@ -286,9 +286,10 @@ export class HdDeck extends HTMLElement {
   setupPrintStyles() {
     const ratio = this.getAspectRatio();
     
-    // Scale print page box dimensions based on a standard 9-inch height
-    // to prevent fonts/paddings from becoming massive relative to page box size.
-    const height = 9;
+    // Scale print page box dimensions based on a standard 11.25-inch height
+    // which equals exactly 1080px (11.25 * 96 = 1080).
+    // This perfectly aligns screen base dimensions with print page dimensions.
+    const height = 11.25;
     const width = height * ratio;
 
     let styleEl = document.getElementById('hd-deck-print-styles');
@@ -338,9 +339,9 @@ export class HdDeck extends HTMLElement {
     
     const ratio = this.getAspectRatio();
     
-    // Width is always 1920, height is derived from aspect ratio.
-    const baseWidth = 1920;
-    const baseHeight = 1920 / ratio;
+    // Pin base height to 1080px and derive width from ratio to align screen/print resolution.
+    const baseHeight = 1080;
+    const baseWidth = baseHeight * ratio;
 
     const scaleX = wWidth / baseWidth;
     const scaleY = wHeight / baseHeight;
