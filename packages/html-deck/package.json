@@ -1,6 +1,6 @@
 {
   "name": "html-deck",
-  "version": "1.0.0",
+  "version": "1.0.0-alpha.1",
   "description": "An Agent-First WebComponents Slideshow Library",
   "type": "module",
   "main": "dist/html-deck.js",

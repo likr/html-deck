@@ -53,7 +53,7 @@ try {
       "preview": "vite preview"
     },
     dependencies: {
-      "html-deck": "^1.0.0"
+      "html-deck": "^1.0.0-alpha.1"
     },
     devDependencies: {
       "vite": "^5.0.0"
