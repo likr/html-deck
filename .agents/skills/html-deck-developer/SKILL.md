@@ -1,6 +1,6 @@
 ---
 name: html-deck-developer
-description: Guidelines and workflows for modifying, extending, debugging, or refactoring the html-deck WebComponents presentation library core code. Trigger this skill whenever you need to edit src/ index.js, components, dynamic loaders, or when repairing slideshow scaling and printing bugs.
+description: Guidelines and workflows for modifying, extending, debugging, or refactoring the html-deck WebComponents presentation library core code. Trigger this skill whenever you need to edit src/ html-deck.js, components, dynamic loaders, or when repairing slideshow scaling and printing bugs.
 ---
 
 # html-deck-developer Skill
@@ -39,13 +39,18 @@ connectedCallback() {
 ```
 
 ### 2. Sizing & Scaling (Aspect Ratio)
-`html-deck` maintains custom aspect ratios (like 16:9 or 4:3) by holding virtual slide dimensions (Width: `1920px`, Height: `1920 / ratio`) and scaling them down using CSS `transform: scale()` inside a `ResizeObserver`.
+`html-deck` maintains custom aspect ratios (like 16:9 or 4:3) by holding virtual slide dimensions.
+- **Rule**: The default virtual dimension base is **960x540** (proportional to Google Slides 16:9). All component layout sizes, font sizes (`rem`), gaps, and paddings must be proportioned to this 540p virtual canvas (typically font sizes around `0.8rem` - `2rem`).
 - **Rule**: Do not apply responsive layout media queries (like `@media (max-width: 768px)`) inside slide contents or columns. Viewport-based media queries trigger layout collapsing even when the slide is scaled down, breaking the aspect ratio.
 - **Rule**: Ensure the layout container (`#layout-root` inside `<hd-slide>`) is always set to `display: flex; flex-direction: column; height: 100%; width: 100%;` so that content elements (like columns) do not collapse to height 0.
-- **Rule**: Ensure `.deck-container` has `flex-shrink: 0;` (or `flex: none;`) to prevent the browser from shrinking the virtual layout size (e.g. `1920px`) inside the parent flex wrapper before the scale transform is applied.
+- **Rule**: Ensure `.deck-container` has `flex-shrink: 0;` (or `flex: none;`) to prevent the browser from shrinking the virtual layout size (e.g. `960px`) inside the parent flex wrapper before the scale transform is applied.
 
+### 3. Slide Padding & Overflow Bug (Critical)
+Applying `padding` directly to `:host` on `<hd-slide>` (which has `width: 100%` / `height: 100%`) causes layout overflow because `:host` box-sizing rules (`border-box`) are inconsistently honored across browsers when scaled. This causes slides to exceed the 960x540 boundaries and break layout alignment.
+- **Rule**: **NEVER** set padding on `:host` in `hd-slide.js`.
+- **Pattern**: Define padding on the wrapper element inside Shadow DOM (e.g. `.slide-content`). Set `:host` layout to `box-sizing: border-box; width: 100%; height: 100%; overflow: hidden;` and `.slide-content` to `box-sizing: border-box; width: 100%; height: 100%; padding: 2rem;`.
 
-### 3. Printing & PDF Exporting (`@media print`)
+### 4. Printing & PDF Exporting (`@media print`)
 When printing, we must disable JavaScript scaling and let the browser format slides sequentially into paper pages.
 - **Rule**: Inside `handleResize()`, skip scale calculations when printing:
 ```javascript
@@ -71,7 +76,14 @@ if (window.matchMedia('print').matches) return;
 }
 ```
 
-### 4. Flat CSS & Skeleton Principle
+### 5. Flat CSS & Skeleton Principle
 `html-deck` is a skeleton library. It provides structural components but does not define opinions on themes (e.g., Academic, Corporate, Dark, Light).
 - **Rule**: Use fallback CSS custom properties inside shadow roots (e.g., `background-color: var(--hd-slide-bg, #000000)`).
 - **Rule**: Allow users to customize colors, text sizes, and padding entirely via root CSS variables.
+
+### 6. Code Architecture & Entry Points
+`src/index.js` has been deprecated. The codebase uses separate entry points:
+- `src/html-deck.js`: The main library file that loads dependencies (KaTeX, Prism) and registers core components.
+- `src/html-deck-presenter.js`: The entry point for the presenter dashboard view.
+- `src/html-deck.css`: Holds global CSS resets, body margins, and user text-decoration utilities.
+Ensure any developer changes targeting library loading or presenter view update these respective files rather than single bundles.

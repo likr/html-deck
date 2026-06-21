@@ -1,6 +1,6 @@
 ---
 name: html-deck
-description: How to create, write, and style new presentations or add slides using the html-deck WebComponents slideshow library. Trigger this skill whenever a user requests to build a presentation, edit slides, write math equations in slides, write code examples in slides, or configure presenter options.
+description: How to create, write, and style new presentations or add slides using the html-deck WebComponents slideshow library. Trigger this skill whenever a user requests to build a presentation, edit slides, write math equations in slides, write code examples in slides, include external code source files, use image components, or configure presenter options.
 ---
 
 # html-deck Slide Authoring Skill
@@ -25,39 +25,79 @@ node .agents/skills/html-deck/scripts/create-deck.js <output-file.html> [options
 
 ## 🎨 Page Structuring Guidelines
 
-### 1. Flat Declarative DOM Tree
+### 1. Include Global Stylesheet (html-deck.css)
+Always link the CSS utility stylesheet `src/html-deck.css` in the HTML document's `<head>`. It resets body margins, ensures proper presentation scrolling, and provides essential text decoration/utility classes.
+
+```html
+<link rel="stylesheet" href="src/html-deck.css">
+```
+
+### 2. Flat Declarative DOM Tree
 Keep the DOM structure completely flat. Do not nest pages inside nested section blocks. Place all `<hd-slide>` tags directly under `<hd-deck>`.
 
 ```html
 <hd-deck transition="fade" aspect-ratio="16:9" presenter-url="./demo/presenter.html">
-  <hd-slide layout="title" title="Slide 1">...</hd-slide>
+  <hd-slide layout="title" title="Slide 1" center>...</hd-slide>
   <hd-slide layout="title-body" title="Slide 2">...</hd-slide>
 </hd-deck>
 ```
 
-### 2. Slide Layout presets
+### 3. Slide Layout presets
 Choose the right `layout` attribute value for `<hd-slide>`:
 - `title`: Centered alignment, useful for intro/closing slides. Uses `<hd-heading>` (level="1") and `<hd-text>`.
 - `title-body`: Standard slides. Slot title into `<hd-heading slot="title">`, and put body contents in the main default slot.
 - `split`: Splitted side-by-side content columns. Put left column elements in `slot="left"`, right column elements in `slot="right"`.
 
-### 3. Arbitrary Multi-Columns
-For 3-column, 4-column, or unequal column cards, use `<hd-columns>` containing child `<hd-column>` components. Adjust widths using the `flex` attribute.
-```html
-<hd-columns>
-  <hd-column flex="1"><hd-text>Column A</hd-text></hd-column>
-  <hd-column flex="2"><hd-text>Double Width Column B</hd-text></hd-column>
-</hd-columns>
-```
-
-### 4. Customizing Variables
-Do not redefine `--hd-bg` on the root. The deck host background is always black. Use `--hd-slide-bg` on `<hd-slide>` (or globally) to customize slide background styles.
+### 4. Customizing Variables & Text Decoration Utilities
+The virtual presentation space defaults to **960x540** (proportional to Google Slides 16:9).
+- Use HSL tailored custom variables to change theme colors:
 ```css
 :root {
   --hd-slide-bg: #1e1b4b; /* Indigo slide backgrounds */
   --hd-text-color: #f1f5f9;
   --hd-primary: #818cf8;
 }
+```
+- Decorate texts in paragraph using span classes provided by `html-deck.css`:
+  - Font weights: `.font-bold`, `.font-normal`, `.font-light`
+  - Theme colors: `.text-primary`, `.text-secondary`, `.text-accent`, `.text-muted`
+  - Font styles: `.italic`, `.underline`, `.line-through`
+
+```html
+<hd-text>
+  This is a <span class="text-primary font-bold">highlighted</span> word in a paragraph.
+</hd-text>
+```
+
+### 5. Nested Lists
+Lists (`<hd-list>`) can be nested inside another `<hd-list>` component. The nested list will automatically detect its depth level and adjust indentation spacing and bullet types (disc, circle, square).
+```html
+<hd-list>
+  <li>First item</li>
+  <li>Second item with nested list
+    <hd-list>
+      <li>Nested item A</li>
+      <li>Nested item B
+        <hd-list>
+          <li>Deeply nested item</li>
+        </hd-list>
+      </li>
+    </hd-list>
+  </li>
+</hd-list>
+```
+
+### 6. Image Component (<hd-image>)
+Use `<hd-image>` for showing images with caption and shadow box decorators.
+- **Attributes**:
+  - `src`: Path to image
+  - `alt`: Alt text
+  - `fit`: Size mode (`cover` or `contain`, defaults to `cover`)
+  - `caption`: Caption text shown at bottom-right
+  - `shadow`: Set to `"true"` to add shadow effect
+  - `rounded`: Set to `"true"` to add rounded corners
+```html
+<hd-image src="./assets/chart.png" caption="Sales Q4" shadow="true" rounded="true"></hd-image>
 ```
 
 ---
@@ -81,7 +121,13 @@ If you write raw `<hd-slide>` inside `<hd-codeblock>`, the browser will interpre
 </hd-codeblock>
 ```
 
-### 2. Math LaTeX Syntax
+### 2. Loading External Files in Code Blocks
+You can render external files directly inside `<hd-codeblock>` by setting the `src` attribute. This is cleaner than inlining massive snippets.
+```html
+<hd-codeblock language="javascript" src="./demo/sample-code.js"></hd-codeblock>
+```
+
+### 3. Math LaTeX Syntax
 Use `<hd-math>` for LaTeX equations. Keep LaTeX notation clean and decode characters like `<` or `>` properly. Use the `block` attribute to center and scale equations.
 ```html
 <hd-math block>
