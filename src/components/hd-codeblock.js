@@ -22,14 +22,41 @@ export class HdCodeblock extends HTMLElement {
         pre {
           margin: 0 !important;
           padding: 12px !important;
-          background: var(--hd-codeblock-bg, #1e293b) !important;
-          border: 1px solid rgba(255, 255, 255, 0.1);
+          background: var(--hd-codeblock-bg, #f8fafc) !important;
+          border: 1px solid var(--hd-codeblock-border, #e2e8f0);
           border-radius: 8px;
           overflow: auto;
         }
         code {
           font-family: inherit !important;
           text-shadow: none !important;
+          color: var(--hd-codeblock-text, #0f172a) !important;
+        }
+        /* Prism token overrides using CSS variables */
+        .token.comment, .token.prolog, .token.doctype, .token.cdata {
+          color: var(--hd-token-comment, #64748b) !important;
+          font-style: italic;
+        }
+        .token.punctuation {
+          color: var(--hd-token-operator, #475569) !important;
+        }
+        .token.property, .token.tag, .token.boolean, .token.number, .token.constant, .token.symbol, .token.deleted {
+          color: var(--hd-token-number, #2563eb) !important;
+        }
+        .token.selector, .token.attr-name, .token.string, .token.char, .token.builtin, .token.inserted {
+          color: var(--hd-token-string, #059669) !important;
+        }
+        .token.operator, .token.entity, .token.url, .language-css .token.string, .style .token.string {
+          color: var(--hd-token-operator, #475569) !important;
+        }
+        .token.atrule, .token.attr-value, .token.keyword {
+          color: var(--hd-token-keyword, #d97706) !important;
+        }
+        .token.function, .token.class-name {
+          color: var(--hd-token-function, #7c3aed) !important;
+        }
+        .token.regex, .token.important, .token.variable {
+          color: var(--hd-token-variable, #475569) !important;
         }
       </style>
       <pre><code id="code-output"></code></pre>

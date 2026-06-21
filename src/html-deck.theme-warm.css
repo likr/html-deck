@@ -1,0 +1,51 @@
+/* html-deck.theme-warm.css - Warm (Sepia) Theme for HTML-Deck */
+
+:root {
+  /* Fonts */
+  --hd-font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+  --hd-body-font: var(--hd-font-family);
+  --hd-heading-font: var(--hd-font-family);
+
+  /* Colors */
+  --hd-bg: #fdfaf2;           /* Gentle Warm Ivory */
+  --hd-text-color: #433422;   /* Deep Espresso Brown */
+  --hd-muted-color: #8c7a65;  /* Muted Soft Brown */
+
+  /* Palette Customization */
+  --hd-primary: #d97706;      /* Amber 600 */
+  --hd-secondary: #be123c;    /* Rose 700 */
+  --hd-accent: #059669;       /* Emerald 600 */
+  --hd-danger: #e11d48;       /* Rose Red */
+  --hd-warning: #ca8a04;      /* Gold */
+  --hd-success: #16a34a;
+  --hd-info: #0d9488;
+
+  /* Slide specific */
+  --hd-slide-bg: var(--hd-bg);
+  --hd-slide-text-color: var(--hd-text-color);
+
+  /* Headings */
+  --hd-heading-color-1: var(--hd-primary);
+  --hd-heading-color-2: var(--hd-secondary);
+  --hd-heading-color-3: var(--hd-text-color);
+
+  /* Lists & Math */
+  --hd-list-color: var(--hd-text-color);
+  --hd-math-color: var(--hd-text-color);
+  --hd-link-color: var(--hd-secondary);
+
+  /* Codeblock Specific */
+  --hd-codeblock-bg: #f5efe6; /* Sand Warm Gray */
+  --hd-codeblock-border: #e7dcce;
+  --hd-codeblock-text: #433422;
+
+  /* Prism syntax tokens - warm optimized */
+  --hd-token-comment: #8c7a65;
+  --hd-token-keyword: #b45309;   /* brown amber */
+  --hd-token-string: #15803d;    /* forest green */
+  --hd-token-number: #0369a1;    /* dark blue */
+  --hd-token-operator: #57534e;  /* warm charcoal */
+  --hd-token-function: #be123c;  /* rose function */
+  --hd-token-builtin: #0369a1;
+  --hd-token-variable: #57534e;
+}

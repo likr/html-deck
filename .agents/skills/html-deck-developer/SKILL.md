@@ -76,10 +76,12 @@ if (window.matchMedia('print').matches) return;
 }
 ```
 
-### 5. Flat CSS & Skeleton Principle
-`html-deck` is a skeleton library. It provides structural components but does not define opinions on themes (e.g., Academic, Corporate, Dark, Light).
-- **Rule**: Use fallback CSS custom properties inside shadow roots (e.g., `background-color: var(--hd-slide-bg, #000000)`).
-- **Rule**: Allow users to customize colors, text sizes, and padding entirely via root CSS variables.
+### 5. Flat CSS & Skeleton Principle & Theming
+`html-deck` is a skeleton library by default (white background, minimal decoration), but supports modular themes.
+- **Rule**: Always use fallback CSS custom properties inside shadow roots, using the default light theme values as final fallback (e.g., `background-color: var(--hd-slide-bg, var(--hd-bg, #ffffff))` and `color: var(--hd-slide-text-color, var(--hd-text-color, #1e293b))`).
+- **Rule**: Theme styling must be provided as isolated external CSS files (e.g. `html-deck.theme-dark.css`) that overwrite `--hd-*` variables on `:root`.
+- **Rule**: Code highlights in `hd-codeblock` must map Prism token classes to CSS variables (like `--hd-token-keyword`, `--hd-token-string`) so they dynamically match the active theme.
+- **Rule**: Individual slide background and text overrides must be supported via attributes on `hd-slide` (e.g. `[invert]`, `[bg="primary"]`, `[bg="secondary"]`) and styled purely within `hd-slide.js` by overriding `--hd-slide-bg` and other variables inside their respective selector blocks.
 
 ### 6. Code Architecture & Entry Points
 `src/index.js` has been deprecated. The codebase uses separate entry points:

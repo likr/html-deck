@@ -30,7 +30,7 @@ export class HdHeading extends HTMLElement {
       defaultColor = 'var(--hd-secondary, #a855f7)';
     } else if (level === '3') {
       defaultFontSize = '1.1rem';
-      defaultColor = 'var(--hd-text-color, #f8fafc)';
+      defaultColor = 'var(--hd-slide-text-color, var(--hd-text-color, #1e293b))';
     }
 
     this.shadowRoot.innerHTML = `
@@ -40,6 +40,7 @@ export class HdHeading extends HTMLElement {
           margin-bottom: var(--hd-heading-margin-bottom, 0.5em);
         }
         ${tag} {
+          font-family: var(--hd-heading-font, var(--hd-body-font, inherit));
           font-size: var(--hd-heading-font-size-${level}, ${defaultFontSize});
           color: var(--hd-heading-color-${level}, ${defaultColor});
           font-weight: var(--hd-heading-font-weight, 700);

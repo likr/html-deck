@@ -13,6 +13,7 @@ export class HdMath extends HTMLElement {
       <style>
         :host {
           display: inline-block;
+          color: var(--hd-math-color, inherit);
         }
         :host([block]) {
           display: block;

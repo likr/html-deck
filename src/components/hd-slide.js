@@ -9,8 +9,8 @@ TEMPLATE.innerHTML = `
     height: 100%;
     display: flex;
     flex-direction: column;
-    background-color: var(--hd-slide-bg, #000000);
-    color: var(--hd-slide-text-color, var(--hd-text-color, #f8fafc));
+    background-color: var(--hd-slide-bg, var(--hd-bg, #ffffff));
+    color: var(--hd-slide-text-color, var(--hd-text-color, #1e293b));
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
@@ -21,6 +21,40 @@ TEMPLATE.innerHTML = `
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
+  }
+
+  /* Individual Slide Style Overrides */
+  :host([invert]) {
+    --hd-slide-bg: var(--hd-text-color, #1e293b);
+    --hd-slide-text-color: var(--hd-bg, #ffffff);
+    --hd-heading-color-1: var(--hd-bg, #ffffff);
+    --hd-heading-color-2: var(--hd-bg, #ffffff);
+    --hd-heading-color-3: var(--hd-bg, #ffffff);
+    --hd-list-color: var(--hd-bg, #ffffff);
+    --hd-math-color: var(--hd-bg, #ffffff);
+    --hd-link-color: var(--hd-secondary, #a855f7);
+  }
+
+  :host([bg="primary"]) {
+    --hd-slide-bg: var(--hd-primary, #3b82f6);
+    --hd-slide-text-color: #ffffff;
+    --hd-heading-color-1: #ffffff;
+    --hd-heading-color-2: #ffffff;
+    --hd-heading-color-3: #ffffff;
+    --hd-list-color: #ffffff;
+    --hd-math-color: #ffffff;
+    --hd-link-color: #ffffff;
+  }
+
+  :host([bg="secondary"]) {
+    --hd-slide-bg: var(--hd-secondary, #a855f7);
+    --hd-slide-text-color: #ffffff;
+    --hd-heading-color-1: #ffffff;
+    --hd-heading-color-2: #ffffff;
+    --hd-heading-color-3: #ffffff;
+    --hd-list-color: #ffffff;
+    --hd-math-color: #ffffff;
+    --hd-link-color: #ffffff;
   }
 
   /* Transitions */
@@ -113,8 +147,8 @@ TEMPLATE.innerHTML = `
       page-break-after: always !important;
       break-inside: avoid !important;
       overflow: hidden !important;
-      background-color: var(--hd-slide-bg, #000000) !important;
-      color: var(--hd-slide-text-color, var(--hd-text-color, #f8fafc)) !important;
+      background-color: var(--hd-slide-bg, var(--hd-bg, #ffffff)) !important;
+      color: var(--hd-slide-text-color, var(--hd-text-color, #1e293b)) !important;
       -webkit-print-color-adjust: exact !important;
       print-color-adjust: exact !important;
     }

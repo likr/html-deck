@@ -2,18 +2,34 @@
 
 /* 1. Global Reset & Theme Variables */
 :root {
-  /* System font stack */
+  /* Fonts */
   --hd-font-family: system-ui, -apple-system, sans-serif;
+  --hd-font-family-serif: Georgia, 'Times New Roman', Times, serif;
+  --hd-body-font: var(--hd-font-family);
+  --hd-heading-font: var(--hd-font-family);
+
+  /* Colors */
+  --hd-bg: #ffffff;
+  --hd-text-color: #1e293b;
+  --hd-muted-color: #64748b;
 
   /* Color Palette (Theme-neutral, customizable by CSS variables) */
-  --hd-primary-color: var(--hd-primary, #3b82f6);
-  --hd-secondary-color: var(--hd-secondary, #a855f7);
-  --hd-accent-color: var(--hd-accent, #10b981);
-  --hd-danger-color: var(--hd-danger, #ef4444);
-  --hd-warning-color: var(--hd-warning, #f59e0b);
-  --hd-success-color: var(--hd-success, #10b981);
-  --hd-info-color: var(--hd-info, #06b6d4);
-  --hd-muted-color: var(--hd-muted, #64748b);
+  --hd-primary: #3b82f6;
+  --hd-secondary: #a855f7;
+  --hd-accent: #10b981;
+  --hd-danger: #ef4444;
+  --hd-warning: #f59e0b;
+  --hd-success: #10b981;
+  --hd-info: #06b6d4;
+
+  --hd-primary-color: var(--hd-primary);
+  --hd-secondary-color: var(--hd-secondary);
+  --hd-accent-color: var(--hd-accent);
+  --hd-danger-color: var(--hd-danger);
+  --hd-warning-color: var(--hd-warning);
+  --hd-success-color: var(--hd-success);
+  --hd-info-color: var(--hd-info);
+  --hd-muted-color-custom: var(--hd-muted-color);
 }
 
 body {
@@ -138,7 +154,7 @@ hd-list ul, hd-list ol {
   padding-left: var(--hd-list-padding-left, 1.2rem);
   font-size: 0.9em;
   line-height: var(--hd-list-line-height, 1.6);
-  color: var(--hd-list-color, var(--hd-text-color, #f8fafc));
+  color: var(--hd-list-color, var(--hd-text-color, #1e293b));
 }
 
 hd-list ul {

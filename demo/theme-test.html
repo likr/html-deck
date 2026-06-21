@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML-Deck Theme System Test Suite</title>
+  
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Load required fonts for Warm, Corporate, Serif, and Neon themes -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Outfit:wght@400;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Main Library Style -->
+  <link rel="stylesheet" href="../src/html-deck.css">
+  <!-- Theme style placeholder, dynamically swapped by JS -->
+  <link id="theme-link" rel="stylesheet" href="">
+
+  <style>
+    /* Theme switcher control panel floating on the top-left */
+    #theme-selector-panel {
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      z-index: 1000;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
+      padding: 10px 15px;
+      border-radius: 8px;
+      color: #ffffff;
+      font-family: system-ui, -apple-system, sans-serif;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    
+    #theme-selector-panel select {
+      background: #1e293b;
+      color: #ffffff;
+      border: 1px solid #475569;
+      padding: 6px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    
+    #theme-selector-panel select:focus {
+      outline: none;
+      border-color: #3b82f6;
+    }
+
+    #theme-selector-panel label {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+    }
+
+    /* Print styling support container overrides */
+    @media print {
+      #theme-selector-panel {
+        display: none !important;
+      }
+    }
+  </style>
+  
+  <!-- Load Main Module Entry File -->
+  <script type="module" src="../src/html-deck.js"></script>
+</head>
+<body>
+
+  <!-- Floating Theme Selector Panel -->
+  <div id="theme-selector-panel">
+    <label for="theme-select">🎨 SELECT THEME:</label>
+    <select id="theme-select">
+      <option value="">Default (White & Minimal)</option>
+      <option value="theme-dark">Dark Theme (Slate)</option>
+      <option value="theme-warm">Warm Theme (Sepia)</option>
+      <option value="theme-corporate">Corporate Theme (Navy & Teal)</option>
+      <option value="theme-serif">Serif Theme (Academic)</option>
+      <option value="theme-neon">Neon Theme (Cyberpunk)</option>
+    </select>
+  </div>
+
+  <!-- Slideshow Deck -->
+  <hd-deck aspect-ratio="16:9" transition="fade">
+    
+    <!-- Slide 1: Welcome & Overview -->
+    <hd-slide layout="title-body">
+      <hd-heading level="1" slot="title">HTML-Deck Theme System</hd-heading>
+      <hd-text>
+        Welcome to the HTML-Deck theme demonstration! We've overhauled the layout engine to default to a 
+        <strong>clean, white-background styling</strong>, and provided highly customizable theme hooks.
+      </hd-text>
+      <hd-text>
+        Use the floating controller at the top-left to dynamically load stylesheets and watch the slide elements adjust.
+      </hd-text>
+      <hd-list>
+        <li>Default fallback: White background (#ffffff) and slate text (#1e293b).</li>
+        <li>Theme swapping overrides variables on <code>:root</code> to theme the entire slideshow deck instantly.</li>
+        <li>Supports slide-specific layout overrides like background inversion.</li>
+      </hd-list>
+    </hd-slide>
+
+    <!-- Slide 2: Element Styles Testing -->
+    <hd-slide layout="split">
+      <hd-heading level="1" slot="title">Typography & Element Styling</hd-heading>
+      
+      <div slot="left">
+        <hd-heading level="2">Heading Level 2</hd-heading>
+        <hd-heading level="3">Heading Level 3 (Sub-item)</hd-heading>
+        <hd-text>
+          This is a normal body paragraph using <code>&lt;hd-text&gt;</code>. Themes automatically import premium web fonts 
+          (such as Inter, Outfit, Playfair Display, Space Grotesk) to change the typographic weight and appearance.
+        </hd-text>
+        <hd-text>
+          You can also use <span class="hd-bold hd-text-primary">bold accents</span>, <span class="hd-italic hd-text-secondary">italicized secondaries</span>, 
+          or <span class="hd-underline">underlined text</span>.
+        </hd-text>
+      </div>
+
+      <div slot="right">
+        <hd-heading level="2">List Styles</hd-heading>
+        <hd-list>
+          <li>First level bullet</li>
+          <li>Second level sub-bullet
+            <hd-list>
+              <li>Nested bullet item</li>
+              <li>Another nested bullet</li>
+            </hd-list>
+          </li>
+          <li>Ordered lists are also supported:
+            <hd-list ordered>
+              <li>Ordered step one</li>
+              <li>Ordered step two</li>
+            </hd-list>
+          </li>
+        </hd-list>
+      </div>
+    </hd-slide>
+
+    <!-- Slide 3: Code & Math (Theming checks) -->
+    <hd-slide layout="title-body">
+      <hd-heading level="1" slot="title">Advanced Components (Code & Math)</hd-heading>
+      <hd-text>
+        Code highlights and KaTeX formulas are seamlessly integrated and fully styled by themes.
+      </hd-text>
+      
+      <hd-columns>
+        <hd-column>
+          <hd-heading level="2">Formatted Formula</hd-heading>
+          <hd-text>Mathematical equations automatically align text colors with the selected theme:</hd-text>
+          <hd-math block formula="f(x) = \int_{-\infty}^{\infty} \hat{f}(\xi)\,e^{2 \pi i \xi x}\,d\xi"></hd-math>
+          <hd-text>Inline math <hd-math formula="E = mc^2"></hd-math> works perfectly too.</hd-text>
+        </hd-column>
+        <hd-column>
+          <hd-heading level="2">Syntax Highlighter</hd-heading>
+          <hd-codeblock language="javascript">
+// Theme CSS variables customize token colors
+function calculateScale(wWidth, wHeight, ratio) {
+  const baseHeight = 540;
+  const baseWidth = baseHeight * ratio;
+  return Math.min(wWidth / baseWidth, wHeight / baseHeight);
+}
+          </hd-codeblock>
+        </hd-column>
+      </hd-columns>
+    </hd-slide>
+
+    <!-- Slide 4: Slide Specific Overrides (bg=primary) -->
+    <hd-slide layout="title-body" bg="primary">
+      <hd-heading level="1" slot="title">Individual Override: bg="primary"</hd-heading>
+      <hd-text>
+        This slide uses the <code>bg="primary"</code> attribute. Even when switching themes, this specific slide 
+        will use the theme's primary accent color as the background, and automatically swap text to high-contrast white.
+      </hd-text>
+      <hd-text>
+        This is perfect for divider slides, intro pages, or key takeaways that need to stand out from the rest of the deck.
+      </hd-text>
+      <hd-list>
+        <li>Background: Primary accent color.</li>
+        <li>Text and headings: Pure white.</li>
+        <li>Math & Lists: Pure white.</li>
+      </hd-list>
+    </hd-slide>
+
+    <!-- Slide 5: Slide Specific Overrides (bg=secondary) -->
+    <hd-slide layout="title-body" bg="secondary">
+      <hd-heading level="1" slot="title">Individual Override: bg="secondary"</hd-heading>
+      <hd-text>
+        Similarly, using <code>bg="secondary"</code> switches the slide background to the secondary theme color, 
+        maintaining clear legibility with white text.
+      </hd-text>
+      <hd-math block formula="\nabla \times \mathbf{E} = -\frac{\partial \mathbf{B}}{\partial t}"></hd-math>
+    </hd-slide>
+
+    <!-- Slide 6: Slide Specific Overrides (invert) -->
+    <hd-slide layout="title-body" invert>
+      <hd-heading level="1" slot="title">Individual Override: invert</hd-heading>
+      <hd-text>
+        This slide uses the <code>invert</code> attribute. It dynamically swaps the background and body text colors 
+        according to the active theme.
+      </hd-text>
+      <hd-text>
+        For instance, in the default light theme, this slide becomes dark. In dark themes, it will become light.
+      </hd-text>
+      <hd-codeblock language="html">
+&lt;!-- Flip background and text --&gt;
+&lt;hd-slide layout="title-body" invert&gt;
+  &lt;hd-heading level="1" slot="title"&gt;Inverted!&lt;/hd-heading&gt;
+&lt;/hd-slide&gt;
+      </hd-codeblock>
+    </hd-slide>
+
+  </hd-deck>
+
+  <!-- Interactive script to load and swap theme stylesheets -->
+  <script>
+    const themeSelect = document.getElementById('theme-select');
+    const themeLink = document.getElementById('theme-link');
+
+    themeSelect.addEventListener('change', (event) => {
+      const theme = event.target.value;
+      if (theme) {
+        // Load selected theme stylesheet
+        themeLink.href = `../src/html-deck.${theme}.css`;
+      } else {
+        // Clear theme (back to default)
+        themeLink.href = '';
+      }
+    });
+  </script>
+</body>
+</html>

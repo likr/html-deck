@@ -6,9 +6,10 @@ TEMPLATE.innerHTML = `
     margin-bottom: var(--hd-text-margin-bottom, 0.5rem);
   }
   p {
+    font-family: var(--hd-body-font, inherit);
     font-size: var(--hd-text-font-size, 0.9rem);
     line-height: var(--hd-text-line-height, 1.6);
-    color: var(--hd-text-color-custom, var(--hd-text-color, #f8fafc));
+    color: var(--hd-text-color-custom, var(--hd-slide-text-color, var(--hd-text-color, #1e293b)));
     margin: 0;
     letter-spacing: 0.01em;
   }

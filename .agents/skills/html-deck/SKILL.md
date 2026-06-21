@@ -48,24 +48,33 @@ Choose the right `layout` attribute value for `<hd-slide>`:
 - `title-body`: Standard slides. Slot title into `<hd-heading slot="title">`, and put body contents in the main default slot.
 - `split`: Splitted side-by-side content columns. Put left column elements in `slot="left"`, right column elements in `slot="right"`.
 
-### 4. Customizing Variables & Text Decoration Utilities
+### 4. Customizing Themes & CSS Variables
 The virtual presentation space defaults to **960x540** (proportional to Google Slides 16:9).
-- Use HSL tailored custom variables to change theme colors:
-```css
-:root {
-  --hd-slide-bg: #1e1b4b; /* Indigo slide backgrounds */
-  --hd-text-color: #f1f5f9;
-  --hd-primary: #818cf8;
-}
-```
-- Decorate texts in paragraph using span classes provided by `html-deck.css`:
-  - Font weights: `.font-bold`, `.font-normal`, `.font-light`
-  - Theme colors: `.text-primary`, `.text-secondary`, `.text-accent`, `.text-muted`
-  - Font styles: `.italic`, `.underline`, `.line-through`
+- **Default Theme**: Defaults to a clean, minimal white background (`#ffffff`) and dark slate text (`#1e293b`).
+- **Applying Themes**: Load theme CSS stylesheets in the HTML `<head>` after the main stylesheet to instantly change variables:
+  ```html
+  <link rel="stylesheet" href="src/html-deck.css">
+  <link rel="stylesheet" href="src/html-deck.theme-dark.css"> <!-- Example: Dark slate theme -->
+  ```
+  Available themes: `html-deck.theme-dark.css`, `html-deck.theme-warm.css` (sepia), `html-deck.theme-corporate.css` (navy/teal), `html-deck.theme-serif.css` (academic), and `html-deck.theme-neon.css` (cyberpunk).
+- **Google Fonts Loading**: When using themes that require custom web typography, load Google Fonts inside your HTML `<head>` for flexibility (avoid importing inside theme CSS):
+  ```html
+  <!-- Example: Load fonts required by Warm, Corporate, Serif, and Neon themes -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Lora:ital,wght@0,400;0,600&family=Outfit:wght@400;600;700&family=Playfair+Display:wght@600;700&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  ```
+- **Slide-Specific Background Overrides**: Apply layout/color adjustments per-slide directly via attributes:
+  - `<hd-slide invert>`: Swaps background and text colors dynamically based on the current theme.
+  - `<hd-slide bg="primary">`: Applies the theme's primary accent color as the background, automatically displaying white text.
+  - `<hd-slide bg="secondary">`: Applies the theme's secondary accent color as the background, displaying white text.
+- **Text Decoration Utilities**: Decorate text inside slides using utility span classes from `html-deck.css` (always prefixed with `hd-`):
+  - Font weights & styles: `.hd-bold`, `.hd-semibold`, `.hd-normal`, `.hd-italic`, `.hd-underline`, `.hd-line-through`
+  - Font sizes: `.hd-text-xs` (0.7em), `.hd-text-sm` (0.85em), `.hd-text-lg` (1.15em), `.hd-text-xl` (1.3em), `.hd-text-2xl` (1.6em)
+  - Theme colors: `.hd-text-primary`, `.hd-text-secondary`, `.hd-text-accent`, `.hd-text-muted`, `.hd-text-danger`
+  - Highlights: `.hd-bg-primary`, `.hd-bg-secondary`
 
 ```html
 <hd-text>
-  This is a <span class="text-primary font-bold">highlighted</span> word in a paragraph.
+  This is a <span class="hd-text-primary hd-bold">highlighted</span> word in a paragraph.
 </hd-text>
 ```
 

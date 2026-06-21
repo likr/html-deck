@@ -54,11 +54,12 @@ export class HdList extends HTMLElement {
           margin-top: ${this.depth > 0 ? '0.15rem' : '0'};
         }
         ${tag} {
+          font-family: var(--hd-body-font, inherit);
           margin: 0;
           padding-left: var(--hd-list-padding-left, 1.2rem);
           font-size: ${this.depth > 0 ? '0.9em' : 'var(--hd-list-font-size, 0.85rem)'};
           line-height: var(--hd-list-line-height, 1.6);
-          color: var(--hd-list-color, var(--hd-text-color, #f8fafc));
+          color: var(--hd-list-color, var(--hd-slide-text-color, var(--hd-text-color, #1e293b)));
           list-style-type: ${listStyleType};
         }
         ::slotted(li) {

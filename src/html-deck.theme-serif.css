@@ -1,0 +1,52 @@
+/* html-deck.theme-serif.css - Serif / Academic Theme for HTML-Deck */
+
+:root {
+  /* Fonts */
+  --hd-font-family: 'Lora', Georgia, 'Times New Roman', Times, serif;
+  --hd-body-font: var(--hd-font-family);
+  --hd-heading-font: 'Playfair Display', Georgia, serif;
+
+  /* Colors */
+  --hd-bg: #fafaf9;           /* Paper Warm White */
+  --hd-text-color: #1c1917;   /* Ink Black */
+  --hd-muted-color: #78716c;  /* Stone Gray */
+
+  /* Palette Customization - Academic & Minimal */
+  --hd-primary: #1c1917;      /* Ink Black */
+  --hd-secondary: #44403c;    /* Deep Gray-brown */
+  --hd-accent: #78716c;
+  --hd-danger: #991b1b;       /* Academic Wine Red */
+  --hd-warning: #854d0e;
+  --hd-success: #166534;
+  --hd-info: #075985;
+
+  /* Slide specific */
+  --hd-slide-bg: var(--hd-bg);
+  --hd-slide-text-color: var(--hd-text-color);
+
+  /* Headings */
+  --hd-heading-color-1: var(--hd-primary);
+  --hd-heading-color-2: var(--hd-secondary);
+  --hd-heading-color-3: var(--hd-text-color);
+  --hd-heading-font-weight: 600;
+
+  /* Lists & Math */
+  --hd-list-color: var(--hd-text-color);
+  --hd-math-color: var(--hd-text-color);
+  --hd-link-color: var(--hd-danger);
+
+  /* Codeblock Specific */
+  --hd-codeblock-bg: #f5f5f4; /* Clean paper style code background */
+  --hd-codeblock-border: #e7e5e4;
+  --hd-codeblock-text: #1c1917;
+
+  /* Prism syntax tokens - academic publish style */
+  --hd-token-comment: #78716c;
+  --hd-token-keyword: #1c1917;   /* bold ink keywords */
+  --hd-token-string: #44403c;    /* subtle dark brown string */
+  --hd-token-number: #1c1917;
+  --hd-token-operator: #292524;
+  --hd-token-function: #1c1917;
+  --hd-token-builtin: #1c1917;
+  --hd-token-variable: #292524;
+}
