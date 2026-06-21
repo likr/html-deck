@@ -109,6 +109,48 @@ Use `<hd-image>` for showing images with caption and shadow box decorators.
 <hd-image src="./assets/chart.png" caption="Sales Q4" shadow="true" rounded="true"></hd-image>
 ```
 
+### 7. Table Component (<hd-table>)
+Wraps standard HTML `<table>` elements to apply clean, premium, and fully encapsulated styles (zebra striping, header columns, hover states).
+```html
+<hd-table>
+  <table>
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>HTML-Deck</td>
+        <td>$0 (MIT)</td>
+      </tr>
+    </tbody>
+  </table>
+</hd-table>
+```
+
+### 8. Title Slide Component (<hd-title-slide>)
+A specialized slide component specifically designed for cover slides.
+- It features dedicated slots for: `title`, `subtitle`, `presenter`, `location`, and `date`.
+- By default, it uses a plain layout (left-aligned, vertically stacked content, no labels).
+- You can fully customize its positioning and layout (e.g. centering it, horizontal lists, divider lines) via CSS variables.
+```html
+<hd-title-slide>
+  <div slot="title"><span class="hd-text-primary">My Slide Title</span></div>
+  <div slot="subtitle">Subtitle details go here</div>
+  <div slot="presenter">Presenter Name</div>
+  <div slot="location">Hall B</div>
+  <div slot="date">2026-06-22</div>
+</hd-title-slide>
+```
+
+### 9. Page Numbers
+Slides display a "Current / Total" page number indicator at the bottom right corner by default.
+- **Global Control**: Disable page numbers globally by setting the `page-number` attribute to `false` on the deck element: `<hd-deck page-number="false">`.
+- **Slide Override**: Disable page numbers on individual slides by adding the `no-page-number` attribute: `<hd-slide no-page-number>`.
+- Note: Page numbers are automatically hidden on slides using the `title` layout or on `<hd-title-slide>`.
+
 ---
 
 ## ⚠️ Important Coding Guidelines
@@ -143,3 +185,18 @@ Use `<hd-math>` for LaTeX equations. Keep LaTeX notation clean and decode charac
   f(x) = \int_{-\infty}^{\infty} e^{-x^2} dx
 </hd-math>
 ```
+
+### 4. Scrollable Containment for Large Content
+When code blocks (`<hd-codeblock>`) or tables (`<hd-table>`) contain large sets of content that might overflow slide dimensions, add the `scrollable` attribute to enable vertical scrollbars.
+- If set as a boolean attribute, the height limits to a default `250px`.
+- You can also pass a custom CSS height value to set specific limits.
+```html
+<!-- Default height scrollable codeblock -->
+<hd-codeblock language="javascript" src="large-file.js" scrollable></hd-codeblock>
+
+<!-- Custom height scrollable table -->
+<hd-table scrollable="200px">
+  <table>...</table>
+</hd-table>
+```
+

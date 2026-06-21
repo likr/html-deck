@@ -7,8 +7,8 @@
   <title>HTML-Deck Tutorial & Demo</title>
 
   <!-- Load the main entry script for the library and its styles -->
-  <script type="module" src="../src/html-deck.js"></script>
-  <link rel="stylesheet" href="../src/html-deck.css">
+  <script type="module" src="../../src/html-deck.js"></script>
+  <link rel="stylesheet" href="../../src/html-deck.css">
 
   <!-- Custom presentation styling via CSS variables -->
   <style>
@@ -80,15 +80,19 @@
 <body>
 
   <!-- transition="fade" (default) or transition="none" -->
-  <hd-deck transition="fade" presenter-url="../demo/presenter.html" aspect-ratio="16:9">
+  <hd-deck transition="fade" presenter-url="presenter.html" aspect-ratio="16:9">
 
     <!-- Slide 1: Title -->
-    <hd-slide layout="title" title="Welcome to HTML-Deck">
-      <div class="badge">AGENT-FIRST SLIDESHOW LIBRARY</div>
-      <hd-heading level="1"><span class="gradient-heading">HTML-Deck</span></hd-heading>
-      <hd-text>A Lightweight, Buildless WebComponents Slide Library</hd-text>
-      <hd-text style="font-size: 0.7rem; opacity: 0.7;">Press <span class="accent-text">Right Arrow</span> or <span
-          class="accent-text">Space</span> to begin</hd-text>
+    <hd-title-slide>
+      <div slot="title"><span class="gradient-heading">HTML-Deck</span></div>
+      <div slot="subtitle">A Lightweight, Buildless WebComponents Slide Library</div>
+      <div slot="presenter">AI Agent & Human Team</div>
+      <div slot="location">demo/tutorial/index.html</div>
+      <div slot="date">June 2026</div>
+
+      <div style="font-size: 0.7rem; opacity: 0.7; margin-top: 1.5rem;">
+        Press <span class="accent-text">Right Arrow</span> or <span class="accent-text">Space</span> to begin
+      </div>
 
       <hd-notes>
         <h2>Speaker Notes: Intro Slide</h2>
@@ -99,7 +103,7 @@
           <li>Mention that there is no build step required: just run a static file.</li>
         </ul>
       </hd-notes>
-    </hd-slide>
+    </hd-title-slide>
 
     <!-- Slide 2: Core Philosophy -->
     <hd-slide layout="title-body" title="Core Philosophy">
@@ -147,12 +151,7 @@
       <div slot="right" class="grid-card">
         <h3>Right Pane Content</h3>
         <hd-text>You can insert lists, images, or custom divs inside <code>slot="right"</code>.</hd-text>
-        <hd-codeblock language="html">
-          &lt;hd-slide layout="split"&gt;
-          &lt;div slot="left"&gt;...&lt;/div&gt;
-          &lt;div slot="right"&gt;...&lt;/div&gt;
-          &lt;/hd-slide&gt;
-        </hd-codeblock>
+        <hd-codeblock language="html" src="split-layout-example.html"></hd-codeblock>
       </div>
 
       <hd-notes>
@@ -244,17 +243,7 @@
       <hd-text>Code syntax highlighting is performed automatically inside the Shadow DOM using the local copy of
         PrismJS.</hd-text>
 
-      <hd-codeblock language="javascript">
-        // Define a WebComponent in Vanilla JS
-        class MyComponent extends HTMLElement {
-        constructor() {
-        super();
-        this.attachShadow({ mode: 'open' });
-        this.shadowRoot.innerHTML = `<p>Hello, World!</p>`;
-        }
-        }
-        customElements.define('my-component', MyComponent);
-      </hd-codeblock>
+      <hd-codeblock language="javascript" src="my-component.js"></hd-codeblock>
 
       <hd-notes>
         <h2>Speaker Notes: Syntax Highlighting</h2>
@@ -265,7 +254,110 @@
       </hd-notes>
     </hd-slide>
 
-    <!-- Slide 7: Presenter View & Print -->
+    <!-- Slide 7: Table Support -->
+    <hd-slide layout="title-body" title="Table Support">
+      <hd-heading slot="title" level="2">Table Support (<code>&lt;hd-table&gt;</code>)</hd-heading>
+      <hd-text>Easily include tables in your slides. They are fully encapsulated and styled cleanly.</hd-text>
+
+      <hd-table>
+        <table>
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>HTML-Deck</th>
+              <th>Reveal.js</th>
+              <th>PowerPoint</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Agent-Friendly</td>
+              <td><strong>Excellent (Flat DOM)</strong></td>
+              <td>Poor (Deeply Nested)</td>
+              <td>None (Binary/Proprietary)</td>
+            </tr>
+            <tr>
+              <td>Build Step</td>
+              <td>None (Vanilla JS)</td>
+              <td>Optional / NPM</td>
+              <td>None</td>
+            </tr>
+            <tr>
+              <td>Offline Ready</td>
+              <td>Yes (Local Vendors)</td>
+              <td>Yes</td>
+              <td>Yes</td>
+            </tr>
+            <tr>
+              <td>Presenter View</td>
+              <td>Yes (BroadcastChannel)</td>
+              <td>Yes (Socket/Multiplex)</td>
+              <td>Yes</td>
+            </tr>
+          </tbody>
+        </table>
+      </hd-table>
+    </hd-slide>
+
+    <!-- Slide 8: Scrollable Content Demo -->
+    <hd-slide layout="title-body" title="Scrollable Code and Tables">
+      <hd-heading slot="title" level="2">Scrollable Components</hd-heading>
+      <hd-text>When code blocks or tables are too large to fit in a slide, use the <code>scrollable</code> attribute to enable scrolling:</hd-text>
+
+      <hd-columns>
+        <hd-column>
+          <div class="grid-card">
+            <h3>Scrollable Code Block</h3>
+            <hd-codeblock language="javascript" src="scroll-demo.js" scrollable="180px"></hd-codeblock>
+          </div>
+        </hd-column>
+        <hd-column>
+          <div class="grid-card">
+            <h3>Scrollable Table</h3>
+            <hd-table scrollable="180px">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Version</th>
+                    <th>Release Date</th>
+                    <th>Key Feature</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>v1.0.0</td>
+                    <td>2026-06-01</td>
+                    <td>Initial release with core elements</td>
+                  </tr>
+                  <tr>
+                    <td>v1.1.0</td>
+                    <td>2026-06-10</td>
+                    <td>KaTeX and PrismJS offline integration</td>
+                  </tr>
+                  <tr>
+                    <td>v1.2.0</td>
+                    <td>2026-06-15</td>
+                    <td>Presenter dashboard view</td>
+                  </tr>
+                  <tr>
+                    <td>v1.3.0</td>
+                    <td>2026-06-20</td>
+                    <td>Aspect ratio automatic scaling</td>
+                  </tr>
+                  <tr>
+                    <td>v1.4.0</td>
+                    <td>2026-06-22</td>
+                    <td>Tables, title slide and page numbers</td>
+                  </tr>
+                </tbody>
+              </table>
+            </hd-table>
+          </div>
+        </hd-column>
+      </hd-columns>
+    </hd-slide>
+
+    <!-- Slide 9: Presenter View & Print -->
     <hd-slide layout="title-body" title="Presenter View & PDF Export">
       <hd-heading slot="title" level="2">Presenter Tools & Printing</hd-heading>
 
@@ -285,7 +377,7 @@
             <h3>PDF & Print Output</h3>
             <hd-list>
               <li>Press <strong>Ctrl + P</strong> (Cmd + P) to open the print dialog.</li>
-              <li>Slides are scaled automatically to fit A4 Landscape size.</li>
+              <li>Slides are scaled automatically to fit Landscape size.</li>
               <li>Controls and UI overlays are hidden automatically.</li>
             </hd-list>
           </div>
@@ -302,19 +394,12 @@
       </hd-notes>
     </hd-slide>
 
-    <!-- Slide 8: Customizing Deck -->
+    <!-- Slide 10: Customizing Deck -->
     <hd-slide layout="title" title="Start Building!">
       <hd-heading level="2"><span class="gradient-heading">Customize it with CSS variables</span></hd-heading>
       <hd-text>Modify colors, padding, and fonts easily on the container:</hd-text>
       <div style="max-width: 800px; margin: 0 auto; text-align: left;">
-        <hd-codeblock language="css">
-          :root {
-          --hd-bg: #1e1b4b; /* deep indigo */
-          --hd-text-color: #e0e7ff;
-          --hd-primary: #818cf8;
-          --hd-secondary: #f43f5e;
-          }
-        </hd-codeblock>
+        <hd-codeblock language="css" src="custom-theme.css"></hd-codeblock>
       </div>
       <hd-text style="margin-top: 30px; font-weight: 600;">HTML-Deck: Easy slide decks for humans and agents
         alike.</hd-text>

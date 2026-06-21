@@ -134,7 +134,7 @@ TEMPLATE.innerHTML = `
 
 export class HdDeck extends HTMLElement {
   static get observedAttributes() {
-    return ['aspect-ratio', 'presenter-url', 'transition'];
+    return ['aspect-ratio', 'presenter-url', 'transition', 'page-number'];
   }
 
   constructor() {
@@ -174,6 +174,9 @@ export class HdDeck extends HTMLElement {
         this.slides.forEach(slide => slide.setAttribute('transition-style', newValue || 'fade'));
       }
     }
+    if (name === 'page-number') {
+      this.updateSlides();
+    }
   }
 
   connectedCallback() {
@@ -206,7 +209,7 @@ export class HdDeck extends HTMLElement {
 
     // Wait for children to be parsed in DOM
     setTimeout(() => {
-      this.slides = Array.from(this.querySelectorAll('hd-slide'));
+      this.slides = Array.from(this.querySelectorAll('hd-slide, hd-title-slide'));
       
       // Set transition class
       const transition = this.getAttribute('transition') || 'fade';
@@ -244,6 +247,11 @@ export class HdDeck extends HTMLElement {
   handleKeyDown(event) {
     // Ignore keys when typing in inputs/textareas
     if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName) || document.activeElement.isContentEditable) {
+      return;
+    }
+
+    // Ignore keys when modifier keys are pressed (e.g. Ctrl+P for print, Command+R, etc.)
+    if (event.ctrlKey || event.metaKey || event.altKey) {
       return;
     }
 
@@ -374,11 +382,22 @@ export class HdDeck extends HTMLElement {
   }
 
   updateSlides() {
+    const showPageNum = this.getAttribute('page-number') !== 'false';
+    const totalSlides = this.slides.length;
+
     this.slides.forEach((slide, idx) => {
       if (idx === this.currentIndex) {
         slide.setAttribute('active', '');
       } else {
         slide.removeAttribute('active');
+      }
+
+      if (showPageNum) {
+        slide.setAttribute('page-index', idx + 1);
+        slide.setAttribute('page-total', totalSlides);
+      } else {
+        slide.removeAttribute('page-index');
+        slide.removeAttribute('page-total');
       }
     });
 

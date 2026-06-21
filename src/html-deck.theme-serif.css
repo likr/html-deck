@@ -49,4 +49,15 @@
   --hd-token-function: #1c1917;
   --hd-token-builtin: #1c1917;
   --hd-token-variable: #292524;
+
+  /* Title Slide customization */
+  --hd-title-slide-align-items: center;
+  --hd-title-slide-text-align: center;
+  --hd-title-slide-meta-direction: row;
+  --hd-title-slide-meta-justify: center;
+  --hd-title-slide-meta-gap: 2.5rem;
+  --hd-title-slide-divider-width: 60%;
+  --hd-title-slide-divider-height: 1px;
+  --hd-title-slide-divider-bg: var(--hd-primary);
+  --hd-title-slide-divider-margin: 1.5rem auto;
 }

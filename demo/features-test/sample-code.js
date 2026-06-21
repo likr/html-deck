@@ -1,5 +1,5 @@
-// demo/sample-code.js
-// This file is loaded dynamically by the <hd-codeblock> component in features-test.html.
+// demo/features-test/sample-code.js
+// This file is loaded dynamically by the <hd-codeblock> component in index.html.
 
 export class QuickMath {
   /**

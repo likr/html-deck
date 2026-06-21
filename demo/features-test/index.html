@@ -6,8 +6,8 @@
   <title>HTML-Deck Comprehensive Features Test</title>
   
   <!-- 1. Load HTML-Deck Script & Stylesheet -->
-  <script type="module" src="../src/html-deck.js"></script>
-  <link rel="stylesheet" href="../src/html-deck.css">
+  <script type="module" src="../../src/html-deck.js"></script>
+  <link rel="stylesheet" href="../../src/html-deck.css">
 
   <!-- Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -73,7 +73,7 @@
 <body>
 
   <!-- hd-deck configuration -->
-  <hd-deck transition="fade" presenter-url="presenter.html" aspect-ratio="16:9">
+  <hd-deck transition="fade" presenter-url="../presenter/index.html" aspect-ratio="16:9">
     
     <!-- Slide 1: Welcome & Scaling Base Sizing -->
     <hd-slide layout="title" title="Welcome & Scaling Test">
@@ -182,8 +182,6 @@
         <h3>Dedicated <code>&lt;hd-image&gt;</code></h3>
         <hd-text class="hd-text-sm">Features built-in border-radius, shadows, object-fit, and captions:</hd-text>
         
-        <!-- We load a simple image from an online repository or generate one, or load a placeholder.
-             Let's use a nice logo placeholder or a screenshot, or just a sample. We will use a fallback or absolute URL. -->
         <hd-image src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&q=80" 
                   alt="Modern Abstract Art" 
                   fit="cover" 

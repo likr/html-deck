@@ -30,6 +30,20 @@
   --hd-success-color: var(--hd-success);
   --hd-info-color: var(--hd-info);
   --hd-muted-color-custom: var(--hd-muted-color);
+
+  /* Table styling defaults */
+  --hd-table-font-size: 0.75rem;
+  --hd-table-bg: transparent;
+  --hd-table-text-color: var(--hd-text-color);
+  --hd-table-header-bg: rgba(59, 130, 246, 0.05);
+  --hd-table-header-text-color: var(--hd-text-color);
+  --hd-table-border-color: rgba(0, 0, 0, 0.1);
+  --hd-table-stripe-bg: rgba(0, 0, 0, 0.02);
+  --hd-table-hover-bg: rgba(59, 130, 246, 0.03);
+
+  /* Page number defaults */
+  --hd-page-number-font-size: 0.55rem;
+  --hd-page-number-color: var(--hd-muted-color);
 }
 
 body {
@@ -175,5 +189,33 @@ hd-list ol ol {
 
 hd-list li {
   margin-bottom: var(--hd-list-item-margin-bottom, 0.25rem);
+}
+
+/* 5. Standard Table Styling (for un-encapsulated tables in slides) */
+hd-slide table, hd-title-slide table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+  font-family: var(--hd-body-font, inherit);
+  font-size: var(--hd-table-font-size, 0.75rem);
+  color: var(--hd-table-text-color, var(--hd-slide-text-color, var(--hd-text-color, #1e293b)));
+  background-color: var(--hd-table-bg, transparent);
+}
+
+hd-slide th, hd-slide td, hd-title-slide th, hd-title-slide td {
+  padding: var(--hd-table-cell-padding, 0.4rem 0.6rem);
+  text-align: var(--hd-table-align, left);
+  border-bottom: 1px solid var(--hd-table-border-color, rgba(0, 0, 0, 0.1));
+}
+
+hd-slide th, hd-title-slide th {
+  font-weight: 700;
+  background-color: var(--hd-table-header-bg, rgba(59, 130, 246, 0.05));
+  color: var(--hd-table-header-text-color, var(--hd-slide-text-color, var(--hd-text-color, #1e293b)));
+  border-bottom: 2px solid var(--hd-table-border-color, rgba(0, 0, 0, 0.15));
+}
+
+hd-slide tr:nth-child(even), hd-title-slide tr:nth-child(even) {
+  background-color: var(--hd-table-stripe-bg, rgba(0, 0, 0, 0.02));
 }
 

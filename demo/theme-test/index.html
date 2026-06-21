@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Outfit:wght@400;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
   
   <!-- Main Library Style -->
-  <link rel="stylesheet" href="../src/html-deck.css">
+  <link rel="stylesheet" href="../../src/html-deck.css">
   <!-- Theme style placeholder, dynamically swapped by JS -->
   <link id="theme-link" rel="stylesheet" href="">
 
@@ -50,13 +50,13 @@
       outline: none;
       border-color: #3b82f6;
     }
-
+ 
     #theme-selector-panel label {
       font-size: 13px;
       font-weight: 500;
       letter-spacing: 0.05em;
     }
-
+ 
     /* Print styling support container overrides */
     @media print {
       #theme-selector-panel {
@@ -66,7 +66,7 @@
   </style>
   
   <!-- Load Main Module Entry File -->
-  <script type="module" src="../src/html-deck.js"></script>
+  <script type="module" src="../../src/html-deck.js"></script>
 </head>
 <body>
 
@@ -87,21 +87,13 @@
   <hd-deck aspect-ratio="16:9" transition="fade">
     
     <!-- Slide 1: Welcome & Overview -->
-    <hd-slide layout="title-body">
-      <hd-heading level="1" slot="title">HTML-Deck Theme System</hd-heading>
-      <hd-text>
-        Welcome to the HTML-Deck theme demonstration! We've overhauled the layout engine to default to a 
-        <strong>clean, white-background styling</strong>, and provided highly customizable theme hooks.
-      </hd-text>
-      <hd-text>
-        Use the floating controller at the top-left to dynamically load stylesheets and watch the slide elements adjust.
-      </hd-text>
-      <hd-list>
-        <li>Default fallback: White background (#ffffff) and slate text (#1e293b).</li>
-        <li>Theme swapping overrides variables on <code>:root</code> to theme the entire slideshow deck instantly.</li>
-        <li>Supports slide-specific layout overrides like background inversion.</li>
-      </hd-list>
-    </hd-slide>
+    <hd-title-slide>
+      <div slot="title">HTML-Deck Theme System</div>
+      <div slot="subtitle">Comprehensive Theme Demonstration & Test Suite</div>
+      <div slot="presenter">Created by AI Agent & Developer Team</div>
+      <div slot="location">Theme Test Suite Environment</div>
+      <div slot="date">June 22, 2026</div>
+    </hd-title-slide>
 
     <!-- Slide 2: Element Styles Testing -->
     <hd-slide layout="split">
@@ -156,14 +148,7 @@
         </hd-column>
         <hd-column>
           <hd-heading level="2">Syntax Highlighter</hd-heading>
-          <hd-codeblock language="javascript">
-// Theme CSS variables customize token colors
-function calculateScale(wWidth, wHeight, ratio) {
-  const baseHeight = 540;
-  const baseWidth = baseHeight * ratio;
-  return Math.min(wWidth / baseWidth, wHeight / baseHeight);
-}
-          </hd-codeblock>
+          <hd-codeblock language="javascript" src="scale-util.js"></hd-codeblock>
         </hd-column>
       </hd-columns>
     </hd-slide>
@@ -205,12 +190,7 @@ function calculateScale(wWidth, wHeight, ratio) {
       <hd-text>
         For instance, in the default light theme, this slide becomes dark. In dark themes, it will become light.
       </hd-text>
-      <hd-codeblock language="html">
-&lt;!-- Flip background and text --&gt;
-&lt;hd-slide layout="title-body" invert&gt;
-  &lt;hd-heading level="1" slot="title"&gt;Inverted!&lt;/hd-heading&gt;
-&lt;/hd-slide&gt;
-      </hd-codeblock>
+      <hd-codeblock language="html" src="invert-example.html"></hd-codeblock>
     </hd-slide>
 
   </hd-deck>
@@ -224,7 +204,7 @@ function calculateScale(wWidth, wHeight, ratio) {
       const theme = event.target.value;
       if (theme) {
         // Load selected theme stylesheet
-        themeLink.href = `../src/html-deck.${theme}.css`;
+        themeLink.href = `../../src/html-deck.${theme}.css`;
       } else {
         // Clear theme (back to default)
         themeLink.href = '';

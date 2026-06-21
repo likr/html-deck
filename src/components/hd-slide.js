@@ -135,8 +135,22 @@ TEMPLATE.innerHTML = `
     justify-content: center;
   }
 
+  .page-number {
+    position: absolute;
+    bottom: 12px;
+    right: 16px;
+    font-size: var(--hd-page-number-font-size, 0.55rem);
+    color: var(--hd-page-number-color, var(--hd-muted-color, #64748b));
+    z-index: 10;
+    user-select: none;
+    font-family: var(--hd-body-font, inherit);
+  }
+
   /* Print optimization */
   @media print {
+    .page-number {
+      display: none !important;
+    }
     :host {
       display: flex !important;
       opacity: 1 !important;
@@ -167,12 +181,13 @@ TEMPLATE.innerHTML = `
   <div id="layout-root">
     <!-- Render content dynamically based on layout -->
   </div>
+  <div class="page-number" id="page-num"></div>
 </div>
 `;
 
 export class HdSlide extends HTMLElement {
   static get observedAttributes() {
-    return ['layout', 'active', 'transition-style'];
+    return ['layout', 'active', 'transition-style', 'page-index', 'page-total', 'no-page-number'];
   }
 
   constructor() {
@@ -183,11 +198,34 @@ export class HdSlide extends HTMLElement {
 
   connectedCallback() {
     this.renderLayout();
+    this.updatePageNumber();
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
-    if (name === 'layout' && oldValue !== newValue) {
+    if (oldValue === newValue) return;
+    if (name === 'layout') {
       this.renderLayout();
+      this.updatePageNumber();
+    }
+    if (name === 'page-index' || name === 'page-total' || name === 'no-page-number') {
+      this.updatePageNumber();
+    }
+  }
+
+  updatePageNumber() {
+    const pageNumEl = this.shadowRoot.getElementById('page-num');
+    if (!pageNumEl) return;
+
+    const layout = this.getAttribute('layout');
+    const noPageNum = this.hasAttribute('no-page-number');
+    const index = this.getAttribute('page-index');
+    const total = this.getAttribute('page-total');
+
+    if (layout === 'title' || noPageNum || !index || !total) {
+      pageNumEl.style.display = 'none';
+    } else {
+      pageNumEl.style.display = 'block';
+      pageNumEl.textContent = `${index} / ${total}`;
     }
   }
 

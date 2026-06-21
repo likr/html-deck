@@ -2,7 +2,7 @@ import { prismCSSTextPromise } from '../html-deck.js';
 
 export class HdCodeblock extends HTMLElement {
   static get observedAttributes() {
-    return ['language', 'src'];
+    return ['language', 'src', 'scrollable'];
   }
 
   constructor() {
@@ -26,6 +26,10 @@ export class HdCodeblock extends HTMLElement {
           border: 1px solid var(--hd-codeblock-border, #e2e8f0);
           border-radius: 8px;
           overflow: auto;
+        }
+        :host([scrollable]) pre {
+          max-height: var(--scroll-height, 250px) !important;
+          overflow-y: auto !important;
         }
         code {
           font-family: inherit !important;
@@ -64,6 +68,7 @@ export class HdCodeblock extends HTMLElement {
   }
 
   async connectedCallback() {
+    this.updateScrollable();
     this.rawCode = this.getAttribute('code') || this.innerHTML;
     this.innerHTML = '';
     
@@ -77,6 +82,22 @@ export class HdCodeblock extends HTMLElement {
     }
     if (name === 'src' && newValue) {
       this.loadExternalCode(newValue);
+    }
+    if (name === 'scrollable') {
+      this.updateScrollable();
+    }
+  }
+
+  updateScrollable() {
+    const scrollable = this.getAttribute('scrollable');
+    if (scrollable !== null) {
+      let height = '250px';
+      if (scrollable !== '' && scrollable !== 'true') {
+        height = scrollable;
+      }
+      this.style.setProperty('--scroll-height', height);
+    } else {
+      this.style.removeProperty('--scroll-height');
     }
   }
 

@@ -89,3 +89,21 @@ if (window.matchMedia('print').matches) return;
 - `src/html-deck-presenter.js`: The entry point for the presenter dashboard view.
 - `src/html-deck.css`: Holds global CSS resets, body margins, and user text-decoration utilities.
 Ensure any developer changes targeting library loading or presenter view update these respective files rather than single bundles.
+
+### 7. Encapsulated Table Slot Clone Pattern
+Because descendants of `::slotted(table)` (like `th`, `td`, `tr`) cannot be styled from within a component's Shadow DOM, components like `<hd-table>` must use the clone pattern:
+- **Pattern**: Hide the primary slot in CSS (`slot { display: none; }`).
+- **Pattern**: Listen for the `slotchange` event on the slot. Extract the assigned table element, clone it via `table.cloneNode(true)`, and append it into a container within the Shadow DOM. This enables full Shadow DOM styling boundaries on standard table elements.
+
+### 8. Scrollable Containment and Custom Height Styling
+When slide content exceeds the standard 960x540 canvas boundaries, use `scrollable` containment:
+- **Pattern**: Declare a `scrollable` attribute that accepts a boolean or custom height value (e.g. `scrollable="300px"`).
+- **Pattern**: In `attributeChangedCallback`, parse the attribute value. If a value is provided, dynamically set a CSS variable (like `--scroll-height`) on the host element. In CSS, use `:host([scrollable]) pre { max-height: var(--scroll-height, 250px); overflow-y: auto; }` to restrict height and activate standard scrollbars.
+
+### 9. Keyboard Shortcut Modifier Checks
+To avoid overriding default browser actions (such as `Ctrl + P` / `Cmd + P` for printing, or page refreshes), keydown event handlers must ignore events accompanied by modifier keys.
+- **Rule**: At the start of the `handleKeyDown` callback, return early if any modifier key flag is present:
+```javascript
+if (event.ctrlKey || event.metaKey || event.altKey) return;
+```
+
