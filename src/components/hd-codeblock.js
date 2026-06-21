@@ -69,7 +69,13 @@ export class HdCodeblock extends HTMLElement {
 
   async connectedCallback() {
     this.updateScrollable();
-    this.rawCode = this.getAttribute('code') || this.innerHTML;
+    if (this.hasAttribute('code')) {
+      this.rawCode = this.getAttribute('code');
+      this.isInlineHTML = false;
+    } else {
+      this.rawCode = this.innerHTML;
+      this.isInlineHTML = true;
+    }
     this.innerHTML = '';
     
     await this.setupHighlighting();
@@ -135,6 +141,7 @@ export class HdCodeblock extends HTMLElement {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       this.rawCode = await response.text();
+      this.isInlineHTML = false;
       this.highlight();
     } catch (err) {
       console.error(`Failed to load external code from ${src}:`, err);
@@ -151,12 +158,15 @@ export class HdCodeblock extends HTMLElement {
     const lang = this.getAttribute('language') || 'javascript';
     codeOutput.className = `language-${lang}`;
     
-    // Trim raw code and remove HTML entity escaping if any
+    // Trim raw code
     let codeText = this.rawCode.trim();
     
-    // Decode HTML entities (e.g. &lt; -> <) which are common when agents write inside HTML tags
-    const doc = new DOMParser().parseFromString(codeText, 'text/html');
-    codeText = doc.documentElement.textContent || codeText;
+    // Decode HTML entities (e.g. &lt; -> <) ONLY for inline innerHTML tags
+    if (this.isInlineHTML) {
+      const textarea = document.createElement('textarea');
+      textarea.innerHTML = codeText;
+      codeText = textarea.value;
+    }
 
     codeOutput.textContent = codeText;
     
