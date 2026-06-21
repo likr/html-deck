@@ -57,6 +57,9 @@ The basic container for a single slide page.
 - `--hd-slide-text-color`: Custom text color override.
 - `--hd-slide-padding`: Customize slide interior margins. Default: `30px 40px`.
 
+> [!WARNING]
+> Do not apply `position: relative` directly on the `<hd-slide>` element (e.g., in global stylesheets or inline styles). This breaks the virtual resolution scaling computations and ruins layout rendering. Wrap slide contents in a nested child container if custom relative positioning is required.
+
 ---
 
 ### 3. `<hd-title-slide>`
@@ -266,6 +269,9 @@ Write LaTeX directly inside the element:
   \sigma = \sqrt{\frac{1}{N} \sum_{i=1}^{N} (x_i - \mu)^2}
 </hd-math>
 ```
+
+> [!IMPORTANT]
+> Raw LaTeX delimiters like `$$...$$` or `$...$` are not automatically processed by standard text blocks. You MUST wrap all math formulas inside the `<hd-math>` component (inline or block) for them to render correctly.
 
 #### CSS Variables
 - `--hd-math-color`: Math characters text color. Defaults to parent context color.

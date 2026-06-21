@@ -49,6 +49,7 @@ Keep the slide DOM flat inside the deck. Do not nest pages inside nested section
   <script type="module">
     import 'html-deck';
     import 'html-deck/css';
+    import './style.css'; // Custom overrides must be imported after html-deck/css
   </script>
 </head>
 <body>
@@ -85,3 +86,12 @@ To load external code dynamically without compiling HTML files manually, **modif
 
 ### 3. Absolute Units (`px`) for Custom Styles
 When writing custom slide styling (e.g. inside presentation `<style>` tags or inline styles), **always use absolute `px` units** for font sizes, paddings, and margins. Avoid using `rem` or structural `em` layout units, as they are dependent on the external environment's base font size and will cause text overflow or layout shifting when scaled or printed.
+
+### 4. Custom CSS Loading Order & JavaScript Import
+In a Vite environment, slide-specific custom CSS should be imported via JavaScript `import './style.css'` in the `<script type="module">` block rather than using inline `<style>` tags. Always ensure that the custom CSS is imported **after** `html-deck/css` so that custom overrides take precedence in the loading order.
+
+### 5. Never Apply `position: relative` directly to `<hd-slide>`
+Applying `position: relative` directly on `<hd-slide>` containers breaks the layout and virtual resolution scaling computations of the slideshow. If you need relative positioning for absolute-positioned child elements, wrap the content in a child `<div>` container and style that wrapper instead.
+
+### 6. Math Rendering with `<hd-math>`
+Always wrap mathematical expressions and formulas inside `<hd-math>` Web Components. Do not use standard raw delimiters like `$$...$$` or `$...$` directly in raw text nodes, as they will not be formatted and styled correctly. Use the `block` attribute on `<hd-math>` to render centered block-level equations.

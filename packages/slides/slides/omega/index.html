@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Graph Drawing Stress Model with Resistance Distances</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;600;700;800&family=Noto+Sans+JP:wght@400;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Load HTML-Deck Script and CSS -->
+  <script type="module">
+    import 'html-deck';
+    import 'html-deck/css';
+    import './style.css'
+  </script>
+</head>
+
+<body>
+
+  <hd-deck transition="fade" aspect-ratio="16:9" presenter-url="presenter.html">
+
+    <!-- スライド1: タイトルスライド -->
+    <hd-title-slide>
+      <div slot="title"><span class="text-gradient">Graph Drawing Stress Model with Resistance Distances</span></div>
+      <div slot="subtitle" class="subtitle-accent">抵抗距離を用いたグラフ描画ストレスモデル</div>
+      <div slot="presenter">Yosuke Onoue</div>
+      <hd-notes>
+        <h2>発表者用メモ: 導入</h2>
+        <ul>
+          <li>太平洋可視化国際会議 (PacificVis 2026) に採択された、尾上先生の論文を紹介します。</li>
+          <li>この研究は、グラフ（ネットワーク）描画のレイアウトアルゴリズムに関するものです。</li>
+          <li>キーワードは、「最短経路距離」から「抵抗距離」へのパラダイムシフトです。</li>
+          <li>これにより、大域的な構造を保ちつつ、線形時間で動作する極めて高速な手法が提案されています。</li>
+        </ul>
+      </hd-notes>
+    </hd-title-slide>
+
+    <!-- スライド2: 背景と従来手法の課題 -->
+    <hd-slide layout="title-body">
+      <hd-heading slot="title" level="2">背景：ストレスベース描画と従来手法の限界</hd-heading>
+
+      <hd-columns>
+        <hd-column flex="5">
+          <div class="highlight-card">
+            <h3><span class="icon">🔍</span> ストレスベースのグラフ描画</h3>
+            <hd-text class="hd-text-sm">
+              ノード間の<strong>「理想的な距離」</strong>と、画面上の<strong>「実際の距離」</strong>の差の二乗誤差（ストレス）を最小化する最適化問題。
+              <hd-math block>E(X) = \sum_{i \lt j} w_{ij} (||x_i - x_j|| - d_{ij})^2</hd-math>
+              ここで <hd-math>d_{ij}</hd-math> が理想的な距離、 <hd-math>w_{ij}</hd-math> は重み。
+            </hd-text>
+          </div>
+        </hd-column>
+        <hd-column flex="5">
+          <div class="highlight-card">
+            <h3><span class="icon">⚠️</span> 従来手法（最短経路距離）の課題</h3>
+            <hd-list class="hd-text-xs">
+              <li><strong>大域的構造の欠落：</strong> 最短経路は「1つの最短パス」しか見ないため、並列する複数の迂回経路があるような「強いつながり（クラスタ）」を大域的に捉えられない。</li>
+              <li><strong>高コストな全対最短経路計算：</strong> すべてのノード間の最短経路距離を事前に求めると <hd-math>\mathcal{O}(V^3)</hd-math> や
+                <hd-math>\mathcal{O}(V^2 \log V + VE)</hd-math> の計算量が必要となり、大規模グラフではメモリ・CPUともに限界に達する。
+              </li>
+            </hd-list>
+          </div>
+        </hd-column>
+      </hd-columns>
+
+      <hd-notes>
+        <h2>発表者用メモ: スライド2</h2>
+        <ul>
+          <li>まず背景として、多次元尺度構成法（MDS）と同様のストレスモデルを説明します。</li>
+          <li>目的関数 $E(X)$ を最小化する際、理想距離 $d_{ij}$ をどう定めるかが重要です。</li>
+          <li>従来は「最短経路（Shortest Path）」が標準的でしたが、2つの課題があります。</li>
+          <li>1点目は大域的構造。最短経路はバイパスや代替経路の存在を無視するため、クラスタ構造を表現しづらい。</li>
+          <li>2点目は計算コスト。全対最短経路 (APSP) の計算は $O(V^3)$ であり、数万ノードを超える大規模データには全くスケールしません。</li>
+        </ul>
+      </hd-notes>
+    </hd-slide>
+
+    <!-- スライド3: キーコンセプト「抵抗距離」 -->
+    <hd-slide layout="title-body">
+      <hd-heading slot="title" level="2">キーコンセプト：抵抗距離 (Resistance Distance)</hd-heading>
+
+      <hd-text class="hd-text-sm">
+        グラフを<strong>「電気回路（すべてのエッジを1Ωの抵抗とする）」</strong>と見立てたときの、2ノード間の<strong>合成抵抗</strong>を理想距離 <hd-math>d_{ij}</hd-math>
+        として採用。
+      </hd-text>
+
+      <div class="diagram-container">
+        <div class="diagram-box">
+          <div class="diagram-title"><span class="badge">従来</span> 最短経路距離 (Shortest Path Distance)</div>
+          <svg class="diagram-svg" viewBox="0 0 300 140">
+            <!-- Nodes -->
+            <circle cx="50" cy="70" r="8" fill="#64748b" />
+            <text x="50" y="92" fill="#94a3b8" font-size="10" text-anchor="middle">Node A</text>
+
+            <circle cx="150" cy="30" r="8" fill="#64748b" />
+            <circle cx="150" cy="110" r="8" fill="#64748b" />
+
+            <circle cx="250" cy="70" r="8" fill="#64748b" />
+            <text x="250" y="92" fill="#94a3b8" font-size="10" text-anchor="middle">Node B</text>
+
+            <!-- Edges (Shortest path highlighted) -->
+            <line x1="58" y1="68" x2="142" y2="32" stroke="#475569" stroke-width="1.5" />
+            <line x1="58" y1="72" x2="142" y2="108" stroke="#00f0ff" stroke-width="2.5" />
+            <line x1="158" y1="108" x2="242" y2="72" stroke="#00f0ff" stroke-width="2.5" />
+            <line x1="158" y1="32" x2="242" y2="68" stroke="#475569" stroke-width="1.5" />
+            <line x1="150" y1="38" x2="150" y2="102" stroke="#475569" stroke-width="1.5" />
+
+            <text x="150" y="130" fill="#00f0ff" font-size="9" text-anchor="middle">1本の最短ルートのみ考慮 (距離 = 2)</text>
+          </svg>
+        </div>
+
+        <div class="diagram-box">
+          <div class="diagram-title"><span class="badge badge-secondary">提案</span> 抵抗距離 (Resistance Distance)</div>
+          <svg class="diagram-svg" viewBox="0 0 300 140">
+            <!-- Nodes -->
+            <circle cx="50" cy="70" r="8" fill="#d946ef" />
+            <text x="50" y="92" fill="#f5d0fe" font-size="10" text-anchor="middle">Node A</text>
+
+            <circle cx="150" cy="30" r="8" fill="#d946ef" />
+            <circle cx="150" cy="110" r="8" fill="#d946ef" />
+
+            <circle cx="250" cy="70" r="8" fill="#d946ef" />
+            <text x="250" y="92" fill="#f5d0fe" font-size="10" text-anchor="middle">Node B</text>
+
+            <!-- Flowing currents -->
+            <line x1="58" y1="68" x2="142" y2="32" stroke="#d946ef" stroke-width="2" class="flow-line"
+              style="stroke-dasharray: 4,2; animation: flow 2s linear infinite;" />
+            <line x1="58" y1="72" x2="142" y2="108" stroke="#d946ef" stroke-width="2" class="flow-line"
+              style="stroke-dasharray: 4,2; animation: flow 2s linear infinite;" />
+            <line x1="158" y1="108" x2="242" y2="72" stroke="#d946ef" stroke-width="2" class="flow-line"
+              style="stroke-dasharray: 4,2; animation: flow 2s linear infinite;" />
+            <line x1="158" y1="32" x2="242" y2="68" stroke="#d946ef" stroke-width="2" class="flow-line"
+              style="stroke-dasharray: 4,2; animation: flow 2s linear infinite;" />
+            <line x1="150" y1="38" x2="150" y2="102" stroke="#475569" stroke-width="1.5" />
+
+            <text x="150" y="130" fill="#d946ef" font-size="9" text-anchor="middle">複数経路（バイパス）を電流として考慮 (合成抵抗 =
+              1Ω)</text>
+          </svg>
+        </div>
+      </div>
+
+      <hd-columns class="hd-mt-sm">
+        <hd-column>
+          <hd-text class="hd-text-xs hd-text-muted">
+            💡 <strong>直感的な比喩:</strong>
+            AからBへ移動する時、一本道（最短経路）だけでなく、「抜け道や並列した道路がどれだけ存在するか」を総合考慮して近いと判断する指標。クラスタ内の結束をより密に描画できる。
+          </hd-text>
+        </hd-column>
+      </hd-columns>
+
+      <hd-notes>
+        <h2>発表者用メモ: スライド3</h2>
+        <ul>
+          <li>「抵抗距離」の概念を視覚的に説明します。</li>
+          <li>このスライドに用意した図を見てください。AからBへ行くルートが2つあります。</li>
+          <li>最短経路ではどちらか一方のみを考慮し、距離は「2」です。</li>
+          <li>抵抗距離では、これを電気回路の並列回路と捉えます。AからBへ電流を流すと、上下の並列経路を通るため、合成抵抗は「1Ω」に下がります。</li>
+          <li>つまり、並列ルート（バイパス）が多ければ多いほど、抵抗距離は「より近く」評価されます。</li>
+          <li>これが大域的構造やクラスタを綺麗に表現できる数学的根拠となっています。</li>
+        </ul>
+      </hd-notes>
+    </hd-slide>
+
+    <!-- スライド4: 提案アルゴリズム「Omega」 -->
+    <hd-slide layout="title-body">
+      <hd-heading slot="title" level="2">提案アルゴリズム：「Omega (Ω)」</hd-heading>
+
+      <hd-columns>
+        <hd-column flex="4">
+          <div class="highlight-card" style="border-left: 3px solid var(--hd-primary);">
+            <h3><span class="icon">⚡</span> 線形時間 <hd-math>\mathcal{O}(|E|)</hd-math> の実現</h3>
+            <hd-list class="hd-text-xs">
+              <li><strong>高速な埋め込み事前計算：</strong> グラフラプラシアンの有効な固有値スペクトルを利用し、抵抗距離をユークリッド空間へ高速に等長埋め込み。</li>
+              <li><strong>ランダムペアサンプリングの統合：</strong> SGD（確率的勾配降下法）を用いることで、全ノード対のストレス計算を省略。エッジ数に比例した
+                <hd-math>\mathcal{O}(|E|)</hd-math> 時間での最適化を達成。
+              </li>
+            </hd-list>
+          </div>
+        </hd-column>
+        <hd-column flex="6">
+          <div class="highlight-card" style="border-left: 3px solid var(--hd-secondary);">
+            <h3><span class="icon">🚀</span> 従来サンプリングとの違い</h3>
+            <table style="margin-top: 5px;">
+              <thead>
+                <tr>
+                  <th>アプローチ</th>
+                  <th>サンプリング戦略</th>
+                  <th>堅牢性 (Robustness)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>従来 (Pivotベース)</strong></td>
+                  <td>特定の代表点 (Pivot) からの距離に依存</td>
+                  <td>代表点の選択によって描画品質が不安定化</td>
+                </tr>
+                <tr>
+                  <td><strong style="color:var(--hd-secondary)">提案 (Omega)</strong></td>
+                  <td>事前計算された埋め込み空間からの全ランダムサンプリング</td>
+                  <td><strong>極めて堅牢で偏りのない大域的収束</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </hd-column>
+      </hd-columns>
+
+      <hd-notes>
+        <h2>発表者用メモ: スライド4</h2>
+        <ul>
+          <li>この抵抗距離を用いた具体的なアルゴリズムが「Omega（オメガ）」です。</li>
+          <li>計算量は、重み付き・重みなしの双方で $O(|E|)$ （エッジ数）という驚異的なスケーラビリティを誇ります。</li>
+          <li>ポイントは、グラフラプラシアンのスペクトルから抵抗距離をユークリッド空間へ事前埋め込みする処理と、SGD（確率的勾配降下法）の融合です。</li>
+          <li>従来のSGDを用いた手法（GRIPやsfdpなど）では、Pivotと呼ばれる一部の基準点を用いたサンプリングに頼っていたため、Pivotの選び方によってレイアウトが崩れる不安定さがありました。</li>
+          <li>Omegaでは、あらかじめ等長埋め込みされた情報を活用し、均一かつ全体からランダムサンプリングを行うため、偏りがなく、より安定かつ高速に最適化が収束します。</li>
+        </ul>
+      </hd-notes>
+    </hd-slide>
+
+    <!-- スライド5: 実験結果と評価 -->
+    <hd-slide layout="title-body">
+      <hd-heading slot="title" level="2">実験評価：描画品質と最適化の安定性</hd-heading>
+
+      <hd-columns>
+        <hd-column flex="5">
+          <div class="highlight-card">
+            <h3><span class="icon">📈</span> 描画品質の向上</h3>
+            <hd-list class="hd-text-xs">
+              <li><strong>近傍保存性 (Neighborhood Preservation)</strong><br>
+                ローカルな接続関係を正しく配置する能力が向上。
+              </li>
+              <li class="hd-mt-sm"><strong>クラスタの忠実性 (Cluster Faithfulness)</strong><br>
+                大域的なつながりを加味した抵抗距離の効果により、重なりがちなコミュニティやクラスタが直感的に識別しやすく分離・描画される。
+              </li>
+            </hd-list>
+          </div>
+        </hd-column>
+        <hd-column flex="5">
+          <div class="highlight-card">
+            <h3><span class="icon">🎯</span> 最適化の安定性と効率</h3>
+            <hd-text class="hd-text-sm">
+              提案された<strong>ランダムペアサンプリング戦略</strong>は、従来アルゴリズムと比較して：
+            </hd-text>
+            <hd-list class="hd-text-xs">
+              <li>最適化が局所解に陥りにくく、<strong>「より低いストレス値」</strong>に到達。</li>
+              <li>試行ごとの分散が小さく、<strong>「極めて高い再現性と安定性」</strong>を達成。</li>
+              <li>数万エッジの巨大な実世界ネットワークも数秒から数十秒でレイアウト完了。</li>
+            </hd-list>
+          </div>
+        </hd-column>
+      </hd-columns>
+
+      <hd-notes>
+        <h2>発表者用メモ: スライド5</h2>
+        <ul>
+          <li>実験結果について説明します。評価軸は大きく分けて2つあります。</li>
+          <li>1つ目は「描画品質」。近傍保存性とクラスタの忠実度を定量的・定性的に評価しました。</li>
+          <li>抵抗距離が大域的構造を強く保持するため、これまで団子状に潰れてしまっていた複雑なクラスタが、明確に分離して可視化されます。</li>
+          <li>2つ目は「最適化の安定性」。ランダムサンプリングのおかげで、勾配計算のノイズが正則化として働き、局所解を避けて真の最小ストレス値へ安定して収束します。</li>
+          <li>どんな初期配置やパラメータから始めても、ほぼ同一の美しいレイアウトが数秒で得られる実用性を証明しました。</li>
+        </ul>
+      </hd-notes>
+    </hd-slide>
+
+    <!-- スライド6: 結論と今後の展望 -->
+    <hd-slide layout="title-body">
+      <hd-heading slot="title" level="2">結論と今後の展望</hd-heading>
+
+      <hd-columns>
+        <hd-column>
+          <div class="highlight-card" style="border-top: 3px solid var(--hd-primary);">
+            <h3><span class="icon">🏆</span> 本研究の貢献</h3>
+            <hd-list class="hd-text-xs">
+              <li><strong>理論的架け橋：</strong>
+                「スペクトラルグラフ理論」と「ストレスベースレイアウト」という、独立して研究されがちだった2分野の間に強固な数学的結びつき（抵抗距離の埋め込み）を実証した。</li>
+              <li class="hd-mt-sm"><strong>実用的な可視化：</strong> 実世界の大規模で複雑なソーシャルネットワークや共著関係ネットワークに対して、高速かつ忠実度の高いレイアウトシステムを
+                <hd-math>\mathcal{O}(|E|)</hd-math> で提供。
+              </li>
+            </hd-list>
+          </div>
+        </hd-column>
+      </hd-columns>
+
+      <div class="hd-text-center hd-mt-lg">
+        <hd-text class="hd-text-lg hd-bold text-gradient">ご清聴ありがとうございました。ご質問があればお受けいたします。</hd-text>
+      </div>
+
+      <hd-notes>
+        <h2>発表者用メモ: 結論と質疑応答</h2>
+        <ul>
+          <li>最後に本研究のまとめです。</li>
+          <li>理論的には、スペクトラルアプローチとフォースディレクティドアプローチを抵抗距離を介して融合した点が非常に美しく、学術的価値が高いです。</li>
+          <li>実用的にも、大規模可視化の強力なツール（Omega）として、今後のネットワークデータ分析への貢献が期待されます。</li>
+          <li>以上で発表を終わります。ご清聴ありがとうございました。質問をお願いいたします。</li>
+        </ul>
+      </hd-notes>
+    </hd-slide>
+
+  </hd-deck>
+
+</body>
+
+</html>

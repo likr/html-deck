@@ -1,0 +1,200 @@
+:root {
+    /* Theme color overrides */
+    --hd-slide-bg: #070913;
+    --hd-text-color: #e2e8f0;
+    --hd-primary: #00f0ff;
+    /* Electric Cyan */
+    --hd-secondary: #d946ef;
+    /* Electric Magenta */
+    --hd-accent: #10b981;
+    /* Emerald Accent */
+    --hd-font-family: 'Outfit', 'Inter', 'Noto Sans JP', sans-serif;
+    --hd-slide-padding: 50px 70px;
+
+    /* Title slide style overrides */
+    --hd-title-slide-padding: 60px 80px;
+    --hd-title-slide-title-size: 38px;
+    --hd-title-slide-subtitle-size: 18px;
+    --hd-title-slide-divider-bg: linear-gradient(90deg, var(--hd-primary), var(--hd-secondary));
+    --hd-title-slide-divider-height: 2px;
+    --hd-title-slide-divider-margin: 24px 0;
+
+    /* Global elements overrides */
+    --hd-heading-color-1: #ffffff;
+    --hd-heading-color-2: #ffffff;
+    --hd-heading-color-3: #cbd5e1;
+    --hd-list-color: #cbd5e1;
+    --hd-codeblock-bg: #0d111d;
+    --hd-codeblock-border: rgba(0, 240, 255, 0.15);
+    --hd-codeblock-text: #e2e8f0;
+}
+
+/* Elegant gradient background for all slides */
+hd-slide,
+hd-title-slide {
+    background-image:
+        radial-gradient(circle at 10% 10%, rgba(0, 240, 255, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 90% 90%, rgba(217, 70, 239, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 0.5) 0%, transparent 100%);
+}
+
+/* Custom utility classes */
+.text-gradient {
+    background: linear-gradient(135deg, var(--hd-primary) 20%, var(--hd-secondary) 80%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+}
+
+.subtitle-accent {
+    color: #94a3b8;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.highlight-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 20px;
+    height: 100%;
+    box-sizing: border-box;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.highlight-card:hover {
+    border-color: rgba(0, 240, 255, 0.25);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 240, 255, 0.08);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.highlight-card h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-top: 0;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.highlight-card h3 .icon {
+    color: var(--hd-primary);
+}
+
+/* Inline highlight */
+.badge {
+    display: inline-block;
+    padding: 2px 8px;
+    background: rgba(0, 240, 255, 0.08);
+    border: 1px solid rgba(0, 240, 255, 0.25);
+    color: var(--hd-primary);
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.badge-secondary {
+    background: rgba(217, 70, 239, 0.08);
+    border: 1px solid rgba(217, 70, 239, 0.25);
+    color: var(--hd-secondary);
+}
+
+/* Key Concept Diagram SVG Styling */
+.diagram-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
+    gap: 30px;
+    margin-top: 15px;
+}
+
+.diagram-box {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.015);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.diagram-box:hover {
+    background: rgba(255, 255, 255, 0.025);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.diagram-title {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #f8fafc;
+}
+
+.diagram-svg {
+    width: 100%;
+    height: 140px;
+    background: #090c17;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+/* Animated current flows in Resistance Distance SVG */
+@keyframes flow {
+    0% {
+        stroke-dashoffset: 24;
+    }
+
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+.flow-line {
+    stroke-dasharray: 6 3;
+    animation: flow 1.5s linear infinite;
+}
+
+/* Table styling overrides */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    text-align: left;
+    padding: 12px 16px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    font-size: 13px;
+}
+
+td {
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: #cbd5e1;
+    font-size: 13px;
+}
+
+tr:hover td {
+    color: #ffffff;
+    background: rgba(0, 240, 255, 0.02);
+}
+
+.math-inline {
+    display: inline-block;
+    vertical-align: middle;
+}

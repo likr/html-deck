@@ -17,6 +17,9 @@ Themes are enabled by loading the corresponding CSS stylesheet in the presentati
 <link rel="stylesheet" href="node_modules/html-deck/dist/html-deck.theme-warm.css">
 ```
 
+> [!IMPORTANT]
+> **Vite Environment CSS Imports**: When developing within a Vite-based project, avoid using inline `<style>` tags or HTML `<link>` tags for custom overrides. Instead, define your custom styling in a dedicated CSS file (e.g. `style.css`) and import it inside the `<script type="module">` tag **after** `html-deck/css` (e.g., `import './style.css'`). This ensures proper style precedence and load order.
+
 ### Theme Presets Details
 
 #### 1. Default (Minimalist Clean)
