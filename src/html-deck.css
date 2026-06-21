@@ -32,7 +32,7 @@
   --hd-muted-color-custom: var(--hd-muted-color);
 
   /* Table styling defaults */
-  --hd-table-font-size: 0.75rem;
+  --hd-table-font-size: 12px;
   --hd-table-bg: transparent;
   --hd-table-text-color: var(--hd-text-color);
   --hd-table-header-bg: rgba(59, 130, 246, 0.05);
@@ -42,7 +42,7 @@
   --hd-table-hover-bg: rgba(59, 130, 246, 0.03);
 
   /* Page number defaults */
-  --hd-page-number-font-size: 0.55rem;
+  --hd-page-number-font-size: 9px;
   --hd-page-number-color: var(--hd-muted-color);
 }
 
@@ -165,8 +165,8 @@ hd-slide img {
 /* 4. Nested List Styles (Supports standard ul/ol nesting inside hd-list) */
 hd-list ul, hd-list ol {
   margin: 0;
-  padding-left: var(--hd-list-padding-left, 1.2rem);
-  font-size: 0.9em;
+  padding-left: var(--hd-list-padding-left, 19px);
+  font-size: 13px;
   line-height: var(--hd-list-line-height, 1.6);
   color: var(--hd-list-color, var(--hd-text-color, #1e293b));
 }
@@ -188,22 +188,22 @@ hd-list ol ol {
 }
 
 hd-list li {
-  margin-bottom: var(--hd-list-item-margin-bottom, 0.25rem);
+  margin-bottom: var(--hd-list-item-margin-bottom, 4px);
 }
 
 /* 5. Standard Table Styling (for un-encapsulated tables in slides) */
 hd-slide table, hd-title-slide table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 1rem;
+  margin-bottom: 16px;
   font-family: var(--hd-body-font, inherit);
-  font-size: var(--hd-table-font-size, 0.75rem);
+  font-size: var(--hd-table-font-size, 12px);
   color: var(--hd-table-text-color, var(--hd-slide-text-color, var(--hd-text-color, #1e293b)));
   background-color: var(--hd-table-bg, transparent);
 }
 
 hd-slide th, hd-slide td, hd-title-slide th, hd-title-slide td {
-  padding: var(--hd-table-cell-padding, 0.4rem 0.6rem);
+  padding: var(--hd-table-cell-padding, 6px 10px);
   text-align: var(--hd-table-align, left);
   border-bottom: 1px solid var(--hd-table-border-color, rgba(0, 0, 0, 0.1));
 }

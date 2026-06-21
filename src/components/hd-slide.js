@@ -139,7 +139,7 @@ TEMPLATE.innerHTML = `
     position: absolute;
     bottom: 12px;
     right: 16px;
-    font-size: var(--hd-page-number-font-size, 0.55rem);
+    font-size: var(--hd-page-number-font-size, 9px);
     color: var(--hd-page-number-color, var(--hd-muted-color, #64748b));
     z-index: 10;
     user-select: none;

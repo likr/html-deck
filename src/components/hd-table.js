@@ -10,7 +10,7 @@ export class HdTable extends HTMLElement {
       <style>
         :host {
           display: block;
-          margin-bottom: var(--hd-table-margin-bottom, 1rem);
+          margin-bottom: var(--hd-table-margin-bottom, 16px);
           width: 100%;
         }
 
@@ -31,13 +31,13 @@ export class HdTable extends HTMLElement {
           width: 100%;
           border-collapse: collapse;
           font-family: var(--hd-body-font, inherit);
-          font-size: var(--hd-table-font-size, 0.75rem);
+          font-size: var(--hd-table-font-size, 12px);
           color: var(--hd-table-text-color, var(--hd-slide-text-color, var(--hd-text-color, #1e293b)));
           background-color: var(--hd-table-bg, transparent);
         }
 
         th, td {
-          padding: var(--hd-table-cell-padding, 0.4rem 0.6rem);
+          padding: var(--hd-table-cell-padding, 6px 10px);
           text-align: var(--hd-table-align, left);
           border-bottom: 1px solid var(--hd-table-border-color, var(--hd-border, rgba(0, 0, 0, 0.1)));
         }

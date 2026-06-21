@@ -55,9 +55,9 @@
   --hd-title-slide-text-align: center;
   --hd-title-slide-meta-direction: row;
   --hd-title-slide-meta-justify: center;
-  --hd-title-slide-meta-gap: 2.5rem;
+  --hd-title-slide-meta-gap: 40px;
   --hd-title-slide-divider-width: 60%;
   --hd-title-slide-divider-height: 1px;
   --hd-title-slide-divider-bg: var(--hd-primary);
-  --hd-title-slide-divider-margin: 1.5rem auto;
+  --hd-title-slide-divider-margin: 24px auto;
 }

@@ -3,11 +3,11 @@ TEMPLATE.innerHTML = `
 <style>
   :host {
     display: block;
-    margin-bottom: var(--hd-text-margin-bottom, 0.5rem);
+    margin-bottom: var(--hd-text-margin-bottom, 8px);
   }
   p {
     font-family: var(--hd-body-font, inherit);
-    font-size: var(--hd-text-font-size, 0.9rem);
+    font-size: var(--hd-text-font-size, 14px);
     line-height: var(--hd-text-line-height, 1.6);
     color: var(--hd-text-color-custom, var(--hd-slide-text-color, var(--hd-text-color, #1e293b)));
     margin: 0;

@@ -40,7 +40,7 @@ connectedCallback() {
 
 ### 2. Sizing & Scaling (Aspect Ratio)
 `html-deck` maintains custom aspect ratios (like 16:9 or 4:3) by holding virtual slide dimensions.
-- **Rule**: The default virtual dimension base is **960x540** (proportional to Google Slides 16:9). All component layout sizes, font sizes (`rem`), gaps, and paddings must be proportioned to this 540p virtual canvas (typically font sizes around `0.8rem` - `2rem`).
+- **Rule**: The default virtual dimension base is **960x540** (proportional to Google Slides 16:9). All component layout sizes, font sizes, gaps, and paddings must be defined in absolute pixels (`px`) proportioned to this 540p virtual canvas (typically font sizes around `12px` - `32px`). Avoid using `rem` or structural `em` values, as these are dependent on the embedding page's root font-size or browser accessibility options and will cause text overflow or layout shifting relative to the fixed 540p container.
 - **Rule**: Do not apply responsive layout media queries (like `@media (max-width: 768px)`) inside slide contents or columns. Viewport-based media queries trigger layout collapsing even when the slide is scaled down, breaking the aspect ratio.
 - **Rule**: Ensure the layout container (`#layout-root` inside `<hd-slide>`) is always set to `display: flex; flex-direction: column; height: 100%; width: 100%;` so that content elements (like columns) do not collapse to height 0.
 - **Rule**: Ensure `.deck-container` has `flex-shrink: 0;` (or `flex: none;`) to prevent the browser from shrinking the virtual layout size (e.g. `960px`) inside the parent flex wrapper before the scale transform is applied.

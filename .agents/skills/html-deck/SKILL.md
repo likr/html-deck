@@ -57,6 +57,7 @@ The virtual presentation space defaults to **960x540** (proportional to Google S
   <link rel="stylesheet" href="src/html-deck.theme-dark.css"> <!-- Example: Dark slate theme -->
   ```
   Available themes: `html-deck.theme-dark.css`, `html-deck.theme-warm.css` (sepia), `html-deck.theme-corporate.css` (navy/teal), `html-deck.theme-serif.css` (academic), and `html-deck.theme-neon.css` (cyberpunk).
+- **Use Pixel Units (`px`) for Custom Styles**: When writing custom slide styling (e.g., inside presentation `<style>` tags or inline styles), always use absolute `px` units for font sizes, paddings, and margins. Avoid using `rem` or structural `em` layout units, as they are dependent on the external environment's base font size and will cause text overflow or layout shifting when scaled or embedded.
 - **Google Fonts Loading**: When using themes that require custom web typography, load Google Fonts inside your HTML `<head>` for flexibility (avoid importing inside theme CSS):
   ```html
   <!-- Example: Load fonts required by Warm, Corporate, Serif, and Neon themes -->

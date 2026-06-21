@@ -66,13 +66,13 @@ TEMPLATE.innerHTML = `
 
   .title-section {
     margin-top: var(--hd-title-slide-title-margin-top, auto);
-    margin-bottom: var(--hd-title-slide-title-margin-bottom, 0.5rem);
+    margin-bottom: var(--hd-title-slide-title-margin-bottom, 8px);
     width: 100%;
   }
 
   ::slotted([slot="title"]) {
-    margin: 0 0 0.5rem 0 !important;
-    font-size: var(--hd-title-slide-title-size, 2.5rem);
+    margin: 0 0 8px 0 !important;
+    font-size: var(--hd-title-slide-title-size, 40px);
     font-weight: 800;
     line-height: 1.2;
     color: var(--hd-title-slide-title-color, var(--hd-heading-color-1, var(--hd-primary, #3b82f6)));
@@ -81,7 +81,7 @@ TEMPLATE.innerHTML = `
 
   ::slotted([slot="subtitle"]) {
     margin: 0 !important;
-    font-size: var(--hd-title-slide-subtitle-size, 1.2rem);
+    font-size: var(--hd-title-slide-subtitle-size, 20px);
     font-weight: 400;
     color: var(--hd-title-slide-subtitle-color, var(--hd-muted-color, #64748b));
     font-family: var(--hd-body-font, inherit);
@@ -91,7 +91,7 @@ TEMPLATE.innerHTML = `
     width: var(--hd-title-slide-divider-width, 100%);
     height: var(--hd-title-slide-divider-height, 1px);
     background: var(--hd-title-slide-divider-bg, var(--hd-border-color, rgba(0, 0, 0, 0.1)));
-    margin: var(--hd-title-slide-divider-margin, 1rem 0);
+    margin: var(--hd-title-slide-divider-margin, 16px 0);
     opacity: var(--hd-title-slide-divider-opacity, 0.6);
   }
 
@@ -101,9 +101,9 @@ TEMPLATE.innerHTML = `
     flex-wrap: wrap;
     justify-content: var(--hd-title-slide-meta-justify, flex-start);
     align-items: var(--hd-title-slide-meta-align-items, flex-start);
-    gap: var(--hd-title-slide-meta-gap, 0.5rem);
+    gap: var(--hd-title-slide-meta-gap, 8px);
     margin-bottom: var(--hd-title-slide-meta-margin-bottom, auto);
-    font-size: var(--hd-title-slide-meta-size, 0.75rem);
+    font-size: var(--hd-title-slide-meta-size, 12px);
     color: var(--hd-title-slide-meta-color, var(--hd-muted-color, #64748b));
     font-family: var(--hd-body-font, inherit);
     width: 100%;

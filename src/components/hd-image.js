@@ -32,7 +32,7 @@ export class HdImage extends HTMLElement {
       <style>
         :host {
           display: block;
-          margin-bottom: var(--hd-image-margin-bottom, 0.75rem);
+          margin-bottom: var(--hd-image-margin-bottom, 12px);
           width: ${width};
           text-align: center;
         }
@@ -52,7 +52,7 @@ export class HdImage extends HTMLElement {
         }
         .caption {
           margin-top: 4px;
-          font-size: var(--hd-image-caption-size, 0.55rem);
+          font-size: var(--hd-image-caption-size, 9px);
           color: var(--hd-image-caption-color, var(--hd-text-muted, #94a3b8));
           font-style: italic;
         }

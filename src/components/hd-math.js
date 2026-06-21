@@ -18,7 +18,7 @@ export class HdMath extends HTMLElement {
         :host([block]) {
           display: block;
           text-align: center;
-          margin: var(--hd-math-block-margin, 0.75rem 0);
+          margin: var(--hd-math-block-margin, 12px 0);
         }
       </style>
       <span id="math-output"></span>

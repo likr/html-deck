@@ -13,9 +13,9 @@ export class HdCodeblock extends HTMLElement {
       <style>
         :host {
           display: block;
-          margin-bottom: var(--hd-codeblock-margin-bottom, 0.75rem);
+          margin-bottom: var(--hd-codeblock-margin-bottom, 12px);
           font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-          font-size: var(--hd-codeblock-font-size, 0.7rem);
+          font-size: var(--hd-codeblock-font-size, 11px);
           border-radius: 8px;
           overflow: hidden;
         }

@@ -23,13 +23,13 @@ export class HdHeading extends HTMLElement {
     const tag = `h${level}`;
 
     // Size configuration based on level
-    let defaultFontSize = '2rem';
+    let defaultFontSize = '32px';
     let defaultColor = 'var(--hd-primary, #3b82f6)';
     if (level === '2') {
-      defaultFontSize = '1.5rem';
+      defaultFontSize = '24px';
       defaultColor = 'var(--hd-secondary, #a855f7)';
     } else if (level === '3') {
-      defaultFontSize = '1.1rem';
+      defaultFontSize = '18px';
       defaultColor = 'var(--hd-slide-text-color, var(--hd-text-color, #1e293b))';
     }
 
@@ -37,7 +37,7 @@ export class HdHeading extends HTMLElement {
       <style>
         :host {
           display: block;
-          margin-bottom: var(--hd-heading-margin-bottom, 0.5em);
+          margin-bottom: var(--hd-heading-margin-bottom, 8px);
         }
         ${tag} {
           font-family: var(--hd-heading-font, var(--hd-body-font, inherit));
