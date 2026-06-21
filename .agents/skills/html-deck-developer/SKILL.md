@@ -84,9 +84,11 @@ if (window.matchMedia('print').matches) return;
 - **Rule**: Individual slide background and text overrides must be supported via attributes on `hd-slide` (e.g. `[invert]`, `[bg="primary"]`, `[bg="secondary"]`) and styled purely within `hd-slide.js` by overriding `--hd-slide-bg` and other variables inside their respective selector blocks.
 
 ### 6. Code Architecture & Entry Points
-`src/index.js` has been deprecated. The codebase uses separate entry points:
-- `src/html-deck.js`: The main library file that loads dependencies (KaTeX, Prism) and registers core components.
-- `src/html-deck-presenter.js`: The entry point for the presenter dashboard view.
+`src/index.js` has been deprecated. The codebase is organized into modular subdirectories:
+- `src/components/html-deck/`: Holds core slide elements (e.g. `hd-deck.js`, `hd-slide.js`).
+- `src/components/html-deck-presenter/`: Holds individual presenter elements (e.g. `hd-presenter-preview.js`, `hd-presenter-status.js`).
+- `src/html-deck.js`: The main library entry point that loads dependencies (KaTeX, Prism) and registers core components.
+- `src/html-deck-presenter.js`: The entry point for the presenter view that registers the presenter components.
 - `src/html-deck.css`: Holds global CSS resets, body margins, and user text-decoration utilities.
 Ensure any developer changes targeting library loading or presenter view update these respective files rather than single bundles.
 
@@ -114,3 +116,10 @@ To avoid overriding default browser actions (such as `Ctrl + P` / `Cmd + P` for 
 ### 11. Footnote Positioning Constraints
 - **Pattern**: By default, `<hd-footnote>` uses absolute positioning (`bottom: 12px; left: 16px;`) relative to the slide canvas, placing it in the bottom-left margin (analogous to the page number on the right).
 - **Pattern**: When footnotes are needed in-flow (e.g., inside column splits, grid cards, or table cells), the `inline` attribute must be specified on `<hd-footnote>` to swap its layout from absolute to static block flow.
+
+### 12. Presenter View Synchronization and Preview Styling
+- **Trap (Asset Resolution)**: Slides cloned and sent to the presenter view (which has a different URL directory) will fail to resolve relative assets (like `<hd-codeblock src="...">` or `<img>` tags).
+  - **Pattern**: Before broadcasting the HTML string via `BroadcastChannel`, rewrite relative `src` and `href` attributes to absolute URLs (e.g. via `new URL(val, window.location.href).href`).
+- **Trap (Dynamic Styles timing)**: Inserting `<style>` elements dynamically into a preview container's `innerHTML` causes browser styling computation delays. Synchronous dimension queries (`clientWidth`/`clientHeight`) immediately after will return `0`, breaking scale computations.
+  - **Pattern**: Declare preview styling statically inside the WebComponent's constructor. Additionally, defer scale calculations using `requestAnimationFrame` to ensure the layout engine has updated.
+

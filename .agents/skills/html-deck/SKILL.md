@@ -36,7 +36,7 @@ Always link the CSS utility stylesheet `src/html-deck.css` in the HTML document'
 Keep the DOM structure completely flat. Do not nest pages inside nested section blocks. Place all `<hd-slide>` tags directly under `<hd-deck>`.
 
 ```html
-<hd-deck transition="fade" aspect-ratio="16:9" presenter-url="./demo/presenter.html">
+<hd-deck transition="fade" aspect-ratio="16:9" presenter-url="./demo/tutorial/presenter.html">
   <hd-slide layout="title" title="Slide 1" center>...</hd-slide>
   <hd-slide layout="title-body" title="Slide 2">...</hd-slide>
 </hd-deck>

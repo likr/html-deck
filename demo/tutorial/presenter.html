@@ -6,7 +6,9 @@
   <title>HD Slide - Presenter View</title>
   
   <!-- Load HTML-Deck elements including presenter elements -->
+  <script type="module" src="../../src/html-deck.js"></script>
   <script type="module" src="../../src/html-deck-presenter.js"></script>
+  <link rel="stylesheet" href="style.css">
 
   <style>
     :root {
@@ -163,9 +165,18 @@
         <hd-presenter-status></hd-presenter-status>
       </div>
 
-      <div class="panel-card" style="flex-grow: 1;">
+      <div class="panel-card" style="flex-grow: 1.2; display: flex; flex-direction: column;">
+        <h3 class="panel-title">Current Slide</h3>
+        <div style="flex-grow: 1; min-height: 0;">
+          <hd-presenter-preview type="current"></hd-presenter-preview>
+        </div>
+      </div>
+
+      <div class="panel-card" style="flex-grow: 1; display: flex; flex-direction: column;">
         <h3 class="panel-title">Next Slide Preview</h3>
-        <hd-presenter-preview></hd-presenter-preview>
+        <div style="flex-grow: 1; min-height: 0;">
+          <hd-presenter-preview type="next"></hd-presenter-preview>
+        </div>
       </div>
 
       <div class="navigation-controls">

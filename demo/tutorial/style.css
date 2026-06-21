@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap');
+
+:root {
+  /* Base deck colors */
+  --hd-slide-bg: #0f172a;
+  --hd-text-color: #f8fafc;
+  --hd-primary: #3b82f6;
+  /* Electric blue */
+  --hd-secondary: #f43f5e;
+  /* Rose/Coral */
+
+  /* Typography */
+  --hd-font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+
+  /* Layout spacing */
+  --hd-slide-padding: 40px 50px;
+}
+
+.accent-text {
+  color: var(--hd-secondary);
+  font-weight: 700;
+}
+
+.gradient-heading {
+  background: linear-gradient(135deg, var(--hd-primary), #10b981);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.badge {
+  display: inline-block;
+  padding: 3px 6px;
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  color: var(--hd-primary);
+  border-radius: 9999px;
+  font-size: 0.55rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.grid-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  padding: 15px;
+  height: 100%;
+  box-sizing: border-box;
+  transition: background 0.3s;
+}
+
+.grid-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.grid-card h3 {
+  margin-top: 0;
+  font-size: 1.1rem;
+  color: var(--hd-primary);
+}
+.grid-card-primary {
+  border-color: var(--hd-primary) !important;
+}

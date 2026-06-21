@@ -1,0 +1,153 @@
+const channel = new BroadcastChannel('hd-deck-channel');
+
+function requestSync() {
+  channel.postMessage({ type: 'request-sync' });
+}
+
+export class HdPresenterPreview extends HTMLElement {
+  constructor() {
+    super();
+    this.attachShadow({ mode: 'open' });
+    this.shadowRoot.innerHTML = `
+      <style>
+        :host {
+          display: block;
+          width: 100%;
+          height: 100%;
+          box-sizing: border-box;
+        }
+        #preview {
+          width: 100%;
+          height: 100%;
+        }
+        .preview-wrapper {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          background-color: #000000;
+          border-radius: 8px;
+        }
+        .preview-container {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform-origin: center center;
+          flex-shrink: 0;
+          background-color: var(--hd-slide-bg, #ffffff);
+          display: block;
+        }
+        .end-presentation {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 100%;
+          font-family: var(--hd-presenter-font, sans-serif);
+          font-size: var(--hd-presenter-preview-size, 1.4rem);
+          font-weight: 600;
+          color: var(--hd-presenter-preview-color, #10b981);
+        }
+      </style>
+      <div id="preview">None</div>
+    `;
+    this.handleMessage = this.handleMessage.bind(this);
+    this.resizePreview = this.resizePreview.bind(this);
+    this.aspectRatio = '16:9';
+    this.resizeObserver = null;
+  }
+
+  connectedCallback() {
+    channel.addEventListener('message', this.handleMessage);
+    const wrapper = this.shadowRoot.getElementById('preview');
+    if (wrapper) {
+      this.resizeObserver = new ResizeObserver(() => this.resizePreview());
+      this.resizeObserver.observe(wrapper);
+    }
+    requestSync();
+  }
+
+  disconnectedCallback() {
+    channel.removeEventListener('message', this.handleMessage);
+    if (this.resizeObserver) {
+      this.resizeObserver.disconnect();
+    }
+  }
+
+  handleMessage(event) {
+    const { type, activeHTML, nextTitle, nextHTML, aspectRatio } = event.data;
+    if (type === 'sync') {
+      this.aspectRatio = aspectRatio || '16:9';
+      const typeAttr = this.getAttribute('type') || 'next';
+      const container = this.shadowRoot.getElementById('preview');
+
+      let targetHTML = '';
+      if (typeAttr === 'current') {
+        targetHTML = activeHTML;
+      } else {
+        targetHTML = nextHTML;
+      }
+
+      if (targetHTML) {
+        container.innerHTML = `
+          <div class="preview-wrapper">
+            <div class="preview-container">
+              ${targetHTML}
+            </div>
+          </div>
+        `;
+        const slide = container.querySelector('hd-slide, hd-title-slide');
+        if (slide) {
+          slide.setAttribute('active', '');
+          slide.setAttribute('transition-style', 'none');
+        }
+
+        // Force browser repaint/reflow to avoid GPU compositing bugs under scale transforms (black screen)
+        const containerEl = container.querySelector('.preview-container');
+        if (containerEl) {
+          containerEl.style.display = 'none';
+          containerEl.offsetHeight; // trigger reflow
+          containerEl.style.display = 'block';
+        }
+
+        // Use requestAnimationFrame to ensure styles have been evaluated and layout is ready
+        requestAnimationFrame(() => {
+          this.resizePreview();
+        });
+      } else {
+        const placeholderText = typeAttr === 'current' ? 'No slide' : (nextTitle || 'End of Presentation');
+        container.innerHTML = `<div class="end-presentation">${placeholderText}</div>`;
+      }
+    }
+  }
+
+  resizePreview() {
+    const wrapper = this.shadowRoot.querySelector('.preview-wrapper');
+    const container = this.shadowRoot.querySelector('.preview-container');
+    if (!wrapper || !container) return;
+
+    const wWidth = wrapper.clientWidth;
+    const wHeight = wrapper.clientHeight;
+
+    let ratio = 16 / 9;
+    const attr = this.aspectRatio || '16:9';
+    if (attr.includes(':')) {
+      const [w, h] = attr.split(':').map(Number);
+      if (w && h) ratio = w / h;
+    } else {
+      const num = Number(attr);
+      if (!isNaN(num) && num > 0) ratio = num;
+    }
+
+    const baseHeight = 540;
+    const baseWidth = baseHeight * ratio;
+
+    const scaleX = wWidth / baseWidth;
+    const scaleY = wHeight / baseHeight;
+    const scale = Math.min(scaleX, scaleY);
+
+    container.style.width = `${baseWidth}px`;
+    container.style.height = `${baseHeight}px`;
+    // Use translate(-50%, -50%) to offset the top/left 50% absolute positioning centering
+    container.style.transform = `translate(-50%, -50%) scale(${scale})`;
+  }
+}

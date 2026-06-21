@@ -415,20 +415,54 @@ export class HdDeck extends HTMLElement {
     this.syncPresenter();
   }
 
+  resolveRelativePaths(element) {
+    if (!element) return '';
+    const clone = element.cloneNode(true);
+    
+    // Helper to make URLs absolute relative to current deck page
+    const makeAbsolute = (attrName) => {
+      clone.querySelectorAll(`[${attrName}]`).forEach(el => {
+        const val = el.getAttribute(attrName);
+        if (val && !val.startsWith('http://') && !val.startsWith('https://') && !val.startsWith('/') && !val.startsWith('data:')) {
+          try {
+            el.setAttribute(attrName, new URL(val, window.location.href).href);
+          } catch (e) {
+            console.warn(`Failed to resolve relative path for attribute ${attrName}: ${val}`, e);
+          }
+        }
+      });
+    };
+
+    // Resolve 'src' and 'href' attributes
+    makeAbsolute('src');
+    makeAbsolute('href');
+
+    return clone.outerHTML;
+  }
+
   syncPresenter() {
+    if (!this.slides || this.slides.length === 0) {
+      this.slides = Array.from(this.querySelectorAll('hd-slide, hd-title-slide'));
+    }
+
     const activeSlide = this.slides[this.currentIndex];
+    const activeHTML = activeSlide ? this.resolveRelativePaths(activeSlide) : '';
     const notesEl = activeSlide ? activeSlide.querySelector('hd-notes') : null;
     const notesText = notesEl ? notesEl.innerHTML : 'No notes.';
 
     const nextSlide = this.slides[this.currentIndex + 1];
     const nextTitle = nextSlide ? (nextSlide.getAttribute('title') || `Slide ${this.currentIndex + 2}`) : 'End of Deck';
+    const nextHTML = nextSlide ? this.resolveRelativePaths(nextSlide) : '';
 
     this.channel.postMessage({
       type: 'sync',
       index: this.currentIndex,
       total: this.slides.length,
       notes: notesText,
-      nextTitle: nextTitle
+      activeHTML: activeHTML,
+      nextTitle: nextTitle,
+      nextHTML: nextHTML,
+      aspectRatio: this.getAttribute('aspect-ratio') || '16:9'
     });
   }
 

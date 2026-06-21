@@ -31,7 +31,7 @@ const hasPresenter = args.includes('--presenter');
 // Determine correct relative path to src/html-deck.js
 // Assuming user runs this command from the project root
 let relativeScriptPath = './src/html-deck.js';
-let relativePresenterPath = './demo/presenter.html';
+let relativePresenterPath = './demo/tutorial/presenter.html';
 
 // Calculate if output directory is nested, adjust relative path
 const absoluteOutputDir = path.resolve(path.dirname(outputFile));
@@ -39,7 +39,7 @@ const projectRoot = process.cwd();
 if (absoluteOutputDir !== projectRoot) {
   const relativeDepth = path.relative(absoluteOutputDir, projectRoot);
   relativeScriptPath = path.join(relativeDepth, 'src/html-deck.js');
-  relativePresenterPath = path.join(relativeDepth, 'demo/presenter.html');
+  relativePresenterPath = path.join(relativeDepth, 'demo/tutorial/presenter.html');
 }
 
 const presenterAttr = hasPresenter ? ` presenter-url="${relativePresenterPath}"` : '';

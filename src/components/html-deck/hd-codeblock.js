@@ -1,4 +1,4 @@
-import { prismCSSTextPromise } from '../html-deck.js';
+import { prismCSSTextPromise } from '../../html-deck.js';
 
 export class HdCodeblock extends HTMLElement {
   static get observedAttributes() {

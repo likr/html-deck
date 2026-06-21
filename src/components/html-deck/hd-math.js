@@ -1,4 +1,4 @@
-import { katexCSSTextPromise } from '../html-deck.js';
+import { katexCSSTextPromise } from '../../html-deck.js';
 
 export class HdMath extends HTMLElement {
   static get observedAttributes() {

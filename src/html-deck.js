@@ -6,21 +6,21 @@ import '../vendor/prismjs/prism.js';
 
 import { loadGlobalCSS, fetchCSS } from './utils/loader.js';
 
-import { HdDeck } from './components/hd-deck.js';
-import { HdSlide } from './components/hd-slide.js';
-import { HdHeading } from './components/hd-heading.js';
-import { HdText } from './components/hd-text.js';
-import { HdList } from './components/hd-list.js';
-import { HdColumns } from './components/hd-columns.js';
-import { HdColumn } from './components/hd-column.js';
-import { HdCodeblock } from './components/hd-codeblock.js';
-import { HdMath } from './components/hd-math.js';
-import { HdNotes } from './components/hd-notes.js';
-import { HdImage } from './components/hd-image.js';
-import { HdTable } from './components/hd-table.js';
-import { HdTitleSlide } from './components/hd-title-slide.js';
-import { HdFootnote } from './components/hd-footnote.js';
-import { HdCallout } from './components/hd-callout.js';
+import { HdDeck } from './components/html-deck/hd-deck.js';
+import { HdSlide } from './components/html-deck/hd-slide.js';
+import { HdHeading } from './components/html-deck/hd-heading.js';
+import { HdText } from './components/html-deck/hd-text.js';
+import { HdList } from './components/html-deck/hd-list.js';
+import { HdColumns } from './components/html-deck/hd-columns.js';
+import { HdColumn } from './components/html-deck/hd-column.js';
+import { HdCodeblock } from './components/html-deck/hd-codeblock.js';
+import { HdMath } from './components/html-deck/hd-math.js';
+import { HdNotes } from './components/html-deck/hd-notes.js';
+import { HdImage } from './components/html-deck/hd-image.js';
+import { HdTable } from './components/html-deck/hd-table.js';
+import { HdTitleSlide } from './components/html-deck/hd-title-slide.js';
+import { HdFootnote } from './components/html-deck/hd-footnote.js';
+import { HdCallout } from './components/html-deck/hd-callout.js';
 
 // Load KaTeX global stylesheet immediately (needed for @font-face rules)
 loadGlobalCSS('vendor/katex/katex.min.css');
