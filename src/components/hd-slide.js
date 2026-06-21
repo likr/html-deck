@@ -1,0 +1,194 @@
+const TEMPLATE = document.createElement('template');
+TEMPLATE.innerHTML = `
+<style>
+  :host {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    padding: var(--hd-slide-padding, 60px 80px);
+    background-color: var(--hd-slide-bg, #000000);
+    color: var(--hd-slide-text-color, var(--hd-text-color, #f8fafc));
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  :host([active]) {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  /* Transitions */
+  :host([transition-style="fade"]) {
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+  }
+  
+  :host([transition-style="none"]) {
+    transition: none;
+  }
+
+  /* Slide Content Box styling */
+  .slide-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Layout variations */
+  
+  /* 1. Title Layout (Centered) */
+  :host([layout="title"]) .slide-content {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  /* 2. Title-Body Layout */
+  :host([layout="title-body"]) .slide-content {
+    justify-content: flex-start;
+    align-items: stretch;
+  }
+  :host([layout="title-body"]) .body-area {
+    margin-top: 40px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* 3. Split Layout */
+  :host([layout="split"]) .slide-content {
+    display: flex;
+    flex-direction: column;
+  }
+  :host([layout="split"]) .split-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    flex-grow: 1;
+    margin-top: 40px;
+    align-items: stretch;
+  }
+
+  /* 4. Blank Layout */
+  :host([layout="blank"]) {
+    padding: 0;
+  }
+
+  /* Sizing and alignment layout-root wrapper */
+  #layout-root {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Print optimization */
+  @media print {
+    :host {
+      display: flex !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      position: relative !important;
+      width: 297mm !important;
+      height: 210mm !important;
+      page-break-after: always !important;
+      break-inside: avoid !important;
+      overflow: hidden !important;
+      background-color: var(--hd-slide-bg, #000000) !important;
+      color: var(--hd-slide-text-color, var(--hd-text-color, #f8fafc)) !important;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+      box-sizing: border-box !important;
+    }
+    .slide-content {
+      display: flex !important;
+      height: 100% !important;
+    }
+    #layout-root {
+      display: flex !important;
+      height: 100% !important;
+    }
+  }
+</style>
+<div class="slide-content">
+  <div id="layout-root">
+    <!-- Render content dynamically based on layout -->
+  </div>
+</div>
+`;
+
+export class HdSlide extends HTMLElement {
+  static get observedAttributes() {
+    return ['layout', 'active', 'transition-style'];
+  }
+
+  constructor() {
+    super();
+    this.attachShadow({ mode: 'open' });
+    this.shadowRoot.appendChild(TEMPLATE.content.cloneNode(true));
+  }
+
+  connectedCallback() {
+    this.renderLayout();
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (name === 'layout' && oldValue !== newValue) {
+      this.renderLayout();
+    }
+  }
+
+  renderLayout() {
+    const layout = this.getAttribute('layout') || 'title-body';
+    const root = this.shadowRoot.getElementById('layout-root');
+    if (!root) return;
+
+    // Clear current layout DOM structure
+    root.className = `layout-${layout}`;
+    root.innerHTML = '';
+
+    if (layout === 'title') {
+      root.innerHTML = `
+        <slot name="title"></slot>
+        <slot name="subtitle"></slot>
+        <slot></slot>
+      `;
+    } else if (layout === 'title-body') {
+      root.innerHTML = `
+        <div class="title-area">
+          <slot name="title"></slot>
+        </div>
+        <div class="body-area">
+          <slot></slot>
+        </div>
+      `;
+    } else if (layout === 'split') {
+      root.innerHTML = `
+        <div class="title-area">
+          <slot name="title"></slot>
+        </div>
+        <div class="split-container">
+          <div class="left-pane">
+            <slot name="left"></slot>
+          </div>
+          <div class="right-pane">
+            <slot name="right"></slot>
+          </div>
+        </div>
+        <slot></slot> <!-- general fallback slot -->
+      `;
+    } else {
+      // blank or custom
+      root.innerHTML = `<slot></slot>`;
+    }
+  }
+}

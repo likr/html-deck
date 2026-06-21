@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML-Deck - Agent-First WebComponents Slideshow Library</title>
+  <meta name="description" content="A buildless, lightweight WebComponents-based presentation library designed to be easily read and written by AI agents and humans alike.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #090d16;
+      --bg-surface: rgba(17, 24, 39, 0.7);
+      --border: rgba(255, 255, 255, 0.08);
+      --text: #f3f4f6;
+      --text-muted: #9ca3af;
+      --primary: #3b82f6;       /* Blue */
+      --secondary: #8b5cf6;     /* Purple */
+      --accent: #10b981;        /* Emerald */
+      --font-title: 'Outfit', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --font-mono: 'Fira Code', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 40%);
+      color: var(--text);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header */
+    header {
+      padding: 30px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .brand {
+      font-family: var(--font-title);
+      font-weight: 800;
+      font-size: 1.5rem;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.02em;
+    }
+
+    .demo-link-header {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    .demo-link-header:hover {
+      color: var(--primary);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 100px 0 80px 0;
+      text-align: center;
+      position: relative;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 16px;
+      background: rgba(59, 130, 246, 0.1);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      border-radius: 9999px;
+      color: var(--primary);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      margin-bottom: 24px;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4); }
+      70% { box-shadow: 0 0 0 8px rgba(59, 130, 246, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+    }
+
+    h1 {
+      font-family: var(--font-title);
+      font-size: 4rem;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      letter-spacing: -0.03em;
+    }
+
+    h1 span {
+      background: linear-gradient(135deg, var(--primary), var(--secondary) 50%, var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      max-width: 680px;
+      margin: 0 auto 40px auto;
+    }
+
+    /* Buttons */
+    .cta-group {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-family: var(--font-title);
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #ffffff;
+      border: none;
+      box-shadow: 0 10px 20px -5px rgba(139, 92, 246, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 25px -5px rgba(139, 92, 246, 0.4);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.15);
+      transform: translateY(-2px);
+    }
+
+    /* Features Grid */
+    .features {
+      padding: 80px 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .feature-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      backdrop-filter: blur(12px);
+      transition: all 0.3s;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .feature-card:hover {
+      border-color: rgba(59, 130, 246, 0.3);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.2);
+    }
+
+    .feature-icon {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      display: inline-block;
+    }
+
+    .feature-card h3 {
+      font-family: var(--font-title);
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .feature-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    /* Usage Guide */
+    .usage {
+      padding: 80px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-title {
+      font-family: var(--font-title);
+      font-size: 2.2rem;
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--text-muted);
+      margin-bottom: 50px;
+    }
+
+    .code-container {
+      background: #0b0f19;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 30px;
+      max-width: 800px;
+      margin: 0 auto;
+      overflow-x: auto;
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+    }
+
+    pre {
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      color: #e2e8f0;
+    }
+
+    .keyword { color: #f43f5e; }
+    .tag { color: #3b82f6; }
+    .attr { color: #10b981; }
+    .val { color: #eab308; }
+    .comment { color: #64748b; font-style: italic; }
+
+    /* Footer */
+    footer {
+      padding: 60px 0 30px 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 2.8rem; }
+      .cta-group { flex-direction: column; align-items: stretch; max-width: 320px; margin: 0 auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <div class="brand">HTML-DECK</div>
+      <a href="demo/tutorial.html" class="demo-link-header">Launch Tutorial Demo</a>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="badge">BUILDLESS & OFFLINE READY</div>
+        <h1>Slideshows Built for<br><span>AI Coding Agents & Humans</span></h1>
+        <p class="subtitle">A WebComponents-based presentation library with a flat, declarative DOM tree. Clean APIs make it extremely easy for coding agents to maintain, update, and build slides.</p>
+        
+        <div class="cta-group">
+          <a href="demo/tutorial.html" class="btn btn-primary" id="btn-demo">Open Interactive Tutorial</a>
+          <a href="#quick-start" class="btn btn-secondary">View Documentation</a>
+        </div>
+      </section>
+
+      <section class="features">
+        <div class="feature-card">
+          <span class="feature-icon">🤖</span>
+          <h3>Agent-First Design</h3>
+          <p>Flat markup avoids the deeply nested section tags typical of Reveal.js. Simple layout attributes like layout="split" prevent AI syntax errors.</p>
+        </div>
+
+        <div class="feature-card">
+          <span class="feature-icon">⚡</span>
+          <h3>Build-Free</h3>
+          <p>No bundling, Vite, or npm scripts needed. Just import index.js into a plain HTML file, and you are ready to write slides.</p>
+        </div>
+
+        <div class="feature-card">
+          <span class="feature-icon">📶</span>
+          <h3>Offline Support</h3>
+          <p>Math equations (KaTeX) and syntax highlighting (PrismJS) are resolved from local vendor files, enabling complete offline editing.</p>
+        </div>
+
+        <div class="feature-card">
+          <span class="feature-icon">👤</span>
+          <h3>Presenter Synchronizer</h3>
+          <p>Press 'P' to open a separate presenter dashboard. Uses BroadcastChannel to sync slides, elapsed clocks, and presenter notes.</p>
+        </div>
+
+        <div class="feature-card">
+          <span class="feature-icon">🖨️</span>
+          <h3>Flawless Printing</h3>
+          <p>Prints cleanly out of the box. Automatically enforces aspect ratio constraints on A4 Landscape sheets and removes UI elements.</p>
+        </div>
+
+        <div class="feature-card">
+          <span class="feature-icon">🎨</span>
+          <h3>CSS Variable Customization</h3>
+          <p>No opinionated theme constraints. Define colors, font sizes, transitions, and line-heights globally using custom properties.</p>
+        </div>
+      </section>
+
+      <section class="usage" id="quick-start">
+        <h2 class="section-title">Quick Start</h2>
+        <p class="section-subtitle">Writing a presentation is as simple as creating an HTML file.</p>
+
+        <div class="code-container">
+          <pre><code><span class="comment">&lt;!-- index.html --&gt;</span>
+&lt;<span class="tag">!DOCTYPE html</span>&gt;
+&lt;<span class="tag">html</span> <span class="attr">lang</span>=<span class="val">"en"</span>&gt;
+&lt;<span class="tag">head</span>&gt;
+  &lt;<span class="tag">meta</span> <span class="attr">charset</span>=<span class="val">"UTF-8"</span>&gt;
+  &lt;<span class="tag">title</span>&gt;My Presentation&lt;/<span class="tag">title</span>&gt;
+  
+  <span class="comment">&lt;!-- 1. Load HTML-Deck Script --&gt;</span>
+  &lt;<span class="tag">script</span> <span class="attr">type</span>=<span class="val">"module"</span> <span class="attr">src</span>=<span class="val">"./src/index.js"</span>&gt;&lt;/<span class="tag">script</span>&gt;
+  
+  <span class="comment">&lt;!-- 2. Customize variables globally --&gt;</span>
+  &lt;<span class="tag">style</span>&gt;
+    <span class="keyword">:root</span> {
+      <span class="keyword">--hd-slide-bg</span>: <span class="val">#0f172a</span>;
+      <span class="keyword">--hd-text-color</span>: <span class="val">#f8fafc</span>;
+      <span class="keyword">--hd-primary</span>: <span class="val">#3b82f6</span>;
+    }
+  &lt;/<span class="tag">style</span>&gt;
+&lt;/<span class="tag">head</span>&gt;
+&lt;<span class="tag">body</span>&gt;
+
+  <span class="comment">&lt;!-- 3. Declare slides --&gt;</span>
+  &lt;<span class="tag">hd-deck</span> <span class="attr">transition</span>=<span class="val">"fade"</span> <span class="attr">presenter-url</span>=<span class="val">"./demo/presenter.html"</span> <span class="attr">aspect-ratio</span>=<span class="val">"16:9"</span>&gt;
+    
+    <span class="comment">&lt;!-- Title Slide --&gt;</span>
+    &lt;<span class="tag">hd-slide</span> <span class="attr">layout</span>=<span class="val">"title"</span>&gt;
+      &lt;<span class="tag">hd-heading</span>&gt;Welcome to HTML-Deck&lt;/<span class="tag">hd-heading</span>&gt;
+      &lt;<span class="tag">hd-text</span>&gt;An elegant presentation engine&lt;/<span class="tag">hd-text</span>&gt;
+    &lt;/<span class="tag">hd-slide</span>&gt;
+
+    <span class="comment">&lt;!-- Bullet Slide with Speaker Notes --&gt;</span>
+    &lt;<span class="tag">hd-slide</span> <span class="attr">layout</span>=<span class="val">"title-body"</span>&gt;
+      &lt;<span class="tag">hd-heading</span> <span class="attr">slot</span>=<span class="val">"title"</span> <span class="attr">level</span>=<span class="val">"2"</span>&gt;Presentation Agenda&lt;/<span class="tag">hd-heading</span>&gt;
+      &lt;<span class="tag">hd-list</span>&gt;
+        &lt;<span class="tag">li</span>&gt;WebComponents Introduction&lt;/<span class="tag">li</span>&gt;
+        &lt;<span class="tag">li</span>&gt;Declarative layouts&lt;/<span class="tag">li</span>&gt;
+        &lt;<span class="tag">li</span>&gt;KaTeX & PrismJS rendering&lt;/<span class="tag">li</span>&gt;
+      &lt;/<span class="tag">hd-list</span>&gt;
+      &lt;<span class="tag">hd-notes</span>&gt;
+        &lt;<span class="tag">h2</span>&gt;Presenter notes&lt;/<span class="tag">h2</span>&gt;
+        &lt;<span class="tag">p</span>&gt;Emphasize that custom elements prevent library pollution.&lt;/p&gt;
+      &lt;/<span class="tag">hd-notes</span>&gt;
+    &lt;/<span class="tag">hd-slide</span>&gt;
+
+  &lt;/<span class="tag">hd-deck</span>&gt;
+&lt;/<span class="tag">body</span>&gt;
+&lt;/<span class="tag">html</span>&gt;</code></pre>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 HTML-Deck Presentation Engine. MIT License.</p>
+    </footer>
+  </div>
+
+</body>
+</html>
