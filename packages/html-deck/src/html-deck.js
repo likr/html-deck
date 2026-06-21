@@ -9,9 +9,6 @@ import Prism from 'prismjs';
 window.katex = katex;
 window.Prism = Prism;
 
-// Import their CSS as raw strings for bundling into html-deck.css and Shadow DOM injection
-import katexCssText from 'katex/dist/katex.min.css?raw';
-import prismCssText from 'prismjs/themes/prism.css?raw';
 
 import { HdDeck } from './components/html-deck/hd-deck.js';
 import { HdSlide } from './components/html-deck/hd-slide.js';
@@ -28,16 +25,6 @@ import { HdTable } from './components/html-deck/hd-table.js';
 import { HdTitleSlide } from './components/html-deck/hd-title-slide.js';
 import { HdFootnote } from './components/html-deck/hd-footnote.js';
 import { HdCallout } from './components/html-deck/hd-callout.js';
-
-// Resolve the base URL of fonts relative to the current module script.
-// The built fonts folder is co-located with html-deck.js inside dist/ (dist/fonts/)
-const currentModuleUrl = import.meta.url;
-const fontsBaseUrl = new URL('./fonts/', currentModuleUrl).href;
-const resolvedKatexCssText = katexCssText.replace(/url\(fonts\//g, `url(${fontsBaseUrl}`);
-
-// Pre-fetched CSS stylesheets resolved from bundled strings to avoid dynamic fetch at runtime
-export const katexCSSTextPromise = Promise.resolve(resolvedKatexCssText);
-export const prismCSSTextPromise = Promise.resolve(prismCssText);
 
 // Register presentation custom elements
 customElements.define('hd-deck', HdDeck);

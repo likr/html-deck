@@ -147,7 +147,7 @@ export default defineConfig({
         <script type="module">
           // Import source code files as text using Vite raw import
           import codeText from './vite.config.js?raw';
-          document.getElementById('demo-code').setAttribute('code', codeText);
+          document.getElementById('demo-code').textContent = codeText;
         </script>
       </div>
     </hd-slide>

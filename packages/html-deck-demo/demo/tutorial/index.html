@@ -91,7 +91,7 @@
         <hd-codeblock language="html" id="split-layout-code"></hd-codeblock>
         <script type="module">
           import splitCode from './split-layout-example.html?raw';
-          document.getElementById('split-layout-code').setAttribute('code', splitCode);
+          document.getElementById('split-layout-code').textContent = splitCode;
         </script>
       </div>
 
@@ -187,7 +187,7 @@
       <hd-codeblock language="javascript" id="my-component-code"></hd-codeblock>
       <script type="module">
         import myComponentCode from './my-component.js?raw';
-        document.getElementById('my-component-code').setAttribute('code', myComponentCode);
+        document.getElementById('my-component-code').textContent = myComponentCode;
       </script>
 
       <hd-notes>
@@ -257,7 +257,7 @@
             <hd-codeblock language="javascript" id="scroll-demo-code" scrollable="180px"></hd-codeblock>
             <script type="module">
               import scrollDemoCode from './scroll-demo.js?raw';
-              document.getElementById('scroll-demo-code').setAttribute('code', scrollDemoCode);
+              document.getElementById('scroll-demo-code').textContent = scrollDemoCode;
             </script>
           </div>
         </hd-column>
@@ -395,7 +395,7 @@
         <hd-codeblock language="css" id="custom-theme-code"></hd-codeblock>
         <script type="module">
           import customThemeCode from './custom-theme.css?raw';
-          document.getElementById('custom-theme-code').setAttribute('code', customThemeCode);
+          document.getElementById('custom-theme-code').textContent = customThemeCode;
         </script>
       </div>
       <hd-text class="hd-semibold hd-mt-xl">HTML-Deck: Easy slide decks for humans and agents

@@ -115,7 +115,7 @@
         <script type="module">
           // Viteの生テキストインポートを使用して、コードブロックを設定
           import myConfigCode from './vite.config.js?raw';
-          document.getElementById('vite-import-demo').setAttribute('code', myConfigCode);
+          document.getElementById('vite-import-demo').textContent = myConfigCode;
         </script>
       </div>
     </hd-slide>

@@ -220,7 +220,7 @@
       <hd-codeblock language="javascript" id="sample-code-block"></hd-codeblock>
       <script type="module">
         import sampleCode from './sample-code.js?raw';
-        document.getElementById('sample-code-block').setAttribute('code', sampleCode);
+        document.getElementById('sample-code-block').textContent = sampleCode;
       </script>
 
       <hd-notes>

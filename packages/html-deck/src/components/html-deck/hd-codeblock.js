@@ -1,15 +1,31 @@
-import { prismCSSTextPromise } from '../../html-deck.js';
+function resolveAssetUrl(assetName, moduleUrl) {
+  if (moduleUrl.includes('/src/')) {
+    return new URL(`../../../dist/${assetName}`, moduleUrl).href;
+  }
+  if (moduleUrl.includes('/node_modules/.vite/deps/')) {
+    const match = moduleUrl.match(/^(.*)\/node_modules\/\.vite\/deps\//);
+    if (match) {
+      return `${match[1]}/node_modules/html-deck/dist/${assetName}`;
+    }
+  }
+  return new URL(`./${assetName}`, moduleUrl).href;
+}
 
 export class HdCodeblock extends HTMLElement {
   static get observedAttributes() {
-    return ['language', 'code', 'scrollable'];
+    return ['language', 'scrollable'];
   }
 
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
+
+    // Resolve the Prism CSS URL dynamically.
+    // The built prism.css is copied to dist/ at build time.
+    const prismCssUrl = resolveAssetUrl('prism.css', import.meta.url);
+
     this.shadowRoot.innerHTML = `
-      <style id="prism-style"></style>
+      <link rel="stylesheet" href="${prismCssUrl}">
       <style>
         :host {
           display: block;
@@ -67,28 +83,26 @@ export class HdCodeblock extends HTMLElement {
     `;
   }
 
-  async connectedCallback() {
+  connectedCallback() {
     this.updateScrollable();
-    if (this.hasAttribute('code')) {
-      this.rawCode = this.getAttribute('code');
-      this.isInlineHTML = false;
-    } else {
-      this.rawCode = this.innerHTML;
-      this.isInlineHTML = true;
+    this.highlight();
+
+    // Observe textContent changes in Light DOM
+    this.observer = new MutationObserver(() => {
+      this.highlight();
+    });
+    this.observer.observe(this, { childList: true, characterData: true, subtree: true });
+  }
+
+  disconnectedCallback() {
+    if (this.observer) {
+      this.observer.disconnect();
     }
-    this.innerHTML = '';
-    
-    await this.setupHighlighting();
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
     if (oldValue === newValue) return;
-    if (name === 'language' && this.rawCode) {
-      this.highlight();
-    }
-    if (name === 'code') {
-      this.rawCode = newValue;
-      this.isInlineHTML = false;
+    if (name === 'language') {
       this.highlight();
     }
     if (name === 'scrollable') {
@@ -109,46 +123,26 @@ export class HdCodeblock extends HTMLElement {
     }
   }
 
-  async setupHighlighting() {
-    try {
-      // 1. Ensure Prism CSS is loaded and injected into Shadow DOM
-      const cssText = await prismCSSTextPromise;
-      this.shadowRoot.getElementById('prism-style').textContent = cssText;
-      
-      // 2. Perform highlighting
-      this.highlight();
-    } catch (err) {
-      console.error('Failed to load PrismJS dependencies:', err);
-      // Fallback: render raw code without highlight
-      const codeOutput = this.shadowRoot.getElementById('code-output');
-      if (codeOutput) {
-        codeOutput.textContent = this.rawCode;
-      }
-    }
-  }
-
-
-
   highlight() {
     const codeOutput = this.shadowRoot.getElementById('code-output');
-    if (!codeOutput || !window.Prism) return;
+    if (!codeOutput) return;
 
     const lang = this.getAttribute('language') || 'javascript';
     codeOutput.className = `language-${lang}`;
     
-    // Trim raw code
-    let codeText = this.rawCode.trim();
+    // Trim raw code from textContent
+    let codeText = this.textContent.trim();
     
-    // Decode HTML entities (e.g. &lt; -> <) ONLY for inline innerHTML tags
-    if (this.isInlineHTML) {
-      const textarea = document.createElement('textarea');
-      textarea.innerHTML = codeText;
-      codeText = textarea.value;
-    }
+    // Decode HTML entities (e.g. &lt; -> <)
+    const textarea = document.createElement('textarea');
+    textarea.innerHTML = codeText;
+    codeText = textarea.value;
 
     codeOutput.textContent = codeText;
     
     // Trigger Prism highlight
-    window.Prism.highlightElement(codeOutput);
+    if (window.Prism) {
+      window.Prism.highlightElement(codeOutput);
+    }
   }
 }

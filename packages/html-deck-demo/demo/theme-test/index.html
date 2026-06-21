@@ -198,7 +198,7 @@
         Similarly, using <code>bg="secondary"</code> switches the slide background to the secondary theme color, 
         maintaining clear legibility with white text.
       </hd-text>
-      <hd-math block formula="\nabla \times \mathbf{E} = -\frac{\partial \mathbf{B}}{\partial t}"></hd-math>
+      <hd-math block>\nabla \times \mathbf{E} = -\frac{\partial \mathbf{B}}{\partial t}</hd-math>
     </hd-slide>
 
     <!-- Slide 6: Slide Specific Overrides (invert) -->
@@ -214,7 +214,7 @@
       <hd-codeblock language="html" id="invert-code-block"></hd-codeblock>
       <script type="module">
         import invertExampleCode from './invert-example.html?raw';
-        document.getElementById('invert-code-block').setAttribute('code', invertExampleCode);
+        document.getElementById('invert-code-block').textContent = invertExampleCode;
       </script>
     </hd-slide>
 
