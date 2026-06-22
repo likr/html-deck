@@ -34,20 +34,7 @@
   --hd-math-color: var(--hd-text-color);
   --hd-link-color: var(--hd-accent);
 
-  /* Codeblock Specific */
-  --hd-codeblock-bg: #f8fafc; /* Very light cool gray */
-  --hd-codeblock-border: #e2e8f0;
-  --hd-codeblock-text: #0f172a;
 
-  /* Prism syntax tokens - corporate clean */
-  --hd-token-comment: #64748b;
-  --hd-token-keyword: #1e3a8a;   /* corporate navy */
-  --hd-token-string: #0d9488;    /* teal */
-  --hd-token-number: #2563eb;    /* royal blue */
-  --hd-token-operator: #475569;
-  --hd-token-function: #0d9488;
-  --hd-token-builtin: #2563eb;
-  --hd-token-variable: #475569;
 
   /* Title Slide customization */
   --hd-title-slide-align-items: center;

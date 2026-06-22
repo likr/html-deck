@@ -29,20 +29,7 @@
   --hd-math-color: var(--hd-text-color);
   --hd-link-color: var(--hd-primary);
 
-  /* Codeblock Specific */
-  --hd-codeblock-bg: #1e293b; /* Slate 800 */
-  --hd-codeblock-border: rgba(255, 255, 255, 0.1);
-  --hd-codeblock-text: #f8fafc;
 
-  /* Prism syntax tokens - optimized for dark background */
-  --hd-token-comment: #64748b;
-  --hd-token-keyword: #fb923c;   /* orange 400 */
-  --hd-token-string: #4ade80;    /* green 400 */
-  --hd-token-number: #60a5fa;    /* blue 400 */
-  --hd-token-operator: #cbd5e1;  /* slate 300 */
-  --hd-token-function: #f472b6;  /* pink 400 */
-  --hd-token-builtin: #38bdf8;   /* sky 400 */
-  --hd-token-variable: #cbd5e1;
 
   /* Title Slide customization */
   --hd-title-slide-align-items: center;

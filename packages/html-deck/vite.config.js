@@ -1,30 +1,8 @@
 import { defineConfig } from 'vite';
 import { resolve } from 'path';
-import { createRequire } from 'module';
-import { viteStaticCopy } from 'vite-plugin-static-copy';
-const require = createRequire(import.meta.url);
-const katexDistDir = resolve(require.resolve('katex'), '../');
-const prismjsDistDir = resolve(require.resolve('prismjs'), '../');
 
 export default defineConfig({
-  plugins: [
-    viteStaticCopy({
-      targets: [
-        {
-          src: `${katexDistDir}/fonts/*`,
-          dest: 'fonts',
-        },
-        {
-          src: `${katexDistDir}/katex.min.css`,
-          dest: './',
-        },
-        {
-          src: `${prismjsDistDir}/themes/prism.css`,
-          dest: './',
-        },
-      ],
-    }),
-  ],
+  plugins: [],
   build: {
     lib: {
       entry: {

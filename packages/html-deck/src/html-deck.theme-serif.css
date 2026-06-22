@@ -35,20 +35,7 @@
   --hd-math-color: var(--hd-text-color);
   --hd-link-color: var(--hd-danger);
 
-  /* Codeblock Specific */
-  --hd-codeblock-bg: #f5f5f4; /* Clean paper style code background */
-  --hd-codeblock-border: #e7e5e4;
-  --hd-codeblock-text: #1c1917;
 
-  /* Prism syntax tokens - academic publish style */
-  --hd-token-comment: #78716c;
-  --hd-token-keyword: #1c1917;   /* bold ink keywords */
-  --hd-token-string: #44403c;    /* subtle dark brown string */
-  --hd-token-number: #1c1917;
-  --hd-token-operator: #292524;
-  --hd-token-function: #1c1917;
-  --hd-token-builtin: #1c1917;
-  --hd-token-variable: #292524;
 
   /* Title Slide customization */
   --hd-title-slide-align-items: center;

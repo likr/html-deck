@@ -12,6 +12,16 @@
     import 'html-deck/css';
     import './style.css'
   </script>
+
+  <!-- KaTeX CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+
+  <!-- Prism.js CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </head>
 
 <body>
@@ -54,8 +64,7 @@
           AI agents.</li>
         <li><strong>Custom Elements Prefixed with <code>hd-</code></strong>: Prevents conflicts and keeps element
           identification crystal clear.</li>
-        <li><strong>Offline & Self-contained</strong>: Math rendering (KaTeX) and syntax highlighting (Prism.js) are
-          loaded from local vendor copies.</li>
+        <li><strong>Pure & Modular CSS</strong>: Customize mathematical formulas and code blocks with standard CSS variables.</li>
         <li><strong>Highly Stylable</strong>: Skeleton styles are fully customizable via CSS Variables.</li>
       </hd-list>
 
@@ -88,10 +97,12 @@
       <div slot="right" class="grid-card">
         <h3>Right Pane Content</h3>
         <hd-text>You can insert lists, images, or custom divs inside <code>slot="right"</code>.</hd-text>
-        <hd-codeblock language="html" id="split-layout-code"></hd-codeblock>
+        <pre><code class="language-html" id="split-layout-code"></code></pre>
         <script type="module">
           import splitCode from './split-layout-example.html?raw';
-          document.getElementById('split-layout-code').textContent = splitCode;
+          const el = document.getElementById('split-layout-code');
+          el.textContent = splitCode;
+          setTimeout(() => window.Prism && window.Prism.highlightElement(el), 0);
         </script>
       </div>
 
@@ -142,15 +153,15 @@
 
     <!-- Slide 5: Math Equations -->
     <hd-slide layout="title-body" title="KaTeX Mathematical Formulas">
-      <hd-heading slot="title" level="2">LaTeX Math Integration (<code>&lt;hd-math&gt;</code>)</hd-heading>
-      <hd-text>You can render beautiful LaTeX math equations using the local copy of KaTeX. It supports both inline and
+      <hd-heading slot="title" level="2">LaTeX Math Integration</hd-heading>
+      <hd-text>You can render beautiful LaTeX math equations using KaTeX. It supports both inline and
         block equations.</hd-text>
 
       <hd-columns>
         <hd-column>
           <div class="grid-card">
             <h3>Inline Math</h3>
-            <hd-text>The formula <hd-math>f(x) = \int_{-\infty}^{\infty} e^{-x^2} dx</hd-text> fits inline with the
+            <hd-text>The formula <span class="hd-math-inline">\(f(x) = \int_{-\infty}^{\infty} e^{-x^2} dx\)</span> fits inline with the
             standard text flow.</hd-text>
           </div>
         </hd-column>
@@ -158,13 +169,13 @@
           <div class="grid-card">
             <h3>Block Math</h3>
             <hd-text>Render block equations centred and scaled:</hd-text>
-            <hd-math block>
+            <div class="hd-math-block">$$
               A = \begin{pmatrix}
               a_{11} & a_{12} \\
               a_{21} & a_{22}
               \end{pmatrix}, \quad
               \det(A) = a_{11}a_{22} - a_{12}a_{21}
-            </hd-math>
+            $$</div>
           </div>
         </hd-column>
       </hd-columns>
@@ -180,14 +191,15 @@
 
     <!-- Slide 6: Code Block Syntax Highlight -->
     <hd-slide layout="title-body" title="Code Highlighting with PrismJS">
-      <hd-heading slot="title" level="2">Syntax Highlighting (<code>&lt;hd-codeblock&gt;</code>)</hd-heading>
-      <hd-text>Code syntax highlighting is performed automatically inside the Shadow DOM using the local copy of
-        PrismJS.</hd-text>
+      <hd-heading slot="title" level="2">Syntax Highlighting</hd-heading>
+      <hd-text>Code syntax highlighting is performed automatically using PrismJS.</hd-text>
 
-      <hd-codeblock language="javascript" id="my-component-code"></hd-codeblock>
+      <pre><code class="language-javascript" id="my-component-code"></code></pre>
       <script type="module">
         import myComponentCode from './my-component.js?raw';
-        document.getElementById('my-component-code').textContent = myComponentCode;
+        const el = document.getElementById('my-component-code');
+        el.textContent = myComponentCode;
+        setTimeout(() => window.Prism && window.Prism.highlightElement(el), 0);
       </script>
 
       <hd-notes>
@@ -254,10 +266,12 @@
         <hd-column>
           <div class="grid-card">
             <h3>Scrollable Code Block</h3>
-            <hd-codeblock language="javascript" id="scroll-demo-code" scrollable="180px"></hd-codeblock>
+            <pre class="hd-code-scrollable" style="--hd-code-scrollable-height: 180px;"><code class="language-javascript" id="scroll-demo-code"></code></pre>
             <script type="module">
               import scrollDemoCode from './scroll-demo.js?raw';
-              document.getElementById('scroll-demo-code').textContent = scrollDemoCode;
+              const el = document.getElementById('scroll-demo-code');
+              el.textContent = scrollDemoCode;
+              setTimeout(() => window.Prism && window.Prism.highlightElement(el), 0);
             </script>
           </div>
         </hd-column>
@@ -392,10 +406,12 @@
       <hd-heading level="2"><span class="gradient-heading">Customize it with CSS variables</span></hd-heading>
       <hd-text>Modify colors, padding, and fonts easily on the container:</hd-text>
       <div class="hd-max-w-lg hd-mx-auto hd-text-left">
-        <hd-codeblock language="css" id="custom-theme-code"></hd-codeblock>
+        <pre><code class="language-css" id="custom-theme-code"></code></pre>
         <script type="module">
           import customThemeCode from './custom-theme.css?raw';
-          document.getElementById('custom-theme-code').textContent = customThemeCode;
+          const el = document.getElementById('custom-theme-code');
+          el.textContent = customThemeCode;
+          setTimeout(() => window.Prism && window.Prism.highlightElement(el), 0);
         </script>
       </div>
       <hd-text class="hd-semibold hd-mt-xl">HTML-Deck: Easy slide decks for humans and agents
@@ -411,6 +427,21 @@
     </hd-slide>
 
   </hd-deck>
+
+  <script type="module">
+    // Run KaTeX auto-render on load
+    window.addEventListener('load', () => {
+      if (window.renderMathInElement) {
+        window.renderMathInElement(document.body, {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '\\(', right: '\\)', display: false }
+          ],
+          throwOnError: false
+        });
+      }
+    });
+  </script>
 
 </body>
 

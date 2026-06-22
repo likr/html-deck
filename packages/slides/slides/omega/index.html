@@ -19,6 +19,11 @@
     import 'html-deck/css';
     import './style.css'
   </script>
+
+  <!-- KaTeX CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
 </head>
 
 <body>
@@ -51,8 +56,8 @@
             <h3><span class="icon">🔍</span> ストレスベースのグラフ描画</h3>
             <hd-text class="hd-text-sm">
               ノード間の<strong>「理想的な距離」</strong>と、画面上の<strong>「実際の距離」</strong>の差の二乗誤差（ストレス）を最小化する最適化問題。
-              <hd-math block>E(X) = \sum_{i \lt j} w_{ij} (||x_i - x_j|| - d_{ij})^2</hd-math>
-              ここで <hd-math>d_{ij}</hd-math> が理想的な距離、 <hd-math>w_{ij}</hd-math> は重み。
+              <div class="hd-math-block">$$E(X) = \sum_{i \lt j} w_{ij} (||x_i - x_j|| - d_{ij})^2$$</div>
+              ここで <span class="hd-math-inline">\(d_{ij}\)</span> が理想的な距離、 <span class="hd-math-inline">\(w_{ij}\)</span> は重み。
             </hd-text>
           </div>
         </hd-column>
@@ -60,9 +65,9 @@
           <div class="highlight-card">
             <h3><span class="icon">⚠️</span> 従来手法（最短経路距離）の課題</h3>
             <hd-list class="hd-text-xs">
-              <li><strong>大域的構造の欠落：</strong> 最短経路は「1つの最短パス」しか見ないため、並列する複数の迂回経路があるような「強いつながり（クラスタ）」を大域的に捉えられない。</li>
-              <li><strong>高コストな全対最短経路計算：</strong> すべてのノード間の最短経路距離を事前に求めると <hd-math>\mathcal{O}(V^3)</hd-math> や
-                <hd-math>\mathcal{O}(V^2 \log V + VE)</hd-math> の計算量が必要となり、大規模グラフではメモリ・CPUともに限界に達する。
+              <li><strong>大域적構造の欠落：</strong> 最短経路は「1つの最短パス」しか見ないため、並列する複数の迂回経路があるような「強いつながり（クラスタ）」を大域的に捉えられない。</li>
+              <li><strong>高コストな全対最短経路計算：</strong> すべてのノード間の最短経路距離を事前に求めると <span class="hd-math-inline">\(\mathcal{O}(V^3)\)</span> や
+                <span class="hd-math-inline">\(\mathcal{O}(V^2 \log V + VE)\)</span> の計算量が必要となり、大規模グラフではメモリ・CPUともに限界に達する。
               </li>
             </hd-list>
           </div>
@@ -86,7 +91,7 @@
       <hd-heading slot="title" level="2">キーコンセプト：抵抗距離 (Resistance Distance)</hd-heading>
 
       <hd-text class="hd-text-sm">
-        グラフを<strong>「電気回路（すべてのエッジを1Ωの抵抗とする）」</strong>と見立てたときの、2ノード間の<strong>合成抵抗</strong>を理想距離 <hd-math>d_{ij}</hd-math>
+        グラフを<strong>「電気回路（すべてのエッジを1Ωの抵抗とする）」</strong>と見立てたときの、2ノード間の<strong>合成抵抗</strong>を理想距離 <span class="hd-math-inline">\(d_{ij}\)</span>
         として採用。
       </hd-text>
 
@@ -174,11 +179,11 @@
       <hd-columns>
         <hd-column flex="4">
           <div class="highlight-card" style="border-left: 3px solid var(--hd-primary);">
-            <h3><span class="icon">⚡</span> 線形時間 <hd-math>\mathcal{O}(|E|)</hd-math> の実現</h3>
+            <h3><span class="icon">⚡</span> 線形時間 <span class="hd-math-inline">\(\mathcal{O}(|E|)\)</span> の実現</h3>
             <hd-list class="hd-text-xs">
               <li><strong>高速な埋め込み事前計算：</strong> グラフラプラシアンの有効な固有値スペクトルを利用し、抵抗距離をユークリッド空間へ高速に等長埋め込み。</li>
-              <li><strong>ランダムペアサンプリングの統合：</strong> SGD（確率的勾配降下法）を用いることで、全ノード対のストレス計算を省略。エッジ数に比例した
-                <hd-math>\mathcal{O}(|E|)</hd-math> 時間での最適化を達成。
+              <li><strong>ランダムペアサンプリングの統合：</strong> SGD（確率的勾ないしは降下法）を用いることで、全ノード対のストレス計算を省略。エッジ数に比例した
+                <span class="hd-math-inline">\(\mathcal{O}(|E|)\)</span> 時間での最適化を達成。
               </li>
             </hd-list>
           </div>
@@ -278,9 +283,9 @@
             <h3><span class="icon">🏆</span> 本研究の貢献</h3>
             <hd-list class="hd-text-xs">
               <li><strong>理論的架け橋：</strong>
-                「スペクトラルグラフ理論」と「ストレスベースレイアウト」という、独立して研究されがちだった2分野の間に強固な数学的結びつき（抵抗距離の埋め込み）を実証した。</li>
+                「スペクトラルグラフ理論」と「ストレスベースレイアウト」という、独立して研究されがちだった2分野の間に強混な数学的結びつき（抵抗距離の埋め込み）を実証した。</li>
               <li class="hd-mt-sm"><strong>実用的な可視化：</strong> 実世界の大規模で複雑なソーシャルネットワークや共著関係ネットワークに対して、高速かつ忠実度の高いレイアウトシステムを
-                <hd-math>\mathcal{O}(|E|)</hd-math> で提供。
+                <span class="hd-math-inline">\(\mathcal{O}(|E|)\)</span> で提供。
               </li>
             </hd-list>
           </div>
@@ -303,6 +308,21 @@
     </hd-slide>
 
   </hd-deck>
+
+  <script type="module">
+    // Run KaTeX auto-render on load
+    window.addEventListener('load', () => {
+      if (window.renderMathInElement) {
+        window.renderMathInElement(document.body, {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '\\(', right: '\\)', display: false }
+          ],
+          throwOnError: false
+        });
+      }
+    });
+  </script>
 
 </body>
 

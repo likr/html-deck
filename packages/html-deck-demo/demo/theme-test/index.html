@@ -14,6 +14,16 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Outfit:wght@400;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Space+Grotesk:wght@400;600;700&display=swap"
     rel="stylesheet">
 
+  <!-- KaTeX CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+
+  <!-- Prism.js CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+
   <!-- Main Library Style & Script -->
   <script type="module">
     import 'html-deck';
@@ -115,15 +125,17 @@
         <hd-column>
           <hd-heading level="2">Formatted Formula</hd-heading>
           <hd-text>Mathematical equations automatically align text colors with the selected theme:</hd-text>
-          <hd-math block>f(x) = \int_{-\infty}^{\infty} \hat{f}(\xi)\,e^{2 \pi i \xi x}\,d\xi</hd-math>
-          <hd-text>Inline math <hd-math>E = mc^2</hd-math> works perfectly too.</hd-text>
+          <div class="hd-math-block">$$f(x) = \int_{-\infty}^{\infty} \hat{f}(\xi)\,e^{2 \pi i \xi x}\,d\xi$$</div>
+          <hd-text>Inline math <span class="hd-math-inline">\(E = mc^2\)</span> works perfectly too.</hd-text>
         </hd-column>
         <hd-column>
           <hd-heading level="2">Syntax Highlighter</hd-heading>
-          <hd-codeblock language="javascript" id="scale-code-block"></hd-codeblock>
+          <pre><code class="language-javascript" id="scale-code-block"></code></pre>
           <script type="module">
             import scaleUtilCode from './scale-util.js?raw';
-            document.getElementById('scale-code-block').textContent = scaleUtilCode;
+            const el = document.getElementById('scale-code-block');
+            el.textContent = scaleUtilCode;
+            setTimeout(() => window.Prism && window.Prism.highlightElement(el), 0);
           </script>
         </hd-column>
       </hd-columns>
@@ -154,7 +166,7 @@
         Similarly, using <code>bg="secondary"</code> switches the slide background to the secondary theme color,
         maintaining clear legibility with white text.
       </hd-text>
-      <hd-math block>\nabla \times \mathbf{E} = -\frac{\partial \mathbf{B}}{\partial t}</hd-math>
+      <div class="hd-math-block">$$\nabla \times \mathbf{E} = -\frac{\partial \mathbf{B}}{\partial t}$$</div>
     </hd-slide>
 
     <!-- Slide 6: Slide Specific Overrides (invert) -->
@@ -167,10 +179,12 @@
       <hd-text>
         For instance, in the default light theme, this slide becomes dark. In dark themes, it will become light.
       </hd-text>
-      <hd-codeblock language="html" id="invert-code-block"></hd-codeblock>
+      <pre><code class="language-html" id="invert-code-block"></code></pre>
       <script type="module">
         import invertExampleCode from './invert-example.html?raw';
-        document.getElementById('invert-code-block').textContent = invertExampleCode;
+        const el = document.getElementById('invert-code-block');
+        el.textContent = invertExampleCode;
+        setTimeout(() => window.Prism && window.Prism.highlightElement(el), 0);
       </script>
     </hd-slide>
 
@@ -189,6 +203,19 @@
       } else {
         // Clear theme (back to default)
         themeLink.href = '';
+      }
+    });
+
+    // Run KaTeX auto-render on load
+    window.addEventListener('load', () => {
+      if (window.renderMathInElement) {
+        window.renderMathInElement(document.body, {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '\\(', right: '\\)', display: false }
+          ],
+          throwOnError: false
+        });
       }
     });
   </script>

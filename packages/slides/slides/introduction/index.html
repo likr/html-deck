@@ -1,68 +1,36 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HTML-Deck イントロダクション</title>
-  
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Outfit:wght@400;600;700;800&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Outfit:wght@400;600;700;800&family=Noto+Sans+JP:wght@400;700&display=swap"
+    rel="stylesheet">
 
   <!-- Load HTML-Deck Script and CSS -->
   <script type="module">
     import 'html-deck';
     import 'html-deck/css';
+    import './style.css'
   </script>
 
-  <style>
-    :root {
-      --hd-slide-bg: #0b0f19;
-      --hd-text-color: #f1f5f9;
-      --hd-primary: #3b82f6;
-      --hd-secondary: #ec4899;
-      --hd-accent: #10b981;
-      --hd-font-family: 'Outfit', 'Noto Sans JP', sans-serif;
-      --hd-slide-padding: 60px 80px;
-    }
+  <!-- KaTeX CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
 
-    .gradient-text {
-      background: linear-gradient(135deg, var(--hd-primary), var(--hd-secondary));
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .badge {
-      display: inline-block;
-      padding: 4px 10px;
-      background: rgba(59, 130, 246, 0.1);
-      border: 1px solid rgba(59, 130, 246, 0.3);
-      color: var(--hd-primary);
-      border-radius: 9999px;
-      font-size: 11px;
-      font-weight: 600;
-      margin-bottom: 12px;
-    }
-
-    .feature-card {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      border-radius: 8px;
-      padding: 16px;
-      height: 100%;
-      box-sizing: border-box;
-    }
-
-    .feature-card h3 {
-      font-size: 14px;
-      color: var(--hd-primary);
-      margin-top: 0;
-      margin-bottom: 8px;
-    }
-  </style>
+  <!-- Prism.js CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </head>
+
 <body>
 
   <hd-deck transition="fade" aspect-ratio="16:9" presenter-url="presenter.html">
@@ -83,8 +51,9 @@
     <!-- スライド2: コアコンセプト -->
     <hd-slide layout="title-body" title="コアコンセプト">
       <hd-heading slot="title" level="2">なぜ HTML-Deck なのか？</hd-heading>
-      <hd-text>Reveal.js のような既存のフレームワークは複雑な階層構造（nested section）を持つため、AIエージェントがHTMLを編集する際に構造を壊しがちでした。HTML-Deckはフラットで直感的なDOM構成を維持します。</hd-text>
-      
+      <hd-text>Reveal.js のような既存のフレームワークは複雑な階層構造（nested
+        section）を持つため、AIエージェントがHTMLを編集する際に構造を壊しがちでした。HTML-Deckはフラットで直感的なDOM構成を維持します。</hd-text>
+
       <hd-columns>
         <hd-column>
           <div class="feature-card">
@@ -104,18 +73,21 @@
     <!-- スライド3: コードブロックとViteインポート -->
     <hd-slide layout="split" title="コードブロックとViteの連携">
       <hd-heading slot="title" level="2">Vite によるソースコード読み込み</hd-heading>
-      
+
       <div slot="left">
-        <hd-text><code>&lt;hd-codeblock&gt;</code> は、Vite の <code>?raw</code> クエリを使ったテキストインポートと完璧に連携します。</hd-text>
-        <hd-text class="hd-text-muted hd-text-sm">従来の実行時フェッチによるパスの狂いやプレゼンタービューでのリンクエラーがなくなり、完全にビルド時にコードが解決されます。</hd-text>
+        <hd-text>標準の <code>&lt;pre&gt;&lt;code&gt;</code> タグは、Vite の <code>?raw</code> クエリを使ったテキストインポートと完璧に連携します。</hd-text>
+        <hd-text
+          class="hd-text-muted hd-text-sm">従来の実行時フェッチによるパスの狂いやプレゼンタービューでのリンクエラーがなくなり、完全にビルド時にコードが解決されます。</hd-text>
       </div>
 
       <div slot="right">
-        <hd-codeblock language="javascript" id="vite-import-demo"></hd-codeblock>
+        <pre><code class="language-javascript" id="vite-import-demo"></code></pre>
         <script type="module">
           // Viteの生テキストインポートを使用して、コードブロックを設定
           import myConfigCode from '../../vite.config.js?raw';
-          document.getElementById('vite-import-demo').textContent = myConfigCode;
+          const el = document.getElementById('vite-import-demo');
+          el.textContent = myConfigCode;
+          setTimeout(() => window.Prism && window.Prism.highlightElement(el), 0);
         </script>
       </div>
     </hd-slide>
@@ -123,7 +95,7 @@
     <!-- スライド4: プレゼンター同期と印刷 -->
     <hd-slide layout="title-body" title="プレゼンター機能とPDFエクスポート">
       <hd-heading slot="title" level="2">実用的なプレゼンツール</hd-heading>
-      
+
       <hd-columns>
         <hd-column>
           <div class="feature-card">
@@ -150,5 +122,21 @@
 
   </hd-deck>
 
+  <script type="module">
+    // Run KaTeX auto-render on load
+    window.addEventListener('load', () => {
+      if (window.renderMathInElement) {
+        window.renderMathInElement(document.body, {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '\\(', right: '\\)', display: false }
+          ],
+          throwOnError: false
+        });
+      }
+    });
+  </script>
+
 </body>
+
 </html>

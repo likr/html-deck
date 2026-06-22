@@ -34,20 +34,7 @@
   --hd-math-color: var(--hd-primary); /* mathematical equations glow cyan */
   --hd-link-color: var(--hd-secondary);
 
-  /* Codeblock Specific */
-  --hd-codeblock-bg: #090914; /* Deep Cyber Navy */
-  --hd-codeblock-border: rgba(0, 242, 254, 0.25);
-  --hd-codeblock-text: #00f2fe;
 
-  /* Prism syntax tokens - neon glowing style */
-  --hd-token-comment: #475569;
-  --hd-token-keyword: #fe019a;   /* glowing pink */
-  --hd-token-string: #39ff14;    /* glowing green */
-  --hd-token-number: #00f2fe;    /* glowing cyan */
-  --hd-token-operator: #ffffff;
-  --hd-token-function: #ffe600;  /* glowing yellow */
-  --hd-token-builtin: #00f2fe;
-  --hd-token-variable: #e2e8f0;
 
   /* Title Slide customization */
   --hd-title-slide-align-items: center;
