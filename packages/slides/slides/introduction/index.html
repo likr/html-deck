@@ -44,65 +44,74 @@
   <hd-deck transition="fade" aspect-ratio="16:9" presenter-url="presenter.html">
 
     <!-- 1枚目: タイトル -->
-    <hd-slide-cover>
-      <h1 slot="title">html-deck ← 作った</h1>
-      <h2 slot="subtitle">退屈なスライド作りはAIにやらせよう</h2>
-      <div slot="meta">
-        <div>おのうえ（@_likr）</div>
-        <div>LoGeek LT会</div>
-        <div>2026年6月22日</div>
-      </div>
-    </hd-slide-cover>
+    <hd-slide>
+      <hd-layout-cover>
+        <h1 slot="title">html-deck ← 作った</h1>
+        <h2 slot="subtitle">退屈なスライド作りはAIにやらせよう</h2>
+        <div slot="meta">
+          <div>おのうえ（@_likr）</div>
+          <div>LoGeek LT会</div>
+          <div>2026年6月22日</div>
+        </div>
+      </hd-layout-cover>
+    </hd-slide>
 
     <!-- 2枚目: ぶっちゃけダルクね？ -->
-    <hd-slide-standard>
+    <hd-slide>
       <div
         style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%; width: 100%;">
         <h1 style="font-size: 76px !important; margin: 0; font-weight: 800; text-align: center; width: 100%;">
           スライド作るのぶっちゃけダルくね？
         </h1>
       </div>
-    </hd-slide-standard>
+    </hd-slide>
 
     <!-- 3枚目: AIにスライドを作らせよう -->
-    <hd-slide-standard>
-      <h2 slot="title">AIにスライドを作らせよう</h2>
-      <hd-list>
-        <li>Gemini + Canvas (<a
-            href="https://docs.google.com/presentation/d/1JRqbeA7KVxoru7u58VwCyhoNjZ13KPcybLilKXxOzMM/edit?usp=sharing"
-            target="_blank" style="color: var(--hd-primary); text-decoration: underline;">スライドの例</a>)</li>
-        <li>Google Drive + Gemini (<a
-            href="https://docs.google.com/presentation/d/1orNS70t_yQlZy9RgrJo5S6RJi2Kdc2C9Onw4jA6cQBc/edit?usp=sharing"
-            target="_blank" style="color: var(--hd-primary); text-decoration: underline;">スライドの例</a>)</li>
-        <li>Reveal.js + Antigravity</li>
-      </hd-list>
-    </hd-slide-standard>
+    <hd-slide>
+      <hd-layout-standard>
+        <h2 slot="title">AIにスライドを作らせよう</h2>
+        <hd-list>
+          <li>Gemini + Canvas (<a
+              href="https://docs.google.com/presentation/d/1JRqbeA7KVxoru7u58VwCyhoNjZ13KPcybLilKXxOzMM/edit?usp=sharing"
+              target="_blank" style="color: var(--hd-primary); text-decoration: underline;">スライドの例</a>)</li>
+          <li>Google Drive + Gemini (<a
+              href="https://docs.google.com/presentation/d/1orNS70t_yQlZy9RgrJo5S6RJi2Kdc2C9Onw4jA6cQBc/edit?usp=sharing"
+              target="_blank" style="color: var(--hd-primary); text-decoration: underline;">スライドの例</a>)</li>
+          <li>Reveal.js + Antigravity</li>
+        </hd-list>
+      </hd-layout-standard>
+    </hd-slide>
 
     <!-- 4枚目: 終わってる点 -->
-    <hd-slide-standard>
-      <h2 slot="title">終わってる点</h2>
-      <hd-list>
-        <li>バカっぽい</li>
-        <li>人手でも到底直したくない</li>
-        <li>文脈を維持しながらAIに修正させ続けるのが困難</li>
-      </hd-list>
-    </hd-slide-standard>
+    <hd-slide>
+      <hd-layout-standard>
+        <h2 slot="title">終わってる点</h2>
+        <hd-list>
+          <li>バカっぽい</li>
+          <li>人手でも到底直したくない</li>
+          <li>文脈を維持しながらAIに修正させ続けるのが困難</li>
+        </hd-list>
+      </hd-layout-standard>
+    </hd-slide>
 
     <!-- 5枚目: html-deck -->
-    <hd-slide-standard>
-      <h2 slot="title">html-deck</h2>
-      <hd-list>
-        <li>AI時代のスライド作成ツール（笑）</li>
-        <li>WebComponents（HTML）ベース</li>
-        <li>充実したプレゼンテーション機能</li>
-      </hd-list>
-    </hd-slide-standard>
+    <hd-slide>
+      <hd-layout-standard>
+        <h2 slot="title">html-deck</h2>
+        <hd-list>
+          <li>AI時代のスライド作成ツール（笑）</li>
+          <li>WebComponents（HTML）ベース</li>
+          <li>充実したプレゼンテーション機能</li>
+        </hd-list>
+      </hd-layout-standard>
+    </hd-slide>
 
-    <hd-slide-standard id="slide-code-example" title="html-deck Markup Example">
-      <pre
-        style="margin: 0; font-size: 20px; height: 420px; overflow: auto;"><code class="language-html" id="markup-demo-code"></code></pre>
-      <script type="module">
-        const code = `<!DOCTYPE html>
+    <hd-slide id="slide-code-example" title="html-deck Markup Example">
+      <hd-layout-standard>
+        <pre
+          style="margin: 0; font-size: 20px; height: 420px; overflow: auto;"><code class="language-html" id="markup-demo-code"></code></pre>
+        <script type="module">
+          const code = `<!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
@@ -114,98 +123,111 @@
 </head>
 <body>
   <hd-deck aspect-ratio="16:9">
-    <hd-slide-cover>
-      <h1 slot="title">スライドタイトル</h1>
-      <div slot="subtitle">サブタイトル</div>
-    </hd-slide-cover>
+    <hd-slide>
+      <hd-layout-cover>
+        <h1 slot="title">スライドタイトル</h1>
+        <div slot="subtitle">サブタイトル</div>
+      </hd-layout-cover>
+    </hd-slide>
 
-    <hd-slide-standard>
-      <h2 slot="title">1. 標準スライド</h2>
-      <hd-text>ここにはテキストが入ります。</hd-text>
-      <hd-list>
-        <li>箇条書き項目 A</li>
-        <li>箇条書き項目 B</li>
-      </hd-list>
-    </hd-slide-standard>
+    <hd-slide>
+      <hd-layout-standard>
+        <h2 slot="title">1. 標準スライド</h2>
+        <hd-text>ここにはテキストが入ります。</hd-text>
+        <hd-list>
+          <li>箇条書き項目 A</li>
+          <li>箇条書き項目 B</li>
+        </hd-list>
+      </hd-layout-standard>
+    </hd-slide>
 
-    <hd-slide-split ratio="1:1">
-      <h2 slot="title">2. 左右分割スライド</h2>
-      <div slot="left">左カラムの内容</div>
-      <div slot="right">右カラムの内容</div>
-    </hd-slide-split>
+    <hd-slide>
+      <hd-layout-split ratio="1:1">
+        <h2 slot="title">2. 左右分割スライド</h2>
+        <div slot="left">左カラムの内容</div>
+        <div slot="right">右カラムの内容</div>
+      </hd-layout-split>
+    </hd-slide>
   </hd-deck>
 </body>
 </html>`;
-        const el = document.getElementById('markup-demo-code');
-        if (el) {
-          el.textContent = code;
-          setTimeout(() => window.Prism && window.Prism.highlightElement(el), 0);
-        }
-      </script>
-    </hd-slide-standard>
+          const el = document.getElementById('markup-demo-code');
+          if (el) {
+            el.textContent = code;
+            setTimeout(() => window.Prism && window.Prism.highlightElement(el), 0);
+          }
+        </script>
+      </hd-layout-standard>
+    </hd-slide>
 
     <!-- 7枚目: プレゼンテーション機能 -->
-    <hd-slide-split ratio="1:1">
-      <h2 slot="title">プレゼンテーション機能</h2>
-      <div slot="left" style="padding-right: 20px;">
-        <h3 style="color: var(--hd-primary); font-weight: 700;">左：プレゼンテーションビュー</h3>
-        <hd-list>
-          <li><code>BroadcastChannel</code> を用いたローカル同期</li>
-          <li>経過タイマー、現在時刻、スピーカーノート表示</li>
-          <li>次のスライドのライブプレビュー機能</li>
-        </hd-list>
-      </div>
-      <div slot="right" style="padding-left: 20px; border-left: 2px solid var(--hd-text-color);">
-        <h3 style="color: var(--hd-secondary); font-weight: 700;">右：レイアウトの崩れないPDF出力</h3>
-        <hd-list>
-          <li>印刷用CSSメディアクエリの自動最適化</li>
-          <li>A4横などの標準サイズに自動フィッティング</li>
-          <li>画面崩れのない美しいエクスポート</li>
-        </hd-list>
-      </div>
-    </hd-slide-split>
+    <hd-slide>
+      <hd-layout-split ratio="1:1">
+        <h2 slot="title">プレゼンテーション機能</h2>
+        <div slot="left" style="padding-right: 20px;">
+          <h3 style="color: var(--hd-primary); font-weight: 700;">左：プレゼンテーションビュー</h3>
+          <hd-list>
+            <li><code>BroadcastChannel</code> を用いたローカル同期</li>
+            <li>経過タイマー、現在時刻、スピーカーノート表示</li>
+            <li>次のスライドのライブプレビュー機能</li>
+          </hd-list>
+        </div>
+        <div slot="right" style="padding-left: 20px; border-left: 2px solid var(--hd-text-color);">
+          <h3 style="color: var(--hd-secondary); font-weight: 700;">右：レイアウトの崩れないPDF出力</h3>
+          <hd-list>
+            <li>印刷用CSSメディアクエリの自動最適化</li>
+            <li>A4横などの標準サイズに自動フィッティング</li>
+            <li>画面崩れのない美しいエクスポート</li>
+          </hd-list>
+        </div>
+      </hd-layout-split>
+    </hd-slide>
 
     <!-- 8枚目: デモ -->
-    <hd-slide-standard center>
-      <h2 slot="title">デモ</h2>
-      <div class="crazy-bounce-wrapper" style="margin-top: 48px;">
-        <div class="crazy-rotate-wrapper">
-          <div style="font-size: 84px; font-weight: 900; text-align: center;" class="gradient-text crazy-neon-glow">
-            これがデモだよ
+    <hd-slide center>
+      <hd-layout-standard>
+        <h2 slot="title">デモ</h2>
+        <div class="crazy-bounce-wrapper" style="margin-top: 48px;">
+          <div class="crazy-rotate-wrapper">
+            <div style="font-size: 84px; font-weight: 900; text-align: center;" class="gradient-text crazy-neon-glow">
+              これがデモだよ
+            </div>
           </div>
         </div>
-      </div>
-    </hd-slide-standard>
+      </hd-layout-standard>
+    </hd-slide>
 
     <!-- 9枚目: カスタマイズ -->
-    <hd-slide-standard center>
-      <h2 slot="title">カスタマイズ</h2>
-      <hd-text class="hd-text-center">テーマを切り替えるためのボタンを3つ配置して<br>default, dark, warmのテーマを切り替えるデモ</hd-text>
-      <div class="theme-btn-container">
-        <button class="theme-btn" id="btn-theme-default">default</button>
-        <button class="theme-btn" id="btn-theme-dark">dark</button>
-        <button class="theme-btn" id="btn-theme-warm">warm</button>
-      </div>
-      <script type="module">
-        const btnDefault = document.getElementById('btn-theme-default');
-        const btnDark = document.getElementById('btn-theme-dark');
-        const btnWarm = document.getElementById('btn-theme-warm');
+    <hd-slide center>
+      <hd-layout-standard>
+        <h2 slot="title">カスタマイズ</h2>
+        <hd-text class="hd-text-center">テーマを切り替えるためのボタンを3つ配置して<br>default, dark, warmのテーマを切り替えるデモ</hd-text>
+        <div class="theme-btn-container">
+          <button class="theme-btn" id="btn-theme-default">default</button>
+          <button class="theme-btn" id="btn-theme-dark">dark</button>
+          <button class="theme-btn" id="btn-theme-warm">warm</button>
+        </div>
+        <script type="module">
+          const btnDefault = document.getElementById('btn-theme-default');
+          const btnDark = document.getElementById('btn-theme-dark');
+          const btnWarm = document.getElementById('btn-theme-warm');
 
-        function setGlobalTheme(theme) {
-          const themeLink = document.getElementById('theme-link');
-          if (themeLink && window.themeUrls) {
-            themeLink.href = window.themeUrls[theme] || '';
+          function setGlobalTheme(theme) {
+            const themeLink = document.getElementById('theme-link');
+            if (themeLink && window.themeUrls) {
+              themeLink.href = window.themeUrls[theme] || '';
+            }
           }
-        }
 
-        btnDefault.addEventListener('click', () => setGlobalTheme('default'));
-        btnDark.addEventListener('click', () => setGlobalTheme('theme-dark'));
-        btnWarm.addEventListener('click', () => setGlobalTheme('theme-warm'));
-      </script>
-    </hd-slide-standard>
+          btnDefault.addEventListener('click', () => setGlobalTheme('default'));
+          btnDark.addEventListener('click', () => setGlobalTheme('theme-dark'));
+          btnWarm.addEventListener('click', () => setGlobalTheme('theme-warm'));
+        </script>
+      </hd-layout-standard>
+    </hd-slide>
 
     <!-- 10枚目: インタラクション -->
-    <hd-slide-blank id="slide-interaction">
+    <hd-slide id="slide-interaction">
       <div class="slide-wrapper">
         <canvas id="bg-canvas" class="canvas-bg"></canvas>
         <div class="slide-content-overlay" style="padding: 60px 80px; box-sizing: border-box;">
@@ -264,6 +286,7 @@
           initParticles(bgCanvas.width, bgCanvas.height);
         }
 
+        // Draw functions & loop
         function updateAndDraw() {
           if (!isRunning) return;
 
@@ -387,7 +410,7 @@
           startAnimation();
         }
       </script>
-    </hd-slide-blank>
+    </hd-slide>
 
   </hd-deck>
 

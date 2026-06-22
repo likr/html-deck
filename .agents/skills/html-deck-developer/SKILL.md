@@ -163,4 +163,9 @@ To avoid overriding default browser actions (such as `Ctrl + P` / `Cmd + P` for 
   - **Rule**: Ensure text-based custom elements define `width: 100%; box-sizing: border-box;` in their `:host` styles by default.
   - **Rule**: Explicitly declare `text-align: inherit;` on internal content wrapper elements (like `<p>` in `hd-text.js`) inside the Shadow DOM to guarantee that custom utility alignment classes (like `.hd-text-center` or `.hd-text-right`) correctly cascade down to the rendered text.
 
+### 14. Box-Sizing and Global Reset Inheritance
+- **Trap (Box-Sizing Inheritance)**: Using global box-sizing inheritance (`* { box-sizing: inherit; }`) in library stylesheets is fragile. If the host page or outer document wrapper has `box-sizing: content-box` (default), custom elements and light-DOM children inside them will inherit `content-box`. This overrides any `:host { box-sizing: border-box; }` rules defined inside Web Components, causing padding and borders to enlarge the layouts beyond the virtual canvas and break alignment.
+  - **Rule**: Always use direct global resets (`* { box-sizing: border-box; }`) rather than inherited ones in global stylesheets (`html-deck.css`).
+  - **Rule**: Define explicit box-sizing rules inside Shadow DOM stylesheets for layout components to keep their layout boundaries safe.
+
 

@@ -14,9 +14,8 @@ The root container of the presentation slideshow. It manages layout scaling, key
 - `transition` (string): Transition style between slides. Options: `fade`, `none`. Default: `fade`.
 - `hide-page-number` (boolean): If present, disables slide numbers globally.
 - `presenter-url` (string): The path to the presenter dashboard (e.g., `./presenter.html`). When specified, enables the presenter button and `P` shortcut key.
-
 #### Slots
-- **Default Slot**: Accepts only slide components (`<hd-slide-standard>`, `<hd-slide-split>`, `<hd-slide-cover>`, `<hd-slide-blank>`). Nested structure must remain completely flat.
+- **Default Slot**: Accepts only slide components (`<hd-slide>`). Nested structure must remain completely flat.
 
 #### CSS Variables
 - `--hd-deck-text-color`: Fallback text color for the entire deck. Defaults to `#1e293b`.
@@ -30,12 +29,36 @@ The root container of the presentation slideshow. It manages layout scaling, key
 
 ---
 
-## 🎴 Slide Preset Components
+## 🎴 Slide & Layout Components
 
-All slide presets inherit basic slide behaviors, including transitions, visibility switching, color scheme overrides, page number tracking, and scrollable container height constraints.
+Slides are represented by the thin container `<hd-slide>`. Structural layout layouts are nested inside slides using dedicated custom layout elements (`<hd-layout-standard>`, `<hd-layout-split>`, `<hd-layout-cover>`).
 
-### 2. `<hd-slide-standard>`
-A standard 1-column layout slide component.
+### 2. `<hd-slide>`
+The unified slide container component. It handles slide transitions, visibility switching, color scheme overrides, page number tracking, and scrollability.
+
+#### Attributes
+- `active` (boolean): Indicated if this slide is active.
+- `transition-style` (string): Transition style between slides. Options: `fade`, `none`.
+- `page-index` (number): Dynamic 1-based page index.
+- `page-total` (number): Dynamic total slide count.
+- `hide-page-number` (boolean): If present, disables the page number on this slide.
+- `scrollable` (boolean): If present, enables vertical scrolling.
+- `height` (string): Max height for scrollable content (e.g. `100%`, `350px`).
+- `invert` (boolean): Inverts slide background and text colors.
+- `bg` (string): Sets background preset color. Options: `primary`, `secondary`.
+
+#### Slots
+- **Default Slot**: Main content slot. Standalone slide (with no layout component) acts as a blank slide (padding: `0`). Usually contains one of the layout components below.
+
+#### CSS Variables
+- `--hd-slide-bg`: Custom background color override.
+- `--hd-slide-text-color`: Custom text color override.
+- `--hd-slide-padding`: Customize interior margins of layout components. Default: `30px 40px`.
+
+---
+
+### 3. `<hd-layout-standard>`
+Standard slide layout component.
 
 #### Slots
 - `header`: Top header area slot.
@@ -43,15 +66,10 @@ A standard 1-column layout slide component.
 - `footer`: Bottom footer area slot.
 - **Default Slot**: Main content area. Automatically grows (`flex-grow: 1`) to fill the vertical space between title and footer.
 
-#### CSS Variables
-- `--hd-slide-bg`: Custom background color override.
-- `--hd-slide-text-color`: Custom text color override.
-- `--hd-slide-padding`: Customize slide interior margins. Default: `30px 40px`.
-
 ---
 
-### 3. `<hd-slide-split>`
-A 2-column layout slide component.
+### 4. `<hd-layout-split>`
+A 2-column slide layout component.
 
 #### Attributes
 - `ratio` (string): Sizing ratio for left and right columns (e.g., `1:1`, `2:1`, `1:2`). Default: `1:1`.
@@ -63,21 +81,13 @@ A 2-column layout slide component.
 
 ---
 
-### 4. `<hd-slide-cover>`
-A cover or section divider slide component. Centers content vertically and horizontally, and hides page numbers by default.
+### 5. `<hd-layout-cover>`
+A cover or section divider slide layout component. Centers content vertically and horizontally, and automatically hides page numbers on the parent slide.
 
 #### Slots
 - `title`: Large cover title slot (usually contains standard `<h1>` tag).
 - `subtitle`: Subtitle description slot.
 - `meta`: Meta information area slot (e.g., author, date).
-
----
-
-### 5. `<hd-slide-blank>`
-An empty layout canvas slide component with margins and paddings removed (`0px`). Perfect for fullscreen background images or custom layouts.
-
-#### Slots
-- **Default Slot**: Unstyled blank canvas slot.
 
 ---
 

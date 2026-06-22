@@ -11,7 +11,7 @@ This skill explains how to build elegant presentation slide decks using the `htm
 
 ## 📚 Detailed References Index
 Always read the relevant sub-document using the `view_file` tool to inspect full APIs, themes, variables, and layouts:
-- 🧩 **Components API Reference**: Detailed specs of slots, attributes, and variables for all core elements (e.g. `<hd-deck>`, `<hd-slide-standard>`, `<hd-slide-split>`, `<hd-grid>`, `<hd-flex>`).
+- 🧩 **Components API Reference**: Detailed specs of slots, attributes, and variables for all core elements (e.g. `<hd-deck>`, `<hd-slide>`, `<hd-layout-standard>`, `<hd-layout-split>`, `<hd-layout-cover>`).
   - Link: [components.md](file:///home/likr/work/likr/html-deck/.agents/skills/html-deck/references/components.md)
 - 👤 **Presenter View & Notes**: How to set up and style the speaker dashboard (`presenter.html`), write speaker notes (`<hd-notes>`), and customize widgets.
   - Link: [presenter.md](file:///home/likr/work/likr/html-deck/.agents/skills/html-deck/references/presenter.md)
@@ -54,14 +54,18 @@ Keep the slide DOM flat inside the deck. Do not nest pages inside nested section
 </head>
 <body>
   <hd-deck aspect-ratio="16:9">
-    <hd-slide-cover>
-      <h1 slot="title">My Title</h1>
-    </hd-slide-cover>
+    <hd-slide>
+      <hd-layout-cover>
+        <h1 slot="title">My Title</h1>
+      </hd-layout-cover>
+    </hd-slide>
 
-    <hd-slide-standard>
-      <h2 slot="title">Slide Title</h2>
-      <hd-text>Body content here.</hd-text>
-    </hd-slide-standard>
+    <hd-slide>
+      <hd-layout-standard>
+        <h2 slot="title">Slide Title</h2>
+        <hd-text>Body content here.</hd-text>
+      </hd-layout-standard>
+    </hd-slide>
   </hd-deck>
 </body>
 </html>

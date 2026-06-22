@@ -95,7 +95,7 @@ export class HdPresenterPreview extends HTMLElement {
             </div>
           </div>
         `;
-        const slide = container.querySelector('hd-slide-standard, hd-slide-split, hd-slide-cover, hd-slide-blank');
+        const slide = container.querySelector('hd-slide');
         if (slide) {
           slide.setAttribute('active', '');
           slide.setAttribute('transition-style', 'none');

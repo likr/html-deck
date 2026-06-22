@@ -59,10 +59,11 @@ body {
   box-sizing: border-box;
 }
 
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
+hd-deck,
+hd-deck *,
+hd-deck *:before,
+hd-deck *:after {
+  box-sizing: border-box;
 }
 
 /* 2. Text Decoration Utilities (For spans / text in slides) */
@@ -163,10 +164,7 @@ body {
 }
 
 /* 3. Global HTML Deck Element Selectors */
-hd-slide-standard img,
-hd-slide-split img,
-hd-slide-cover img,
-hd-slide-blank img {
+hd-slide img {
   max-width: 100%;
   height: auto;
   border-radius: 8px;
@@ -175,12 +173,12 @@ hd-slide-blank img {
 }
 
 /* Heading Styling for Standard HTML Tags */
-hd-slide-standard h1, hd-slide-split h1, hd-slide-cover h1, hd-slide-blank h1,
-hd-slide-standard h2, hd-slide-split h2, hd-slide-cover h2, hd-slide-blank h2,
-hd-slide-standard h3, hd-slide-split h3, hd-slide-cover h3, hd-slide-blank h3,
-hd-slide-standard h4, hd-slide-split h4, hd-slide-cover h4, hd-slide-blank h4,
-hd-slide-standard h5, hd-slide-split h5, hd-slide-cover h5, hd-slide-blank h5,
-hd-slide-standard h6, hd-slide-split h6, hd-slide-cover h6, hd-slide-blank h6 {
+hd-slide h1,
+hd-slide h2,
+hd-slide h3,
+hd-slide h4,
+hd-slide h5,
+hd-slide h6 {
   font-family: var(--hd-heading-font, var(--hd-body-font, inherit));
   font-weight: var(--hd-heading-font-weight, 700);
   line-height: var(--hd-heading-line-height, 1.2);
@@ -189,27 +187,27 @@ hd-slide-standard h6, hd-slide-split h6, hd-slide-cover h6, hd-slide-blank h6 {
   letter-spacing: -0.02em;
 }
 
-hd-slide-standard h1, hd-slide-split h1, hd-slide-cover h1, hd-slide-blank h1 {
+hd-slide h1 {
   font-size: var(--hd-heading-font-size-1, 32px);
   color: var(--hd-heading-color-1, var(--hd-primary, #3b82f6));
 }
-hd-slide-standard h2, hd-slide-split h2, hd-slide-cover h2, hd-slide-blank h2 {
+hd-slide h2 {
   font-size: var(--hd-heading-font-size-2, 24px);
   color: var(--hd-heading-color-2, var(--hd-secondary, #a855f7));
 }
-hd-slide-standard h3, hd-slide-split h3, hd-slide-cover h3, hd-slide-blank h3 {
+hd-slide h3 {
   font-size: var(--hd-heading-font-size-3, 18px);
   color: var(--hd-heading-color-3, var(--hd-text-color, #1e293b));
 }
-hd-slide-standard h4, hd-slide-split h4, hd-slide-cover h4, hd-slide-blank h4 {
+hd-slide h4 {
   font-size: var(--hd-heading-font-size-4, 16px);
   color: var(--hd-heading-color-4, var(--hd-text-color, #1e293b));
 }
-hd-slide-standard h5, hd-slide-split h5, hd-slide-cover h5, hd-slide-blank h5 {
+hd-slide h5 {
   font-size: var(--hd-heading-font-size-5, 14px);
   color: var(--hd-heading-color-5, var(--hd-muted-color, #64748b));
 }
-hd-slide-standard h6, hd-slide-split h6, hd-slide-cover h6, hd-slide-blank h6 {
+hd-slide h6 {
   font-size: var(--hd-heading-font-size-6, 12px);
   color: var(--hd-heading-color-6, var(--hd-muted-color, #64748b));
 }
@@ -245,10 +243,7 @@ hd-list li {
 }
 
 /* 5. Standard Table Styling (for un-encapsulated tables in slides) */
-hd-slide-standard table,
-hd-slide-split table,
-hd-slide-cover table,
-hd-slide-blank table {
+hd-slide table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 16px;
@@ -258,33 +253,21 @@ hd-slide-blank table {
   background-color: var(--hd-table-bg, transparent);
 }
 
-hd-slide-standard th,
-hd-slide-standard td,
-hd-slide-split th,
-hd-slide-split td,
-hd-slide-cover th,
-hd-slide-cover td,
-hd-slide-blank th,
-hd-slide-blank td {
+hd-slide th,
+hd-slide td {
   padding: var(--hd-table-cell-padding, 6px 10px);
   text-align: var(--hd-table-align, left);
   border-bottom: 1px solid var(--hd-table-border-color, rgba(0, 0, 0, 0.1));
 }
 
-hd-slide-standard th,
-hd-slide-split th,
-hd-slide-cover th,
-hd-slide-blank th {
+hd-slide th {
   font-weight: 700;
   background-color: var(--hd-table-header-bg, rgba(59, 130, 246, 0.05));
   color: var(--hd-table-header-text-color, var(--hd-slide-text-color, var(--hd-text-color, #1e293b)));
   border-bottom: 2px solid var(--hd-table-border-color, rgba(0, 0, 0, 0.15));
 }
 
-hd-slide-standard tr:nth-child(even),
-hd-slide-split tr:nth-child(even),
-hd-slide-cover tr:nth-child(even),
-hd-slide-blank tr:nth-child(even) {
+hd-slide tr:nth-child(even) {
   background-color: var(--hd-table-stripe-bg, rgba(0, 0, 0, 0.02));
 }
 
@@ -363,10 +346,7 @@ hd-slide-blank tr:nth-child(even) {
 /* 7. Code & Math Standard Tag Styles & Utilities */
 
 /* Code block container defaults matching the slide theme */
-hd-slide-standard pre,
-hd-slide-split pre,
-hd-slide-cover pre,
-hd-slide-blank pre {
+hd-slide pre {
   margin: 0 0 12px 0;
   padding: 12px !important;
   border: 1px solid var(--hd-codeblock-border, #e2e8f0);

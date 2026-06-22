@@ -38,7 +38,7 @@ hd-list {
     --hd-list-item-margin-bottom: 16px !important;
 }
 
-hd-slide-split hd-list {
+hd-layout-split hd-list {
     --hd-list-font-size: 26px !important;
     --hd-list-item-margin-bottom: 8px !important;
 }

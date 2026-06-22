@@ -209,7 +209,7 @@ export class HdDeck extends HTMLElement {
 
     // Wait for children to be parsed in DOM
     setTimeout(() => {
-      this.slides = Array.from(this.querySelectorAll('hd-slide-standard, hd-slide-split, hd-slide-cover, hd-slide-blank'));
+      this.slides = Array.from(this.querySelectorAll('hd-slide'));
       
       // Set transition class
       const transition = this.getAttribute('transition') || 'fade';
@@ -443,7 +443,7 @@ export class HdDeck extends HTMLElement {
 
   syncPresenter() {
     if (!this.slides || this.slides.length === 0) {
-      this.slides = Array.from(this.querySelectorAll('hd-slide-standard, hd-slide-split, hd-slide-cover, hd-slide-blank'));
+      this.slides = Array.from(this.querySelectorAll('hd-slide'));
     }
 
     const activeSlide = this.slides[this.currentIndex];

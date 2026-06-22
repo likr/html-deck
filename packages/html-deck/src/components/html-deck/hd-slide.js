@@ -1,24 +1,29 @@
-export class HdBaseSlide extends HTMLElement {
+export class HdSlide extends HTMLElement {
   static get observedAttributes() {
     return ['active', 'transition-style', 'page-index', 'page-total', 'hide-page-number', 'scrollable', 'height', 'invert', 'bg'];
   }
 
-  constructor(layoutHTML = '') {
+  constructor() {
     super();
     this.attachShadow({ mode: 'open' });
 
-    // Combine base styles with concrete slide layout markup
     this.shadowRoot.innerHTML = `
       <style>
-        ${HdBaseSlide.baseStyles}
+        ${HdSlide.baseStyles}
       </style>
       <div class="slide-content">
-        <div id="layout-root">
-          ${layoutHTML}
-        </div>
+        <slot></slot>
         <div class="page-number" id="page-num"></div>
       </div>
     `;
+
+    // Listen for slot changes to dynamically update page numbers if layout changes
+    const slot = this.shadowRoot.querySelector('slot');
+    if (slot) {
+      slot.addEventListener('slotchange', () => {
+        this.updatePageNumber();
+      });
+    }
   }
 
   connectedCallback() {
@@ -45,7 +50,8 @@ export class HdBaseSlide extends HTMLElement {
     const pageNumEl = this.shadowRoot.getElementById('page-num');
     if (!pageNumEl) return;
 
-    const hidePageNum = this.hasAttribute('hide-page-number');
+    const hasCoverLayout = !!this.querySelector('hd-layout-cover');
+    const hidePageNum = this.hasAttribute('hide-page-number') || (hasCoverLayout && !this.hasAttribute('show-page-number'));
     const index = this.getAttribute('page-index');
     const total = this.getAttribute('page-total');
 
@@ -76,13 +82,11 @@ export class HdBaseSlide extends HTMLElement {
   }
 
   updateColorScheme() {
-    const host = this;
-    // Reflect attributes to style variables or classes if necessary,
-    // although host selectors in CSS will handle invert and bg.
+    // Left empty: styling is controlled via CSS custom properties on host selectors
   }
 }
 
-HdBaseSlide.baseStyles = `
+HdSlide.baseStyles = `
   :host {
     position: absolute;
     top: 0;
@@ -110,11 +114,6 @@ HdBaseSlide.baseStyles = `
   :host([center]) .slide-content {
     justify-content: center;
     align-items: center;
-  }
-  :host([center]) #layout-root {
-    justify-content: center;
-    align-items: center;
-    text-align: center;
   }
 
   /* Individual Slide Style Overrides */
@@ -166,16 +165,8 @@ HdBaseSlide.baseStyles = `
     width: 100%;
     height: 100%;
     box-sizing: border-box;
-    padding: var(--hd-slide-padding, 30px 40px);
+    padding: 0;
     position: relative;
-  }
-
-  #layout-root {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    flex-grow: 1;
   }
 
   .page-number {
@@ -213,7 +204,7 @@ HdBaseSlide.baseStyles = `
       display: flex !important;
       height: 100% !important;
       box-sizing: border-box !important;
-      padding: var(--hd-slide-padding, 30px 40px) !important;
+      padding: 0 !important;
     }
   }
 `;

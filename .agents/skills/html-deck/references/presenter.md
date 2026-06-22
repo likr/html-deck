@@ -15,9 +15,11 @@ To enable presenter synchronization, you need:
 Specify the path to the presenter file in `<hd-deck>`:
 ```html
 <hd-deck presenter-url="./presenter.html" aspect-ratio="16:9">
-  <hd-slide layout="title-body">
-    <hd-heading slot="title">Slide Title</hd-heading>
-    <hd-text>Presentation content.</hd-text>
+  <hd-slide>
+    <hd-layout-standard>
+      <h2 slot="title">Slide Title</h2>
+      <hd-text>Presentation content.</hd-text>
+    </hd-layout-standard>
     <hd-notes>Speaker cues and talking points go here.</hd-notes>
   </hd-slide>
 </hd-deck>
