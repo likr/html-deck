@@ -18,9 +18,9 @@ Specify the path to the presenter file in `<hd-deck>`:
   <hd-slide>
     <hd-layout-standard>
       <h2 slot="title">Slide Title</h2>
-      <hd-text>Presentation content.</hd-text>
+      <p class="hd-text">Presentation content.</p>
     </hd-layout-standard>
-    <hd-notes>Speaker cues and talking points go here.</hd-notes>
+    <div slot="notes">Speaker cues and talking points go here.</div>
   </hd-slide>
 </hd-deck>
 ```
@@ -85,7 +85,7 @@ Displays scaled down renderings of slides.
 
 ### 5. `<hd-presenter-notes>`
 Displays the speaker cues embedded inside the slide.
-- **Source**: Renders the HTML contents of the `<hd-notes>` tag found within the currently active `<hd-slide>`. If no notes are provided for the active slide, it defaults to displaying "No notes.".
+- **Source**: Renders the HTML contents of the element designated with `slot="notes"` found within the currently active `<hd-slide>`. If no notes are provided for the active slide, it defaults to displaying "No notes.".
 
 ### 6. `<hd-presenter-controls>`
 Draws quick navigation buttons (◀ and ▶) to step forward or backward through slides.

@@ -146,3 +146,14 @@ Use these variables to add vertical breathing room between blocks:
 
 ### 8. Absolute Positioning
 - `.hd-absolute-bottom`: Absolutely positions an element at the bottom of the slide (`bottom: 24px; left: 0; right: 0; width: 100%`). Use this class to place footer metadata or center aligned page annotations.
+
+### 9. Slide Layout Helper Classes
+These CSS helper classes replace the obsolete custom elements (`<hd-text>`, `<hd-list>`, `<hd-callout>`) to style standard slide elements:
+- `.hd-text`: Applies to standard block paragraph wrappers (e.g. `<p class="hd-text">`). Sets standard spacing, line heights, and custom text colors.
+- `.hd-list`: Applies to standard lists (e.g. `<ul class="hd-list">` or `<ol class="hd-list">`). Automatically styles bullets/numbering patterns across nested levels.
+- `.hd-callout`: Applies to container elements to draw a highlight box with a left border marker (e.g., `<div class="hd-callout">`). Customize the border color by appending a theme modifier class:
+  - `.hd-callout.hd-primary`: Uses the primary theme color.
+  - `.hd-callout.hd-secondary`: Uses the secondary theme color.
+  - `.hd-callout.hd-accent`: Uses the accent theme color.
+  - `.hd-callout.hd-danger`: Uses the danger color.
+  - `.hd-callout.hd-warning`: Uses the warning color.
