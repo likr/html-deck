@@ -70,7 +70,7 @@
     <hd-slide>
       <hd-layout-standard>
         <h2 slot="title">AIにスライドを作らせよう</h2>
-        <hd-list>
+        <ul class="hd-list">
           <li>Gemini + Canvas (<a
               href="https://docs.google.com/presentation/d/1JRqbeA7KVxoru7u58VwCyhoNjZ13KPcybLilKXxOzMM/edit?usp=sharing"
               target="_blank" style="color: var(--hd-primary); text-decoration: underline;">スライドの例</a>)</li>
@@ -78,7 +78,7 @@
               href="https://docs.google.com/presentation/d/1orNS70t_yQlZy9RgrJo5S6RJi2Kdc2C9Onw4jA6cQBc/edit?usp=sharing"
               target="_blank" style="color: var(--hd-primary); text-decoration: underline;">スライドの例</a>)</li>
           <li>Reveal.js + Antigravity</li>
-        </hd-list>
+        </ul>
       </hd-layout-standard>
     </hd-slide>
 
@@ -86,11 +86,11 @@
     <hd-slide>
       <hd-layout-standard>
         <h2 slot="title">終わってる点</h2>
-        <hd-list>
+        <ul class="hd-list">
           <li>バカっぽい</li>
           <li>人手でも到底直したくない</li>
           <li>文脈を維持しながらAIに修正させ続けるのが困難</li>
-        </hd-list>
+        </ul>
       </hd-layout-standard>
     </hd-slide>
 
@@ -98,11 +98,11 @@
     <hd-slide>
       <hd-layout-standard>
         <h2 slot="title">html-deck</h2>
-        <hd-list>
+        <ul class="hd-list">
           <li>AI時代のスライド作成ツール（笑）</li>
           <li>WebComponents（HTML）ベース</li>
           <li>充実したプレゼンテーション機能</li>
-        </hd-list>
+        </ul>
       </hd-layout-standard>
     </hd-slide>
 
@@ -133,11 +133,11 @@
     <hd-slide>
       <hd-layout-standard>
         <h2 slot="title">1. 標準スライド</h2>
-        <hd-text>ここにはテキストが入ります。</hd-text>
-        <hd-list>
+        <p class="hd-text">ここにはテキストが入ります。</p>
+        <ul class="hd-list">
           <li>箇条書き項目 A</li>
           <li>箇条書き項目 B</li>
-        </hd-list>
+        </ul>
       </hd-layout-standard>
     </hd-slide>
 
@@ -166,11 +166,11 @@
         <h2 slot="title">プレゼンテーション機能</h2>
         <div slot="left" style="padding-right: 20px;">
           <h3 style="color: var(--hd-primary); font-weight: 700;">左：プレゼンテーションビュー</h3>
-          <hd-list>
+          <ul class="hd-list">
             <li><code>BroadcastChannel</code> を用いたローカル同期</li>
             <li>経過タイマー、現在時刻、スピーカーノート表示</li>
             <li>次のスライドのライブプレビュー機能</li>
-          </hd-list>
+          </ul>
         </div>
         <div slot="right" style="padding-left: 20px; border-left: 2px solid var(--hd-text-color);">
           <h3 style="color: var(--hd-secondary); font-weight: 700;">右：レイアウトの崩れないPDF出力</h3>
@@ -201,7 +201,7 @@
     <hd-slide center>
       <hd-layout-standard>
         <h2 slot="title">カスタマイズ</h2>
-        <hd-text class="hd-text-center">テーマを切り替えるためのボタンを3つ配置して<br>default, dark, warmのテーマを切り替えるデモ</hd-text>
+        <p class="hd-text hd-text-center">テーマを切り替えるためのボタンを3つ配置して<br>default, dark, warmのテーマを切り替えるデモ</p>
         <div class="theme-btn-container">
           <button class="theme-btn" id="btn-theme-default">default</button>
           <button class="theme-btn" id="btn-theme-dark">dark</button>
@@ -232,8 +232,8 @@
         <canvas id="bg-canvas" class="canvas-bg"></canvas>
         <div class="slide-content-overlay" style="padding: 60px 80px; box-sizing: border-box;">
           <div>
-            <hd-text
-              style="color: #e2e8f0; text-shadow: 0 2px 8px rgba(0,0,0,0.8); font-weight: 600;">JavaScriptが動くからぶっちゃけなんでもできる！！！！</hd-text>
+            <p class="hd-text"
+              style="color: #e2e8f0; text-shadow: 0 2px 8px rgba(0,0,0,0.8); font-weight: 600;">JavaScriptが動くからぶっちゃけなんでもできる！！！！</p>
           </div>
           <div class="pendulum-container">
             <canvas id="pendulum-canvas" width="600" height="340" class="pendulum-canvas"></canvas>

@@ -41,11 +41,11 @@
         </div>
       </hd-layout-cover>
 
-      <hd-text class="hd-text-muted hd-text-xs hd-absolute-bottom hd-text-center">
+      <p class="hd-text hd-text-muted hd-text-xs hd-absolute-bottom hd-text-center">
         Press <span class="accent-text">Right Arrow</span> or <span class="accent-text">Space</span> to begin
-      </hd-text>
+      </p>
 
-      <hd-notes>
+      <div slot="notes">
         <h2>Speaker Notes: Intro Slide</h2>
         <ul>
           <li>Welcome the audience and introduce the library name: HTML-Deck.</li>
@@ -53,7 +53,7 @@
             and modified by AI coding assistants.</li>
           <li>Mention that there is no build step required: just run a static file.</li>
         </ul>
-      </hd-notes>
+      </div>
     </hd-slide>
 
     <!-- Slide 2: Core Philosophy -->
@@ -61,20 +61,20 @@
       <hd-layout-standard>
         <h2 slot="title">Core Philosophy & Motivation</h2>
 
-        <hd-text>Traditional slideshow frameworks (like Reveal.js) use deeply nested DOM trees that confuse LLM coding
-          agents. HTML-Deck keeps the nesting flat and declarative.</hd-text>
+        <p class="hd-text">Traditional slideshow frameworks (like Reveal.js) use deeply nested DOM trees that confuse LLM coding
+          agents. HTML-Deck keeps the nesting flat and declarative.</p>
 
-        <hd-list>
+        <ul class="hd-list">
           <li><strong>Pure HTML & Buildless</strong>: No npm build steps, Webpack, or bundling required to run. Ideal for
             AI agents.</li>
           <li><strong>Custom Elements Prefixed with <code>hd-</code></strong>: Prevents conflicts and keeps element
             identification crystal clear.</li>
           <li><strong>Pure & Modular CSS</strong>: Customize mathematical formulas and code blocks with standard CSS variables.</li>
           <li><strong>Highly Stylable</strong>: Skeleton styles are fully customizable via CSS Variables.</li>
-        </hd-list>
+        </ul>
       </hd-layout-standard>
 
-      <hd-notes>
+      <div slot="notes">
         <h2>Speaker Notes: Philosophy</h2>
         <ul>
           <li>Highlight why existing tools fail. Deep nesting (section within section) leads to agent syntax errors.
@@ -82,7 +82,7 @@
           <li>Explain the prefix 'hd-' stands for HTML Deck.</li>
           <li>Mention that vendor files are loaded relative to import.meta.url, so it works anywhere.</li>
         </ul>
-      </hd-notes>
+      </div>
     </hd-slide>
 
     <!-- Slide 3: Layouts (Split) -->
@@ -92,18 +92,18 @@
 
         <div slot="left" class="grid-card">
           <h3>Left Pane Content</h3>
-          <hd-text>Using <code>layout="split"</code> arranges the slotted content automatically into two equal-width
-            columns.</hd-text>
-          <hd-list>
+          <p class="hd-text">Using <code>layout="split"</code> arranges the slotted content automatically into two equal-width
+            columns.</p>
+          <ul class="hd-list">
             <li>Perfect for comparisons</li>
             <li>Text on left, media/math on right</li>
             <li>Responsive by default</li>
-          </hd-list>
+          </ul>
         </div>
 
         <div slot="right" class="grid-card">
           <h3>Right Pane Content</h3>
-          <hd-text>You can insert lists, images, or custom divs inside <code>slot="right"</code>.</hd-text>
+          <p class="hd-text">You can insert lists, images, or custom divs inside <code>slot="right"</code>.</p>
           <pre><code class="language-html" id="split-layout-code"></code></pre>
           <script type="module">
             import splitCode from './split-layout-example.html?raw';
@@ -114,62 +114,62 @@
         </div>
       </hd-layout-split>
 
-      <hd-notes>
+      <div slot="notes">
         <h2>Speaker Notes: Split Layout</h2>
         <ul>
           <li>Explain that slots 'left' and 'right' make layout alignment automatic.</li>
           <li>This prevents agents from writing verbose raw flexbox CSS inside the slide.</li>
         </ul>
-      </hd-notes>
+      </div>
     </hd-slide>
 
     <!-- Slide 4: Multi-Column Component -->
     <hd-slide title="Multi-Columns Component">
       <hd-layout-standard>
         <h2 slot="title">The <code>&lt;hd-flex&gt;</code> primitive</h2>
-        <hd-text>For arbitrary columns (like 3 or 4 columns), use the <code>&lt;hd-flex&gt;</code> layout primitive:</hd-text>
+        <p class="hd-text">For arbitrary columns (like 3 or 4 columns), use the <code>&lt;hd-flex&gt;</code> layout primitive:</p>
 
-        <hd-flex gap="md">
+        <div style="display: flex; gap: var(--hd-gap-md, 16px); width: 100%; box-sizing: border-box;">
           <div class="grid-card" style="flex: 1;">
             <h3>Column 1</h3>
-            <hd-text>Flex factor = 1. Automatically distributes width evenly.</hd-text>
+            <p class="hd-text">Flex factor = 1. Automatically distributes width evenly.</p>
           </div>
           <div class="grid-card grid-card-primary" style="flex: 2;">
             <h3>Column 2</h3>
-            <hd-text>Flex factor = 2. This column is twice as wide as the others.</hd-text>
+            <p class="hd-text">Flex factor = 2. This column is twice as wide as the others.</p>
           </div>
           <div class="grid-card" style="flex: 1;">
             <h3>Column 3</h3>
-            <hd-text>Flex factor = 1. Useful for metadata or notes.</hd-text>
+            <p class="hd-text">Flex factor = 1. Useful for metadata or notes.</p>
           </div>
-        </hd-flex>
+        </div>
       </hd-layout-standard>
 
-      <hd-notes>
+      <div slot="notes">
         <h2>Speaker Notes: Columns</h2>
         <ul>
           <li>Columns use the flex attribute for custom sizing ratio.</li>
           <li>Very helpful for showing cards side-by-side.</li>
         </ul>
-      </hd-notes>
+      </div>
     </hd-slide>
 
     <!-- Slide 5: Math Equations -->
     <hd-slide title="KaTeX Mathematical Formulas">
       <hd-layout-standard>
         <h2 slot="title">LaTeX Math Integration</h2>
-        <hd-text>You can render beautiful LaTeX math equations using KaTeX. It supports both inline and
-          block equations.</hd-text>
+        <p class="hd-text">You can render beautiful LaTeX math equations using KaTeX. It supports both inline and
+          block equations.</p>
 
-        <hd-grid cols="2">
+        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--hd-gap-md, 16px); width: 100%; box-sizing: border-box;">
           <div class="grid-card">
             <h3>Inline Math</h3>
-            <hd-text>The formula <span class="hd-math-inline">\(f(x) = \int_{-\infty}^{\infty} e^{-x^2} dx\)</span> fits inline with the
-              standard text flow.</hd-text>
+            <p class="hd-text">The formula <span class="hd-math-inline">\(f(x) = \int_{-\infty}^{\infty} e^{-x^2} dx\)</span> fits inline with the
+              standard text flow.</p>
           </div>
           <div class="grid-card">
             <h3>Block Math</h3>
-            <hd-text>Render block equations centred and scaled:</hd-text>
+            <p class="hd-text">Render block equations centred and scaled:</p>
             <div class="hd-math-block">$$
               A = \begin{pmatrix}
               a_{11} & a_{12} \\
@@ -178,23 +178,23 @@
               \det(A) = a_{11}a_{22} - a_{12}a_{21}
             $$</div>
           </div>
-        </hd-grid>
+        </div>
       </hd-layout-standard>
 
-      <hd-notes>
+      <div slot="notes">
         <h2>Speaker Notes: KaTeX Math</h2>
         <ul>
           <li>KaTeX resources are locally cached in the vendor folder, which makes it work offline.</li>
           <li>Block attribute centers and adds margins around the math equation.</li>
         </ul>
-      </hd-notes>
+      </div>
     </hd-slide>
 
     <!-- Slide 6: Code Block Syntax Highlight -->
     <hd-slide title="Code Highlighting with PrismJS">
       <hd-layout-standard>
         <h2 slot="title">Syntax Highlighting</h2>
-        <hd-text>Code syntax highlighting is performed automatically using PrismJS.</hd-text>
+        <p class="hd-text">Code syntax highlighting is performed automatically using PrismJS.</p>
 
         <pre><code class="language-javascript" id="my-component-code"></code></pre>
         <script type="module">
@@ -205,20 +205,20 @@
         </script>
       </hd-layout-standard>
 
-      <hd-notes>
+      <div slot="notes">
         <h2>Speaker Notes: Syntax Highlighting</h2>
         <ul>
           <li>Highlighting is scoped inside Shadow DOM, so global site CSS won't leak or break it.</li>
           <li>Prism Tomorrow theme (dark theme) is used by default.</li>
         </ul>
-      </hd-notes>
+      </div>
     </hd-slide>
 
     <!-- Slide 7: Table Support -->
     <hd-slide title="Table Support">
       <hd-layout-standard>
         <h2 slot="title">Table Support</h2>
-        <hd-text>Easily include standard tables in your slides. They are automatically styled cleanly.</hd-text>
+        <p class="hd-text">Easily include standard tables in your slides. They are automatically styled cleanly.</p>
 
         <table>
           <thead>
@@ -263,9 +263,9 @@
     <hd-slide title="Scrollable Code and Tables">
       <hd-layout-standard>
         <h2 slot="title">Scrollable Components</h2>
-        <hd-text>When code blocks or tables are too large to fit in a slide, use overflow wrappers to enable scrolling:</hd-text>
+        <p class="hd-text">When code blocks or tables are too large to fit in a slide, use overflow wrappers to enable scrolling:</p>
 
-        <hd-grid cols="2">
+        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--hd-gap-md, 16px); width: 100%; box-sizing: border-box;">
           <div class="grid-card">
             <h3>Scrollable Code Block</h3>
             <pre class="hd-code-scrollable" style="--hd-code-scrollable-height: 180px;"><code class="language-javascript" id="scroll-demo-code"></code></pre>
@@ -317,7 +317,7 @@
               </table>
             </div>
           </div>
-        </hd-grid>
+        </div>
       </hd-layout-standard>
     </hd-slide>
 
@@ -326,77 +326,73 @@
       <hd-layout-standard>
         <h2 slot="title">Presenter Tools & Printing</h2>
 
-        <hd-grid cols="2">
+        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--hd-gap-md, 16px); width: 100%; box-sizing: border-box;">
           <div class="grid-card">
             <h3>Presenter Dashboard</h3>
-            <hd-list>
+            <ul class="hd-list">
               <li>Press <strong>P</strong> to open the presenter view window.</li>
               <li>Uses <code>BroadcastChannel</code> to sync current slide state.</li>
               <li>Includes timers, clocks, next-slide titles, and notes.</li>
-            </hd-list>
+            </ul>
           </div>
           <div class="grid-card">
             <h3>PDF & Print Output</h3>
-            <hd-list>
+            <ul class="hd-list">
               <li>Press <strong>Ctrl + P</strong> (Cmd + P) to open the print dialog.</li>
               <li>Slides are scaled automatically to fit Landscape size.</li>
               <li>Controls and UI overlays are hidden automatically.</li>
-            </hd-list>
+            </ul>
           </div>
-        </hd-grid>
+        </div>
       </hd-layout-standard>
 
-      <hd-notes>
+      <div slot="notes">
         <h2>Speaker Notes: Presenter & Print</h2>
         <ul>
           <li>Demonstrate pressing P. It opens a popup window.</li>
           <li>Mention BroadcastChannel works cross-tab/window instantly.</li>
           <li>For printing, recommend setting "Background graphics" to ON to preserve colors.</li>
         </ul>
-      </hd-notes>
+      </div>
     </hd-slide>
 
     <!-- Slide 10: Callouts & Footnotes -->
     <hd-slide title="Callouts & Footnotes">
       <hd-layout-standard>
         <h2 slot="title">Callout Boxes & Footnotes</h2>
-        <hd-text>HTML-Deck provides dedicated elements to add structure and annotation to your slides:</hd-text>
+        <p class="hd-text">HTML-Deck provides classes to add structure and annotation to your slides:</p>
 
-        <hd-grid cols="2">
+        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--hd-gap-md, 16px); width: 100%; box-sizing: border-box;">
           <div>
-            <hd-callout type="primary">
-              <hd-text class="hd-bold">Primary Callout</hd-text>
-              <hd-text class="hd-text-sm">Use <code>&lt;hd-callout type="primary"&gt;</code> to highlight key
-                points.</hd-text>
-            </hd-callout>
+            <div class="hd-callout hd-primary">
+              <p class="hd-text hd-bold">Primary Callout</p>
+              <p class="hd-text hd-text-sm">Use <code>class="hd-callout hd-primary"</code> to highlight key points.</p>
+            </div>
 
-            <hd-callout type="secondary">
-              <hd-text class="hd-bold">Secondary Callout</hd-text>
-              <hd-text class="hd-text-sm">Supports multiple color configurations like <code>type="secondary"</code> or
-                <code>type="accent"</code>.</hd-text>
-            </hd-callout>
+            <div class="hd-callout hd-secondary">
+              <p class="hd-text hd-bold">Secondary Callout</p>
+              <p class="hd-text hd-text-sm">Supports multiple color configurations like <code>hd-secondary</code> or <code>hd-accent</code>.</p>
+            </div>
           </div>
 
           <div class="grid-card">
             <h3>Footnote Integration</h3>
-            <hd-text class="hd-text-sm">Use <code>&lt;hd-footnote&gt;</code> to place annotations at the bottom margin
-              of the slide.</hd-text>
-            <hd-footnote inline>* This is an <strong>inline footnote</strong> using the <code>inline</code>
-              attribute.</hd-footnote>
+            <p class="hd-text hd-text-sm">Use <code>slot="footnote"</code> to place annotations at the bottom margin of the slide.</p>
+            <p class="hd-text-muted hd-text-xs">* This is an inline annotation using a standard paragraph.</p>
           </div>
-        </hd-grid>
+        </div>
       </hd-layout-standard>
 
-      <hd-footnote>* Footnotes absolutely position themselves at the bottom-left of the slide by default.</hd-footnote>
+      <div slot="footnote">* Footnotes absolutely position themselves at the bottom-left of the slide by default.</div>
 
-      <hd-notes>
+      <div slot="notes">
         <h2>Speaker Notes: Callouts & Footnotes</h2>
         <ul>
           <li>Show the new callout component that eliminates inline styling for boxed alerts.</li>
           <li>Demonstrate how footnotes automatically align to the bottom of the slide, or render inline when specified.
           </li>
         </ul>
-      </hd-notes>
+      </div>
     </hd-slide>
 
     <!-- Slide 11: Customizing Deck -->
@@ -404,7 +400,7 @@
       <hd-layout-cover>
         <h2 slot="title"><span class="gradient-heading">Customize it with CSS variables</span></h2>
         <div slot="subtitle">
-          <hd-text>Modify colors, padding, and fonts easily on the container:</hd-text>
+          <p class="hd-text">Modify colors, padding, and fonts easily on the container:</p>
           <div class="hd-max-w-lg hd-mx-auto hd-text-left">
             <pre><code class="language-css" id="custom-theme-code"></code></pre>
             <script type="module">
@@ -414,18 +410,17 @@
               setTimeout(() => window.Prism && window.Prism.highlightElement(el), 0);
             </script>
           </div>
-          <hd-text class="hd-semibold hd-mt-xl">HTML-Deck: Easy slide decks for humans and agents
-            alike.</hd-text>
+          <p class="hd-text hd-semibold hd-mt-xl">HTML-Deck: Easy slide decks for humans and agents alike.</p>
         </div>
       </hd-layout-cover>
 
-      <hd-notes>
+      <div slot="notes">
         <h2>Speaker Notes: Wrap-up</h2>
         <ul>
           <li>Conclude the demonstration.</li>
           <li>Point users to the index.html page for more details.</li>
         </ul>
-      </hd-notes>
+      </div>
     </hd-slide>
 
   </hd-deck>

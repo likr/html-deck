@@ -87,35 +87,35 @@
         <div slot="left">
           <h2>Heading Level 2</h2>
           <h3>Heading Level 3 (Sub-item)</h3>
-          <hd-text>
+          <p class="hd-text">
             This is a normal body paragraph using <code>&lt;hd-text&gt;</code>. Themes automatically import premium web
             fonts
             (such as Inter, Outfit, Playfair Display, Space Grotesk) to change the typographic weight and appearance.
-          </hd-text>
-          <hd-text>
+          </p>
+          <p class="hd-text">
             You can also use <span class="hd-bold hd-text-primary">bold accents</span>, <span
               class="hd-italic hd-text-secondary">italicized secondaries</span>,
             or <span class="hd-underline">underlined text</span>.
-          </hd-text>
+          </p>
         </div>
 
         <div slot="right">
           <h2>List Styles</h2>
-          <hd-list>
+          <ul class="hd-list">
             <li>First level bullet</li>
             <li>Second level sub-bullet
-              <hd-list>
+              <ul class="hd-list">
                 <li>Nested bullet item</li>
                 <li>Another nested bullet</li>
-              </hd-list>
+              </ul>
             </li>
             <li>Ordered lists are also supported:
-              <hd-list ordered>
+              <ol class="hd-list">
                 <li>Ordered step one</li>
                 <li>Ordered step two</li>
-              </hd-list>
+              </ol>
             </li>
-          </hd-list>
+          </ul>
         </div>
       </hd-layout-split>
     </hd-slide>
@@ -124,16 +124,16 @@
     <hd-slide title="Advanced Components (Code & Math)">
       <hd-layout-standard>
         <h1 slot="title">Advanced Components (Code & Math)</h1>
-        <hd-text>
+        <p class="hd-text">
           Code highlights and KaTeX formulas are seamlessly integrated and fully styled by themes.
-        </hd-text>
+        </p>
 
-        <hd-grid cols="2">
+        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--hd-gap-md, 16px); width: 100%; box-sizing: border-box;">
           <div>
             <h2>Formatted Formula</h2>
-            <hd-text>Mathematical equations automatically align text colors with the selected theme:</hd-text>
+            <p class="hd-text">Mathematical equations automatically align text colors with the selected theme:</p>
             <div class="hd-math-block">$$f(x) = \int_{-\infty}^{\infty} \hat{f}(\xi)\,e^{2 \pi i \xi x}\,d\xi$$</div>
-            <hd-text>Inline math <span class="hd-math-inline">\(E = mc^2\)</span> works perfectly too.</hd-text>
+            <p class="hd-text">Inline math <span class="hd-math-inline">\(E = mc^2\)</span> works perfectly too.</p>
           </div>
           <div>
             <h2>Syntax Highlighter</h2>
@@ -145,7 +145,7 @@
               setTimeout(() => window.Prism && window.Prism.highlightElement(el), 0);
             </script>
           </div>
-        </hd-grid>
+        </div>
       </hd-layout-standard>
     </hd-slide>
 
@@ -153,19 +153,19 @@
     <hd-slide bg="primary">
       <hd-layout-standard>
         <h1 slot="title">Individual Override: bg="primary"</h1>
-        <hd-text>
+        <p class="hd-text">
           This slide uses the <code>bg="primary"</code> attribute. Even when switching themes, this specific slide
           will use the theme's primary accent color as the background, and automatically swap text to high-contrast white.
-        </hd-text>
-        <hd-text>
+        </p>
+        <p class="hd-text">
           This is perfect for divider slides, intro pages, or key takeaways that need to stand out from the rest of the
           deck.
-        </hd-text>
-        <hd-list>
+        </p>
+        <ul class="hd-list">
           <li>Background: Primary accent color.</li>
           <li>Text and headings: Pure white.</li>
           <li>Math & Lists: Pure white.</li>
-        </hd-list>
+        </ul>
       </hd-layout-standard>
     </hd-slide>
 
@@ -173,10 +173,10 @@
     <hd-slide bg="secondary">
       <hd-layout-standard>
         <h1 slot="title">Individual Override: bg="secondary"</h1>
-        <hd-text>
+        <p class="hd-text">
           Similarly, using <code>bg="secondary"</code> switches the slide background to the secondary theme color,
           maintaining clear legibility with white text.
-        </hd-text>
+        </p>
         <div class="hd-math-block">$$\nabla \times \mathbf{E} = -\frac{\partial \mathbf{B}}{\partial t}$$</div>
       </hd-layout-standard>
     </hd-slide>
@@ -185,13 +185,13 @@
     <hd-slide invert>
       <hd-layout-standard>
         <h1 slot="title">Individual Override: invert</h1>
-        <hd-text>
+        <p class="hd-text">
           This slide uses the <code>invert</code> attribute. It dynamically swaps the background and body text colors
           according to the active theme.
-        </hd-text>
-        <hd-text>
+        </p>
+        <p class="hd-text">
           For instance, in the default light theme, this slide becomes dark. In dark themes, it will become light.
-        </hd-text>
+        </p>
         <pre><code class="language-html" id="invert-code-block"></code></pre>
         <script type="module">
           import invertExampleCode from './invert-example.html?raw';

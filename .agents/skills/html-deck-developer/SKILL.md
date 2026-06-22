@@ -145,11 +145,11 @@ To avoid overriding default browser actions (such as `Ctrl + P` / `Cmd + P` for 
 ```
 
 ### 10. Custom Element Naming & Prefixing (Zero Pollution)
-- **Rule**: All custom components and utility styling classes added to the library must be prefixed with `hd-` (e.g. `<hd-footnote>`, `<hd-callout>`, `.hd-mt-md`) to ensure they do not pollute the global namespace or clash with standard HTML elements and presentation author styles.
+### 10. CSS Class & Slot Naming & Prefixing (Zero Pollution)
+- **Rule**: All library-specific styling classes and slots must be prefixed with `hd-` or matching conventions (e.g. `.hd-callout`, `slot="footnote"`, `.hd-mt-md`) to ensure they do not pollute the global namespace or clash with standard HTML elements and presentation author styles.
 
 ### 11. Footnote Positioning Constraints
-- **Pattern**: By default, `<hd-footnote>` uses absolute positioning (`bottom: 12px; left: 16px;`) relative to the slide canvas, placing it in the bottom-left margin (analogous to the page number on the right).
-- **Pattern**: When footnotes are needed in-flow (e.g., inside column splits, grid cards, or table cells), the `inline` attribute must be specified on `<hd-footnote>` to swap its layout from absolute to static block flow.
+- **Pattern**: By default, slotted elements with `slot="footnote"` (e.g., `<div slot="footnote">`) use absolute positioning (`bottom: 12px; left: 16px;`) relative to the slide canvas, placing them in the bottom-left margin (analogous to the page number on the right). Styled via `::slotted([slot="footnote"])` inside `hd-slide.js`.
 
 ### 12. Presenter View Synchronization and Preview Styling
 - **Trap (Asset Resolution)**: Slides cloned and sent to the presenter view (which has a different URL directory) will fail to resolve relative assets (like `<hd-codeblock src="...">` or `<img>` tags).
@@ -157,13 +157,7 @@ To avoid overriding default browser actions (such as `Ctrl + P` / `Cmd + P` for 
 - **Trap (Dynamic Styles timing)**: Inserting `<style>` elements dynamically into a preview container's `innerHTML` causes browser styling computation delays. Synchronous dimension queries (`clientWidth`/`clientHeight`) immediately after will return `0`, breaking scale computations.
   - **Pattern**: Declare preview styling statically inside the WebComponent's constructor. Additionally, defer scale calculations using `requestAnimationFrame` to ensure the layout engine has updated.
 
-
-### 13. Custom Component Width and text-align Inheritance
-- **Trap (Flexbox Shrinking)**: When custom components with Shadow DOM (like `<hd-text>`) are placed inside flexbox containers (like `.slide-content` inside slides), their width can collapse to fit only the content size if `align-items` is not `stretch`. This prevents helper classes like `.hd-text-center` (which rely on the block occupying the full width) from actually centering text.
-  - **Rule**: Ensure text-based custom elements define `width: 100%; box-sizing: border-box;` in their `:host` styles by default.
-  - **Rule**: Explicitly declare `text-align: inherit;` on internal content wrapper elements (like `<p>` in `hd-text.js`) inside the Shadow DOM to guarantee that custom utility alignment classes (like `.hd-text-center` or `.hd-text-right`) correctly cascade down to the rendered text.
-
-### 14. Box-Sizing and Global Reset Inheritance
+### 13. Box-Sizing and Global Reset Inheritance
 - **Trap (Box-Sizing Inheritance)**: Using global box-sizing inheritance (`* { box-sizing: inherit; }`) in library stylesheets is fragile. If the host page or outer document wrapper has `box-sizing: content-box` (default), custom elements and light-DOM children inside them will inherit `content-box`. This overrides any `:host { box-sizing: border-box; }` rules defined inside Web Components, causing padding and borders to enlarge the layouts beyond the virtual canvas and break alignment.
   - **Rule**: Always use direct global resets (`* { box-sizing: border-box; }`) rather than inherited ones in global stylesheets (`html-deck.css`).
   - **Rule**: Define explicit box-sizing rules inside Shadow DOM stylesheets for layout components to keep their layout boundaries safe.

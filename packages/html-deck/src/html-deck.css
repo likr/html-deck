@@ -212,34 +212,84 @@ hd-slide h6 {
   color: var(--hd-heading-color-6, var(--hd-muted-color, #64748b));
 }
 
-/* 4. Nested List Styles (Supports standard ul/ol nesting inside hd-list) */
-hd-list ul,
-hd-list ol {
+/* 4. CSS-only Slide Layout Helper Classes (.hd-callout, .hd-text, .hd-list) */
+.hd-callout {
+  display: block;
+  border-left: var(--hd-callout-border-width, 3px) solid var(--hd-callout-border-color, var(--hd-primary, #3b82f6));
+  padding-left: var(--hd-callout-padding-left, 12px);
+  margin-bottom: var(--hd-callout-margin-bottom, 12px);
+  text-align: left;
+}
+.hd-callout.hd-primary {
+  --hd-callout-border-color: var(--hd-primary, #3b82f6);
+}
+.hd-callout.hd-secondary {
+  --hd-callout-border-color: var(--hd-secondary, #a855f7);
+}
+.hd-callout.hd-accent {
+  --hd-callout-border-color: var(--hd-accent, #10b981);
+}
+.hd-callout.hd-danger {
+  --hd-callout-border-color: var(--hd-danger, #ef4444);
+}
+.hd-callout.hd-warning {
+  --hd-callout-border-color: var(--hd-warning, #f59e0b);
+}
+
+.hd-text {
+  font-family: var(--hd-body-font, inherit);
+  font-size: var(--hd-text-font-size, 14px);
+  line-height: var(--hd-text-line-height, 1.6);
+  color: var(--hd-text-color-custom, var(--hd-slide-text-color, var(--hd-text-color, #1e293b)));
   margin: 0;
+  margin-bottom: var(--hd-text-margin-bottom, 8px);
+  letter-spacing: 0.01em;
+}
+
+.hd-list {
+  font-family: var(--hd-body-font, inherit);
+  margin: 0 0 var(--hd-list-margin-bottom, 12px) 0;
   padding-left: var(--hd-list-padding-left, 19px);
-  font-size: 13px;
+  font-size: var(--hd-list-font-size, 14px);
   line-height: var(--hd-list-line-height, 1.6);
-  color: var(--hd-list-color, var(--hd-text-color, #1e293b));
+  color: var(--hd-list-color, var(--hd-slide-text-color, var(--hd-text-color, #1e293b)));
 }
 
-hd-list ul {
-  list-style-type: circle;
-}
-
-hd-list ul ul {
-  list-style-type: square;
-}
-
-hd-list ol {
-  list-style-type: lower-alpha;
-}
-
-hd-list ol ol {
-  list-style-type: lower-roman;
-}
-
-hd-list li {
+.hd-list li {
   margin-bottom: var(--hd-list-item-margin-bottom, 4px);
+}
+
+/* Nested List Styles */
+ul.hd-list {
+  list-style-type: disc;
+}
+ul.hd-list ul.hd-list {
+  list-style-type: circle;
+  margin-bottom: 0;
+  margin-top: 2px;
+  font-size: 12px;
+}
+ul.hd-list ul.hd-list ul.hd-list {
+  list-style-type: square;
+  margin-bottom: 0;
+  margin-top: 2px;
+  font-size: 12px;
+}
+
+ol.hd-list {
+  list-style-type: decimal;
+}
+ol.hd-list ol.hd-list {
+  list-style-type: lower-alpha;
+  margin-bottom: 0;
+  margin-top: 2px;
+  font-size: 12px;
+}
+ol.hd-list ol.hd-list ol.hd-list {
+  list-style-type: lower-roman;
+  margin-bottom: 0;
+  margin-top: 2px;
+  font-size: 12px;
 }
 
 /* 5. Standard Table Styling (for un-encapsulated tables in slides) */

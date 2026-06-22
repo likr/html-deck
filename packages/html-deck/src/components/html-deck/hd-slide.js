@@ -13,6 +13,7 @@ export class HdSlide extends HTMLElement {
       </style>
       <div class="slide-content">
         <slot></slot>
+        <slot name="footnote"></slot>
         <div class="page-number" id="page-num"></div>
       </div>
     `;
@@ -206,5 +207,24 @@ HdSlide.baseStyles = `
       box-sizing: border-box !important;
       padding: 0 !important;
     }
+  }
+
+  /* Slotted element styles */
+  ::slotted([slot="notes"]) {
+    display: none !important;
+  }
+
+  ::slotted([slot="footnote"]) {
+    display: block !important;
+    position: absolute !important;
+    bottom: var(--hd-footnote-bottom, 12px) !important;
+    left: var(--hd-footnote-left, 16px) !important;
+    font-size: var(--hd-footnote-font-size, var(--hd-page-number-font-size, 9px)) !important;
+    color: var(--hd-footnote-color, var(--hd-muted-color, #64748b)) !important;
+    opacity: var(--hd-footnote-opacity, 0.85) !important;
+    font-family: var(--hd-body-font, inherit) !important;
+    z-index: 10 !important;
+    user-select: none !important;
+    line-height: 1.4 !important;
   }
 `;

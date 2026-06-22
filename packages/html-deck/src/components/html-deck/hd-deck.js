@@ -448,7 +448,7 @@ export class HdDeck extends HTMLElement {
 
     const activeSlide = this.slides[this.currentIndex];
     const activeHTML = activeSlide ? this.resolveRelativePaths(activeSlide) : '';
-    const notesEl = activeSlide ? activeSlide.querySelector('hd-notes') : null;
+    const notesEl = activeSlide ? activeSlide.querySelector('[slot="notes"]') : null;
     const notesText = notesEl ? notesEl.innerHTML : 'No notes.';
 
     const nextSlide = this.slides[this.currentIndex + 1];
