@@ -30,12 +30,14 @@
   <hd-deck transition="fade" presenter-url="presenter.html" aspect-ratio="16:9">
 
     <!-- Slide 1: Title -->
-    <hd-title-slide>
+    <hd-slide-cover>
       <div slot="title"><span class="gradient-heading">HTML-Deck</span></div>
       <div slot="subtitle">A Lightweight, Buildless WebComponents Slide Library</div>
-      <div slot="presenter">AI Agent & Human Team</div>
-      <div slot="location">demo/tutorial/index.html</div>
-      <div slot="date">June 2026</div>
+      <div slot="meta">
+        <div>AI Agent & Human Team</div>
+        <div>demo/tutorial/index.html</div>
+        <div>June 2026</div>
+      </div>
 
       <hd-text class="hd-text-muted hd-text-xs hd-absolute-bottom hd-text-center">
         Press <span class="accent-text">Right Arrow</span> or <span class="accent-text">Space</span> to begin
@@ -50,11 +52,11 @@
           <li>Mention that there is no build step required: just run a static file.</li>
         </ul>
       </hd-notes>
-    </hd-title-slide>
+    </hd-slide-cover>
 
     <!-- Slide 2: Core Philosophy -->
-    <hd-slide layout="title-body" title="Core Philosophy">
-      <hd-heading slot="title" level="2">Core Philosophy & Motivation</hd-heading>
+    <hd-slide-standard title="Core Philosophy">
+      <h2 slot="title">Core Philosophy & Motivation</h2>
 
       <hd-text>Traditional slideshow frameworks (like Reveal.js) use deeply nested DOM trees that confuse LLM coding
         agents. HTML-Deck keeps the nesting flat and declarative.</hd-text>
@@ -77,11 +79,11 @@
           <li>Mention that vendor files are loaded relative to import.meta.url, so it works anywhere.</li>
         </ul>
       </hd-notes>
-    </hd-slide>
+    </hd-slide-standard>
 
     <!-- Slide 3: Layouts (Split) -->
-    <hd-slide layout="split" title="Flexible Layout Configurations">
-      <hd-heading slot="title" level="2">declarative Page Layouts</hd-heading>
+    <hd-slide-split title="Flexible Layout Configurations">
+      <h2 slot="title">declarative Page Layouts</h2>
 
       <div slot="left" class="grid-card">
         <h3>Left Pane Content</h3>
@@ -113,34 +115,27 @@
           <li>This prevents agents from writing verbose raw flexbox CSS inside the slide.</li>
         </ul>
       </hd-notes>
-    </hd-slide>
+    </hd-slide-split>
 
     <!-- Slide 4: Multi-Column Component -->
-    <hd-slide layout="title-body" title="Multi-Columns Component">
-      <hd-heading slot="title" level="2">The <code>&lt;hd-columns&gt;</code> Component</hd-heading>
-      <hd-text>For arbitrary columns (like 3 or 4 columns), use the nested <code>&lt;hd-columns&gt;</code> and
-        <code>&lt;hd-column&gt;</code> tags:</hd-text>
+    <hd-slide-standard title="Multi-Columns Component">
+      <h2 slot="title">The <code>&lt;hd-flex&gt;</code> primitive</h2>
+      <hd-text>For arbitrary columns (like 3 or 4 columns), use the <code>&lt;hd-flex&gt;</code> layout primitive:</hd-text>
 
-      <hd-columns>
-        <hd-column flex="1">
-          <div class="grid-card">
-            <h3>Column 1</h3>
-            <hd-text>Flex factor = 1. Automatically distributes width evenly.</hd-text>
-          </div>
-        </hd-column>
-        <hd-column flex="2">
-          <div class="grid-card grid-card-primary">
-            <h3>Column 2</h3>
-            <hd-text>Flex factor = 2. This column is twice as wide as the others.</hd-text>
-          </div>
-        </hd-column>
-        <hd-column flex="1">
-          <div class="grid-card">
-            <h3>Column 3</h3>
-            <hd-text>Flex factor = 1. Useful for metadata or notes.</hd-text>
-          </div>
-        </hd-column>
-      </hd-columns>
+      <hd-flex gap="md">
+        <div class="grid-card" style="flex: 1;">
+          <h3>Column 1</h3>
+          <hd-text>Flex factor = 1. Automatically distributes width evenly.</hd-text>
+        </div>
+        <div class="grid-card grid-card-primary" style="flex: 2;">
+          <h3>Column 2</h3>
+          <hd-text>Flex factor = 2. This column is twice as wide as the others.</hd-text>
+        </div>
+        <div class="grid-card" style="flex: 1;">
+          <h3>Column 3</h3>
+          <hd-text>Flex factor = 1. Useful for metadata or notes.</hd-text>
+        </div>
+      </hd-flex>
 
       <hd-notes>
         <h2>Speaker Notes: Columns</h2>
@@ -149,36 +144,32 @@
           <li>Very helpful for showing cards side-by-side.</li>
         </ul>
       </hd-notes>
-    </hd-slide>
+    </hd-slide-standard>
 
     <!-- Slide 5: Math Equations -->
-    <hd-slide layout="title-body" title="KaTeX Mathematical Formulas">
-      <hd-heading slot="title" level="2">LaTeX Math Integration</hd-heading>
+    <hd-slide-standard title="KaTeX Mathematical Formulas">
+      <h2 slot="title">LaTeX Math Integration</h2>
       <hd-text>You can render beautiful LaTeX math equations using KaTeX. It supports both inline and
         block equations.</hd-text>
 
-      <hd-columns>
-        <hd-column>
-          <div class="grid-card">
-            <h3>Inline Math</h3>
-            <hd-text>The formula <span class="hd-math-inline">\(f(x) = \int_{-\infty}^{\infty} e^{-x^2} dx\)</span> fits inline with the
+      <hd-grid cols="2">
+        <div class="grid-card">
+          <h3>Inline Math</h3>
+          <hd-text>The formula <span class="hd-math-inline">\(f(x) = \int_{-\infty}^{\infty} e^{-x^2} dx\)</span> fits inline with the
             standard text flow.</hd-text>
-          </div>
-        </hd-column>
-        <hd-column>
-          <div class="grid-card">
-            <h3>Block Math</h3>
-            <hd-text>Render block equations centred and scaled:</hd-text>
-            <div class="hd-math-block">$$
-              A = \begin{pmatrix}
-              a_{11} & a_{12} \\
-              a_{21} & a_{22}
-              \end{pmatrix}, \quad
-              \det(A) = a_{11}a_{22} - a_{12}a_{21}
-            $$</div>
-          </div>
-        </hd-column>
-      </hd-columns>
+        </div>
+        <div class="grid-card">
+          <h3>Block Math</h3>
+          <hd-text>Render block equations centred and scaled:</hd-text>
+          <div class="hd-math-block">$$
+            A = \begin{pmatrix}
+            a_{11} & a_{12} \\
+            a_{21} & a_{22}
+            \end{pmatrix}, \quad
+            \det(A) = a_{11}a_{22} - a_{12}a_{21}
+          $$</div>
+        </div>
+      </hd-grid>
 
       <hd-notes>
         <h2>Speaker Notes: KaTeX Math</h2>
@@ -187,11 +178,11 @@
           <li>Block attribute centers and adds margins around the math equation.</li>
         </ul>
       </hd-notes>
-    </hd-slide>
+    </hd-slide-standard>
 
     <!-- Slide 6: Code Block Syntax Highlight -->
-    <hd-slide layout="title-body" title="Code Highlighting with PrismJS">
-      <hd-heading slot="title" level="2">Syntax Highlighting</hd-heading>
+    <hd-slide-standard title="Code Highlighting with PrismJS">
+      <h2 slot="title">Syntax Highlighting</h2>
       <hd-text>Code syntax highlighting is performed automatically using PrismJS.</hd-text>
 
       <pre><code class="language-javascript" id="my-component-code"></code></pre>
@@ -209,144 +200,133 @@
           <li>Prism Tomorrow theme (dark theme) is used by default.</li>
         </ul>
       </hd-notes>
-    </hd-slide>
+    </hd-slide-standard>
 
     <!-- Slide 7: Table Support -->
-    <hd-slide layout="title-body" title="Table Support">
-      <hd-heading slot="title" level="2">Table Support (<code>&lt;hd-table&gt;</code>)</hd-heading>
-      <hd-text>Easily include tables in your slides. They are fully encapsulated and styled cleanly.</hd-text>
+    <hd-slide-standard title="Table Support">
+      <h2 slot="title">Table Support</h2>
+      <hd-text>Easily include standard tables in your slides. They are automatically styled cleanly.</hd-text>
 
-      <hd-table>
-        <table>
-          <thead>
-            <tr>
-              <th>Feature</th>
-              <th>HTML-Deck</th>
-              <th>Reveal.js</th>
-              <th>PowerPoint</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Agent-Friendly</td>
-              <td><strong>Excellent (Flat DOM)</strong></td>
-              <td>Poor (Deeply Nested)</td>
-              <td>None (Binary/Proprietary)</td>
-            </tr>
-            <tr>
-              <td>Build Step</td>
-              <td>None (Vanilla JS)</td>
-              <td>Optional / NPM</td>
-              <td>None</td>
-            </tr>
-            <tr>
-              <td>Offline Ready</td>
-              <td>Yes (Local Vendors)</td>
-              <td>Yes</td>
-              <td>Yes</td>
-            </tr>
-            <tr>
-              <td>Presenter View</td>
-              <td>Yes (BroadcastChannel)</td>
-              <td>Yes (Socket/Multiplex)</td>
-              <td>Yes</td>
-            </tr>
-          </tbody>
-        </table>
-      </hd-table>
-    </hd-slide>
+      <table>
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>HTML-Deck</th>
+            <th>Reveal.js</th>
+            <th>PowerPoint</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Agent-Friendly</td>
+            <td><strong>Excellent (Flat DOM)</strong></td>
+            <td>Poor (Deeply Nested)</td>
+            <td>None (Binary/Proprietary)</td>
+          </tr>
+          <tr>
+            <td>Build Step</td>
+            <td>None (Vanilla JS)</td>
+            <td>Optional / NPM</td>
+            <td>None</td>
+          </tr>
+          <tr>
+            <td>Offline Ready</td>
+            <td>Yes (Local Vendors)</td>
+            <td>Yes</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td>Presenter View</td>
+            <td>Yes (BroadcastChannel)</td>
+            <td>Yes (Socket/Multiplex)</td>
+            <td>Yes</td>
+          </tr>
+        </tbody>
+      </table>
+    </hd-slide-standard>
 
     <!-- Slide 8: Scrollable Content Demo -->
-    <hd-slide layout="title-body" title="Scrollable Code and Tables">
-      <hd-heading slot="title" level="2">Scrollable Components</hd-heading>
-      <hd-text>When code blocks or tables are too large to fit in a slide, use the <code>scrollable</code> attribute to
-        enable scrolling:</hd-text>
+    <hd-slide-standard title="Scrollable Code and Tables">
+      <h2 slot="title">Scrollable Components</h2>
+      <hd-text>When code blocks or tables are too large to fit in a slide, use overflow wrappers to enable scrolling:</hd-text>
 
-      <hd-columns>
-        <hd-column>
-          <div class="grid-card">
-            <h3>Scrollable Code Block</h3>
-            <pre class="hd-code-scrollable" style="--hd-code-scrollable-height: 180px;"><code class="language-javascript" id="scroll-demo-code"></code></pre>
-            <script type="module">
-              import scrollDemoCode from './scroll-demo.js?raw';
-              const el = document.getElementById('scroll-demo-code');
-              el.textContent = scrollDemoCode;
-              setTimeout(() => window.Prism && window.Prism.highlightElement(el), 0);
-            </script>
+      <hd-grid cols="2">
+        <div class="grid-card">
+          <h3>Scrollable Code Block</h3>
+          <pre class="hd-code-scrollable" style="--hd-code-scrollable-height: 180px;"><code class="language-javascript" id="scroll-demo-code"></code></pre>
+          <script type="module">
+            import scrollDemoCode from './scroll-demo.js?raw';
+            const el = document.getElementById('scroll-demo-code');
+            el.textContent = scrollDemoCode;
+            setTimeout(() => window.Prism && window.Prism.highlightElement(el), 0);
+          </script>
+        </div>
+        <div class="grid-card">
+          <h3>Scrollable Table</h3>
+          <div style="max-height: 180px; overflow-y: auto;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Version</th>
+                  <th>Release Date</th>
+                  <th>Key Feature</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>v1.0.0</td>
+                  <td>2026-06-01</td>
+                  <td>Initial release with core elements</td>
+                </tr>
+                <tr>
+                  <td>v1.1.0</td>
+                  <td>2026-06-10</td>
+                  <td>KaTeX and PrismJS offline integration</td>
+                </tr>
+                <tr>
+                  <td>v1.2.0</td>
+                  <td>2026-06-15</td>
+                  <td>Presenter dashboard view</td>
+                </tr>
+                <tr>
+                  <td>v1.3.0</td>
+                  <td>2026-06-20</td>
+                  <td>Aspect ratio automatic scaling</td>
+                </tr>
+                <tr>
+                  <td>v1.4.0</td>
+                  <td>2026-06-22</td>
+                  <td>Tables, title slide and page numbers</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-        </hd-column>
-        <hd-column>
-          <div class="grid-card">
-            <h3>Scrollable Table</h3>
-            <hd-table scrollable="180px">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Version</th>
-                    <th>Release Date</th>
-                    <th>Key Feature</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>v1.0.0</td>
-                    <td>2026-06-01</td>
-                    <td>Initial release with core elements</td>
-                  </tr>
-                  <tr>
-                    <td>v1.1.0</td>
-                    <td>2026-06-10</td>
-                    <td>KaTeX and PrismJS offline integration</td>
-                  </tr>
-                  <tr>
-                    <td>v1.2.0</td>
-                    <td>2026-06-15</td>
-                    <td>Presenter dashboard view</td>
-                  </tr>
-                  <tr>
-                    <td>v1.3.0</td>
-                    <td>2026-06-20</td>
-                    <td>Aspect ratio automatic scaling</td>
-                  </tr>
-                  <tr>
-                    <td>v1.4.0</td>
-                    <td>2026-06-22</td>
-                    <td>Tables, title slide and page numbers</td>
-                  </tr>
-                </tbody>
-              </table>
-            </hd-table>
-          </div>
-        </hd-column>
-      </hd-columns>
-    </hd-slide>
+        </div>
+      </hd-grid>
+    </hd-slide-standard>
 
     <!-- Slide 9: Presenter View & Print -->
-    <hd-slide layout="title-body" title="Presenter View & PDF Export">
-      <hd-heading slot="title" level="2">Presenter Tools & Printing</hd-heading>
+    <hd-slide-standard title="Presenter View & PDF Export">
+      <h2 slot="title">Presenter Tools & Printing</h2>
 
-      <hd-columns>
-        <hd-column>
-          <div class="grid-card">
-            <h3>Presenter Dashboard</h3>
-            <hd-list>
-              <li>Press <strong>P</strong> to open the presenter view window.</li>
-              <li>Uses <code>BroadcastChannel</code> to sync current slide state.</li>
-              <li>Includes timers, clocks, next-slide titles, and notes.</li>
-            </hd-list>
-          </div>
-        </hd-column>
-        <hd-column>
-          <div class="grid-card">
-            <h3>PDF & Print Output</h3>
-            <hd-list>
-              <li>Press <strong>Ctrl + P</strong> (Cmd + P) to open the print dialog.</li>
-              <li>Slides are scaled automatically to fit Landscape size.</li>
-              <li>Controls and UI overlays are hidden automatically.</li>
-            </hd-list>
-          </div>
-        </hd-column>
-      </hd-columns>
+      <hd-grid cols="2">
+        <div class="grid-card">
+          <h3>Presenter Dashboard</h3>
+          <hd-list>
+            <li>Press <strong>P</strong> to open the presenter view window.</li>
+            <li>Uses <code>BroadcastChannel</code> to sync current slide state.</li>
+            <li>Includes timers, clocks, next-slide titles, and notes.</li>
+          </hd-list>
+        </div>
+        <div class="grid-card">
+          <h3>PDF & Print Output</h3>
+          <hd-list>
+            <li>Press <strong>Ctrl + P</strong> (Cmd + P) to open the print dialog.</li>
+            <li>Slides are scaled automatically to fit Landscape size.</li>
+            <li>Controls and UI overlays are hidden automatically.</li>
+          </hd-list>
+        </div>
+      </hd-grid>
 
       <hd-notes>
         <h2>Speaker Notes: Presenter & Print</h2>
@@ -356,15 +336,15 @@
           <li>For printing, recommend setting "Background graphics" to ON to preserve colors.</li>
         </ul>
       </hd-notes>
-    </hd-slide>
+    </hd-slide-standard>
 
     <!-- Slide 10: Callouts & Footnotes -->
-    <hd-slide layout="title-body" title="Callouts & Footnotes">
-      <hd-heading slot="title" level="2">Callout Boxes & Footnotes</hd-heading>
+    <hd-slide-standard title="Callouts & Footnotes">
+      <h2 slot="title">Callout Boxes & Footnotes</h2>
       <hd-text>HTML-Deck provides dedicated elements to add structure and annotation to your slides:</hd-text>
 
-      <hd-columns>
-        <hd-column>
+      <hd-grid cols="2">
+        <div>
           <hd-callout type="primary">
             <hd-text class="hd-bold">Primary Callout</hd-text>
             <hd-text class="hd-text-sm">Use <code>&lt;hd-callout type="primary"&gt;</code> to highlight key
@@ -376,18 +356,16 @@
             <hd-text class="hd-text-sm">Supports multiple color configurations like <code>type="secondary"</code> or
               <code>type="accent"</code>.</hd-text>
           </hd-callout>
-        </hd-column>
+        </div>
 
-        <hd-column>
-          <div class="grid-card">
-            <h3>Footnote Integration</h3>
-            <hd-text class="hd-text-sm">Use <code>&lt;hd-footnote&gt;</code> to place annotations at the bottom margin
-              of the slide.</hd-text>
-            <hd-footnote inline>* This is an <strong>inline footnote</strong> using the <code>inline</code>
-              attribute.</hd-footnote>
-          </div>
-        </hd-column>
-      </hd-columns>
+        <div class="grid-card">
+          <h3>Footnote Integration</h3>
+          <hd-text class="hd-text-sm">Use <code>&lt;hd-footnote&gt;</code> to place annotations at the bottom margin
+            of the slide.</hd-text>
+          <hd-footnote inline>* This is an <strong>inline footnote</strong> using the <code>inline</code>
+            attribute.</hd-footnote>
+        </div>
+      </hd-grid>
 
       <hd-footnote>* Footnotes absolutely position themselves at the bottom-left of the slide by default.</hd-footnote>
 
@@ -399,23 +377,25 @@
           </li>
         </ul>
       </hd-notes>
-    </hd-slide>
+    </hd-slide-standard>
 
     <!-- Slide 11: Customizing Deck -->
-    <hd-slide layout="title" title="Start Building!">
-      <hd-heading level="2"><span class="gradient-heading">Customize it with CSS variables</span></hd-heading>
-      <hd-text>Modify colors, padding, and fonts easily on the container:</hd-text>
-      <div class="hd-max-w-lg hd-mx-auto hd-text-left">
-        <pre><code class="language-css" id="custom-theme-code"></code></pre>
-        <script type="module">
-          import customThemeCode from './custom-theme.css?raw';
-          const el = document.getElementById('custom-theme-code');
-          el.textContent = customThemeCode;
-          setTimeout(() => window.Prism && window.Prism.highlightElement(el), 0);
-        </script>
+    <hd-slide-cover title="Start Building!">
+      <h2 slot="title"><span class="gradient-heading">Customize it with CSS variables</span></h2>
+      <div slot="subtitle">
+        <hd-text>Modify colors, padding, and fonts easily on the container:</hd-text>
+        <div class="hd-max-w-lg hd-mx-auto hd-text-left">
+          <pre><code class="language-css" id="custom-theme-code"></code></pre>
+          <script type="module">
+            import customThemeCode from './custom-theme.css?raw';
+            const el = document.getElementById('custom-theme-code');
+            el.textContent = customThemeCode;
+            setTimeout(() => window.Prism && window.Prism.highlightElement(el), 0);
+          </script>
+        </div>
+        <hd-text class="hd-semibold hd-mt-xl">HTML-Deck: Easy slide decks for humans and agents
+          alike.</hd-text>
       </div>
-      <hd-text class="hd-semibold hd-mt-xl">HTML-Deck: Easy slide decks for humans and agents
-        alike.</hd-text>
 
       <hd-notes>
         <h2>Speaker Notes: Wrap-up</h2>
@@ -424,7 +404,7 @@
           <li>Point users to the index.html page for more details.</li>
         </ul>
       </hd-notes>
-    </hd-slide>
+    </hd-slide-cover>
 
   </hd-deck>
 

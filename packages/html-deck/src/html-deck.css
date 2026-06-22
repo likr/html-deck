@@ -44,6 +44,13 @@
   /* Page number defaults */
   --hd-page-number-font-size: 9px;
   --hd-page-number-color: var(--hd-muted-color);
+
+  /* Gap sizing defaults */
+  --hd-gap-xs: 4px;
+  --hd-gap-sm: 8px;
+  --hd-gap-md: 16px;
+  --hd-gap-lg: 24px;
+  --hd-gap-xl: 32px;
 }
 
 body {
@@ -156,12 +163,55 @@ body {
 }
 
 /* 3. Global HTML Deck Element Selectors */
-hd-slide img {
+hd-slide-standard img,
+hd-slide-split img,
+hd-slide-cover img,
+hd-slide-blank img {
   max-width: 100%;
   height: auto;
   border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+}
+
+/* Heading Styling for Standard HTML Tags */
+hd-slide-standard h1, hd-slide-split h1, hd-slide-cover h1, hd-slide-blank h1,
+hd-slide-standard h2, hd-slide-split h2, hd-slide-cover h2, hd-slide-blank h2,
+hd-slide-standard h3, hd-slide-split h3, hd-slide-cover h3, hd-slide-blank h3,
+hd-slide-standard h4, hd-slide-split h4, hd-slide-cover h4, hd-slide-blank h4,
+hd-slide-standard h5, hd-slide-split h5, hd-slide-cover h5, hd-slide-blank h5,
+hd-slide-standard h6, hd-slide-split h6, hd-slide-cover h6, hd-slide-blank h6 {
+  font-family: var(--hd-heading-font, var(--hd-body-font, inherit));
+  font-weight: var(--hd-heading-font-weight, 700);
+  line-height: var(--hd-heading-line-height, 1.2);
+  margin-top: 0;
+  margin-bottom: var(--hd-heading-margin-bottom, 8px);
+  letter-spacing: -0.02em;
+}
+
+hd-slide-standard h1, hd-slide-split h1, hd-slide-cover h1, hd-slide-blank h1 {
+  font-size: var(--hd-heading-font-size-1, 32px);
+  color: var(--hd-heading-color-1, var(--hd-primary, #3b82f6));
+}
+hd-slide-standard h2, hd-slide-split h2, hd-slide-cover h2, hd-slide-blank h2 {
+  font-size: var(--hd-heading-font-size-2, 24px);
+  color: var(--hd-heading-color-2, var(--hd-secondary, #a855f7));
+}
+hd-slide-standard h3, hd-slide-split h3, hd-slide-cover h3, hd-slide-blank h3 {
+  font-size: var(--hd-heading-font-size-3, 18px);
+  color: var(--hd-heading-color-3, var(--hd-text-color, #1e293b));
+}
+hd-slide-standard h4, hd-slide-split h4, hd-slide-cover h4, hd-slide-blank h4 {
+  font-size: var(--hd-heading-font-size-4, 16px);
+  color: var(--hd-heading-color-4, var(--hd-text-color, #1e293b));
+}
+hd-slide-standard h5, hd-slide-split h5, hd-slide-cover h5, hd-slide-blank h5 {
+  font-size: var(--hd-heading-font-size-5, 14px);
+  color: var(--hd-heading-color-5, var(--hd-muted-color, #64748b));
+}
+hd-slide-standard h6, hd-slide-split h6, hd-slide-cover h6, hd-slide-blank h6 {
+  font-size: var(--hd-heading-font-size-6, 12px);
+  color: var(--hd-heading-color-6, var(--hd-muted-color, #64748b));
 }
 
 /* 4. Nested List Styles (Supports standard ul/ol nesting inside hd-list) */
@@ -195,8 +245,10 @@ hd-list li {
 }
 
 /* 5. Standard Table Styling (for un-encapsulated tables in slides) */
-hd-slide table,
-hd-title-slide table {
+hd-slide-standard table,
+hd-slide-split table,
+hd-slide-cover table,
+hd-slide-blank table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 16px;
@@ -206,58 +258,60 @@ hd-title-slide table {
   background-color: var(--hd-table-bg, transparent);
 }
 
-hd-slide th,
-hd-slide td,
-hd-title-slide th,
-hd-title-slide td {
+hd-slide-standard th,
+hd-slide-standard td,
+hd-slide-split th,
+hd-slide-split td,
+hd-slide-cover th,
+hd-slide-cover td,
+hd-slide-blank th,
+hd-slide-blank td {
   padding: var(--hd-table-cell-padding, 6px 10px);
   text-align: var(--hd-table-align, left);
   border-bottom: 1px solid var(--hd-table-border-color, rgba(0, 0, 0, 0.1));
 }
 
-hd-slide th,
-hd-title-slide th {
+hd-slide-standard th,
+hd-slide-split th,
+hd-slide-cover th,
+hd-slide-blank th {
   font-weight: 700;
   background-color: var(--hd-table-header-bg, rgba(59, 130, 246, 0.05));
   color: var(--hd-table-header-text-color, var(--hd-slide-text-color, var(--hd-text-color, #1e293b)));
   border-bottom: 2px solid var(--hd-table-border-color, rgba(0, 0, 0, 0.15));
 }
 
-hd-slide tr:nth-child(even),
-hd-title-slide tr:nth-child(even) {
+hd-slide-standard tr:nth-child(even),
+hd-slide-split tr:nth-child(even),
+hd-slide-cover tr:nth-child(even),
+hd-slide-blank tr:nth-child(even) {
   background-color: var(--hd-table-stripe-bg, rgba(0, 0, 0, 0.02));
 }
 
 /* 6. Layout & Spacing Utilities */
 
 /* Spacing (Margin Top) */
-.hd-mt-xs,
-.hd-mt-1 {
+.hd-mt-xs {
   margin-top: 4px !important;
 }
 
-.hd-mt-sm,
-.hd-mt-2 {
+.hd-mt-sm {
   margin-top: 8px !important;
 }
 
-.hd-mt-md,
-.hd-mt-3 {
+.hd-mt-md {
   margin-top: 16px !important;
 }
 
-.hd-mt-lg,
-.hd-mt-4 {
+.hd-mt-lg {
   margin-top: 24px !important;
 }
 
-.hd-mt-xl,
-.hd-mt-5 {
+.hd-mt-xl {
   margin-top: 32px !important;
 }
 
-.hd-mt-2xl,
-.hd-mt-6 {
+.hd-mt-2xl {
   margin-top: 48px !important;
 }
 
@@ -309,8 +363,10 @@ hd-title-slide tr:nth-child(even) {
 /* 7. Code & Math Standard Tag Styles & Utilities */
 
 /* Code block container defaults matching the slide theme */
-hd-slide pre,
-hd-title-slide pre {
+hd-slide-standard pre,
+hd-slide-split pre,
+hd-slide-cover pre,
+hd-slide-blank pre {
   margin: 0 0 12px 0;
   padding: 12px !important;
   border: 1px solid var(--hd-codeblock-border, #e2e8f0);

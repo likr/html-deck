@@ -134,7 +134,7 @@ TEMPLATE.innerHTML = `
 
 export class HdDeck extends HTMLElement {
   static get observedAttributes() {
-    return ['aspect-ratio', 'presenter-url', 'transition', 'page-number'];
+    return ['aspect-ratio', 'presenter-url', 'transition', 'hide-page-number'];
   }
 
   constructor() {
@@ -174,7 +174,7 @@ export class HdDeck extends HTMLElement {
         this.slides.forEach(slide => slide.setAttribute('transition-style', newValue || 'fade'));
       }
     }
-    if (name === 'page-number') {
+    if (name === 'hide-page-number') {
       this.updateSlides();
     }
   }
@@ -209,7 +209,7 @@ export class HdDeck extends HTMLElement {
 
     // Wait for children to be parsed in DOM
     setTimeout(() => {
-      this.slides = Array.from(this.querySelectorAll('hd-slide, hd-title-slide'));
+      this.slides = Array.from(this.querySelectorAll('hd-slide-standard, hd-slide-split, hd-slide-cover, hd-slide-blank'));
       
       // Set transition class
       const transition = this.getAttribute('transition') || 'fade';
@@ -308,11 +308,11 @@ export class HdDeck extends HTMLElement {
     }
 
     styleEl.textContent = `
+      @page {
+        size: ${width}in ${height}in;
+        margin: 0;
+      }
       @media print {
-        @page {
-          size: ${width}in ${height}in;
-          margin: 0;
-        }
         body {
           margin: 0 !important;
           padding: 0 !important;
@@ -382,7 +382,7 @@ export class HdDeck extends HTMLElement {
   }
 
   updateSlides() {
-    const showPageNum = this.getAttribute('page-number') !== 'false';
+    const hidePageNum = this.hasAttribute('hide-page-number');
     const totalSlides = this.slides.length;
 
     this.slides.forEach((slide, idx) => {
@@ -392,13 +392,14 @@ export class HdDeck extends HTMLElement {
         slide.removeAttribute('active');
       }
 
-      if (showPageNum) {
-        slide.setAttribute('page-index', idx + 1);
-        slide.setAttribute('page-total', totalSlides);
+      if (hidePageNum) {
+        slide.setAttribute('hide-page-number', '');
       } else {
-        slide.removeAttribute('page-index');
-        slide.removeAttribute('page-total');
+        slide.removeAttribute('hide-page-number');
       }
+
+      slide.setAttribute('page-index', idx + 1);
+      slide.setAttribute('page-total', totalSlides);
     });
 
     // Update progress bar
@@ -442,7 +443,7 @@ export class HdDeck extends HTMLElement {
 
   syncPresenter() {
     if (!this.slides || this.slides.length === 0) {
-      this.slides = Array.from(this.querySelectorAll('hd-slide, hd-title-slide'));
+      this.slides = Array.from(this.querySelectorAll('hd-slide-standard, hd-slide-split, hd-slide-cover, hd-slide-blank'));
     }
 
     const activeSlide = this.slides[this.currentIndex];

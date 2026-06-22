@@ -67,21 +67,23 @@
   <hd-deck aspect-ratio="16:9" transition="fade">
 
     <!-- Slide 1: Welcome & Overview -->
-    <hd-title-slide>
-      <div slot="title">HTML-Deck Theme System</div>
+    <hd-slide-cover>
+      <h1 slot="title">HTML-Deck Theme System</h1>
       <div slot="subtitle">Comprehensive Theme Demonstration & Test Suite</div>
-      <div slot="presenter">Created by AI Agent & Developer Team</div>
-      <div slot="location">Theme Test Suite Environment</div>
-      <div slot="date">June 22, 2026</div>
-    </hd-title-slide>
+      <div slot="meta">
+        <div>Created by AI Agent & Developer Team</div>
+        <div>Theme Test Suite Environment</div>
+        <div>June 22, 2026</div>
+      </div>
+    </hd-slide-cover>
 
     <!-- Slide 2: Element Styles Testing -->
-    <hd-slide layout="split">
-      <hd-heading level="1" slot="title">Typography & Element Styling</hd-heading>
+    <hd-slide-split>
+      <h1 slot="title">Typography & Element Styling</h1>
 
       <div slot="left">
-        <hd-heading level="2">Heading Level 2</hd-heading>
-        <hd-heading level="3">Heading Level 3 (Sub-item)</hd-heading>
+        <h2>Heading Level 2</h2>
+        <h3>Heading Level 3 (Sub-item)</h3>
         <hd-text>
           This is a normal body paragraph using <code>&lt;hd-text&gt;</code>. Themes automatically import premium web
           fonts
@@ -95,41 +97,41 @@
       </div>
 
       <div slot="right">
-        <hd-heading level="2">List Styles</hd-heading>
+        <h2>List Styles</h2>
         <hd-list>
           <li>First level bullet</li>
           <li>Second level sub-bullet
             <hd-list>
-          <li>Nested bullet item</li>
-          <li>Another nested bullet</li>
-        </hd-list>
-        </li>
-        <li>Ordered lists are also supported:
-          <hd-list ordered>
-        <li>Ordered step one</li>
-        <li>Ordered step two</li>
-        </hd-list>
-        </li>
+              <li>Nested bullet item</li>
+              <li>Another nested bullet</li>
+            </hd-list>
+          </li>
+          <li>Ordered lists are also supported:
+            <hd-list ordered>
+              <li>Ordered step one</li>
+              <li>Ordered step two</li>
+            </hd-list>
+          </li>
         </hd-list>
       </div>
-    </hd-slide>
+    </hd-slide-split>
 
     <!-- Slide 3: Code & Math (Theming checks) -->
-    <hd-slide layout="title-body">
-      <hd-heading level="1" slot="title">Advanced Components (Code & Math)</hd-heading>
+    <hd-slide-standard title="Advanced Components (Code & Math)">
+      <h1 slot="title">Advanced Components (Code & Math)</h1>
       <hd-text>
         Code highlights and KaTeX formulas are seamlessly integrated and fully styled by themes.
       </hd-text>
 
-      <hd-columns>
-        <hd-column>
-          <hd-heading level="2">Formatted Formula</hd-heading>
+      <hd-grid cols="2">
+        <div>
+          <h2>Formatted Formula</h2>
           <hd-text>Mathematical equations automatically align text colors with the selected theme:</hd-text>
           <div class="hd-math-block">$$f(x) = \int_{-\infty}^{\infty} \hat{f}(\xi)\,e^{2 \pi i \xi x}\,d\xi$$</div>
           <hd-text>Inline math <span class="hd-math-inline">\(E = mc^2\)</span> works perfectly too.</hd-text>
-        </hd-column>
-        <hd-column>
-          <hd-heading level="2">Syntax Highlighter</hd-heading>
+        </div>
+        <div>
+          <h2>Syntax Highlighter</h2>
           <pre><code class="language-javascript" id="scale-code-block"></code></pre>
           <script type="module">
             import scaleUtilCode from './scale-util.js?raw';
@@ -137,13 +139,13 @@
             el.textContent = scaleUtilCode;
             setTimeout(() => window.Prism && window.Prism.highlightElement(el), 0);
           </script>
-        </hd-column>
-      </hd-columns>
-    </hd-slide>
+        </div>
+      </hd-grid>
+    </hd-slide-standard>
 
     <!-- Slide 4: Slide Specific Overrides (bg=primary) -->
-    <hd-slide layout="title-body" bg="primary">
-      <hd-heading level="1" slot="title">Individual Override: bg="primary"</hd-heading>
+    <hd-slide-standard bg="primary">
+      <h1 slot="title">Individual Override: bg="primary"</h1>
       <hd-text>
         This slide uses the <code>bg="primary"</code> attribute. Even when switching themes, this specific slide
         will use the theme's primary accent color as the background, and automatically swap text to high-contrast white.
@@ -157,21 +159,21 @@
         <li>Text and headings: Pure white.</li>
         <li>Math & Lists: Pure white.</li>
       </hd-list>
-    </hd-slide>
+    </hd-slide-standard>
 
     <!-- Slide 5: Slide Specific Overrides (bg=secondary) -->
-    <hd-slide layout="title-body" bg="secondary">
-      <hd-heading level="1" slot="title">Individual Override: bg="secondary"</hd-heading>
+    <hd-slide-standard bg="secondary">
+      <h1 slot="title">Individual Override: bg="secondary"</h1>
       <hd-text>
         Similarly, using <code>bg="secondary"</code> switches the slide background to the secondary theme color,
         maintaining clear legibility with white text.
       </hd-text>
       <div class="hd-math-block">$$\nabla \times \mathbf{E} = -\frac{\partial \mathbf{B}}{\partial t}$$</div>
-    </hd-slide>
+    </hd-slide-standard>
 
     <!-- Slide 6: Slide Specific Overrides (invert) -->
-    <hd-slide layout="title-body" invert>
-      <hd-heading level="1" slot="title">Individual Override: invert</hd-heading>
+    <hd-slide-standard invert>
+      <h1 slot="title">Individual Override: invert</h1>
       <hd-text>
         This slide uses the <code>invert</code> attribute. It dynamically swaps the background and body text colors
         according to the active theme.
@@ -186,7 +188,7 @@
         el.textContent = invertExampleCode;
         setTimeout(() => window.Prism && window.Prism.highlightElement(el), 0);
       </script>
-    </hd-slide>
+    </hd-slide-standard>
 
   </hd-deck>
 

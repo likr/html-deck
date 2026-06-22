@@ -36,46 +36,41 @@
   <hd-deck transition="fade" aspect-ratio="16:9" presenter-url="presenter.html">
 
     <!-- スライド1: タイトル -->
-    <hd-title-slide>
-      <div slot="title"><span class="gradient-text">HTML-Deck のご紹介</span></div>
-      <div slot="subtitle">AIエージェントと人間のための次世代Webスライドプラットフォーム</div>
-      <div slot="presenter">開発チーム</div>
-      <div slot="location">東京 / オンライン</div>
-      <div slot="date">2026年6月</div>
-      <hd-notes>
-        <h2>発表ノート: イントロダクション</h2>
-        <p>HTML-Deckの紹介スライドへようこそ！このスライド自体もHTML-Deckを使って作られています。</p>
-      </hd-notes>
-    </hd-title-slide>
+    <hd-slide-cover>
+      <h1 slot="title"><span class="gradient-text">html-deck ← 作った</span></h1>
+      <div slot="subtitle">退屈なスライド作りはAIにやらせよう</div>
+      <div slot="meta">
+        <div>おのうえ（@_likr）</div>
+        <div>LoGeek LT会</div>
+        <div>2026年6月22日</div>
+      </div>
+    </hd-slide-cover>
 
     <!-- スライド2: コアコンセプト -->
-    <hd-slide layout="title-body" title="コアコンセプト">
-      <hd-heading slot="title" level="2">なぜ HTML-Deck なのか？</hd-heading>
+    <hd-slide-standard title="コアコンセプト">
+      <h2 slot="title">なぜ HTML-Deck なのか？</h2>
       <hd-text>Reveal.js のような既存のフレームワークは複雑な階層構造（nested
         section）を持つため、AIエージェントがHTMLを編集する際に構造を壊しがちでした。HTML-Deckはフラットで直感的なDOM構成を維持します。</hd-text>
 
-      <hd-columns>
-        <hd-column>
-          <div class="feature-card">
-            <h3>🤖 エージェントファースト</h3>
-            <hd-text class="hd-text-sm">フラットなマークアップ and シンプルな属性定義により、LLMが迷わず正確にスライドを作成・修正できます。</hd-text>
-          </div>
-        </hd-column>
-        <hd-column>
-          <div class="feature-card">
-            <h3>⚡ 仮想解像度スケーリング</h3>
-            <hd-text class="hd-text-sm">960x540をベース解像度として、どんな画面サイズやブラウザのフォント設定でもアスペクト比を完璧に維持します。</hd-text>
-          </div>
-        </hd-column>
-      </hd-columns>
-    </hd-slide>
+      <hd-grid cols="2">
+        <div class="feature-card">
+          <h3>🤖 エージェントファースト</h3>
+          <hd-text class="hd-text-sm">フラットなマークアップ and シンプルな属性定義により、LLMが迷わず正確にスライドを作成・修正できます。</hd-text>
+        </div>
+        <div class="feature-card">
+          <h3>⚡ 仮想解像度スケーリング</h3>
+          <hd-text class="hd-text-sm">960x540をベース解像度として、どんな画面サイズやブラウザのフォント設定でもアスペクト比を完璧に維持します。</hd-text>
+        </div>
+      </hd-grid>
+    </hd-slide-standard>
 
     <!-- スライド3: コードブロックとViteインポート -->
-    <hd-slide layout="split" title="コードブロックとViteの連携">
-      <hd-heading slot="title" level="2">Vite によるソースコード読み込み</hd-heading>
+    <hd-slide-split title="コードブロックとViteの連携">
+      <h2 slot="title">Vite によるソースコード読み込み</h2>
 
       <div slot="left">
-        <hd-text>標準の <code>&lt;pre&gt;&lt;code&gt;</code> タグは、Vite の <code>?raw</code> クエリを使ったテキストインポートと完璧に連携します。</hd-text>
+        <hd-text>標準の <code>&lt;pre&gt;&lt;code&gt;</code> タグは、Vite の <code>?raw</code>
+          クエリを使ったテキストインポートと完璧に連携します。</hd-text>
         <hd-text
           class="hd-text-muted hd-text-sm">従来の実行時フェッチによるパスの狂いやプレゼンタービューでのリンクエラーがなくなり、完全にビルド時にコードが解決されます。</hd-text>
       </div>
@@ -90,35 +85,31 @@
           setTimeout(() => window.Prism && window.Prism.highlightElement(el), 0);
         </script>
       </div>
-    </hd-slide>
+    </hd-slide-split>
 
     <!-- スライド4: プレゼンター同期と印刷 -->
-    <hd-slide layout="title-body" title="プレゼンター機能とPDFエクスポート">
-      <hd-heading slot="title" level="2">実用的なプレゼンツール</hd-heading>
+    <hd-slide-standard title="プレゼンター機能とPDFエクスポート">
+      <h2 slot="title">実用的なプレゼンツール</h2>
 
-      <hd-columns>
-        <hd-column>
-          <div class="feature-card">
-            <h3>🖥️ プレゼンタービュー (Pキー)</h3>
-            <hd-list>
-              <li><code>BroadcastChannel</code> によるローカル高速同期</li>
-              <li>経過タイマー、現在時刻、ノートの表示</li>
-              <li>次のスライドのライブプレビュー</li>
-            </hd-list>
-          </div>
-        </hd-column>
-        <hd-column>
-          <div class="feature-card">
-            <h3>🖨️ PDFエクスポート (Ctrl + P)</h3>
-            <hd-list>
-              <li>印刷用 CSS メディアクエリの自動最適化</li>
-              <li>ページサイズ（A4横等）への自動フィッティング</li>
-              <li>印刷時の不要なナビゲーションUIの非表示化</li>
-            </hd-list>
-          </div>
-        </hd-column>
-      </hd-columns>
-    </hd-slide>
+      <hd-grid cols="2">
+        <div class="feature-card">
+          <h3>🖥️ プレゼンタービュー (Pキー)</h3>
+          <hd-list>
+            <li><code>BroadcastChannel</code> によるローカル高速同期</li>
+            <li>経過タイマー、現在時刻、ノートの表示</li>
+            <li>次のスライドのライブプレビュー</li>
+          </hd-list>
+        </div>
+        <div class="feature-card">
+          <h3>🖨️ PDFエクスポート (Ctrl + P)</h3>
+          <hd-list>
+            <li>印刷用 CSS メディアクエリの自動最適化</li>
+            <li>ページサイズ（A4横等）への自動フィッティング</li>
+            <li>印刷時の不要なナビゲーションUIの非表示化</li>
+          </hd-list>
+        </div>
+      </hd-grid>
+    </hd-slide-standard>
 
   </hd-deck>
 

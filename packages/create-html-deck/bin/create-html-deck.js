@@ -120,18 +120,18 @@ export default defineConfig({
   <hd-deck transition="fade" aspect-ratio="${aspectRatio}"${presenterAttr}>
 
     <!-- Slide 1: Title -->
-    <hd-slide layout="title">
-      <hd-heading level="1"><span class="gradient-title">Welcome to HTML-Deck</span></hd-heading>
-      <hd-text>A modern WebComponents slideshow platform scaffolded via CLI.</hd-text>
+    <hd-slide-cover>
+      <h1 slot="title"><span class="gradient-title">Welcome to HTML-Deck</span></h1>
+      <hd-text slot="subtitle">A modern WebComponents slideshow platform scaffolded via CLI.</hd-text>
       <hd-notes>
         <h2>Speaker Notes: Slide 1</h2>
         <p>Edit index.html to add your custom content.</p>
       </hd-notes>
-    </hd-slide>
+    </hd-slide-cover>
 
     <!-- Slide 2: Markdown & Code -->
-    <hd-slide layout="split" title="Rich Elements">
-      <hd-heading slot="title" level="2">Rich Features & Code Blocks</hd-heading>
+    <hd-slide-split title="Rich Elements">
+      <h2 slot="title">Rich Features & Code Blocks</h2>
       
       <div slot="left">
         <hd-text>You can declare components like lists, tables, callouts, and math:</hd-text>
@@ -143,14 +143,16 @@ export default defineConfig({
       </div>
 
       <div slot="right">
-        <hd-codeblock language="javascript" id="demo-code"></hd-codeblock>
+        <pre><code class="language-javascript" id="demo-code"></code></pre>
         <script type="module">
           // Import source code files as text using Vite raw import
           import codeText from './vite.config.js?raw';
-          document.getElementById('demo-code').textContent = codeText;
+          const el = document.getElementById('demo-code');
+          el.textContent = codeText;
+          setTimeout(() => window.Prism && window.Prism.highlightElement(el), 0);
         </script>
       </div>
-    </hd-slide>
+    </hd-slide-split>
 
   </hd-deck>
 
