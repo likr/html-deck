@@ -100,7 +100,7 @@ The project is organized as an **npm workspaces monorepo** under `packages/`:
 - **`packages/create-html-deck/`** — publishable CLI scaffolding tool.
 - **`packages/slides/`** — private personal slides package.
 
-**Build commands** from the monorepo root:
+**Build and Development commands** from the monorepo root:
 ```bash
 npm run build -w html-deck        # Build the library dist/
 npm run build -w html-deck-demo   # Build the demo website
@@ -108,7 +108,10 @@ npm run dev -w html-deck-demo     # Dev server for the demo
 npm run dev -w slides             # Dev server for personal slides
 ```
 
-**Rule**: When modifying library source files in `packages/html-deck/src/`, run `npm run build -w html-deck` to update `dist/` before testing consumer packages.
+**Rule**: During local development, the consumer packages (`html-deck-demo` and `slides`) resolve `html-deck` imports directly from the `src/` directory using **conditional exports** defined in `packages/html-deck/package.json`. Therefore, **you do NOT need to run `npm run build -w html-deck` when testing local changes** in the dev server (even if the `dist/` directory is completely deleted).
+- **Conditional Exports Rule**: The library's `package.json` maps `exports` dynamically. The `"development"` condition points to `./src/` files, while the `"default"` condition points to `./dist/` files. This lets Vite resolve source files automatically during development, removing the need for any custom `resolve.alias` configs in consumer workspaces.
+
+**Rule**: You only need to run `npm run build -w html-deck` to update `dist/` when preparing for release or verifying the final production bundle.
 
 ### 7. hd-codeblock: No Runtime `src` Fetching (DEPRECATED)
 The `src` attribute of `<hd-codeblock>` has been **fully removed**. Runtime fetching was unreliable (path resolution errors in presenter view, network dependency in offline use).

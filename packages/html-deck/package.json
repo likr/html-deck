@@ -6,14 +6,23 @@
   "main": "dist/html-deck.js",
   "module": "dist/html-deck.js",
   "exports": {
-    ".": "./dist/html-deck.js",
-    "./css": "./dist/html-deck.css",
+    ".": {
+      "development": "./src/html-deck.js",
+      "default": "./dist/html-deck.js"
+    },
+    "./css": {
+      "development": "./src/html-deck.css",
+      "default": "./dist/html-deck.css"
+    },
     "./theme-corporate": "./src/html-deck.theme-corporate.css",
     "./theme-dark": "./src/html-deck.theme-dark.css",
     "./theme-neon": "./src/html-deck.theme-neon.css",
     "./theme-serif": "./src/html-deck.theme-serif.css",
     "./theme-warm": "./src/html-deck.theme-warm.css",
-    "./presenter": "./dist/html-deck-presenter.js"
+    "./presenter": {
+      "development": "./src/html-deck-presenter.js",
+      "default": "./dist/html-deck-presenter.js"
+    }
   },
   "files": [
     "dist",
