@@ -168,8 +168,13 @@
     <!-- 8枚目: デモ -->
     <hd-slide-standard center>
       <h2 slot="title">デモ</h2>
-      <div style="font-size: 84px; font-weight: 800; text-align: center; margin-top: 48px;" class="gradient-text">
-        これがデモだよ</div>
+      <div class="crazy-bounce-wrapper" style="margin-top: 48px;">
+        <div class="crazy-rotate-wrapper">
+          <div style="font-size: 84px; font-weight: 900; text-align: center;" class="gradient-text crazy-neon-glow">
+            これがデモだよ
+          </div>
+        </div>
+      </div>
     </hd-slide-standard>
 
     <!-- 9枚目: カスタマイズ -->
@@ -205,10 +210,8 @@
         <canvas id="bg-canvas" class="canvas-bg"></canvas>
         <div class="slide-content-overlay" style="padding: 60px 80px; box-sizing: border-box;">
           <div>
-            <h2 style="margin: 0; color: #ffffff; text-shadow: 0 4px 10px rgba(0,0,0,0.8); font-weight: 800;">インタラクション
-            </h2>
             <hd-text
-              style="color: #e2e8f0; text-shadow: 0 2px 8px rgba(0,0,0,0.8); font-weight: 600;">JavaScriptとcanvasアニメーションを用いた振り子シミュレーションプログラムを動かす<br>背景もアニメーションを採用した派手なイメージにする</hd-text>
+              style="color: #e2e8f0; text-shadow: 0 2px 8px rgba(0,0,0,0.8); font-weight: 600;">JavaScriptが動くからぶっちゃけなんでもできる！！！！</hd-text>
           </div>
           <div class="pendulum-container">
             <canvas id="pendulum-canvas" width="600" height="340" class="pendulum-canvas"></canvas>
