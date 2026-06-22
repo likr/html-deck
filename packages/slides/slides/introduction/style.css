@@ -1,11 +1,46 @@
 :root {
-    --hd-slide-bg: #0b0f19;
-    --hd-text-color: #f1f5f9;
+    --hd-slide-bg: #ffffff;
+    --hd-text-color: #1e293b;
     --hd-primary: #3b82f6;
     --hd-secondary: #ec4899;
     --hd-accent: #10b981;
     --hd-font-family: 'Outfit', 'Noto Sans JP', sans-serif;
     --hd-slide-padding: 60px 80px;
+}
+
+/* Large fonts for high-impact LT */
+h1 {
+    font-size: 64px !important;
+    margin-bottom: 24px !important;
+    font-weight: 800;
+}
+
+h2 {
+    font-size: 48px !important;
+    margin-bottom: 24px !important;
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 32px !important;
+    margin-bottom: 16px !important;
+}
+
+hd-text {
+    --hd-text-font-size: 26px !important;
+    --hd-text-margin-bottom: 16px !important;
+    line-height: 1.6 !important;
+}
+
+hd-list {
+    --hd-list-font-size: 38px !important;
+    --hd-list-line-height: 1.6 !important;
+    --hd-list-item-margin-bottom: 16px !important;
+}
+
+hd-slide-split hd-list {
+    --hd-list-font-size: 26px !important;
+    --hd-list-item-margin-bottom: 8px !important;
 }
 
 .gradient-text {
@@ -15,33 +50,75 @@
     -webkit-text-fill-color: transparent;
 }
 
-.badge {
-    display: inline-block;
-    padding: 4px 10px;
-    background: rgba(59, 130, 246, 0.1);
-    border: 1px solid rgba(59, 130, 246, 0.3);
-    color: var(--hd-primary);
-    border-radius: 9999px;
-    font-size: 11px;
-    font-weight: 600;
-    margin-bottom: 12px;
+/* Theme buttons in Slide 9 */
+.theme-btn-container {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    margin-top: 48px;
 }
 
-.feature-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 8px;
-    padding: 16px;
+.theme-btn {
+    padding: 16px 36px;
+    font-size: 26px;
+    font-weight: 700;
+    border: 3px solid var(--hd-text-color);
+    background: var(--hd-slide-bg);
+    color: var(--hd-text-color);
+    cursor: pointer;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+}
+
+.theme-btn:hover {
+    background: var(--hd-text-color);
+    color: var(--hd-slide-bg);
+}
+
+/* Slide wrapper for relative positioning */
+.slide-wrapper {
+    position: relative;
+    width: 100%;
     height: 100%;
     box-sizing: border-box;
 }
 
-.feature-card h3 {
-    font-size: 14px;
-    color: var(--hd-primary);
-    margin-top: 0;
-    margin-bottom: 8px;
+/* Canvas container for backgrounds */
+.canvas-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
 }
+
+.slide-content-overlay {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Pendulum canvas container */
+.pendulum-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    margin-top: 20px;
+}
+
+.pendulum-canvas {
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+}
+
 
 :root {
     --bg-color: #0f172a;

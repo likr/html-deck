@@ -13,11 +13,19 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Outfit:wght@400;600;700;800&family=Noto+Sans+JP:wght@400;700&display=swap"
     rel="stylesheet">
 
-  <!-- Load HTML-Deck Script and CSS -->
   <script type="module">
     import 'html-deck';
     import 'html-deck/css';
-    import './style.css'
+    import './style.css';
+
+    import themeDark from 'html-deck/theme-dark?url';
+    import themeWarm from 'html-deck/theme-warm?url';
+
+    window.themeUrls = {
+      'default': '',
+      'theme-dark': themeDark,
+      'theme-warm': themeWarm
+    };
   </script>
 
   <!-- KaTeX CDN -->
@@ -35,10 +43,10 @@
 
   <hd-deck transition="fade" aspect-ratio="16:9" presenter-url="presenter.html">
 
-    <!-- スライド1: タイトル -->
+    <!-- 1枚目: タイトル -->
     <hd-slide-cover>
-      <h1 slot="title"><span class="gradient-text">html-deck ← 作った</span></h1>
-      <div slot="subtitle">退屈なスライド作りはAIにやらせよう</div>
+      <h1 slot="title">html-deck ← 作った</h1>
+      <h2 slot="subtitle">退屈なスライド作りはAIにやらせよう</h2>
       <div slot="meta">
         <div>おのうえ（@_likr）</div>
         <div>LoGeek LT会</div>
@@ -46,70 +54,337 @@
       </div>
     </hd-slide-cover>
 
-    <!-- スライド2: コアコンセプト -->
-    <hd-slide-standard title="コアコンセプト">
-      <h2 slot="title">なぜ HTML-Deck なのか？</h2>
-      <hd-text>Reveal.js のような既存のフレームワークは複雑な階層構造（nested
-        section）を持つため、AIエージェントがHTMLを編集する際に構造を壊しがちでした。HTML-Deckはフラットで直感的なDOM構成を維持します。</hd-text>
-
-      <hd-grid cols="2">
-        <div class="feature-card">
-          <h3>🤖 エージェントファースト</h3>
-          <hd-text class="hd-text-sm">フラットなマークアップ and シンプルな属性定義により、LLMが迷わず正確にスライドを作成・修正できます。</hd-text>
-        </div>
-        <div class="feature-card">
-          <h3>⚡ 仮想解像度スケーリング</h3>
-          <hd-text class="hd-text-sm">960x540をベース解像度として、どんな画面サイズやブラウザのフォント設定でもアスペクト比を完璧に維持します。</hd-text>
-        </div>
-      </hd-grid>
+    <!-- 2枚目: ぶっちゃけダルクね？ -->
+    <hd-slide-standard>
+      <div
+        style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%; width: 100%;">
+        <h1 style="font-size: 76px !important; margin: 0; font-weight: 800; text-align: center; width: 100%;">
+          スライド作るのぶっちゃけダルくね？
+        </h1>
+      </div>
     </hd-slide-standard>
 
-    <!-- スライド3: コードブロックとViteインポート -->
-    <hd-slide-split title="コードブロックとViteの連携">
-      <h2 slot="title">Vite によるソースコード読み込み</h2>
+    <!-- 3枚目: AIにスライドを作らせよう -->
+    <hd-slide-standard>
+      <h2 slot="title">AIにスライドを作らせよう</h2>
+      <hd-list>
+        <li>Gemini + Canvas (<a
+            href="https://docs.google.com/presentation/d/1JRqbeA7KVxoru7u58VwCyhoNjZ13KPcybLilKXxOzMM/edit?usp=sharing"
+            target="_blank" style="color: var(--hd-primary); text-decoration: underline;">スライドの例</a>)</li>
+        <li>Google Drive + Gemini (<a
+            href="https://docs.google.com/presentation/d/1orNS70t_yQlZy9RgrJo5S6RJi2Kdc2C9Onw4jA6cQBc/edit?usp=sharing"
+            target="_blank" style="color: var(--hd-primary); text-decoration: underline;">スライドの例</a>)</li>
+        <li>Reveal.js + Antigravity</li>
+      </hd-list>
+    </hd-slide-standard>
 
-      <div slot="left">
-        <hd-text>標準の <code>&lt;pre&gt;&lt;code&gt;</code> タグは、Vite の <code>?raw</code>
-          クエリを使ったテキストインポートと完璧に連携します。</hd-text>
-        <hd-text
-          class="hd-text-muted hd-text-sm">従来の実行時フェッチによるパスの狂いやプレゼンタービューでのリンクエラーがなくなり、完全にビルド時にコードが解決されます。</hd-text>
-      </div>
+    <!-- 4枚目: 終わってる点 -->
+    <hd-slide-standard>
+      <h2 slot="title">終わってる点</h2>
+      <hd-list>
+        <li>バカっぽい</li>
+        <li>人手でも到底直したくない</li>
+        <li>文脈を維持しながらAIに修正させ続けるのが困難</li>
+      </hd-list>
+    </hd-slide-standard>
 
-      <div slot="right">
-        <pre><code class="language-javascript" id="vite-import-demo"></code></pre>
-        <script type="module">
-          // Viteの生テキストインポートを使用して、コードブロックを設定
-          import myConfigCode from '../../vite.config.js?raw';
-          const el = document.getElementById('vite-import-demo');
-          el.textContent = myConfigCode;
+    <!-- 5枚目: html-deck -->
+    <hd-slide-standard>
+      <h2 slot="title">html-deck</h2>
+      <hd-list>
+        <li>AI時代のスライド作成ツール（笑）</li>
+        <li>WebComponents（HTML）ベース</li>
+        <li>充実したプレゼンテーション機能</li>
+      </hd-list>
+    </hd-slide-standard>
+
+    <hd-slide-standard id="slide-code-example" title="html-deck Markup Example">
+      <pre
+        style="margin: 0; font-size: 20px; height: 420px; overflow: auto;"><code class="language-html" id="markup-demo-code"></code></pre>
+      <script type="module">
+        const code = `<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>My Presentation</title>
+  <script type="module">
+    import 'html-deck';
+    import 'html-deck/css';
+  <\/script>
+</head>
+<body>
+  <hd-deck aspect-ratio="16:9">
+    <hd-slide-cover>
+      <h1 slot="title">スライドタイトル</h1>
+      <div slot="subtitle">サブタイトル</div>
+    </hd-slide-cover>
+
+    <hd-slide-standard>
+      <h2 slot="title">1. 標準スライド</h2>
+      <hd-text>ここにはテキストが入ります。</hd-text>
+      <hd-list>
+        <li>箇条書き項目 A</li>
+        <li>箇条書き項目 B</li>
+      </hd-list>
+    </hd-slide-standard>
+
+    <hd-slide-split ratio="1:1">
+      <h2 slot="title">2. 左右分割スライド</h2>
+      <div slot="left">左カラムの内容</div>
+      <div slot="right">右カラムの内容</div>
+    </hd-slide-split>
+  </hd-deck>
+</body>
+</html>`;
+        const el = document.getElementById('markup-demo-code');
+        if (el) {
+          el.textContent = code;
           setTimeout(() => window.Prism && window.Prism.highlightElement(el), 0);
-        </script>
+        }
+      </script>
+    </hd-slide-standard>
+
+    <!-- 7枚目: プレゼンテーション機能 -->
+    <hd-slide-split ratio="1:1">
+      <h2 slot="title">プレゼンテーション機能</h2>
+      <div slot="left" style="padding-right: 20px;">
+        <h3 style="color: var(--hd-primary); font-weight: 700;">左：プレゼンテーションビュー</h3>
+        <hd-list>
+          <li><code>BroadcastChannel</code> を用いたローカル同期</li>
+          <li>経過タイマー、現在時刻、スピーカーノート表示</li>
+          <li>次のスライドのライブプレビュー機能</li>
+        </hd-list>
+      </div>
+      <div slot="right" style="padding-left: 20px; border-left: 2px solid var(--hd-text-color);">
+        <h3 style="color: var(--hd-secondary); font-weight: 700;">右：レイアウトの崩れないPDF出力</h3>
+        <hd-list>
+          <li>印刷用CSSメディアクエリの自動最適化</li>
+          <li>A4横などの標準サイズに自動フィッティング</li>
+          <li>画面崩れのない美しいエクスポート</li>
+        </hd-list>
       </div>
     </hd-slide-split>
 
-    <!-- スライド4: プレゼンター同期と印刷 -->
-    <hd-slide-standard title="プレゼンター機能とPDFエクスポート">
-      <h2 slot="title">実用的なプレゼンツール</h2>
-
-      <hd-grid cols="2">
-        <div class="feature-card">
-          <h3>🖥️ プレゼンタービュー (Pキー)</h3>
-          <hd-list>
-            <li><code>BroadcastChannel</code> によるローカル高速同期</li>
-            <li>経過タイマー、現在時刻、ノートの表示</li>
-            <li>次のスライドのライブプレビュー</li>
-          </hd-list>
-        </div>
-        <div class="feature-card">
-          <h3>🖨️ PDFエクスポート (Ctrl + P)</h3>
-          <hd-list>
-            <li>印刷用 CSS メディアクエリの自動最適化</li>
-            <li>ページサイズ（A4横等）への自動フィッティング</li>
-            <li>印刷時の不要なナビゲーションUIの非表示化</li>
-          </hd-list>
-        </div>
-      </hd-grid>
+    <!-- 8枚目: デモ -->
+    <hd-slide-standard center>
+      <h2 slot="title">デモ</h2>
+      <div style="font-size: 84px; font-weight: 800; text-align: center; margin-top: 48px;" class="gradient-text">
+        これがデモだよ</div>
     </hd-slide-standard>
+
+    <!-- 9枚目: カスタマイズ -->
+    <hd-slide-standard center>
+      <h2 slot="title">カスタマイズ</h2>
+      <hd-text class="hd-text-center">テーマを切り替えるためのボタンを3つ配置して<br>default, dark, warmのテーマを切り替えるデモ</hd-text>
+      <div class="theme-btn-container">
+        <button class="theme-btn" id="btn-theme-default">default</button>
+        <button class="theme-btn" id="btn-theme-dark">dark</button>
+        <button class="theme-btn" id="btn-theme-warm">warm</button>
+      </div>
+      <script type="module">
+        const btnDefault = document.getElementById('btn-theme-default');
+        const btnDark = document.getElementById('btn-theme-dark');
+        const btnWarm = document.getElementById('btn-theme-warm');
+
+        function setGlobalTheme(theme) {
+          const themeLink = document.getElementById('theme-link');
+          if (themeLink && window.themeUrls) {
+            themeLink.href = window.themeUrls[theme] || '';
+          }
+        }
+
+        btnDefault.addEventListener('click', () => setGlobalTheme('default'));
+        btnDark.addEventListener('click', () => setGlobalTheme('theme-dark'));
+        btnWarm.addEventListener('click', () => setGlobalTheme('theme-warm'));
+      </script>
+    </hd-slide-standard>
+
+    <!-- 10枚目: インタラクション -->
+    <hd-slide-blank id="slide-interaction">
+      <div class="slide-wrapper">
+        <canvas id="bg-canvas" class="canvas-bg"></canvas>
+        <div class="slide-content-overlay" style="padding: 60px 80px; box-sizing: border-box;">
+          <div>
+            <h2 style="margin: 0; color: #ffffff; text-shadow: 0 4px 10px rgba(0,0,0,0.8); font-weight: 800;">インタラクション
+            </h2>
+            <hd-text
+              style="color: #e2e8f0; text-shadow: 0 2px 8px rgba(0,0,0,0.8); font-weight: 600;">JavaScriptとcanvasアニメーションを用いた振り子シミュレーションプログラムを動かす<br>背景もアニメーションを採用した派手なイメージにする</hd-text>
+          </div>
+          <div class="pendulum-container">
+            <canvas id="pendulum-canvas" width="600" height="340" class="pendulum-canvas"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <script type="module">
+        const slide = document.getElementById('slide-interaction');
+        const bgCanvas = document.getElementById('bg-canvas');
+        const pendulumCanvas = document.getElementById('pendulum-canvas');
+
+        let animationFrameId = null;
+        let isRunning = false;
+
+        // Pendulum physical simulator state
+        let angle = Math.PI / 3;
+        let angleVelocity = 0.0;
+        let angleAcceleration = 0.0;
+        const gravity = 0.6;
+        const length = 190;
+        const originX = 300;
+        const originY = 40;
+
+        // Background particles state
+        const particles = [];
+        const particleCount = 80;
+
+        function initParticles(width, height) {
+          particles.length = 0;
+          for (let i = 0; i < particleCount; i++) {
+            particles.push({
+              x: Math.random() * width,
+              y: Math.random() * height,
+              radius: Math.random() * 3 + 1,
+              vx: (Math.random() - 0.5) * 2,
+              vy: (Math.random() - 0.5) * 2,
+              hue: Math.random() * 360,
+              brightness: Math.random() * 40 + 60,
+              alpha: Math.random() * 0.5 + 0.3
+            });
+          }
+        }
+
+        function resizeCanvas() {
+          if (!bgCanvas) return;
+          const rect = slide.getBoundingClientRect();
+          bgCanvas.width = rect.width || 960;
+          bgCanvas.height = rect.height || 540;
+          initParticles(bgCanvas.width, bgCanvas.height);
+        }
+
+        function updateAndDraw() {
+          if (!isRunning) return;
+
+          // 1. Draw Space Background and Wave Particles
+          const bgCtx = bgCanvas.getContext('2d');
+          if (bgCtx) {
+            bgCtx.fillStyle = 'rgba(10, 12, 22, 0.15)'; // Deep space
+            bgCtx.fillRect(0, 0, bgCanvas.width, bgCanvas.height);
+
+            for (let i = 0; i < particles.length; i++) {
+              const p = particles[i];
+              p.x += p.vx;
+              p.y += p.vy;
+
+              // Boundary check
+              if (p.x < 0 || p.x > bgCanvas.width) p.vx *= -1;
+              if (p.y < 0 || p.y > bgCanvas.height) p.vy *= -1;
+
+              // Glowing effect
+              bgCtx.beginPath();
+              bgCtx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+              bgCtx.fillStyle = `hsla(${p.hue}, 90%, ${p.brightness}%, ${p.alpha})`;
+              bgCtx.shadowBlur = p.radius * 3;
+              bgCtx.shadowColor = `hsla(${p.hue}, 90%, ${p.brightness}%, 1)`;
+              bgCtx.fill();
+            }
+            bgCtx.shadowBlur = 0; // reset
+          }
+
+          // 2. Draw Pendulum on the separate Canvas
+          const penCtx = pendulumCanvas.getContext('2d');
+          if (penCtx) {
+            penCtx.clearRect(0, 0, pendulumCanvas.width, pendulumCanvas.height);
+
+            // Physics logic
+            angleAcceleration = (-1 * gravity / length) * Math.sin(angle);
+            angleVelocity += angleAcceleration;
+            angleVelocity *= 0.996; // damping
+            angle += angleVelocity;
+
+            const bobX = originX + length * Math.sin(angle);
+            const bobY = originY + length * Math.cos(angle);
+
+            // Pendulum styling
+            penCtx.shadowBlur = 20;
+            penCtx.shadowColor = '#00f2fe';
+
+            // Draw line
+            penCtx.beginPath();
+            penCtx.moveTo(originX, originY);
+            penCtx.lineTo(bobX, bobY);
+            penCtx.strokeStyle = 'rgba(255, 255, 255, 0.8)';
+            penCtx.lineWidth = 4;
+            penCtx.stroke();
+
+            // Draw pivot point
+            penCtx.beginPath();
+            penCtx.arc(originX, originY, 10, 0, Math.PI * 2);
+            penCtx.fillStyle = '#fe019a';
+            penCtx.fill();
+
+            // Draw bob (weight) with a radial glowing gradient
+            penCtx.beginPath();
+            penCtx.arc(bobX, bobY, 26, 0, Math.PI * 2);
+            const grad = penCtx.createRadialGradient(bobX - 6, bobY - 6, 2, bobX, bobY, 26);
+            grad.addColorStop(0, '#ffffff');
+            grad.addColorStop(0.3, '#00f2fe');
+            grad.addColorStop(1, '#004c6d');
+            penCtx.fillStyle = grad;
+            penCtx.fill();
+
+            // Stroke bob border
+            penCtx.strokeStyle = '#ffffff';
+            penCtx.lineWidth = 2.5;
+            penCtx.stroke();
+
+            penCtx.shadowBlur = 0; // reset
+          }
+
+          animationFrameId = requestAnimationFrame(updateAndDraw);
+        }
+
+        function startAnimation() {
+          if (isRunning) return;
+          isRunning = true;
+          resizeCanvas();
+          updateAndDraw();
+        }
+
+        function stopAnimation() {
+          isRunning = false;
+          if (animationFrameId) {
+            cancelAnimationFrame(animationFrameId);
+            animationFrameId = null;
+          }
+        }
+
+        // Use MutationObserver to look for 'active' attribute on host slide
+        const observer = new MutationObserver((mutations) => {
+          mutations.forEach((mutation) => {
+            if (mutation.type === 'attributes' && mutation.attributeName === 'active') {
+              if (slide.hasAttribute('active')) {
+                startAnimation();
+              } else {
+                stopAnimation();
+              }
+            }
+          });
+        });
+
+        observer.observe(slide, { attributes: true });
+
+        window.addEventListener('resize', () => {
+          if (slide.hasAttribute('active')) {
+            resizeCanvas();
+          }
+        });
+
+        // Fallback or immediate start if active initially
+        if (slide.hasAttribute('active')) {
+          startAnimation();
+        }
+      </script>
+    </hd-slide-blank>
 
   </hd-deck>
 
@@ -128,6 +403,7 @@
     });
   </script>
 
+  <link id="theme-link" rel="stylesheet" href="">
 </body>
 
 </html>
