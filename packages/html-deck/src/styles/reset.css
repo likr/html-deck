@@ -1,0 +1,21 @@
+/* reset.css - Minimal CSS Reset for HTML-Deck */
+
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+img, picture, svg, video {
+  display: block;
+  max-width: 100%;
+}

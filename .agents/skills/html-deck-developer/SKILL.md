@@ -95,7 +95,9 @@ The project is organized as an **npm workspaces monorepo** under `packages/`:
   - `src/components/html-deck-presenter/`: Presenter dashboard elements.
   - `src/html-deck.js`: Main library entry point — imports KaTeX/Prism JS and CSS as bundled strings (`?raw`), registers all core components.
   - `src/html-deck-presenter.js`: Presenter view entry point.
-  - `src/html-deck.css`: Global CSS resets and utility classes.
+  - `src/html-deck.css`: Main CSS entry point that imports all sub-stylesheets from `src/styles/`.
+  - `src/styles/`: Modularized CSS files (e.g. `reset.css`, `variables.css`, `elements.css`, `components.css`, `utilities.css`).
+  - `src/themes/`: Re-located theme files override configurations (e.g. `html-deck.theme-dark.css`, `html-deck.theme-neon.css`, etc.).
   - `vite.config.js`: Builds `dist/html-deck.js`, `dist/html-deck-presenter.js`, `dist/html-deck.css` using Vite library mode.
 - **`packages/html-deck-demo/`** — private demo/landing page package:
   - Uses `html-deck` as a workspace dependency.
@@ -212,7 +214,7 @@ To avoid overriding default browser actions (such as `Ctrl + P` / `Cmd + P` for 
     `[slot="left"]:not(:has(+ [slot="left"])) { margin-bottom: 0; }`
 
 ### 21. Core Reset Separation
-- **Rule**: Standard HTML baseline resets and global resets (such as wildcard `box-sizing` rules) must be declared in [html-deck.reset.css](file:///home/likr/work/likr/html-deck/packages/html-deck/src/html-deck.reset.css) and imported at the top of [html-deck.css](file:///home/likr/work/likr/html-deck/packages/html-deck/src/html-deck.css) rather than being mixed into utility classes.
+- **Rule**: Standard HTML baseline resets and global resets (such as wildcard `box-sizing` rules, margin/padding overrides, and display blocks for media tags) must be declared in [reset.css](file:///home/likr/work/likr/html-deck/packages/html-deck/src/styles/reset.css) and imported at the top of [html-deck.css](file:///home/likr/work/likr/html-deck/packages/html-deck/src/html-deck.css) rather than being mixed into utility classes.
 
 
 

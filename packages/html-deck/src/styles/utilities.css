@@ -1,0 +1,280 @@
+/* utilities.css - Helper and utility classes for HTML-Deck */
+
+/* Font Weights & Styles */
+.hd-text-weight-light {
+  font-weight: var(--hd-font-weight-light) !important;
+}
+
+.hd-text-weight-normal {
+  font-weight: var(--hd-font-weight-normal) !important;
+}
+
+.hd-text-weight-medium {
+  font-weight: var(--hd-font-weight-medium) !important;
+}
+
+.hd-text-weight-semibold {
+  font-weight: var(--hd-font-weight-semibold) !important;
+}
+
+.hd-text-weight-bold {
+  font-weight: var(--hd-font-weight-bold) !important;
+}
+
+.hd-text-weight-extrabold {
+  font-weight: var(--hd-font-weight-extrabold) !important;
+}
+
+.hd-italic {
+  font-style: italic !important;
+}
+
+/* Text Colors */
+.hd-primary {
+  color: var(--hd-primary-color) !important;
+}
+
+.hd-secondary {
+  color: var(--hd-secondary-color) !important;
+}
+
+.hd-accent {
+  color: var(--hd-accent-color) !important;
+}
+
+.hd-danger {
+  color: var(--hd-danger-color) !important;
+}
+
+.hd-warning {
+  color: var(--hd-warning-color) !important;
+}
+
+.hd-success {
+  color: var(--hd-success-color) !important;
+}
+
+.hd-info {
+  color: var(--hd-info-color) !important;
+}
+
+.hd-muted {
+  color: var(--hd-muted-color) !important;
+}
+
+/* Text Sizes (1 is largest, 6 is smallest) */
+.hd-text-1 {
+  font-size: var(--hd-text-size-1) !important;
+}
+
+.hd-text-2 {
+  font-size: var(--hd-text-size-2) !important;
+}
+
+.hd-text-3 {
+  font-size: var(--hd-text-size-3) !important;
+}
+
+.hd-text-4 {
+  font-size: var(--hd-text-size-4) !important;
+}
+
+.hd-text-5 {
+  font-size: var(--hd-text-size-5) !important;
+}
+
+.hd-text-6 {
+  font-size: var(--hd-text-size-6) !important;
+}
+
+/* Text Transformations & Underline */
+.hd-capitalized {
+  text-transform: capitalize !important;
+}
+
+.hd-lowercase {
+  text-transform: lowercase !important;
+}
+
+.hd-uppercase {
+  text-transform: uppercase !important;
+}
+
+.hd-underlined {
+  text-decoration: underline !important;
+}
+
+.hd-text-justified {
+  text-align: justify !important;
+}
+
+/* Borders */
+.hd-border {
+  border: 1px solid var(--hd-default-border-color) !important;
+}
+
+.hd-border.hd-primary {
+  border-color: var(--hd-primary-border-color) !important;
+}
+
+.hd-border.hd-secondary {
+  border-color: var(--hd-secondary-border-color) !important;
+}
+
+.hd-border.hd-accent {
+  border-color: var(--hd-accent-border-color) !important;
+}
+
+.hd-border.hd-danger {
+  border-color: var(--hd-danger-border-color) !important;
+}
+
+.hd-border.hd-warning {
+  border-color: var(--hd-warning-border-color) !important;
+}
+
+.hd-border.hd-success {
+  border-color: var(--hd-success-border-color) !important;
+}
+
+.hd-border.hd-info {
+  border-color: var(--hd-info-border-color) !important;
+}
+
+.hd-border.hd-muted {
+  border-color: var(--hd-muted-border-color) !important;
+}
+
+/* Spacing (Margin Top) */
+.hd-mt-0 {
+  margin-top: var(--hd-gap-0) !important;
+}
+
+.hd-mt-1 {
+  margin-top: var(--hd-gap-1) !important;
+}
+
+.hd-mt-2 {
+  margin-top: var(--hd-gap-2) !important;
+}
+
+.hd-mt-3 {
+  margin-top: var(--hd-gap-3) !important;
+}
+
+.hd-mt-4 {
+  margin-top: var(--hd-gap-4) !important;
+}
+
+.hd-mt-5 {
+  margin-top: var(--hd-gap-5) !important;
+}
+
+.hd-mt-6 {
+  margin-top: var(--hd-gap-6) !important;
+}
+
+/* Width Classes (x/12 sizes) */
+.hd-width-1 {
+  width: calc(100% * 1 / 12) !important;
+}
+
+.hd-width-2 {
+  width: calc(100% * 2 / 12) !important;
+}
+
+.hd-width-3 {
+  width: calc(100% * 3 / 12) !important;
+}
+
+.hd-width-4 {
+  width: calc(100% * 4 / 12) !important;
+}
+
+.hd-width-5 {
+  width: calc(100% * 5 / 12) !important;
+}
+
+.hd-width-6 {
+  width: calc(100% * 6 / 12) !important;
+}
+
+.hd-width-7 {
+  width: calc(100% * 7 / 12) !important;
+}
+
+.hd-width-8 {
+  width: calc(100% * 8 / 12) !important;
+}
+
+.hd-width-9 {
+  width: calc(100% * 9 / 12) !important;
+}
+
+.hd-width-10 {
+  width: calc(100% * 10 / 12) !important;
+}
+
+.hd-width-11 {
+  width: calc(100% * 11 / 12) !important;
+}
+
+.hd-width-12 {
+  width: 100% !important;
+}
+
+/* Directional Alignment Classes */
+.hd-align-left {
+  margin-right: auto !important;
+  margin-left: 0 !important;
+  display: block !important;
+}
+
+.hd-align-center {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  display: block !important;
+}
+
+.hd-align-right {
+  margin-left: auto !important;
+  margin-right: 0 !important;
+  display: block !important;
+}
+
+.hd-align-top {
+  margin-bottom: auto !important;
+  margin-top: 0 !important;
+}
+
+.hd-align-middle {
+  margin-top: auto !important;
+  margin-bottom: auto !important;
+}
+
+.hd-align-bottom {
+  margin-top: auto !important;
+  margin-bottom: 0 !important;
+}
+
+/* Text Alignments */
+.hd-text-left {
+  text-align: left !important;
+}
+
+.hd-text-center {
+  text-align: center !important;
+}
+
+.hd-text-right {
+  text-align: right !important;
+}
+
+/* Absolute Positioning Utilities */
+.hd-absolute-bottom {
+  position: absolute !important;
+  bottom: 24px !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+}

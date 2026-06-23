@@ -14,11 +14,11 @@
       "development": "./src/html-deck.css",
       "default": "./dist/html-deck.css"
     },
-    "./theme-corporate": "./src/html-deck.theme-corporate.css",
-    "./theme-dark": "./src/html-deck.theme-dark.css",
-    "./theme-neon": "./src/html-deck.theme-neon.css",
-    "./theme-serif": "./src/html-deck.theme-serif.css",
-    "./theme-warm": "./src/html-deck.theme-warm.css",
+    "./theme-corporate": "./src/themes/html-deck.theme-corporate.css",
+    "./theme-dark": "./src/themes/html-deck.theme-dark.css",
+    "./theme-neon": "./src/themes/html-deck.theme-neon.css",
+    "./theme-serif": "./src/themes/html-deck.theme-serif.css",
+    "./theme-warm": "./src/themes/html-deck.theme-warm.css",
     "./presenter": {
       "development": "./src/html-deck-presenter.js",
       "default": "./dist/html-deck-presenter.js"

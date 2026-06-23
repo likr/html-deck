@@ -1,0 +1,394 @@
+/* components.css - HTML-Deck custom elements and components styling */
+
+/* hd-slide color/background overrides */
+hd-slide.hd-primary {
+  --hd-default-background-color: var(--hd-primary-background-color);
+  --hd-default-color: var(--hd-primary-color);
+  --hd-default-border-color: var(--hd-primary-border-color);
+}
+
+hd-slide.hd-secondary {
+  --hd-default-background-color: var(--hd-secondary-background-color);
+  --hd-default-color: var(--hd-secondary-color);
+  --hd-default-border-color: var(--hd-secondary-border-color);
+}
+
+hd-slide.hd-accent {
+  --hd-default-background-color: var(--hd-accent-background-color);
+  --hd-default-color: var(--hd-accent-color);
+  --hd-default-border-color: var(--hd-accent-border-color);
+}
+
+hd-slide.hd-danger {
+  --hd-default-background-color: var(--hd-danger-background-color);
+  --hd-default-color: var(--hd-danger-color);
+  --hd-default-border-color: var(--hd-danger-border-color);
+}
+
+hd-slide.hd-warning {
+  --hd-default-background-color: var(--hd-warning-background-color);
+  --hd-default-color: var(--hd-warning-color);
+  --hd-default-border-color: var(--hd-warning-border-color);
+}
+
+hd-slide.hd-success {
+  --hd-default-background-color: var(--hd-success-background-color);
+  --hd-default-color: var(--hd-success-color);
+  --hd-default-border-color: var(--hd-success-border-color);
+}
+
+hd-slide.hd-info {
+  --hd-default-background-color: var(--hd-info-background-color);
+  --hd-default-color: var(--hd-info-color);
+  --hd-default-border-color: var(--hd-info-border-color);
+}
+
+hd-slide.hd-muted {
+  --hd-default-background-color: var(--hd-muted-background-color);
+  --hd-default-color: var(--hd-muted-color);
+  --hd-default-border-color: var(--hd-muted-border-color);
+}
+
+/* Container Cards */
+.hd-card {
+  background-color: var(--hd-card-bg);
+  color: var(--hd-card-color);
+  border-radius: var(--hd-card-border-radius);
+  padding: var(--hd-card-padding);
+  box-shadow: var(--hd-card-shadow);
+  height: auto;
+  box-sizing: border-box;
+  margin-bottom: var(--hd-card-margin-bottom, var(--hd-gap-3));
+}
+
+/* Support coloring on .hd-card by overriding local variables */
+.hd-card.hd-primary {
+  --hd-card-bg: var(--hd-primary-background-color);
+  --hd-card-color: var(--hd-primary-color);
+}
+
+.hd-card.hd-border.hd-primary {
+  box-shadow: var(--hd-card-shadow-primary, none) !important;
+}
+
+.hd-card.hd-secondary {
+  --hd-card-bg: var(--hd-secondary-background-color);
+  --hd-card-color: var(--hd-secondary-color);
+}
+
+.hd-card.hd-border.hd-secondary {
+  box-shadow: var(--hd-card-shadow-secondary, none) !important;
+}
+
+.hd-card.hd-border.hd-accent {
+  box-shadow: var(--hd-card-shadow-accent, none) !important;
+}
+
+.hd-card.hd-border.hd-danger {
+  box-shadow: var(--hd-card-shadow-danger, none) !important;
+}
+
+.hd-card.hd-border.hd-warning {
+  box-shadow: var(--hd-card-shadow-warning, none) !important;
+}
+
+.hd-card.hd-border.hd-success {
+  box-shadow: var(--hd-card-shadow-success, none) !important;
+}
+
+.hd-card.hd-border.hd-info {
+  box-shadow: var(--hd-card-shadow-info, none) !important;
+}
+
+.hd-card.hd-border.hd-muted {
+  box-shadow: var(--hd-card-shadow-muted, none) !important;
+}
+
+.hd-card.hd-accent {
+  --hd-card-bg: var(--hd-accent-background-color);
+  --hd-card-color: var(--hd-accent-color);
+}
+
+.hd-card.hd-danger {
+  --hd-card-bg: var(--hd-danger-background-color);
+  --hd-card-color: var(--hd-danger-color);
+}
+
+.hd-card.hd-warning {
+  --hd-card-bg: var(--hd-warning-background-color);
+  --hd-card-color: var(--hd-warning-color);
+}
+
+.hd-card.hd-success {
+  --hd-card-bg: var(--hd-success-background-color);
+  --hd-card-color: var(--hd-success-color);
+}
+
+.hd-card.hd-info {
+  --hd-card-bg: var(--hd-info-background-color);
+  --hd-card-color: var(--hd-info-color);
+}
+
+.hd-card.hd-muted {
+  --hd-card-bg: var(--hd-muted-background-color);
+  --hd-card-color: var(--hd-muted-color);
+}
+
+/* Container Boxes (100% height) */
+.hd-box {
+  background-color: var(--hd-card-bg);
+  color: var(--hd-card-color);
+  border-radius: var(--hd-card-border-radius);
+  padding: var(--hd-card-padding);
+  box-shadow: var(--hd-card-shadow);
+  height: 100%;
+  box-sizing: border-box;
+  margin-bottom: var(--hd-box-margin-bottom, var(--hd-gap-3));
+}
+
+/* Support coloring on .hd-box by overriding local variables */
+.hd-box.hd-primary {
+  --hd-card-bg: var(--hd-primary-background-color);
+  --hd-card-color: var(--hd-primary-color);
+}
+
+.hd-box.hd-secondary {
+  --hd-card-bg: var(--hd-secondary-background-color);
+  --hd-card-color: var(--hd-secondary-color);
+}
+
+.hd-box.hd-accent {
+  --hd-card-bg: var(--hd-accent-background-color);
+  --hd-card-color: var(--hd-accent-color);
+}
+
+.hd-box.hd-danger {
+  --hd-card-bg: var(--hd-danger-background-color);
+  --hd-card-color: var(--hd-danger-color);
+}
+
+.hd-box.hd-warning {
+  --hd-card-bg: var(--hd-warning-background-color);
+  --hd-card-color: var(--hd-warning-color);
+}
+
+.hd-box.hd-success {
+  --hd-card-bg: var(--hd-success-background-color);
+  --hd-card-color: var(--hd-success-color);
+}
+
+.hd-box.hd-info {
+  --hd-card-bg: var(--hd-info-background-color);
+  --hd-card-color: var(--hd-info-color);
+}
+
+.hd-box.hd-muted {
+  --hd-card-bg: var(--hd-muted-background-color);
+  --hd-card-color: var(--hd-muted-color);
+}
+
+/* CSS-only Slide Layout Helper Classes (.hd-callout) */
+.hd-callout {
+  display: block;
+  background-color: var(--hd-callout-bg, transparent);
+  border-style: var(--hd-callout-border-style, solid);
+  border-width: var(--hd-callout-border-width, 0 0 0 3px);
+  border-color: var(--hd-callout-border-color, var(--hd-default-border-color));
+  border-left-color: var(--hd-callout-border-left-color, var(--hd-callout-border-color));
+  border-radius: var(--hd-callout-border-radius, 0px);
+  box-shadow: var(--hd-callout-shadow, none);
+  padding-left: var(--hd-callout-padding-left);
+  margin-bottom: var(--hd-callout-margin-bottom);
+  text-align: left;
+}
+
+.hd-callout.hd-primary {
+  --hd-callout-bg: var(--hd-callout-bg-primary, transparent);
+  --hd-callout-border-color: var(--hd-callout-border-primary, var(--hd-primary-border-color));
+  --hd-callout-border-left-color: var(--hd-primary-color);
+  --hd-callout-shadow: var(--hd-callout-shadow-primary, none);
+}
+
+.hd-callout.hd-secondary {
+  --hd-callout-bg: var(--hd-callout-bg-secondary, transparent);
+  --hd-callout-border-color: var(--hd-callout-border-secondary, var(--hd-secondary-border-color));
+  --hd-callout-border-left-color: var(--hd-secondary-color);
+  --hd-callout-shadow: var(--hd-callout-shadow-secondary, none);
+}
+
+.hd-callout.hd-accent {
+  --hd-callout-border-left-color: var(--hd-accent-color);
+}
+
+.hd-callout.hd-danger {
+  --hd-callout-border-left-color: var(--hd-danger-color);
+}
+
+.hd-callout.hd-warning {
+  --hd-callout-border-left-color: var(--hd-warning-color);
+}
+
+.hd-callout.hd-success {
+  --hd-callout-border-left-color: var(--hd-success-color);
+}
+
+.hd-callout.hd-info {
+  --hd-callout-border-left-color: var(--hd-info-color);
+}
+
+.hd-callout.hd-muted {
+  --hd-callout-border-left-color: var(--hd-muted-color);
+}
+
+/* Standard Table Styling (for un-encapsulated tables in slides) */
+hd-slide table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 16px;
+  font-family: var(--hd-body-font);
+  font-size: var(--hd-text-font-size);
+  background-color: transparent;
+}
+
+hd-slide th,
+hd-slide td {
+  padding: var(--hd-table-cell-padding);
+  text-align: left;
+  border-bottom: 1px solid var(--hd-table-border-color);
+}
+
+hd-slide th {
+  font-weight: var(--hd-font-weight-bold);
+  border-bottom: 2px solid var(--hd-table-border-color);
+}
+
+/* Global scrollbar styling using CSS variables */
+::-webkit-scrollbar {
+  width: var(--hd-scrollbar-width, 8px);
+  height: var(--hd-scrollbar-height, 8px);
+}
+
+::-webkit-scrollbar-track {
+  background: var(--hd-scrollbar-track-bg, transparent);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--hd-scrollbar-thumb-bg, rgba(0, 0, 0, 0.2));
+  border-radius: var(--hd-scrollbar-thumb-radius, 4px);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--hd-scrollbar-thumb-hover-bg, rgba(0, 0, 0, 0.4));
+}
+
+/* Layout heading color class overrides */
+hd-layout.hd-primary,
+hd-layout-split.hd-primary,
+hd-layout-three.hd-primary {
+  --hd-layout-heading-bg: var(--hd-primary-color);
+  --hd-layout-heading-color: var(--hd-primary-accent-text-color);
+  --hd-layout-heading-border-bottom: var(--hd-layout-heading-border-bottom-primary, none);
+  --hd-layout-heading-border-top: var(--hd-layout-heading-border-top-primary, none);
+  --hd-layout-heading-shadow: var(--hd-layout-heading-shadow-primary, none);
+}
+
+hd-layout.hd-secondary,
+hd-layout-split.hd-secondary,
+hd-layout-three.hd-secondary {
+  --hd-layout-heading-bg: var(--hd-secondary-color);
+  --hd-layout-heading-color: var(--hd-secondary-accent-text-color);
+  --hd-layout-heading-border-bottom: var(--hd-layout-heading-border-bottom-secondary, none);
+  --hd-layout-heading-border-top: var(--hd-layout-heading-border-top-secondary, none);
+  --hd-layout-heading-shadow: var(--hd-layout-heading-shadow-secondary, none);
+}
+
+hd-layout.hd-accent,
+hd-layout-split.hd-accent,
+hd-layout-three.hd-accent {
+  --hd-layout-heading-bg: var(--hd-accent-color);
+  --hd-layout-heading-color: var(--hd-accent-accent-text-color);
+  --hd-layout-heading-border-bottom: var(--hd-layout-heading-border-bottom-accent, none);
+  --hd-layout-heading-border-top: var(--hd-layout-heading-border-top-accent, none);
+  --hd-layout-heading-shadow: var(--hd-layout-heading-shadow-accent, none);
+}
+
+hd-layout.hd-danger,
+hd-layout-split.hd-danger,
+hd-layout-three.hd-danger {
+  --hd-layout-heading-bg: var(--hd-danger-color);
+  --hd-layout-heading-color: var(--hd-danger-accent-text-color);
+  --hd-layout-heading-border-bottom: var(--hd-layout-heading-border-bottom-danger, none);
+  --hd-layout-heading-border-top: var(--hd-layout-heading-border-top-danger, none);
+  --hd-layout-heading-shadow: var(--hd-layout-heading-shadow-danger, none);
+}
+
+hd-layout.hd-warning,
+hd-layout-split.hd-warning,
+hd-layout-three.hd-warning {
+  --hd-layout-heading-bg: var(--hd-warning-color);
+  --hd-layout-heading-color: var(--hd-warning-accent-text-color);
+  --hd-layout-heading-border-bottom: var(--hd-layout-heading-border-bottom-warning, none);
+  --hd-layout-heading-border-top: var(--hd-layout-heading-border-top-warning, none);
+  --hd-layout-heading-shadow: var(--hd-layout-heading-shadow-warning, none);
+}
+
+hd-layout.hd-success,
+hd-layout-split.hd-success,
+hd-layout-three.hd-success {
+  --hd-layout-heading-bg: var(--hd-success-color);
+  --hd-layout-heading-color: var(--hd-success-accent-text-color);
+  --hd-layout-heading-border-bottom: var(--hd-layout-heading-border-bottom-success, none);
+  --hd-layout-heading-border-top: var(--hd-layout-heading-border-top-success, none);
+  --hd-layout-heading-shadow: var(--hd-layout-heading-shadow-success, none);
+}
+
+hd-layout.hd-info,
+hd-layout-split.hd-info,
+hd-layout-three.hd-info {
+  --hd-layout-heading-bg: var(--hd-info-color);
+  --hd-layout-heading-color: var(--hd-info-accent-text-color);
+  --hd-layout-heading-border-bottom: var(--hd-layout-heading-border-bottom-info, none);
+  --hd-layout-heading-border-top: var(--hd-layout-heading-border-top-info, none);
+  --hd-layout-heading-shadow: var(--hd-layout-heading-shadow-info, none);
+}
+
+hd-layout.hd-muted,
+hd-layout-split.hd-muted,
+hd-layout-three.hd-muted {
+  --hd-layout-heading-bg: var(--hd-muted-color);
+  --hd-layout-heading-color: var(--hd-muted-accent-text-color);
+  --hd-layout-heading-border-bottom: var(--hd-layout-heading-border-bottom-muted, none);
+  --hd-layout-heading-border-top: var(--hd-layout-heading-border-top-muted, none);
+  --hd-layout-heading-shadow: var(--hd-layout-heading-shadow-muted, none);
+}
+
+/* Margin Resets for Last Children */
+[slot="left"]:not(:has(+ [slot="left"])),
+[slot="right"]:not(:has(+ [slot="right"])),
+[slot="middle"]:not(:has(+ [slot="middle"])),
+[slot="before"]:not(:has(+ [slot="before"])),
+[slot="after"]:not(:has(+ [slot="after"])),
+[slot="heading"]:not(:has(+ [slot="heading"])),
+hd-layout > *:not([slot]):not(:has(+ *:not([slot]))) {
+  margin-bottom: 0;
+}
+
+[slot="left"]>*:last-child,
+[slot="right"]>*:last-child,
+[slot="middle"]>*:last-child,
+[slot="before"]>*:last-child,
+[slot="after"]>*:last-child,
+[slot="heading"]>*:last-child,
+hd-slide>*:last-child,
+hd-layout>*:last-child,
+hd-layout-split>*:last-child,
+hd-layout-three>*:last-child,
+.hd-card>*:last-child,
+.hd-box>*:last-child,
+.hd-callout>*:last-child,
+li>*:last-child,
+td>*:last-child,
+th>*:last-child,
+pre>*:last-child {
+  margin-bottom: 0;
+}

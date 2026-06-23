@@ -1,0 +1,94 @@
+/* elements.css - Scoped HTML tag styling for slides */
+
+hd-slide img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid var(--hd-default-border-color);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+}
+
+hd-slide a {
+  color: inherit;
+  text-decoration: none;
+}
+
+hd-slide h1,
+hd-slide h2,
+hd-slide h3,
+hd-slide h4,
+hd-slide h5,
+hd-slide h6 {
+  font-family: var(--hd-heading-font);
+  font-weight: var(--hd-heading-font-weight);
+  line-height: var(--hd-heading-line-height);
+  margin-top: 0;
+  margin-bottom: var(--hd-heading-margin-bottom);
+  letter-spacing: -0.02em;
+  font-size: 1em;
+  /* Override default User Agent styles to keep sizes identical */
+}
+
+/* Title Slot styling */
+hd-slide [slot="title"] {
+  font-size: var(--hd-title-font-size);
+}
+
+/* Heading Slot styling */
+[slot="heading"] {
+  font-size: var(--hd-layout-heading-font-size);
+}
+
+hd-slide p {
+  margin: 0;
+  margin-bottom: var(--hd-text-margin-bottom);
+}
+
+hd-slide ul,
+hd-slide ol {
+  font-family: var(--hd-body-font);
+  margin: 0 0 var(--hd-list-margin-bottom) 0;
+  padding-left: var(--hd-list-padding-left);
+  font-size: var(--hd-text-font-size);
+  line-height: var(--hd-text-line-height);
+}
+
+hd-slide li {
+  margin-bottom: var(--hd-list-item-margin-bottom);
+}
+
+/* Nested List Styles */
+hd-slide ul {
+  list-style-type: disc;
+}
+
+hd-slide ul ul {
+  list-style-type: circle;
+}
+
+hd-slide ul ul ul {
+  list-style-type: square;
+}
+
+hd-slide ol {
+  list-style-type: decimal;
+}
+
+hd-slide ol ol {
+  list-style-type: lower-alpha;
+}
+
+hd-slide ol ol ol {
+  list-style-type: lower-roman;
+}
+
+/* Code block container defaults matching the slide theme */
+hd-slide pre {
+  margin: 0 0 12px 0;
+  padding: 12px !important;
+  border: var(--hd-codeblock-border-width, 1px) solid var(--hd-codeblock-border);
+  border-radius: var(--hd-codeblock-border-radius, 8px);
+  background-color: var(--hd-codeblock-bg, transparent);
+  box-shadow: var(--hd-codeblock-shadow, none);
+  overflow: auto;
+}
