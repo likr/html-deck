@@ -172,7 +172,7 @@ To avoid overriding default browser actions (such as `Ctrl + P` / `Cmd + P` for 
 ### 14. Heading Colors, Title, and Heading Slot Customization Pattern
 - Rule: Heading elements `h1` through `h6` should not have default colored styles. They should inherit the slide's text color (`var(--hd-slide-text-color, var(--hd-text-color))`) by default so they cleanly support invert/background colors without hardcoded overrides.
 - Rule: Cover slides (`hd-layout-cover`) use `slot="title"`, while standard/split/three slides (`hd-layout`, `hd-layout-split`, `hd-layout-three`) use `slot="heading"`. This prevents slot name clashes.
-- Rule: Elements slotted into `slot="heading"` should inherit the slide's text color by default and be customized using `--hd-layout-heading-*` CSS variables (e.g. `--hd-layout-heading-font-size`, `--hd-layout-heading-color`, `--hd-layout-heading-margin`, `--hd-layout-heading-border`, and `--hd-layout-heading-padding-bottom`).
+- Rule: Elements slotted into `slot="heading"` should inherit the slide's text color by default and be customized using `--hd-layout-heading-*` CSS variables (e.g. `--hd-layout-heading-font-size`, `--hd-layout-heading-color`, `--hd-layout-heading-margin`, `--hd-layout-heading-padding-bottom`) and `--hd-layout-heading-hr-*` variables for the separator line.
 - Rule: Heading elements `h1` through `h6` do not change size automatically; they all default to `font-size: 1em;` to focus purely on semantic HTML. Sizing must be controlled via layout slot selectors or utility classes.
 
 ### 15. Unified Sizing Suffixes & Utility Naming System

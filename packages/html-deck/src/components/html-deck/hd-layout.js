@@ -22,16 +22,25 @@ export class HdLayout extends HTMLElement {
           padding-right: var(--hd-slide-padding-right);
           background-color: var(--hd-layout-heading-bg);
           color: var(--hd-layout-heading-color);
-          border-top: var(--hd-layout-heading-border-top);
-          border-bottom: var(--hd-layout-heading-border-bottom);
           box-shadow: var(--hd-layout-heading-shadow);
           text-align: var(--hd-layout-heading-text-align);
-          margin-bottom: var(--hd-layout-heading-margin);
           box-sizing: border-box;
           height: var(--hd-layout-heading-height);
           display: flex;
           flex-direction: column;
           justify-content: center;
+        }
+        .heading-divider {
+          display: var(--hd-layout-heading-hr-display);
+          border: none;
+          height: var(--hd-layout-heading-hr-height);
+          background-color: var(--hd-layout-heading-hr-color);
+          box-shadow: var(--hd-layout-heading-hr-shadow);
+          margin-top: 0;
+          margin-bottom: var(--hd-layout-heading-margin);
+          margin-left: calc(-1 * var(--hd-slide-padding-left));
+          margin-right: calc(-1 * var(--hd-slide-padding-right));
+          width: calc(100% + var(--hd-slide-padding-left) + var(--hd-slide-padding-right));
         }
         .heading-area ::slotted(*) {
           font-size: var(--hd-layout-heading-font-size);
@@ -57,6 +66,7 @@ export class HdLayout extends HTMLElement {
       <div class="heading-area">
         <slot name="heading"></slot>
       </div>
+      <hr class="heading-divider" />
       <slot name="before"></slot>
       <div class="body-area">
         <slot></slot>

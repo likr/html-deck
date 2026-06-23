@@ -90,15 +90,16 @@
   --hd-layout-heading-font-size: var(--hd-text-size-2);
   --hd-layout-heading-bg: transparent;
   --hd-layout-heading-color: inherit;
-  --hd-layout-heading-border: none;
-  --hd-layout-heading-padding-bottom: var(--hd-gap-2);
-  --hd-layout-heading-border-top: none;
-  --hd-layout-heading-border-bottom: var(--hd-layout-heading-border);
+  --hd-layout-heading-padding-bottom: var(--hd-slide-padding-top);
   --hd-layout-heading-text-align: left;
   --hd-layout-heading-shadow: none;
   --hd-layout-heading-padding-top: var(--hd-slide-padding-top);
   --hd-layout-heading-text-shadow: none;
   --hd-layout-heading-height: auto;
+  --hd-layout-heading-hr-display: none;
+  --hd-layout-heading-hr-height: 1px;
+  --hd-layout-heading-hr-color: var(--hd-default-border-color);
+  --hd-layout-heading-hr-shadow: none;
   --hd-layout-before-margin: var(--hd-gap-2);
   --hd-layout-after-margin: var(--hd-gap-2);
   --hd-layout-cover-title-shadow: none;
@@ -116,38 +117,15 @@
   --hd-codeblock-border-radius: 8px;
   --hd-codeblock-shadow: none;
 
-  /* Layout heading color variables */
-  --hd-layout-heading-border-bottom-primary: none;
-  --hd-layout-heading-border-top-primary: none;
-  --hd-layout-heading-shadow-primary: none;
-
-  --hd-layout-heading-border-bottom-secondary: none;
-  --hd-layout-heading-border-top-secondary: none;
-  --hd-layout-heading-shadow-secondary: none;
-
-  --hd-layout-heading-border-bottom-accent: none;
-  --hd-layout-heading-border-top-accent: none;
-  --hd-layout-heading-shadow-accent: none;
-
-  --hd-layout-heading-border-bottom-danger: none;
-  --hd-layout-heading-border-top-danger: none;
-  --hd-layout-heading-shadow-danger: none;
-
-  --hd-layout-heading-border-bottom-warning: none;
-  --hd-layout-heading-border-top-warning: none;
-  --hd-layout-heading-shadow-warning: none;
-
-  --hd-layout-heading-border-bottom-success: none;
-  --hd-layout-heading-border-top-success: none;
-  --hd-layout-heading-shadow-success: none;
-
-  --hd-layout-heading-border-bottom-info: none;
-  --hd-layout-heading-border-top-info: none;
-  --hd-layout-heading-shadow-info: none;
-
-  --hd-layout-heading-border-bottom-muted: none;
-  --hd-layout-heading-border-top-muted: none;
-  --hd-layout-heading-shadow-muted: none;
+  /* Layout heading divider color variables */
+  --hd-layout-heading-hr-color-primary: var(--hd-primary-color);
+  --hd-layout-heading-hr-color-secondary: var(--hd-secondary-color);
+  --hd-layout-heading-hr-color-accent: var(--hd-accent-color);
+  --hd-layout-heading-hr-color-danger: var(--hd-danger-color);
+  --hd-layout-heading-hr-color-warning: var(--hd-warning-color);
+  --hd-layout-heading-hr-color-success: var(--hd-success-color);
+  --hd-layout-heading-hr-color-info: var(--hd-info-color);
+  --hd-layout-heading-hr-color-muted: var(--hd-muted-color);
 
   --hd-card-shadow-primary: none;
   --hd-card-shadow-secondary: none;

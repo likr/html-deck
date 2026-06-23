@@ -305,9 +305,7 @@ hd-layout-split.hd-primary,
 hd-layout-three.hd-primary {
   --hd-layout-heading-bg: var(--hd-primary-color);
   --hd-layout-heading-color: var(--hd-primary-accent-text-color);
-  --hd-layout-heading-border-bottom: var(--hd-layout-heading-border-bottom-primary);
-  --hd-layout-heading-border-top: var(--hd-layout-heading-border-top-primary);
-  --hd-layout-heading-shadow: var(--hd-layout-heading-shadow-primary);
+  --hd-layout-heading-hr-color: var(--hd-layout-heading-hr-color-primary);
 }
 
 hd-layout.hd-secondary,
@@ -315,9 +313,7 @@ hd-layout-split.hd-secondary,
 hd-layout-three.hd-secondary {
   --hd-layout-heading-bg: var(--hd-secondary-color);
   --hd-layout-heading-color: var(--hd-secondary-accent-text-color);
-  --hd-layout-heading-border-bottom: var(--hd-layout-heading-border-bottom-secondary);
-  --hd-layout-heading-border-top: var(--hd-layout-heading-border-top-secondary);
-  --hd-layout-heading-shadow: var(--hd-layout-heading-shadow-secondary);
+  --hd-layout-heading-hr-color: var(--hd-layout-heading-hr-color-secondary);
 }
 
 hd-layout.hd-accent,
@@ -325,9 +321,7 @@ hd-layout-split.hd-accent,
 hd-layout-three.hd-accent {
   --hd-layout-heading-bg: var(--hd-accent-color);
   --hd-layout-heading-color: var(--hd-accent-accent-text-color);
-  --hd-layout-heading-border-bottom: var(--hd-layout-heading-border-bottom-accent);
-  --hd-layout-heading-border-top: var(--hd-layout-heading-border-top-accent);
-  --hd-layout-heading-shadow: var(--hd-layout-heading-shadow-accent);
+  --hd-layout-heading-hr-color: var(--hd-layout-heading-hr-color-accent);
 }
 
 hd-layout.hd-danger,
@@ -335,9 +329,7 @@ hd-layout-split.hd-danger,
 hd-layout-three.hd-danger {
   --hd-layout-heading-bg: var(--hd-danger-color);
   --hd-layout-heading-color: var(--hd-danger-accent-text-color);
-  --hd-layout-heading-border-bottom: var(--hd-layout-heading-border-bottom-danger);
-  --hd-layout-heading-border-top: var(--hd-layout-heading-border-top-danger);
-  --hd-layout-heading-shadow: var(--hd-layout-heading-shadow-danger);
+  --hd-layout-heading-hr-color: var(--hd-layout-heading-hr-color-danger);
 }
 
 hd-layout.hd-warning,
@@ -345,9 +337,7 @@ hd-layout-split.hd-warning,
 hd-layout-three.hd-warning {
   --hd-layout-heading-bg: var(--hd-warning-color);
   --hd-layout-heading-color: var(--hd-warning-accent-text-color);
-  --hd-layout-heading-border-bottom: var(--hd-layout-heading-border-bottom-warning);
-  --hd-layout-heading-border-top: var(--hd-layout-heading-border-top-warning);
-  --hd-layout-heading-shadow: var(--hd-layout-heading-shadow-warning);
+  --hd-layout-heading-hr-color: var(--hd-layout-heading-hr-color-warning);
 }
 
 hd-layout.hd-success,
@@ -355,9 +345,7 @@ hd-layout-split.hd-success,
 hd-layout-three.hd-success {
   --hd-layout-heading-bg: var(--hd-success-color);
   --hd-layout-heading-color: var(--hd-success-accent-text-color);
-  --hd-layout-heading-border-bottom: var(--hd-layout-heading-border-bottom-success);
-  --hd-layout-heading-border-top: var(--hd-layout-heading-border-top-success);
-  --hd-layout-heading-shadow: var(--hd-layout-heading-shadow-success);
+  --hd-layout-heading-hr-color: var(--hd-layout-heading-hr-color-success);
 }
 
 hd-layout.hd-info,
@@ -365,9 +353,7 @@ hd-layout-split.hd-info,
 hd-layout-three.hd-info {
   --hd-layout-heading-bg: var(--hd-info-color);
   --hd-layout-heading-color: var(--hd-info-accent-text-color);
-  --hd-layout-heading-border-bottom: var(--hd-layout-heading-border-bottom-info);
-  --hd-layout-heading-border-top: var(--hd-layout-heading-border-top-info);
-  --hd-layout-heading-shadow: var(--hd-layout-heading-shadow-info);
+  --hd-layout-heading-hr-color: var(--hd-layout-heading-hr-color-info);
 }
 
 hd-layout.hd-muted,
@@ -375,9 +361,7 @@ hd-layout-split.hd-muted,
 hd-layout-three.hd-muted {
   --hd-layout-heading-bg: var(--hd-muted-color);
   --hd-layout-heading-color: var(--hd-muted-accent-text-color);
-  --hd-layout-heading-border-bottom: var(--hd-layout-heading-border-bottom-muted);
-  --hd-layout-heading-border-top: var(--hd-layout-heading-border-top-muted);
-  --hd-layout-heading-shadow: var(--hd-layout-heading-shadow-muted);
+  --hd-layout-heading-hr-color: var(--hd-layout-heading-hr-color-muted);
 }
 
 /* Margin Resets for Last Children */
