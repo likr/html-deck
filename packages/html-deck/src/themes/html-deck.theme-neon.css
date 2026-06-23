@@ -72,7 +72,7 @@
   --hd-layout-heading-border-bottom: 1px solid var(--hd-primary-color);
   --hd-layout-heading-shadow: 0 4px 15px rgba(0, 242, 254, 0.35);
   --hd-layout-heading-text-align: center;
-  --hd-layout-heading-padding-top: 8px;
+  --hd-layout-heading-padding-top: calc(var(--hd-slide-padding-top) + 8px);
   --hd-layout-heading-text-shadow: 0 0 10px var(--hd-primary-color), 0 0 20px rgba(0, 242, 254, 0.4);
 
   /* Color Class Overrides for Layout Heading */
@@ -83,6 +83,30 @@
   --hd-layout-heading-border-bottom-secondary: 1px solid var(--hd-secondary-color);
   --hd-layout-heading-border-top-secondary: 1px solid var(--hd-secondary-border-color);
   --hd-layout-heading-shadow-secondary: 0 4px 20px rgba(254, 1, 154, 0.4);
+
+  --hd-layout-heading-border-bottom-accent: 1px solid var(--hd-accent-color);
+  --hd-layout-heading-border-top-accent: 1px solid var(--hd-accent-border-color);
+  --hd-layout-heading-shadow-accent: 0 4px 20px rgba(57, 255, 20, 0.4);
+
+  --hd-layout-heading-border-bottom-danger: 1px solid var(--hd-danger-color);
+  --hd-layout-heading-border-top-danger: 1px solid var(--hd-danger-border-color);
+  --hd-layout-heading-shadow-danger: 0 4px 20px rgba(255, 7, 58, 0.4);
+
+  --hd-layout-heading-border-bottom-warning: 1px solid var(--hd-warning-color);
+  --hd-layout-heading-border-top-warning: 1px solid var(--hd-warning-border-color);
+  --hd-layout-heading-shadow-warning: 0 4px 20px rgba(255, 230, 0, 0.4);
+
+  --hd-layout-heading-border-bottom-success: 1px solid var(--hd-success-color);
+  --hd-layout-heading-border-top-success: 1px solid var(--hd-success-border-color);
+  --hd-layout-heading-shadow-success: 0 4px 20px rgba(57, 255, 20, 0.4);
+
+  --hd-layout-heading-border-bottom-info: 1px solid var(--hd-info-color);
+  --hd-layout-heading-border-top-info: 1px solid var(--hd-info-border-color);
+  --hd-layout-heading-shadow-info: 0 4px 20px rgba(0, 242, 254, 0.4);
+
+  --hd-layout-heading-border-bottom-muted: 1px solid var(--hd-muted-color);
+  --hd-layout-heading-border-top-muted: 1px solid var(--hd-muted-border-color);
+  --hd-layout-heading-shadow-muted: 0 4px 20px rgba(100, 116, 139, 0.4);
 
   /* Tech-Terminal Cards & Boxes */
   --hd-card-bg: rgba(10, 10, 18, 0.8);
@@ -111,6 +135,30 @@
   --hd-callout-bg-secondary: rgba(254, 1, 154, 0.04);
   --hd-callout-border-secondary: rgba(254, 1, 154, 0.2);
   --hd-callout-shadow-secondary: 0 0 15px rgba(254, 1, 154, 0.15);
+
+  --hd-callout-bg-accent: rgba(57, 255, 20, 0.04);
+  --hd-callout-border-accent: rgba(57, 255, 20, 0.2);
+  --hd-callout-shadow-accent: 0 0 15px rgba(57, 255, 20, 0.15);
+
+  --hd-callout-bg-danger: rgba(255, 7, 58, 0.04);
+  --hd-callout-border-danger: rgba(255, 7, 58, 0.2);
+  --hd-callout-shadow-danger: 0 0 15px rgba(255, 7, 58, 0.15);
+
+  --hd-callout-bg-warning: rgba(255, 230, 0, 0.04);
+  --hd-callout-border-warning: rgba(255, 230, 0, 0.2);
+  --hd-callout-shadow-warning: 0 0 15px rgba(255, 230, 0, 0.15);
+
+  --hd-callout-bg-success: rgba(57, 255, 20, 0.04);
+  --hd-callout-border-success: rgba(57, 255, 20, 0.2);
+  --hd-callout-shadow-success: 0 0 15px rgba(57, 255, 20, 0.15);
+
+  --hd-callout-bg-info: rgba(0, 242, 254, 0.04);
+  --hd-callout-border-info: rgba(0, 242, 254, 0.2);
+  --hd-callout-shadow-info: 0 0 15px rgba(0, 242, 254, 0.15);
+
+  --hd-callout-bg-muted: rgba(100, 116, 139, 0.04);
+  --hd-callout-border-muted: rgba(100, 116, 139, 0.2);
+  --hd-callout-shadow-muted: 0 0 15px rgba(100, 116, 139, 0.15);
 
   /* Cyber Code Blocks */
   --hd-codeblock-bg: rgba(8, 8, 12, 0.85);
