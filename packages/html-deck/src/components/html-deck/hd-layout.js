@@ -37,10 +37,17 @@ export class HdLayout extends HTMLElement {
           background-color: var(--hd-layout-heading-hr-color);
           box-shadow: var(--hd-layout-heading-hr-shadow);
           margin-top: 0;
-          margin-bottom: var(--hd-layout-heading-margin);
+          margin-bottom: 0;
           margin-left: calc(-1 * var(--hd-slide-padding-left));
           margin-right: calc(-1 * var(--hd-slide-padding-right));
           width: calc(100% + var(--hd-slide-padding-left) + var(--hd-slide-padding-right));
+        }
+        .layout-content {
+          display: flex;
+          flex-direction: column;
+          flex-grow: 1;
+          width: 100%;
+          margin: var(--hd-layout-content-margin);
         }
         .heading-area ::slotted(*) {
           font-size: var(--hd-layout-heading-font-size);
@@ -67,11 +74,13 @@ export class HdLayout extends HTMLElement {
         <slot name="heading"></slot>
       </div>
       <hr class="heading-divider" />
-      <slot name="before"></slot>
-      <div class="body-area">
-        <slot></slot>
+      <div class="layout-content">
+        <slot name="before"></slot>
+        <div class="body-area">
+          <slot></slot>
+        </div>
+        <slot name="after"></slot>
       </div>
-      <slot name="after"></slot>
     `;
   }
 }

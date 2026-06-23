@@ -44,10 +44,39 @@
   --hd-card-color: var(--hd-default-color);
   --hd-card-border-color: var(--hd-default-border-color);
 
-}
+  /* Heading & layout theme overrides */
+  --hd-default-header-color: var(--hd-primary-header-text-color);
+  --hd-primary-header-color: var(--hd-primary-header-text-color);
+  --hd-secondary-header-color: var(--hd-secondary-header-text-color);
+  --hd-accent-header-color: var(--hd-accent-header-text-color);
+  --hd-danger-header-color: var(--hd-danger-header-text-color);
+  --hd-warning-header-color: var(--hd-warning-header-text-color);
+  --hd-success-header-color: var(--hd-success-header-text-color);
+  --hd-info-header-color: var(--hd-info-header-text-color);
+  --hd-muted-header-color: var(--hd-muted-header-text-color);
 
-hd-slide, hd-slide[heading], hd-slide[type] {
-  /* Heading overrides */
-  --hd-layout-heading-bg: var(--hd-active-highlight-color);
-  --hd-layout-heading-color: var(--hd-active-accent-text-color);
+  /* Override text variables to white for high contrast on navy heading backgrounds */
+  --hd-default-header-text-color: #ffffff;
+  --hd-primary-header-text-color: #ffffff;
+  --hd-secondary-header-text-color: #ffffff;
+  --hd-accent-header-text-color: #ffffff;
+  --hd-danger-header-text-color: #ffffff;
+  --hd-warning-header-text-color: #ffffff;
+  --hd-success-header-text-color: #ffffff;
+  --hd-info-header-text-color: #ffffff;
+  --hd-muted-header-text-color: #ffffff;
+
+  --hd-layout-heading-bg-default: var(--hd-primary-color);
+  --hd-layout-heading-color-default: var(--hd-primary-header-text-color);
+  --hd-layout-content-margin: var(--hd-slide-padding-bottom) 0 0 0;
+
+  --hd-layout-heading-color-primary: var(--hd-primary-header-text-color);
+  --hd-layout-heading-color-secondary: var(--hd-secondary-header-text-color);
+  --hd-layout-heading-color-accent: var(--hd-accent-header-text-color);
+  --hd-layout-heading-color-danger: var(--hd-danger-header-text-color);
+  --hd-layout-heading-color-warning: var(--hd-warning-header-text-color);
+  --hd-layout-heading-color-success: var(--hd-success-header-text-color);
+  --hd-layout-heading-color-info: var(--hd-info-header-text-color);
+  --hd-layout-heading-color-muted: var(--hd-muted-header-text-color);
+
 }

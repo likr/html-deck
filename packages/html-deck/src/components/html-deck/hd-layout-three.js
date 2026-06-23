@@ -37,10 +37,17 @@ export class HdLayoutThree extends HTMLElement {
           background-color: var(--hd-layout-heading-hr-color);
           box-shadow: var(--hd-layout-heading-hr-shadow);
           margin-top: 0;
-          margin-bottom: var(--hd-layout-heading-margin);
+          margin-bottom: 0;
           margin-left: calc(-1 * var(--hd-slide-padding-left));
           margin-right: calc(-1 * var(--hd-slide-padding-right));
           width: calc(100% + var(--hd-slide-padding-left) + var(--hd-slide-padding-right));
+        }
+        .layout-content {
+          display: flex;
+          flex-direction: column;
+          flex-grow: 1;
+          width: 100%;
+          margin: var(--hd-layout-content-margin);
         }
         .heading-area ::slotted(*) {
           font-size: var(--hd-layout-heading-font-size);
@@ -73,19 +80,21 @@ export class HdLayoutThree extends HTMLElement {
         <slot name="heading"></slot>
       </div>
       <hr class="heading-divider" />
-      <slot name="before"></slot>
-      <div class="three-container">
-        <div class="left-pane">
-          <slot name="left"></slot>
+      <div class="layout-content">
+        <slot name="before"></slot>
+        <div class="three-container">
+          <div class="left-pane">
+            <slot name="left"></slot>
+          </div>
+          <div class="middle-pane">
+            <slot name="middle"></slot>
+          </div>
+          <div class="right-pane">
+            <slot name="right"></slot>
+          </div>
         </div>
-        <div class="middle-pane">
-          <slot name="middle"></slot>
-        </div>
-        <div class="right-pane">
-          <slot name="right"></slot>
-        </div>
+        <slot name="after"></slot>
       </div>
-      <slot name="after"></slot>
     `;
   }
 }

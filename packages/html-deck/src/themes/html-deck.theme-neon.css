@@ -32,19 +32,16 @@
   --hd-success-color: #39ff14;
   --hd-info-color: #00f2fe;
 
-  /* Accent Text Colors (used as text contrast on solid background banners) */
-  --hd-default-accent-text-color: #f1f5f9;
-  --hd-primary-accent-text-color: #030303;
-  /* Contrast for Neon Cyan */
-  --hd-secondary-accent-text-color: #f1f5f9;
-  /* Contrast for Neon Pink */
-  --hd-accent-accent-text-color: #030303;
-  /* Contrast for Neon Green */
-  --hd-danger-accent-text-color: #f1f5f9;
-  --hd-warning-accent-text-color: #030303;
-  --hd-success-accent-text-color: #030303;
-  --hd-info-accent-text-color: #030303;
-  --hd-muted-accent-text-color: #f1f5f9;
+  /* Header Text Colors (used as text contrast on solid background banners) */
+  --hd-default-header-text-color: #f1f5f9;
+  --hd-primary-header-text-color: #030303;
+  --hd-secondary-header-text-color: #f1f5f9;
+  --hd-accent-header-text-color: #030303;
+  --hd-danger-header-text-color: #f1f5f9;
+  --hd-warning-header-text-color: #030303;
+  --hd-success-header-text-color: #030303;
+  --hd-info-header-text-color: #030303;
+  --hd-muted-header-text-color: #f1f5f9;
 
   /* Background colors (used when background is colored, keeping hue/vibe) */
   --hd-default-background-color: #030303;
@@ -136,82 +133,35 @@
   --hd-scrollbar-thumb-bg: var(--hd-muted-color);
   --hd-scrollbar-thumb-radius: 3px;
   --hd-scrollbar-thumb-hover-bg: var(--hd-primary-color);
-}
+  --hd-default-header-color: var(--hd-primary-color);
+  --hd-primary-header-color: var(--hd-primary-color);
+  --hd-secondary-header-color: var(--hd-primary-color);
+  --hd-accent-header-color: var(--hd-primary-color);
+  --hd-danger-header-color: var(--hd-primary-color);
+  --hd-warning-header-color: var(--hd-primary-color);
+  --hd-success-header-color: var(--hd-primary-color);
+  --hd-info-header-color: var(--hd-primary-color);
+  --hd-muted-header-color: var(--hd-primary-color);
 
-hd-slide, hd-slide[heading], hd-slide[type] {
-  /* Holographic Radial Slide Background */
+  --hd-layout-heading-bg-default: rgb(from var(--hd-default-background-color) calc(r + 6) calc(g + 6) calc(b + 8));
+  --hd-layout-heading-color-default: var(--hd-primary-color);
+  --hd-layout-heading-text-shadow-default: 0 0 10px var(--hd-primary-color), 0 0 20px rgb(from var(--hd-primary-color) r g b / 0.4);
+  --hd-layout-heading-hr-color-default: var(--hd-primary-color);
+  --hd-layout-heading-hr-shadow-default: 0 4px 15px var(--hd-primary-color);
+
   --hd-slide-bg: radial-gradient(circle at 50% 50%, rgb(from var(--hd-default-background-color) calc(r + 10) calc(g + 11) calc(b + 24)) 0%, var(--hd-default-background-color) 100%);
+  --hd-layout-heading-hr-display: block;
+  --hd-layout-heading-padding-top: calc(var(--hd-slide-padding-top) + 8px);
+  --hd-layout-heading-text-align: center;
+  --hd-layout-content-margin: var(--hd-layout-heading-margin) 0 0 0;
 
-  /* Neon Text Shadow Glows on Cover Slides */
-  --hd-layout-cover-title-shadow: 0 0 10px var(--hd-active-highlight-color), 0 0 20px rgb(from var(--hd-active-highlight-color) r g b / 0.5);
+  --hd-layout-cover-title-shadow: 0 0 10px var(--hd-primary-color), 0 0 20px rgb(from var(--hd-primary-color) r g b / 0.5);
   --hd-layout-cover-subtitle-shadow: 0 0 8px var(--hd-secondary-color);
 
-  /* Heading Overrides */
-  --hd-layout-heading-bg: rgb(from var(--hd-default-background-color) calc(r + 6) calc(g + 6) calc(b + 8));
-  --hd-layout-heading-color: var(--hd-active-highlight-color);
-  --hd-layout-heading-text-align: center;
-  --hd-layout-heading-padding-top: calc(var(--hd-slide-padding-top) + 8px);
-  --hd-layout-heading-text-shadow: 0 0 10px var(--hd-active-highlight-color), 0 0 20px rgb(from var(--hd-active-highlight-color) r g b / 0.4);
-  --hd-layout-heading-hr-display: block;
-  --hd-layout-heading-hr-height: 1px;
-  --hd-layout-heading-hr-color: var(--hd-active-highlight-color);
-  --hd-layout-heading-hr-shadow: 0 4px 15px var(--hd-layout-heading-hr-color);
-}
-
-/* Layout heading color class overrides for neon theme */
-hd-layout.hd-primary, hd-layout-split.hd-primary, hd-layout-three.hd-primary {
-  --hd-layout-heading-bg: rgb(from var(--hd-default-background-color) calc(r + 6) calc(g + 6) calc(b + 8));
-  --hd-layout-heading-color: var(--hd-primary-color);
-  --hd-layout-heading-text-shadow: 0 0 10px var(--hd-primary-color), 0 0 20px rgb(from var(--hd-primary-color) r g b / 0.4);
-  --hd-layout-heading-hr-color: var(--hd-primary-color);
-  --hd-layout-heading-hr-shadow: 0 4px 15px var(--hd-primary-color);
-}
-hd-layout.hd-secondary, hd-layout-split.hd-secondary, hd-layout-three.hd-secondary {
-  --hd-layout-heading-bg: rgb(from var(--hd-default-background-color) calc(r + 6) calc(g + 6) calc(b + 8));
-  --hd-layout-heading-color: var(--hd-secondary-color);
-  --hd-layout-heading-text-shadow: 0 0 10px var(--hd-secondary-color), 0 0 20px rgb(from var(--hd-secondary-color) r g b / 0.4);
-  --hd-layout-heading-hr-color: var(--hd-secondary-color);
-  --hd-layout-heading-hr-shadow: 0 4px 15px var(--hd-secondary-color);
-}
-hd-layout.hd-accent, hd-layout-split.hd-accent, hd-layout-three.hd-accent {
-  --hd-layout-heading-bg: rgb(from var(--hd-default-background-color) calc(r + 6) calc(g + 6) calc(b + 8));
-  --hd-layout-heading-color: var(--hd-accent-color);
-  --hd-layout-heading-text-shadow: 0 0 10px var(--hd-accent-color), 0 0 20px rgb(from var(--hd-accent-color) r g b / 0.4);
-  --hd-layout-heading-hr-color: var(--hd-accent-color);
-  --hd-layout-heading-hr-shadow: 0 4px 15px var(--hd-accent-color);
-}
-hd-layout.hd-danger, hd-layout-split.hd-danger, hd-layout-three.hd-danger {
-  --hd-layout-heading-bg: rgb(from var(--hd-default-background-color) calc(r + 6) calc(g + 6) calc(b + 8));
-  --hd-layout-heading-color: var(--hd-danger-color);
-  --hd-layout-heading-text-shadow: 0 0 10px var(--hd-danger-color), 0 0 20px rgb(from var(--hd-danger-color) r g b / 0.4);
-  --hd-layout-heading-hr-color: var(--hd-danger-color);
-  --hd-layout-heading-hr-shadow: 0 4px 15px var(--hd-danger-color);
-}
-hd-layout.hd-warning, hd-layout-split.hd-warning, hd-layout-three.hd-warning {
-  --hd-layout-heading-bg: rgb(from var(--hd-default-background-color) calc(r + 6) calc(g + 6) calc(b + 8));
-  --hd-layout-heading-color: var(--hd-warning-color);
-  --hd-layout-heading-text-shadow: 0 0 10px var(--hd-warning-color), 0 0 20px rgb(from var(--hd-warning-color) r g b / 0.4);
-  --hd-layout-heading-hr-color: var(--hd-warning-color);
-  --hd-layout-heading-hr-shadow: 0 4px 15px var(--hd-warning-color);
-}
-hd-layout.hd-success, hd-layout-split.hd-success, hd-layout-three.hd-success {
-  --hd-layout-heading-bg: rgb(from var(--hd-default-background-color) calc(r + 6) calc(g + 6) calc(b + 8));
-  --hd-layout-heading-color: var(--hd-success-color);
-  --hd-layout-heading-text-shadow: 0 0 10px var(--hd-success-color), 0 0 20px rgb(from var(--hd-success-color) r g b / 0.4);
-  --hd-layout-heading-hr-color: var(--hd-success-color);
-  --hd-layout-heading-hr-shadow: 0 4px 15px var(--hd-success-color);
-}
-hd-layout.hd-info, hd-layout-split.hd-info, hd-layout-three.hd-info {
-  --hd-layout-heading-bg: rgb(from var(--hd-default-background-color) calc(r + 6) calc(g + 6) calc(b + 8));
-  --hd-layout-heading-color: var(--hd-info-color);
-  --hd-layout-heading-text-shadow: 0 0 10px var(--hd-info-color), 0 0 20px rgb(from var(--hd-info-color) r g b / 0.4);
-  --hd-layout-heading-hr-color: var(--hd-info-color);
-  --hd-layout-heading-hr-shadow: 0 4px 15px var(--hd-info-color);
-}
-hd-layout.hd-muted, hd-layout-split.hd-muted, hd-layout-three.hd-muted {
-  --hd-layout-heading-bg: rgb(from var(--hd-default-background-color) calc(r + 6) calc(g + 6) calc(b + 8));
-  --hd-layout-heading-color: var(--hd-muted-color);
-  --hd-layout-heading-text-shadow: 0 0 10px var(--hd-muted-color), 0 0 20px rgb(from var(--hd-muted-color) r g b / 0.4);
-  --hd-layout-heading-hr-color: var(--hd-muted-color);
-  --hd-layout-heading-hr-shadow: 0 4px 15px var(--hd-muted-color);
+  /* Dynamic mapping formulas under :root (highly simplified) */
+  --hd-layout-heading-bg-class: var(--hd-layout-heading-bg-default);
+  --hd-layout-heading-color-class-final: var(--hd-layout-heading-color-class);
+  --hd-layout-heading-text-shadow-class: 0 0 10px var(--hd-layout-heading-color-class), 0 0 20px rgb(from var(--hd-layout-heading-color-class) r g b / 0.4);
+  --hd-layout-heading-hr-color-class: var(--hd-layout-heading-color-class);
+  --hd-layout-heading-hr-shadow-class: 0 4px 15px var(--hd-layout-heading-color-class);
 }

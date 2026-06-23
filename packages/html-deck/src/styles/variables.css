@@ -38,18 +38,26 @@
   --hd-info-border-color: #cffafe;
   --hd-muted-border-color: #cbd5e1;
 
-  --hd-default-accent-text-color: #ffffff;
-  --hd-primary-accent-text-color: #ffffff;
-  --hd-secondary-accent-text-color: #ffffff;
-  --hd-accent-accent-text-color: #ffffff;
-  --hd-danger-accent-text-color: #ffffff;
-  --hd-warning-accent-text-color: #000000;
-  --hd-success-accent-text-color: #ffffff;
-  --hd-info-accent-text-color: #ffffff;
-  --hd-muted-accent-text-color: #ffffff;
+  --hd-default-header-text-color: #000000;
+  --hd-primary-header-text-color: #000000;
+  --hd-secondary-header-text-color: #000000;
+  --hd-accent-header-text-color: #000000;
+  --hd-danger-header-text-color: #000000;
+  --hd-warning-header-text-color: #000000;
+  --hd-success-header-text-color: #000000;
+  --hd-info-header-text-color: #000000;
+  --hd-muted-header-text-color: #000000;
 
-  --hd-active-highlight-color: var(--hd-primary-color);
-  --hd-active-accent-text-color: var(--hd-primary-accent-text-color);
+  /* Slide type specific header colors (all defaulted to white) */
+  --hd-default-header-color: #ffffff;
+  --hd-primary-header-color: #ffffff;
+  --hd-secondary-header-color: #ffffff;
+  --hd-accent-header-color: #ffffff;
+  --hd-danger-header-color: #ffffff;
+  --hd-warning-header-color: #ffffff;
+  --hd-success-header-color: #ffffff;
+  --hd-info-header-color: #ffffff;
+  --hd-muted-header-color: #ffffff;
 
   /* Card configuration variables */
   --hd-card-bg: var(--hd-default-background-color);
@@ -101,19 +109,30 @@
   --hd-layout-cover-meta-font-size: var(--hd-text-size-5);
   --hd-layout-cover-meta-color: var(--hd-muted-color);
   --hd-layout-heading-margin: var(--hd-gap-3);
+  /* --- Default Layout Variables --- */
+  --hd-layout-heading-bg-default: transparent;
+  --hd-layout-heading-color-default: inherit;
+  --hd-layout-heading-text-shadow-default: none;
+  --hd-layout-heading-hr-color-default: var(--hd-default-border-color);
+  --hd-layout-heading-hr-shadow-default: none;
+
+  /* --- Layout properties defaults --- */
+  --hd-slide-bg: var(--hd-default-background-color);
+  --hd-layout-heading-bg: var(--hd-layout-heading-bg-default);
+  --hd-layout-heading-color: var(--hd-layout-heading-color-default);
+  --hd-layout-content-margin: 0px;
+  --hd-layout-header-color: var(--hd-default-header-color);
   --hd-layout-heading-font-size: var(--hd-text-size-2);
-  --hd-layout-heading-bg: transparent;
-  --hd-layout-heading-color: inherit;
   --hd-layout-heading-padding-bottom: var(--hd-slide-padding-top);
   --hd-layout-heading-text-align: left;
   --hd-layout-heading-shadow: none;
   --hd-layout-heading-padding-top: var(--hd-slide-padding-top);
-  --hd-layout-heading-text-shadow: none;
+  --hd-layout-heading-text-shadow: var(--hd-layout-heading-text-shadow-default);
   --hd-layout-heading-height: auto;
   --hd-layout-heading-hr-display: none;
   --hd-layout-heading-hr-height: 1px;
-  --hd-layout-heading-hr-color: var(--hd-default-border-color);
-  --hd-layout-heading-hr-shadow: none;
+  --hd-layout-heading-hr-color: var(--hd-layout-heading-hr-color-default);
+  --hd-layout-heading-hr-shadow: var(--hd-layout-heading-hr-shadow-default);
   --hd-layout-before-margin: var(--hd-gap-2);
   --hd-layout-after-margin: var(--hd-gap-2);
   --hd-layout-cover-title-shadow: none;
@@ -123,15 +142,22 @@
   --hd-codeblock-border-radius: 8px;
   --hd-codeblock-shadow: none;
 
-  /* Layout heading divider color variables */
-  --hd-layout-heading-hr-color-primary: var(--hd-primary-color);
-  --hd-layout-heading-hr-color-secondary: var(--hd-secondary-color);
-  --hd-layout-heading-hr-color-accent: var(--hd-accent-color);
-  --hd-layout-heading-hr-color-danger: var(--hd-danger-color);
-  --hd-layout-heading-hr-color-warning: var(--hd-warning-color);
-  --hd-layout-heading-hr-color-success: var(--hd-success-color);
-  --hd-layout-heading-hr-color-info: var(--hd-info-color);
-  --hd-layout-heading-hr-color-muted: var(--hd-muted-color);
+  /* --- Heading color-override parameters for hd-slide[heading="..."] --- */
+  --hd-layout-heading-color-primary: var(--hd-primary-color);
+  --hd-layout-heading-color-secondary: var(--hd-secondary-color);
+  --hd-layout-heading-color-accent: var(--hd-accent-color);
+  --hd-layout-heading-color-danger: var(--hd-danger-color);
+  --hd-layout-heading-color-warning: var(--hd-warning-color);
+  --hd-layout-heading-color-success: var(--hd-success-color);
+  --hd-layout-heading-color-info: var(--hd-info-color);
+  --hd-layout-heading-color-muted: var(--hd-muted-color);
+
+  /* --- Dynamic class override defaults --- */
+  --hd-layout-heading-bg-class: var(--hd-layout-heading-color-class);
+  --hd-layout-heading-color-class-final: var(--hd-layout-heading-text-color-class);
+  --hd-layout-heading-text-shadow-class: none;
+  --hd-layout-heading-hr-color-class: var(--hd-layout-heading-color-class);
+  --hd-layout-heading-hr-shadow-class: none;
 
   --hd-card-shadow-primary: none;
   --hd-card-shadow-secondary: none;
