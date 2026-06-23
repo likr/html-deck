@@ -20,7 +20,6 @@ export class HdLayoutCover extends HTMLElement {
           justify-content: var(--hd-layout-cover-justify);
           align-items: var(--hd-layout-cover-align);
           text-align: var(--hd-layout-cover-text-align);
-          height: 100%;
           width: 100%;
           flex-grow: 1;
         }
@@ -51,6 +50,7 @@ export class HdLayoutCover extends HTMLElement {
           margin: 0;
         }
       </style>
+      <slot name="before"></slot>
       <div class="cover-container">
         <div class="title-area">
           <slot name="title"></slot>
@@ -62,6 +62,7 @@ export class HdLayoutCover extends HTMLElement {
           <slot name="meta"></slot>
         </div>
       </div>
+      <slot name="after"></slot>
     `;
   }
 }

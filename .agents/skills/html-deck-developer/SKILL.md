@@ -185,7 +185,7 @@ To avoid overriding default browser actions (such as `Ctrl + P` / `Cmd + P` for 
 - Rule: Link elements (`<a>`) inside slides default to `text-decoration: none` and inherit color. Underlining must be explicitly added using the `.hd-underlined` utility class. Other text transformations use `.hd-capitalized`, `.hd-lowercase`, and `.hd-uppercase`. The class `.hd-line-through` has been deleted; use the standard HTML `<s>` tag instead.
 
 ### 17. Slide-Level Absolute Positioned Margins & Padding Alignment
-- Rule: Slide padding is managed at the `hd-slide` level (on `.slide-content`). Layout components like `hd-layout`, `hd-layout-split`, and `hd-layout-cover` must not apply their own padding to prevent double-padding.
+- Rule: Slide padding is managed at the `hd-slide` level (on `.slide-content`). Layout components like `hd-layout`, `hd-layout-split`, `hd-layout-three`, and `hd-layout-cover` must not apply their own padding to prevent double-padding.
 - Rule: When positioning header, footer, and page-number elements absolutely in the margins, use the unified peripheral variables:
   - `--peripheral-font-size` (defaults to `9px`)
   - `--peripheral-line-height` (defaults to `1`)

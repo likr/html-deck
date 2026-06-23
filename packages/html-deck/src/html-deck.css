@@ -384,7 +384,7 @@ hd-slide [slot="title"] {
   border-radius: var(--hd-card-border-radius);
   padding: var(--hd-card-padding);
   box-shadow: var(--hd-card-shadow);
-  height: 100%;
+  height: auto;
   box-sizing: border-box;
 }
 
@@ -425,6 +425,58 @@ hd-slide [slot="title"] {
 }
 
 .hd-card.hd-muted {
+  --hd-card-bg: var(--hd-muted-background-color);
+  --hd-card-color: var(--hd-muted-color);
+}
+
+/* Container Boxes (100% height) */
+.hd-box {
+  background-color: var(--hd-card-bg);
+  color: var(--hd-card-color);
+  border-radius: var(--hd-card-border-radius);
+  padding: var(--hd-card-padding);
+  box-shadow: var(--hd-card-shadow);
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* Support coloring on .hd-box by overriding local variables */
+.hd-box.hd-primary {
+  --hd-card-bg: var(--hd-primary-background-color);
+  --hd-card-color: var(--hd-primary-color);
+}
+
+.hd-box.hd-secondary {
+  --hd-card-bg: var(--hd-secondary-background-color);
+  --hd-card-color: var(--hd-secondary-color);
+}
+
+.hd-box.hd-accent {
+  --hd-card-bg: var(--hd-accent-background-color);
+  --hd-card-color: var(--hd-accent-color);
+}
+
+.hd-box.hd-danger {
+  --hd-card-bg: var(--hd-danger-background-color);
+  --hd-card-color: var(--hd-danger-color);
+}
+
+.hd-box.hd-warning {
+  --hd-card-bg: var(--hd-warning-background-color);
+  --hd-card-color: var(--hd-warning-color);
+}
+
+.hd-box.hd-success {
+  --hd-card-bg: var(--hd-success-background-color);
+  --hd-card-color: var(--hd-success-color);
+}
+
+.hd-box.hd-info {
+  --hd-card-bg: var(--hd-info-background-color);
+  --hd-card-color: var(--hd-info-color);
+}
+
+.hd-box.hd-muted {
   --hd-card-bg: var(--hd-muted-background-color);
   --hd-card-color: var(--hd-muted-color);
 }

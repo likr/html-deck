@@ -8,6 +8,7 @@ import { HdSlide } from './components/html-deck/hd-slide.js';
 import { HdLayout } from './components/html-deck/hd-layout.js';
 import { HdLayoutSplit } from './components/html-deck/hd-layout-split.js';
 import { HdLayoutCover } from './components/html-deck/hd-layout-cover.js';
+import { HdLayoutThree } from './components/html-deck/hd-layout-three.js';
 
 // Register presentation custom elements
 customElements.define('hd-deck', HdDeck);
@@ -15,4 +16,5 @@ customElements.define('hd-slide', HdSlide);
 customElements.define('hd-layout', HdLayout);
 customElements.define('hd-layout-split', HdLayoutSplit);
 customElements.define('hd-layout-cover', HdLayoutCover);
+customElements.define('hd-layout-three', HdLayoutThree);
 
