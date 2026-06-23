@@ -7,34 +7,49 @@ export class HdLayoutCover extends HTMLElement {
         :host {
           display: flex;
           flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          text-align: center;
+          justify-content: var(--hd-layout-cover-justify);
+          align-items: var(--hd-layout-cover-align);
+          text-align: var(--hd-layout-cover-text-align);
           height: 100%;
           width: 100%;
           box-sizing: border-box;
-          padding: var(--hd-slide-padding);
+          padding: var(--hd-layout-cover-padding);
         }
         .cover-container {
           display: flex;
           flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          text-align: center;
+          justify-content: var(--hd-layout-cover-justify);
+          align-items: var(--hd-layout-cover-align);
+          text-align: var(--hd-layout-cover-text-align);
           height: 100%;
           width: 100%;
           flex-grow: 1;
         }
         .title-area {
-          margin-bottom: 16px;
+          margin-bottom: var(--hd-layout-cover-title-margin);
           width: 100%;
         }
+        .title-area ::slotted(*) {
+          font-size: var(--hd-layout-cover-title-font-size);
+          color: var(--hd-layout-cover-title-color);
+          margin: 0;
+        }
         .subtitle-area {
-          margin-bottom: 24px;
+          margin-bottom: var(--hd-layout-cover-subtitle-margin);
           width: 100%;
+        }
+        .subtitle-area ::slotted(*) {
+          font-size: var(--hd-layout-cover-subtitle-font-size);
+          color: var(--hd-layout-cover-subtitle-color);
+          margin: 0;
         }
         .meta-area {
           width: 100%;
+        }
+        .meta-area ::slotted(*) {
+          font-size: var(--hd-layout-cover-meta-font-size);
+          color: var(--hd-layout-cover-meta-color);
+          margin: 0;
         }
       </style>
       <div class="cover-container">

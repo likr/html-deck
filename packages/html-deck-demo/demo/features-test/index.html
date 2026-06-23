@@ -42,13 +42,13 @@
         <div class="badge" slot="meta">960x540 BASE SIZE TEST</div>
         <h1 slot="title"><span class="gradient-header">HTML-Deck Enhancements</span></h1>
         <div slot="subtitle">
-          <p class="hd-text">This presentation runs on a standard <span class="hd-text-primary hd-bold">960x540</span> base aspect
+          <p class="hd-text">This presentation runs on a standard <span class="hd-text-primary hd-text-weight-bold">960x540</span> base aspect
             ratio scaling.</p>
-          <p class="hd-text hd-text-muted hd-text-sm">
+          <p class="hd-text hd-text-muted hd-text-5">
             It is designed to match Google Slides 16:9 base proportions. Font sizes look much larger and more like an actual
             slide.
           </p>
-          <p class="hd-text hd-text-accent hd-semibold hd-mt-sm">
+          <p class="hd-text hd-text-accent hd-text-weight-semibold hd-mt-2">
             Press Space/Right-Arrow to navigate. Press 'P' for Presenter View.
           </p>
         </div>
@@ -66,7 +66,7 @@
       <hd-layout-standard>
         <h2 slot="title">Nested Bullet Lists & Text Decoration</h2>
 
-        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--hd-gap-md, 16px); width: 100%; box-sizing: border-box;">
+        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--hd-gap-3, 16px); width: 100%; box-sizing: border-box;">
           <div class="feature-card">
             <h3>Nested List Depth Test</h3>
             <ul class="hd-list">
@@ -87,11 +87,11 @@
           <div class="feature-card">
             <h3>Text Styles & Colors</h3>
             <ol class="hd-list">
-              <li>This is a <span class="hd-bold hd-text-danger">danger bold</span> text item.</li>
+              <li>This is a <span class="hd-text-weight-bold hd-text-danger">danger bold</span> text item.</li>
               <li>This is a <span class="hd-italic hd-text-secondary">secondary italic</span> text item.</li>
               <li>Here we have a <span class="hd-text-success hd-underline">success underlined</span> element.</li>
-              <li>Here is a <span class="hd-bg-primary hd-bold">primary highlighted</span> text block.</li>
-              <li>Small muted text: <span class="hd-text-muted hd-text-xs">0.7em size</span>.</li>
+              <li>Here is a <span class="hd-bg-primary hd-text-weight-bold">primary highlighted</span> text block.</li>
+              <li>Small muted text: <span class="hd-text-muted hd-text-6">0.7em size</span>.</li>
             </ol>
           </div>
         </div>
@@ -110,11 +110,11 @@
 
     <!-- Slide 3: Vertical Centering (Center-aligned layout-blank) -->
     <hd-slide center title="Vertical Centering Test">
-      <div class="feature-card hd-max-w-md hd-mx-auto hd-text-center">
+      <div class="feature-card hd-max-w-2 hd-mx-auto hd-text-center">
         <div class="badge">VERTICAL CENTERING</div>
         <h2 class="hd-text-secondary">Fully Centered Content</h2>
-        <p class="hd-text">This slide has the <span class="hd-text-accent hd-semibold">center</span> attribute enabled.</p>
-        <p class="hd-text hd-text-muted hd-text-sm">
+        <p class="hd-text">This slide has the <span class="hd-text-accent hd-text-weight-semibold">center</span> attribute enabled.</p>
+        <p class="hd-text hd-text-muted hd-text-5">
           Using <code>&lt;hd-slide center&gt;</code> vertically centers the content boxes dynamically, perfect for
           minimal cover slides or big callouts.
         </p>
@@ -132,10 +132,10 @@
       <hd-layout-standard>
         <h2 slot="title">Vertical Center in Title-Body</h2>
         <div class="hd-callout hd-primary">
-          <p class="hd-text hd-text-lg">The title remains fixed at the top of the slide...</p>
-          <p class="hd-text">...while the body contents are <span class="hd-text-primary hd-bold">vertically centered</span> inside
+          <p class="hd-text hd-text-3">The title remains fixed at the top of the slide...</p>
+          <p class="hd-text">...while the body contents are <span class="hd-text-primary hd-text-weight-bold">vertically centered</span> inside
             the remaining space!</p>
-          <p class="hd-text hd-text-muted hd-text-sm">This creates a balanced composition without manually adjusting margins
+          <p class="hd-text hd-text-muted hd-text-5">This creates a balanced composition without manually adjusting margins
             or paddings.</p>
         </div>
       </hd-layout-standard>
@@ -154,16 +154,15 @@
 
         <div slot="left" class="feature-card">
           <h3>Standard <code>&lt;img&gt;</code> Styling</h3>
-          <p class="hd-text hd-text-sm">Features built-in border-radius, shadows, object-fit, and captions via standard HTML:</p>
-
+          <p class="hd-text hd-text-5">Features built-in border-radius, shadows, object-fit, and captions via standard HTML:</p>
           <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&q=80"
             alt="Modern Abstract Art" style="height: 160px; object-fit: cover; width: 100%;">
-          <p class="hd-text-muted hd-text-xs hd-mt-sm">Figure 1: Standard image styled via global CSS.</p>
+          <p class="hd-text-muted hd-text-6 hd-mt-2">Figure 1: Standard image styled via global CSS.</p>
         </div>
 
         <div slot="right" class="feature-card">
           <h3>Standard <code>&lt;img&gt;</code> Styling</h3>
-          <p class="hd-text hd-text-sm">Standard images are styled automatically within slides via
+          <p class="hd-text hd-text-5">Standard images are styled automatically within slides via
             <code>html-deck.css</code>:</p>
           <img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=400&q=80" alt="Standard Image Test"
             class="img-showcase">
@@ -180,9 +179,9 @@
     <hd-slide title="External Code Loading">
       <hd-layout-standard>
         <h2 slot="title">External Source Code Loading</h2>
-        <p class="hd-text hd-text-sm">
+        <p class="hd-text hd-text-5">
           The code block below dynamically fetches its content from <span
-            class="hd-text-secondary hd-bold">sample-code.js</span>:
+            class="hd-text-secondary hd-text-weight-bold">sample-code.js</span>:
         </p>
 
         <pre class="hd-code-scrollable"><code class="language-javascript" id="sample-code-block"></code></pre>
@@ -208,7 +207,7 @@
 
         <div slot="left" class="feature-card">
           <h3>KaTeX Formulas</h3>
-          <p class="hd-text hd-text-sm">Math components render instantly without dynamic script delays:</p>
+          <p class="hd-text hd-text-5">Math components render instantly without dynamic script delays:</p>
           <ul class="hd-list">
             <li>Inline math: <span class="hd-math-inline">\(e^{i\pi} + 1 = 0\)</span></li>
             <li>Block math:</li>
@@ -218,7 +217,7 @@
 
         <div slot="right" class="feature-card">
           <h3>Synchronous Loader Setup</h3>
-          <p class="hd-text hd-text-sm">
+          <p class="hd-text hd-text-5">
             PrismJS and KaTeX scripts are now imported at the top of <code>html-deck.js</code>, preventing delayed
             rendering and network races when moving to math/code slides.
           </p>

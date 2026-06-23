@@ -23,15 +23,36 @@
   --hd-slide-text-color: var(--hd-text-color);
   --hd-slide-font-size: var(--hd-font-size);
   --hd-slide-padding: 30px 40px;
-  --hd-heading-font-weight: 700;
+  /* Font Weights */
+  --hd-font-weight-light: 300;
+  --hd-font-weight-normal: 400;
+  --hd-font-weight-medium: 500;
+  --hd-font-weight-semibold: 600;
+  --hd-font-weight-bold: 700;
+  --hd-font-weight-extrabold: 800;
+
+  --hd-heading-font-weight: var(--hd-font-weight-bold);
   --hd-heading-line-height: 1.2;
   --hd-heading-margin-bottom: 8px;
-  --hd-heading-font-size-1: 32px;
-  --hd-heading-font-size-2: 24px;
-  --hd-heading-font-size-3: 18px;
-  --hd-heading-font-size-4: 16px;
-  --hd-heading-font-size-5: 14px;
-  --hd-heading-font-size-6: 12px;
+  --hd-text-size-1: 32px;
+  --hd-text-size-2: 24px;
+  --hd-text-size-3: 18px;
+  --hd-text-size-4: 16px;
+  --hd-text-size-5: 14px;
+  --hd-text-size-6: 12px;
+  --hd-title-font-size: var(--hd-text-size-2);
+  --hd-layout-cover-padding: var(--hd-slide-padding);
+  --hd-layout-cover-justify: center;
+  --hd-layout-cover-align: center;
+  --hd-layout-cover-text-align: center;
+  --hd-layout-cover-title-margin: var(--hd-gap-3);
+  --hd-layout-cover-subtitle-margin: var(--hd-gap-4);
+  --hd-layout-cover-title-font-size: var(--hd-text-size-1);
+  --hd-layout-cover-title-color: var(--hd-title-color);
+  --hd-layout-cover-subtitle-font-size: var(--hd-text-size-2);
+  --hd-layout-cover-subtitle-color: var(--hd-muted-color);
+  --hd-layout-cover-meta-font-size: var(--hd-text-size-5);
+  --hd-layout-cover-meta-color: var(--hd-muted-color);
   --hd-list-margin-bottom: 12px;
   --hd-list-padding-left: 19px;
   --hd-list-font-size: var(--hd-font-size);
@@ -67,11 +88,13 @@
   --hd-text-font-size: var(--hd-font-size);
   --hd-text-line-height: 1.6;
   --hd-text-margin-bottom: 8px;
-  --hd-gap-xs: 4px;
-  --hd-gap-sm: 8px;
-  --hd-gap-md: 16px;
-  --hd-gap-lg: 24px;
-  --hd-gap-xl: 32px;
+  --hd-gap-0: 0px;
+  --hd-gap-1: 4px;
+  --hd-gap-2: 8px;
+  --hd-gap-3: 16px;
+  --hd-gap-4: 24px;
+  --hd-gap-5: 32px;
+  --hd-gap-6: 48px;
 }
 
 body {
@@ -90,16 +113,28 @@ hd-deck *:after {
 /* 2. Text Decoration Utilities (For spans / text in slides) */
 
 /* Font Weights & Styles */
-.hd-bold {
-  font-weight: 700 !important;
+.hd-text-weight-light {
+  font-weight: var(--hd-font-weight-light) !important;
 }
 
-.hd-semibold {
-  font-weight: 600 !important;
+.hd-text-weight-normal {
+  font-weight: var(--hd-font-weight-normal) !important;
 }
 
-.hd-normal {
-  font-weight: 400 !important;
+.hd-text-weight-medium {
+  font-weight: var(--hd-font-weight-medium) !important;
+}
+
+.hd-text-weight-semibold {
+  font-weight: var(--hd-font-weight-semibold) !important;
+}
+
+.hd-text-weight-bold {
+  font-weight: var(--hd-font-weight-bold) !important;
+}
+
+.hd-text-weight-extrabold {
+  font-weight: var(--hd-font-weight-extrabold) !important;
 }
 
 .hd-italic {
@@ -139,25 +174,30 @@ hd-deck *:after {
   color: var(--hd-muted-color) !important;
 }
 
-/* Text Sizes (em based, relative to standard text size of slide components) */
-.hd-text-xs {
-  font-size: 0.7em !important;
+/* Text Sizes (1 is largest, 6 is smallest) */
+
+.hd-text-1 {
+  font-size: var(--hd-text-size-1) !important;
 }
 
-.hd-text-sm {
-  font-size: 0.85em !important;
+.hd-text-2 {
+  font-size: var(--hd-text-size-2) !important;
 }
 
-.hd-text-lg {
-  font-size: 1.15em !important;
+.hd-text-3 {
+  font-size: var(--hd-text-size-3) !important;
 }
 
-.hd-text-xl {
-  font-size: 1.3em !important;
+.hd-text-4 {
+  font-size: var(--hd-text-size-4) !important;
 }
 
-.hd-text-2xl {
-  font-size: 1.6em !important;
+.hd-text-5 {
+  font-size: var(--hd-text-size-5) !important;
+}
+
+.hd-text-6 {
+  font-size: var(--hd-text-size-6) !important;
 }
 
 /* Underline and Strike-through */
@@ -210,30 +250,13 @@ hd-slide h6 {
   margin-bottom: var(--hd-heading-margin-bottom);
   letter-spacing: -0.02em;
   color: var(--hd-slide-text-color);
-}
-
-hd-slide h1 {
-  font-size: var(--hd-heading-font-size-1);
-}
-hd-slide h2 {
-  font-size: var(--hd-heading-font-size-2);
-}
-hd-slide h3 {
-  font-size: var(--hd-heading-font-size-3);
-}
-hd-slide h4 {
-  font-size: var(--hd-heading-font-size-4);
-}
-hd-slide h5 {
-  font-size: var(--hd-heading-font-size-5);
-}
-hd-slide h6 {
-  font-size: var(--hd-heading-font-size-6);
+  font-size: 1em; /* Override default User Agent styles to keep sizes identical */
 }
 
 /* Title Slot styling */
 hd-slide [slot="title"] {
   color: var(--hd-title-color);
+  font-size: var(--hd-title-font-size);
 }
 
 /* 4. CSS-only Slide Layout Helper Classes (.hd-callout, .hd-text, .hd-list) */
@@ -335,7 +358,7 @@ hd-slide td {
 }
 
 hd-slide th {
-  font-weight: 700;
+  font-weight: var(--hd-font-weight-bold);
   background-color: var(--hd-table-header-bg);
   color: var(--hd-table-header-text-color);
   border-bottom: 2px solid var(--hd-table-border-color);
@@ -348,40 +371,44 @@ hd-slide tr:nth-child(even) {
 /* 6. Layout & Spacing Utilities */
 
 /* Spacing (Margin Top) */
-.hd-mt-xs {
-  margin-top: 4px !important;
+.hd-mt-0 {
+  margin-top: var(--hd-gap-0) !important;
 }
 
-.hd-mt-sm {
-  margin-top: 8px !important;
+.hd-mt-1 {
+  margin-top: var(--hd-gap-1) !important;
 }
 
-.hd-mt-md {
-  margin-top: 16px !important;
+.hd-mt-2 {
+  margin-top: var(--hd-gap-2) !important;
 }
 
-.hd-mt-lg {
-  margin-top: 24px !important;
+.hd-mt-3 {
+  margin-top: var(--hd-gap-3) !important;
 }
 
-.hd-mt-xl {
-  margin-top: 32px !important;
+.hd-mt-4 {
+  margin-top: var(--hd-gap-4) !important;
 }
 
-.hd-mt-2xl {
-  margin-top: 48px !important;
+.hd-mt-5 {
+  margin-top: var(--hd-gap-5) !important;
+}
+
+.hd-mt-6 {
+  margin-top: var(--hd-gap-6) !important;
 }
 
 /* Width Limiters & Centering */
-.hd-max-w-sm {
+.hd-max-w-1 {
   max-width: 400px !important;
 }
 
-.hd-max-w-md {
+.hd-max-w-2 {
   max-width: 600px !important;
 }
 
-.hd-max-w-lg {
+.hd-max-w-3 {
   max-width: 800px !important;
 }
 

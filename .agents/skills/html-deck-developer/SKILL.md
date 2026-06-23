@@ -165,7 +165,12 @@ To avoid overriding default browser actions (such as `Ctrl + P` / `Cmd + P` for 
 
 
 ### 14. Heading Colors and Title Slot Color Override Pattern
-- **Rule**: Heading elements `h1` through `h6` should not have default colored styles. They should inherit the slide's text color (`var(--hd-slide-text-color, var(--hd-text-color))`) by default so they cleanly support invert/background colors without hardcoded overrides.
-- **Rule**: Elements slotted into `slot="title"` can be styled collectively using `--hd-title-color`. The selector `hd-slide [slot="title"]` is used in global CSS to set this color while falling back to the slide text color.
+- Rule: Heading elements `h1` through `h6` should not have default colored styles. They should inherit the slide's text color (`var(--hd-slide-text-color, var(--hd-text-color))`) by default so they cleanly support invert/background colors without hardcoded overrides.
+- Rule: Elements slotted into `slot="title"` can be styled collectively using `--hd-title-color`. The selector `hd-slide [slot="title"]` is used in global CSS to set this color while falling back to the slide text color.
+- Rule: Heading elements `h1` through `h6` do not change size automatically; they all default to `font-size: 1em;` to focus purely on semantic HTML. Sizing must be controlled via layout slot selectors or utility classes.
 
-
+### 15. Unified Sizing Suffixes & Utility Naming System
+- Rule: All layouts, margins, gaps, max-widths, and text sizes use a unified numeric suffix (`0`, `1`, `2`...) instead of semantic sizes (`xs`, `sm`, `md`, `lg`, `xl`, `2xl`).
+- Rule: For font sizes, `1` is the largest (`--hd-text-size-1: 32px`) and `6` is the smallest (`12px`).
+- Rule: For spacing/gaps, `1` is the smallest (`4px`) and `6` is the largest (`48px`). Suffix `0` represents `0px`.
+- Rule: Font weights are named semantically rather than using numbers. They are structured under the `.hd-text-weight-*` namespace: `.hd-text-weight-light`, `.hd-text-weight-normal`, `.hd-text-weight-medium`, `.hd-text-weight-semibold`, `.hd-text-weight-bold`, and `.hd-text-weight-extrabold`.

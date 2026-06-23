@@ -41,7 +41,7 @@
         </div>
       </hd-layout-cover>
 
-      <p class="hd-text hd-text-muted hd-text-xs hd-absolute-bottom hd-text-center">
+      <p class="hd-text hd-text-muted hd-text-6 hd-absolute-bottom hd-text-center">
         Press <span class="accent-text">Right Arrow</span> or <span class="accent-text">Space</span> to begin
       </p>
 
@@ -134,7 +134,7 @@
         <p class="hd-text">For arbitrary columns (like 3 or 4 columns), use the <code>&lt;hd-flex&gt;</code> layout
           primitive:</p>
 
-        <div style="display: flex; gap: var(--hd-gap-md, 16px); width: 100%; box-sizing: border-box;">
+        <div style="display: flex; gap: var(--hd-gap-3, 16px); width: 100%; box-sizing: border-box;">
           <div class="grid-card" style="flex: 1;">
             <h3>Column 1</h3>
             <p class="hd-text">Flex factor = 1. Automatically distributes width evenly.</p>
@@ -167,7 +167,7 @@
           block equations.</p>
 
         <div
-          style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--hd-gap-md, 16px); width: 100%; box-sizing: border-box;">
+          style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--hd-gap-3, 16px); width: 100%; box-sizing: border-box;">
           <div class="grid-card">
             <h3>Inline Math</h3>
             <p class="hd-text">The formula <span class="hd-math-inline">\(f(x) = \int_{-\infty}^{\infty} e^{-x^2}
@@ -274,7 +274,7 @@
           scrolling:</p>
 
         <div
-          style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--hd-gap-md, 16px); width: 100%; box-sizing: border-box;">
+          style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--hd-gap-3, 16px); width: 100%; box-sizing: border-box;">
           <div class="grid-card">
             <h3>Scrollable Code Block</h3>
             <pre class="hd-code-scrollable"
@@ -337,7 +337,7 @@
         <h2 slot="title">Presenter Tools & Printing</h2>
 
         <div
-          style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--hd-gap-md, 16px); width: 100%; box-sizing: border-box;">
+          style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--hd-gap-3, 16px); width: 100%; box-sizing: border-box;">
           <div class="grid-card">
             <h3>Presenter Dashboard</h3>
             <ul class="hd-list">
@@ -374,16 +374,16 @@
         <p class="hd-text">HTML-Deck provides classes to add structure and annotation to your slides:</p>
 
         <div
-          style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--hd-gap-md, 16px); width: 100%; box-sizing: border-box;">
+          style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--hd-gap-3, 16px); width: 100%; box-sizing: border-box;">
           <div>
             <div class="hd-callout hd-primary">
-              <p class="hd-text hd-bold">Primary Callout</p>
-              <p class="hd-text hd-text-sm">Use <code>class="hd-callout hd-primary"</code> to highlight key points.</p>
+              <p class="hd-text hd-text-weight-bold">Primary Callout</p>
+              <p class="hd-text hd-text-5">Use <code>class="hd-callout hd-primary"</code> to highlight key points.</p>
             </div>
 
             <div class="hd-callout hd-secondary">
-              <p class="hd-text hd-bold">Secondary Callout</p>
-              <p class="hd-text hd-text-sm">Supports multiple color configurations like <code>hd-secondary</code> or
+              <p class="hd-text hd-text-weight-bold">Secondary Callout</p>
+              <p class="hd-text hd-text-5">Supports multiple color configurations like <code>hd-secondary</code> or
                 <code>hd-accent</code>.
               </p>
             </div>
@@ -391,9 +391,9 @@
 
           <div class="grid-card">
             <h3>Footnote Integration</h3>
-            <p class="hd-text hd-text-sm">Use <code>slot="footnote"</code> to place annotations at the bottom margin of
+            <p class="hd-text hd-text-5">Use <code>slot="footnote"</code> to place annotations at the bottom margin of
               the slide.</p>
-            <p class="hd-text-muted hd-text-xs">* This is an inline annotation using a standard paragraph.</p>
+            <p class="hd-text-muted hd-text-6">* This is an inline annotation using a standard paragraph.</p>
           </div>
         </div>
       </hd-layout-standard>
@@ -416,7 +416,7 @@
         <h2 slot="title"><span class="gradient-heading">Customize it with CSS variables</span></h2>
         <div slot="subtitle">
           <p class="hd-text">Modify colors, padding, and fonts easily on the container:</p>
-          <div class="hd-max-w-lg hd-mx-auto hd-text-left">
+          <div class="hd-max-w-3 hd-mx-auto hd-text-left">
             <pre><code class="language-css" id="custom-theme-code"></code></pre>
             <script type="module">
               import customThemeCode from './custom-theme.css?raw';
@@ -425,7 +425,7 @@
               setTimeout(() => window.Prism && window.Prism.highlightElement(el), 0);
             </script>
           </div>
-          <p class="hd-text hd-semibold hd-mt-xl">HTML-Deck: Easy slide decks for humans and agents alike.</p>
+          <p class="hd-text hd-text-weight-semibold hd-mt-5">HTML-Deck: Easy slide decks for humans and agents alike.</p>
         </div>
       </hd-layout-cover>
 
