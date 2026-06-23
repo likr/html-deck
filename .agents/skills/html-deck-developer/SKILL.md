@@ -183,3 +183,9 @@ To avoid overriding default browser actions (such as `Ctrl + P` / `Cmd + P` for 
 - Rule: Card components use `.hd-card` which styles border-radius, background-color, and text-color. Cards do NOT draw borders by default. To add a border, explicitly include the `.hd-border` utility class (e.g., `class="hd-card hd-border"`), which automatically applies themed border colors when combined with color classes (e.g., `class="hd-card hd-primary hd-border"`).
 - Rule: Link elements (`<a>`) inside slides default to `text-decoration: none` and inherit color. Underlining must be explicitly added using the `.hd-underlined` utility class. Other text transformations use `.hd-capitalized`, `.hd-lowercase`, and `.hd-uppercase`. The class `.hd-line-through` has been deleted; use the standard HTML `<s>` tag instead.
 
+### 17. Slide-Level Absolute Positioned Margins & Padding Alignment
+- Rule: Slide padding is managed at the `hd-slide` level (on `.slide-content`). Layout components like `hd-layout`, `hd-layout-split`, and `hd-layout-cover` must not apply their own padding to prevent double-padding.
+- Rule: When positioning header and footer elements absolutely in the margins, use directional variables (e.g., `--hd-slide-padding-left`) to align their left edges perfectly with the slide's content box.
+- Trap (Shadow DOM Slot Querying): In Shadow DOM, calling `shadowRoot.querySelector('slot')` selects the first slot in DOM order. If named slots (like `header` or `footer`) are placed before the default slot in the template, `querySelector('slot')` will incorrectly select the named slot instead of the default slot. Always use `querySelector('slot:not([name])')` to safely target the default slot.
+
+

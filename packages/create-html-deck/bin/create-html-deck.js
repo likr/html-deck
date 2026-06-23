@@ -85,7 +85,11 @@ export default defineConfig({
   --hd-primary-color: #3b82f6;
   --hd-secondary-color: #f43f5e;
   --hd-font-family: system-ui, -apple-system, sans-serif;
-  --hd-slide-padding: 80px 100px;
+  --hd-slide-padding-top: 80px;
+  --hd-slide-padding-right: 100px;
+  --hd-slide-padding-bottom: 80px;
+  --hd-slide-padding-left: 100px;
+  --hd-slide-padding: var(--hd-slide-padding-top) var(--hd-slide-padding-right) var(--hd-slide-padding-bottom) var(--hd-slide-padding-left);
 }
 
 .gradient-title {

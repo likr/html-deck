@@ -8,7 +8,11 @@
     --hd-accent-color: #10b981;
     /* Emerald Accent */
     --hd-font-family: 'Outfit', 'Inter', 'Noto Sans JP', sans-serif;
-    --hd-slide-padding: 50px 70px;
+    --hd-slide-padding-top: 50px;
+    --hd-slide-padding-right: 70px;
+    --hd-slide-padding-bottom: 50px;
+    --hd-slide-padding-left: 70px;
+    --hd-slide-padding: var(--hd-slide-padding-top) var(--hd-slide-padding-right) var(--hd-slide-padding-bottom) var(--hd-slide-padding-left);
 
     /* Title slide style overrides */
     --hd-title-slide-padding: 60px 80px;

@@ -51,7 +51,11 @@
 
   --hd-btn-text: #ffffff;
   --hd-slide-font-size: var(--hd-font-size);
-  --hd-slide-padding: 30px 40px;
+  --hd-slide-padding-top: 30px;
+  --hd-slide-padding-right: 40px;
+  --hd-slide-padding-bottom: 30px;
+  --hd-slide-padding-left: 40px;
+  --hd-slide-padding: var(--hd-slide-padding-top) var(--hd-slide-padding-right) var(--hd-slide-padding-bottom) var(--hd-slide-padding-left);
   /* Font Weights */
   --hd-font-weight-light: 300;
   --hd-font-weight-normal: 400;
@@ -98,6 +102,18 @@
   --hd-footnote-font-size: var(--hd-page-number-font-size);
   --hd-footnote-color: var(--hd-muted-color);
   --hd-footnote-opacity: 0.85;
+
+  --hd-header-top: 12px;
+  --hd-header-left: var(--hd-slide-padding-left);
+  --hd-header-font-size: var(--hd-text-size-6);
+  --hd-header-color: var(--hd-muted-color);
+  --hd-header-opacity: 0.85;
+
+  --hd-footer-bottom: 12px;
+  --hd-footer-left: var(--hd-slide-padding-left);
+  --hd-footer-font-size: var(--hd-text-size-6);
+  --hd-footer-color: var(--hd-muted-color);
+  --hd-footer-opacity: 0.85;
   --hd-codeblock-border: var(--hd-default-border-color);
   --hd-code-scrollable-height: 250px;
   --hd-text-font-size: var(--hd-font-size);

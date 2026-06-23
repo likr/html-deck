@@ -5,7 +5,11 @@
     --hd-secondary-color: #ec4899;
     --hd-accent-color: #10b981;
     --hd-font-family: 'Outfit', 'Noto Sans JP', sans-serif;
-    --hd-slide-padding: 60px 80px;
+    --hd-slide-padding-top: 60px;
+    --hd-slide-padding-right: 80px;
+    --hd-slide-padding-bottom: 60px;
+    --hd-slide-padding-left: 80px;
+    --hd-slide-padding: var(--hd-slide-padding-top) var(--hd-slide-padding-right) var(--hd-slide-padding-bottom) var(--hd-slide-padding-left);
 }
 
 /* Large fonts for high-impact LT */

@@ -108,20 +108,19 @@
 
     <!-- Slide 2: Standard Layout component -->
     <hd-slide>
+      <div slot="header" class="hd-text-6 hd-muted">Header Slot Content</div>
       <hd-layout>
-        <div slot="header" class="hd-text-6 hd-muted">Header Slot Content</div>
         <h2 slot="title">Standard Layout Component</h2>
-        <p>This slide uses <code>&lt;hd-layout&gt;</code> which divides the canvas into header,
-          title, body, and footer areas.</p>
+        <p>This slide uses <code>&lt;hd-layout&gt;</code> which renders title and body areas, while 
+          the <code>header</code> and <code>footer</code> slots are managed by the parent <code>&lt;hd-slide&gt;</code>.</p>
         <div class="hd-card hd-muted hd-background hd-border">
-          <p>The body content automatically expands to take up all remaining vertical space between the
-            title and the footer.</p>
+          <p>Header and footer content are absolutely positioned inside the margins, aligned with the slide's content padding boundaries.</p>
         </div>
-        <div slot="footer" class="hd-text-6 hd-muted">Footer Slot Content</div>
       </hd-layout>
+      <div slot="footer" class="hd-text-6 hd-muted">Footer Slot Content</div>
       <div slot="notes">
         <h3>Slide 2: Standard Layout</h3>
-        <p>Standard layouts contain header, title, footer, and default body slots.</p>
+        <p>Header and footer slots are moved to the slide component, positioned in margins.</p>
       </div>
     </hd-slide>
 
@@ -347,8 +346,8 @@
             </tr>
             <tr>
               <td>Standard</td>
-              <td>header, title, footer, default</td>
-              <td>General information pages</td>
+              <td>title, default</td>
+              <td>General information pages (header/footer are slide-level)</td>
             </tr>
             <tr>
               <td>Split</td>
@@ -415,21 +414,20 @@
       </div>
     </hd-slide>
 
-    <!-- Slide 16: Footnote Annotations -->
+    <!-- Slide 16: Footer Annotations -->
     <hd-slide>
       <hd-layout>
-        <h2 slot="title">Footnote Annotations</h2>
-        <p>Use <code>slot="footnote"</code> to add minor details or citations at the bottom-left of the
+        <h2 slot="title">Footer Annotations</h2>
+        <p>Use <code>slot="footer"</code> to add minor details, page notes, or citations at the bottom-left of the
           slide canvas.</p>
         <div class="hd-card hd-muted hd-background hd-border hd-mt-4">
-          <p>Unlike standard footer content, footnotes are absolute-positioned inside the slide margins,
-            so they stay out of the way of layout cards.</p>
+          <p>Footer content is absolute-positioned inside the slide bottom margin, so it stays completely out of the way of layout cards and content elements.</p>
         </div>
       </hd-layout>
-      <div slot="footnote">* This is an absolute-positioned footnote citation.</div>
+      <div slot="footer">* This is an absolute-positioned footer annotation (consolidating the old footnote feature).</div>
       <div slot="notes">
-        <h3>Slide 16: Footnotes</h3>
-        <p>Verifies footnote placement and font sizes.</p>
+        <h3>Slide 16: Footer Annotations</h3>
+        <p>Verifies absolute footer placement and font sizes in the bottom-left margin.</p>
       </div>
     </hd-slide>
 

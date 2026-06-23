@@ -12,14 +12,17 @@ export class HdSlide extends HTMLElement {
         ${HdSlide.baseStyles}
       </style>
       <div class="slide-content">
-        <slot></slot>
-        <slot name="footnote"></slot>
+        <slot name="header"></slot>
+        <div class="body-area">
+          <slot></slot>
+        </div>
+        <slot name="footer"></slot>
         <div class="page-number" id="page-num"></div>
       </div>
     `;
 
     // Listen for slot changes to dynamically update page numbers if layout changes
-    const slot = this.shadowRoot.querySelector('slot');
+    const slot = this.shadowRoot.querySelector('slot:not([name])');
     if (slot) {
       slot.addEventListener('slotchange', () => {
         this.updatePageNumber();
@@ -106,8 +109,21 @@ HdSlide.baseStyles = `
     width: 100%;
     height: 100%;
     box-sizing: border-box;
-    padding: 0;
+    padding: var(--hd-slide-padding);
     position: relative;
+  }
+
+  :host([no-padding]) .slide-content {
+    padding: 0;
+  }
+
+  .body-area {
+    flex-grow: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
   }
 
   .page-number {
@@ -145,7 +161,6 @@ HdSlide.baseStyles = `
       display: flex !important;
       height: 100% !important;
       box-sizing: border-box !important;
-      padding: 0 !important;
     }
   }
 
@@ -154,14 +169,28 @@ HdSlide.baseStyles = `
     display: none !important;
   }
 
-  ::slotted([slot="footnote"]) {
+  ::slotted([slot="header"]) {
     display: block !important;
     position: absolute !important;
-    bottom: var(--hd-footnote-bottom) !important;
-    left: var(--hd-footnote-left) !important;
-    font-size: var(--hd-footnote-font-size) !important;
-    color: var(--hd-footnote-color) !important;
-    opacity: var(--hd-footnote-opacity) !important;
+    top: var(--hd-header-top) !important;
+    left: var(--hd-header-left) !important;
+    font-size: var(--hd-header-font-size) !important;
+    color: var(--hd-header-color) !important;
+    opacity: var(--hd-header-opacity) !important;
+    font-family: var(--hd-body-font) !important;
+    z-index: 10 !important;
+    user-select: none !important;
+    line-height: 1.4 !important;
+  }
+
+  ::slotted([slot="footer"]) {
+    display: block !important;
+    position: absolute !important;
+    bottom: var(--hd-footer-bottom) !important;
+    left: var(--hd-footer-left) !important;
+    font-size: var(--hd-footer-font-size) !important;
+    color: var(--hd-footer-color) !important;
+    opacity: var(--hd-footer-opacity) !important;
     font-family: var(--hd-body-font) !important;
     z-index: 10 !important;
     user-select: none !important;

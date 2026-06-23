@@ -13,7 +13,6 @@ export class HdLayoutCover extends HTMLElement {
           height: 100%;
           width: 100%;
           box-sizing: border-box;
-          padding: var(--hd-layout-cover-padding);
         }
         .cover-container {
           display: flex;
