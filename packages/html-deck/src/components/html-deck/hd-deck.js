@@ -7,8 +7,8 @@ TEMPLATE.innerHTML = `
     height: 100vh;
     overflow: hidden;
     background-color: #000000;
-    color: var(--hd-deck-text-color, var(--hd-text-color, #1e293b));
-    font-family: var(--hd-body-font, var(--hd-font-family, system-ui, -apple-system, sans-serif));
+    color: var(--hd-deck-text-color);
+    font-family: var(--hd-body-font);
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -52,7 +52,7 @@ TEMPLATE.innerHTML = `
   .btn {
     background: rgba(30, 41, 59, 0.8);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    color: var(--hd-btn-text, #ffffff);
+    color: var(--hd-btn-text);
     padding: 8px 16px;
     border-radius: 6px;
     cursor: pointer;
@@ -86,7 +86,7 @@ TEMPLATE.innerHTML = `
   .progress-bar {
     height: 100%;
     width: 0%;
-    background: var(--hd-primary, #3b82f6);
+    background: var(--hd-primary);
     transition: width 0.3s ease;
   }
 

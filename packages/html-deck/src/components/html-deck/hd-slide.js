@@ -96,9 +96,9 @@ HdSlide.baseStyles = `
     height: 100%;
     display: flex;
     flex-direction: column;
-    background-color: var(--hd-slide-bg, var(--hd-bg, #ffffff));
-    color: var(--hd-slide-text-color, var(--hd-text-color, #1e293b));
-    font-size: var(--hd-slide-font-size, var(--hd-font-size, 18px));
+    background-color: var(--hd-slide-bg);
+    color: var(--hd-slide-text-color);
+    font-size: var(--hd-slide-font-size);
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
@@ -120,15 +120,15 @@ HdSlide.baseStyles = `
 
   /* Individual Slide Style Overrides */
   :host([invert]) {
-    --hd-slide-bg: var(--hd-text-color, #1e293b);
-    --hd-slide-text-color: var(--hd-bg, #ffffff);
-    --hd-list-color: var(--hd-bg, #ffffff);
-    --hd-math-color: var(--hd-bg, #ffffff);
-    --hd-link-color: var(--hd-secondary, #a855f7);
+    --hd-slide-bg: var(--hd-text-color);
+    --hd-slide-text-color: var(--hd-bg);
+    --hd-list-color: var(--hd-bg);
+    --hd-math-color: var(--hd-bg);
+    --hd-link-color: var(--hd-secondary);
   }
 
   :host([bg="primary"]) {
-    --hd-slide-bg: var(--hd-primary, #3b82f6);
+    --hd-slide-bg: var(--hd-primary);
     --hd-slide-text-color: #ffffff;
     --hd-list-color: #ffffff;
     --hd-math-color: #ffffff;
@@ -136,7 +136,7 @@ HdSlide.baseStyles = `
   }
 
   :host([bg="secondary"]) {
-    --hd-slide-bg: var(--hd-secondary, #a855f7);
+    --hd-slide-bg: var(--hd-secondary);
     --hd-slide-text-color: #ffffff;
     --hd-list-color: #ffffff;
     --hd-math-color: #ffffff;
@@ -166,11 +166,11 @@ HdSlide.baseStyles = `
     position: absolute;
     bottom: 12px;
     right: 16px;
-    font-size: var(--hd-page-number-font-size, 9px);
-    color: var(--hd-page-number-color, var(--hd-muted-color, #64748b));
+    font-size: var(--hd-page-number-font-size);
+    color: var(--hd-page-number-color);
     z-index: 10;
     user-select: none;
-    font-family: var(--hd-body-font, inherit);
+    font-family: var(--hd-body-font);
   }
 
   /* Print Styles */
@@ -188,8 +188,8 @@ HdSlide.baseStyles = `
       page-break-after: always !important;
       break-inside: avoid !important;
       overflow: hidden !important;
-      background-color: var(--hd-slide-bg, var(--hd-bg, #ffffff)) !important;
-      color: var(--hd-slide-text-color, var(--hd-text-color, #1e293b)) !important;
+      background-color: var(--hd-slide-bg) !important;
+      color: var(--hd-slide-text-color) !important;
       -webkit-print-color-adjust: exact !important;
       print-color-adjust: exact !important;
     }
@@ -209,12 +209,12 @@ HdSlide.baseStyles = `
   ::slotted([slot="footnote"]) {
     display: block !important;
     position: absolute !important;
-    bottom: var(--hd-footnote-bottom, 12px) !important;
-    left: var(--hd-footnote-left, 16px) !important;
-    font-size: var(--hd-footnote-font-size, var(--hd-page-number-font-size, 9px)) !important;
-    color: var(--hd-footnote-color, var(--hd-muted-color, #64748b)) !important;
-    opacity: var(--hd-footnote-opacity, 0.85) !important;
-    font-family: var(--hd-body-font, inherit) !important;
+    bottom: var(--hd-footnote-bottom) !important;
+    left: var(--hd-footnote-left) !important;
+    font-size: var(--hd-footnote-font-size) !important;
+    color: var(--hd-footnote-color) !important;
+    opacity: var(--hd-footnote-opacity) !important;
+    font-family: var(--hd-body-font) !important;
     z-index: 10 !important;
     user-select: none !important;
     line-height: 1.4 !important;

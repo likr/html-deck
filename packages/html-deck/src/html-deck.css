@@ -2,19 +2,14 @@
 
 /* 1. Global Reset & Theme Variables */
 :root {
-  /* Fonts */
   --hd-font-family: system-ui, -apple-system, sans-serif;
   --hd-font-family-serif: Georgia, 'Times New Roman', Times, serif;
   --hd-body-font: var(--hd-font-family);
   --hd-heading-font: var(--hd-font-family);
   --hd-font-size: 18px;
-
-  /* Colors */
   --hd-bg: #ffffff;
   --hd-text-color: #1e293b;
   --hd-muted-color: #64748b;
-
-  /* Color Palette (Theme-neutral, customizable by CSS variables) */
   --hd-primary: #3b82f6;
   --hd-secondary: #a855f7;
   --hd-accent: #10b981;
@@ -22,7 +17,6 @@
   --hd-warning: #f59e0b;
   --hd-success: #10b981;
   --hd-info: #06b6d4;
-
   --hd-primary-color: var(--hd-primary);
   --hd-secondary-color: var(--hd-secondary);
   --hd-accent-color: var(--hd-accent);
@@ -31,8 +25,31 @@
   --hd-success-color: var(--hd-success);
   --hd-info-color: var(--hd-info);
   --hd-muted-color-custom: var(--hd-muted-color);
-
-  /* Table styling defaults */
+  --hd-title-color: var(--hd-slide-text-color);
+  --hd-deck-text-color: var(--hd-text-color);
+  --hd-btn-text: #ffffff;
+  --hd-slide-bg: var(--hd-bg);
+  --hd-slide-text-color: var(--hd-text-color);
+  --hd-slide-font-size: var(--hd-font-size);
+  --hd-slide-padding: 30px 40px;
+  --hd-heading-font-weight: 700;
+  --hd-heading-line-height: 1.2;
+  --hd-heading-margin-bottom: 8px;
+  --hd-heading-font-size-1: 32px;
+  --hd-heading-font-size-2: 24px;
+  --hd-heading-font-size-3: 18px;
+  --hd-heading-font-size-4: 16px;
+  --hd-heading-font-size-5: 14px;
+  --hd-heading-font-size-6: 12px;
+  --hd-list-margin-bottom: 12px;
+  --hd-list-padding-left: 19px;
+  --hd-list-font-size: var(--hd-font-size);
+  --hd-list-line-height: 1.6;
+  --hd-list-color: var(--hd-slide-text-color);
+  --hd-list-item-margin-bottom: 4px;
+  --hd-link-color: var(--hd-primary);
+  --hd-math-color: var(--hd-slide-text-color);
+  --hd-math-block-margin: 12px 0;
   --hd-table-font-size: 12px;
   --hd-table-bg: transparent;
   --hd-table-text-color: var(--hd-text-color);
@@ -41,12 +58,25 @@
   --hd-table-border-color: rgba(0, 0, 0, 0.1);
   --hd-table-stripe-bg: rgba(0, 0, 0, 0.02);
   --hd-table-hover-bg: rgba(59, 130, 246, 0.03);
-
-  /* Page number defaults */
+  --hd-table-cell-padding: 6px 10px;
+  --hd-table-align: left;
+  --hd-callout-border-width: 3px;
+  --hd-callout-border-color: var(--hd-primary);
+  --hd-callout-padding-left: 12px;
+  --hd-callout-margin-bottom: 12px;
   --hd-page-number-font-size: 9px;
   --hd-page-number-color: var(--hd-muted-color);
-
-  /* Gap sizing defaults */
+  --hd-footnote-bottom: 12px;
+  --hd-footnote-left: 16px;
+  --hd-footnote-font-size: var(--hd-page-number-font-size);
+  --hd-footnote-color: var(--hd-muted-color);
+  --hd-footnote-opacity: 0.85;
+  --hd-codeblock-border: #e2e8f0;
+  --hd-code-scrollable-height: 250px;
+  --hd-text-font-size: var(--hd-font-size);
+  --hd-text-line-height: 1.6;
+  --hd-text-color-custom: var(--hd-slide-text-color);
+  --hd-text-margin-bottom: 8px;
   --hd-gap-xs: 4px;
   --hd-gap-sm: 8px;
   --hd-gap-md: 16px;
@@ -179,84 +209,84 @@ hd-slide h3,
 hd-slide h4,
 hd-slide h5,
 hd-slide h6 {
-  font-family: var(--hd-heading-font, var(--hd-body-font, inherit));
-  font-weight: var(--hd-heading-font-weight, 700);
-  line-height: var(--hd-heading-line-height, 1.2);
+  font-family: var(--hd-heading-font);
+  font-weight: var(--hd-heading-font-weight);
+  line-height: var(--hd-heading-line-height);
   margin-top: 0;
-  margin-bottom: var(--hd-heading-margin-bottom, 8px);
+  margin-bottom: var(--hd-heading-margin-bottom);
   letter-spacing: -0.02em;
-  color: var(--hd-slide-text-color, var(--hd-text-color, #1e293b));
+  color: var(--hd-slide-text-color);
 }
 
 hd-slide h1 {
-  font-size: var(--hd-heading-font-size-1, 32px);
+  font-size: var(--hd-heading-font-size-1);
 }
 hd-slide h2 {
-  font-size: var(--hd-heading-font-size-2, 24px);
+  font-size: var(--hd-heading-font-size-2);
 }
 hd-slide h3 {
-  font-size: var(--hd-heading-font-size-3, 18px);
+  font-size: var(--hd-heading-font-size-3);
 }
 hd-slide h4 {
-  font-size: var(--hd-heading-font-size-4, 16px);
+  font-size: var(--hd-heading-font-size-4);
 }
 hd-slide h5 {
-  font-size: var(--hd-heading-font-size-5, 14px);
+  font-size: var(--hd-heading-font-size-5);
 }
 hd-slide h6 {
-  font-size: var(--hd-heading-font-size-6, 12px);
+  font-size: var(--hd-heading-font-size-6);
 }
 
 /* Title Slot styling */
 hd-slide [slot="title"] {
-  color: var(--hd-title-color, var(--hd-slide-text-color, var(--hd-text-color, inherit)));
+  color: var(--hd-title-color);
 }
 
 /* 4. CSS-only Slide Layout Helper Classes (.hd-callout, .hd-text, .hd-list) */
 .hd-callout {
   display: block;
-  border-left: var(--hd-callout-border-width, 3px) solid var(--hd-callout-border-color, var(--hd-primary, #3b82f6));
-  padding-left: var(--hd-callout-padding-left, 12px);
-  margin-bottom: var(--hd-callout-margin-bottom, 12px);
+  border-left: var(--hd-callout-border-width) solid var(--hd-callout-border-color);
+  padding-left: var(--hd-callout-padding-left);
+  margin-bottom: var(--hd-callout-margin-bottom);
   text-align: left;
 }
 .hd-callout.hd-primary {
-  --hd-callout-border-color: var(--hd-primary, #3b82f6);
+  --hd-callout-border-color: var(--hd-primary);
 }
 .hd-callout.hd-secondary {
-  --hd-callout-border-color: var(--hd-secondary, #a855f7);
+  --hd-callout-border-color: var(--hd-secondary);
 }
 .hd-callout.hd-accent {
-  --hd-callout-border-color: var(--hd-accent, #10b981);
+  --hd-callout-border-color: var(--hd-accent);
 }
 .hd-callout.hd-danger {
-  --hd-callout-border-color: var(--hd-danger, #ef4444);
+  --hd-callout-border-color: var(--hd-danger);
 }
 .hd-callout.hd-warning {
-  --hd-callout-border-color: var(--hd-warning, #f59e0b);
+  --hd-callout-border-color: var(--hd-warning);
 }
 
 .hd-text {
-  font-family: var(--hd-body-font, inherit);
-  font-size: var(--hd-text-font-size, var(--hd-font-size, 18px));
-  line-height: var(--hd-text-line-height, 1.6);
-  color: var(--hd-text-color-custom, var(--hd-slide-text-color, var(--hd-text-color, #1e293b)));
+  font-family: var(--hd-body-font);
+  font-size: var(--hd-text-font-size);
+  line-height: var(--hd-text-line-height);
+  color: var(--hd-text-color-custom);
   margin: 0;
-  margin-bottom: var(--hd-text-margin-bottom, 8px);
+  margin-bottom: var(--hd-text-margin-bottom);
   letter-spacing: 0.01em;
 }
 
 .hd-list {
-  font-family: var(--hd-body-font, inherit);
-  margin: 0 0 var(--hd-list-margin-bottom, 12px) 0;
-  padding-left: var(--hd-list-padding-left, 19px);
-  font-size: var(--hd-list-font-size, var(--hd-font-size, 18px));
-  line-height: var(--hd-list-line-height, 1.6);
-  color: var(--hd-list-color, var(--hd-slide-text-color, var(--hd-text-color, #1e293b)));
+  font-family: var(--hd-body-font);
+  margin: 0 0 var(--hd-list-margin-bottom) 0;
+  padding-left: var(--hd-list-padding-left);
+  font-size: var(--hd-list-font-size);
+  line-height: var(--hd-list-line-height);
+  color: var(--hd-list-color);
 }
 
 .hd-list li {
-  margin-bottom: var(--hd-list-item-margin-bottom, 4px);
+  margin-bottom: var(--hd-list-item-margin-bottom);
 }
 
 /* Nested List Styles */
@@ -297,28 +327,28 @@ hd-slide table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 16px;
-  font-family: var(--hd-body-font, inherit);
-  font-size: var(--hd-table-font-size, 12px);
-  color: var(--hd-table-text-color, var(--hd-slide-text-color, var(--hd-text-color, #1e293b)));
-  background-color: var(--hd-table-bg, transparent);
+  font-family: var(--hd-body-font);
+  font-size: var(--hd-table-font-size);
+  color: var(--hd-table-text-color);
+  background-color: var(--hd-table-bg);
 }
 
 hd-slide th,
 hd-slide td {
-  padding: var(--hd-table-cell-padding, 6px 10px);
-  text-align: var(--hd-table-align, left);
-  border-bottom: 1px solid var(--hd-table-border-color, rgba(0, 0, 0, 0.1));
+  padding: var(--hd-table-cell-padding);
+  text-align: var(--hd-table-align);
+  border-bottom: 1px solid var(--hd-table-border-color);
 }
 
 hd-slide th {
   font-weight: 700;
-  background-color: var(--hd-table-header-bg, rgba(59, 130, 246, 0.05));
-  color: var(--hd-table-header-text-color, var(--hd-slide-text-color, var(--hd-text-color, #1e293b)));
-  border-bottom: 2px solid var(--hd-table-border-color, rgba(0, 0, 0, 0.15));
+  background-color: var(--hd-table-header-bg);
+  color: var(--hd-table-header-text-color);
+  border-bottom: 2px solid var(--hd-table-border-color);
 }
 
 hd-slide tr:nth-child(even) {
-  background-color: var(--hd-table-stripe-bg, rgba(0, 0, 0, 0.02));
+  background-color: var(--hd-table-stripe-bg);
 }
 
 /* 6. Layout & Spacing Utilities */
@@ -399,14 +429,14 @@ hd-slide tr:nth-child(even) {
 hd-slide pre {
   margin: 0 0 12px 0;
   padding: 12px !important;
-  border: 1px solid var(--hd-codeblock-border, #e2e8f0);
+  border: 1px solid var(--hd-codeblock-border);
   border-radius: 8px;
   overflow: auto;
 }
 
 /* Scrollable container utility class */
 .hd-code-scrollable {
-  max-height: var(--hd-code-scrollable-height, 250px) !important;
+  max-height: var(--hd-code-scrollable-height) !important;
   overflow-y: auto !important;
 }
 
@@ -414,7 +444,7 @@ hd-slide pre {
 .hd-math-block {
   display: block !important;
   text-align: center !important;
-  margin: var(--hd-math-block-margin, 12px 0) !important;
+  margin: var(--hd-math-block-margin) !important;
 }
 
 .hd-math-inline {

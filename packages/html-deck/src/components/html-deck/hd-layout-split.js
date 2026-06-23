@@ -14,7 +14,7 @@ export class HdLayoutSplit extends HTMLElement {
           width: 100%;
           height: 100%;
           box-sizing: border-box;
-          padding: var(--hd-slide-padding, 30px 40px);
+          padding: var(--hd-slide-padding);
         }
         .title-area {
           width: 100%;
