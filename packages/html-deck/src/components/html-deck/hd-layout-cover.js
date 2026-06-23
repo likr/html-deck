@@ -30,6 +30,7 @@ export class HdLayoutCover extends HTMLElement {
         .title-area ::slotted(*) {
           font-size: var(--hd-layout-cover-title-font-size);
           color: var(--hd-layout-cover-title-color);
+          text-shadow: var(--hd-layout-cover-title-shadow, none);
           margin: 0;
         }
         .subtitle-area {
@@ -39,6 +40,7 @@ export class HdLayoutCover extends HTMLElement {
         .subtitle-area ::slotted(*) {
           font-size: var(--hd-layout-cover-subtitle-font-size);
           color: var(--hd-layout-cover-subtitle-color);
+          text-shadow: var(--hd-layout-cover-subtitle-shadow, none);
           margin: 0;
         }
         .meta-area {

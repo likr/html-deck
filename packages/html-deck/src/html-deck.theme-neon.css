@@ -6,6 +6,15 @@
   --hd-body-font: var(--hd-font-family);
   --hd-heading-font: var(--hd-font-family);
 
+  /* Font Sizes */
+  --hd-font-size: 16px;
+  --hd-text-size-1: 32px;
+  --hd-text-size-2: 24px;
+  --hd-text-size-3: 18px;
+  --hd-text-size-4: 15px;
+  --hd-text-size-5: 13px;
+  --hd-text-size-6: 10px;
+
   /* Colors */
   --hd-default-color: #f1f5f9;
   --hd-muted-color: #64748b;  /* Cool Gray */
@@ -16,6 +25,16 @@
   --hd-warning-color: #ffe600;      /* Neon Yellow */
   --hd-success-color: #39ff14;
   --hd-info-color: #00f2fe;
+
+  /* Accent Text Colors (used as text contrast on solid background banners) */
+  --hd-primary-accent-text-color: #030303;      /* Contrast for Neon Cyan */
+  --hd-secondary-accent-text-color: #f1f5f9;    /* Contrast for Neon Pink */
+  --hd-accent-accent-text-color: #030303;       /* Contrast for Neon Green */
+  --hd-danger-accent-text-color: #f1f5f9;
+  --hd-warning-accent-text-color: #030303;
+  --hd-success-accent-text-color: #030303;
+  --hd-info-accent-text-color: #030303;
+  --hd-muted-accent-text-color: #f1f5f9;
 
   /* Background colors (used when background is colored, keeping hue/vibe) */
   --hd-default-background-color: #030303;
@@ -39,8 +58,72 @@
   --hd-info-border-color: rgba(0, 242, 254, 0.3);
   --hd-muted-border-color: rgba(100, 116, 139, 0.3);
 
-  /* Card configuration overrides */
-  --hd-card-bg: rgba(255, 255, 255, 0.02);
-  --hd-card-color: var(--hd-default-color);
-  --hd-card-border-color: var(--hd-default-border-color);
+  /* Holographic Radial Slide Background */
+  --hd-slide-bg: radial-gradient(circle at 50% 50%, #0d0e1b 0%, #030303 100%);
+
+  /* Neon Text Shadow Glows on Cover Slides */
+  --hd-layout-cover-title-shadow: 0 0 10px var(--hd-primary-color), 0 0 20px rgba(0, 242, 254, 0.5);
+  --hd-layout-cover-subtitle-shadow: 0 0 8px var(--hd-secondary-color);
+
+  /* Heading Overrides */
+  --hd-layout-heading-bg: #09090b;
+  --hd-layout-heading-color: var(--hd-primary-color);
+  --hd-layout-heading-border-top: 1px solid rgba(0, 242, 254, 0.4);
+  --hd-layout-heading-border-bottom: 1px solid var(--hd-primary-color);
+  --hd-layout-heading-shadow: 0 4px 15px rgba(0, 242, 254, 0.35);
+  --hd-layout-heading-text-align: center;
+  --hd-layout-heading-padding-top: 8px;
+  --hd-layout-heading-text-shadow: 0 0 10px var(--hd-primary-color), 0 0 20px rgba(0, 242, 254, 0.4);
+
+  /* Color Class Overrides for Layout Heading */
+  --hd-layout-heading-border-bottom-primary: 1px solid var(--hd-primary-color);
+  --hd-layout-heading-border-top-primary: 1px solid var(--hd-primary-border-color);
+  --hd-layout-heading-shadow-primary: 0 4px 20px rgba(0, 242, 254, 0.4);
+
+  --hd-layout-heading-border-bottom-secondary: 1px solid var(--hd-secondary-color);
+  --hd-layout-heading-border-top-secondary: 1px solid var(--hd-secondary-border-color);
+  --hd-layout-heading-shadow-secondary: 0 4px 20px rgba(254, 1, 154, 0.4);
+
+  /* Tech-Terminal Cards & Boxes */
+  --hd-card-bg: rgba(10, 10, 18, 0.8);
+  --hd-card-border-radius: 4px;
+  --hd-card-border-color: rgba(255, 255, 255, 0.08);
+  --hd-card-shadow-primary: 0 0 15px rgba(0, 242, 254, 0.25);
+  --hd-card-shadow-secondary: 0 0 15px rgba(254, 1, 154, 0.25);
+  --hd-card-shadow-accent: 0 0 15px rgba(57, 255, 20, 0.25);
+  --hd-card-shadow-danger: 0 0 15px rgba(255, 7, 58, 0.25);
+  --hd-card-shadow-warning: 0 0 15px rgba(255, 230, 0, 0.25);
+  --hd-card-shadow-success: 0 0 15px rgba(57, 255, 20, 0.25);
+  --hd-card-shadow-info: 0 0 15px rgba(0, 242, 254, 0.25);
+  --hd-card-shadow-muted: 0 0 15px rgba(100, 116, 139, 0.25);
+
+  /* Sci-Fi Warning Callouts */
+  --hd-callout-bg: rgba(255, 255, 255, 0.01);
+  --hd-callout-border-style: solid;
+  --hd-callout-border-width: 1px 1px 1px 4px;
+  --hd-callout-border-color: rgba(255, 255, 255, 0.05);
+  --hd-callout-border-radius: 4px;
+
+  --hd-callout-bg-primary: rgba(0, 242, 254, 0.04);
+  --hd-callout-border-primary: rgba(0, 242, 254, 0.2);
+  --hd-callout-shadow-primary: 0 0 15px rgba(0, 242, 254, 0.15);
+
+  --hd-callout-bg-secondary: rgba(254, 1, 154, 0.04);
+  --hd-callout-border-secondary: rgba(254, 1, 154, 0.2);
+  --hd-callout-shadow-secondary: 0 0 15px rgba(254, 1, 154, 0.15);
+
+  /* Cyber Code Blocks */
+  --hd-codeblock-bg: rgba(8, 8, 12, 0.85);
+  --hd-codeblock-border-width: 1px;
+  --hd-codeblock-border: rgba(255, 255, 255, 0.06);
+  --hd-codeblock-border-radius: 4px;
+  --hd-codeblock-shadow: inset 0 0 12px rgba(0, 0, 0, 0.8);
+
+  /* Cybernetic Scrollbars */
+  --hd-scrollbar-width: 6px;
+  --hd-scrollbar-height: 6px;
+  --hd-scrollbar-track-bg: rgba(0, 0, 0, 0.4);
+  --hd-scrollbar-thumb-bg: var(--hd-muted-color);
+  --hd-scrollbar-thumb-radius: 3px;
+  --hd-scrollbar-thumb-hover-bg: var(--hd-primary-color);
 }

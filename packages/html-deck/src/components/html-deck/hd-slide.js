@@ -69,7 +69,7 @@ HdSlide.baseStyles = `
     height: 100%;
     display: flex;
     flex-direction: column;
-    background-color: var(--hd-default-background-color);
+    background: var(--hd-slide-bg, var(--hd-default-background-color));
     color: var(--hd-default-color);
     font-family: var(--hd-body-font);
     font-size: var(--hd-slide-font-size);
@@ -111,6 +111,13 @@ HdSlide.baseStyles = `
     box-sizing: border-box;
     padding: var(--hd-slide-padding);
     position: relative;
+  }
+
+  :host([no-padding]) {
+    --hd-slide-padding-top: 0px;
+    --hd-slide-padding-right: 0px;
+    --hd-slide-padding-bottom: 0px;
+    --hd-slide-padding-left: 0px;
   }
 
   :host([no-padding]) .slide-content {

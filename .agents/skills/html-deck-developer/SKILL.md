@@ -81,6 +81,8 @@ if (window.matchMedia('print').matches) return;
 `html-deck` is a skeleton library by default (white background, minimal decoration), but supports modular themes.
 - **Rule**: All public presentation CSS variables must be declared under the `:root` selector inside `html-deck.css` with their default fallback values. Inside Shadow DOM style sheets or other selectors, use direct variable references (e.g. `var(--hd-slide-bg)`) without repeating duplicate fallbacks to keep the code DRY.
 - **Rule**: Theme styling must be provided as isolated external CSS files (e.g. `html-deck.theme-dark.css`) that overwrite `--hd-*-color` variables on `:root`.
+- **Rule**: Theme stylesheets must **exclusively** override CSS variables under the `:root` selector. They must **never** target HTML tags or class names (like `hd-slide` or `.hd-card`) directly. If a theme requires custom styling for individual elements (such as borders, scrollbars, code blocks, or shadows), those elements/classes in `html-deck.css` or Shadow DOM must reference new parameterized CSS variables (e.g. `--hd-codeblock-bg`, `--hd-scrollbar-thumb-bg`, `--hd-card-shadow-primary`), allowing the theme to configure them cleanly via `:root`.
+- **Rule**: If a layout component (like `hd-layout`) needs to expand its heading area background to cover the top/sides of the slide, it should use negative margins calculated from slide paddings (e.g., `margin-top: calc(-1 * var(--hd-slide-padding-top))`). When `no-padding` is set on the slide, the slide component must locally override those padding variables to `0px` to prevent layout overflow.
 - **Rule**: Theme primary, secondary, and other palette variables must use the `-color` suffix (e.g. `--hd-primary-color`, `--hd-secondary-color`). Avoid exposing un-suffixed variable names (like `--hd-primary`) as root variables.
 - **Rule**: Code highlights in `hd-codeblock` must map Prism token classes to CSS variables (like `--hd-token-keyword`, `--hd-token-string`) so they dynamically match the active theme.
 - **Rule**: Individual slide background and text overrides must be supported via attributes on `hd-slide` (e.g. `[invert]`, `[bg="primary"]`, `[bg="secondary"]`) and styled purely within `hd-slide.js` by overriding `--hd-slide-bg` and other variables inside their respective selector blocks.
@@ -165,9 +167,10 @@ To avoid overriding default browser actions (such as `Ctrl + P` / `Cmd + P` for 
   - **Rule**: Define explicit box-sizing rules inside Shadow DOM stylesheets for layout components to keep their layout boundaries safe.
 
 
-### 14. Heading Colors and Title Slot Color Override Pattern
+### 14. Heading Colors, Title, and Heading Slot Customization Pattern
 - Rule: Heading elements `h1` through `h6` should not have default colored styles. They should inherit the slide's text color (`var(--hd-slide-text-color, var(--hd-text-color))`) by default so they cleanly support invert/background colors without hardcoded overrides.
-- Rule: Elements slotted into `slot="title"` should inherit the slide's text color by default. Custom colors must be applied via specific classes or custom styles.
+- Rule: Cover slides (`hd-layout-cover`) use `slot="title"`, while standard/split/three slides (`hd-layout`, `hd-layout-split`, `hd-layout-three`) use `slot="heading"`. This prevents slot name clashes.
+- Rule: Elements slotted into `slot="heading"` should inherit the slide's text color by default and be customized using `--hd-layout-heading-*` CSS variables (e.g. `--hd-layout-heading-font-size`, `--hd-layout-heading-color`, `--hd-layout-heading-margin`, `--hd-layout-heading-border`, and `--hd-layout-heading-padding-bottom`).
 - Rule: Heading elements `h1` through `h6` do not change size automatically; they all default to `font-size: 1em;` to focus purely on semantic HTML. Sizing must be controlled via layout slot selectors or utility classes.
 
 ### 15. Unified Sizing Suffixes & Utility Naming System
@@ -201,5 +204,15 @@ To avoid overriding default browser actions (such as `Ctrl + P` / `Cmd + P` for 
 
 ### 19. Deprecated Math & Code Helper Classes
 - Rule: `.hd-code-scrollable`, `.hd-math-block`, and `.hd-math-inline` are fully deleted. standard math rendering is managed by KaTeX auto-render parsing standard math tags (such as `div` and `span` with math delimiters `$$` or `\(`). Standard overflow-y settings are applied directly to pre or block code elements.
+
+### 20. Margin Resets and Specificity Boundaries
+- **Trap (Reset Specificity & !important)**: Declaring `!important` on global margin reset rules (like `*:last-child { margin-bottom: 0 !important; }`) is a trap. It prevents utility classes (like `.hd-align-middle` or `.hd-align-bottom` which use `!important`) from setting `margin-bottom: auto` or custom spacing.
+  - **Rule**: Never use `!important` on general margin resets or `*:last-child` selectors in core stylesheets (`html-deck.css`). Base and reset styles must use standard specificity rules so that explicit utility classes (which use `!important`) can override them.
+  - **Rule**: To reset the bottom margin of the last contiguous element inside named slots (like `slot="left"` or `slot="right"`), use the `:has` contiguous sibling check in the stylesheet:
+    `[slot="left"]:not(:has(+ [slot="left"])) { margin-bottom: 0; }`
+
+### 21. Core Reset Separation
+- **Rule**: Standard HTML baseline resets and global resets (such as wildcard `box-sizing` rules) must be declared in [html-deck.reset.css](file:///home/likr/work/likr/html-deck/packages/html-deck/src/html-deck.reset.css) and imported at the top of [html-deck.css](file:///home/likr/work/likr/html-deck/packages/html-deck/src/html-deck.css) rather than being mixed into utility classes.
+
 
 

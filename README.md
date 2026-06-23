@@ -85,7 +85,7 @@ A minimal HTML-Deck slideshow looks like this:
 
     <!-- Standard Slide -->
     <hd-slide layout="title-body">
-      <hd-heading slot="title">Slide Title</hd-heading>
+      <hd-heading slot="heading">Slide Title</hd-heading>
       <hd-text>This is body content.</hd-text>
       
       <!-- Speaker Notes -->

@@ -138,7 +138,7 @@ export default defineConfig({
     <!-- Slide 2: Markdown & Code -->
     <hd-slide>
       <hd-layout-split ratio="1:1">
-        <h2 slot="title">Rich Features & Code Blocks</h2>
+        <h2 slot="heading">Rich Features & Code Blocks</h2>
         
         <div slot="left">
           <p>You can declare components like lists, tables, callouts, and math:</p>
