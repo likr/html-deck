@@ -124,11 +124,11 @@ HdSlide.baseStyles = `
     --hd-slide-text-color: var(--hd-bg);
     --hd-list-color: var(--hd-bg);
     --hd-math-color: var(--hd-bg);
-    --hd-link-color: var(--hd-secondary);
+    --hd-link-color: var(--hd-secondary-color);
   }
 
   :host([bg="primary"]) {
-    --hd-slide-bg: var(--hd-primary);
+    --hd-slide-bg: var(--hd-primary-color);
     --hd-slide-text-color: #ffffff;
     --hd-list-color: #ffffff;
     --hd-math-color: #ffffff;
@@ -136,7 +136,7 @@ HdSlide.baseStyles = `
   }
 
   :host([bg="secondary"]) {
-    --hd-slide-bg: var(--hd-secondary);
+    --hd-slide-bg: var(--hd-secondary-color);
     --hd-slide-text-color: #ffffff;
     --hd-list-color: #ffffff;
     --hd-math-color: #ffffff;

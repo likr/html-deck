@@ -12,13 +12,13 @@
   --hd-muted-color: #475569;  /* Slate 600 */
 
   /* Palette Customization */
-  --hd-primary: #1e3a8a;      /* Trust Navy Blue */
-  --hd-secondary: #0d9488;    /* Corporate Teal */
-  --hd-accent: #2563eb;       /* Royal Blue */
-  --hd-danger: #dc2626;       /* Red */
-  --hd-warning: #d97706;      /* Amber */
-  --hd-success: #16a34a;
-  --hd-info: #0284c7;
+  --hd-primary-color: #1e3a8a;      /* Trust Navy Blue */
+  --hd-secondary-color: #0d9488;    /* Corporate Teal */
+  --hd-accent-color: #2563eb;       /* Royal Blue */
+  --hd-danger-color: #dc2626;       /* Red */
+  --hd-warning-color: #d97706;      /* Amber */
+  --hd-success-color: #16a34a;
+  --hd-info-color: #0284c7;
 
   /* Slide specific */
   --hd-slide-bg: var(--hd-bg);
@@ -29,18 +29,8 @@
   /* Lists & Math */
   --hd-list-color: var(--hd-text-color);
   --hd-math-color: var(--hd-text-color);
-  --hd-link-color: var(--hd-accent);
+  --hd-link-color: var(--hd-accent-color);
 
 
 
-  /* Title Slide customization */
-  --hd-title-slide-align-items: center;
-  --hd-title-slide-text-align: center;
-  --hd-title-slide-meta-direction: row;
-  --hd-title-slide-meta-justify: center;
-  --hd-title-slide-meta-gap: 40px;
-  --hd-title-slide-divider-width: 60%;
-  --hd-title-slide-divider-height: 2px;
-  --hd-title-slide-divider-bg: var(--hd-secondary);
-  --hd-title-slide-divider-margin: 24px auto;
 }

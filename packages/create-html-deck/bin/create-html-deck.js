@@ -82,14 +82,14 @@ export default defineConfig({
 :root {
   --hd-slide-bg: #0f172a;
   --hd-text-color: #f8fafc;
-  --hd-primary: #3b82f6;
-  --hd-secondary: #f43f5e;
+  --hd-primary-color: #3b82f6;
+  --hd-secondary-color: #f43f5e;
   --hd-font-family: system-ui, -apple-system, sans-serif;
   --hd-slide-padding: 80px 100px;
 }
 
 .gradient-title {
-  background: linear-gradient(135deg, var(--hd-primary), var(--hd-secondary));
+  background: linear-gradient(135deg, var(--hd-primary-color), var(--hd-secondary-color));
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;

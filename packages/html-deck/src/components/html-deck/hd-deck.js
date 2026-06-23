@@ -7,7 +7,7 @@ TEMPLATE.innerHTML = `
     height: 100vh;
     overflow: hidden;
     background-color: #000000;
-    color: var(--hd-deck-text-color);
+    color: var(--hd-text-color);
     font-family: var(--hd-body-font);
     margin: 0;
     padding: 0;
@@ -86,7 +86,7 @@ TEMPLATE.innerHTML = `
   .progress-bar {
     height: 100%;
     width: 0%;
-    background: var(--hd-primary);
+    background: var(--hd-primary-color);
     transition: width 0.3s ease;
   }
 

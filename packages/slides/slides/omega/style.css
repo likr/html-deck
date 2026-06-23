@@ -2,11 +2,11 @@
     /* Theme color overrides */
     --hd-slide-bg: #070913;
     --hd-text-color: #e2e8f0;
-    --hd-primary: #00f0ff;
+    --hd-primary-color: #00f0ff;
     /* Electric Cyan */
-    --hd-secondary: #d946ef;
+    --hd-secondary-color: #d946ef;
     /* Electric Magenta */
-    --hd-accent: #10b981;
+    --hd-accent-color: #10b981;
     /* Emerald Accent */
     --hd-font-family: 'Outfit', 'Inter', 'Noto Sans JP', sans-serif;
     --hd-slide-padding: 50px 70px;
@@ -15,7 +15,7 @@
     --hd-title-slide-padding: 60px 80px;
     --hd-title-slide-title-size: 38px;
     --hd-title-slide-subtitle-size: 18px;
-    --hd-title-slide-divider-bg: linear-gradient(90deg, var(--hd-primary), var(--hd-secondary));
+    --hd-title-slide-divider-bg: linear-gradient(90deg, var(--hd-primary-color), var(--hd-secondary-color));
     --hd-title-slide-divider-height: 2px;
     --hd-title-slide-divider-margin: 24px 0;
 
@@ -39,7 +39,7 @@ hd-slide {
 
 /* Custom utility classes */
 .text-gradient {
-    background: linear-gradient(135deg, var(--hd-primary) 20%, var(--hd-secondary) 80%);
+    background: linear-gradient(135deg, var(--hd-primary-color) 20%, var(--hd-secondary-color) 80%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -85,7 +85,7 @@ hd-slide {
 }
 
 .highlight-card h3 .icon {
-    color: var(--hd-primary);
+    color: var(--hd-primary-color);
 }
 
 /* Inline highlight */
@@ -94,7 +94,7 @@ hd-slide {
     padding: 2px 8px;
     background: rgba(0, 240, 255, 0.08);
     border: 1px solid rgba(0, 240, 255, 0.25);
-    color: var(--hd-primary);
+    color: var(--hd-primary-color);
     border-radius: 4px;
     font-size: 11px;
     font-weight: 600;
@@ -103,7 +103,7 @@ hd-slide {
 .badge-secondary {
     background: rgba(217, 70, 239, 0.08);
     border: 1px solid rgba(217, 70, 239, 0.25);
-    color: var(--hd-secondary);
+    color: var(--hd-secondary-color);
 }
 
 /* Key Concept Diagram SVG Styling */

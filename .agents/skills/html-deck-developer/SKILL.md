@@ -79,7 +79,8 @@ if (window.matchMedia('print').matches) return;
 ### 5. Flat CSS & Skeleton Principle & Theming
 `html-deck` is a skeleton library by default (white background, minimal decoration), but supports modular themes.
 - **Rule**: All public presentation CSS variables must be declared under the `:root` selector inside `html-deck.css` with their default fallback values. Inside Shadow DOM style sheets or other selectors, use direct variable references (e.g. `var(--hd-slide-bg)`) without repeating duplicate fallbacks to keep the code DRY.
-- **Rule**: Theme styling must be provided as isolated external CSS files (e.g. `html-deck.theme-dark.css`) that overwrite `--hd-*` variables on `:root`.
+- **Rule**: Theme styling must be provided as isolated external CSS files (e.g. `html-deck.theme-dark.css`) that overwrite `--hd-*-color` variables on `:root`.
+- **Rule**: Theme primary, secondary, and other palette variables must use the `-color` suffix (e.g. `--hd-primary-color`, `--hd-secondary-color`). Avoid exposing un-suffixed variable names (like `--hd-primary`) as root variables.
 - **Rule**: Code highlights in `hd-codeblock` must map Prism token classes to CSS variables (like `--hd-token-keyword`, `--hd-token-string`) so they dynamically match the active theme.
 - **Rule**: Individual slide background and text overrides must be supported via attributes on `hd-slide` (e.g. `[invert]`, `[bg="primary"]`, `[bg="secondary"]`) and styled purely within `hd-slide.js` by overriding `--hd-slide-bg` and other variables inside their respective selector blocks.
 

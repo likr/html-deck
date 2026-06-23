@@ -12,13 +12,13 @@
   --hd-muted-color: #78716c;  /* Stone Gray */
 
   /* Palette Customization - Academic & Minimal */
-  --hd-primary: #1c1917;      /* Ink Black */
-  --hd-secondary: #44403c;    /* Deep Gray-brown */
-  --hd-accent: #78716c;
-  --hd-danger: #991b1b;       /* Academic Wine Red */
-  --hd-warning: #854d0e;
-  --hd-success: #166534;
-  --hd-info: #075985;
+  --hd-primary-color: #1c1917;      /* Ink Black */
+  --hd-secondary-color: #44403c;    /* Deep Gray-brown */
+  --hd-accent-color: #78716c;
+  --hd-danger-color: #991b1b;       /* Academic Wine Red */
+  --hd-warning-color: #854d0e;
+  --hd-success-color: #166534;
+  --hd-info-color: #075985;
 
   /* Slide specific */
   --hd-slide-bg: var(--hd-bg);
@@ -31,18 +31,8 @@
   /* Lists & Math */
   --hd-list-color: var(--hd-text-color);
   --hd-math-color: var(--hd-text-color);
-  --hd-link-color: var(--hd-danger);
+  --hd-link-color: var(--hd-danger-color);
 
 
 
-  /* Title Slide customization */
-  --hd-title-slide-align-items: center;
-  --hd-title-slide-text-align: center;
-  --hd-title-slide-meta-direction: row;
-  --hd-title-slide-meta-justify: center;
-  --hd-title-slide-meta-gap: 40px;
-  --hd-title-slide-divider-width: 60%;
-  --hd-title-slide-divider-height: 1px;
-  --hd-title-slide-divider-bg: var(--hd-primary);
-  --hd-title-slide-divider-margin: 24px auto;
 }

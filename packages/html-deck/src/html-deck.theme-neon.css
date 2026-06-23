@@ -12,13 +12,13 @@
   --hd-muted-color: #64748b;  /* Cool Gray */
 
   /* Palette Customization - Neon Cyber Colors */
-  --hd-primary: #00f2fe;      /* Neon Cyan */
-  --hd-secondary: #fe019a;    /* Neon Pink */
-  --hd-accent: #39ff14;       /* Neon Green */
-  --hd-danger: #ff073a;       /* Neon Red */
-  --hd-warning: #ffe600;      /* Neon Yellow */
-  --hd-success: #39ff14;
-  --hd-info: #00f2fe;
+  --hd-primary-color: #00f2fe;      /* Neon Cyan */
+  --hd-secondary-color: #fe019a;    /* Neon Pink */
+  --hd-accent-color: #39ff14;       /* Neon Green */
+  --hd-danger-color: #ff073a;       /* Neon Red */
+  --hd-warning-color: #ffe600;      /* Neon Yellow */
+  --hd-success-color: #39ff14;
+  --hd-info-color: #00f2fe;
 
   /* Slide specific */
   --hd-slide-bg: var(--hd-bg);
@@ -28,19 +28,9 @@
 
   /* Lists & Math */
   --hd-list-color: var(--hd-text-color);
-  --hd-math-color: var(--hd-primary); /* mathematical equations glow cyan */
-  --hd-link-color: var(--hd-secondary);
+  --hd-math-color: var(--hd-primary-color); /* mathematical equations glow cyan */
+  --hd-link-color: var(--hd-secondary-color);
 
 
 
-  /* Title Slide customization */
-  --hd-title-slide-align-items: center;
-  --hd-title-slide-text-align: center;
-  --hd-title-slide-meta-direction: row;
-  --hd-title-slide-meta-justify: center;
-  --hd-title-slide-meta-gap: 40px;
-  --hd-title-slide-divider-width: 60%;
-  --hd-title-slide-divider-height: 2px;
-  --hd-title-slide-divider-bg: linear-gradient(90deg, transparent, var(--hd-secondary), transparent);
-  --hd-title-slide-divider-margin: 24px auto;
 }

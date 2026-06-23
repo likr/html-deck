@@ -1,9 +1,9 @@
 :root {
     --hd-slide-bg: #ffffff;
     --hd-text-color: #1e293b;
-    --hd-primary: #3b82f6;
-    --hd-secondary: #ec4899;
-    --hd-accent: #10b981;
+    --hd-primary-color: #3b82f6;
+    --hd-secondary-color: #ec4899;
+    --hd-accent-color: #10b981;
     --hd-font-family: 'Outfit', 'Noto Sans JP', sans-serif;
     --hd-slide-padding: 60px 80px;
 }

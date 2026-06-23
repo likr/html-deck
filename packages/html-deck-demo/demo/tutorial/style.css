@@ -4,9 +4,9 @@
   /* Base deck colors */
   --hd-slide-bg: #0f172a;
   --hd-text-color: #f8fafc;
-  --hd-primary: #3b82f6;
+  --hd-primary-color: #3b82f6;
   /* Electric blue */
-  --hd-secondary: #f43f5e;
+  --hd-secondary-color: #f43f5e;
   /* Rose/Coral */
 
   /* Typography */
@@ -17,12 +17,12 @@
 }
 
 .accent-text {
-  color: var(--hd-secondary);
+  color: var(--hd-secondary-color);
   font-weight: 700;
 }
 
 .gradient-heading {
-  background: linear-gradient(135deg, var(--hd-primary), #10b981);
+  background: linear-gradient(135deg, var(--hd-primary-color), #10b981);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -33,7 +33,7 @@
   padding: 3px 6px;
   background: rgba(59, 130, 246, 0.1);
   border: 1px solid rgba(59, 130, 246, 0.3);
-  color: var(--hd-primary);
+  color: var(--hd-primary-color);
   border-radius: 9999px;
   font-size: 0.55rem;
   font-weight: 600;
@@ -57,8 +57,8 @@
 .grid-card h3 {
   margin-top: 0;
   font-size: 1.1rem;
-  color: var(--hd-primary);
+  color: var(--hd-primary-color);
 }
 .grid-card-primary {
-  border-color: var(--hd-primary) !important;
+  border-color: var(--hd-primary-color) !important;
 }
