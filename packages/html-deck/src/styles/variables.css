@@ -5,6 +5,7 @@
   --hd-body-font: var(--hd-font-family);
   --hd-heading-font: var(--hd-font-family);
   --hd-font-size: 18px;
+
   --hd-default-color: #000000;
   --hd-muted-color: #64748b;
   --hd-primary-color: #3b82f6;
@@ -36,6 +37,16 @@
   --hd-success-border-color: #a7f3d0;
   --hd-info-border-color: #cffafe;
   --hd-muted-border-color: #cbd5e1;
+
+  --hd-default-accent-text-color: #ffffff;
+  --hd-primary-accent-text-color: #ffffff;
+  --hd-secondary-accent-text-color: #ffffff;
+  --hd-accent-accent-text-color: #ffffff;
+  --hd-danger-accent-text-color: #ffffff;
+  --hd-warning-accent-text-color: #000000;
+  --hd-success-accent-text-color: #ffffff;
+  --hd-info-accent-text-color: #ffffff;
+  --hd-muted-accent-text-color: #ffffff;
 
   /* Card configuration variables */
   --hd-card-bg: var(--hd-default-background-color);
@@ -104,14 +115,6 @@
   --hd-layout-after-margin: var(--hd-gap-2);
   --hd-layout-cover-title-shadow: none;
   --hd-layout-cover-subtitle-shadow: none;
-  --hd-primary-accent-text-color: #ffffff;
-  --hd-secondary-accent-text-color: #ffffff;
-  --hd-accent-accent-text-color: #ffffff;
-  --hd-danger-accent-text-color: #ffffff;
-  --hd-warning-accent-text-color: #000000;
-  --hd-success-accent-text-color: #ffffff;
-  --hd-info-accent-text-color: #ffffff;
-  --hd-muted-accent-text-color: #ffffff;
   --hd-codeblock-bg: transparent;
   --hd-codeblock-border-width: 1px;
   --hd-codeblock-border-radius: 8px;

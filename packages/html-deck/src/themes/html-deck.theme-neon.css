@@ -38,107 +38,107 @@
 
   /* Background colors (used when background is colored, keeping hue/vibe) */
   --hd-default-background-color: #030303;
-  --hd-primary-background-color: rgba(0, 242, 254, 0.1);
-  --hd-secondary-background-color: rgba(254, 1, 154, 0.1);
-  --hd-accent-background-color: rgba(57, 255, 20, 0.1);
-  --hd-danger-background-color: rgba(255, 7, 58, 0.1);
-  --hd-warning-background-color: rgba(255, 230, 0, 0.1);
-  --hd-success-background-color: rgba(57, 255, 20, 0.1);
-  --hd-info-background-color: rgba(0, 242, 254, 0.1);
-  --hd-muted-background-color: rgba(100, 116, 139, 0.1);
+  --hd-primary-background-color: rgb(from var(--hd-primary-color) r g b / 0.1);
+  --hd-secondary-background-color: rgb(from var(--hd-secondary-color) r g b / 0.1);
+  --hd-accent-background-color: rgb(from var(--hd-accent-color) r g b / 0.1);
+  --hd-danger-background-color: rgb(from var(--hd-danger-color) r g b / 0.1);
+  --hd-warning-background-color: rgb(from var(--hd-warning-color) r g b / 0.1);
+  --hd-success-background-color: rgb(from var(--hd-success-color) r g b / 0.1);
+  --hd-info-background-color: rgb(from var(--hd-info-color) r g b / 0.1);
+  --hd-muted-background-color: rgb(from var(--hd-muted-color) r g b / 0.1);
 
   /* Border colors (used for borders/lines of elements) */
   --hd-default-border-color: #1e293b;
-  --hd-primary-border-color: rgba(0, 242, 254, 0.3);
-  --hd-secondary-border-color: rgba(254, 1, 154, 0.3);
-  --hd-accent-border-color: rgba(57, 255, 20, 0.3);
-  --hd-danger-border-color: rgba(255, 7, 58, 0.3);
-  --hd-warning-border-color: rgba(255, 230, 0, 0.3);
-  --hd-success-border-color: rgba(57, 255, 20, 0.3);
-  --hd-info-border-color: rgba(0, 242, 254, 0.3);
-  --hd-muted-border-color: rgba(100, 116, 139, 0.3);
+  --hd-primary-border-color: rgb(from var(--hd-primary-color) r g b / 0.3);
+  --hd-secondary-border-color: rgb(from var(--hd-secondary-color) r g b / 0.3);
+  --hd-accent-border-color: rgb(from var(--hd-accent-color) r g b / 0.3);
+  --hd-danger-border-color: rgb(from var(--hd-danger-color) r g b / 0.3);
+  --hd-warning-border-color: rgb(from var(--hd-warning-color) r g b / 0.3);
+  --hd-success-border-color: rgb(from var(--hd-success-color) r g b / 0.3);
+  --hd-info-border-color: rgb(from var(--hd-info-color) r g b / 0.3);
+  --hd-muted-border-color: rgb(from var(--hd-muted-color) r g b / 0.3);
 
   /* Holographic Radial Slide Background */
-  --hd-slide-bg: radial-gradient(circle at 50% 50%, #0d0e1b 0%, #030303 100%);
+  --hd-slide-bg: radial-gradient(circle at 50% 50%, rgb(from var(--hd-default-background-color) calc(r + 10) calc(g + 11) calc(b + 24)) 0%, var(--hd-default-background-color) 100%);
 
   /* Neon Text Shadow Glows on Cover Slides */
-  --hd-layout-cover-title-shadow: 0 0 10px var(--hd-primary-color), 0 0 20px rgba(0, 242, 254, 0.5);
+  --hd-layout-cover-title-shadow: 0 0 10px var(--hd-primary-color), 0 0 20px rgb(from var(--hd-primary-color) r g b / 0.5);
   --hd-layout-cover-subtitle-shadow: 0 0 8px var(--hd-secondary-color);
 
   /* Heading Overrides */
-  --hd-layout-heading-bg: #09090b;
+  --hd-layout-heading-bg: rgb(from var(--hd-default-background-color) calc(r + 6) calc(g + 6) calc(b + 8));
   --hd-layout-heading-color: var(--hd-primary-color);
   --hd-layout-heading-text-align: center;
   --hd-layout-heading-padding-top: calc(var(--hd-slide-padding-top) + 8px);
-  --hd-layout-heading-text-shadow: 0 0 10px var(--hd-primary-color), 0 0 20px rgba(0, 242, 254, 0.4);
+  --hd-layout-heading-text-shadow: 0 0 10px var(--hd-primary-color), 0 0 20px rgb(from var(--hd-primary-color) r g b / 0.4);
   --hd-layout-heading-hr-display: block;
   --hd-layout-heading-hr-height: 1px;
   --hd-layout-heading-hr-color: var(--hd-primary-color);
   --hd-layout-heading-hr-shadow: 0 4px 15px var(--hd-layout-heading-hr-color);
 
   /* Tech-Terminal Cards & Boxes */
-  --hd-card-bg: rgba(10, 10, 18, 0.8);
+  --hd-card-bg: rgb(from var(--hd-default-background-color) calc(r + 7) calc(g + 7) calc(b + 15) / 0.8);
   --hd-card-border-radius: 4px;
-  --hd-card-border-color: rgba(255, 255, 255, 0.08);
-  --hd-card-shadow-primary: 0 0 15px rgba(0, 242, 254, 0.25);
-  --hd-card-shadow-secondary: 0 0 15px rgba(254, 1, 154, 0.25);
-  --hd-card-shadow-accent: 0 0 15px rgba(57, 255, 20, 0.25);
-  --hd-card-shadow-danger: 0 0 15px rgba(255, 7, 58, 0.25);
-  --hd-card-shadow-warning: 0 0 15px rgba(255, 230, 0, 0.25);
-  --hd-card-shadow-success: 0 0 15px rgba(57, 255, 20, 0.25);
-  --hd-card-shadow-info: 0 0 15px rgba(0, 242, 254, 0.25);
-  --hd-card-shadow-muted: 0 0 15px rgba(100, 116, 139, 0.25);
+  --hd-card-border-color: rgb(from var(--hd-default-color) r g b / 0.08);
+  --hd-card-shadow-primary: 0 0 15px rgb(from var(--hd-primary-color) r g b / 0.25);
+  --hd-card-shadow-secondary: 0 0 15px rgb(from var(--hd-secondary-color) r g b / 0.25);
+  --hd-card-shadow-accent: 0 0 15px rgb(from var(--hd-accent-color) r g b / 0.25);
+  --hd-card-shadow-danger: 0 0 15px rgb(from var(--hd-danger-color) r g b / 0.25);
+  --hd-card-shadow-warning: 0 0 15px rgb(from var(--hd-warning-color) r g b / 0.25);
+  --hd-card-shadow-success: 0 0 15px rgb(from var(--hd-success-color) r g b / 0.25);
+  --hd-card-shadow-info: 0 0 15px rgb(from var(--hd-info-color) r g b / 0.25);
+  --hd-card-shadow-muted: 0 0 15px rgb(from var(--hd-muted-color) r g b / 0.25);
 
   /* Sci-Fi Warning Callouts */
-  --hd-callout-bg: rgba(255, 255, 255, 0.01);
+  --hd-callout-bg: rgb(from var(--hd-default-color) r g b / 0.01);
   --hd-callout-border-style: solid;
   --hd-callout-border-width: 1px 1px 1px 4px;
-  --hd-callout-border-color: rgba(255, 255, 255, 0.05);
+  --hd-callout-border-color: rgb(from var(--hd-default-color) r g b / 0.05);
   --hd-callout-border-radius: 4px;
 
-  --hd-callout-bg-primary: rgba(0, 242, 254, 0.04);
-  --hd-callout-border-primary: rgba(0, 242, 254, 0.2);
-  --hd-callout-shadow-primary: 0 0 15px rgba(0, 242, 254, 0.15);
+  --hd-callout-bg-primary: rgb(from var(--hd-primary-color) r g b / 0.04);
+  --hd-callout-border-primary: rgb(from var(--hd-primary-color) r g b / 0.2);
+  --hd-callout-shadow-primary: 0 0 15px rgb(from var(--hd-primary-color) r g b / 0.15);
 
-  --hd-callout-bg-secondary: rgba(254, 1, 154, 0.04);
-  --hd-callout-border-secondary: rgba(254, 1, 154, 0.2);
-  --hd-callout-shadow-secondary: 0 0 15px rgba(254, 1, 154, 0.15);
+  --hd-callout-bg-secondary: rgb(from var(--hd-secondary-color) r g b / 0.04);
+  --hd-callout-border-secondary: rgb(from var(--hd-secondary-color) r g b / 0.2);
+  --hd-callout-shadow-secondary: 0 0 15px rgb(from var(--hd-secondary-color) r g b / 0.15);
 
-  --hd-callout-bg-accent: rgba(57, 255, 20, 0.04);
-  --hd-callout-border-accent: rgba(57, 255, 20, 0.2);
-  --hd-callout-shadow-accent: 0 0 15px rgba(57, 255, 20, 0.15);
+  --hd-callout-bg-accent: rgb(from var(--hd-accent-color) r g b / 0.04);
+  --hd-callout-border-accent: rgb(from var(--hd-accent-color) r g b / 0.2);
+  --hd-callout-shadow-accent: 0 0 15px rgb(from var(--hd-accent-color) r g b / 0.15);
 
-  --hd-callout-bg-danger: rgba(255, 7, 58, 0.04);
-  --hd-callout-border-danger: rgba(255, 7, 58, 0.2);
-  --hd-callout-shadow-danger: 0 0 15px rgba(255, 7, 58, 0.15);
+  --hd-callout-bg-danger: rgb(from var(--hd-danger-color) r g b / 0.04);
+  --hd-callout-border-danger: rgb(from var(--hd-danger-color) r g b / 0.2);
+  --hd-callout-shadow-danger: 0 0 15px rgb(from var(--hd-danger-color) r g b / 0.15);
 
-  --hd-callout-bg-warning: rgba(255, 230, 0, 0.04);
-  --hd-callout-border-warning: rgba(255, 230, 0, 0.2);
-  --hd-callout-shadow-warning: 0 0 15px rgba(255, 230, 0, 0.15);
+  --hd-callout-bg-warning: rgb(from var(--hd-warning-color) r g b / 0.04);
+  --hd-callout-border-warning: rgb(from var(--hd-warning-color) r g b / 0.2);
+  --hd-callout-shadow-warning: 0 0 15px rgb(from var(--hd-warning-color) r g b / 0.15);
 
-  --hd-callout-bg-success: rgba(57, 255, 20, 0.04);
-  --hd-callout-border-success: rgba(57, 255, 20, 0.2);
-  --hd-callout-shadow-success: 0 0 15px rgba(57, 255, 20, 0.15);
+  --hd-callout-bg-success: rgb(from var(--hd-success-color) r g b / 0.04);
+  --hd-callout-border-success: rgb(from var(--hd-success-color) r g b / 0.2);
+  --hd-callout-shadow-success: 0 0 15px rgb(from var(--hd-success-color) r g b / 0.15);
 
-  --hd-callout-bg-info: rgba(0, 242, 254, 0.04);
-  --hd-callout-border-info: rgba(0, 242, 254, 0.2);
-  --hd-callout-shadow-info: 0 0 15px rgba(0, 242, 254, 0.15);
+  --hd-callout-bg-info: rgb(from var(--hd-info-color) r g b / 0.04);
+  --hd-callout-border-info: rgb(from var(--hd-info-color) r g b / 0.2);
+  --hd-callout-shadow-info: 0 0 15px rgb(from var(--hd-info-color) r g b / 0.15);
 
-  --hd-callout-bg-muted: rgba(100, 116, 139, 0.04);
-  --hd-callout-border-muted: rgba(100, 116, 139, 0.2);
-  --hd-callout-shadow-muted: 0 0 15px rgba(100, 116, 139, 0.15);
+  --hd-callout-bg-muted: rgb(from var(--hd-muted-color) r g b / 0.04);
+  --hd-callout-border-muted: rgb(from var(--hd-muted-color) r g b / 0.2);
+  --hd-callout-shadow-muted: 0 0 15px rgb(from var(--hd-muted-color) r g b / 0.15);
 
   /* Cyber Code Blocks */
-  --hd-codeblock-bg: rgba(8, 8, 12, 0.85);
+  --hd-codeblock-bg: rgb(from var(--hd-default-background-color) calc(r + 5) calc(g + 5) calc(b + 9) / 0.85);
   --hd-codeblock-border-width: 1px;
-  --hd-codeblock-border: rgba(255, 255, 255, 0.06);
+  --hd-codeblock-border: rgb(from var(--hd-default-color) r g b / 0.06);
   --hd-codeblock-border-radius: 4px;
-  --hd-codeblock-shadow: inset 0 0 12px rgba(0, 0, 0, 0.8);
+  --hd-codeblock-shadow: inset 0 0 12px rgb(from var(--hd-default-background-color) 0 0 0 / 0.8);
 
   /* Cybernetic Scrollbars */
   --hd-scrollbar-width: 6px;
   --hd-scrollbar-height: 6px;
-  --hd-scrollbar-track-bg: rgba(0, 0, 0, 0.4);
+  --hd-scrollbar-track-bg: rgb(from var(--hd-default-background-color) 0 0 0 / 0.4);
   --hd-scrollbar-thumb-bg: var(--hd-muted-color);
   --hd-scrollbar-thumb-radius: 3px;
   --hd-scrollbar-thumb-hover-bg: var(--hd-primary-color);
