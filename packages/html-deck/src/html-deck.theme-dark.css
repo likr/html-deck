@@ -2,11 +2,8 @@
 
 :root {
   /* Colors */
-  --hd-bg: #0f172a;           /* Slate 900 */
-  --hd-text-color: #f8fafc;   /* Slate 50 */
+  --hd-default-color: #f8fafc;
   --hd-muted-color: #94a3b8;  /* Slate 400 */
-
-  /* Palette Customization */
   --hd-primary-color: #60a5fa;      /* Light Blue */
   --hd-secondary-color: #c084fc;    /* Light Purple */
   --hd-accent-color: #34d399;       /* Light Emerald */
@@ -15,17 +12,30 @@
   --hd-success-color: #34d399;
   --hd-info-color: #22d3ee;
 
-  /* Slide specific */
-  --hd-slide-bg: var(--hd-bg);
-  --hd-slide-text-color: var(--hd-text-color);
+  /* Background colors (used when background is colored, keeping hue/vibe) */
+  --hd-default-background-color: #0f172a;
+  --hd-primary-background-color: rgba(96, 165, 250, 0.1);
+  --hd-secondary-background-color: rgba(192, 132, 252, 0.1);
+  --hd-accent-background-color: rgba(52, 211, 153, 0.1);
+  --hd-danger-background-color: rgba(248, 113, 113, 0.1);
+  --hd-warning-background-color: rgba(251, 191, 36, 0.1);
+  --hd-success-background-color: rgba(52, 211, 153, 0.1);
+  --hd-info-background-color: rgba(34, 211, 238, 0.1);
+  --hd-muted-background-color: rgba(148, 163, 184, 0.1);
 
+  /* Border colors (used for borders/lines of elements) */
+  --hd-default-border-color: #334155;
+  --hd-primary-border-color: rgba(96, 165, 250, 0.3);
+  --hd-secondary-border-color: rgba(192, 132, 252, 0.3);
+  --hd-accent-border-color: rgba(52, 211, 153, 0.3);
+  --hd-danger-border-color: rgba(248, 113, 113, 0.3);
+  --hd-warning-border-color: rgba(251, 191, 36, 0.3);
+  --hd-success-border-color: rgba(52, 211, 153, 0.3);
+  --hd-info-border-color: rgba(34, 211, 238, 0.3);
+  --hd-muted-border-color: rgba(148, 163, 184, 0.3);
 
-
-  /* Lists & Math */
-  --hd-list-color: var(--hd-text-color);
-  --hd-math-color: var(--hd-text-color);
-  --hd-link-color: var(--hd-primary-color);
-
-
-
+  /* Card configuration overrides */
+  --hd-card-bg: rgba(255, 255, 255, 0.03);
+  --hd-card-color: var(--hd-default-color);
+  --hd-card-border-color: var(--hd-default-border-color);
 }

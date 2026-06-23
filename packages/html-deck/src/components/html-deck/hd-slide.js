@@ -1,6 +1,6 @@
 export class HdSlide extends HTMLElement {
   static get observedAttributes() {
-    return ['active', 'transition-style', 'page-index', 'page-total', 'hide-page-number', 'scrollable', 'height', 'invert', 'bg'];
+    return ['active', 'transition-style', 'page-index', 'page-total', 'hide-page-number', 'scrollable', 'height'];
   }
 
   constructor() {
@@ -30,7 +30,6 @@ export class HdSlide extends HTMLElement {
   connectedCallback() {
     this.updatePageNumber();
     this.updateScrollable();
-    this.updateColorScheme();
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
@@ -41,9 +40,6 @@ export class HdSlide extends HTMLElement {
     }
     if (name === 'scrollable' || name === 'height') {
       this.updateScrollable();
-    }
-    if (name === 'invert' || name === 'bg') {
-      this.updateColorScheme();
     }
   }
 
@@ -81,10 +77,6 @@ export class HdSlide extends HTMLElement {
       contentEl.style.maxHeight = '';
     }
   }
-
-  updateColorScheme() {
-    // Left empty: styling is controlled via CSS custom properties on host selectors
-  }
 }
 
 HdSlide.baseStyles = `
@@ -96,8 +88,8 @@ HdSlide.baseStyles = `
     height: 100%;
     display: flex;
     flex-direction: column;
-    background-color: var(--hd-slide-bg);
-    color: var(--hd-slide-text-color);
+    background-color: var(--hd-default-background-color);
+    color: var(--hd-default-color);
     font-size: var(--hd-slide-font-size);
     opacity: 0;
     visibility: hidden;
@@ -116,31 +108,6 @@ HdSlide.baseStyles = `
   :host([center]) .slide-content {
     justify-content: center;
     align-items: center;
-  }
-
-  /* Individual Slide Style Overrides */
-  :host([invert]) {
-    --hd-slide-bg: var(--hd-text-color);
-    --hd-slide-text-color: var(--hd-bg);
-    --hd-list-color: var(--hd-bg);
-    --hd-math-color: var(--hd-bg);
-    --hd-link-color: var(--hd-secondary-color);
-  }
-
-  :host([bg="primary"]) {
-    --hd-slide-bg: var(--hd-primary-color);
-    --hd-slide-text-color: #ffffff;
-    --hd-list-color: #ffffff;
-    --hd-math-color: #ffffff;
-    --hd-link-color: #ffffff;
-  }
-
-  :host([bg="secondary"]) {
-    --hd-slide-bg: var(--hd-secondary-color);
-    --hd-slide-text-color: #ffffff;
-    --hd-list-color: #ffffff;
-    --hd-math-color: #ffffff;
-    --hd-link-color: #ffffff;
   }
 
   /* Transitions */
@@ -188,8 +155,8 @@ HdSlide.baseStyles = `
       page-break-after: always !important;
       break-inside: avoid !important;
       overflow: hidden !important;
-      background-color: var(--hd-slide-bg) !important;
-      color: var(--hd-slide-text-color) !important;
+      background-color: var(--hd-default-background-color) !important;
+      color: var(--hd-default-color) !important;
       -webkit-print-color-adjust: exact !important;
       print-color-adjust: exact !important;
     }

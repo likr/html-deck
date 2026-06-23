@@ -1,7 +1,6 @@
 :root {
-    /* Theme color overrides */
-    --hd-slide-bg: #070913;
-    --hd-text-color: #e2e8f0;
+    --hd-default-background-color: #070913;
+    --hd-default-color: #e2e8f0;
     --hd-primary-color: #00f0ff;
     /* Electric Cyan */
     --hd-secondary-color: #d946ef;

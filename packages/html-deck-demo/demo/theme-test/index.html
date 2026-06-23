@@ -93,9 +93,9 @@
             (such as Inter, Outfit, Playfair Display, Space Grotesk) to change the typographic weight and appearance.
           </p>
           <p class="hd-text">
-            You can also use <span class="hd-text-weight-bold hd-text-primary">bold accents</span>, <span
-              class="hd-italic hd-text-secondary">italicized secondaries</span>,
-            or <span class="hd-underline">underlined text</span>.
+            You can also use <span class="hd-text-weight-bold hd-primary">bold accents</span>, <span
+              class="hd-italic hd-secondary">italicized secondaries</span>,
+            or <span class="hd-underlined">underlined text</span>.
           </p>
         </div>
 
@@ -149,56 +149,35 @@
       </hd-layout-standard>
     </hd-slide>
 
-    <!-- Slide 4: Slide Specific Overrides (bg=primary) -->
-    <hd-slide bg="primary">
+    <!-- Slide 4: Slide Specific Overrides (hd-primary hd-background) -->
+    <hd-slide class="hd-primary hd-background">
       <hd-layout-standard>
-        <h1 slot="title">Individual Override: bg="primary"</h1>
+        <h1 slot="title">Individual Override: class="hd-primary hd-background"</h1>
         <p class="hd-text">
-          This slide uses the <code>bg="primary"</code> attribute. Even when switching themes, this specific slide
-          will use the theme's primary accent color as the background, and automatically swap text to high-contrast white.
+          This slide uses the <code>class="hd-primary hd-background"</code> classes. Even when switching themes, this specific slide
+          will use the theme's primary background color, and automatically adapt text to the primary color.
         </p>
         <p class="hd-text">
           This is perfect for divider slides, intro pages, or key takeaways that need to stand out from the rest of the
           deck.
         </p>
         <ul class="hd-list">
-          <li>Background: Primary accent color.</li>
-          <li>Text and headings: Pure white.</li>
-          <li>Math & Lists: Pure white.</li>
+          <li>Background: Primary background color.</li>
+          <li>Text and headings: Primary text color.</li>
+          <li>Math & Lists: Primary text color.</li>
         </ul>
       </hd-layout-standard>
     </hd-slide>
 
-    <!-- Slide 5: Slide Specific Overrides (bg=secondary) -->
-    <hd-slide bg="secondary">
+    <!-- Slide 5: Slide Specific Overrides (hd-secondary hd-background) -->
+    <hd-slide class="hd-secondary hd-background">
       <hd-layout-standard>
-        <h1 slot="title">Individual Override: bg="secondary"</h1>
+        <h1 slot="title">Individual Override: class="hd-secondary hd-background"</h1>
         <p class="hd-text">
-          Similarly, using <code>bg="secondary"</code> switches the slide background to the secondary theme color,
-          maintaining clear legibility with white text.
+          Similarly, using <code>class="hd-secondary hd-background"</code> switches the slide background to the secondary theme background color,
+          maintaining clear legibility with the secondary color.
         </p>
         <div class="hd-math-block">$$\nabla \times \mathbf{E} = -\frac{\partial \mathbf{B}}{\partial t}$$</div>
-      </hd-layout-standard>
-    </hd-slide>
-
-    <!-- Slide 6: Slide Specific Overrides (invert) -->
-    <hd-slide invert>
-      <hd-layout-standard>
-        <h1 slot="title">Individual Override: invert</h1>
-        <p class="hd-text">
-          This slide uses the <code>invert</code> attribute. It dynamically swaps the background and body text colors
-          according to the active theme.
-        </p>
-        <p class="hd-text">
-          For instance, in the default light theme, this slide becomes dark. In dark themes, it will become light.
-        </p>
-        <pre><code class="language-html" id="invert-code-block"></code></pre>
-        <script type="module">
-          import invertExampleCode from './invert-example.html?raw';
-          const el = document.getElementById('invert-code-block');
-          el.textContent = invertExampleCode;
-          setTimeout(() => window.Prism && window.Prism.highlightElement(el), 0);
-        </script>
       </hd-layout-standard>
     </hd-slide>
 

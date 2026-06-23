@@ -7,7 +7,7 @@ TEMPLATE.innerHTML = `
     height: 100vh;
     overflow: hidden;
     background-color: #000000;
-    color: var(--hd-text-color);
+    color: var(--hd-default-color);
     font-family: var(--hd-body-font);
     margin: 0;
     padding: 0;

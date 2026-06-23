@@ -7,11 +7,8 @@
   --hd-heading-font: var(--hd-font-family);
 
   /* Colors */
-  --hd-bg: #030303;           /* Pitch Black */
-  --hd-text-color: #f1f5f9;   /* Crisp Slate White */
+  --hd-default-color: #f1f5f9;
   --hd-muted-color: #64748b;  /* Cool Gray */
-
-  /* Palette Customization - Neon Cyber Colors */
   --hd-primary-color: #00f2fe;      /* Neon Cyan */
   --hd-secondary-color: #fe019a;    /* Neon Pink */
   --hd-accent-color: #39ff14;       /* Neon Green */
@@ -20,17 +17,30 @@
   --hd-success-color: #39ff14;
   --hd-info-color: #00f2fe;
 
-  /* Slide specific */
-  --hd-slide-bg: var(--hd-bg);
-  --hd-slide-text-color: var(--hd-text-color);
+  /* Background colors (used when background is colored, keeping hue/vibe) */
+  --hd-default-background-color: #030303;
+  --hd-primary-background-color: rgba(0, 242, 254, 0.1);
+  --hd-secondary-background-color: rgba(254, 1, 154, 0.1);
+  --hd-accent-background-color: rgba(57, 255, 20, 0.1);
+  --hd-danger-background-color: rgba(255, 7, 58, 0.1);
+  --hd-warning-background-color: rgba(255, 230, 0, 0.1);
+  --hd-success-background-color: rgba(57, 255, 20, 0.1);
+  --hd-info-background-color: rgba(0, 242, 254, 0.1);
+  --hd-muted-background-color: rgba(100, 116, 139, 0.1);
 
+  /* Border colors (used for borders/lines of elements) */
+  --hd-default-border-color: #1e293b;
+  --hd-primary-border-color: rgba(0, 242, 254, 0.3);
+  --hd-secondary-border-color: rgba(254, 1, 154, 0.3);
+  --hd-accent-border-color: rgba(57, 255, 20, 0.3);
+  --hd-danger-border-color: rgba(255, 7, 58, 0.3);
+  --hd-warning-border-color: rgba(255, 230, 0, 0.3);
+  --hd-success-border-color: rgba(57, 255, 20, 0.3);
+  --hd-info-border-color: rgba(0, 242, 254, 0.3);
+  --hd-muted-border-color: rgba(100, 116, 139, 0.3);
 
-
-  /* Lists & Math */
-  --hd-list-color: var(--hd-text-color);
-  --hd-math-color: var(--hd-primary-color); /* mathematical equations glow cyan */
-  --hd-link-color: var(--hd-secondary-color);
-
-
-
+  /* Card configuration overrides */
+  --hd-card-bg: rgba(255, 255, 255, 0.02);
+  --hd-card-color: var(--hd-default-color);
+  --hd-card-border-color: var(--hd-default-border-color);
 }

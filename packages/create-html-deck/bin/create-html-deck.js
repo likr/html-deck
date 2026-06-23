@@ -80,8 +80,8 @@ export default defineConfig({
   // 3. style.css (custom styling variables placeholder)
   const styleCss = `/* Custom overrides for your presentation */
 :root {
-  --hd-slide-bg: #0f172a;
-  --hd-text-color: #f8fafc;
+  --hd-default-background-color: #0f172a;
+  --hd-default-color: #f8fafc;
   --hd-primary-color: #3b82f6;
   --hd-secondary-color: #f43f5e;
   --hd-font-family: system-ui, -apple-system, sans-serif;

@@ -34,7 +34,7 @@ export class HdPresenterPreview extends HTMLElement {
           left: 50%;
           transform-origin: center center;
           flex-shrink: 0;
-          background-color: var(--hd-slide-bg, #ffffff);
+          background-color: var(--hd-default-background-color, #ffffff);
           display: block;
         }
         .end-presentation {

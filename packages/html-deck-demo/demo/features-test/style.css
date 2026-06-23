@@ -1,7 +1,6 @@
 :root {
-    /* Base slide customizations using CSS variables */
-    --hd-slide-bg: #090d16;
-    --hd-text-color: #f3f4f6;
+    --hd-default-background-color: #090d16;
+    --hd-default-color: #f3f4f6;
     --hd-primary-color: #3b82f6;
     /* Vivid Blue */
     --hd-secondary-color: #a855f7;

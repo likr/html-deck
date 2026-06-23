@@ -41,7 +41,7 @@
         </div>
       </hd-layout-cover>
 
-      <p class="hd-text hd-text-muted hd-text-6 hd-absolute-bottom hd-text-center">
+      <p class="hd-text hd-muted hd-text-6 hd-absolute-bottom hd-text-center">
         Press <span class="accent-text">Right Arrow</span> or <span class="accent-text">Space</span> to begin
       </p>
 
@@ -93,7 +93,7 @@
       <hd-layout-split>
         <h2 slot="title">declarative Page Layouts</h2>
 
-        <div slot="left" class="grid-card">
+        <div slot="left" class="hd-card">
           <h3>Left Pane Content</h3>
           <p class="hd-text">Using <code>layout="split"</code> arranges the slotted content automatically into two
             equal-width
@@ -105,7 +105,7 @@
           </ul>
         </div>
 
-        <div slot="right" class="grid-card">
+        <div slot="right" class="hd-card">
           <h3>Right Pane Content</h3>
           <p class="hd-text">You can insert lists, images, or custom divs inside <code>slot="right"</code>.</p>
           <pre><code class="language-html" id="split-layout-code"></code></pre>
@@ -135,15 +135,15 @@
           primitive:</p>
 
         <div style="display: flex; gap: var(--hd-gap-3, 16px); width: 100%; box-sizing: border-box;">
-          <div class="grid-card" style="flex: 1;">
+          <div class="hd-card" style="flex: 1;">
             <h3>Column 1</h3>
             <p class="hd-text">Flex factor = 1. Automatically distributes width evenly.</p>
           </div>
-          <div class="grid-card grid-card-primary" style="flex: 2;">
+          <div class="hd-card hd-primary" style="flex: 2;">
             <h3>Column 2</h3>
             <p class="hd-text">Flex factor = 2. This column is twice as wide as the others.</p>
           </div>
-          <div class="grid-card" style="flex: 1;">
+          <div class="hd-card" style="flex: 1;">
             <h3>Column 3</h3>
             <p class="hd-text">Flex factor = 1. Useful for metadata or notes.</p>
           </div>
@@ -168,13 +168,13 @@
 
         <div
           style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--hd-gap-3, 16px); width: 100%; box-sizing: border-box;">
-          <div class="grid-card">
+          <div class="hd-card">
             <h3>Inline Math</h3>
             <p class="hd-text">The formula <span class="hd-math-inline">\(f(x) = \int_{-\infty}^{\infty} e^{-x^2}
                 dx\)</span> fits inline with the
               standard text flow.</p>
           </div>
-          <div class="grid-card">
+          <div class="hd-card">
             <h3>Block Math</h3>
             <p class="hd-text">Render block equations centred and scaled:</p>
             <div class="hd-math-block">$$
@@ -275,7 +275,7 @@
 
         <div
           style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--hd-gap-3, 16px); width: 100%; box-sizing: border-box;">
-          <div class="grid-card">
+          <div class="hd-card">
             <h3>Scrollable Code Block</h3>
             <pre class="hd-code-scrollable"
               style="--hd-code-scrollable-height: 180px;"><code class="language-javascript" id="scroll-demo-code"></code></pre>
@@ -286,7 +286,7 @@
               setTimeout(() => window.Prism && window.Prism.highlightElement(el), 0);
             </script>
           </div>
-          <div class="grid-card">
+          <div class="hd-card">
             <h3>Scrollable Table</h3>
             <div style="max-height: 180px; overflow-y: auto;">
               <table>
@@ -338,7 +338,7 @@
 
         <div
           style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--hd-gap-3, 16px); width: 100%; box-sizing: border-box;">
-          <div class="grid-card">
+          <div class="hd-card">
             <h3>Presenter Dashboard</h3>
             <ul class="hd-list">
               <li>Press <strong>P</strong> to open the presenter view window.</li>
@@ -346,7 +346,7 @@
               <li>Includes timers, clocks, next-slide titles, and notes.</li>
             </ul>
           </div>
-          <div class="grid-card">
+          <div class="hd-card">
             <h3>PDF & Print Output</h3>
             <ul class="hd-list">
               <li>Press <strong>Ctrl + P</strong> (Cmd + P) to open the print dialog.</li>
@@ -389,11 +389,11 @@
             </div>
           </div>
 
-          <div class="grid-card">
+          <div class="hd-card">
             <h3>Footnote Integration</h3>
             <p class="hd-text hd-text-5">Use <code>slot="footnote"</code> to place annotations at the bottom margin of
               the slide.</p>
-            <p class="hd-text-muted hd-text-6">* This is an inline annotation using a standard paragraph.</p>
+            <p class="hd-muted hd-text-6">* This is an inline annotation using a standard paragraph.</p>
           </div>
         </div>
       </hd-layout-standard>

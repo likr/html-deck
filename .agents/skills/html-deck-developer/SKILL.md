@@ -166,7 +166,7 @@ To avoid overriding default browser actions (such as `Ctrl + P` / `Cmd + P` for 
 
 ### 14. Heading Colors and Title Slot Color Override Pattern
 - Rule: Heading elements `h1` through `h6` should not have default colored styles. They should inherit the slide's text color (`var(--hd-slide-text-color, var(--hd-text-color))`) by default so they cleanly support invert/background colors without hardcoded overrides.
-- Rule: Elements slotted into `slot="title"` can be styled collectively using `--hd-title-color`. The selector `hd-slide [slot="title"]` is used in global CSS to set this color while falling back to the slide text color.
+- Rule: Elements slotted into `slot="title"` should inherit the slide's text color by default. Custom colors must be applied via specific classes or custom styles.
 - Rule: Heading elements `h1` through `h6` do not change size automatically; they all default to `font-size: 1em;` to focus purely on semantic HTML. Sizing must be controlled via layout slot selectors or utility classes.
 
 ### 15. Unified Sizing Suffixes & Utility Naming System
@@ -174,3 +174,11 @@ To avoid overriding default browser actions (such as `Ctrl + P` / `Cmd + P` for 
 - Rule: For font sizes, `1` is the largest (`--hd-text-size-1: 32px`) and `6` is the smallest (`12px`).
 - Rule: For spacing/gaps, `1` is the smallest (`4px`) and `6` is the largest (`48px`). Suffix `0` represents `0px`.
 - Rule: Font weights are named semantically rather than using numbers. They are structured under the `.hd-text-weight-*` namespace: `.hd-text-weight-light`, `.hd-text-weight-normal`, `.hd-text-weight-medium`, `.hd-text-weight-semibold`, `.hd-text-weight-bold`, and `.hd-text-weight-extrabold`.
+
+### 16. Unified Color Utilities, Text Transformations, and Cards
+- Rule: All specific element color variables like `--hd-link-color`, `--hd-list-color`, and `--hd-math-color` are discarded. Links, lists, math, and slot="title" elements inherit slide text color by default, and are styled via direct color classes (e.g. `.hd-primary`).
+- Rule: Color class utilities use the form `.hd-primary`, `.hd-secondary`, etc. to style text color. The deprecated `.hd-text-*` and `.hd-bg-*` classes are not used.
+- Rule: Background highlights are configured using the helper class `.hd-background` combined with a color class (e.g., `class="hd-primary hd-background"`). When combined, this sets the background color and automatically sets the text color to a theme-defined contrast variable (e.g., `--hd-primary-contrast-color`).
+- Rule: Card components use `.hd-card` which styles borders, border-radius, background-color, and text-color. Card colors are customized by adding color classes (e.g., `class="hd-card hd-primary"`), which override local custom properties (`--hd-card-bg`, `--hd-card-color`, `--hd-card-border-color`) to maintain consistent border and text styles.
+- Rule: Link elements (`<a>`) inside slides default to `text-decoration: none` and inherit color. Underlining must be explicitly added using the `.hd-underlined` utility class. Other text transformations use `.hd-capitalized`, `.hd-lowercase`, and `.hd-uppercase`.
+

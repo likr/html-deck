@@ -1,6 +1,6 @@
 :root {
-    --hd-slide-bg: #ffffff;
-    --hd-text-color: #1e293b;
+    --hd-default-background-color: #ffffff;
+    --hd-default-color: #1e293b;
     --hd-primary-color: #3b82f6;
     --hd-secondary-color: #ec4899;
     --hd-accent-color: #10b981;
@@ -87,17 +87,17 @@ hd-layout-split .hd-list {
     padding: 16px 36px;
     font-size: 26px;
     font-weight: 700;
-    border: 3px solid var(--hd-text-color);
-    background: var(--hd-slide-bg);
-    color: var(--hd-text-color);
+    border: 3px solid var(--hd-default-color);
+    background: var(--hd-default-background-color);
+    color: var(--hd-default-color);
     cursor: pointer;
     border-radius: 12px;
     transition: all 0.2s ease;
 }
 
 .theme-btn:hover {
-    background: var(--hd-text-color);
-    color: var(--hd-slide-bg);
+    background: var(--hd-default-color);
+    color: var(--hd-default-background-color);
 }
 
 /* Slide wrapper for relative positioning */

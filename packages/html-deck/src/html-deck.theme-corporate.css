@@ -7,11 +7,8 @@
   --hd-heading-font: var(--hd-font-family);
 
   /* Colors */
-  --hd-bg: #ffffff;
-  --hd-text-color: #0f172a;   /* Dark Slate */
+  --hd-default-color: #0f172a;
   --hd-muted-color: #475569;  /* Slate 600 */
-
-  /* Palette Customization */
   --hd-primary-color: #1e3a8a;      /* Trust Navy Blue */
   --hd-secondary-color: #0d9488;    /* Corporate Teal */
   --hd-accent-color: #2563eb;       /* Royal Blue */
@@ -20,17 +17,30 @@
   --hd-success-color: #16a34a;
   --hd-info-color: #0284c7;
 
-  /* Slide specific */
-  --hd-slide-bg: var(--hd-bg);
-  --hd-slide-text-color: var(--hd-text-color);
+  /* Background colors (used when background is colored, keeping hue/vibe) */
+  --hd-default-background-color: #ffffff;
+  --hd-primary-background-color: #f0f4ff;
+  --hd-secondary-background-color: #f0fdfa;
+  --hd-accent-background-color: #eff6ff;
+  --hd-danger-background-color: #fef2f2;
+  --hd-warning-background-color: #fffbeb;
+  --hd-success-background-color: #f0fdf4;
+  --hd-info-background-color: #f0f9ff;
+  --hd-muted-background-color: #f8fafc;
 
+  /* Border colors (used for borders/lines of elements) */
+  --hd-default-border-color: #e2e8f0;
+  --hd-primary-border-color: #dbeafe;
+  --hd-secondary-border-color: #ccfbf1;
+  --hd-accent-border-color: #bfdbfe;
+  --hd-danger-border-color: #fecaca;
+  --hd-warning-border-color: #fef3c7;
+  --hd-success-border-color: #bbf7d0;
+  --hd-info-border-color: #e0f2fe;
+  --hd-muted-border-color: #cbd5e1;
 
-
-  /* Lists & Math */
-  --hd-list-color: var(--hd-text-color);
-  --hd-math-color: var(--hd-text-color);
-  --hd-link-color: var(--hd-accent-color);
-
-
-
+  /* Card configuration overrides */
+  --hd-card-bg: var(--hd-default-background-color);
+  --hd-card-color: var(--hd-default-color);
+  --hd-card-border-color: var(--hd-default-border-color);
 }

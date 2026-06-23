@@ -5,13 +5,11 @@
   --hd-font-family: 'Lora', Georgia, 'Times New Roman', Times, serif;
   --hd-body-font: var(--hd-font-family);
   --hd-heading-font: 'Playfair Display', Georgia, serif;
+  --hd-heading-font-weight: 600;
 
   /* Colors */
-  --hd-bg: #fafaf9;           /* Paper Warm White */
-  --hd-text-color: #1c1917;   /* Ink Black */
+  --hd-default-color: #1c1917;   /* Ink Black */
   --hd-muted-color: #78716c;  /* Stone Gray */
-
-  /* Palette Customization - Academic & Minimal */
   --hd-primary-color: #1c1917;      /* Ink Black */
   --hd-secondary-color: #44403c;    /* Deep Gray-brown */
   --hd-accent-color: #78716c;
@@ -20,19 +18,30 @@
   --hd-success-color: #166534;
   --hd-info-color: #075985;
 
-  /* Slide specific */
-  --hd-slide-bg: var(--hd-bg);
-  --hd-slide-text-color: var(--hd-text-color);
+  /* Background colors (used when background is colored, keeping hue/vibe) */
+  --hd-default-background-color: #fafaf9;           /* Paper Warm White */
+  --hd-primary-background-color: #f5f5f4;
+  --hd-secondary-background-color: #f5f5f4;
+  --hd-accent-background-color: #fafaf9;
+  --hd-danger-background-color: #fef2f2;
+  --hd-warning-background-color: #fef8e8;
+  --hd-success-background-color: #f0fdf4;
+  --hd-info-background-color: #f0f9ff;
+  --hd-muted-background-color: #f5f5f4;
 
-  /* Headings */
+  /* Border colors (used for borders/lines of elements) */
+  --hd-default-border-color: #e7e5e4;
+  --hd-primary-border-color: #e7e5e4;
+  --hd-secondary-border-color: #e7e5e4;
+  --hd-accent-border-color: #d6d3d1;
+  --hd-danger-border-color: #fee2e2;
+  --hd-warning-border-color: #fef08a;
+  --hd-success-border-color: #bbf7d0;
+  --hd-info-border-color: #e0f2fe;
+  --hd-muted-border-color: #e7e5e4;
 
-  --hd-heading-font-weight: 600;
-
-  /* Lists & Math */
-  --hd-list-color: var(--hd-text-color);
-  --hd-math-color: var(--hd-text-color);
-  --hd-link-color: var(--hd-danger-color);
-
-
-
+  /* Card configuration overrides */
+  --hd-card-bg: rgba(28, 25, 23, 0.01);
+  --hd-card-color: var(--hd-default-color);
+  --hd-card-border-color: var(--hd-default-border-color);
 }

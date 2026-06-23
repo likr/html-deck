@@ -1,9 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap');
 
 :root {
-  /* Base deck colors */
-  --hd-slide-bg: #0f172a;
-  --hd-text-color: #f8fafc;
+  --hd-default-background-color: #0f172a;
+  --hd-default-color: #f8fafc;
   --hd-primary-color: #3b82f6;
   /* Electric blue */
   --hd-secondary-color: #f43f5e;
@@ -40,25 +39,8 @@
   margin-bottom: 10px;
 }
 
-.grid-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 6px;
-  padding: 15px;
-  height: 100%;
-  box-sizing: border-box;
-  transition: background 0.3s;
-}
-
-.grid-card:hover {
-  background: rgba(255, 255, 255, 0.06);
-}
-
-.grid-card h3 {
+.hd-card h3 {
   margin-top: 0;
   font-size: 1.1rem;
   color: var(--hd-primary-color);
-}
-.grid-card-primary {
-  border-color: var(--hd-primary-color) !important;
 }

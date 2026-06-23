@@ -7,11 +7,8 @@
   --hd-heading-font: var(--hd-font-family);
 
   /* Colors */
-  --hd-bg: #fdfaf2;           /* Gentle Warm Ivory */
-  --hd-text-color: #433422;   /* Deep Espresso Brown */
+  --hd-default-color: #433422;   /* Deep Espresso Brown */
   --hd-muted-color: #8c7a65;  /* Muted Soft Brown */
-
-  /* Palette Customization */
   --hd-primary-color: #d97706;      /* Amber 600 */
   --hd-secondary-color: #be123c;    /* Rose 700 */
   --hd-accent-color: #059669;       /* Emerald 600 */
@@ -20,17 +17,30 @@
   --hd-success-color: #16a34a;
   --hd-info-color: #0d9488;
 
-  /* Slide specific */
-  --hd-slide-bg: var(--hd-bg);
-  --hd-slide-text-color: var(--hd-text-color);
+  /* Background colors (used when background is colored, keeping hue/vibe) */
+  --hd-default-background-color: #fdfaf2;           /* Gentle Warm Ivory */
+  --hd-primary-background-color: #fefaf0;
+  --hd-secondary-background-color: #fff1f2;
+  --hd-accent-background-color: #f0fdf4;
+  --hd-danger-background-color: #fff1f2;
+  --hd-warning-background-color: #fefdf0;
+  --hd-success-background-color: #f0fdf4;
+  --hd-info-background-color: #f2fdfb;
+  --hd-muted-background-color: #faf8f5;
 
+  /* Border colors (used for borders/lines of elements) */
+  --hd-default-border-color: #f0ede9;
+  --hd-primary-border-color: #fef3c7;
+  --hd-secondary-border-color: #ffe4e6;
+  --hd-accent-border-color: #d1fae5;
+  --hd-danger-border-color: #ffe4e6;
+  --hd-warning-border-color: #fef9c3;
+  --hd-success-border-color: #d1fae5;
+  --hd-info-border-color: #ccfbf1;
+  --hd-muted-border-color: #f0ede9;
 
-
-  /* Lists & Math */
-  --hd-list-color: var(--hd-text-color);
-  --hd-math-color: var(--hd-text-color);
-  --hd-link-color: var(--hd-secondary-color);
-
-
-
+  /* Card configuration overrides */
+  --hd-card-bg: rgba(67, 52, 34, 0.02);
+  --hd-card-color: var(--hd-default-color);
+  --hd-card-border-color: var(--hd-default-border-color);
 }
