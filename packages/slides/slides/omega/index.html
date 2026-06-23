@@ -50,13 +50,13 @@
 
     <!-- スライド2: 背景と従来手法の課題 -->
     <hd-slide title="背景と従来手法の課題">
-      <hd-layout-standard>
+      <hd-layout>
         <h2 slot="title">背景：ストレスベース描画と従来手法の限界</h2>
 
         <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--hd-gap-3, 16px); width: 100%; box-sizing: border-box;">
           <div class="highlight-card">
             <h3><span class="icon">🔍</span> ストレスベースのグラフ描画</h3>
-            <p class="hd-text hd-text-5">
+            <p class="hd-text-5">
               ノード間の<strong>「理想的な距離」</strong>と、画面上の<strong>「実際の距離」</strong>の差の二乗誤差（ストレス）を最小化する最適化問題。
               <div class="hd-math-block">$$E(X) = \sum_{i \lt j} w_{ij} (||x_i - x_j|| - d_{ij})^2$$</div>
               ここで <span class="hd-math-inline">\(d_{ij}\)</span> が理想的な距離、 <span class="hd-math-inline">\(w_{ij}\)</span> は重み。
@@ -65,7 +65,7 @@
 
           <div class="highlight-card">
             <h3><span class="icon">⚠️</span> 従来手法（最短経路距離）の課題</h3>
-            <ul class="hd-list hd-text-6">
+            <ul class="hd-text-6">
               <li><strong>大域的構造の欠落：</strong> 最短経路は「1つの最短パス」しか見ないため、並列する複数の迂回経路があるような「強いつながり（クラスタ）」を大域的に捉えられない。</li>
               <li><strong>高コストな全対最短経路計算：</strong> すべてのノード間の最短経路距離を事前に求めると <span class="hd-math-inline">\(\mathcal{O}(V^3)\)</span> や
                 <span class="hd-math-inline">\(\mathcal{O}(V^2 \log V + VE)\)</span> の計算量が必要となり、大規模グラフではメモリ・CPUともに限界に達する。
@@ -73,7 +73,7 @@
             </ul>
           </div>
         </div>
-      </hd-layout-standard>
+      </hd-layout>
 
       <div slot="notes">
         <h2>発表者用メモ: スライド2</h2>
@@ -82,17 +82,17 @@
           <li>目的関数 $E(X)$ を最小化する際、理想距離 $d_{ij}$ をどう定めるかが重要です。</li>
           <li>従来は「最短経路（Shortest Path）」が標準的でしたが、2つの課題があります。</li>
           <li>1点目は大域的構造。最短経路はバイパスや代替経路の存在を無視するため、クラスタ構造を表現しづらい。</li>
-          <li>2点目は計算コスト。全対最短経路 (APSP) の計算は $O(V^3)$ であり、数万ノードを超える大規模データには全くスケールしません。</li>
+          <li>2点目は計算コスト。全対最短経路 (APSP) の計算 is $O(V^3)$ であり、数万ノードを超える大規模データには全くスケールしません。</li>
         </ul>
       </div>
     </hd-slide>
 
     <!-- スライド3: キーコンセプト「抵抗距離」 -->
     <hd-slide title="キーコンセプト：抵抗距離 (Resistance Distance)">
-      <hd-layout-standard>
+      <hd-layout>
         <h2 slot="title">キーコンセプト：抵抗距離 (Resistance Distance)</h2>
 
-        <p class="hd-text hd-text-5">
+        <p class="hd-text-5">
           グラフを<strong>「電気回路（すべてのエッジを1Ωの抵抗とする）」</strong>と見立てたときの、2ノード間の<strong>合成抵抗</strong>を理想距離 <span class="hd-math-inline">\(d_{ij}\)</span>
           として採用。
         </p>
@@ -152,12 +152,12 @@
         </div>
 
         <div class="hd-mt-2">
-          <p class="hd-text hd-text-6 hd-muted">
+          <p class="hd-muted">
             💡 <strong>直感的な比喩:</strong>
             AからBへ移動する時、一本道（最短経路）だけでなく、「抜け道や並列した道路がどれだけ存在するか」を総合考慮して近いと判断する指標。クラスタ内の結束をより密に描画できる。
           </p>
         </div>
-      </hd-layout-standard>
+      </hd-layout>
 
       <div slot="notes">
         <h2>発表者用メモ: スライド3</h2>
@@ -174,13 +174,13 @@
 
     <!-- スライド4: 提案アルゴリズム「Omega」 -->
     <hd-slide title="提案アルゴリズム：「Omega (Ω)」">
-      <hd-layout-standard>
+      <hd-layout>
         <h2 slot="title">提案アルゴリズム：「Omega (Ω)」</h2>
 
         <div style="display: flex; gap: var(--hd-gap-3, 16px); width: 100%; box-sizing: border-box;">
           <div class="highlight-card" style="flex: 4; border-left: 3px solid var(--hd-primary-color);">
             <h3><span class="icon">⚡</span> 線形時間 <span class="hd-math-inline">\(\mathcal{O}(|E|)\)</span> の実現</h3>
-            <ul class="hd-list hd-text-6">
+            <ul class="hd-text-6">
               <li><strong>高速な埋め込み事前計算：</strong> グラフラプラシアンの有効な固有値スペクトルを利用し、抵抗距離をユークリッド空間へ高速に等長埋め込み。</li>
               <li><strong>ランダムペアサンプリングの統合：</strong> SGD（確率的勾配降下法）を用いることで、全ノード対のストレスストレス計算を省略。エッジ数に比例した
                 <span class="hd-math-inline">\(\mathcal{O}(|E|)\)</span> 時間での最適化を達成。
@@ -213,7 +213,7 @@
             </table>
           </div>
         </div>
-      </hd-layout-standard>
+      </hd-layout>
 
       <div slot="notes">
         <h2>発表者用メモ: スライド4</h2>
@@ -229,13 +229,13 @@
 
     <!-- スライド5: 実験結果と評価 -->
     <hd-slide title="実験評価：描画品質と最適化の安定性">
-      <hd-layout-standard>
+      <hd-layout>
         <h2 slot="title">実験評価：描画品質と最適化の安定性</h2>
 
         <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--hd-gap-3, 16px); width: 100%; box-sizing: border-box;">
           <div class="highlight-card">
             <h3><span class="icon">📈</span> 描画品質の向上</h3>
-            <ul class="hd-list hd-text-6">
+            <ul class="hd-text-6">
               <li><strong>近傍保存性 (Neighborhood Preservation)</strong><br>
                 ローカルな接続関係を正しく配置する能力が向上。
               </li>
@@ -247,17 +247,17 @@
 
           <div class="highlight-card">
             <h3><span class="icon">🎯</span> 最適化の安定性と効率</h3>
-            <p class="hd-text hd-text-5">
+            <p class="hd-text-5">
               提案された<strong>ランダムペアサンプリング戦略</strong>は、従来アルゴリズムと比較して：
             </p>
-            <ul class="hd-list hd-text-6">
+            <ul class="hd-text-6">
               <li>最適化が局所解に陥りにくく、<strong>「より低いストレス値」</strong>に到達。</li>
               <li>試行ごとの分散が小さく、<strong>「極めて高い再現性と安定性」</strong>を達成。</li>
               <li>数万エッジの巨大な実世界ネットワークも数秒から数十秒でレイアウト完了。</li>
             </ul>
           </div>
         </div>
-      </hd-layout-standard>
+      </hd-layout>
 
       <div slot="notes">
         <h2>発表者用メモ: スライド5</h2>
@@ -273,12 +273,12 @@
 
     <!-- スライド6: 結論と今後の展望 -->
     <hd-slide title="結論と今後の展望">
-      <hd-layout-standard>
+      <hd-layout>
         <h2 slot="title">結論と今後の展望</h2>
 
         <div class="highlight-card" style="border-top: 3px solid var(--hd-primary-color);">
           <h3><span class="icon">🏆</span> 本研究の貢献</h3>
-          <ul class="hd-list hd-text-6">
+          <ul class="hd-text-6">
             <li><strong>理論的架け橋：</strong>
               「スペクトラルグラフ理論」と「ストレスベースレイアウト」という、独立して研究されがちだった2分野の間に強固な数学的結びつき（抵抗距離の埋め込み）を実証した。</li>
             <li class="hd-mt-2"><strong>実用的な可視化：</strong> 実世界の大規模で複雑なソーシャルネットワークや共著関係ネットワークに対して、高速かつ忠実度の高いレイアウトシステムを
@@ -288,9 +288,9 @@
         </div>
 
         <div class="hd-text-center hd-mt-4">
-          <p class="hd-text hd-text-3 hd-text-weight-bold text-gradient">ご清聴ありがとうございました。ご質問があればお受けいたします。</p>
+          <p class="hd-text-3 hd-text-weight-bold text-gradient">ご清聴ありがとうございました。ご質問があればお受けいたします。</p>
         </div>
-      </hd-layout-standard>
+      </hd-layout>
 
       <div slot="notes">
         <h2>発表者用メモ: 結論と質疑応答</h2>

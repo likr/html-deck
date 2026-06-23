@@ -1,6 +1,6 @@
 export class HdSlide extends HTMLElement {
   static get observedAttributes() {
-    return ['active', 'transition-style', 'page-index', 'page-total', 'hide-page-number', 'scrollable', 'height'];
+    return ['active', 'transition-style', 'page-index', 'page-total', 'hide-page-number'];
   }
 
   constructor() {
@@ -29,7 +29,6 @@ export class HdSlide extends HTMLElement {
 
   connectedCallback() {
     this.updatePageNumber();
-    this.updateScrollable();
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
@@ -37,9 +36,6 @@ export class HdSlide extends HTMLElement {
 
     if (name === 'page-index' || name === 'page-total' || name === 'hide-page-number') {
       this.updatePageNumber();
-    }
-    if (name === 'scrollable' || name === 'height') {
-      this.updateScrollable();
     }
   }
 
@@ -59,24 +55,6 @@ export class HdSlide extends HTMLElement {
       pageNumEl.textContent = `${index} / ${total}`;
     }
   }
-
-  updateScrollable() {
-    const contentEl = this.shadowRoot.querySelector('.slide-content');
-    if (!contentEl) return;
-
-    if (this.hasAttribute('scrollable')) {
-      contentEl.style.overflowY = 'auto';
-      const height = this.getAttribute('height');
-      if (height) {
-        contentEl.style.maxHeight = height;
-      } else {
-        contentEl.style.maxHeight = '100%';
-      }
-    } else {
-      contentEl.style.overflowY = 'hidden';
-      contentEl.style.maxHeight = '';
-    }
-  }
 }
 
 HdSlide.baseStyles = `
@@ -90,7 +68,10 @@ HdSlide.baseStyles = `
     flex-direction: column;
     background-color: var(--hd-default-background-color);
     color: var(--hd-default-color);
+    font-family: var(--hd-body-font);
     font-size: var(--hd-slide-font-size);
+    line-height: var(--hd-text-line-height, 1.6);
+    letter-spacing: 0.01em;
     opacity: 0;
     visibility: hidden;
     pointer-events: none;

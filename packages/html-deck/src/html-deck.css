@@ -84,15 +84,10 @@
   --hd-layout-cover-meta-color: var(--hd-muted-color);
   --hd-list-margin-bottom: 12px;
   --hd-list-padding-left: 19px;
-  --hd-list-font-size: var(--hd-font-size);
-  --hd-list-line-height: 1.6;
   --hd-list-item-margin-bottom: 4px;
   --hd-math-block-margin: 12px 0;
-  --hd-table-font-size: 12px;
-  --hd-table-bg: transparent;
   --hd-table-border-color: var(--hd-default-border-color);
   --hd-table-cell-padding: 6px 10px;
-  --hd-table-align: left;
   --hd-callout-border-width: 3px;
   --hd-callout-padding-left: 12px;
   --hd-callout-margin-bottom: 12px;
@@ -237,12 +232,45 @@ hd-deck *:after {
   text-decoration: underline !important;
 }
 
-.hd-line-through {
-  text-decoration: line-through !important;
-}
-
 .hd-text-justified {
   text-align: justify !important;
+}
+
+/* Borders */
+.hd-border {
+  border: 1px solid var(--hd-default-border-color) !important;
+}
+
+.hd-border.hd-primary {
+  border-color: var(--hd-primary-border-color) !important;
+}
+
+.hd-border.hd-secondary {
+  border-color: var(--hd-secondary-border-color) !important;
+}
+
+.hd-border.hd-accent {
+  border-color: var(--hd-accent-border-color) !important;
+}
+
+.hd-border.hd-danger {
+  border-color: var(--hd-danger-border-color) !important;
+}
+
+.hd-border.hd-warning {
+  border-color: var(--hd-warning-border-color) !important;
+}
+
+.hd-border.hd-success {
+  border-color: var(--hd-success-border-color) !important;
+}
+
+.hd-border.hd-info {
+  border-color: var(--hd-info-border-color) !important;
+}
+
+.hd-border.hd-muted {
+  border-color: var(--hd-muted-border-color) !important;
 }
 
 /* Background Color highlights */
@@ -258,36 +286,43 @@ hd-slide.hd-primary.hd-background {
   --hd-default-color: var(--hd-primary-color);
   --hd-default-border-color: var(--hd-primary-border-color);
 }
+
 hd-slide.hd-secondary.hd-background {
   --hd-default-background-color: var(--hd-secondary-background-color);
   --hd-default-color: var(--hd-secondary-color);
   --hd-default-border-color: var(--hd-secondary-border-color);
 }
+
 hd-slide.hd-accent.hd-background {
   --hd-default-background-color: var(--hd-accent-background-color);
   --hd-default-color: var(--hd-accent-color);
   --hd-default-border-color: var(--hd-accent-border-color);
 }
+
 hd-slide.hd-danger.hd-background {
   --hd-default-background-color: var(--hd-danger-background-color);
   --hd-default-color: var(--hd-danger-color);
   --hd-default-border-color: var(--hd-danger-border-color);
 }
+
 hd-slide.hd-warning.hd-background {
   --hd-default-background-color: var(--hd-warning-background-color);
   --hd-default-color: var(--hd-warning-color);
   --hd-default-border-color: var(--hd-warning-border-color);
 }
+
 hd-slide.hd-success.hd-background {
   --hd-default-background-color: var(--hd-success-background-color);
   --hd-default-color: var(--hd-success-color);
   --hd-default-border-color: var(--hd-success-border-color);
 }
+
 hd-slide.hd-info.hd-background {
   --hd-default-background-color: var(--hd-info-background-color);
   --hd-default-color: var(--hd-info-color);
   --hd-default-border-color: var(--hd-info-border-color);
 }
+
 hd-slide.hd-muted.hd-background {
   --hd-default-background-color: var(--hd-muted-background-color);
   --hd-default-color: var(--hd-muted-color);
@@ -373,7 +408,6 @@ hd-slide [slot="title"] {
 .hd-card {
   background-color: var(--hd-card-bg);
   color: var(--hd-card-color);
-  border: var(--hd-card-border-width) var(--hd-card-border-style) var(--hd-card-border-color);
   border-radius: var(--hd-card-border-radius);
   padding: var(--hd-card-padding);
   box-shadow: var(--hd-card-shadow);
@@ -384,90 +418,74 @@ hd-slide [slot="title"] {
 /* Support coloring on .hd-card by overriding local variables */
 .hd-card.hd-primary {
   --hd-card-color: var(--hd-primary-color);
-  --hd-card-border-color: var(--hd-primary-border-color);
 }
 
 .hd-card.hd-primary.hd-background {
   --hd-card-bg: var(--hd-primary-background-color);
   --hd-card-color: var(--hd-primary-color);
-  --hd-card-border-color: var(--hd-primary-border-color);
 }
 
 .hd-card.hd-secondary {
   --hd-card-color: var(--hd-secondary-color);
-  --hd-card-border-color: var(--hd-secondary-border-color);
 }
 
 .hd-card.hd-secondary.hd-background {
   --hd-card-bg: var(--hd-secondary-background-color);
   --hd-card-color: var(--hd-secondary-color);
-  --hd-card-border-color: var(--hd-secondary-border-color);
 }
 
 .hd-card.hd-accent {
   --hd-card-color: var(--hd-accent-color);
-  --hd-card-border-color: var(--hd-accent-border-color);
 }
 
 .hd-card.hd-accent.hd-background {
   --hd-card-bg: var(--hd-accent-background-color);
   --hd-card-color: var(--hd-accent-color);
-  --hd-card-border-color: var(--hd-accent-border-color);
 }
 
 .hd-card.hd-danger {
   --hd-card-color: var(--hd-danger-color);
-  --hd-card-border-color: var(--hd-danger-border-color);
 }
 
 .hd-card.hd-danger.hd-background {
   --hd-card-bg: var(--hd-danger-background-color);
   --hd-card-color: var(--hd-danger-color);
-  --hd-card-border-color: var(--hd-danger-border-color);
 }
 
 .hd-card.hd-warning {
   --hd-card-color: var(--hd-warning-color);
-  --hd-card-border-color: var(--hd-warning-border-color);
 }
 
 .hd-card.hd-warning.hd-background {
   --hd-card-bg: var(--hd-warning-background-color);
   --hd-card-color: var(--hd-warning-color);
-  --hd-card-border-color: var(--hd-warning-border-color);
 }
 
 .hd-card.hd-success {
   --hd-card-color: var(--hd-success-color);
-  --hd-card-border-color: var(--hd-success-border-color);
 }
 
 .hd-card.hd-success.hd-background {
   --hd-card-bg: var(--hd-success-background-color);
   --hd-card-color: var(--hd-success-color);
-  --hd-card-border-color: var(--hd-success-border-color);
 }
 
 .hd-card.hd-info {
   --hd-card-color: var(--hd-info-color);
-  --hd-card-border-color: var(--hd-info-border-color);
 }
 
 .hd-card.hd-info.hd-background {
   --hd-card-bg: var(--hd-info-background-color);
   --hd-card-color: var(--hd-info-color);
-  --hd-card-border-color: var(--hd-info-border-color);
 }
 
 .hd-card.hd-muted {
   --hd-card-color: var(--hd-muted-color);
-  --hd-card-border-color: var(--hd-muted-border-color);
 }
 
 .hd-card.hd-muted.hd-background {
   --hd-card-bg: var(--hd-muted-background-color);
   --hd-card-color: var(--hd-muted-color);
-  --hd-card-border-color: var(--hd-muted-border-color);
 }
 
 /* 4. CSS-only Slide Layout Helper Classes (.hd-callout, .hd-text, .hd-list) */
@@ -511,62 +529,47 @@ hd-slide [slot="title"] {
   --hd-callout-border-color: var(--hd-muted-color);
 }
 
-.hd-text {
-  font-family: var(--hd-body-font);
-  font-size: var(--hd-text-font-size);
-  line-height: var(--hd-text-line-height);
+hd-slide p {
   margin: 0;
   margin-bottom: var(--hd-text-margin-bottom);
-  letter-spacing: 0.01em;
 }
 
-.hd-list {
+hd-slide ul,
+hd-slide ol {
   font-family: var(--hd-body-font);
   margin: 0 0 var(--hd-list-margin-bottom) 0;
   padding-left: var(--hd-list-padding-left);
-  font-size: var(--hd-list-font-size);
-  line-height: var(--hd-list-line-height);
+  font-size: var(--hd-text-font-size);
+  line-height: var(--hd-text-line-height);
 }
 
-.hd-list li {
+hd-slide li {
   margin-bottom: var(--hd-list-item-margin-bottom);
 }
 
 /* Nested List Styles */
-ul.hd-list {
+hd-slide ul {
   list-style-type: disc;
 }
 
-ul.hd-list ul.hd-list {
+hd-slide ul ul {
   list-style-type: circle;
-  margin-bottom: 0;
-  margin-top: 2px;
-  font-size: 12px;
 }
 
-ul.hd-list ul.hd-list ul.hd-list {
+hd-slide ul ul ul {
   list-style-type: square;
-  margin-bottom: 0;
-  margin-top: 2px;
-  font-size: 12px;
 }
 
-ol.hd-list {
+hd-slide ol {
   list-style-type: decimal;
 }
 
-ol.hd-list ol.hd-list {
+hd-slide ol ol {
   list-style-type: lower-alpha;
-  margin-bottom: 0;
-  margin-top: 2px;
-  font-size: 12px;
 }
 
-ol.hd-list ol.hd-list ol.hd-list {
+hd-slide ol ol ol {
   list-style-type: lower-roman;
-  margin-bottom: 0;
-  margin-top: 2px;
-  font-size: 12px;
 }
 
 /* 5. Standard Table Styling (for un-encapsulated tables in slides) */
@@ -575,14 +578,14 @@ hd-slide table {
   border-collapse: collapse;
   margin-bottom: 16px;
   font-family: var(--hd-body-font);
-  font-size: var(--hd-table-font-size);
-  background-color: var(--hd-table-bg);
+  font-size: var(--hd-text-font-size);
+  background-color: transparent;
 }
 
 hd-slide th,
 hd-slide td {
   padding: var(--hd-table-cell-padding);
-  text-align: var(--hd-table-align);
+  text-align: left;
   border-bottom: 1px solid var(--hd-table-border-color);
 }
 

@@ -123,7 +123,7 @@ export default defineConfig({
     <hd-slide>
       <hd-layout-cover>
         <h1 slot="title"><span class="gradient-title">Welcome to HTML-Deck</span></h1>
-        <p class="hd-text" slot="subtitle">A modern WebComponents slideshow platform scaffolded via CLI.</p>
+        <p slot="subtitle">A modern WebComponents slideshow platform scaffolded via CLI.</p>
       </hd-layout-cover>
       <div slot="notes">
         <h2>Speaker Notes: Slide 1</h2>
@@ -137,8 +137,8 @@ export default defineConfig({
         <h2 slot="title">Rich Features & Code Blocks</h2>
         
         <div slot="left">
-          <p class="hd-text">You can declare components like lists, tables, callouts, and math:</p>
-          <ul class="hd-list">
+          <p>You can declare components like lists, tables, callouts, and math:</p>
+          <ul>
             <li>Interactive layout presets</li>
             <li>Prism code highlighting</li>
             <li>Offline KaTeX equations</li>

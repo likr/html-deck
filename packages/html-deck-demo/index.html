@@ -366,23 +366,31 @@
   &lt;<span class="tag">hd-deck</span> <span class="attr">transition</span>=<span class="val">"fade"</span> <span class="attr">presenter-url</span>=<span class="val">"./demo/features/presenter.html"</span> <span class="attr">aspect-ratio</span>=<span class="val">"16:9"</span>&gt;
     
     <span class="comment">&lt;!-- Title Slide --&gt;</span>
-    &lt;<span class="tag">hd-slide</span> <span class="attr">layout</span>=<span class="val">"title"</span>&gt;
-      &lt;<span class="tag">hd-heading</span>&gt;Welcome to HTML-Deck&lt;/<span class="tag">hd-heading</span>&gt;
-      &lt;<span class="tag">hd-text</span>&gt;An elegant presentation engine&lt;/<span class="tag">hd-text</span>&gt;
+    &lt;<span class="tag">hd-slide</span>&gt;
+      &lt;<span class="tag">hd-layout-cover</span>&gt;
+        &lt;<span class="tag">h1</span> <span class="attr">slot</span>=<span class="val">"title"</span>&gt;&lt;<span class="tag">span</span> <span class="attr">class</span>=<span class="val">"gradient-title"</span>&gt;Welcome to HTML-Deck&lt;/<span class="tag">span</span>&gt;&lt;/<span class="tag">h1</span>&gt;
+        &lt;<span class="tag">p</span> <span class="attr">slot</span>=<span class="val">"subtitle"</span>&gt;A modern WebComponents slideshow platform.&lt;/<span class="tag">p</span>&gt;
+      &lt;/<span class="tag">hd-layout-cover</span>&gt;
+      &lt;<span class="tag">div</span> <span class="attr">slot</span>=<span class="val">"notes"</span>&gt;
+        &lt;<span class="tag">h2</span>&gt;Speaker Notes: Slide 1&lt;/<span class="tag">h2</span>&gt;
+        &lt;<span class="tag">p</span>&gt;Edit index.html to add your custom content.&lt;/<span class="tag">p</span>&gt;
+      &lt;/<span class="tag">div</span>&gt;
     &lt;/<span class="tag">hd-slide</span>&gt;
 
     <span class="comment">&lt;!-- Bullet Slide with Speaker Notes --&gt;</span>
-    &lt;<span class="tag">hd-slide</span> <span class="attr">layout</span>=<span class="val">"title-body"</span>&gt;
-      &lt;<span class="tag">hd-heading</span> <span class="attr">slot</span>=<span class="val">"title"</span> <span class="attr">level</span>=<span class="val">"2"</span>&gt;Presentation Agenda&lt;/<span class="tag">hd-heading</span>&gt;
-      &lt;<span class="tag">hd-list</span>&gt;
-        &lt;<span class="tag">li</span>&gt;WebComponents Introduction&lt;/<span class="tag">li</span>&gt;
-        &lt;<span class="tag">li</span>&gt;Declarative layouts&lt;/<span class="tag">li</span>&gt;
-        &lt;<span class="tag">li</span>&gt;KaTeX & PrismJS rendering&lt;/<span class="tag">li</span>&gt;
-      &lt;/<span class="tag">hd-list</span>&gt;
-      &lt;<span class="tag">hd-notes</span>&gt;
+    &lt;<span class="tag">hd-slide</span>&gt;
+      &lt;<span class="tag">hd-layout</span>&gt;
+        &lt;<span class="tag">h2</span> <span class="attr">slot</span>=<span class="val">"title"</span>&gt;Presentation Agenda&lt;/<span class="tag">h2</span>&gt;
+        &lt;<span class="tag">ul</span>&gt;
+          &lt;<span class="tag">li</span>&gt;WebComponents Introduction&lt;/<span class="tag">li</span>&gt;
+          &lt;<span class="tag">li</span>&gt;Declarative layouts&lt;/<span class="tag">li</span>&gt;
+          &lt;<span class="tag">li</span>&gt;KaTeX & PrismJS rendering&lt;/<span class="tag">li</span>&gt;
+        &lt;/<span class="tag">ul</span>&gt;
+      &lt;/<span class="tag">hd-layout</span>&gt;
+      &lt;<span class="tag">div</span> <span class="attr">slot</span>=<span class="val">"notes"</span>&gt;
         &lt;<span class="tag">h2</span>&gt;Presenter notes&lt;/<span class="tag">h2</span>&gt;
-        &lt;<span class="tag">p</span>&gt;Emphasize that custom elements prevent library pollution.&lt;/p&gt;
-      &lt;/<span class="tag">hd-notes</span>&gt;
+        &lt;<span class="tag">p</span>&gt;Emphasize that custom elements prevent library pollution.&lt;/<span class="tag">p</span>&gt;
+      &lt;/<span class="tag">div</span>&gt;
     &lt;/<span class="tag">hd-slide</span>&gt;
 
   &lt;/<span class="tag">hd-deck</span>&gt;

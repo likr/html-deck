@@ -1,4 +1,4 @@
-export class HdLayoutStandard extends HTMLElement {
+export class HdLayout extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });

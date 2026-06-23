@@ -26,20 +26,20 @@ h3 {
     margin-bottom: 16px !important;
 }
 
-.hd-text {
+p {
     --hd-text-font-size: 26px !important;
     --hd-text-margin-bottom: 16px !important;
     line-height: 1.6 !important;
 }
 
-.hd-list {
-    --hd-list-font-size: 38px !important;
-    --hd-list-line-height: 1.6 !important;
+ul, ol {
+    --hd-text-font-size: 38px !important;
+    --hd-text-line-height: 1.6 !important;
     --hd-list-item-margin-bottom: 16px !important;
 }
 
-hd-layout-split .hd-list {
-    --hd-list-font-size: 26px !important;
+hd-layout-split ul, hd-layout-split ol {
+    --hd-text-font-size: 26px !important;
     --hd-list-item-margin-bottom: 8px !important;
 }
 

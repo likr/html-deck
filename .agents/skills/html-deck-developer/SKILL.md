@@ -132,10 +132,10 @@ Because descendants of `::slotted(table)` (like `th`, `td`, `tr`) cannot be styl
 - **Pattern**: Hide the primary slot in CSS (`slot { display: none; }`).
 - **Pattern**: Listen for the `slotchange` event on the slot. Extract the assigned table element, clone it via `table.cloneNode(true)`, and append it into a container within the Shadow DOM. This enables full Shadow DOM styling boundaries on standard table elements.
 
-### 8. Scrollable Containment and Custom Height Styling
-When slide content exceeds the standard 960x540 canvas boundaries, use `scrollable` containment:
-- **Pattern**: Declare a `scrollable` attribute that accepts a boolean or custom height value (e.g. `scrollable="300px"`).
-- **Pattern**: In `attributeChangedCallback`, parse the attribute value. If a value is provided, dynamically set a CSS variable (like `--scroll-height`) on the host element. In CSS, use `:host([scrollable]) pre { max-height: var(--scroll-height, 250px); overflow-y: auto; }` to restrict height and activate standard scrollbars.
+### 8. Slide Overflow & Container Scrolling (Scrollable Decommissioned)
+Slide-level `scrollable` and `height` attributes on `<hd-slide>` are fully decommissioned.
+- **Pattern**: If contents inside a slide exceed standard 960x540 canvas boundaries, use standard CSS properties on local content containers (such as cards or divs) to restrict height and enable scrolling:
+  `style="max-height: 250px; overflow-y: auto;"`
 
 ### 9. Keyboard Shortcut Modifier Checks
 To avoid overriding default browser actions (such as `Ctrl + P` / `Cmd + P` for printing, or page refreshes), keydown event handlers must ignore events accompanied by modifier keys.
@@ -179,6 +179,6 @@ To avoid overriding default browser actions (such as `Ctrl + P` / `Cmd + P` for 
 - Rule: All specific element color variables like `--hd-link-color`, `--hd-list-color`, and `--hd-math-color` are discarded. Links, lists, math, and slot="title" elements inherit slide text color by default, and are styled via direct color classes (e.g. `.hd-primary`).
 - Rule: Color class utilities use the form `.hd-primary`, `.hd-secondary`, etc. to style text color. The deprecated `.hd-text-*` and `.hd-bg-*` classes are not used.
 - Rule: Background highlights are configured using the helper class `.hd-background` combined with a color class (e.g., `class="hd-primary hd-background"`). When combined, this sets the background color and automatically sets the text color to a theme-defined contrast variable (e.g., `--hd-primary-contrast-color`).
-- Rule: Card components use `.hd-card` which styles borders, border-radius, background-color, and text-color. Card colors are customized by adding color classes (e.g., `class="hd-card hd-primary"`), which override local custom properties (`--hd-card-bg`, `--hd-card-color`, `--hd-card-border-color`) to maintain consistent border and text styles.
-- Rule: Link elements (`<a>`) inside slides default to `text-decoration: none` and inherit color. Underlining must be explicitly added using the `.hd-underlined` utility class. Other text transformations use `.hd-capitalized`, `.hd-lowercase`, and `.hd-uppercase`.
+- Rule: Card components use `.hd-card` which styles border-radius, background-color, and text-color. Cards do NOT draw borders by default. To add a border, explicitly include the `.hd-border` utility class (e.g., `class="hd-card hd-border"`), which automatically applies themed border colors when combined with color classes (e.g., `class="hd-card hd-primary hd-border"`).
+- Rule: Link elements (`<a>`) inside slides default to `text-decoration: none` and inherit color. Underlining must be explicitly added using the `.hd-underlined` utility class. Other text transformations use `.hd-capitalized`, `.hd-lowercase`, and `.hd-uppercase`. The class `.hd-line-through` has been deleted; use the standard HTML `<s>` tag instead.
 
