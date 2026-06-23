@@ -113,7 +113,7 @@
         <h2 slot="title">Standard Layout Component</h2>
         <p>This slide uses <code>&lt;hd-layout&gt;</code> which renders title and body areas, while 
           the <code>header</code> and <code>footer</code> slots are managed by the parent <code>&lt;hd-slide&gt;</code>.</p>
-        <div class="hd-card hd-muted hd-background hd-border">
+        <div class="hd-card hd-muted hd-border">
           <p>Header and footer content are absolutely positioned inside the margins, aligned with the slide's content padding boundaries.</p>
         </div>
       </hd-layout>
@@ -128,13 +128,13 @@
     <hd-slide>
       <hd-layout-split ratio="1:1">
         <h2 slot="title">Split Layout (1:1 Ratio)</h2>
-        <div slot="left" class="hd-card hd-primary hd-background hd-border">
+        <div slot="left" class="hd-card hd-primary hd-border">
           <h3>Left Column</h3>
           <p>Arranges contents side-by-side automatically into two equal-width columns when
             <code>ratio="1:1"</code> (default).
           </p>
         </div>
-        <div slot="right" class="hd-card hd-secondary hd-background hd-border">
+        <div slot="right" class="hd-card hd-secondary hd-border">
           <h3>Right Column</h3>
           <p>Excellent for comparisons, listing pros and cons, or showing text side-by-side with images.
           </p>
@@ -150,7 +150,7 @@
     <hd-slide>
       <hd-layout-split ratio="1:2">
         <h2 slot="title">Split Layout (Custom 1:2 Ratio)</h2>
-        <div slot="left" class="hd-card hd-info hd-background hd-border">
+        <div slot="left" class="hd-card hd-info hd-border">
           <h3>Sidebar</h3>
           <p>Using <code>ratio="1:2"</code> makes the right column twice as wide as the left column.</p>
         </div>
@@ -168,7 +168,7 @@
 
     <!-- Slide 5: Blank Layout & Vertical Centering -->
     <hd-slide center>
-      <div class="hd-card hd-max-w-2 hd-mx-auto hd-text-center hd-border">
+      <div class="hd-card hd-width-8 hd-align-center hd-text-center hd-border">
         <h2 class="hd-accent">Blank Layout & Slide Centering</h2>
         <p>Using a slide without any layout component (like <code>&lt;hd-layout&gt;</code>)
           gives you a blank canvas.</p>
@@ -185,7 +185,7 @@
     <hd-slide center>
       <hd-layout>
         <h2 slot="title">Centering inside Standard Layout</h2>
-        <div class="hd-callout hd-primary hd-mx-auto hd-max-w-2">
+        <div class="hd-callout hd-primary hd-align-center hd-width-8">
           <p class="hd-text-4">Title remains aligned at the top...</p>
           <p>...while the body contents are vertically centered inside the remaining layout space!</p>
         </div>
@@ -374,11 +374,11 @@
             <p class="hd-text-weight-bold">Standard Card</p>
             <p class="hd-text-5">Simple border box styled with default colors.</p>
           </div>
-          <div class="hd-card hd-primary hd-background hd-border" style="flex: 1;">
+          <div class="hd-card hd-primary hd-border" style="flex: 1;">
             <p class="hd-text-weight-bold">Primary Themed Card</p>
             <p class="hd-text-5">Filled with the primary background color and contrast text.</p>
           </div>
-          <div class="hd-card hd-secondary hd-background hd-border" style="flex: 1;">
+          <div class="hd-card hd-secondary hd-border" style="flex: 1;">
             <p class="hd-text-weight-bold">Secondary Themed Card</p>
             <p class="hd-text-5">Filled with the secondary background color and contrast text.</p>
           </div>
@@ -420,7 +420,7 @@
         <h2 slot="title">Footer Annotations</h2>
         <p>Use <code>slot="footer"</code> to add minor details, page notes, or citations at the bottom-left of the
           slide canvas.</p>
-        <div class="hd-card hd-muted hd-background hd-border hd-mt-4">
+        <div class="hd-card hd-muted hd-border hd-mt-4">
           <p>Footer content is absolute-positioned inside the slide bottom margin, so it stays completely out of the way of layout cards and content elements.</p>
         </div>
       </hd-layout>
@@ -436,7 +436,7 @@
       <hd-layout>
         <h2 slot="title">Content Overflow & Scrolling</h2>
         <p>When contents exceed standard boundaries, add scrolling to containers (like cards) using standard CSS properties:</p>
-        <div class="hd-card hd-danger hd-background hd-border" style="max-height: 250px; overflow-y: auto;">
+        <div class="hd-card hd-danger hd-border" style="max-height: 250px; overflow-y: auto;">
           <p class="hd-text-weight-bold">Scrollable Content Block</p>
           <p>This list is long and overflows the container. Scroll to read more.</p>
           <ul>
@@ -460,13 +460,13 @@
     </hd-slide>
 
     <!-- Slide 18: Individual Contrast Override -->
-    <hd-slide class="hd-primary hd-background">
+    <hd-slide class="hd-primary">
       <hd-layout>
         <h2 slot="title">Individual Contrast Override</h2>
-        <p>Applying <code>class="hd-primary hd-background"</code> directly to
+        <p>Applying <code>class="hd-primary"</code> directly to
           <code>&lt;hd-slide&gt;</code> overrides its background and text colors completely.
         </p>
-        <div class="hd-card hd-muted hd-background hd-border hd-mt-4">
+        <div class="hd-card hd-muted hd-border hd-mt-4">
           <p>This specific slide will remain styled with the contrast colors regardless of what global
             theme is loaded, making it perfect for section divider slides or key highlights.</p>
         </div>

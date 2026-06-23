@@ -174,18 +174,32 @@ To avoid overriding default browser actions (such as `Ctrl + P` / `Cmd + P` for 
 - Rule: All layouts, margins, gaps, max-widths, and text sizes use a unified numeric suffix (`0`, `1`, `2`...) instead of semantic sizes (`xs`, `sm`, `md`, `lg`, `xl`, `2xl`).
 - Rule: For font sizes, `1` is the largest (`--hd-text-size-1: 32px`) and `6` is the smallest (`12px`).
 - Rule: For spacing/gaps, `1` is the smallest (`4px`) and `6` is the largest (`48px`). Suffix `0` represents `0px`.
+- Rule: Widths are configured using standard 12-column percentages: `.hd-width-1` through `.hd-width-12` setting `width: calc(100% * x / 12) !important;`. The old `.hd-max-w-*` and `.hd-w-full` are fully deprecated.
 - Rule: Font weights are named semantically rather than using numbers. They are structured under the `.hd-text-weight-*` namespace: `.hd-text-weight-light`, `.hd-text-weight-normal`, `.hd-text-weight-medium`, `.hd-text-weight-semibold`, `.hd-text-weight-bold`, and `.hd-text-weight-extrabold`.
 
 ### 16. Unified Color Utilities, Text Transformations, and Cards
 - Rule: All specific element color variables like `--hd-link-color`, `--hd-list-color`, and `--hd-math-color` are discarded. Links, lists, math, and slot="title" elements inherit slide text color by default, and are styled via direct color classes (e.g. `.hd-primary`).
 - Rule: Color class utilities use the form `.hd-primary`, `.hd-secondary`, etc. to style text color. The deprecated `.hd-text-*` and `.hd-bg-*` classes are not used.
-- Rule: Background highlights are configured using the helper class `.hd-background` combined with a color class (e.g., `class="hd-primary hd-background"`). When combined, this sets the background color and automatically sets the text color to a theme-defined contrast variable (e.g., `--hd-primary-contrast-color`).
+- Rule: The `.hd-background` helper class is abolished. When color classes (e.g., `.hd-primary`, `.hd-secondary`) are applied directly to background containers like `hd-slide` and `.hd-card`, they automatically change their background and text colors to the corresponding contrast palette values.
 - Rule: Card components use `.hd-card` which styles border-radius, background-color, and text-color. Cards do NOT draw borders by default. To add a border, explicitly include the `.hd-border` utility class (e.g., `class="hd-card hd-border"`), which automatically applies themed border colors when combined with color classes (e.g., `class="hd-card hd-primary hd-border"`).
 - Rule: Link elements (`<a>`) inside slides default to `text-decoration: none` and inherit color. Underlining must be explicitly added using the `.hd-underlined` utility class. Other text transformations use `.hd-capitalized`, `.hd-lowercase`, and `.hd-uppercase`. The class `.hd-line-through` has been deleted; use the standard HTML `<s>` tag instead.
 
 ### 17. Slide-Level Absolute Positioned Margins & Padding Alignment
 - Rule: Slide padding is managed at the `hd-slide` level (on `.slide-content`). Layout components like `hd-layout`, `hd-layout-split`, and `hd-layout-cover` must not apply their own padding to prevent double-padding.
-- Rule: When positioning header and footer elements absolutely in the margins, use directional variables (e.g., `--hd-slide-padding-left`) to align their left edges perfectly with the slide's content box.
+- Rule: When positioning header, footer, and page-number elements absolutely in the margins, use the unified peripheral variables:
+  - `--peripheral-font-size` (defaults to `9px`)
+  - `--peripheral-line-height` (defaults to `1`)
+  - `--peripheral-header-top` (defaults to `12px`)
+  - `--peripheral-footer-bottom` (defaults to `12px`)
+- Rule: The page number is positioned vertically at `bottom: var(--peripheral-footer-bottom, 12px)` to ensure consistency with the footer.
 - Trap (Shadow DOM Slot Querying): In Shadow DOM, calling `shadowRoot.querySelector('slot')` selects the first slot in DOM order. If named slots (like `header` or `footer`) are placed before the default slot in the template, `querySelector('slot')` will incorrectly select the named slot instead of the default slot. Always use `querySelector('slot:not([name])')` to safely target the default slot.
+
+### 18. Directional Alignment Utilities
+- Rule: The horizontal block-centering helper `.hd-mx-auto` is fully abolished. Block horizontal and vertical alignments are controlled using directional classes:
+  - Horizontal: `.hd-align-left`, `.hd-align-center`, `.hd-align-right`
+  - Vertical (for flex containers): `.hd-align-top`, `.hd-align-middle`, `.hd-align-bottom`
+
+### 19. Deprecated Math & Code Helper Classes
+- Rule: `.hd-code-scrollable`, `.hd-math-block`, and `.hd-math-inline` are fully deleted. standard math rendering is managed by KaTeX auto-render parsing standard math tags (such as `div` and `span` with math delimiters `$$` or `\(`). Standard overflow-y settings are applied directly to pre or block code elements.
 
 

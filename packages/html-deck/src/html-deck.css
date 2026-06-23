@@ -89,33 +89,37 @@
   --hd-list-margin-bottom: 12px;
   --hd-list-padding-left: 19px;
   --hd-list-item-margin-bottom: 4px;
-  --hd-math-block-margin: 12px 0;
   --hd-table-border-color: var(--hd-default-border-color);
   --hd-table-cell-padding: 6px 10px;
   --hd-callout-border-width: 3px;
   --hd-callout-padding-left: 12px;
   --hd-callout-margin-bottom: 12px;
-  --hd-page-number-font-size: 9px;
+
+  /* Peripheral variables */
+  --peripheral-font-size: 9px;
+  --peripheral-line-height: 1;
+  --peripheral-header-top: 12px;
+  --peripheral-footer-bottom: 12px;
+
   --hd-page-number-color: var(--hd-muted-color);
   --hd-footnote-bottom: 12px;
   --hd-footnote-left: 16px;
-  --hd-footnote-font-size: var(--hd-page-number-font-size);
+  --hd-footnote-font-size: var(--peripheral-font-size);
   --hd-footnote-color: var(--hd-muted-color);
   --hd-footnote-opacity: 0.85;
 
-  --hd-header-top: 12px;
+  --hd-header-top: var(--peripheral-header-top);
   --hd-header-left: var(--hd-slide-padding-left);
-  --hd-header-font-size: var(--hd-text-size-6);
+  --hd-header-font-size: var(--peripheral-font-size);
   --hd-header-color: var(--hd-muted-color);
   --hd-header-opacity: 0.85;
 
-  --hd-footer-bottom: 12px;
+  --hd-footer-bottom: var(--peripheral-footer-bottom);
   --hd-footer-left: var(--hd-slide-padding-left);
-  --hd-footer-font-size: var(--hd-text-size-6);
+  --hd-footer-font-size: var(--peripheral-font-size);
   --hd-footer-color: var(--hd-muted-color);
   --hd-footer-opacity: 0.85;
   --hd-codeblock-border: var(--hd-default-border-color);
-  --hd-code-scrollable-height: 250px;
   --hd-text-font-size: var(--hd-font-size);
   --hd-text-line-height: 1.6;
   --hd-text-margin-bottom: 8px;
@@ -289,100 +293,53 @@ hd-deck *:after {
   border-color: var(--hd-muted-border-color) !important;
 }
 
-/* Background Color highlights */
-.hd-background {
-  padding: 2px 6px;
-  border-radius: 4px;
-  display: inline-block;
-}
-
 /* hd-slide color/background overrides */
-hd-slide.hd-primary.hd-background {
+hd-slide.hd-primary {
   --hd-default-background-color: var(--hd-primary-background-color);
   --hd-default-color: var(--hd-primary-color);
   --hd-default-border-color: var(--hd-primary-border-color);
 }
 
-hd-slide.hd-secondary.hd-background {
+hd-slide.hd-secondary {
   --hd-default-background-color: var(--hd-secondary-background-color);
   --hd-default-color: var(--hd-secondary-color);
   --hd-default-border-color: var(--hd-secondary-border-color);
 }
 
-hd-slide.hd-accent.hd-background {
+hd-slide.hd-accent {
   --hd-default-background-color: var(--hd-accent-background-color);
   --hd-default-color: var(--hd-accent-color);
   --hd-default-border-color: var(--hd-accent-border-color);
 }
 
-hd-slide.hd-danger.hd-background {
+hd-slide.hd-danger {
   --hd-default-background-color: var(--hd-danger-background-color);
   --hd-default-color: var(--hd-danger-color);
   --hd-default-border-color: var(--hd-danger-border-color);
 }
 
-hd-slide.hd-warning.hd-background {
+hd-slide.hd-warning {
   --hd-default-background-color: var(--hd-warning-background-color);
   --hd-default-color: var(--hd-warning-color);
   --hd-default-border-color: var(--hd-warning-border-color);
 }
 
-hd-slide.hd-success.hd-background {
+hd-slide.hd-success {
   --hd-default-background-color: var(--hd-success-background-color);
   --hd-default-color: var(--hd-success-color);
   --hd-default-border-color: var(--hd-success-border-color);
 }
 
-hd-slide.hd-info.hd-background {
+hd-slide.hd-info {
   --hd-default-background-color: var(--hd-info-background-color);
   --hd-default-color: var(--hd-info-color);
   --hd-default-border-color: var(--hd-info-border-color);
 }
 
-hd-slide.hd-muted.hd-background {
+hd-slide.hd-muted {
   --hd-default-background-color: var(--hd-muted-background-color);
   --hd-default-color: var(--hd-muted-color);
   --hd-default-border-color: var(--hd-muted-border-color);
-}
-
-.hd-primary.hd-background {
-  background-color: var(--hd-primary-background-color) !important;
-  color: var(--hd-primary-color) !important;
-}
-
-.hd-secondary.hd-background {
-  background-color: var(--hd-secondary-background-color) !important;
-  color: var(--hd-secondary-color) !important;
-}
-
-.hd-accent.hd-background {
-  background-color: var(--hd-accent-background-color) !important;
-  color: var(--hd-accent-color) !important;
-}
-
-.hd-danger.hd-background {
-  background-color: var(--hd-danger-background-color) !important;
-  color: var(--hd-danger-color) !important;
-}
-
-.hd-warning.hd-background {
-  background-color: var(--hd-warning-background-color) !important;
-  color: var(--hd-warning-color) !important;
-}
-
-.hd-success.hd-background {
-  background-color: var(--hd-success-background-color) !important;
-  color: var(--hd-success-color) !important;
-}
-
-.hd-info.hd-background {
-  background-color: var(--hd-info-background-color) !important;
-  color: var(--hd-info-color) !important;
-}
-
-.hd-muted.hd-background {
-  background-color: var(--hd-muted-background-color) !important;
-  color: var(--hd-muted-color) !important;
 }
 
 /* 3. Global HTML Deck Element Selectors */
@@ -433,73 +390,41 @@ hd-slide [slot="title"] {
 
 /* Support coloring on .hd-card by overriding local variables */
 .hd-card.hd-primary {
-  --hd-card-color: var(--hd-primary-color);
-}
-
-.hd-card.hd-primary.hd-background {
   --hd-card-bg: var(--hd-primary-background-color);
   --hd-card-color: var(--hd-primary-color);
 }
 
 .hd-card.hd-secondary {
-  --hd-card-color: var(--hd-secondary-color);
-}
-
-.hd-card.hd-secondary.hd-background {
   --hd-card-bg: var(--hd-secondary-background-color);
   --hd-card-color: var(--hd-secondary-color);
 }
 
 .hd-card.hd-accent {
-  --hd-card-color: var(--hd-accent-color);
-}
-
-.hd-card.hd-accent.hd-background {
   --hd-card-bg: var(--hd-accent-background-color);
   --hd-card-color: var(--hd-accent-color);
 }
 
 .hd-card.hd-danger {
-  --hd-card-color: var(--hd-danger-color);
-}
-
-.hd-card.hd-danger.hd-background {
   --hd-card-bg: var(--hd-danger-background-color);
   --hd-card-color: var(--hd-danger-color);
 }
 
 .hd-card.hd-warning {
-  --hd-card-color: var(--hd-warning-color);
-}
-
-.hd-card.hd-warning.hd-background {
   --hd-card-bg: var(--hd-warning-background-color);
   --hd-card-color: var(--hd-warning-color);
 }
 
 .hd-card.hd-success {
-  --hd-card-color: var(--hd-success-color);
-}
-
-.hd-card.hd-success.hd-background {
   --hd-card-bg: var(--hd-success-background-color);
   --hd-card-color: var(--hd-success-color);
 }
 
 .hd-card.hd-info {
-  --hd-card-color: var(--hd-info-color);
-}
-
-.hd-card.hd-info.hd-background {
   --hd-card-bg: var(--hd-info-background-color);
   --hd-card-color: var(--hd-info-color);
 }
 
 .hd-card.hd-muted {
-  --hd-card-color: var(--hd-muted-color);
-}
-
-.hd-card.hd-muted.hd-background {
   --hd-card-bg: var(--hd-muted-background-color);
   --hd-card-color: var(--hd-muted-color);
 }
@@ -641,27 +566,87 @@ hd-slide th {
   margin-top: var(--hd-gap-6) !important;
 }
 
-/* Width Limiters & Centering */
-.hd-max-w-1 {
-  max-width: 400px !important;
+/* Width Classes (x/12 sizes) */
+.hd-width-1 {
+  width: calc(100% * 1 / 12) !important;
 }
 
-.hd-max-w-2 {
-  max-width: 600px !important;
+.hd-width-2 {
+  width: calc(100% * 2 / 12) !important;
 }
 
-.hd-max-w-3 {
-  max-width: 800px !important;
+.hd-width-3 {
+  width: calc(100% * 3 / 12) !important;
 }
 
-.hd-w-full {
+.hd-width-4 {
+  width: calc(100% * 4 / 12) !important;
+}
+
+.hd-width-5 {
+  width: calc(100% * 5 / 12) !important;
+}
+
+.hd-width-6 {
+  width: calc(100% * 6 / 12) !important;
+}
+
+.hd-width-7 {
+  width: calc(100% * 7 / 12) !important;
+}
+
+.hd-width-8 {
+  width: calc(100% * 8 / 12) !important;
+}
+
+.hd-width-9 {
+  width: calc(100% * 9 / 12) !important;
+}
+
+.hd-width-10 {
+  width: calc(100% * 10 / 12) !important;
+}
+
+.hd-width-11 {
+  width: calc(100% * 11 / 12) !important;
+}
+
+.hd-width-12 {
   width: 100% !important;
 }
 
-.hd-mx-auto {
+/* Directional Alignment Classes */
+.hd-align-left {
+  margin-right: auto !important;
+  margin-left: 0 !important;
+  display: block !important;
+}
+
+.hd-align-center {
   margin-left: auto !important;
   margin-right: auto !important;
   display: block !important;
+}
+
+.hd-align-right {
+  margin-left: auto !important;
+  margin-right: 0 !important;
+  display: block !important;
+}
+
+.hd-align-top {
+  margin-bottom: auto !important;
+  margin-top: 0 !important;
+}
+
+.hd-align-middle {
+  margin-top: auto !important;
+  margin-bottom: auto !important;
+}
+
+.hd-align-bottom {
+  margin-top: auto !important;
+  margin-bottom: 0 !important;
 }
 
 /* Text Alignments */
@@ -686,7 +671,7 @@ hd-slide th {
   width: 100% !important;
 }
 
-/* 7. Code & Math Standard Tag Styles & Utilities */
+/* 7. Code Standard Tag Styles */
 
 /* Code block container defaults matching the slide theme */
 hd-slide pre {
@@ -695,23 +680,4 @@ hd-slide pre {
   border: 1px solid var(--hd-codeblock-border);
   border-radius: 8px;
   overflow: auto;
-}
-
-/* Scrollable container utility class */
-.hd-code-scrollable {
-  max-height: var(--hd-code-scrollable-height) !important;
-  overflow-y: auto !important;
-}
-
-/* Math utility classes for standard tags (e.g. span, div) */
-.hd-math-block {
-  display: block !important;
-  text-align: center !important;
-  margin: var(--hd-math-block-margin) !important;
-  color: inherit !important;
-}
-
-.hd-math-inline {
-  display: inline-block !important;
-  color: inherit !important;
 }

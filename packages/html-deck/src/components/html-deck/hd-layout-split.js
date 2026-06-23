@@ -36,6 +36,7 @@ export class HdLayoutSplit extends HTMLElement {
       <div class="title-area">
         <slot name="title"></slot>
       </div>
+      <slot name="before"></slot>
       <div class="split-container" id="split-container">
         <div class="left-pane">
           <slot name="left"></slot>
@@ -44,6 +45,7 @@ export class HdLayoutSplit extends HTMLElement {
           <slot name="right"></slot>
         </div>
       </div>
+      <slot name="after"></slot>
     `;
   }
 

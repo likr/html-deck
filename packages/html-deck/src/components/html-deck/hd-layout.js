@@ -26,9 +26,11 @@ export class HdLayout extends HTMLElement {
       <div class="title-area">
         <slot name="title"></slot>
       </div>
+      <slot name="before"></slot>
       <div class="body-area">
         <slot></slot>
       </div>
+      <slot name="after"></slot>
     `;
   }
 }

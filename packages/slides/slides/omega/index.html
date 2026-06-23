@@ -58,8 +58,8 @@
             <h3><span class="icon">🔍</span> ストレスベースのグラフ描画</h3>
             <p class="hd-text-5">
               ノード間の<strong>「理想的な距離」</strong>と、画面上の<strong>「実際の距離」</strong>の差の二乗誤差（ストレス）を最小化する最適化問題。
-              <div class="hd-math-block">$$E(X) = \sum_{i \lt j} w_{ij} (||x_i - x_j|| - d_{ij})^2$$</div>
-              ここで <span class="hd-math-inline">\(d_{ij}\)</span> が理想的な距離、 <span class="hd-math-inline">\(w_{ij}\)</span> は重み。
+              <div>$$E(X) = \sum_{i \lt j} w_{ij} (||x_i - x_j|| - d_{ij})^2$$</div>
+              ここで <span>\(d_{ij}\)</span> が理想的な距離、 <span>\(w_{ij}\)</span> は重み。
             </p>
           </div>
 
@@ -67,8 +67,8 @@
             <h3><span class="icon">⚠️</span> 従来手法（最短経路距離）の課題</h3>
             <ul class="hd-text-6">
               <li><strong>大域的構造の欠落：</strong> 最短経路は「1つの最短パス」しか見ないため、並列する複数の迂回経路があるような「強いつながり（クラスタ）」を大域的に捉えられない。</li>
-              <li><strong>高コストな全対最短経路計算：</strong> すべてのノード間の最短経路距離を事前に求めると <span class="hd-math-inline">\(\mathcal{O}(V^3)\)</span> や
-                <span class="hd-math-inline">\(\mathcal{O}(V^2 \log V + VE)\)</span> の計算量が必要となり、大規模グラフではメモリ・CPUともに限界に達する。
+              <li><strong>高コストな全対最短経路計算：</strong> すべてのノード間の最短経路距離を事前に求めると <span>\(\mathcal{O}(V^3)\)</span> や
+                <span>\(\mathcal{O}(V^2 \log V + VE)\)</span> の計算量が必要となり、大規模グラフではメモリ・CPUともに限界に達する。
               </li>
             </ul>
           </div>
@@ -93,7 +93,7 @@
         <h2 slot="title">キーコンセプト：抵抗距離 (Resistance Distance)</h2>
 
         <p class="hd-text-5">
-          グラフを<strong>「電気回路（すべてのエッジを1Ωの抵抗とする）」</strong>と見立てたときの、2ノード間の<strong>合成抵抗</strong>を理想距離 <span class="hd-math-inline">\(d_{ij}\)</span>
+          グラフを<strong>「電気回路（すべてのエッジを1Ωの抵抗とする）」</strong>と見立てたときの、2ノード間の<strong>合成抵抗</strong>を理想距離 <span>\(d_{ij}\)</span>
           として採用。
         </p>
 
@@ -179,11 +179,11 @@
 
         <div style="display: flex; gap: var(--hd-gap-3, 16px); width: 100%; box-sizing: border-box;">
           <div class="highlight-card" style="flex: 4; border-left: 3px solid var(--hd-primary-color);">
-            <h3><span class="icon">⚡</span> 線形時間 <span class="hd-math-inline">\(\mathcal{O}(|E|)\)</span> の実現</h3>
+            <h3><span class="icon">⚡</span> 線形時間 <span>\(\mathcal{O}(|E|)\)</span> の実現</h3>
             <ul class="hd-text-6">
               <li><strong>高速な埋め込み事前計算：</strong> グラフラプラシアンの有効な固有値スペクトルを利用し、抵抗距離をユークリッド空間へ高速に等長埋め込み。</li>
               <li><strong>ランダムペアサンプリングの統合：</strong> SGD（確率的勾配降下法）を用いることで、全ノード対のストレスストレス計算を省略。エッジ数に比例した
-                <span class="hd-math-inline">\(\mathcal{O}(|E|)\)</span> 時間での最適化を達成。
+                <span>\(\mathcal{O}(|E|)\)</span> 時間での最適化を達成.
               </li>
             </ul>
           </div>
@@ -282,7 +282,7 @@
             <li><strong>理論的架け橋：</strong>
               「スペクトラルグラフ理論」と「ストレスベースレイアウト」という、独立して研究されがちだった2分野の間に強固な数学的結びつき（抵抗距離の埋め込み）を実証した。</li>
             <li class="hd-mt-2"><strong>実用的な可視化：</strong> 実世界の大規模で複雑なソーシャルネットワークや共著関係ネットワークに対して、高速かつ忠実度の高いレイアウトシステムを
-              <span class="hd-math-inline">\(\mathcal{O}(|E|)\)</span> で提供。
+              <span>\(\mathcal{O}(|E|)\)</span> で提供。
             </li>
           </ul>
         </div>
