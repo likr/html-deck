@@ -163,3 +163,8 @@ To avoid overriding default browser actions (such as `Ctrl + P` / `Cmd + P` for 
   - **Rule**: Define explicit box-sizing rules inside Shadow DOM stylesheets for layout components to keep their layout boundaries safe.
 
 
+### 14. Heading Colors and Title Slot Color Override Pattern
+- **Rule**: Heading elements `h1` through `h6` should not have default colored styles. They should inherit the slide's text color (`var(--hd-slide-text-color, var(--hd-text-color))`) by default so they cleanly support invert/background colors without hardcoded overrides.
+- **Rule**: Elements slotted into `slot="title"` can be styled collectively using `--hd-title-color`. The selector `hd-slide [slot="title"]` is used in global CSS to set this color while falling back to the slide text color.
+
+
