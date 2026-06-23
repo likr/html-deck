@@ -446,10 +446,10 @@
     </hd-slide>
 
     <!-- Slide 18: Individual Contrast Override -->
-    <hd-slide class="hd-primary">
+    <hd-slide type="primary">
       <hd-layout>
         <h2 slot="heading">Individual Contrast Override</h2>
-        <p>Applying <code>class="hd-primary"</code> directly to
+        <p>Applying <code>type="primary"</code> directly to
           <code>&lt;hd-slide&gt;</code> overrides its background and text colors completely.
         </p>
         <div class="hd-card hd-muted hd-border hd-mt-4">
@@ -459,8 +459,19 @@
       </hd-layout>
       <div slot="notes">
         <h3>Slide 18: Contrast overrides</h3>
-        <p>Checks slide-level classes override root theme variable colors.</p>
+        <p>Checks slide-level attributes override root theme variable colors.</p>
       </div>
+    </hd-slide>
+
+    <!-- Slide 18b: Heading-Only Color Class Test -->
+    <hd-slide heading="secondary">
+      <hd-layout>
+        <h2 slot="heading">Heading-Only Secondary Override</h2>
+        <p>This slide is a default/normal slide, but has <code>heading="secondary"</code> set on the slide component.</p>
+        <div class="hd-card hd-border">
+          <p>The heading background/text/glow/divider should use secondary colors dynamically, while the slide body remains standard.</p>
+        </div>
+      </hd-layout>
     </hd-slide>
 
     <!-- Slide 19: Keyboard Navigation & Shortcuts -->

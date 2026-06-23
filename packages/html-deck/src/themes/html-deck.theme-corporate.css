@@ -44,7 +44,10 @@
   --hd-card-color: var(--hd-default-color);
   --hd-card-border-color: var(--hd-default-border-color);
 
+}
+
+hd-slide, hd-slide[heading], hd-slide[type] {
   /* Heading overrides */
-  --hd-layout-heading-bg: var(--hd-primary-color);
-  --hd-layout-heading-color: var(--hd-primary-accent-text-color);
+  --hd-layout-heading-bg: var(--hd-active-highlight-color);
+  --hd-layout-heading-color: var(--hd-active-accent-text-color);
 }

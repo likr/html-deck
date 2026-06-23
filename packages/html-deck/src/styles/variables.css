@@ -48,6 +48,9 @@
   --hd-info-accent-text-color: #ffffff;
   --hd-muted-accent-text-color: #ffffff;
 
+  --hd-active-highlight-color: var(--hd-primary-color);
+  --hd-active-accent-text-color: var(--hd-primary-accent-text-color);
+
   /* Card configuration variables */
   --hd-card-bg: var(--hd-default-background-color);
   --hd-card-color: var(--hd-default-color);
