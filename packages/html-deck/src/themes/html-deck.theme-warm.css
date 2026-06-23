@@ -6,16 +6,8 @@
   --hd-body-font: var(--hd-font-family);
   --hd-heading-font: var(--hd-font-family);
 
-  /* Theme Base variables */
-  --hd-theme-color: #433422;
-  --hd-theme-bg: #fdfaf2;
-  --hd-theme-color-inverted: #fdfaf2;
-  --hd-theme-bg-inverted: #433422;
-  --hd-theme-header-color: var(--hd-muted-color);
-  --hd-theme-header-color-inverted: #fdfaf2;
-
   /* Colors */
-  --hd-default-color: var(--hd-theme-color);
+  --hd-default-color: #433422;   /* Deep Espresso Brown */
   --hd-muted-color: #8c7a65;  /* Muted Soft Brown */
   --hd-primary-color: #d97706;      /* Amber 600 */
   --hd-secondary-color: #be123c;    /* Rose 700 */
@@ -26,7 +18,7 @@
   --hd-info-color: #0d9488;
 
   /* Background colors (used when background is colored, keeping hue/vibe) */
-  --hd-default-background-color: var(--hd-theme-bg);           /* Gentle Warm Ivory */
+  --hd-default-background-color: #fdfaf2;           /* Gentle Warm Ivory */
   --hd-primary-background-color: #fefaf0;
   --hd-secondary-background-color: #fff1f2;
   --hd-accent-background-color: #f0fdf4;
@@ -47,19 +39,8 @@
   --hd-info-border-color: #ccfbf1;
   --hd-muted-border-color: #f0ede9;
 
-  /* Header Text Colors (used as text contrast on solid background banners) */
-  --hd-default-header-text-color: #fdfaf2;
-  --hd-primary-header-text-color: #fdfaf2;
-  --hd-secondary-header-text-color: #fdfaf2;
-  --hd-accent-header-text-color: #fdfaf2;
-  --hd-danger-header-text-color: #fdfaf2;
-  --hd-warning-header-text-color: #fdfaf2;
-  --hd-success-header-text-color: #fdfaf2;
-  --hd-info-header-text-color: #fdfaf2;
-  --hd-muted-header-text-color: #fdfaf2;
-
   /* Card configuration overrides */
-  --hd-card-bg: rgb(from var(--hd-default-color) r g b / 0.02);
+  --hd-card-bg: rgba(67, 52, 34, 0.02);
   --hd-card-color: var(--hd-default-color);
   --hd-card-border-color: var(--hd-default-border-color);
 }

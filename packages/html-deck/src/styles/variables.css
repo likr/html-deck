@@ -6,15 +6,7 @@
   --hd-heading-font: var(--hd-font-family);
   --hd-font-size: 18px;
 
-  --hd-theme-color: #000000;
-  --hd-theme-bg: #ffffff;
-  --hd-theme-color-inverted: #ffffff;
-  --hd-theme-bg-inverted: #000000;
-
-  --hd-theme-header-color: var(--hd-muted-color);
-  --hd-theme-header-color-inverted: var(--hd-default-header-text-color);
-
-  --hd-default-color: var(--hd-theme-color);
+  --hd-default-color: #000000;
   --hd-muted-color: #64748b;
   --hd-primary-color: #3b82f6;
   --hd-secondary-color: #a855f7;
@@ -25,7 +17,7 @@
   --hd-info-color: #06b6d4;
 
   /* Background colors (used when background is colored, keeping hue/vibe of the color) */
-  --hd-default-background-color: var(--hd-theme-bg);
+  --hd-default-background-color: #ffffff;
   --hd-primary-background-color: #eff6ff;
   --hd-secondary-background-color: #faf5ff;
   --hd-accent-background-color: #ecfdf5;

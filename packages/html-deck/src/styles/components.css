@@ -2,178 +2,67 @@
 
 hd-slide {
   background: var(--hd-slide-bg);
-  --hd-card-color: var(--hd-default-color);
-  --hd-card-bg: var(--hd-default-background-color);
-  --hd-card-border-color: var(--hd-default-border-color);
-  --hd-callout-border-color: var(--hd-default-border-color);
-  --hd-table-border-color: var(--hd-default-border-color);
-  --hd-codeblock-border: var(--hd-default-border-color);
-}
-
-hd-slide[invert] {
-  --hd-default-color: var(--hd-theme-color-inverted);
-  --hd-default-background-color: var(--hd-theme-bg-inverted);
-  --hd-layout-header-color: var(--hd-theme-header-color-inverted);
-  --hd-slide-bg: var(--hd-default-background-color);
-  --hd-layout-heading-bg: transparent;
-  --hd-layout-heading-color: var(--hd-default-color);
-  --hd-layout-heading-hr-color: var(--hd-default-border-color);
 }
 
 hd-slide:has(hd-layout, hd-layout-split, hd-layout-three) {
   --hd-header-color: var(--hd-layout-header-color);
 }
 
-/* --- Primary --- */
+/* hd-slide color/background overrides (whole slide) */
 hd-slide[type="primary"] {
   --hd-default-background-color: var(--hd-primary-background-color);
   --hd-default-color: var(--hd-primary-color);
   --hd-default-border-color: var(--hd-primary-border-color);
   --hd-layout-header-color: var(--hd-primary-header-color);
-  --hd-slide-bg: var(--hd-default-background-color);
-}
-hd-slide[type="primary"][invert] {
-  --hd-default-background-color: var(--hd-primary-color);
-  --hd-default-color: var(--hd-primary-header-text-color);
-  --hd-default-border-color: var(--hd-primary-border-color);
-  --hd-layout-header-color: var(--hd-primary-header-text-color);
-  --hd-slide-bg: var(--hd-default-background-color);
-  --hd-layout-heading-bg: transparent;
-  --hd-layout-heading-color: var(--hd-default-color);
-  --hd-layout-heading-hr-color: var(--hd-default-border-color);
 }
 
-/* --- Secondary --- */
 hd-slide[type="secondary"] {
   --hd-default-background-color: var(--hd-secondary-background-color);
   --hd-default-color: var(--hd-secondary-color);
   --hd-default-border-color: var(--hd-secondary-border-color);
   --hd-layout-header-color: var(--hd-secondary-header-color);
-  --hd-slide-bg: var(--hd-default-background-color);
-}
-hd-slide[type="secondary"][invert] {
-  --hd-default-background-color: var(--hd-secondary-color);
-  --hd-default-color: var(--hd-secondary-header-text-color);
-  --hd-default-border-color: var(--hd-secondary-border-color);
-  --hd-layout-header-color: var(--hd-secondary-header-text-color);
-  --hd-slide-bg: var(--hd-default-background-color);
-  --hd-layout-heading-bg: transparent;
-  --hd-layout-heading-color: var(--hd-default-color);
-  --hd-layout-heading-hr-color: var(--hd-default-border-color);
 }
 
-/* --- Accent --- */
 hd-slide[type="accent"] {
   --hd-default-background-color: var(--hd-accent-background-color);
   --hd-default-color: var(--hd-accent-color);
   --hd-default-border-color: var(--hd-accent-border-color);
   --hd-layout-header-color: var(--hd-accent-header-color);
-  --hd-slide-bg: var(--hd-default-background-color);
-}
-hd-slide[type="accent"][invert] {
-  --hd-default-background-color: var(--hd-accent-color);
-  --hd-default-color: var(--hd-accent-header-text-color);
-  --hd-default-border-color: var(--hd-accent-border-color);
-  --hd-layout-header-color: var(--hd-accent-header-text-color);
-  --hd-slide-bg: var(--hd-default-background-color);
-  --hd-layout-heading-bg: transparent;
-  --hd-layout-heading-color: var(--hd-default-color);
-  --hd-layout-heading-hr-color: var(--hd-default-border-color);
 }
 
-/* --- Danger --- */
 hd-slide[type="danger"] {
   --hd-default-background-color: var(--hd-danger-background-color);
   --hd-default-color: var(--hd-danger-color);
   --hd-default-border-color: var(--hd-danger-border-color);
   --hd-layout-header-color: var(--hd-danger-header-color);
-  --hd-slide-bg: var(--hd-default-background-color);
-}
-hd-slide[type="danger"][invert] {
-  --hd-default-background-color: var(--hd-danger-color);
-  --hd-default-color: var(--hd-danger-header-text-color);
-  --hd-default-border-color: var(--hd-danger-border-color);
-  --hd-layout-header-color: var(--hd-danger-header-text-color);
-  --hd-slide-bg: var(--hd-default-background-color);
-  --hd-layout-heading-bg: transparent;
-  --hd-layout-heading-color: var(--hd-default-color);
-  --hd-layout-heading-hr-color: var(--hd-default-border-color);
 }
 
-/* --- Warning --- */
 hd-slide[type="warning"] {
   --hd-default-background-color: var(--hd-warning-background-color);
   --hd-default-color: var(--hd-warning-color);
   --hd-default-border-color: var(--hd-warning-border-color);
   --hd-layout-header-color: var(--hd-warning-header-color);
-  --hd-slide-bg: var(--hd-default-background-color);
-}
-hd-slide[type="warning"][invert] {
-  --hd-default-background-color: var(--hd-warning-color);
-  --hd-default-color: var(--hd-warning-header-text-color);
-  --hd-default-border-color: var(--hd-warning-border-color);
-  --hd-layout-header-color: var(--hd-warning-header-text-color);
-  --hd-slide-bg: var(--hd-default-background-color);
-  --hd-layout-heading-bg: transparent;
-  --hd-layout-heading-color: var(--hd-default-color);
-  --hd-layout-heading-hr-color: var(--hd-default-border-color);
 }
 
-/* --- Success --- */
 hd-slide[type="success"] {
   --hd-default-background-color: var(--hd-success-background-color);
   --hd-default-color: var(--hd-success-color);
   --hd-default-border-color: var(--hd-success-border-color);
   --hd-layout-header-color: var(--hd-success-header-color);
-  --hd-slide-bg: var(--hd-default-background-color);
-}
-hd-slide[type="success"][invert] {
-  --hd-default-background-color: var(--hd-success-color);
-  --hd-default-color: var(--hd-success-header-text-color);
-  --hd-default-border-color: var(--hd-success-border-color);
-  --hd-layout-header-color: var(--hd-success-header-text-color);
-  --hd-slide-bg: var(--hd-default-background-color);
-  --hd-layout-heading-bg: transparent;
-  --hd-layout-heading-color: var(--hd-default-color);
-  --hd-layout-heading-hr-color: var(--hd-default-border-color);
 }
 
-/* --- Info --- */
 hd-slide[type="info"] {
   --hd-default-background-color: var(--hd-info-background-color);
   --hd-default-color: var(--hd-info-color);
   --hd-default-border-color: var(--hd-info-border-color);
   --hd-layout-header-color: var(--hd-info-header-color);
-  --hd-slide-bg: var(--hd-default-background-color);
-}
-hd-slide[type="info"][invert] {
-  --hd-default-background-color: var(--hd-info-color);
-  --hd-default-color: var(--hd-info-header-text-color);
-  --hd-default-border-color: var(--hd-info-border-color);
-  --hd-layout-header-color: var(--hd-info-header-text-color);
-  --hd-slide-bg: var(--hd-default-background-color);
-  --hd-layout-heading-bg: transparent;
-  --hd-layout-heading-color: var(--hd-default-color);
-  --hd-layout-heading-hr-color: var(--hd-default-border-color);
 }
 
-/* --- Muted --- */
 hd-slide[type="muted"] {
   --hd-default-background-color: var(--hd-muted-background-color);
   --hd-default-color: var(--hd-muted-color);
   --hd-default-border-color: var(--hd-muted-border-color);
   --hd-layout-header-color: var(--hd-muted-header-color);
-  --hd-slide-bg: var(--hd-default-background-color);
-}
-hd-slide[type="muted"][invert] {
-  --hd-default-background-color: var(--hd-muted-color);
-  --hd-default-color: var(--hd-muted-background-color);
-  --hd-default-border-color: var(--hd-muted-border-color);
-  --hd-layout-header-color: var(--hd-muted-header-text-color);
-  --hd-slide-bg: var(--hd-default-background-color);
-  --hd-layout-heading-bg: transparent;
-  --hd-layout-heading-color: var(--hd-default-color);
-  --hd-layout-heading-hr-color: var(--hd-default-border-color);
 }
 
 /* hd-slide heading overrides (heading-only) */
@@ -361,7 +250,7 @@ hd-slide[heading="muted"] {
   background-color: var(--hd-callout-bg, transparent);
   border-style: var(--hd-callout-border-style, solid);
   border-width: var(--hd-callout-border-width, 0 0 0 3px);
-  border-color: var(--hd-callout-border-color, var(--hd-border-color));
+  border-color: var(--hd-callout-border-color, var(--hd-default-border-color));
   border-left-color: var(--hd-callout-border-left-color, var(--hd-callout-border-color));
   border-radius: var(--hd-callout-border-radius, 0px);
   box-shadow: var(--hd-callout-shadow, none);
