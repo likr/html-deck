@@ -25,9 +25,7 @@
   --hd-slide-text-color: var(--hd-text-color);
 
   /* Headings */
-  --hd-heading-color-1: var(--hd-primary);
-  --hd-heading-color-2: var(--hd-secondary);
-  --hd-heading-color-3: var(--hd-text-color);
+
   --hd-heading-font-weight: 600;
 
   /* Lists & Math */

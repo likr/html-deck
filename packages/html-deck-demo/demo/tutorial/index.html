@@ -61,15 +61,18 @@
       <hd-layout-standard>
         <h2 slot="title">Core Philosophy & Motivation</h2>
 
-        <p class="hd-text">Traditional slideshow frameworks (like Reveal.js) use deeply nested DOM trees that confuse LLM coding
+        <p class="hd-text">Traditional slideshow frameworks (like Reveal.js) use deeply nested DOM trees that confuse
+          LLM coding
           agents. HTML-Deck keeps the nesting flat and declarative.</p>
 
         <ul class="hd-list">
-          <li><strong>Pure HTML & Buildless</strong>: No npm build steps, Webpack, or bundling required to run. Ideal for
+          <li><strong>Pure HTML & Buildless</strong>: No npm build steps, Webpack, or bundling required to run. Ideal
+            for
             AI agents.</li>
           <li><strong>Custom Elements Prefixed with <code>hd-</code></strong>: Prevents conflicts and keeps element
             identification crystal clear.</li>
-          <li><strong>Pure & Modular CSS</strong>: Customize mathematical formulas and code blocks with standard CSS variables.</li>
+          <li><strong>Pure & Modular CSS</strong>: Customize mathematical formulas and code blocks with standard CSS
+            variables.</li>
           <li><strong>Highly Stylable</strong>: Skeleton styles are fully customizable via CSS Variables.</li>
         </ul>
       </hd-layout-standard>
@@ -92,7 +95,8 @@
 
         <div slot="left" class="grid-card">
           <h3>Left Pane Content</h3>
-          <p class="hd-text">Using <code>layout="split"</code> arranges the slotted content automatically into two equal-width
+          <p class="hd-text">Using <code>layout="split"</code> arranges the slotted content automatically into two
+            equal-width
             columns.</p>
           <ul class="hd-list">
             <li>Perfect for comparisons</li>
@@ -127,7 +131,8 @@
     <hd-slide title="Multi-Columns Component">
       <hd-layout-standard>
         <h2 slot="title">The <code>&lt;hd-flex&gt;</code> primitive</h2>
-        <p class="hd-text">For arbitrary columns (like 3 or 4 columns), use the <code>&lt;hd-flex&gt;</code> layout primitive:</p>
+        <p class="hd-text">For arbitrary columns (like 3 or 4 columns), use the <code>&lt;hd-flex&gt;</code> layout
+          primitive:</p>
 
         <div style="display: flex; gap: var(--hd-gap-md, 16px); width: 100%; box-sizing: border-box;">
           <div class="grid-card" style="flex: 1;">
@@ -161,10 +166,12 @@
         <p class="hd-text">You can render beautiful LaTeX math equations using KaTeX. It supports both inline and
           block equations.</p>
 
-        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--hd-gap-md, 16px); width: 100%; box-sizing: border-box;">
+        <div
+          style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--hd-gap-md, 16px); width: 100%; box-sizing: border-box;">
           <div class="grid-card">
             <h3>Inline Math</h3>
-            <p class="hd-text">The formula <span class="hd-math-inline">\(f(x) = \int_{-\infty}^{\infty} e^{-x^2} dx\)</span> fits inline with the
+            <p class="hd-text">The formula <span class="hd-math-inline">\(f(x) = \int_{-\infty}^{\infty} e^{-x^2}
+                dx\)</span> fits inline with the
               standard text flow.</p>
           </div>
           <div class="grid-card">
@@ -174,9 +181,9 @@
               A = \begin{pmatrix}
               a_{11} & a_{12} \\
               a_{21} & a_{22}
-              \end{pmatrix}, \quad
+              \end{pmatrix}\\
               \det(A) = a_{11}a_{22} - a_{12}a_{21}
-            $$</div>
+              $$</div>
           </div>
         </div>
       </hd-layout-standard>
@@ -263,12 +270,15 @@
     <hd-slide title="Scrollable Code and Tables">
       <hd-layout-standard>
         <h2 slot="title">Scrollable Components</h2>
-        <p class="hd-text">When code blocks or tables are too large to fit in a slide, use overflow wrappers to enable scrolling:</p>
+        <p class="hd-text">When code blocks or tables are too large to fit in a slide, use overflow wrappers to enable
+          scrolling:</p>
 
-        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--hd-gap-md, 16px); width: 100%; box-sizing: border-box;">
+        <div
+          style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--hd-gap-md, 16px); width: 100%; box-sizing: border-box;">
           <div class="grid-card">
             <h3>Scrollable Code Block</h3>
-            <pre class="hd-code-scrollable" style="--hd-code-scrollable-height: 180px;"><code class="language-javascript" id="scroll-demo-code"></code></pre>
+            <pre class="hd-code-scrollable"
+              style="--hd-code-scrollable-height: 180px;"><code class="language-javascript" id="scroll-demo-code"></code></pre>
             <script type="module">
               import scrollDemoCode from './scroll-demo.js?raw';
               const el = document.getElementById('scroll-demo-code');
@@ -326,7 +336,8 @@
       <hd-layout-standard>
         <h2 slot="title">Presenter Tools & Printing</h2>
 
-        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--hd-gap-md, 16px); width: 100%; box-sizing: border-box;">
+        <div
+          style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--hd-gap-md, 16px); width: 100%; box-sizing: border-box;">
           <div class="grid-card">
             <h3>Presenter Dashboard</h3>
             <ul class="hd-list">
@@ -362,7 +373,8 @@
         <h2 slot="title">Callout Boxes & Footnotes</h2>
         <p class="hd-text">HTML-Deck provides classes to add structure and annotation to your slides:</p>
 
-        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--hd-gap-md, 16px); width: 100%; box-sizing: border-box;">
+        <div
+          style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--hd-gap-md, 16px); width: 100%; box-sizing: border-box;">
           <div>
             <div class="hd-callout hd-primary">
               <p class="hd-text hd-bold">Primary Callout</p>
@@ -371,13 +383,16 @@
 
             <div class="hd-callout hd-secondary">
               <p class="hd-text hd-bold">Secondary Callout</p>
-              <p class="hd-text hd-text-sm">Supports multiple color configurations like <code>hd-secondary</code> or <code>hd-accent</code>.</p>
+              <p class="hd-text hd-text-sm">Supports multiple color configurations like <code>hd-secondary</code> or
+                <code>hd-accent</code>.
+              </p>
             </div>
           </div>
 
           <div class="grid-card">
             <h3>Footnote Integration</h3>
-            <p class="hd-text hd-text-sm">Use <code>slot="footnote"</code> to place annotations at the bottom margin of the slide.</p>
+            <p class="hd-text hd-text-sm">Use <code>slot="footnote"</code> to place annotations at the bottom margin of
+              the slide.</p>
             <p class="hd-text-muted hd-text-xs">* This is an inline annotation using a standard paragraph.</p>
           </div>
         </div>

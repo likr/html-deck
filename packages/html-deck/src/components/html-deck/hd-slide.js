@@ -98,6 +98,7 @@ HdSlide.baseStyles = `
     flex-direction: column;
     background-color: var(--hd-slide-bg, var(--hd-bg, #ffffff));
     color: var(--hd-slide-text-color, var(--hd-text-color, #1e293b));
+    font-size: var(--hd-slide-font-size, var(--hd-font-size, 18px));
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
@@ -121,9 +122,6 @@ HdSlide.baseStyles = `
   :host([invert]) {
     --hd-slide-bg: var(--hd-text-color, #1e293b);
     --hd-slide-text-color: var(--hd-bg, #ffffff);
-    --hd-heading-color-1: var(--hd-bg, #ffffff);
-    --hd-heading-color-2: var(--hd-bg, #ffffff);
-    --hd-heading-color-3: var(--hd-bg, #ffffff);
     --hd-list-color: var(--hd-bg, #ffffff);
     --hd-math-color: var(--hd-bg, #ffffff);
     --hd-link-color: var(--hd-secondary, #a855f7);
@@ -132,9 +130,6 @@ HdSlide.baseStyles = `
   :host([bg="primary"]) {
     --hd-slide-bg: var(--hd-primary, #3b82f6);
     --hd-slide-text-color: #ffffff;
-    --hd-heading-color-1: #ffffff;
-    --hd-heading-color-2: #ffffff;
-    --hd-heading-color-3: #ffffff;
     --hd-list-color: #ffffff;
     --hd-math-color: #ffffff;
     --hd-link-color: #ffffff;
@@ -143,9 +138,6 @@ HdSlide.baseStyles = `
   :host([bg="secondary"]) {
     --hd-slide-bg: var(--hd-secondary, #a855f7);
     --hd-slide-text-color: #ffffff;
-    --hd-heading-color-1: #ffffff;
-    --hd-heading-color-2: #ffffff;
-    --hd-heading-color-3: #ffffff;
     --hd-list-color: #ffffff;
     --hd-math-color: #ffffff;
     --hd-link-color: #ffffff;

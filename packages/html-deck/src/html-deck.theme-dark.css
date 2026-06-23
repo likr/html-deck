@@ -19,10 +19,7 @@
   --hd-slide-bg: var(--hd-bg);
   --hd-slide-text-color: var(--hd-text-color);
 
-  /* Headings */
-  --hd-heading-color-1: var(--hd-primary);
-  --hd-heading-color-2: var(--hd-secondary);
-  --hd-heading-color-3: var(--hd-text-color);
+
 
   /* Lists & Math */
   --hd-list-color: var(--hd-text-color);
