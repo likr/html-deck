@@ -15,8 +15,16 @@
   --hd-text-size-5: 13px;
   --hd-text-size-6: 10px;
 
+  /* Theme Base variables */
+  --hd-theme-color: #f1f5f9;
+  --hd-theme-bg: #030303;
+  --hd-theme-color-inverted: #030303;
+  --hd-theme-bg-inverted: #f1f5f9;
+  --hd-theme-header-color: var(--hd-muted-color);
+  --hd-theme-header-color-inverted: #030303;
+
   /* Colors */
-  --hd-default-color: #f1f5f9;
+  --hd-default-color: var(--hd-theme-color);
   --hd-muted-color: #64748b;
   /* Cool Gray */
   --hd-primary-color: #00f2fe;
@@ -44,7 +52,7 @@
   --hd-muted-header-text-color: #f1f5f9;
 
   /* Background colors (used when background is colored, keeping hue/vibe) */
-  --hd-default-background-color: #030303;
+  --hd-default-background-color: var(--hd-theme-bg);
   --hd-primary-background-color: rgb(from var(--hd-primary-color) r g b / 0.1);
   --hd-secondary-background-color: rgb(from var(--hd-secondary-color) r g b / 0.1);
   --hd-accent-background-color: rgb(from var(--hd-accent-color) r g b / 0.1);

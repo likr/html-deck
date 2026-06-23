@@ -6,8 +6,16 @@
   --hd-body-font: var(--hd-font-family);
   --hd-heading-font: var(--hd-font-family);
 
+  /* Theme Base variables */
+  --hd-theme-color: #0f172a;
+  --hd-theme-bg: #ffffff;
+  --hd-theme-color-inverted: #ffffff;
+  --hd-theme-bg-inverted: #0f172a;
+  --hd-theme-header-color: var(--hd-muted-color);
+  --hd-theme-header-color-inverted: #ffffff;
+
   /* Colors */
-  --hd-default-color: #0f172a;
+  --hd-default-color: var(--hd-theme-color);
   --hd-muted-color: #475569;  /* Slate 600 */
   --hd-primary-color: #1e3a8a;      /* Trust Navy Blue */
   --hd-secondary-color: #0d9488;    /* Corporate Teal */
@@ -18,7 +26,7 @@
   --hd-info-color: #0284c7;
 
   /* Background colors (used when background is colored, keeping hue/vibe) */
-  --hd-default-background-color: #ffffff;
+  --hd-default-background-color: var(--hd-theme-bg);
   --hd-primary-background-color: #f0f4ff;
   --hd-secondary-background-color: #f0fdfa;
   --hd-accent-background-color: #eff6ff;

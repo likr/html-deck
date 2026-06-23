@@ -1,8 +1,16 @@
 /* html-deck.theme-dark.css - Dark Theme for HTML-Deck */
 
 :root {
+  /* Theme Base variables */
+  --hd-theme-color: #f8fafc;
+  --hd-theme-bg: #0f172a;
+  --hd-theme-color-inverted: #0f172a;
+  --hd-theme-bg-inverted: #f8fafc;
+  --hd-theme-header-color: var(--hd-muted-color);
+  --hd-theme-header-color-inverted: #0f172a;
+
   /* Colors */
-  --hd-default-color: #f8fafc;
+  --hd-default-color: var(--hd-theme-color);
   --hd-muted-color: #94a3b8;  /* Slate 400 */
   --hd-primary-color: #60a5fa;      /* Light Blue */
   --hd-secondary-color: #c084fc;    /* Light Purple */
@@ -13,7 +21,7 @@
   --hd-info-color: #22d3ee;
 
   /* Background colors (used when background is colored, keeping hue/vibe) */
-  --hd-default-background-color: #0f172a;
+  --hd-default-background-color: var(--hd-theme-bg);
   --hd-primary-background-color: rgba(96, 165, 250, 0.1);
   --hd-secondary-background-color: rgba(192, 132, 252, 0.1);
   --hd-accent-background-color: rgba(52, 211, 153, 0.1);
@@ -35,7 +43,7 @@
   --hd-muted-border-color: rgba(148, 163, 184, 0.3);
 
   /* Card configuration overrides */
-  --hd-card-bg: rgba(255, 255, 255, 0.03);
+  --hd-card-bg: rgb(from var(--hd-default-color) r g b / 0.03);
   --hd-card-color: var(--hd-default-color);
   --hd-card-border-color: var(--hd-default-border-color);
 }
