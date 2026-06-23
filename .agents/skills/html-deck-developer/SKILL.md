@@ -44,6 +44,7 @@ connectedCallback() {
 - **Rule**: Do not apply responsive layout media queries (like `@media (max-width: 768px)`) inside slide contents or columns. Viewport-based media queries trigger layout collapsing even when the slide is scaled down, breaking the aspect ratio.
 - **Rule**: Ensure the layout container (`#layout-root` inside `<hd-slide>`) is always set to `display: flex; flex-direction: column; height: 100%; width: 100%;` so that content elements (like columns) do not collapse to height 0.
 - **Rule**: Ensure `.deck-container` has `flex-shrink: 0;` (or `flex: none;`) to prevent the browser from shrinking the virtual layout size (e.g. `960px`) inside the parent flex wrapper before the scale transform is applied.
+- **Rule**: To prevent vertical scrolling on mobile browsers when address/navigation bars are shown or hidden, the main `<hd-deck>`'s `:host` height must be defined using dynamic viewport units (`height: 100dvh;`) with a standard fallback (`height: 100vh;`).
 
 ### 3. Slide Padding & Overflow Bug (Critical)
 Applying `padding` directly to `:host` on `<hd-slide>` (which has `width: 100%` / `height: 100%`) causes layout overflow because `:host` box-sizing rules (`border-box`) are inconsistently honored across browsers when scaled. This causes slides to exceed the 960x540 boundaries and break layout alignment.

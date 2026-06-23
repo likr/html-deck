@@ -5,6 +5,7 @@ TEMPLATE.innerHTML = `
     display: block;
     width: 100vw;
     height: 100vh;
+    height: 100dvh;
     overflow: hidden;
     background-color: #000000;
     color: var(--hd-default-color);
