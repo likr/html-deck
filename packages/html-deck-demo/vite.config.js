@@ -9,11 +9,8 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
-        'features-test': resolve(__dirname, 'demo/features-test/index.html'),
-        'theme-test': resolve(__dirname, 'demo/theme-test/index.html'),
-        'tutorial': resolve(__dirname, 'demo/tutorial/index.html'),
-        'presenter': resolve(__dirname, 'demo/tutorial/presenter.html'),
-        'split-layout': resolve(__dirname, 'demo/tutorial/split-layout-example.html'),
+        features: resolve(__dirname, 'demo/features/index.html'),
+        presenter: resolve(__dirname, 'demo/features/presenter.html'),
       }
     }
   }
