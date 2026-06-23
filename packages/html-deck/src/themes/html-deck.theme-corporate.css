@@ -40,20 +40,20 @@
   --hd-muted-border-color: #cbd5e1;
 
   /* Card configuration overrides */
-  --hd-card-bg: var(--hd-default-background-color);
-  --hd-card-color: var(--hd-default-color);
+  --hd-card-background-color: var(--hd-default-background-color);
+  --hd-card-text-color: var(--hd-default-color);
   --hd-card-border-color: var(--hd-default-border-color);
 
   /* Heading & layout theme overrides */
-  --hd-default-header-color: var(--hd-primary-header-text-color);
-  --hd-primary-header-color: var(--hd-primary-header-text-color);
-  --hd-secondary-header-color: var(--hd-secondary-header-text-color);
-  --hd-accent-header-color: var(--hd-accent-header-text-color);
-  --hd-danger-header-color: var(--hd-danger-header-text-color);
-  --hd-warning-header-color: var(--hd-warning-header-text-color);
-  --hd-success-header-color: var(--hd-success-header-text-color);
-  --hd-info-header-color: var(--hd-info-header-text-color);
-  --hd-muted-header-color: var(--hd-muted-header-text-color);
+  --hd-default-header-background-color: var(--hd-primary-color);
+  --hd-primary-header-background-color: var(--hd-primary-color);
+  --hd-secondary-header-background-color: var(--hd-secondary-color);
+  --hd-accent-header-background-color: var(--hd-accent-color);
+  --hd-danger-header-background-color: var(--hd-danger-color);
+  --hd-warning-header-background-color: var(--hd-warning-color);
+  --hd-success-header-background-color: var(--hd-success-color);
+  --hd-info-header-background-color: var(--hd-info-color);
+  --hd-muted-header-background-color: var(--hd-muted-color);
 
   /* Override text variables to white for high contrast on navy heading backgrounds */
   --hd-default-header-text-color: #ffffff;

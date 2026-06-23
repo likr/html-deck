@@ -69,8 +69,8 @@ HdSlide.baseStyles = `
     height: 100%;
     display: flex;
     flex-direction: column;
-    background: var(--hd-slide-bg, var(--hd-default-background-color));
-    color: var(--hd-default-color);
+    background: var(--hd-slide-background-color);
+    color: var(--hd-slide-text-color);
     font-family: var(--hd-body-font);
     font-size: var(--hd-slide-font-size);
     line-height: var(--hd-text-line-height, 1.6);
@@ -138,7 +138,7 @@ HdSlide.baseStyles = `
     bottom: var(--peripheral-footer-bottom, 12px);
     right: 16px;
     font-size: var(--peripheral-font-size, 9px);
-    color: var(--hd-page-number-color);
+    color: var(--hd-slide-page-number-color);
     z-index: 10;
     user-select: none;
     font-family: var(--hd-body-font);
@@ -159,8 +159,8 @@ HdSlide.baseStyles = `
       page-break-after: always !important;
       break-inside: avoid !important;
       overflow: hidden !important;
-      background-color: var(--hd-default-background-color) !important;
-      color: var(--hd-default-color) !important;
+      background-color: var(--hd-slide-background-color) !important;
+      color: var(--hd-slide-text-color) !important;
       -webkit-print-color-adjust: exact !important;
       print-color-adjust: exact !important;
     }
@@ -180,10 +180,10 @@ HdSlide.baseStyles = `
     display: block !important;
     position: absolute !important;
     top: var(--peripheral-header-top, 12px) !important;
-    left: var(--hd-header-left) !important;
+    left: var(--hd-slide-header-left) !important;
     font-size: var(--peripheral-font-size, 9px) !important;
-    color: var(--hd-header-color) !important;
-    opacity: var(--hd-header-opacity) !important;
+    color: var(--hd-slide-header-text-color) !important;
+    opacity: var(--hd-slide-header-opacity) !important;
     font-family: var(--hd-body-font) !important;
     z-index: 10 !important;
     user-select: none !important;
@@ -194,10 +194,10 @@ HdSlide.baseStyles = `
     display: block !important;
     position: absolute !important;
     bottom: var(--peripheral-footer-bottom, 12px) !important;
-    left: var(--hd-footer-left) !important;
+    left: var(--hd-slide-footer-left) !important;
     font-size: var(--peripheral-font-size, 9px) !important;
-    color: var(--hd-footer-color) !important;
-    opacity: var(--hd-footer-opacity) !important;
+    color: var(--hd-slide-footer-text-color) !important;
+    opacity: var(--hd-slide-footer-opacity) !important;
     font-family: var(--hd-body-font) !important;
     z-index: 10 !important;
     user-select: none !important;

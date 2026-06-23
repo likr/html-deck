@@ -35,7 +35,7 @@
   --hd-muted-border-color: rgba(148, 163, 184, 0.3);
 
   /* Card configuration overrides */
-  --hd-card-bg: rgba(255, 255, 255, 0.03);
-  --hd-card-color: var(--hd-default-color);
+  --hd-card-background-color: rgba(255, 255, 255, 0.03);
+  --hd-card-text-color: var(--hd-default-color);
   --hd-card-border-color: var(--hd-default-border-color);
 }

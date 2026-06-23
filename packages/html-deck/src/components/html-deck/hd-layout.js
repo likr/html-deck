@@ -20,9 +20,9 @@ export class HdLayout extends HTMLElement {
           padding-bottom: var(--hd-layout-heading-padding-bottom);
           padding-left: var(--hd-slide-padding-left);
           padding-right: var(--hd-slide-padding-right);
-          background-color: var(--hd-layout-heading-bg);
-          color: var(--hd-layout-heading-color);
-          box-shadow: var(--hd-layout-heading-shadow);
+          background-color: var(--hd-layout-heading-background-color);
+          color: var(--hd-layout-heading-text-color);
+          box-shadow: var(--hd-layout-heading-box-shadow);
           text-align: var(--hd-layout-heading-text-align);
           box-sizing: border-box;
           height: var(--hd-layout-heading-height);
@@ -31,11 +31,11 @@ export class HdLayout extends HTMLElement {
           justify-content: center;
         }
         .heading-divider {
-          display: var(--hd-layout-heading-hr-display);
+          display: var(--hd-layout-heading-divider-display);
           border: none;
-          height: var(--hd-layout-heading-hr-height);
-          background-color: var(--hd-layout-heading-hr-color);
-          box-shadow: var(--hd-layout-heading-hr-shadow);
+          height: var(--hd-layout-heading-divider-height);
+          background-color: var(--hd-layout-heading-divider-background-color);
+          box-shadow: var(--hd-layout-heading-divider-box-shadow);
           margin-top: 0;
           margin-bottom: 0;
           margin-left: calc(-1 * var(--hd-slide-padding-left));
@@ -51,7 +51,7 @@ export class HdLayout extends HTMLElement {
         }
         .heading-area ::slotted(*) {
           font-size: var(--hd-layout-heading-font-size);
-          color: var(--hd-layout-heading-color);
+          color: var(--hd-layout-heading-text-color);
           text-shadow: var(--hd-layout-heading-text-shadow, none);
           margin: 0;
         }

@@ -7,8 +7,8 @@ export class HdLayoutCover extends HTMLElement {
         :host {
           display: flex;
           flex-direction: column;
-          justify-content: var(--hd-layout-cover-justify);
-          align-items: var(--hd-layout-cover-align);
+          justify-content: var(--hd-layout-cover-justify-content);
+          align-items: var(--hd-layout-cover-align-items);
           text-align: var(--hd-layout-cover-text-align);
           height: 100%;
           width: 100%;
@@ -17,30 +17,30 @@ export class HdLayoutCover extends HTMLElement {
         .cover-container {
           display: flex;
           flex-direction: column;
-          justify-content: var(--hd-layout-cover-justify);
-          align-items: var(--hd-layout-cover-align);
+          justify-content: var(--hd-layout-cover-justify-content);
+          align-items: var(--hd-layout-cover-align-items);
           text-align: var(--hd-layout-cover-text-align);
           width: 100%;
           flex-grow: 1;
         }
         .title-area {
-          margin-bottom: var(--hd-layout-cover-title-margin);
+          margin-bottom: var(--hd-layout-cover-title-margin-bottom);
           width: 100%;
         }
         .title-area ::slotted(*) {
           font-size: var(--hd-layout-cover-title-font-size);
-          color: var(--hd-layout-cover-title-color);
-          text-shadow: var(--hd-layout-cover-title-shadow, none);
+          color: var(--hd-layout-cover-title-text-color);
+          text-shadow: var(--hd-layout-cover-title-text-shadow, none);
           margin: 0;
         }
         .subtitle-area {
-          margin-bottom: var(--hd-layout-cover-subtitle-margin);
+          margin-bottom: var(--hd-layout-cover-subtitle-margin-bottom);
           width: 100%;
         }
         .subtitle-area ::slotted(*) {
           font-size: var(--hd-layout-cover-subtitle-font-size);
-          color: var(--hd-layout-cover-subtitle-color);
-          text-shadow: var(--hd-layout-cover-subtitle-shadow, none);
+          color: var(--hd-layout-cover-subtitle-text-color);
+          text-shadow: var(--hd-layout-cover-subtitle-text-shadow, none);
           margin: 0;
         }
         .meta-area {
@@ -48,7 +48,7 @@ export class HdLayoutCover extends HTMLElement {
         }
         .meta-area ::slotted(*) {
           font-size: var(--hd-layout-cover-meta-font-size);
-          color: var(--hd-layout-cover-meta-color);
+          color: var(--hd-layout-cover-meta-text-color);
           margin: 0;
         }
       </style>

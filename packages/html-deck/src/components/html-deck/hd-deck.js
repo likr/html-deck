@@ -7,9 +7,9 @@ TEMPLATE.innerHTML = `
     height: 100vh;
     height: 100dvh;
     overflow: hidden;
-    background-color: #000000;
-    color: var(--hd-default-color);
-    font-family: var(--hd-body-font);
+    background-color: var(--hd-deck-background-color);
+    color: var(--hd-deck-text-color);
+    font-family: var(--hd-deck-font-family);
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -53,7 +53,7 @@ TEMPLATE.innerHTML = `
   .btn {
     background: rgba(30, 41, 59, 0.8);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    color: var(--hd-btn-text);
+    color: var(--hd-deck-button-text-color);
     padding: 8px 16px;
     border-radius: 6px;
     cursor: pointer;

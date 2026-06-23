@@ -40,7 +40,7 @@
   --hd-muted-border-color: #f0ede9;
 
   /* Card configuration overrides */
-  --hd-card-bg: rgba(67, 52, 34, 0.02);
-  --hd-card-color: var(--hd-default-color);
+  --hd-card-background-color: rgba(67, 52, 34, 0.02);
+  --hd-card-text-color: var(--hd-default-color);
   --hd-card-border-color: var(--hd-default-border-color);
 }

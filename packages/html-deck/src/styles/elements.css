@@ -86,9 +86,9 @@ hd-slide ol ol ol {
 hd-slide pre {
   margin: 0 0 12px 0;
   padding: 12px !important;
-  border: var(--hd-codeblock-border-width, 1px) solid var(--hd-codeblock-border);
+  border: var(--hd-codeblock-border-width, 1px) solid var(--hd-codeblock-border-color);
   border-radius: var(--hd-codeblock-border-radius, 8px);
-  background-color: var(--hd-codeblock-bg, transparent);
-  box-shadow: var(--hd-codeblock-shadow, none);
+  background-color: var(--hd-codeblock-background-color, transparent);
+  box-shadow: var(--hd-codeblock-box-shadow, none);
   overflow: auto;
 }

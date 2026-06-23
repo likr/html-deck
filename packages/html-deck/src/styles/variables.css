@@ -38,40 +38,39 @@
   --hd-info-border-color: #cffafe;
   --hd-muted-border-color: #cbd5e1;
 
-  --hd-default-header-text-color: #000000;
-  --hd-primary-header-text-color: #000000;
-  --hd-secondary-header-text-color: #000000;
-  --hd-accent-header-text-color: #000000;
-  --hd-danger-header-text-color: #000000;
-  --hd-warning-header-text-color: #000000;
-  --hd-success-header-text-color: #000000;
-  --hd-info-header-text-color: #000000;
-  --hd-muted-header-text-color: #000000;
+  --hd-default-header-text-color: var(--hd-default-color);
+  --hd-primary-header-text-color: var(--hd-primary-color);
+  --hd-secondary-header-text-color: var(--hd-secondary-color);
+  --hd-accent-header-text-color: var(--hd-accent-color);
+  --hd-danger-header-text-color: var(--hd-danger-color);
+  --hd-warning-header-text-color: var(--hd-warning-color);
+  --hd-success-header-text-color: var(--hd-success-color);
+  --hd-info-header-text-color: var(--hd-info-color);
+  --hd-muted-header-text-color: var(--hd-muted-color);
 
-  /* Slide type specific header colors (all defaulted to white) */
-  --hd-default-header-color: #ffffff;
-  --hd-primary-header-color: #ffffff;
-  --hd-secondary-header-color: #ffffff;
-  --hd-accent-header-color: #ffffff;
-  --hd-danger-header-color: #ffffff;
-  --hd-warning-header-color: #ffffff;
-  --hd-success-header-color: #ffffff;
-  --hd-info-header-color: #ffffff;
-  --hd-muted-header-color: #ffffff;
+  /* Slide type specific header background colors */
+  --hd-default-header-background-color: var(--hd-default-background-color);
+  --hd-primary-header-background-color: var(--hd-primary-background-color);
+  --hd-secondary-header-background-color: var(--hd-secondary-background-color);
+  --hd-accent-header-background-color: var(--hd-accent-background-color);
+  --hd-danger-header-background-color: var(--hd-danger-background-color);
+  --hd-warning-header-background-color: var(--hd-warning-background-color);
+  --hd-success-header-background-color: var(--hd-success-background-color);
+  --hd-info-header-background-color: var(--hd-info-background-color);
+  --hd-muted-header-background-color: var(--hd-muted-background-color);
 
   /* Card configuration variables */
-  --hd-card-bg: var(--hd-default-background-color);
-  --hd-card-color: var(--hd-default-color);
+  --hd-card-background-color: var(--hd-default-background-color);
+  --hd-card-text-color: var(--hd-default-color);
   --hd-card-border-color: var(--hd-default-border-color);
   --hd-card-border-width: 1px;
   --hd-card-border-style: solid;
   --hd-card-border-radius: 8px;
   --hd-card-padding: 16px;
-  --hd-card-shadow: none;
+  --hd-card-box-shadow: none;
   --hd-card-margin-bottom: var(--hd-gap-3);
   --hd-box-margin-bottom: var(--hd-gap-3);
 
-  --hd-btn-text: #ffffff;
   --hd-slide-font-size: var(--hd-font-size);
   --hd-slide-padding-top: 30px;
   --hd-slide-padding-right: 40px;
@@ -96,51 +95,56 @@
   --hd-text-size-5: 14px;
   --hd-text-size-6: 12px;
   --hd-title-font-size: var(--hd-text-size-2);
+
+  /* --- Deck properties defaults --- */
+  --hd-deck-background-color: #000000;
+  --hd-deck-text-color: var(--hd-default-color);
+  --hd-deck-button-text-color: #ffffff;
+  --hd-deck-font-family: var(--hd-body-font);
+
+  /* --- Cover Layout properties defaults --- */
   --hd-layout-cover-padding: var(--hd-slide-padding);
-  --hd-layout-cover-justify: center;
-  --hd-layout-cover-align: center;
+  --hd-layout-cover-justify-content: center;
+  --hd-layout-cover-align-items: center;
   --hd-layout-cover-text-align: center;
-  --hd-layout-cover-title-margin: var(--hd-gap-3);
-  --hd-layout-cover-subtitle-margin: var(--hd-gap-4);
+  --hd-layout-cover-title-margin-bottom: var(--hd-gap-3);
+  --hd-layout-cover-subtitle-margin-bottom: var(--hd-gap-4);
   --hd-layout-cover-title-font-size: var(--hd-text-size-1);
-  --hd-layout-cover-title-color: inherit;
+  --hd-layout-cover-title-text-color: inherit;
+  --hd-layout-cover-title-text-shadow: none;
   --hd-layout-cover-subtitle-font-size: var(--hd-text-size-2);
-  --hd-layout-cover-subtitle-color: var(--hd-muted-color);
+  --hd-layout-cover-subtitle-text-color: var(--hd-muted-color);
+  --hd-layout-cover-subtitle-text-shadow: none;
   --hd-layout-cover-meta-font-size: var(--hd-text-size-5);
-  --hd-layout-cover-meta-color: var(--hd-muted-color);
-  --hd-layout-heading-margin: var(--hd-gap-3);
-  /* --- Default Layout Variables --- */
-  --hd-layout-heading-bg-default: transparent;
-  --hd-layout-heading-color-default: inherit;
-  --hd-layout-heading-text-shadow-default: none;
-  --hd-layout-heading-hr-color-default: var(--hd-default-border-color);
-  --hd-layout-heading-hr-shadow-default: none;
+  --hd-layout-cover-meta-text-color: var(--hd-muted-color);
 
   /* --- Layout properties defaults --- */
-  --hd-slide-bg: var(--hd-default-background-color);
-  --hd-layout-heading-bg: var(--hd-layout-heading-bg-default);
-  --hd-layout-heading-color: var(--hd-layout-heading-color-default);
+  --hd-slide-background-color: var(--hd-default-background-color);
+  --hd-slide-text-color: var(--hd-default-color);
+  --hd-layout-heading-margin: var(--hd-gap-3);
+  --hd-layout-heading-background-color: var(--hd-layout-heading-bg-default);
+  --hd-layout-heading-text-color: var(--hd-layout-heading-color-default);
   --hd-layout-content-margin: 0px;
-  --hd-layout-header-color: var(--hd-default-header-color);
+  --hd-layout-header-text-color: var(--hd-default-header-text-color);
   --hd-layout-heading-font-size: var(--hd-text-size-2);
   --hd-layout-heading-padding-bottom: var(--hd-slide-padding-top);
   --hd-layout-heading-text-align: left;
-  --hd-layout-heading-shadow: none;
+  --hd-layout-heading-box-shadow: none;
   --hd-layout-heading-padding-top: var(--hd-slide-padding-top);
-  --hd-layout-heading-text-shadow: var(--hd-layout-heading-text-shadow-default);
+  --hd-layout-heading-text-shadow: none;
   --hd-layout-heading-height: auto;
-  --hd-layout-heading-hr-display: none;
-  --hd-layout-heading-hr-height: 1px;
-  --hd-layout-heading-hr-color: var(--hd-layout-heading-hr-color-default);
-  --hd-layout-heading-hr-shadow: var(--hd-layout-heading-hr-shadow-default);
+  --hd-layout-heading-divider-display: none;
+  --hd-layout-heading-divider-height: 1px;
+  --hd-layout-heading-divider-background-color: var(--hd-layout-heading-divider-background-color-default);
+  --hd-layout-heading-divider-box-shadow: var(--hd-layout-heading-divider-box-shadow-default);
   --hd-layout-before-margin: var(--hd-gap-2);
   --hd-layout-after-margin: var(--hd-gap-2);
-  --hd-layout-cover-title-shadow: none;
-  --hd-layout-cover-subtitle-shadow: none;
-  --hd-codeblock-bg: transparent;
+  --hd-codeblock-background-color: transparent;
   --hd-codeblock-border-width: 1px;
+  --hd-codeblock-border-style: solid;
+  --hd-codeblock-border-color: var(--hd-default-border-color);
   --hd-codeblock-border-radius: 8px;
-  --hd-codeblock-shadow: none;
+  --hd-codeblock-box-shadow: none;
 
   /* --- Heading color-override parameters for hd-slide[heading="..."] --- */
   --hd-layout-heading-color-primary: var(--hd-primary-color);
@@ -153,62 +157,63 @@
   --hd-layout-heading-color-muted: var(--hd-muted-color);
 
   /* --- Dynamic class override defaults --- */
-  --hd-layout-heading-bg-class: var(--hd-layout-heading-color-class);
+  --hd-layout-heading-background-color-class: var(--hd-layout-heading-color-class);
   --hd-layout-heading-color-class-final: var(--hd-layout-heading-text-color-class);
   --hd-layout-heading-text-shadow-class: none;
-  --hd-layout-heading-hr-color-class: var(--hd-layout-heading-color-class);
-  --hd-layout-heading-hr-shadow-class: none;
+  --hd-layout-heading-divider-background-color-class: var(--hd-layout-heading-color-class);
+  --hd-layout-heading-divider-box-shadow-class: none;
 
-  --hd-card-shadow-primary: none;
-  --hd-card-shadow-secondary: none;
-  --hd-card-shadow-accent: none;
-  --hd-card-shadow-danger: none;
-  --hd-card-shadow-warning: none;
-  --hd-card-shadow-success: none;
-  --hd-card-shadow-info: none;
-  --hd-card-shadow-muted: none;
-  --hd-callout-bg: transparent;
+  --hd-card-box-shadow-primary: none;
+  --hd-card-box-shadow-secondary: none;
+  --hd-card-box-shadow-accent: none;
+  --hd-card-box-shadow-danger: none;
+  --hd-card-box-shadow-warning: none;
+  --hd-card-box-shadow-success: none;
+  --hd-card-box-shadow-info: none;
+  --hd-card-box-shadow-muted: none;
+
+  --hd-callout-background-color: transparent;
   --hd-callout-border-style: solid;
   --hd-callout-border-color: var(--hd-default-border-color);
   --hd-callout-border-left-color: var(--hd-callout-border-color);
   --hd-callout-border-radius: 0px;
-  --hd-callout-shadow: none;
+  --hd-callout-box-shadow: none;
 
   /* Callout color modifier variables */
-  --hd-callout-bg-primary: transparent;
-  --hd-callout-border-primary: var(--hd-primary-border-color);
-  --hd-callout-shadow-primary: none;
+  --hd-callout-background-color-primary: transparent;
+  --hd-callout-border-color-primary: var(--hd-primary-border-color);
+  --hd-callout-box-shadow-primary: none;
 
-  --hd-callout-bg-secondary: transparent;
-  --hd-callout-border-secondary: var(--hd-secondary-border-color);
-  --hd-callout-shadow-secondary: none;
+  --hd-callout-background-color-secondary: transparent;
+  --hd-callout-border-color-secondary: var(--hd-secondary-border-color);
+  --hd-callout-box-shadow-secondary: none;
 
-  --hd-callout-bg-accent: transparent;
-  --hd-callout-border-accent: var(--hd-accent-border-color);
-  --hd-callout-shadow-accent: none;
+  --hd-callout-background-color-accent: transparent;
+  --hd-callout-border-color-accent: var(--hd-accent-border-color);
+  --hd-callout-box-shadow-accent: none;
 
-  --hd-callout-bg-danger: transparent;
-  --hd-callout-border-danger: var(--hd-danger-border-color);
-  --hd-callout-shadow-danger: none;
+  --hd-callout-background-color-danger: transparent;
+  --hd-callout-border-color-danger: var(--hd-danger-border-color);
+  --hd-callout-box-shadow-danger: none;
 
-  --hd-callout-bg-warning: transparent;
-  --hd-callout-border-warning: var(--hd-warning-border-color);
-  --hd-callout-shadow-warning: none;
+  --hd-callout-background-color-warning: transparent;
+  --hd-callout-border-color-warning: var(--hd-warning-border-color);
+  --hd-callout-box-shadow-warning: none;
 
-  --hd-callout-bg-success: transparent;
-  --hd-callout-border-success: var(--hd-success-border-color);
-  --hd-callout-shadow-success: none;
+  --hd-callout-background-color-success: transparent;
+  --hd-callout-border-color-success: var(--hd-success-border-color);
+  --hd-callout-box-shadow-success: none;
 
-  --hd-callout-bg-info: transparent;
-  --hd-callout-border-info: var(--hd-info-border-color);
-  --hd-callout-shadow-info: none;
+  --hd-callout-background-color-info: transparent;
+  --hd-callout-border-color-info: var(--hd-info-border-color);
+  --hd-callout-box-shadow-info: none;
 
-  --hd-callout-bg-muted: transparent;
-  --hd-callout-border-muted: var(--hd-muted-border-color);
-  --hd-callout-shadow-muted: none;
+  --hd-callout-background-color-muted: transparent;
+  --hd-callout-border-color-muted: var(--hd-muted-border-color);
+  --hd-callout-box-shadow-muted: none;
 
   /* Split layout defaults */
-  --hd-split-ratio: minmax(0, 1fr) minmax(0, 1fr);
+  --hd-layout-split-ratio: minmax(0, 1fr) minmax(0, 1fr);
   --hd-scrollbar-width: 8px;
   --hd-scrollbar-height: 8px;
   --hd-scrollbar-track-bg: transparent;
@@ -229,25 +234,24 @@
   --peripheral-header-top: 12px;
   --peripheral-footer-bottom: 12px;
 
-  --hd-page-number-color: var(--hd-muted-color);
-  --hd-footnote-bottom: 12px;
-  --hd-footnote-left: 16px;
-  --hd-footnote-font-size: var(--peripheral-font-size);
-  --hd-footnote-color: var(--hd-muted-color);
-  --hd-footnote-opacity: 0.85;
+  --hd-slide-page-number-color: var(--hd-muted-color);
+  --hd-slide-footnote-bottom: 12px;
+  --hd-slide-footnote-left: 16px;
+  --hd-slide-footnote-font-size: var(--peripheral-font-size);
+  --hd-slide-footnote-text-color: var(--hd-muted-color);
+  --hd-slide-footnote-opacity: 0.85;
 
-  --hd-header-top: var(--peripheral-header-top);
-  --hd-header-left: var(--hd-slide-padding-left);
-  --hd-header-font-size: var(--peripheral-font-size);
-  --hd-header-color: var(--hd-muted-color);
-  --hd-header-opacity: 0.85;
+  --hd-slide-header-top: var(--peripheral-header-top);
+  --hd-slide-header-left: var(--hd-slide-padding-left);
+  --hd-slide-header-font-size: var(--peripheral-font-size);
+  --hd-slide-header-text-color: var(--hd-muted-color);
+  --hd-slide-header-opacity: 0.85;
 
-  --hd-footer-bottom: var(--peripheral-footer-bottom);
-  --hd-footer-left: var(--hd-slide-padding-left);
-  --hd-footer-font-size: var(--peripheral-font-size);
-  --hd-footer-color: var(--hd-muted-color);
-  --hd-footer-opacity: 0.85;
-  --hd-codeblock-border: var(--hd-default-border-color);
+  --hd-slide-footer-bottom: var(--peripheral-footer-bottom);
+  --hd-slide-footer-left: var(--hd-slide-padding-left);
+  --hd-slide-footer-font-size: var(--peripheral-font-size);
+  --hd-slide-footer-text-color: var(--hd-muted-color);
+  --hd-slide-footer-opacity: 0.85;
   --hd-text-font-size: var(--hd-font-size);
   --hd-text-line-height: 1.6;
   --hd-text-margin-bottom: 8px;
