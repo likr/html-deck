@@ -32,7 +32,7 @@ The root container of the presentation slideshow. It manages layout scaling, key
 
 ## 🎴 Slide & Layout Components
 
-Slides are represented by the container `<hd-slide>`. Structural layout layouts are nested inside slides using dedicated custom layout elements (`<hd-layout>`, `<hd-layout-split>`, `<hd-layout-three>`, `<hd-layout-cover>`).
+Slides are represented by the container `<hd-slide>`. Structural layout layouts are nested inside slides using dedicated custom layout elements (`<hd-layout>`, `<hd-layout-split>`, `<hd-layout-grid>`, `<hd-layout-cover>`).
 
 ### 2. `<hd-slide>`
 The unified slide container component. It handles slide transitions, visibility switching, color scheme overrides, page number tracking, and scrollability.
@@ -87,16 +87,18 @@ A 2-column slide layout component.
 
 ---
 
-### 5. `<hd-layout-three>`
-A 3-column slide layout component.
+### 5. `<hd-layout-grid>`
+A grid slide layout component that automatically arranges child elements sequentially into a configured grid of columns and rows.
+
+#### Attributes
+- `cols` (number): The number of grid columns to create. Default: `1`.
+- `rows` (number): The number of grid rows to create. Default: `auto` (height flows naturally).
 
 #### Slots
 - `heading`: Slide title area slot (usually contains standard `<h2>` tag).
-- `before`: Content to place *before* the columns.
-- `left`: Left-hand column slot.
-- `middle`: Middle column slot.
-- `right`: Right-hand column slot.
-- `after`: Content to place *after* the columns.
+- `before`: Content to place *before* the grid container.
+- **Default Slot**: Contains the grid items. All direct child elements inside this slot will be arranged sequentially into the grid cells.
+- `after`: Content to place *after* the grid container.
 
 ---
 

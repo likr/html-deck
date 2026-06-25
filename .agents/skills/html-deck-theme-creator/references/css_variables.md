@@ -214,5 +214,5 @@ Each UI component has specific CSS variables mapping its styles to standard them
 ## 7. Layout Specific Gaps
 
 - `--hd-layout-split-gap`: Row/column gap spacing inside split layouts. (Default: `var(--hd-gap-5)`)
-- `--hd-layout-three-gap`: Row/column gap spacing inside three-column layouts. (Default: `var(--hd-gap-5)`)
+- `--hd-layout-grid-gap`: Row/column gap spacing inside grid layouts. (Default: `var(--hd-gap-5)`)
 - `--hd-layout-split-ratio`: Column sizing template for split layouts. (Default: `minmax(0, 1fr) minmax(0, 1fr)`)

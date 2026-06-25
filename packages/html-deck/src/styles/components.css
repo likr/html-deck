@@ -63,7 +63,7 @@ hd-layout>*:not([slot]):not(:has(+ *:not([slot]))) {
 hd-slide>*:last-child,
 hd-layout>*:last-child,
 hd-layout-split>*:last-child,
-hd-layout-three>*:last-child,
+hd-layout-grid>*:last-child,
 hd-card>*:last-child,
 hd-box>*:last-child,
 hd-callout>*:last-child,

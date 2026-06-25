@@ -312,9 +312,9 @@
   /* Code Block styling details */
   --hd-codeblock-border-color: var(--hd-slide-border-color);
 
-  /* Split/Three column layout gap variables */
+  /* Split/Grid layout gap variables */
   --hd-layout-split-gap: var(--hd-gap-2);
-  --hd-layout-three-gap: var(--hd-gap-2);
+  --hd-layout-grid-gap: var(--hd-gap-2);
 
   /* Split layout ratio */
   --hd-layout-split-ratio: minmax(0, 1fr) minmax(0, 1fr);

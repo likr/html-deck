@@ -178,29 +178,39 @@
       </div>
     </hd-slide>
 
-    <!-- Slide 5: Three-Column Layout -->
+    <!-- Slide 5: Grid Layout -->
     <hd-slide>
-      <hd-layout-three>
-        <h2 slot="heading">Three-Column Layout</h2>
+      <hd-layout-grid rows="2" cols="3">
+        <h2 slot="heading">Grid Layout</h2>
         <p slot="before" class="hd-muted">Before Slot: Full-width text spanning all columns.</p>
-        <div slot="left">
-          <p class="hd-text-weight-semibold">Column One</p>
-          <p>Renders as the left column, occupying one-third of the content area.</p>
-        </div>
-        <div slot="middle">
-          <p class="hd-text-weight-semibold">Column Two</p>
-          <p>Renders as the middle column in the center of the viewport.</p>
-        </div>
-        <div slot="right">
-          <p class="hd-text-weight-semibold">Column Three</p>
-          <p>Renders as the right column, completing the horizontal layout.</p>
-        </div>
-      </hd-layout-three>
+        <hd-box>
+          <h3 slot="heading">Box One</h3>
+          <p>Row 1, Column 1</p>
+        </hd-box>
+        <hd-box>
+          <h3 slot="heading">Box Two</h3>
+          <p>Row 1, Column 2</p>
+        </hd-box>
+        <hd-box>
+          <h3 slot="heading">Box Three</h3>
+          <p>Row 1, Column 3</p>
+        </hd-box>
+        <hd-box>
+          <h3 slot="heading">Box Four</h3>
+          <p>Row 2, Column 1</p>
+        </hd-box>
+        <hd-box>
+          <h3 slot="heading">Box Five</h3>
+          <p>Row 2, Column 2</p>
+        </hd-box>
+        <p slot="after" class="hd-muted">After Slot: Spans the full layout width below the grid cells.</p>
+      </hd-layout-grid>
       <div slot="notes">
-        <h3>Slide 5: Three-Column Layout</h3>
+        <h3>Slide 5: Grid Layout</h3>
         <ul>
-          <li>Uses &lt;hd-layout-three&gt; layout helper.</li>
-          <li>Supports left, middle, right, before, and after slots.</li>
+          <li>Uses &lt;hd-layout-grid&gt; layout helper with rows="2" cols="3".</li>
+          <li>Displays 5 hd-box items spanning across the grid tracks.</li>
+          <li>Demonstrates heading, before, and after slots.</li>
         </ul>
       </div>
     </hd-slide>
@@ -395,12 +405,12 @@
         <h2 slot="heading">Typography: Sizing Scales</h2>
         <p>Control text sizing using six predefined classes (<code>.hd-size-1</code> to <code>.hd-size-6</code>) aligned
           with layout grids:</p>
-        <p class="hd-size-1 hd-mb-0">Size 1 (48px): <code>.hd-size-1</code></p>
-        <p class="hd-size-2 hd-mb-0">Size 2 (32px): <code>.hd-size-2</code></p>
-        <p class="hd-size-3 hd-mb-0">Size 3 (24px): <code>.hd-size-3</code></p>
-        <p class="hd-size-4 hd-mb-0">Size 4 (18px): <code>.hd-size-4</code></p>
-        <p class="hd-size-5 hd-mb-0">Size 5 (14px): <code>.hd-size-5</code></p>
-        <p class="hd-size-6 hd-mb-0">Size 6 (12px): <code>.hd-size-6</code></p>
+        <p class="hd-size-1 hd-mb-0">Size 1: <code>.hd-size-1</code></p>
+        <p class="hd-size-2 hd-mb-0">Size 2: <code>.hd-size-2</code></p>
+        <p class="hd-size-3 hd-mb-0">Size 3: <code>.hd-size-3</code></p>
+        <p class="hd-size-4 hd-mb-0">Size 4: <code>.hd-size-4</code></p>
+        <p class="hd-size-5 hd-mb-0">Size 5: <code>.hd-size-5</code></p>
+        <p class="hd-size-6 hd-mb-0">Size 6: <code>.hd-size-6</code></p>
       </hd-layout>
       <div slot="notes">
         <h3>Slide 15: Sizing Utilities</h3>
@@ -415,12 +425,12 @@
       <hd-layout>
         <h2 slot="heading">Typography: Text Weights</h2>
         <p>Predefined classes configure the font weights consistently without custom style overrides:</p>
-        <p class="hd-mb-0 hd-text-weight-light">Light Weight (300): <code>.hd-text-weight-light</code></p>
-        <p class="hd-mb-0 hd-text-weight-normal">Normal Weight (400): <code>.hd-text-weight-normal</code></p>
-        <p class="hd-mb-0 hd-text-weight-medium">Medium Weight (500): <code>.hd-text-weight-medium</code></p>
-        <p class="hd-mb-0 hd-text-weight-semibold">Semibold Weight (600): <code>.hd-text-weight-semibold</code></p>
-        <p class="hd-mb-0 hd-text-weight-bold">Bold Weight (700): <code>.hd-text-weight-bold</code></p>
-        <p class="hd-mb-0 hd-text-weight-extrabold">Extrabold Weight (800): <code>.hd-text-weight-extrabold</code></p>
+        <p class="hd-mb-0 hd-text-weight-light">Light Weight: <code>.hd-text-weight-light</code></p>
+        <p class="hd-mb-0 hd-text-weight-normal">Normal Weight: <code>.hd-text-weight-normal</code></p>
+        <p class="hd-mb-0 hd-text-weight-medium">Medium Weight: <code>.hd-text-weight-medium</code></p>
+        <p class="hd-mb-0 hd-text-weight-semibold">Semibold Weight: <code>.hd-text-weight-semibold</code></p>
+        <p class="hd-mb-0 hd-text-weight-bold">Bold Weight: <code>.hd-text-weight-bold</code></p>
+        <p class="hd-mb-0 hd-text-weight-extrabold">Extrabold Weight: <code>.hd-text-weight-extrabold</code></p>
       </hd-layout>
       <div slot="notes">
         <h3>Slide 16: Font Weights</h3>
@@ -490,33 +500,85 @@
 
     <!-- Slide 20: Layout Spacing Scales -->
     <hd-slide>
-      <hd-layout-three>
+      <hd-layout-grid cols="3">
         <h2 slot="heading">Spacing Utilities (Margins & Paddings)</h2>
-        <p slot="before" class="hd-muted">Explicit spacing scale from 0 to 6 (0px, 4px, 8px, 16px, 24px, 32px, 48px):
+        <p slot="before" class="hd-muted">Explicit spacing scale from 0 to 6:
         </p>
-        <hd-box slot="left" class="hd-mb-3">
+        <hd-box>
           <h3 slot="heading">Level 2 Padding</h3>
           <div class="hd-p-2">
-            <p>Uses inner <code>.hd-p-2</code> content padding and <code>.hd-mb-3</code> margin.</p>
+            <p>Uses inner <code>.hd-p-2</code> content padding</p>
           </div>
         </hd-box>
-        <hd-box slot="middle" class="hd-mb-0">
+        <hd-box>
           <h3 slot="heading">Level 4 Padding</h3>
           <div class="hd-p-4">
-            <p>Uses inner <code>.hd-p-4</code> content padding and <code>.hd-mb-0</code> margin.</p>
+            <p>Uses inner <code>.hd-p-4</code> content padding</p>
           </div>
         </hd-box>
-        <hd-box slot="right">
+        <hd-box>
           <h3 slot="heading">Level 6 Padding</h3>
           <div class="hd-p-6">
             <p>Uses inner <code>.hd-p-6</code> content padding for generous spacing.</p>
           </div>
         </hd-box>
-      </hd-layout-three>
+      </hd-layout-grid>
       <div slot="notes">
         <h3>Slide 20: Spacing</h3>
         <ul>
           <li>Demonstrates spacing utilities using inner padding divs side-by-side.</li>
+        </ul>
+      </div>
+    </hd-slide>
+
+    <!-- Slide 21: Multi-Row Grid Layout -->
+    <hd-slide>
+      <hd-layout-grid cols="2" rows="3">
+        <h2 slot="heading">Multi-Row Grid Layout</h2>
+        <p slot="before" class="hd-muted">Demonstrating grid layout with dynamic columns and rows (cols="2" rows="3"):
+        </p>
+        <hd-card>
+          <div class="hd-p-2">
+            <p class="hd-text-weight-bold">Grid Cell 1</p>
+            <p>Row 1, Column 1</p>
+          </div>
+        </hd-card>
+        <hd-card>
+          <div class="hd-p-2">
+            <p class="hd-text-weight-bold">Grid Cell 2</p>
+            <p>Row 1, Column 2</p>
+          </div>
+        </hd-card>
+        <hd-card>
+          <div class="hd-p-2">
+            <p class="hd-text-weight-bold">Grid Cell 3</p>
+            <p>Row 2, Column 1</p>
+          </div>
+        </hd-card>
+        <hd-card>
+          <div class="hd-p-2">
+            <p class="hd-text-weight-bold">Grid Cell 4</p>
+            <p>Row 2, Column 2</p>
+          </div>
+        </hd-card>
+        <hd-card>
+          <div class="hd-p-2">
+            <p class="hd-text-weight-bold">Grid Cell 5</p>
+            <p>Row 3, Column 1</p>
+          </div>
+        </hd-card>
+        <hd-card>
+          <div class="hd-p-2">
+            <p class="hd-text-weight-bold">Grid Cell 6</p>
+            <p>Row 3, Column 2</p>
+          </div>
+        </hd-card>
+      </hd-layout-grid>
+      <div slot="notes">
+        <h3>Slide 21: Multi-Row Grid</h3>
+        <ul>
+          <li>Uses &lt;hd-layout-grid cols="2" rows="3"&gt;</li>
+          <li>Demonstrates dynamic grid spacing and sequential slot layout.</li>
         </ul>
       </div>
     </hd-slide>
@@ -546,45 +608,43 @@
       </div>
     </hd-slide>
 
-    <!-- Slide 22: List Nesting & Formatting -->
-    <hd-slide>
-      <hd-layout-split>
-        <h2 slot="heading">Lists: Bullet & Ordered</h2>
-        <div slot="left">
-          <p class="hd-text-weight-bold">Unordered Nested List</p>
-          <ul>
-            <li>Level 1 (Disc bullet)
-              <ul>
-                <li>Level 2 (Circle bullet)
-                  <ul>
-                    <li>Level 3 (Square bullet)</li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-        <div slot="right">
-          <p class="hd-text-weight-bold">Ordered Nested List</p>
-          <ol>
-            <li>Step One (Decimal)
-              <ol>
-                <li>Substep A (Lower-Alpha)
-                  <ol>
-                    <li>Detail i (Lower-Roman)</li>
-                  </ol>
-                </li>
-              </ol>
-            </li>
-          </ol>
-        </div>
-      </hd-layout-split>
-      <div slot="notes">
-        <h3>Slide 22: Lists</h3>
+    <hd-layout-split>
+      <h2 slot="heading">Lists: Bullet & Ordered</h2>
+      <div slot="left">
+        <p class="hd-text-weight-bold">Unordered Nested List</p>
         <ul>
-          <li>Nested lists automatically alternate bullet symbols and numbering formats.</li>
+          <li>Level 1 (Disc bullet)
+            <ul>
+              <li>Level 2 (Circle bullet)
+                <ul>
+                  <li>Level 3 (Square bullet)</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
         </ul>
       </div>
+      <div slot="right">
+        <p class="hd-text-weight-bold">Ordered Nested List</p>
+        <ol>
+          <li>Step One (Decimal)
+            <ol>
+              <li>Substep A (Lower-Alpha)
+                <ol>
+                  <li>Detail i (Lower-Roman)</li>
+                </ol>
+              </li>
+            </ol>
+          </li>
+        </ol>
+      </div>
+    </hd-layout-split>
+    <div slot="notes">
+      <h3>Slide 22: Lists</h3>
+      <ul>
+        <li>Nested lists automatically alternate bullet symbols and numbering formats.</li>
+      </ul>
+    </div>
     </hd-slide>
 
     <!-- Slide 23: Table Formatting -->

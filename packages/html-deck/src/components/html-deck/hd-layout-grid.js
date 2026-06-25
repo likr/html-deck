@@ -1,4 +1,8 @@
-export class HdLayoutThree extends HTMLElement {
+export class HdLayoutGrid extends HTMLElement {
+  static get observedAttributes() {
+    return ['cols', 'rows'];
+  }
+
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
@@ -63,19 +67,14 @@ export class HdLayoutThree extends HTMLElement {
         ::slotted([slot="after"]) {
           margin-top: var(--hd-layout-after-margin) !important;
         }
-        .three-container {
+        .grid-container {
           display: grid;
-          grid-template-columns: repeat(3, minmax(0, 1fr));
-          gap: var(--hd-layout-three-gap);
+          grid-template-columns: var(--hd-layout-grid-columns, repeat(1, minmax(0, 1fr)));
+          grid-template-rows: var(--hd-layout-grid-rows, none);
+          gap: var(--hd-layout-grid-gap, var(--hd-gap-2));
           flex-grow: 1;
           align-items: stretch;
           width: 100%;
-        }
-        .left-pane, .middle-pane, .right-pane {
-          display: flex;
-          flex-direction: column;
-          justify-content: flex-start;
-          align-items: stretch;
         }
       </style>
       <div class="heading-area">
@@ -84,16 +83,8 @@ export class HdLayoutThree extends HTMLElement {
       <hr class="heading-divider" />
       <div class="layout-content">
         <slot name="before"></slot>
-        <div class="three-container">
-          <div class="left-pane">
-            <slot name="left"></slot>
-          </div>
-          <div class="middle-pane">
-            <slot name="middle"></slot>
-          </div>
-          <div class="right-pane">
-            <slot name="right"></slot>
-          </div>
+        <div class="grid-container" id="grid-container">
+          <slot></slot>
         </div>
         <slot name="after"></slot>
       </div>
@@ -112,6 +103,37 @@ export class HdLayoutThree extends HTMLElement {
       };
       headingSlot.addEventListener('slotchange', updateHeading);
       updateHeading();
+    }
+  }
+
+  connectedCallback() {
+    this.updateGrid();
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    if ((name === 'cols' || name === 'rows') && oldValue !== newValue) {
+      this.updateGrid();
+    }
+  }
+
+  updateGrid() {
+    const container = this.shadowRoot.getElementById('grid-container');
+    if (!container) return;
+
+    const colsAttr = this.getAttribute('cols');
+    const colsVal = parseInt(colsAttr, 10);
+    if (!isNaN(colsVal) && colsVal > 0) {
+      container.style.setProperty('--hd-layout-grid-columns', `repeat(${colsVal}, minmax(0, 1fr))`);
+    } else {
+      container.style.setProperty('--hd-layout-grid-columns', 'repeat(1, minmax(0, 1fr))');
+    }
+
+    const rowsAttr = this.getAttribute('rows');
+    const rowsVal = parseInt(rowsAttr, 10);
+    if (!isNaN(rowsVal) && rowsVal > 0) {
+      container.style.setProperty('--hd-layout-grid-rows', `repeat(${rowsVal}, minmax(0, 1fr))`);
+    } else {
+      container.style.removeProperty('--hd-layout-grid-rows');
     }
   }
 }
