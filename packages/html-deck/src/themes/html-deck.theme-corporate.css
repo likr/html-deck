@@ -1,40 +1,164 @@
-/* html-deck.theme-corporate.css - Corporate Theme for HTML-Deck */
+/* html-deck.theme-corporate.css - Modern Tech Corporate Theme for HTML-Deck */
 :root {
-  /* Fonts */
+  /* Fonts & Weights */
   --hd-font-family: 'Inter', system-ui, -apple-system, sans-serif;
   --hd-body-font: var(--hd-font-family);
-  --hd-heading-font: var(--hd-font-family);
+  --hd-heading-font: 'Outfit', var(--hd-font-family);
 
-  /* 24-Color Matrix (Corporate Navy themed) */
-  /* Normal */
-  --hd-base-color: #ffffff;
-  --hd-base-text-color: #0f172a; /* Slate 900 */
-  --hd-main-color: #1e3a8a; /* Navy Blue main (used for headings bg) */
-  --hd-main-text-color: #ffffff; /* White heading text */
-  --hd-accent-color: #0d9488; /* Corporate Teal accent */
-  --hd-accent-text-color: #ffffff;
+  /* --- 48-Color Matrix (Modern Tech Corporate) --- */
 
-  /* Muted */
-  --hd-base-color-muted: #f8fafc; /* Slate 50 */
-  --hd-base-text-color-muted: #475569; /* Slate 600 */
-  --hd-main-color-muted: #f0f4ff;
-  --hd-main-text-color-muted: #1e3a8a;
-  --hd-accent-color-muted: #f0fdfa;
-  --hd-accent-text-color-muted: #0d9488;
+  /* ========================================================
+     BASE THEME (Standard/Neutral) - Crisp White, Midnight Slate Inverted
+     ======================================================== */
+  /* Soft Surface (Slide default) */
+  --hd-base-soft-background-color: #ffffff;
+  --hd-base-soft-text-color: #0f172a; /* Slate 900 */
+  --hd-base-soft-text-highlight-color: #d97706; /* Golden Amber */
+  --hd-base-soft-text-muted-color: #64748b; /* Slate 500 */
 
-  /* Inverted (Navy Blue slide background) */
-  --hd-base-color-inverted: #1e3a8a;
-  --hd-base-text-color-inverted: #ffffff;
-  --hd-main-color-inverted: #0f172a;
-  --hd-main-text-color-inverted: #ffffff;
-  --hd-accent-color-inverted: #0d9488;
-  --hd-accent-text-color-inverted: #ffffff;
+  /* Solid Surface (Medium bg / Dark text) */
+  --hd-base-solid-background-color: #f1f5f9; /* Slate 100 */
+  --hd-base-solid-text-color: #0f172a;
+  --hd-base-solid-text-highlight-color: #b45309; /* Deep Amber */
+  --hd-base-solid-text-muted-color: #475569; /* Slate 600 */
 
-  /* Muted Inverted */
-  --hd-base-color-muted-inverted: #172554;
-  --hd-base-text-color-muted-inverted: #bfdbfe;
-  --hd-main-color-muted-inverted: #1e293b;
-  --hd-main-text-color-muted-inverted: #94a3b8;
-  --hd-accent-color-muted-inverted: #115e59;
-  --hd-accent-text-color-muted-inverted: #99f6e4;
+  /* Soft Surface Inverted (Midnight Slate Mode) */
+  --hd-base-soft-background-color-inverted: #0f172a; /* Slate 900 */
+  --hd-base-soft-text-color-inverted: #ffffff;
+  --hd-base-soft-text-highlight-color-inverted: #fbbf24; /* Amber Gold Inverted */
+  --hd-base-soft-text-muted-color-inverted: #94a3b8; /* Slate 400 */
+
+  /* Solid Surface Inverted (Slate Solid Mode) */
+  --hd-base-solid-background-color-inverted: #1e293b; /* Slate 800 */
+  --hd-base-solid-text-color-inverted: #f8fafc; /* Slate 50 */
+  --hd-base-solid-text-highlight-color-inverted: #fbbf24;
+  --hd-base-solid-text-muted-color-inverted: #94a3b8;
+
+  /* ========================================================
+     MAIN THEME (Brand Trust Navy) - Trust Blue / Steel themed
+     ======================================================== */
+  /* Soft Surface */
+  --hd-main-soft-background-color: #f0f4f8; /* Cool Light Ice Blue */
+  --hd-main-soft-text-color: #1e3a8a; /* Deep Navy */
+  --hd-main-soft-text-highlight-color: #d97706;
+  --hd-main-soft-text-muted-color: #475569;
+
+  /* Solid Surface */
+  --hd-main-solid-background-color: #1e40af; /* Vibrant Blue/Navy */
+  --hd-main-solid-text-color: #ffffff;
+  --hd-main-solid-text-highlight-color: #fcd34d; /* Bright Gold */
+  --hd-main-solid-text-muted-color: #bfdbfe;
+
+  /* Soft Surface Inverted */
+  --hd-main-soft-background-color-inverted: #1e3a8a; /* Deep Navy Background */
+  --hd-main-soft-text-color-inverted: #f0f4f8;
+  --hd-main-soft-text-highlight-color-inverted: #fbbf24;
+  --hd-main-soft-text-muted-color-inverted: #93c5fd;
+
+  /* Solid Surface Inverted */
+  --hd-main-solid-background-color-inverted: #ffffff;
+  --hd-main-solid-text-color-inverted: #1e3a8a;
+  --hd-main-solid-text-highlight-color-inverted: #d97706;
+  --hd-main-solid-text-muted-color-inverted: #475569;
+
+  /* ========================================================
+     ACCENT THEME (Brand Teal) - Corporate Teal themed
+     ======================================================== */
+  /* Soft Surface */
+  --hd-accent-soft-background-color: #f0fdfa; /* Light Teal Tint */
+  --hd-accent-soft-text-color: #0f766e; /* Deep Teal */
+  --hd-accent-soft-text-highlight-color: #d97706;
+  --hd-accent-soft-text-muted-color: #4b5563;
+
+  /* Solid Surface */
+  --hd-accent-solid-background-color: #0d9488; /* Corporate Teal Accent */
+  --hd-accent-solid-text-color: #ffffff;
+  --hd-accent-solid-text-highlight-color: #fdba74;
+  --hd-accent-solid-text-muted-color: #ccfbf1;
+
+  /* Soft Surface Inverted */
+  --hd-accent-soft-background-color-inverted: #115e59; /* Deep Teal Background */
+  --hd-accent-soft-text-color-inverted: #f0fdfa;
+  --hd-accent-soft-text-highlight-color-inverted: #fbbf24;
+  --hd-accent-soft-text-muted-color-inverted: #99f6e4;
+
+  /* Solid Surface Inverted */
+  --hd-accent-solid-background-color-inverted: #ffffff;
+  --hd-accent-solid-text-color-inverted: #0d9488;
+  --hd-accent-solid-text-highlight-color-inverted: #d97706;
+  --hd-accent-solid-text-muted-color-inverted: #475569;
+
+  /* ========================================================
+     SEMANTIC SLIDE COLORS
+     ======================================================== */
+  --hd-slide-background-color: var(--hd-base-soft-background-color);
+  --hd-slide-text-color: var(--hd-base-soft-text-color);
+  --hd-slide-text-highlight-color: var(--hd-base-soft-text-highlight-color);
+  --hd-slide-text-muted-color: var(--hd-base-soft-text-muted-color);
+
+  --hd-layout-heading-background-color: var(--hd-main-soft-background-color);
+  --hd-layout-heading-text-color: var(--hd-main-soft-text-color);
+
+  /* ========================================================
+     POLISHED EXECUTIVE DESIGN OVERRIDES
+     ======================================================== */
+
+  /* Spacing Scale (Fine-tuned for a cleaner, tighter layout) */
+  --hd-gap-1: 6px;
+  --hd-gap-2: 12px;
+  --hd-gap-3: 20px;
+  --hd-gap-4: 28px;
+  --hd-gap-5: 36px;
+  --hd-gap-6: 48px;
+
+  /* Heading Dividers - Custom Corporate Accent Stripe */
+  --hd-layout-heading-divider-display: block;
+  --hd-layout-heading-divider-height: 2px;
+  --hd-layout-divider-color: var(--hd-accent-solid-background-color); /* Beautiful teal line under Navy headings */
+
+  /* Component Rounding - Sharp and precise */
+  --hd-card-border-radius: 6px;
+  --hd-box-border-radius: 6px;
+  --hd-callout-border-radius: 6px;
+  --hd-codeblock-border-radius: 6px;
+  --hd-img-border-radius: 6px;
+
+  /* Card Design Overrides */
+  --hd-card-background-color: #ffffff;
+  --hd-card-border-width: 1px;
+  --hd-card-border-color: rgba(from var(--hd-base-soft-text-color) r g b / 0.08);
+  --hd-card-box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03), 0 8px 24px rgba(15, 23, 42, 0.04);
+  --hd-card-heading-background-color: var(--hd-base-solid-background-color);
+  --hd-card-heading-text-color: var(--hd-base-soft-text-color);
+  --hd-card-heading-border-color: rgba(from var(--hd-base-soft-text-color) r g b / 0.08);
+
+  /* Box Design Overrides */
+  --hd-box-background-color: var(--hd-base-solid-background-color);
+  --hd-box-border-width: 1px;
+  --hd-box-border-color: rgba(from var(--hd-base-soft-text-color) r g b / 0.08);
+  --hd-box-box-shadow: none;
+
+  /* Callout Design Overrides - Navy bar with cool translucent main background */
+  --hd-callout-background-color: rgba(from var(--hd-main-soft-background-color) r g b / 0.6);
+  --hd-callout-border-color: var(--hd-main-solid-background-color);
+  --hd-callout-border-width: 0 0 0 4px;
+  --hd-callout-text-color: var(--hd-base-soft-text-color);
+
+  /* Codeblock Overrides - Slate Dark theme for code */
+  --hd-codeblock-background-color: #0f172a;
+  --hd-codeblock-border-color: rgba(255, 255, 255, 0.1);
+  --hd-codeblock-box-shadow: none;
+
+  /* Table Design Overrides */
+  --hd-table-border-color: rgba(from var(--hd-base-soft-text-color) r g b / 0.1);
+  --hd-table-cell-padding: 10px 14px;
+
+  /* Image Shadow Overrides */
+  --hd-img-border-color: rgba(from var(--hd-base-soft-text-color) r g b / 0.08);
+  --hd-img-box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
+
+  /* Scrollbars thumbs */
+  --hd-scrollbar-track-bg: transparent;
+  --hd-scrollbar-thumb-bg: rgba(from var(--hd-base-soft-text-color) r g b / 0.15);
+  --hd-scrollbar-thumb-hover-bg: rgba(from var(--hd-base-soft-text-color) r g b / 0.3);
 }
