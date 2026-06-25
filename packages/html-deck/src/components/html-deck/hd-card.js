@@ -12,9 +12,10 @@ export class HdCard extends HTMLElement {
           display: flex;
           flex-direction: column;
           box-sizing: border-box;
-          border-radius: var(--hd-card-border-radius, 8px);
-          padding: var(--hd-card-padding, 16px);
-          margin-bottom: var(--hd-card-margin-bottom, 16px);
+          border-radius: var(--hd-card-border-radius);
+          padding: var(--hd-card-padding);
+          margin-bottom: var(--hd-card-margin-bottom);
+          font-size: var(--hd-card-font-size);
           height: auto;
           background-color: var(--hd-base-color-muted);
           color: var(--hd-base-text-color);
@@ -33,16 +34,8 @@ export class HdCard extends HTMLElement {
           border: 1px solid var(--hd-accent-color);
         }
 
-        .heading-container {
-          margin-bottom: var(--hd-gap-2, 8px);
-          width: 100%;
-        }
-
-        .heading-container:not(:has(slot[name="heading"]::slotted(*))) {
-          display: none;
-        }
-
-        .heading-container ::slotted(*) {
+        ::slotted([slot="heading"]) {
+          display: block !important;
           font-family: var(--hd-text-subheading-font) !important;
           color: var(--hd-text-subheading-color) !important;
           font-size: var(--hd-text-subheading-font-size) !important;
@@ -51,14 +44,14 @@ export class HdCard extends HTMLElement {
           letter-spacing: var(--hd-text-subheading-letter-spacing) !important;
           text-transform: var(--hd-text-subheading-text-transform) !important;
           text-shadow: var(--hd-text-subheading-text-shadow) !important;
-          margin: 0 !important;
+          margin: 0 0 var(--hd-gap-2) 0 !important;
         }
 
-        :host([variant="main"]) .heading-container ::slotted(*) {
+        :host([variant="main"]) ::slotted([slot="heading"]) {
           color: var(--hd-main-text-color-muted) !important;
         }
 
-        :host([variant="accent"]) .heading-container ::slotted(*) {
+        :host([variant="accent"]) ::slotted([slot="heading"]) {
           color: var(--hd-accent-text-color-muted) !important;
         }
 
@@ -67,9 +60,7 @@ export class HdCard extends HTMLElement {
           flex-grow: 1;
         }
       </style>
-      <div class="heading-container">
-        <slot name="heading"></slot>
-      </div>
+      <slot name="heading"></slot>
       <div class="body-container">
         <slot></slot>
       </div>

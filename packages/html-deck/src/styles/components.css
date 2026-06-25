@@ -73,3 +73,17 @@ th>*:last-child,
 pre>*:last-child {
   margin-bottom: 0;
 }
+
+/* Custom elements light-DOM padding and margin overrides */
+hd-card {
+  margin-bottom: var(--hd-card-margin-bottom);
+  padding: var(--hd-card-padding);
+}
+hd-box {
+  margin-bottom: var(--hd-box-margin-bottom);
+  padding: var(--hd-box-padding);
+}
+hd-callout {
+  margin-bottom: var(--hd-callout-margin-bottom);
+  padding: var(--hd-callout-padding);
+}

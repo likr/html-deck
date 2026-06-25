@@ -132,13 +132,13 @@
   --hd-font-weight-extrabold: 800;
 
   /* Slide layout margin parameters */
-  --hd-slide-margin-top: 30px;
-  --hd-slide-margin-right: 40px;
-  --hd-slide-margin-bottom: 30px;
-  --hd-slide-margin-left: 40px;
+  --hd-slide-margin-top: var(--hd-gap-5);
+  --hd-slide-margin-right: var(--hd-gap-6);
+  --hd-slide-margin-bottom: var(--hd-gap-5);
+  --hd-slide-margin-left: var(--hd-gap-6);
 
   /* Peripheral Absolute Position Offset (Unified vertical/horizontal margin offset) */
-  --hd-peripheral-offset: 12px;
+  --hd-peripheral-offset: var(--hd-gap-3);
 
   /* Spacing Scale (Gap classes) */
   --hd-gap-0: 0px;
@@ -152,19 +152,26 @@
   /* Layout Spacing Configuration defaults */
   --hd-layout-before-margin: var(--hd-gap-2);
   --hd-layout-after-margin: var(--hd-gap-2);
+  --hd-layout-heading-padding-bottom: var(--hd-gap-3);
+  --hd-layout-heading-margin: var(--hd-gap-3);
+  --hd-layout-cover-title-margin-bottom: var(--hd-gap-3);
+  --hd-layout-cover-subtitle-margin-bottom: var(--hd-gap-4);
 
   /* Component Properties */
   --hd-card-border-radius: 8px;
-  --hd-card-padding: 16px;
+  --hd-card-padding: var(--hd-gap-3);
   --hd-card-margin-bottom: var(--hd-gap-3);
+  --hd-card-font-size: var(--hd-size-4);
 
   --hd-box-border-radius: 8px;
-  --hd-box-padding: 16px;
+  --hd-box-padding: var(--hd-gap-3);
   --hd-box-margin-bottom: var(--hd-gap-3);
+  --hd-box-font-size: var(--hd-size-4);
 
   --hd-callout-border-radius: 4px;
-  --hd-callout-padding-left: 12px;
-  --hd-callout-margin-bottom: 12px;
+  --hd-callout-padding: var(--hd-gap-3);
+  --hd-callout-margin-bottom: var(--hd-gap-3);
+  --hd-callout-font-size: var(--hd-size-4);
 
   --hd-codeblock-border-radius: 8px;
   --hd-codeblock-background-color: transparent;
@@ -176,11 +183,44 @@
   /* Table */
   --hd-table-border-color: var(--hd-slide-border-color);
   --hd-table-cell-padding: 6px 10px;
+  --hd-table-margin-bottom: var(--hd-gap-3);
+  --hd-table-font-size: var(--hd-size-4);
 
   /* Lists */
-  --hd-list-margin-bottom: 12px;
-  --hd-list-padding-left: 19px;
-  --hd-list-item-margin-bottom: 4px;
+  --hd-list-margin-bottom: var(--hd-gap-2);
+  --hd-list-padding-left: var(--hd-gap-4);
+  --hd-list-item-margin-bottom: var(--hd-gap-1);
+  --hd-list-font-family: var(--hd-text-body-font);
+  --hd-list-font-size: var(--hd-text-body-font-size);
+  --hd-list-color: var(--hd-text-body-color);
+  --hd-list-line-height: var(--hd-text-body-line-height);
+
+  /* Blockquote */
+  --hd-blockquote-font-family: var(--hd-text-quote-font);
+  --hd-blockquote-color: var(--hd-text-quote-color);
+  --hd-blockquote-font-size: var(--hd-text-quote-font-size);
+  --hd-blockquote-font-weight: var(--hd-text-quote-font-weight);
+  --hd-blockquote-line-height: var(--hd-text-quote-line-height);
+  --hd-blockquote-letter-spacing: var(--hd-text-quote-letter-spacing);
+  --hd-blockquote-text-transform: var(--hd-text-quote-text-transform);
+  --hd-blockquote-text-shadow: var(--hd-text-quote-text-shadow);
+  --hd-blockquote-border-color: var(--hd-slide-border-color);
+  --hd-blockquote-border-width: 3px;
+  --hd-blockquote-padding-left: var(--hd-gap-3);
+  --hd-blockquote-margin-bottom: var(--hd-gap-3);
+
+  /* Image */
+  --hd-img-max-width: 100%;
+  --hd-img-height: auto;
+  --hd-img-border-radius: 8px;
+  --hd-img-border-width: 1px;
+  --hd-img-border-style: solid;
+  --hd-img-border-color: var(--hd-slide-border-color);
+  --hd-img-box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+
+  /* Pre block and code styling */
+  --hd-pre-margin-bottom: var(--hd-gap-3);
+  --hd-pre-padding: var(--hd-gap-3);
 
   /* Scrollbars */
   --hd-scrollbar-width: 8px;
@@ -192,6 +232,10 @@
 
   /* Code Block styling details */
   --hd-codeblock-border-color: var(--hd-slide-border-color);
+
+  /* Split/Three column layout gap variables */
+  --hd-layout-split-gap: var(--hd-gap-5);
+  --hd-layout-three-gap: var(--hd-gap-5);
 
   /* Split layout ratio */
   --hd-layout-split-ratio: minmax(0, 1fr) minmax(0, 1fr);

@@ -1,11 +1,11 @@
 /* elements.css - Scoped HTML tag styling for slides */
 
 hd-slide img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  border: 1px solid var(--hd-slide-border-color);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+  max-width: var(--hd-img-max-width);
+  height: var(--hd-img-height);
+  border-radius: var(--hd-img-border-radius);
+  border: var(--hd-img-border-width) var(--hd-img-border-style) var(--hd-img-border-color);
+  box-shadow: var(--hd-img-box-shadow);
 }
 
 hd-slide a {
@@ -73,15 +73,15 @@ hd-slide p {
   text-transform: var(--hd-text-body-text-transform);
   text-shadow: var(--hd-text-body-text-shadow);
   margin: 0;
-  margin-bottom: var(--hd-list-item-margin-bottom);
+  margin-bottom: var(--hd-gap-2);
 }
 
 hd-slide ul,
 hd-slide ol {
-  font-family: var(--hd-text-body-font);
-  color: var(--hd-text-body-color);
-  font-size: var(--hd-text-body-font-size);
-  line-height: var(--hd-text-body-line-height);
+  font-family: var(--hd-list-font-family);
+  color: var(--hd-list-color);
+  font-size: var(--hd-list-font-size);
+  line-height: var(--hd-list-line-height);
   margin: 0 0 var(--hd-list-margin-bottom) 0;
   padding-left: var(--hd-list-padding-left);
 }
@@ -92,17 +92,17 @@ hd-slide li {
 
 /* Quote */
 hd-slide blockquote {
-  font-family: var(--hd-text-quote-font);
-  color: var(--hd-text-quote-color);
-  font-size: var(--hd-text-quote-font-size);
-  font-weight: var(--hd-text-quote-font-weight);
-  line-height: var(--hd-text-quote-line-height);
-  letter-spacing: var(--hd-text-quote-letter-spacing);
-  text-transform: var(--hd-text-quote-text-transform);
-  text-shadow: var(--hd-text-quote-text-shadow);
-  margin: 0 0 var(--hd-gap-3) 0;
-  border-left: 3px solid var(--hd-slide-border-color);
-  padding-left: var(--hd-gap-3);
+  font-family: var(--hd-blockquote-font-family);
+  color: var(--hd-blockquote-color);
+  font-size: var(--hd-blockquote-font-size);
+  font-weight: var(--hd-blockquote-font-weight);
+  line-height: var(--hd-blockquote-line-height);
+  letter-spacing: var(--hd-blockquote-letter-spacing);
+  text-transform: var(--hd-blockquote-text-transform);
+  text-shadow: var(--hd-blockquote-text-shadow);
+  margin: 0 0 var(--hd-blockquote-margin-bottom) 0;
+  border-left: var(--hd-blockquote-border-width) solid var(--hd-blockquote-border-color);
+  padding-left: var(--hd-blockquote-padding-left);
 }
 
 /* Caption */
@@ -189,9 +189,18 @@ hd-slide ol ol ol {
 }
 
 /* Code block container defaults matching the slide theme */
+hd-slide table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: var(--hd-table-margin-bottom);
+  font-family: var(--hd-body-font);
+  font-size: var(--hd-table-font-size);
+  background-color: transparent;
+}
+
 hd-slide pre {
-  margin: 0 0 12px 0;
-  padding: 12px !important;
+  margin: 0 0 var(--hd-pre-margin-bottom) 0;
+  padding: var(--hd-pre-padding) !important;
   border: var(--hd-codeblock-border-width, 1px) solid var(--hd-codeblock-border-color);
   border-radius: var(--hd-codeblock-border-radius, 8px);
   background-color: var(--hd-codeblock-background-color, transparent);

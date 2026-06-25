@@ -153,8 +153,8 @@ HdSlide.baseStyles = `
 
   .page-number {
     position: absolute;
-    bottom: var(--hd-peripheral-offset, 12px);
-    right: var(--hd-peripheral-offset, 12px);
+    bottom: var(--hd-peripheral-offset);
+    right: var(--hd-peripheral-offset);
     font-family: var(--hd-text-peripheral-font);
     color: var(--hd-text-peripheral-color);
     font-size: var(--hd-text-peripheral-font-size);
@@ -202,7 +202,7 @@ HdSlide.baseStyles = `
   ::slotted([slot="header"]) {
     display: block !important;
     position: absolute !important;
-    top: var(--hd-peripheral-offset, 12px) !important;
+    top: var(--hd-peripheral-offset) !important;
     left: var(--hd-slide-margin-left) !important;
     right: var(--hd-slide-margin-right) !important;
     font-family: var(--hd-text-peripheral-font) !important;
@@ -220,7 +220,7 @@ HdSlide.baseStyles = `
   ::slotted([slot="footer"]) {
     display: block !important;
     position: absolute !important;
-    bottom: var(--hd-peripheral-offset, 12px) !important;
+    bottom: var(--hd-peripheral-offset) !important;
     left: var(--hd-slide-margin-left) !important;
     right: var(--hd-slide-margin-right) !important;
     font-family: var(--hd-text-peripheral-font) !important;

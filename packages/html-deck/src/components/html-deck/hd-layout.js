@@ -18,7 +18,7 @@ export class HdLayout extends HTMLElement {
           width: 100%;
           box-sizing: border-box;
           padding-top: var(--hd-slide-margin-top);
-          padding-bottom: var(--hd-layout-heading-padding-bottom, 16px);
+          padding-bottom: var(--hd-layout-heading-padding-bottom);
           padding-left: var(--hd-slide-margin-left);
           padding-right: var(--hd-slide-margin-right);
           background-color: var(--hd-main-color);
@@ -56,7 +56,7 @@ export class HdLayout extends HTMLElement {
         /* When heading is present, remove padding-top and use margin-top */
         .heading-area:has(slot[name="heading"]::slotted(*)) ~ .layout-content {
           padding-top: 0;
-          margin-top: var(--hd-layout-heading-margin, var(--hd-gap-3));
+          margin-top: var(--hd-layout-heading-margin);
         }
         .heading-area ::slotted(*) {
           font-family: var(--hd-text-heading-font);
@@ -66,10 +66,10 @@ export class HdLayout extends HTMLElement {
           margin: 0;
         }
         ::slotted([slot="before"]) {
-          margin-bottom: var(--hd-layout-before-margin, var(--hd-gap-2)) !important;
+          margin-bottom: var(--hd-layout-before-margin) !important;
         }
         ::slotted([slot="after"]) {
-          margin-top: var(--hd-layout-after-margin, var(--hd-gap-2)) !important;
+          margin-top: var(--hd-layout-after-margin) !important;
         }
         .body-area {
           flex-grow: 1;

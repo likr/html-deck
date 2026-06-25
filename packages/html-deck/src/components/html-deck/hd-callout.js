@@ -11,10 +11,10 @@ export class HdCallout extends HTMLElement {
         :host {
           display: block;
           box-sizing: border-box;
-          border-radius: var(--hd-callout-border-radius, 4px);
-          padding: 12px 16px;
-          padding-left: var(--hd-callout-padding-left, 12px);
-          margin-bottom: var(--hd-callout-margin-bottom, 12px);
+          border-radius: var(--hd-callout-border-radius);
+          padding: var(--hd-callout-padding);
+          margin-bottom: var(--hd-callout-margin-bottom);
+          font-size: var(--hd-callout-font-size);
           background-color: var(--hd-base-color-muted);
           color: var(--hd-base-text-color);
           border-style: solid;

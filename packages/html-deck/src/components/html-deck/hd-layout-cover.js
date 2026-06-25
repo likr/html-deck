@@ -28,7 +28,7 @@ export class HdLayoutCover extends HTMLElement {
           flex-grow: 1;
         }
         .title-area {
-          margin-bottom: var(--hd-layout-cover-title-margin-bottom, var(--hd-gap-3));
+          margin-bottom: var(--hd-layout-cover-title-margin-bottom);
           width: 100%;
         }
         .title-area ::slotted(*) {
@@ -43,7 +43,7 @@ export class HdLayoutCover extends HTMLElement {
           margin: 0;
         }
         .subtitle-area {
-          margin-bottom: var(--hd-layout-cover-subtitle-margin-bottom, var(--hd-gap-4));
+          margin-bottom: var(--hd-layout-cover-subtitle-margin-bottom);
           width: 100%;
         }
         .subtitle-area ::slotted(*) {
