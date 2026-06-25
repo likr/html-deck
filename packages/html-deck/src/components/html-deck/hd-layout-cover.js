@@ -7,16 +7,20 @@ export class HdLayoutCover extends HTMLElement {
         :host {
           display: flex;
           flex-direction: column;
+          height: 100%;
+          width: 100%;
+          box-sizing: border-box;
+        }
+        .cover-content {
+          display: flex;
+          flex-direction: column;
           justify-content: var(--hd-layout-cover-justify-content, center);
           align-items: var(--hd-layout-cover-align-items, center);
           text-align: var(--hd-layout-cover-text-align, center);
           height: 100%;
           width: 100%;
           box-sizing: border-box;
-          padding-top: var(--hd-slide-margin-top);
-          padding-bottom: var(--hd-slide-margin-bottom);
-          padding-left: var(--hd-slide-margin-left);
-          padding-right: var(--hd-slide-margin-right);
+          padding: var(--hd-layout-cover-padding);
         }
         .cover-container {
           display: flex;
@@ -69,20 +73,28 @@ export class HdLayoutCover extends HTMLElement {
           letter-spacing: var(--hd-text-caption-letter-spacing);
           margin: 0;
         }
+        ::slotted([slot="before"]) {
+          margin-bottom: var(--hd-layout-before-margin) !important;
+        }
+        ::slotted([slot="after"]) {
+          margin-top: var(--hd-layout-after-margin) !important;
+        }
       </style>
-      <slot name="before"></slot>
-      <div class="cover-container">
-        <div class="title-area">
-          <slot name="title"></slot>
+      <div class="cover-content">
+        <slot name="before"></slot>
+        <div class="cover-container">
+          <div class="title-area">
+            <slot name="title"></slot>
+          </div>
+          <div class="subtitle-area">
+            <slot name="subtitle"></slot>
+          </div>
+          <div class="meta-area">
+            <slot name="meta"></slot>
+          </div>
         </div>
-        <div class="subtitle-area">
-          <slot name="subtitle"></slot>
-        </div>
-        <div class="meta-area">
-          <slot name="meta"></slot>
-        </div>
+        <slot name="after"></slot>
       </div>
-      <slot name="after"></slot>
     `;
   }
 }

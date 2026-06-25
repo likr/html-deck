@@ -203,6 +203,7 @@
   --hd-layout-after-margin: var(--hd-gap-2);
   --hd-layout-heading-padding: var(--hd-slide-margin-top) var(--hd-slide-margin-right) var(--hd-gap-3) var(--hd-slide-margin-left);
   --hd-layout-body-padding: var(--hd-gap-3) var(--hd-slide-margin-right) var(--hd-slide-margin-bottom) var(--hd-slide-margin-left);
+  --hd-layout-cover-padding: var(--hd-slide-margin-top) var(--hd-slide-margin-right) var(--hd-slide-margin-bottom) var(--hd-slide-margin-left);
   --hd-layout-heading-margin: var(--hd-gap-4);
   --hd-layout-cover-title-margin-bottom: var(--hd-gap-3);
   --hd-layout-cover-subtitle-margin-bottom: var(--hd-gap-4);

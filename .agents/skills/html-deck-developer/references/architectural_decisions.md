@@ -88,3 +88,7 @@
 - **hd-table: カプセル化テーブルスロットクローンパターン**:
   Shadow DOM 内からは、スロットされた `::slotted(table)` の深い子要素（`tr`, `td`, `th`）を柔軟にスタイリングできません。
   - **パターン**: スロット要素自体は CSS で非表示にし（`slot { display: none; }`）、`slotchange` イベントをハンドリングしてテーブル要素を `table.cloneNode(true)` でコピーし、Shadow DOM 内のコンテナへ追加します。これにより Shadow DOM 境界内で完全なテーブルのスタイリングを可能にします。
+- **レイアウトコンポーネントにおける余白・パディング挙動の統一**:
+  すべてのレイアウト要素（`<hd-layout>`, `<hd-layout-cover>`, `<hd-layout-split>`, `<hd-layout-three>`）は、余白設定に関して統一された挙動を提供する必要があります。
+  - **パターン**: `:host` または内部のレイアウトコンテンツの padding には、直接値を指定せず、必ず `variables.css` で定義された統一的なレイアウト用 CSS 変数（例：`--hd-layout-body-padding` や `--hd-layout-cover-padding`）を使用します。
+  - **パターン**: スロットされた `before` / `after` 要素の上下マージン（`--hd-layout-before-margin` / `--hd-layout-after-margin`）を、すべてのレイアウトコンポーネントの Shadow DOM 内で `::slotted([slot="before"])` / `::slotted([slot="after"])` セレクタを用いて一貫して適用してください。
