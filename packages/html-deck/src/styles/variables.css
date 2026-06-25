@@ -325,6 +325,35 @@
   --hd-pre-margin-bottom: var(--hd-gap-2);
   --hd-pre-padding: var(--hd-gap-1);
 
+  /* Inline Code styling */
+  --hd-code-background-color: rgba(from var(--hd-slide-text-color) r g b / 0.05);
+  --hd-code-text-color: var(--hd-slide-text-highlight-color);
+  --hd-code-padding: 2px 6px;
+  --hd-code-border-radius: 4px;
+  --hd-code-font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+  --hd-code-font-size: 0.85em;
+  --hd-code-border-width: 1px;
+  --hd-code-border-style: solid;
+  --hd-code-border-color: rgba(from var(--hd-slide-text-color) r g b / 0.08);
+
+  /* Keyboard Input styling */
+  --hd-kbd-background-color: rgba(from var(--hd-slide-text-color) r g b / 0.05);
+  --hd-kbd-text-color: var(--hd-slide-text-color);
+  --hd-kbd-padding: 2px 5px;
+  --hd-kbd-border-radius: 4px;
+  --hd-kbd-font-family: var(--hd-body-font);
+  --hd-kbd-font-size: 0.85em;
+  --hd-kbd-border-width: 1px 1px 3px 1px;
+  --hd-kbd-border-style: solid;
+  --hd-kbd-border-color: rgba(from var(--hd-slide-text-color) r g b / 0.15);
+  --hd-kbd-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+
+  /* Highlight Mark styling */
+  --hd-mark-background-color: rgba(from var(--hd-slide-text-highlight-color) r g b / 0.15);
+  --hd-mark-text-color: var(--hd-slide-text-highlight-color);
+  --hd-mark-padding: 0px 4px;
+  --hd-mark-border-radius: 2px;
+
   /* Scrollbars */
   --hd-scrollbar-width: var(--hd-gap-1);
   --hd-scrollbar-height: var(--hd-gap-1);

@@ -192,6 +192,24 @@ Note: Card, Box, Callout, and Layout Heading elements use the CSS `background` s
 - `--hd-codeblock-border-color`: Border frame color. (Default: `var(--hd-layout-divider-color)`)
 - `--hd-codeblock-box-shadow`: Outer drop shadow. (Default: `none`)
 
+### Inline Code (`code`)
+- `--hd-code-background-color`: Inline code background tint. (Default: `rgba(from var(--hd-slide-text-color) r g b / 0.05)`)
+- `--hd-code-text-color`: Inline code text color. (Default: `var(--hd-slide-text-highlight-color)`)
+- `--hd-code-padding`: Inner padding. (Default: `2px 6px`)
+- `--hd-code-border-radius`: Border radius. (Default: `4px`)
+- `--hd-code-font-family`: Font family. (Default: monospace stack)
+- `--hd-code-font-size`: Font size multiplier. (Default: `0.85em`)
+- `--hd-code-border-width` / `--hd-code-border-style` / `--hd-code-border-color`: Inline border properties. (Default: `1px solid rgba(from var(--hd-slide-text-color) r g b / 0.08)`)
+
+### Keyboard Input (`kbd`)
+- `--hd-kbd-background-color` / `--hd-kbd-text-color` / `--hd-kbd-padding` / `--hd-kbd-border-radius` / `--hd-kbd-font-family` / `--hd-kbd-font-size` / `--hd-kbd-border-width` / `--hd-kbd-border-style` / `--hd-kbd-border-color` / `--hd-kbd-box-shadow`: Styling parameters for `<kbd>` elements. (Defaults to a dynamic, pressable button style adapting to the slide text color).
+
+### Highlight Mark (`mark`)
+- `--hd-mark-background-color`: Highlighter background fill. (Default: `rgba(from var(--hd-slide-text-highlight-color) r g b / 0.15)`)
+- `--hd-mark-text-color`: Highlighter text color. (Default: `var(--hd-slide-text-highlight-color)`)
+- `--hd-mark-padding`: Highlighter padding. (Default: `0px 4px`)
+- `--hd-mark-border-radius`: Highlighter corner rounding. (Default: `2px`)
+
 ### Table (`table`)
 - `--hd-table-border-color`: Cell border divider. (Default: `var(--hd-layout-divider-color)`)
 - `--hd-table-cell-padding`: Cell margins. (Default: `6px 10px`)
