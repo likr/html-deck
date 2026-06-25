@@ -44,7 +44,10 @@ hd-slide li {
 /* Quote */
 hd-slide blockquote {
   margin: 0 0 var(--hd-blockquote-margin-bottom) 0;
-  border-left: var(--hd-blockquote-border-width) solid var(--hd-blockquote-border-color);
+  border-left: var(--hd-blockquote-border-width) var(--hd-blockquote-border-style) var(--hd-blockquote-border-color);
+  padding-top: var(--hd-blockquote-padding-top);
+  padding-right: var(--hd-blockquote-padding-right);
+  padding-bottom: var(--hd-blockquote-padding-bottom);
   padding-left: var(--hd-blockquote-padding-left);
 }
 

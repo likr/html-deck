@@ -88,6 +88,11 @@
   --hd-slide-text-highlight-color: var(--hd-base-soft-text-highlight-color);
   --hd-slide-text-muted-color: var(--hd-base-soft-text-muted-color);
 
+  /* Slide Border parameters */
+  --hd-slide-border-width: 0px;
+  --hd-slide-border-style: solid;
+  --hd-slide-border-color: var(--hd-layout-heading-text-color);
+
   /* Layout heading background, text, and divider colors */
   --hd-layout-heading-background-color: var(--hd-main-solid-background-color);
   --hd-layout-heading-text-color: var(--hd-main-solid-text-color);
@@ -285,6 +290,10 @@
   --hd-blockquote-text-shadow: var(--hd-text-quote-text-shadow);
   --hd-blockquote-border-color: var(--hd-layout-divider-color);
   --hd-blockquote-border-width: 3px;
+  --hd-blockquote-border-style: solid;
+  --hd-blockquote-padding-top: 0px;
+  --hd-blockquote-padding-right: 0px;
+  --hd-blockquote-padding-bottom: 0px;
   --hd-blockquote-padding-left: var(--hd-gap-2);
   --hd-blockquote-margin-bottom: var(--hd-gap-2);
 

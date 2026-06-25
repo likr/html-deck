@@ -1,40 +1,184 @@
-/* html-deck.theme-serif.css - Serif / Academic Theme for HTML-Deck */
+/* html-deck.theme-serif.css - Premium Literary / Editorial Theme for HTML-Deck */
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
 :root {
-  /* Fonts */
+  /* Fonts & Weights */
   --hd-font-family: 'Lora', Georgia, 'Times New Roman', Times, serif;
   --hd-body-font: var(--hd-font-family);
   --hd-heading-font: 'Playfair Display', Georgia, serif;
 
-  /* 24-Color Matrix (Academic Paper themed) */
-  /* Normal */
-  --hd-base-color: #fafaf9; /* Paper Warm White */
-  --hd-base-text-color: #1c1917; /* Ink Black */
-  --hd-main-color: #f5f5f4;
-  --hd-main-text-color: #1c1917;
-  --hd-accent-color: #eae9e7;
-  --hd-accent-text-color: #78716c; /* Stone Gray accent */
+  /* ========================================================
+     BASE THEME (Standard/Neutral) - Warm Cream Paper & Ink Black
+     ======================================================== */
+  /* Soft Surface (Slide default) */
+  --hd-base-soft-background-color: #faf8f5;
+  --hd-base-soft-text-color: #1c1917;
+  --hd-base-soft-text-highlight-color: #5c1d1d; /* Burgundy highlight */
+  --hd-base-soft-text-muted-color: #78716c; /* Stone gray */
 
-  /* Muted */
-  --hd-base-color-muted: rgba(28, 25, 23, 0.01);
-  --hd-base-text-color-muted: #78716c;
-  --hd-main-color-muted: #e7e5e4;
-  --hd-main-text-color-muted: #57534e;
-  --hd-accent-color-muted: #e7e5e4;
-  --hd-accent-text-color-muted: #57534e;
+  /* Solid Surface (Medium bg / Dark text) */
+  --hd-base-solid-background-color: #f2ede4; /* Slightly darker warm paper */
+  --hd-base-solid-text-color: #1c1917;
+  --hd-base-solid-text-highlight-color: #5c1d1d;
+  --hd-base-solid-text-muted-color: #78716c;
 
-  /* Inverted (Deep brown/ink background) */
-  --hd-base-color-inverted: #1c1917;
-  --hd-base-text-color-inverted: #fafaf9;
-  --hd-main-color-inverted: #292524;
-  --hd-main-text-color-inverted: #fafaf9;
-  --hd-accent-color-inverted: #3f3f46;
-  --hd-accent-text-color-inverted: #d6d3d1;
+  /* Soft Surface Inverted (Deep Ink / Cream text) */
+  --hd-base-soft-background-color-inverted: #1c1917;
+  --hd-base-soft-text-color-inverted: #faf8f5;
+  --hd-base-soft-text-highlight-color-inverted: #f59e0b; /* Bright Amber Gold */
+  --hd-base-soft-text-muted-color-inverted: #a8a29e; /* Muted Warm Gray */
 
-  /* Muted Inverted */
-  --hd-base-color-muted-inverted: #292524;
-  --hd-base-text-color-muted-inverted: #a8a29e;
-  --hd-main-color-muted-inverted: #44403c;
-  --hd-main-text-color-muted-inverted: #e7e5e4;
-  --hd-accent-color-muted-inverted: #44403c;
-  --hd-accent-text-color-muted-inverted: #d6d3d1;
+  /* Solid Surface Inverted (Slightly lighter ink bg) */
+  --hd-base-solid-background-color-inverted: #292524;
+  --hd-base-solid-text-color-inverted: #faf8f5;
+  --hd-base-solid-text-highlight-color-inverted: #f59e0b;
+  --hd-base-solid-text-muted-color-inverted: #a8a29e;
+
+  /* ========================================================
+     MAIN THEME (Brand Burgundy) - Rich Wine Red
+     ======================================================== */
+  /* Soft Surface */
+  --hd-main-soft-background-color: #f5ebeb; /* Rose cream tint */
+  --hd-main-soft-text-color: #5c1d1d; /* Deep Burgundy */
+  --hd-main-soft-text-highlight-color: #9c6d1d; /* Gold */
+  --hd-main-soft-text-muted-color: #8a4f4f;
+
+  /* Solid Surface */
+  --hd-main-solid-background-color: #5c1d1d;
+  --hd-main-solid-text-color: #faf8f5;
+  --hd-main-solid-text-highlight-color: #f59e0b;
+  --hd-main-solid-text-muted-color: #cca7a7;
+
+  /* Soft Surface Inverted */
+  --hd-main-soft-background-color-inverted: #3a1010;
+  --hd-main-soft-text-color-inverted: #faf8f5;
+  --hd-main-soft-text-highlight-color-inverted: #f59e0b;
+  --hd-main-soft-text-muted-color-inverted: #c89f9f;
+
+  /* Solid Surface Inverted */
+  --hd-main-solid-background-color-inverted: #faf8f5;
+  --hd-main-solid-text-color-inverted: #5c1d1d;
+  --hd-main-solid-text-highlight-color-inverted: #9c6d1d;
+  --hd-main-solid-text-muted-color-inverted: #8a4f4f;
+
+  /* ========================================================
+     ACCENT THEME (Brand Gold) - Antique Gold
+     ======================================================== */
+  /* Soft Surface */
+  --hd-accent-soft-background-color: #fbf7eb; /* Soft gold tint */
+  --hd-accent-soft-text-color: #855b13; /* Antique Gold */
+  --hd-accent-soft-text-highlight-color: #5c1d1d;
+  --hd-accent-soft-text-muted-color: #a38244;
+
+  /* Solid Surface */
+  --hd-accent-solid-background-color: #9c6d1d;
+  --hd-accent-solid-text-color: #faf8f5;
+  --hd-accent-solid-text-highlight-color: #5c1d1d;
+  --hd-accent-solid-text-muted-color: #e5c895;
+
+  /* Soft Surface Inverted */
+  --hd-accent-soft-background-color-inverted: #4c3209;
+  --hd-accent-soft-text-color-inverted: #faf8f5;
+  --hd-accent-soft-text-highlight-color-inverted: #fbbf24;
+  --hd-accent-soft-text-muted-color-inverted: #c6a36f;
+
+  /* Solid Surface Inverted */
+  --hd-accent-solid-background-color-inverted: #faf8f5;
+  --hd-accent-solid-text-color-inverted: #9c6d1d;
+  --hd-accent-solid-text-highlight-color-inverted: #5c1d1d;
+  --hd-accent-solid-text-muted-color-inverted: #a38244;
+
+  /* ========================================================
+     SEMANTIC SLIDE COLORS
+     ======================================================== */
+  --hd-slide-background-color: var(--hd-base-soft-background-color);
+  --hd-slide-text-color: var(--hd-base-soft-text-color);
+  --hd-slide-text-highlight-color: var(--hd-base-soft-text-highlight-color);
+  --hd-slide-text-muted-color: var(--hd-base-soft-text-muted-color);
+
+  --hd-layout-heading-background-color: var(--hd-main-soft-background-color);
+  --hd-layout-heading-text-color: var(--hd-main-soft-text-color);
+
+  /* ========================================================
+     EDITORIAL DESIGN OVERRIDES & COMPONENTS
+     ======================================================== */
+
+  /* Slide Border Customization - Fine thin border around slides */
+  --hd-slide-border-width: 1px;
+  --hd-slide-border-style: solid;
+  --hd-slide-border-color: rgba(from var(--hd-layout-heading-text-color) r g b / 0.15);
+
+  /* Spacing & Layout - Generous and structured */
+  --hd-gap-1: 8px;
+  --hd-gap-2: 16px;
+  --hd-gap-3: 24px;
+  --hd-gap-4: 32px;
+  --hd-gap-5: 48px;
+  --hd-gap-6: 64px;
+
+  /* Heading Dividers - Thin, elegant hairline accent color divider */
+  --hd-layout-heading-divider-display: block;
+  --hd-layout-heading-divider-height: 1px;
+  --hd-layout-divider-color: rgba(from var(--hd-main-soft-text-color) r g b / 0.3);
+
+  /* Typography Fine-Tuning */
+  --hd-text-title-letter-spacing: -0.01em;
+  --hd-text-heading-letter-spacing: -0.01em;
+  --hd-text-body-line-height: 1.6;
+  --hd-text-quote-line-height: 1.5;
+
+  /* Component Rounding - Sharp editorial borders */
+  --hd-card-border-radius: 3px;
+  --hd-box-border-radius: 3px;
+  --hd-callout-border-radius: 3px;
+  --hd-codeblock-border-radius: 3px;
+  --hd-img-border-radius: 3px;
+
+  /* Card Decor: Minimalist Bookplate Style */
+  --hd-card-background-color: #ffffff;
+  --hd-card-border-width: 1px;
+  --hd-card-border-color: rgba(from var(--hd-base-soft-text-color) r g b / 0.12);
+  --hd-card-box-shadow: 0 1px 3px rgba(from var(--hd-base-soft-text-color) r g b / 0.02), 0 6px 18px rgba(from var(--hd-base-soft-text-color) r g b / 0.02);
+  --hd-card-heading-background-color: var(--hd-base-solid-background-color);
+  --hd-card-heading-text-color: var(--hd-base-soft-text-color);
+  --hd-card-heading-border-color: rgba(from var(--hd-base-soft-text-color) r g b / 0.12);
+
+  /* Box Decor */
+  --hd-box-background-color: var(--hd-base-solid-background-color);
+  --hd-box-border-width: 1px;
+  --hd-box-border-color: rgba(from var(--hd-base-soft-text-color) r g b / 0.12);
+  --hd-box-box-shadow: none;
+
+  /* Callout Decor: Elegant left-border panel with warm paper tint background */
+  --hd-callout-background-color: rgba(from var(--hd-accent-soft-background-color) r g b / 0.7);
+  --hd-callout-border-color: var(--hd-accent-soft-text-color);
+  --hd-callout-border-width: 0 0 0 3px;
+  --hd-callout-text-color: var(--hd-base-soft-text-color);
+
+  /* Codeblock Decor */
+  --hd-codeblock-background-color: #1e1b18; /* Vintage dark charcoal tint for code */
+  --hd-codeblock-border-color: rgba(from var(--hd-base-soft-text-color) r g b / 0.15);
+  --hd-codeblock-box-shadow: none;
+
+  /* Table Decor */
+  --hd-table-border-color: rgba(from var(--hd-base-soft-text-color) r g b / 0.15);
+  --hd-table-cell-padding: 8px 12px;
+
+  /* Blockquote Decor */
+  --hd-blockquote-border-width: 3px;
+  --hd-blockquote-border-style: solid;
+  --hd-blockquote-border-color: var(--hd-layout-divider-color);
+  --hd-blockquote-padding-top: 4px;
+  --hd-blockquote-padding-right: 0px;
+  --hd-blockquote-padding-bottom: 4px;
+  --hd-blockquote-padding-left: var(--hd-gap-2);
+
+  /* Image Decor */
+  --hd-img-border-color: rgba(from var(--hd-base-soft-text-color) r g b / 0.12);
+  --hd-img-box-shadow: 0 6px 20px rgba(from var(--hd-base-soft-text-color) r g b / 0.04);
+
+  /* Scrollbars thumbs */
+  --hd-scrollbar-track-bg: transparent;
+  --hd-scrollbar-thumb-bg: rgba(from var(--hd-base-soft-text-color) r g b / 0.12);
+  --hd-scrollbar-thumb-hover-bg: rgba(from var(--hd-base-soft-text-color) r g b / 0.25);
 }

@@ -97,7 +97,7 @@ No abbreviated names (like `bg` or `color`) should be introduced. Use `backgroun
 
 ---
 
-## 3. Semantic Slide Colors
+## 3. Semantic Slide Colors & Borders
 
 These resolve dynamically to control slide borders, heading areas, and backgrounds. They are defined on `:root` to map to base defaults but are overridden on `<hd-slide>` based on the `variant`, `heading`, `surface`, and `inverted` attributes:
 - `--hd-slide-background-color`: Mapped from the soft/solid background color of the active body theme.
@@ -107,6 +107,9 @@ These resolve dynamically to control slide borders, heading areas, and backgroun
 - `--hd-layout-divider-color`: Mapped from the text color of the active heading theme.
 - `--hd-layout-heading-background-color`: Mapped from the soft/solid background color of the active heading theme.
 - `--hd-layout-heading-text-color`: Mapped from the soft/solid text color of the active heading theme.
+- `--hd-slide-border-width`: Slide border thickness. (Default: `0px` - hidden by default)
+- `--hd-slide-border-style`: Slide border pattern style. (Default: `solid`)
+- `--hd-slide-border-color`: Slide border outline color. (Default: `var(--hd-layout-heading-text-color)`)
 
 ---
 
@@ -199,7 +202,7 @@ Note: Card, Box, Callout, and Layout Heading elements use the CSS `background` s
 - `--hd-list-margin-bottom` / `--hd-list-padding-left` / `--hd-list-item-margin-bottom` / `--hd-list-font-family` / `--hd-list-font-size` / `--hd-list-color` / `--hd-list-line-height`
 
 ### Blockquote (`blockquote`)
-- `--hd-blockquote-font-family` / `--hd-blockquote-color` / `--hd-blockquote-font-size` / `--hd-blockquote-font-weight` / `--hd-blockquote-line-height` / `--hd-blockquote-letter-spacing` / `--hd-blockquote-text-transform` / `--hd-blockquote-text-shadow` / `--hd-blockquote-border-color` / `--hd-blockquote-border-width` / `--hd-blockquote-padding-left` / `--hd-blockquote-margin-bottom`
+- `--hd-blockquote-font-family` / `--hd-blockquote-color` / `--hd-blockquote-font-size` / `--hd-blockquote-font-weight` / `--hd-blockquote-line-height` / `--hd-blockquote-letter-spacing` / `--hd-blockquote-text-transform` / `--hd-blockquote-text-shadow` / `--hd-blockquote-border-color` / `--hd-blockquote-border-width` / `--hd-blockquote-border-style` / `--hd-blockquote-padding-top` / `--hd-blockquote-padding-right` / `--hd-blockquote-padding-bottom` / `--hd-blockquote-padding-left` / `--hd-blockquote-margin-bottom`
 
 ### Image (`img`)
 - `--hd-img-max-width`: Max-width bounds. (Default: `100%`)

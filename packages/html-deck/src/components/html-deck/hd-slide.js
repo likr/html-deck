@@ -73,9 +73,10 @@ HdSlide.baseStyles = `
     color: var(--hd-slide-text-color);
     font-family: var(--hd-body-font);
     font-size: var(--hd-size-3);
-    font-weight: var(--hd-text-body-font-weight, 400);
-    line-height: var(--hd-text-body-line-height, 1.6);
-    letter-spacing: var(--hd-text-body-letter-spacing, 0.01em);
+    font-weight: var(--hd-text-body-font-weight);
+    line-height: var(--hd-text-body-line-height);
+    letter-spacing: var(--hd-text-body-letter-spacing);
+    border: var(--hd-slide-border-width) var(--hd-slide-border-style) var(--hd-slide-border-color);
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
