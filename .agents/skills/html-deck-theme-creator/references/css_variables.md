@@ -104,7 +104,7 @@ These resolve dynamically to control slide borders, heading areas, and backgroun
 - `--hd-slide-text-color`: Mapped from the soft/solid text color of the active body theme.
 - `--hd-slide-text-highlight-color`: Mapped from the soft/solid highlight color of the active body theme.
 - `--hd-slide-text-muted-color`: Mapped from the soft/solid muted color of the active body theme.
-- `--hd-slide-border-color`: Mapped from the soft/solid muted color of the active body theme.
+- `--hd-layout-divider-color`: Mapped from the text color of the active heading theme.
 - `--hd-layout-heading-background-color`: Mapped from the soft/solid background color of the active heading theme.
 - `--hd-layout-heading-text-color`: Mapped from the soft/solid text color of the active heading theme.
 
@@ -186,11 +186,11 @@ Note: Card, Box, Callout, and Layout Heading elements use the CSS `background` s
 - `--hd-codeblock-background-color`: Fill background color. (Default: `transparent` - inherits from parent container)
 - `--hd-codeblock-border-width`: Border line width. (Default: `1px`)
 - `--hd-codeblock-border-style`: Border pattern. (Default: `solid`)
-- `--hd-codeblock-border-color`: Border frame color. (Default: `var(--hd-slide-border-color)`)
+- `--hd-codeblock-border-color`: Border frame color. (Default: `var(--hd-layout-divider-color)`)
 - `--hd-codeblock-box-shadow`: Outer drop shadow. (Default: `none`)
 
 ### Table (`table`)
-- `--hd-table-border-color`: Cell border divider. (Default: `var(--hd-slide-border-color)`)
+- `--hd-table-border-color`: Cell border divider. (Default: `var(--hd-layout-divider-color)`)
 - `--hd-table-cell-padding`: Cell margins. (Default: `6px 10px`)
 - `--hd-table-margin-bottom`: Table bottom spacing. (Default: `var(--hd-gap-3)`)
 - `--hd-table-font-size`: Inner cell text size. (Default: `var(--hd-size-4)`)
@@ -207,7 +207,7 @@ Note: Card, Box, Callout, and Layout Heading elements use the CSS `background` s
 - `--hd-img-border-radius`: Border rounding. (Default: `8px`)
 - `--hd-img-border-width`: Border line width. (Default: `1px`)
 - `--hd-img-border-style`: Border pattern. (Default: `solid`)
-- `--hd-img-border-color`: Border color. (Default: `var(--hd-slide-border-color)`)
+- `--hd-img-border-color`: Border color. (Default: `var(--hd-layout-divider-color)`)
 - `--hd-img-box-shadow`: Box drop shadow. (Default: `0 4px 6px -1px rgba(0, 0, 0, 0.2)`)
 
 ---

@@ -84,11 +84,6 @@
   text-align: justify !important;
 }
 
-/* Borders */
-.hd-border {
-  border: 1px solid var(--hd-slide-border-color) !important;
-}
-
 /* Spacing Scale Utilities (Margins, Paddings, Gaps) */
 
 /* Level 0 (0px) */

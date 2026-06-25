@@ -55,7 +55,7 @@
 5. **コンポーネント固有のスタイル**:
    - WebComponent の Shadow DOM スタイルシート（各 JS 内）で定義します。コンポーネントの構造や動作に必要な境界内部のスタイルです。
     - **注意**: レイアウトコンポーネントにおいては、`:host` に対して直接 padding を設定することは避け、必ず `.layout-content` や `.cover-content` などの内部ラッパーに対して設定変数（`--hd-layout-body-padding` や `--hd-layout-cover-padding`）を介して padding を適用してください。
-    - **注意**: `hd-card`, `hd-box`, `hd-callout` などのコンテナ型コンポーネント、および `hd-layout` などのレイアウト見出し領域の背景スタイルには、`background-color` プロパティではなく、`background` 略記法プロパティを使用してください。これにより、カスタムテーマから線形・放射状グラデーション（`linear-gradient` / `radial-gradient`）背景をCSS変数経由で適用できるようになります。
+    - **注意**: `hd-card`, `hd-box`, `hd-callout` などのコンテナ型コンポーネント、レイアウト見出し領域の背景スタイル、および見出し区切り線 (divider) には、`background-color` プロパティではなく、`background` 略記法プロパティを使用してください。これにより、カスタムテーマから線形・放射状グラデーション（`linear-gradient` / `radial-gradient`）背景や模様をCSS変数経由で適用できるようになります。
     - **注意**: `!important` をグローバルなリセットルール（`*:last-child { margin-bottom: 0 !important; }` など）で使用することは、個別ユーティリティクラス（`.hd-align-middle` など）の挙動を破壊するため禁止します。
 
 ---
@@ -98,5 +98,3 @@
   数値ではなくセマンティックな名称を使用します（`.hd-text-weight-light`, `.hd-text-weight-normal`, `.hd-text-weight-medium`, `.hd-text-weight-semibold`, `.hd-text-weight-bold`, `.hd-text-weight-extrabold`）。
 - **カラーユーティリティ**:
   テキストの文字色を直接変更するためのユーティリティクラスは `.hd-accent`（アクセントカラー）と `.hd-muted`（ミュートカラー）のみが利用可能です。テキストの標準色やプライマリカラーの定義は、個別のユーティリティクラスではなく、テーマ変数（`--hd-base-text-color` や `--hd-accent-color` など）の切り替えによって制御します。
-- **カード (.hd-card) のボーダー**:
-  カードはデフォルトで枠線を描きません。枠線を引く場合は `.hd-border` ユーティリティを明示的に付与します（例: `class="hd-card hd-border"`）。

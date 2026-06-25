@@ -95,7 +95,6 @@
   --hd-slide-text-color: var(--hd-base-soft-text-color);
   --hd-slide-text-highlight-color: var(--hd-base-soft-text-highlight-color);
   --hd-slide-text-muted-color: var(--hd-base-soft-text-muted-color);
-  --hd-slide-border-color: var(--hd-base-soft-text-muted-color);
   
   --hd-layout-heading-background-color: var(--hd-main-soft-background-color);
   --hd-layout-heading-text-color: var(--hd-main-soft-text-color);

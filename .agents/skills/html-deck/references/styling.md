@@ -119,9 +119,6 @@ Sets the foreground text color using key theme color variables:
 - `.hd-accent`: Uses the primary accent color (`var(--hd-accent-color)`)
 - `.hd-muted`: Uses the muted text color (`var(--hd-base-text-color-muted)`)
 
-### 4. Borders
-- `.hd-border`: Draws a standard border (`1px solid var(--hd-slide-border-color)`). Useful for adding outlines to blocks like `<hd-card>`.
-
 ### 5. Layout and Spacings (Margins, Paddings, Gaps)
 Apply standard spacing intervals using numeric levels `0` to `6` (mapping to 0px, 4px, 8px, 16px, 24px, 32px, and 48px):
 - **Margins (`m`, `mt`, `mb`, `ml`, `mr`, `mx`, `my`)**:

@@ -87,11 +87,11 @@
   --hd-slide-text-color: var(--hd-base-soft-text-color);
   --hd-slide-text-highlight-color: var(--hd-base-soft-text-highlight-color);
   --hd-slide-text-muted-color: var(--hd-base-soft-text-muted-color);
-  --hd-slide-border-color: var(--hd-base-soft-text-muted-color);
 
-  /* Layout heading background and text colors */
+  /* Layout heading background, text, and divider colors */
   --hd-layout-heading-background-color: var(--hd-main-solid-background-color);
   --hd-layout-heading-text-color: var(--hd-main-solid-text-color);
+  --hd-layout-divider-color: var(--hd-layout-heading-text-color);
 
   /* 6-Level Sizing Scale */
   --hd-size-1: 64px;
@@ -256,11 +256,11 @@
   --hd-codeblock-background-color: transparent;
   --hd-codeblock-border-width: 1px;
   --hd-codeblock-border-style: solid;
-  --hd-codeblock-border-color: var(--hd-slide-border-color);
+  --hd-codeblock-border-color: var(--hd-layout-divider-color);
   --hd-codeblock-box-shadow: none;
 
   /* Table */
-  --hd-table-border-color: var(--hd-slide-border-color);
+  --hd-table-border-color: var(--hd-layout-divider-color);
   --hd-table-cell-padding: var(--hd-gap-1);
   --hd-table-margin-bottom: var(--hd-gap-2);
   --hd-table-font-size: var(--hd-size-4);
@@ -283,7 +283,7 @@
   --hd-blockquote-letter-spacing: var(--hd-text-quote-letter-spacing);
   --hd-blockquote-text-transform: var(--hd-text-quote-text-transform);
   --hd-blockquote-text-shadow: var(--hd-text-quote-text-shadow);
-  --hd-blockquote-border-color: var(--hd-slide-border-color);
+  --hd-blockquote-border-color: var(--hd-layout-divider-color);
   --hd-blockquote-border-width: 3px;
   --hd-blockquote-padding-left: var(--hd-gap-2);
   --hd-blockquote-margin-bottom: var(--hd-gap-2);
@@ -294,7 +294,7 @@
   --hd-img-border-radius: var(--hd-gap-1);
   --hd-img-border-width: 1px;
   --hd-img-border-style: solid;
-  --hd-img-border-color: var(--hd-slide-border-color);
+  --hd-img-border-color: var(--hd-layout-divider-color);
   --hd-img-box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
 
   /* Pre block and code styling */
@@ -305,12 +305,12 @@
   --hd-scrollbar-width: var(--hd-gap-1);
   --hd-scrollbar-height: var(--hd-gap-1);
   --hd-scrollbar-track-bg: transparent;
-  --hd-scrollbar-thumb-bg: var(--hd-slide-border-color);
+  --hd-scrollbar-thumb-bg: var(--hd-layout-divider-color);
   --hd-scrollbar-thumb-radius: 4px;
   --hd-scrollbar-thumb-hover-bg: var(--hd-base-text-color-muted);
 
   /* Code Block styling details */
-  --hd-codeblock-border-color: var(--hd-slide-border-color);
+  --hd-codeblock-border-color: var(--hd-layout-divider-color);
 
   /* Split/Grid layout gap variables */
   --hd-layout-split-gap: var(--hd-gap-2);

@@ -81,6 +81,8 @@ HdSlide.baseStyles = `
     pointer-events: none;
     overflow: hidden;
     box-sizing: border-box;
+
+    --hd-layout-divider-color: var(--hd-layout-heading-text-color);
   }
 
   :host([inverted]) {
@@ -89,7 +91,7 @@ HdSlide.baseStyles = `
     --hd-slide-text-color: var(--hd-base-soft-text-color-inverted);
     --hd-slide-text-highlight-color: var(--hd-base-soft-text-highlight-color-inverted);
     --hd-slide-text-muted-color: var(--hd-base-soft-text-muted-color-inverted);
-    --hd-slide-border-color: var(--hd-base-soft-text-muted-color-inverted);
+    --hd-layout-divider-color: var(--hd-layout-heading-text-color);
 
     --hd-layout-heading-background-color: var(--hd-main-solid-background-color-inverted);
     --hd-layout-heading-text-color: var(--hd-main-solid-text-color-inverted);
@@ -109,7 +111,6 @@ HdSlide.baseStyles = `
     --hd-slide-text-color: var(--hd-base-soft-text-color);
     --hd-slide-text-highlight-color: var(--hd-base-soft-text-highlight-color);
     --hd-slide-text-muted-color: var(--hd-base-soft-text-muted-color);
-    --hd-slide-border-color: var(--hd-base-soft-text-muted-color);
     --hd-text-title-color: var(--hd-base-soft-text-color);
     --hd-text-heading-color: var(--hd-base-soft-text-color);
     --hd-text-subheading-color: var(--hd-base-soft-text-muted-color);
@@ -123,7 +124,6 @@ HdSlide.baseStyles = `
     --hd-slide-text-color: var(--hd-base-soft-text-color-inverted);
     --hd-slide-text-highlight-color: var(--hd-base-soft-text-highlight-color-inverted);
     --hd-slide-text-muted-color: var(--hd-base-soft-text-muted-color-inverted);
-    --hd-slide-border-color: var(--hd-base-soft-text-muted-color-inverted);
     --hd-text-title-color: var(--hd-base-soft-text-color-inverted);
     --hd-text-heading-color: var(--hd-base-soft-text-color-inverted);
     --hd-text-subheading-color: var(--hd-base-soft-text-muted-color-inverted);
@@ -138,7 +138,6 @@ HdSlide.baseStyles = `
     --hd-slide-text-color: var(--hd-base-soft-text-color);
     --hd-slide-text-highlight-color: var(--hd-base-soft-text-highlight-color);
     --hd-slide-text-muted-color: var(--hd-base-soft-text-muted-color);
-    --hd-slide-border-color: var(--hd-base-soft-text-muted-color);
     --hd-text-title-color: var(--hd-base-soft-text-color);
     --hd-text-heading-color: var(--hd-base-soft-text-color);
     --hd-text-subheading-color: var(--hd-base-soft-text-muted-color);
@@ -152,7 +151,6 @@ HdSlide.baseStyles = `
     --hd-slide-text-color: var(--hd-base-soft-text-color-inverted);
     --hd-slide-text-highlight-color: var(--hd-base-soft-text-highlight-color-inverted);
     --hd-slide-text-muted-color: var(--hd-base-soft-text-muted-color-inverted);
-    --hd-slide-border-color: var(--hd-base-soft-text-muted-color-inverted);
     --hd-text-title-color: var(--hd-base-soft-text-color-inverted);
     --hd-text-heading-color: var(--hd-base-soft-text-color-inverted);
     --hd-text-subheading-color: var(--hd-base-soft-text-muted-color-inverted);
@@ -167,7 +165,6 @@ HdSlide.baseStyles = `
     --hd-slide-text-color: var(--hd-main-soft-text-color);
     --hd-slide-text-highlight-color: var(--hd-main-soft-text-highlight-color);
     --hd-slide-text-muted-color: var(--hd-main-soft-text-muted-color);
-    --hd-slide-border-color: var(--hd-main-soft-text-muted-color);
     --hd-text-title-color: var(--hd-main-soft-text-color);
     --hd-text-heading-color: var(--hd-main-soft-text-color);
     --hd-text-subheading-color: var(--hd-main-soft-text-muted-color);
@@ -181,7 +178,6 @@ HdSlide.baseStyles = `
     --hd-slide-text-color: var(--hd-main-soft-text-color-inverted);
     --hd-slide-text-highlight-color: var(--hd-main-soft-text-highlight-color-inverted);
     --hd-slide-text-muted-color: var(--hd-main-soft-text-muted-color-inverted);
-    --hd-slide-border-color: var(--hd-main-soft-text-muted-color-inverted);
     --hd-text-title-color: var(--hd-main-soft-text-color-inverted);
     --hd-text-heading-color: var(--hd-main-soft-text-color-inverted);
     --hd-text-subheading-color: var(--hd-main-soft-text-muted-color-inverted);
@@ -196,7 +192,6 @@ HdSlide.baseStyles = `
     --hd-slide-text-color: var(--hd-accent-soft-text-color);
     --hd-slide-text-highlight-color: var(--hd-accent-soft-text-highlight-color);
     --hd-slide-text-muted-color: var(--hd-accent-soft-text-muted-color);
-    --hd-slide-border-color: var(--hd-accent-soft-text-muted-color);
     --hd-text-title-color: var(--hd-accent-soft-text-color);
     --hd-text-heading-color: var(--hd-accent-soft-text-color);
     --hd-text-subheading-color: var(--hd-accent-soft-text-muted-color);
@@ -210,7 +205,6 @@ HdSlide.baseStyles = `
     --hd-slide-text-color: var(--hd-accent-soft-text-color-inverted);
     --hd-slide-text-highlight-color: var(--hd-accent-soft-text-highlight-color-inverted);
     --hd-slide-text-muted-color: var(--hd-accent-soft-text-muted-color-inverted);
-    --hd-slide-border-color: var(--hd-accent-soft-text-muted-color-inverted);
     --hd-text-title-color: var(--hd-accent-soft-text-color-inverted);
     --hd-text-heading-color: var(--hd-accent-soft-text-color-inverted);
     --hd-text-subheading-color: var(--hd-accent-soft-text-muted-color-inverted);
@@ -226,7 +220,6 @@ HdSlide.baseStyles = `
     --hd-slide-text-color: var(--hd-base-solid-text-color);
     --hd-slide-text-highlight-color: var(--hd-base-solid-text-highlight-color);
     --hd-slide-text-muted-color: var(--hd-base-solid-text-muted-color);
-    --hd-slide-border-color: var(--hd-base-solid-text-muted-color);
     --hd-text-title-color: var(--hd-base-solid-text-color);
     --hd-text-heading-color: var(--hd-base-solid-text-color);
     --hd-text-subheading-color: var(--hd-base-solid-text-muted-color);
@@ -240,7 +233,6 @@ HdSlide.baseStyles = `
     --hd-slide-text-color: var(--hd-base-solid-text-color-inverted);
     --hd-slide-text-highlight-color: var(--hd-base-solid-text-highlight-color-inverted);
     --hd-slide-text-muted-color: var(--hd-base-solid-text-muted-color-inverted);
-    --hd-slide-border-color: var(--hd-base-solid-text-muted-color-inverted);
     --hd-text-title-color: var(--hd-base-solid-text-color-inverted);
     --hd-text-heading-color: var(--hd-base-solid-text-color-inverted);
     --hd-text-subheading-color: var(--hd-base-solid-text-muted-color-inverted);
@@ -255,7 +247,6 @@ HdSlide.baseStyles = `
     --hd-slide-text-color: var(--hd-base-solid-text-color);
     --hd-slide-text-highlight-color: var(--hd-base-solid-text-highlight-color);
     --hd-slide-text-muted-color: var(--hd-base-solid-text-muted-color);
-    --hd-slide-border-color: var(--hd-base-solid-text-muted-color);
     --hd-text-title-color: var(--hd-base-solid-text-color);
     --hd-text-heading-color: var(--hd-base-solid-text-color);
     --hd-text-subheading-color: var(--hd-base-solid-text-muted-color);
@@ -269,7 +260,6 @@ HdSlide.baseStyles = `
     --hd-slide-text-color: var(--hd-base-solid-text-color-inverted);
     --hd-slide-text-highlight-color: var(--hd-base-solid-text-highlight-color-inverted);
     --hd-slide-text-muted-color: var(--hd-base-solid-text-muted-color-inverted);
-    --hd-slide-border-color: var(--hd-base-solid-text-muted-color-inverted);
     --hd-text-title-color: var(--hd-base-solid-text-color-inverted);
     --hd-text-heading-color: var(--hd-base-solid-text-color-inverted);
     --hd-text-subheading-color: var(--hd-base-solid-text-muted-color-inverted);
@@ -284,7 +274,6 @@ HdSlide.baseStyles = `
     --hd-slide-text-color: var(--hd-base-solid-text-color);
     --hd-slide-text-highlight-color: var(--hd-base-solid-text-highlight-color);
     --hd-slide-text-muted-color: var(--hd-base-solid-text-muted-color);
-    --hd-slide-border-color: var(--hd-base-solid-text-muted-color);
     --hd-text-title-color: var(--hd-base-solid-text-color);
     --hd-text-heading-color: var(--hd-base-solid-text-color);
     --hd-text-subheading-color: var(--hd-base-solid-text-muted-color);
@@ -298,7 +287,6 @@ HdSlide.baseStyles = `
     --hd-slide-text-color: var(--hd-base-solid-text-color-inverted);
     --hd-slide-text-highlight-color: var(--hd-base-solid-text-highlight-color-inverted);
     --hd-slide-text-muted-color: var(--hd-base-solid-text-muted-color-inverted);
-    --hd-slide-border-color: var(--hd-base-solid-text-muted-color-inverted);
     --hd-text-title-color: var(--hd-base-solid-text-color-inverted);
     --hd-text-heading-color: var(--hd-base-solid-text-color-inverted);
     --hd-text-subheading-color: var(--hd-base-solid-text-muted-color-inverted);
@@ -313,7 +301,6 @@ HdSlide.baseStyles = `
     --hd-slide-text-color: var(--hd-main-solid-text-color);
     --hd-slide-text-highlight-color: var(--hd-main-solid-text-highlight-color);
     --hd-slide-text-muted-color: var(--hd-main-solid-text-muted-color);
-    --hd-slide-border-color: var(--hd-main-solid-text-muted-color);
     --hd-text-title-color: var(--hd-main-solid-text-color);
     --hd-text-heading-color: var(--hd-main-solid-text-color);
     --hd-text-subheading-color: var(--hd-main-solid-text-muted-color);
@@ -327,7 +314,6 @@ HdSlide.baseStyles = `
     --hd-slide-text-color: var(--hd-main-solid-text-color-inverted);
     --hd-slide-text-highlight-color: var(--hd-main-solid-text-highlight-color-inverted);
     --hd-slide-text-muted-color: var(--hd-main-solid-text-muted-color-inverted);
-    --hd-slide-border-color: var(--hd-main-solid-text-muted-color-inverted);
     --hd-text-title-color: var(--hd-main-solid-text-color-inverted);
     --hd-text-heading-color: var(--hd-main-solid-text-color-inverted);
     --hd-text-subheading-color: var(--hd-main-solid-text-muted-color-inverted);
@@ -342,7 +328,6 @@ HdSlide.baseStyles = `
     --hd-slide-text-color: var(--hd-accent-solid-text-color);
     --hd-slide-text-highlight-color: var(--hd-accent-solid-text-highlight-color);
     --hd-slide-text-muted-color: var(--hd-accent-solid-text-muted-color);
-    --hd-slide-border-color: var(--hd-accent-solid-text-muted-color);
     --hd-text-title-color: var(--hd-accent-solid-text-color);
     --hd-text-heading-color: var(--hd-accent-solid-text-color);
     --hd-text-subheading-color: var(--hd-accent-solid-text-muted-color);
@@ -356,7 +341,6 @@ HdSlide.baseStyles = `
     --hd-slide-text-color: var(--hd-accent-solid-text-color-inverted);
     --hd-slide-text-highlight-color: var(--hd-accent-solid-text-highlight-color-inverted);
     --hd-slide-text-muted-color: var(--hd-accent-solid-text-muted-color-inverted);
-    --hd-slide-border-color: var(--hd-accent-solid-text-muted-color-inverted);
     --hd-text-title-color: var(--hd-accent-solid-text-color-inverted);
     --hd-text-heading-color: var(--hd-accent-solid-text-color-inverted);
     --hd-text-subheading-color: var(--hd-accent-solid-text-muted-color-inverted);
