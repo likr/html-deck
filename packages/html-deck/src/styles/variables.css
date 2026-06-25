@@ -269,6 +269,14 @@
   --hd-table-cell-padding: var(--hd-gap-1);
   --hd-table-margin-bottom: var(--hd-gap-2);
   --hd-table-font-size: var(--hd-size-4);
+  --hd-table-header-font-family: var(--hd-heading-font);
+  --hd-table-header-font-weight: var(--hd-font-weight-bold);
+  --hd-table-header-background-color: transparent;
+  --hd-table-header-text-color: inherit;
+  --hd-table-row-background-color: transparent;
+  --hd-table-row-striped-background-color: transparent;
+  --hd-table-cell-border-width: 1px;
+  --hd-table-header-border-width: 2px;
 
   /* Lists */
   --hd-list-margin-bottom: var(--hd-gap-2);
@@ -278,6 +286,13 @@
   --hd-list-font-size: var(--hd-text-body-font-size);
   --hd-list-color: var(--hd-text-body-color);
   --hd-list-line-height: var(--hd-text-body-line-height);
+  --hd-list-marker-color: inherit;
+  --hd-list-style-type: disc;
+  --hd-list-style-type-2: circle;
+  --hd-list-style-type-3: square;
+  --hd-list-ol-style-type: decimal;
+  --hd-list-ol-style-type-2: lower-alpha;
+  --hd-list-ol-style-type-3: lower-roman;
 
   /* Blockquote */
   --hd-blockquote-font-family: var(--hd-text-quote-font);

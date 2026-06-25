@@ -97,27 +97,31 @@ hd-slide [slot="title"] {
 
 /* Nested List Styles */
 hd-slide ul {
-  list-style-type: disc;
+  list-style-type: var(--hd-list-style-type, disc);
 }
 
 hd-slide ul ul {
-  list-style-type: circle;
+  list-style-type: var(--hd-list-style-type-2, circle);
 }
 
 hd-slide ul ul ul {
-  list-style-type: square;
+  list-style-type: var(--hd-list-style-type-3, square);
 }
 
 hd-slide ol {
-  list-style-type: decimal;
+  list-style-type: var(--hd-list-ol-style-type, decimal);
 }
 
 hd-slide ol ol {
-  list-style-type: lower-alpha;
+  list-style-type: var(--hd-list-ol-style-type-2, lower-alpha);
 }
 
 hd-slide ol ol ol {
-  list-style-type: lower-roman;
+  list-style-type: var(--hd-list-ol-style-type-3, lower-roman);
+}
+
+hd-slide li::marker {
+  color: var(--hd-list-marker-color, inherit);
 }
 
 /* Code block container defaults matching the slide theme */

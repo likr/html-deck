@@ -12,16 +12,30 @@ hd-slide table {
   background-color: transparent;
 }
 
+hd-slide table tr {
+  background-color: var(--hd-table-row-background-color, transparent);
+}
+
+hd-slide table tr:nth-child(even) {
+  background-color: var(--hd-table-row-striped-background-color, var(--hd-table-row-background-color, transparent));
+}
+
 hd-slide th,
 hd-slide td {
   padding: var(--hd-table-cell-padding);
   text-align: left;
-  border-bottom: 1px solid var(--hd-table-border-color);
+}
+
+hd-slide td {
+  border-bottom: var(--hd-table-cell-border-width, 1px) solid var(--hd-table-border-color);
 }
 
 hd-slide th {
-  font-weight: var(--hd-font-weight-bold);
-  border-bottom: 2px solid var(--hd-table-border-color);
+  font-family: var(--hd-table-header-font-family, var(--hd-heading-font));
+  font-weight: var(--hd-table-header-font-weight, var(--hd-font-weight-bold));
+  background-color: var(--hd-table-header-background-color, transparent);
+  color: var(--hd-table-header-text-color, inherit);
+  border-bottom: var(--hd-table-header-border-width, 2px) solid var(--hd-table-border-color);
 }
 
 /* Global scrollbar styling using CSS variables */
