@@ -48,9 +48,10 @@
     `if (event.ctrlKey || event.metaKey || event.altKey) return;`
 - **Footnote (脚注) の絶対配置**:
   - **パターン**: `slot="footnote"` が設定された要素は、スライドキャンバスに対して `bottom: 12px; left: 16px;` の絶対配置で左下に配置されます。これは [hd-slide.js](file:///home/likr/work/likr/html-deck/packages/html-deck/src/components/html-deck/hd-slide.js) の `::slotted([slot="footnote"])` で制御されます。
-- **スロットされたヘッダーラッパーのプレゼンストグル**:
-  CSS の `:host(:has([slot="heading"]))` のようなセレクタによるヘッダーラッパーの表示・非表示のトグルは、ブラウザによる Shadow DOM の深いクエリ制限により不安定です。
-  - **ルール**: `<slot name="heading">` を余分な `div` で囲むのを避けます。`:host` 直下に slot を配置し、`::slotted([slot="heading"])` に直接スタイル（背景や枠線）をあてます。要素がスロットされないときは slot の高さは自動的に `0` になり、余計な枠線やパディングも発生しません。
+- **スロットされたヘッダーラッパーの表示切り替え（トグル）**:
+  CSS の `:has()` 内で `::slotted(*)` などの擬似要素を使用することは仕様上無効です（例：`slot:not(:has(::slotted(*)))` は無効なセレクタとなります）。また、Shadow DOM 内の CSS から `:host(:has([slot="heading"]))` や `:host(:not(:has([slot="heading"])))` を使用して Light DOM 内の見出し要素の有無を判別することも、Shadow DOM のカプセル化境界があるためブラウザによっては正しく動作しません。
+  - **ルール**: スロットされた要素の有無に基づいて Shadow DOM 内のラッパー（`.heading-area` や `.heading-divider` など）を表示・非表示にするには、JavaScript の `slotchange` イベントリスナーを使用してスロット内要素の有無を判定し、ホスト要素に `has-heading` 属性を動的に付与・削除します。
+  - **ルール**: CSS 側では、デフォルトで見出し領域と境界線を非表示にし、余白を `--hd-slide-margin-top` に設定します。そして `:host([has-heading])` セレクタが適用された時のみ、見出し領域を表示し、余白を通常のレイアウト用余白（`var(--hd-gap-3)`）に切り替えるようにスタイルを定義してください。
 
 ---
 

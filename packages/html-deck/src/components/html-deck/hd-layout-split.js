@@ -16,7 +16,7 @@ export class HdLayoutSplit extends HTMLElement {
           box-sizing: border-box;
         }
         .heading-area {
-          display: flex;
+          display: none;
           flex-direction: column;
           justify-content: center;
           width: 100%;
@@ -27,12 +27,11 @@ export class HdLayoutSplit extends HTMLElement {
           box-shadow: var(--hd-layout-heading-box-shadow, none);
           text-align: var(--hd-layout-heading-text-align, left);
         }
-        /* Hide heading area when heading slot is empty */
-        .heading-area:not(:has(slot[name="heading"]::slotted(*))) {
-          display: none;
+        :host([has-heading]) .heading-area {
+          display: flex;
         }
         .heading-divider {
-          display: var(--hd-layout-heading-divider-display, none);
+          display: none;
           border: none;
           height: var(--hd-layout-heading-divider-height, 1px);
           background-color: var(--hd-slide-border-color);
@@ -40,8 +39,8 @@ export class HdLayoutSplit extends HTMLElement {
           margin: 0;
           width: 100%;
         }
-        .heading-area:not(:has(slot[name="heading"]::slotted(*))) + .heading-divider {
-          display: none;
+        :host([has-heading]) .heading-divider {
+          display: var(--hd-layout-heading-divider-display, none);
         }
         .layout-content {
           display: flex;
@@ -50,11 +49,10 @@ export class HdLayoutSplit extends HTMLElement {
           width: 100%;
           box-sizing: border-box;
           padding: var(--hd-layout-body-padding);
+          padding-top: var(--hd-slide-margin-top);
         }
-        /* When heading is present, remove padding-top and use margin-top */
-        .heading-area:has(slot[name="heading"]::slotted(*)) ~ .layout-content {
-          padding-top: 0;
-          margin-top: var(--hd-layout-heading-margin);
+        :host([has-heading]) .layout-content {
+          padding-top: var(--hd-gap-3);
         }
         .heading-area ::slotted(*) {
           font-family: var(--hd-text-heading-font);
@@ -101,6 +99,21 @@ export class HdLayoutSplit extends HTMLElement {
         <slot name="after"></slot>
       </div>
     `;
+
+    // Set up slotchange listener to toggle has-heading host attribute
+    const headingSlot = this.shadowRoot.querySelector('slot[name="heading"]');
+    if (headingSlot) {
+      const updateHeading = () => {
+        const hasHeading = headingSlot.assignedElements().length > 0;
+        if (hasHeading) {
+          this.setAttribute('has-heading', '');
+        } else {
+          this.removeAttribute('has-heading');
+        }
+      };
+      headingSlot.addEventListener('slotchange', updateHeading);
+      updateHeading();
+    }
   }
 
   connectedCallback() {
