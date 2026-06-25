@@ -15,26 +15,27 @@ export class HdCallout extends HTMLElement {
           padding: var(--hd-callout-padding);
           margin-bottom: var(--hd-callout-margin-bottom);
           font-size: var(--hd-callout-font-size);
-          background-color: var(--hd-base-color-muted);
-          color: var(--hd-base-text-color);
+          background-color: var(--hd-callout-background-color);
+          color: var(--hd-callout-text-color);
           border-style: solid;
           border-width: 0 0 0 4px;
           border-color: transparent;
-          border-left-color: var(--hd-base-text-color-muted);
+          border-left-color: var(--hd-callout-border-color);
           text-align: left;
         }
 
         :host([variant="main"]) {
-          background-color: var(--hd-main-color-muted);
-          color: var(--hd-main-text-color-muted);
-          border-left-color: var(--hd-main-color);
+          --hd-callout-background-color: var(--hd-main-color-muted);
+          --hd-callout-text-color: var(--hd-main-text-color-muted);
+          --hd-callout-border-color: var(--hd-main-text-color-muted);
         }
 
         :host([variant="accent"]) {
-          background-color: var(--hd-accent-color-muted);
-          color: var(--hd-accent-text-color-muted);
-          border-left-color: var(--hd-accent-color);
+          --hd-callout-background-color: var(--hd-accent-color-muted);
+          --hd-callout-text-color: var(--hd-accent-text-color-muted);
+          --hd-callout-border-color: var(--hd-accent-text-color-muted);
         }
+
       </style>
       <slot></slot>
     `;

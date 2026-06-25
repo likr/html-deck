@@ -7,7 +7,7 @@ TEMPLATE.innerHTML = `
     height: 100vh;
     height: 100dvh;
     overflow: hidden;
-    background-color: var(--hd-deck-background-color);
+    background-color: #000000;
     color: var(--hd-deck-text-color);
     font-family: var(--hd-deck-font-family);
     margin: 0;
@@ -186,7 +186,7 @@ export class HdDeck extends HTMLElement {
 
     // Event listeners
     window.addEventListener('keydown', this.handleKeyDown);
-    
+
     const container = this.shadowRoot.querySelector('.deck-container');
     this.resizeObserver = new ResizeObserver(this.handleResize);
     this.resizeObserver.observe(this.shadowRoot.querySelector('.deck-wrapper'));
@@ -194,7 +194,7 @@ export class HdDeck extends HTMLElement {
     this.shadowRoot.getElementById('prev-btn').addEventListener('click', () => this.prev());
     this.shadowRoot.getElementById('next-btn').addEventListener('click', () => this.next());
     this.shadowRoot.getElementById('fullscreen-btn').addEventListener('click', () => this.toggleFullscreen());
-    
+
     // Show/Hide Presenter button based on presenter-url availability
     const presenterUrl = this.getAttribute('presenter-url');
     const presenterBtn = this.shadowRoot.getElementById('presenter-btn');
@@ -211,7 +211,7 @@ export class HdDeck extends HTMLElement {
     // Wait for children to be parsed in DOM
     setTimeout(() => {
       this.slides = Array.from(this.querySelectorAll('hd-slide'));
-      
+
       // Set transition class
       const transition = this.getAttribute('transition') || 'fade';
       this.slides.forEach(slide => slide.setAttribute('transition-style', transition));
@@ -294,7 +294,7 @@ export class HdDeck extends HTMLElement {
 
   setupPrintStyles() {
     const ratio = this.getAspectRatio();
-    
+
     // Scale print page box dimensions based on a standard 5.625-inch height
     // which equals exactly 540px (5.625 * 96 = 540).
     // This perfectly aligns screen base dimensions with print page dimensions.
@@ -345,9 +345,9 @@ export class HdDeck extends HTMLElement {
 
     const wWidth = wrapper.clientWidth;
     const wHeight = wrapper.clientHeight;
-    
+
     const ratio = this.getAspectRatio();
-    
+
     // Pin base height to 540px and derive width from ratio to align screen/print resolution.
     const baseHeight = 540;
     const baseWidth = baseHeight * ratio;
@@ -420,7 +420,7 @@ export class HdDeck extends HTMLElement {
   resolveRelativePaths(element) {
     if (!element) return '';
     const clone = element.cloneNode(true);
-    
+
     // Helper to make URLs absolute relative to current deck page
     const makeAbsolute = (attrName) => {
       clone.querySelectorAll(`[${attrName}]`).forEach(el => {

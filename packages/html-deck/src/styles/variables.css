@@ -47,10 +47,12 @@
   /* 6-Level Sizing Scale */
   --hd-size-1: 48px;
   --hd-size-2: 32px;
-  --hd-size-3: 24px; /* Default body size */
+  --hd-size-3: 24px;
+  /* Default body size */
   --hd-size-4: 18px;
   --hd-size-5: 14px;
-  --hd-size-6: 12px; /* Default peripheral size */
+  --hd-size-6: 12px;
+  /* Default peripheral size */
 
   /* Text Types Decoration Configurations */
   /* Title Text Type */
@@ -162,16 +164,31 @@
   --hd-card-padding: var(--hd-gap-3);
   --hd-card-margin-bottom: var(--hd-gap-3);
   --hd-card-font-size: var(--hd-size-4);
+  --hd-card-background-color: var(--hd-base-color-muted);
+  --hd-card-text-color: var(--hd-base-text-color);
+  --hd-card-border-color: var(--hd-base-text-color-muted);
+  --hd-card-heading-background-color: var(--hd-base-color);
+  --hd-card-heading-text-color: var(--hd-base-text-color);
+  --hd-card-heading-border-color: var(--hd-base-text-color-muted);
 
   --hd-box-border-radius: 8px;
   --hd-box-padding: var(--hd-gap-3);
   --hd-box-margin-bottom: var(--hd-gap-3);
   --hd-box-font-size: var(--hd-size-4);
+  --hd-box-background-color: var(--hd-base-color-muted);
+  --hd-box-text-color: var(--hd-base-text-color);
+  --hd-box-border-color: var(--hd-base-text-color-muted);
+  --hd-box-heading-background-color: var(--hd-base-color);
+  --hd-box-heading-text-color: var(--hd-base-text-color);
+  --hd-box-heading-border-color: var(--hd-base-text-color-muted);
 
   --hd-callout-border-radius: 4px;
   --hd-callout-padding: var(--hd-gap-3);
   --hd-callout-margin-bottom: var(--hd-gap-3);
   --hd-callout-font-size: var(--hd-size-4);
+  --hd-callout-background-color: var(--hd-base-color-muted);
+  --hd-callout-text-color: var(--hd-base-text-color);
+  --hd-callout-border-color: var(--hd-base-text-color-muted);
 
   --hd-codeblock-border-radius: 8px;
   --hd-codeblock-background-color: transparent;

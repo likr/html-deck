@@ -6,9 +6,9 @@
 hd-slide table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 16px;
+  margin-bottom: var(--hd-table-margin-bottom);
   font-family: var(--hd-body-font);
-  font-size: var(--hd-text-body-font-size);
+  font-size: var(--hd-table-font-size);
   background-color: transparent;
 }
 
@@ -77,11 +77,9 @@ pre>*:last-child {
 /* Custom elements light-DOM padding and margin overrides */
 hd-card {
   margin-bottom: var(--hd-card-margin-bottom);
-  padding: var(--hd-card-padding);
 }
 hd-box {
   margin-bottom: var(--hd-box-margin-bottom);
-  padding: var(--hd-box-padding);
 }
 hd-callout {
   margin-bottom: var(--hd-callout-margin-bottom);

@@ -73,6 +73,7 @@ HdSlide.baseStyles = `
     color: var(--hd-slide-text-color);
     font-family: var(--hd-body-font);
     font-size: var(--hd-size-3);
+    font-weight: var(--hd-text-body-font-weight, 400);
     line-height: var(--hd-text-body-line-height, 1.6);
     letter-spacing: var(--hd-text-body-letter-spacing, 0.01em);
     opacity: 0;

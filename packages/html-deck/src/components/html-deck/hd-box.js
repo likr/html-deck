@@ -13,51 +13,56 @@ export class HdBox extends HTMLElement {
           flex-direction: column;
           box-sizing: border-box;
           border-radius: var(--hd-box-border-radius);
-          padding: var(--hd-box-padding);
           margin-bottom: var(--hd-box-margin-bottom);
           font-size: var(--hd-box-font-size);
           height: 100%;
-          background-color: var(--hd-base-color-muted);
-          color: var(--hd-base-text-color);
-          border: 1px solid var(--hd-base-text-color-muted);
+          background-color: var(--hd-box-background-color);
+          color: var(--hd-box-text-color);
+          border: 1px solid var(--hd-box-border-color);
+          overflow: hidden;
         }
 
         :host([variant="main"]) {
-          background-color: var(--hd-main-color-muted);
-          color: var(--hd-main-text-color-muted);
-          border: 1px solid var(--hd-main-color);
+          --hd-box-background-color: var(--hd-main-color-muted);
+          --hd-box-text-color: var(--hd-main-text-color-muted);
+          --hd-box-border-color: var(--hd-main-text-color-muted);
+          --hd-box-heading-background-color: var(--hd-main-color);
+          --hd-box-heading-text-color: var(--hd-main-text-color);
+          --hd-box-heading-border-color: var(--hd-main-text-color-muted);
         }
 
         :host([variant="accent"]) {
-          background-color: var(--hd-accent-color-muted);
-          color: var(--hd-accent-text-color-muted);
-          border: 1px solid var(--hd-accent-color);
+          --hd-box-background-color: var(--hd-accent-color-muted);
+          --hd-box-text-color: var(--hd-accent-text-color-muted);
+          --hd-box-border-color: var(--hd-accent-text-color-muted);
+          --hd-box-heading-background-color: var(--hd-accent-color);
+          --hd-box-heading-text-color: var(--hd-accent-text-color);
+          --hd-box-heading-border-color: var(--hd-accent-text-color-muted);
         }
+
 
         ::slotted([slot="heading"]) {
           display: block !important;
+          box-sizing: border-box !important;
+          padding: var(--hd-box-padding) !important;
+          background-color: var(--hd-box-heading-background-color) !important;
+          color: var(--hd-box-heading-text-color) !important;
+          border-bottom: 1px solid var(--hd-box-heading-border-color) !important;
           font-family: var(--hd-text-subheading-font) !important;
-          color: var(--hd-text-subheading-color) !important;
           font-size: var(--hd-text-subheading-font-size) !important;
           font-weight: var(--hd-text-subheading-font-weight) !important;
           line-height: var(--hd-text-subheading-line-height) !important;
           letter-spacing: var(--hd-text-subheading-letter-spacing) !important;
           text-transform: var(--hd-text-subheading-text-transform) !important;
           text-shadow: var(--hd-text-subheading-text-shadow) !important;
-          margin: 0 0 var(--hd-gap-2) 0 !important;
-        }
-
-        :host([variant="main"]) ::slotted([slot="heading"]) {
-          color: var(--hd-main-text-color-muted) !important;
-        }
-
-        :host([variant="accent"]) ::slotted([slot="heading"]) {
-          color: var(--hd-accent-text-color-muted) !important;
+          margin: 0 !important;
         }
 
         .body-container {
+          box-sizing: border-box;
           width: 100%;
           flex-grow: 1;
+          padding: var(--hd-box-padding);
         }
       </style>
       <slot name="heading"></slot>

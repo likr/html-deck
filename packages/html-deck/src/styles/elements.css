@@ -1,5 +1,18 @@
 /* elements.css - Scoped HTML tag styling for slides */
 
+/* Global base tag defaults - inherit everything by default from their parent container */
+h1, h2, h3, h4, h5, h6,
+p, a, ul, ol, li, blockquote, figcaption, caption {
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  text-shadow: inherit;
+}
+
 hd-slide img {
   max-width: var(--hd-img-max-width);
   height: var(--hd-img-height);
@@ -9,79 +22,17 @@ hd-slide img {
 }
 
 hd-slide a {
-  color: inherit;
   text-decoration: none;
-}
-
-/* default headings (h1-h6) */
-hd-slide h1,
-hd-slide h2,
-hd-slide h3,
-hd-slide h4,
-hd-slide h5,
-hd-slide h6 {
-  font-family: var(--hd-text-heading-font);
-  color: var(--hd-text-heading-color);
-  font-size: var(--hd-text-heading-font-size);
-  font-weight: var(--hd-text-heading-font-weight);
-  line-height: var(--hd-text-heading-line-height);
-  letter-spacing: var(--hd-text-heading-letter-spacing);
-  text-transform: var(--hd-text-heading-text-transform);
-  text-shadow: var(--hd-text-heading-text-shadow);
-  margin-top: 0;
-  margin-bottom: var(--hd-gap-2);
-}
-
-/* headings inside card/box structures automatically switch to subheading */
-hd-card h1, hd-card h2, hd-card h3, hd-card h4, hd-card h5, hd-card h6,
-hd-box h1, hd-box h2, hd-box h3, hd-box h4, hd-box h5, hd-box h6 {
-  font-family: var(--hd-text-subheading-font) !important;
-  color: var(--hd-text-subheading-color) !important;
-  font-size: var(--hd-text-subheading-font-size) !important;
-  font-weight: var(--hd-text-subheading-font-weight) !important;
-  line-height: var(--hd-text-subheading-line-height) !important;
-  letter-spacing: var(--hd-text-subheading-letter-spacing) !important;
-  text-transform: var(--hd-text-subheading-text-transform) !important;
-  text-shadow: var(--hd-text-subheading-text-shadow) !important;
-}
-
-hd-card[variant="main"] h1, hd-card[variant="main"] h2, hd-card[variant="main"] h3, hd-card[variant="main"] h4, hd-card[variant="main"] h5, hd-card[variant="main"] h6,
-hd-box[variant="main"] h1, hd-box[variant="main"] h2, hd-box[variant="main"] h3, hd-box[variant="main"] h4, hd-box[variant="main"] h5, hd-box[variant="main"] h6 {
-  color: var(--hd-main-text-color-muted) !important;
-}
-
-hd-card[variant="accent"] h1, hd-card[variant="accent"] h2, hd-card[variant="accent"] h3, hd-card[variant="accent"] h4, hd-card[variant="accent"] h5, hd-card[variant="accent"] h6,
-hd-box[variant="accent"] h1, hd-box[variant="accent"] h2, hd-box[variant="accent"] h3, hd-box[variant="accent"] h4, hd-box[variant="accent"] h5, hd-box[variant="accent"] h6 {
-  color: var(--hd-accent-text-color-muted) !important;
-}
-
-/* Ensure contents inside container elements inherit the container's foreground color */
-hd-card p, hd-card ul, hd-card ol, hd-card li, hd-card blockquote, hd-card figcaption, hd-card caption,
-hd-box p, hd-box ul, hd-box ol, hd-box li, hd-box blockquote, hd-box figcaption, hd-box caption,
-hd-callout p, hd-callout ul, hd-callout ol, hd-callout li, hd-callout blockquote, hd-callout figcaption, hd-callout caption {
-  color: inherit !important;
 }
 
 /* Paragraphs / Lists (body) */
 hd-slide p {
-  font-family: var(--hd-text-body-font);
-  color: var(--hd-text-body-color);
-  font-size: var(--hd-text-body-font-size);
-  font-weight: var(--hd-text-body-font-weight);
-  line-height: var(--hd-text-body-line-height);
-  letter-spacing: var(--hd-text-body-letter-spacing);
-  text-transform: var(--hd-text-body-text-transform);
-  text-shadow: var(--hd-text-body-text-shadow);
   margin: 0;
   margin-bottom: var(--hd-gap-2);
 }
 
 hd-slide ul,
 hd-slide ol {
-  font-family: var(--hd-list-font-family);
-  color: var(--hd-list-color);
-  font-size: var(--hd-list-font-size);
-  line-height: var(--hd-list-line-height);
   margin: 0 0 var(--hd-list-margin-bottom) 0;
   padding-left: var(--hd-list-padding-left);
 }
@@ -92,30 +43,9 @@ hd-slide li {
 
 /* Quote */
 hd-slide blockquote {
-  font-family: var(--hd-blockquote-font-family);
-  color: var(--hd-blockquote-color);
-  font-size: var(--hd-blockquote-font-size);
-  font-weight: var(--hd-blockquote-font-weight);
-  line-height: var(--hd-blockquote-line-height);
-  letter-spacing: var(--hd-blockquote-letter-spacing);
-  text-transform: var(--hd-blockquote-text-transform);
-  text-shadow: var(--hd-blockquote-text-shadow);
   margin: 0 0 var(--hd-blockquote-margin-bottom) 0;
   border-left: var(--hd-blockquote-border-width) solid var(--hd-blockquote-border-color);
   padding-left: var(--hd-blockquote-padding-left);
-}
-
-/* Caption */
-hd-slide figcaption,
-hd-slide caption {
-  font-family: var(--hd-text-caption-font);
-  color: var(--hd-text-caption-color);
-  font-size: var(--hd-text-caption-font-size);
-  font-weight: var(--hd-text-caption-font-weight);
-  line-height: var(--hd-text-caption-line-height);
-  letter-spacing: var(--hd-text-caption-letter-spacing);
-  text-transform: var(--hd-text-caption-text-transform);
-  text-shadow: var(--hd-text-caption-text-shadow);
 }
 
 /* Slide components slots */
