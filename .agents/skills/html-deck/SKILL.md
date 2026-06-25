@@ -90,7 +90,7 @@ To load external code dynamically without compiling HTML files manually, **modif
 
 ### 3. Strict Style Prohibition: No Custom CSS, <style> or style="..."
 To ensure presentation consistency, **you MUST NOT write custom CSS styles, `<style>` blocks, or inline `style="..."` attributes** on elements unless the user explicitly requests you to do so. 
-- Rely entirely on standard theme stylesheets (e.g., `html-deck.theme-warm.css`), components, and predefined `hd-` utility classes (e.g., `.hd-text-primary`, `.hd-mt-md`, `.hd-semibold`, `.hd-text-center`).
+- Rely entirely on standard theme stylesheets (e.g., `html-deck.theme-warm.css`), components, and predefined `hd-` utility classes (e.g., `.hd-accent`, `.hd-mt-3`, `.hd-text-weight-semibold`, `.hd-text-center`).
 - If custom CSS is explicitly requested by the user:
   - **Always use absolute `px` units** for font sizes, paddings, and margins. Avoid `rem` or structural `em` layout units as they break scaled resolution.
   - Define custom styles in a separate CSS file and import it **after** `html-deck/css`.

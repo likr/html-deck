@@ -88,6 +88,6 @@
 - **フォントウェイト**:
   数値ではなくセマンティックな名称を使用します（`.hd-text-weight-light`, `.hd-text-weight-normal`, `.hd-text-weight-medium`, `.hd-text-weight-semibold`, `.hd-text-weight-bold`, `.hd-text-weight-extrabold`）。
 - **カラーユーティリティ**:
-  テキスト色は `.hd-primary` や `.hd-secondary` のように直接カラークラスで指定します（`.hd-text-*` や `.hd-bg-*` などの古いユーティリティは非推奨）。
+  テキストの文字色を直接変更するためのユーティリティクラスは `.hd-accent`（アクセントカラー）と `.hd-muted`（ミュートカラー）のみが利用可能です。テキストの標準色やプライマリカラーの定義は、個別のユーティリティクラスではなく、テーマ変数（`--hd-base-text-color` や `--hd-accent-color` など）の切り替えによって制御します。
 - **カード (.hd-card) のボーダー**:
   カードはデフォルトで枠線を描きません。枠線を引く場合は `.hd-border` ユーティリティを明示的に付与します（例: `class="hd-card hd-border"`）。

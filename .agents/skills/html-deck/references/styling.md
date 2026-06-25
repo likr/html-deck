@@ -89,62 +89,76 @@ Here is the recommended configuration to support all built-in themes:
 
 Instead of writing custom `style="..."` attributes on elements, apply the following classes included in `html-deck.css`:
 
-### 1. Typography Styles
+### 1. Typography Weights & Styles
 - **Weights**:
-  - `.hd-bold`: `font-weight: 700 !important`
-  - `.hd-semibold`: `font-weight: 600 !important`
-  - `.hd-normal`: `font-weight: 400 !important`
+  - `.hd-text-weight-light`: `font-weight: 300 !important`
+  - `.hd-text-weight-normal`: `font-weight: 400 !important`
+  - `.hd-text-weight-medium`: `font-weight: 500 !important`
+  - `.hd-text-weight-semibold`: `font-weight: 600 !important`
+  - `.hd-text-weight-bold`: `font-weight: 700 !important`
+  - `.hd-text-weight-extrabold`: `font-weight: 800 !important`
 - **Italics & Line Decorations**:
   - `.hd-italic`: `font-style: italic !important`
-  - `.hd-underline`: `text-decoration: underline !important`
-  - `.hd-line-through`: `text-decoration: line-through !important`
+  - `.hd-underlined`: `text-decoration: underline !important`
+- **Text Transformations**:
+  - `.hd-capitalized`: `text-transform: capitalize !important`
+  - `.hd-lowercase`: `text-transform: lowercase !important`
+  - `.hd-uppercase`: `text-transform: uppercase !important`
 
-### 2. Relative Typography Scales
-Font sizes are scaled relative (`em` based) to the parent components:
-- `.hd-text-xs`: `0.7em` (micro text, captions)
-- `.hd-text-sm`: `0.85em` (secondary notes)
-- `.hd-text-lg`: `1.15em` (highlighted paragraphs)
-- `.hd-text-xl`: `1.3em` (important subheadings)
-- `.hd-text-2xl`: `1.6em` (large numbers, callouts)
+### 2. Absolute Typography Scales
+Font sizes are explicitly set using the global sizing scale (sizes 1-6, where 1 is largest and 6 is smallest):
+- `.hd-size-1`: `48px` (large display numbers/titles)
+- `.hd-size-2`: `32px` (headings)
+- `.hd-size-3`: `24px` (subheadings/large paragraphs)
+- `.hd-size-4`: `18px` (standard body text)
+- `.hd-size-5`: `14px` (captions/notes)
+- `.hd-size-6`: `12px` (micro/peripheral text)
 
 ### 3. Theme Colors
-Sets the foreground font color to the current theme variables:
-- `.hd-text-primary`: Primary color
-- `.hd-text-secondary`: Secondary color
-- `.hd-text-accent`: Accent color
-- `.hd-text-muted`: Muted color
-- `.hd-text-danger`: Danger accent (Red)
-- `.hd-text-warning`: Warning accent (Yellow/Amber)
-- `.hd-text-success`: Success accent (Green)
-- `.hd-text-info`: Info accent (Teal/Cyan)
+Sets the foreground text color using key theme color variables:
+- `.hd-accent`: Uses the primary accent color (`var(--hd-accent-color)`)
+- `.hd-muted`: Uses the muted text color (`var(--hd-base-text-color-muted)`)
 
-### 4. Background Color Highlights
-Wraps inline words in a pill style background badge:
-- `.hd-bg-primary`: Uses the primary color background with white text.
-- `.hd-bg-secondary`: Uses the secondary color background with white text.
+### 4. Borders
+- `.hd-border`: Draws a standard border (`1px solid var(--hd-slide-border-color)`). Useful for adding outlines to blocks like `<hd-card>`.
 
-### 5. Layout and Spacings (Margin Top)
-Use these variables to add vertical breathing room between blocks:
-- `.hd-mt-xs` / `.hd-mt-1`: `4px`
-- `.hd-mt-sm` / `.hd-mt-2`: `8px`
-- `.hd-mt-md` / `.hd-mt-3`: `16px`
-- `.hd-mt-lg` / `.hd-mt-4`: `24px`
-- `.hd-mt-xl` / `.hd-mt-5`: `32px`
-- `.hd-mt-2xl` / `.hd-mt-6`: `48px`
+### 5. Layout and Spacings (Margins, Paddings, Gaps)
+Apply standard spacing intervals using numeric levels `0` to `6` (mapping to 0px, 4px, 8px, 16px, 24px, 32px, and 48px):
+- **Margins (`m`, `mt`, `mb`, `ml`, `mr`, `mx`, `my`)**:
+  - `.hd-m-0` to `.hd-m-6`: Margin for all sides.
+  - `.hd-mt-0` to `.hd-mt-6`: Margin top.
+  - `.hd-mb-0` to `.hd-mb-6`: Margin bottom.
+  - `.hd-mx-0` to `.hd-mx-6`: Horizontal margin.
+  - `.hd-my-0` to `.hd-my-6`: Vertical margin.
+- **Paddings (`p`, `pt`, `pb`, `pl`, `pr`, `px`, `py`)**:
+  - `.hd-p-0` to `.hd-p-6`: Padding for all sides.
+  - `.hd-pt-0` to `.hd-pt-6`: Padding top.
+  - `.hd-pb-0` to `.hd-pb-6`: Padding bottom.
+  - `.hd-px-0` to `.hd-px-6`: Horizontal padding.
+  - `.hd-py-0` to `.hd-py-6`: Vertical padding.
+- **Gaps**:
+  - `.hd-gap-0` to `.hd-gap-6`: Gap between flex/grid items.
 
-### 6. Width Limiters & Centering
-- `.hd-max-w-sm`: Limits element max-width to `400px`.
-- `.hd-max-w-md`: Limits element max-width to `600px`.
-- `.hd-max-w-lg`: Limits element max-width to `800px`.
-- `.hd-w-full`: Fills standard horizontal margins (`100%`).
-- `.hd-mx-auto`: Centers the block horizontally (`margin-left: auto; margin-right: auto; display: block;`).
+### 6. Width Utilities (Grid-based 1/12 scale)
+Sets the explicit width of an element relative to its container parent:
+- `.hd-width-1` to `.hd-width-12` (e.g., `.hd-width-6` fills exactly `50%` width).
 
-### 7. Alignments
-- `.hd-text-left`: Align text to the left.
-- `.hd-text-center`: Center align text.
-- `.hd-text-right`: Align text to the right.
+### 7. Layout Alignment (Margin-based)
+Controls the layout positioning and auto-margins for block level elements:
+- `.hd-align-left`: Aligns block to the left (`margin-right: auto`).
+- `.hd-align-center`: Centers block horizontally (`margin-left: auto; margin-right: auto`).
+- `.hd-align-right`: Aligns block to the right (`margin-left: auto`).
+- `.hd-align-top`: Aligns block to the top (`margin-bottom: auto`).
+- `.hd-align-middle`: Vertically centers block (`margin-top: auto; margin-bottom: auto`).
+- `.hd-align-bottom`: Aligns block to the bottom (`margin-top: auto`).
 
-### 8. Absolute Positioning
+### 8. Text Alignments
+- `.hd-text-left`: Align text content to the left.
+- `.hd-text-center`: Center align text content.
+- `.hd-text-right`: Align text content to the right.
+- `.hd-text-justified`: Align text content as justified.
+
+### 9. Absolute Positioning
 - `.hd-absolute-bottom`: Absolutely positions an element at the bottom of the slide (`bottom: 24px; left: 0; right: 0; width: 100%`). Use this class to place footer metadata or center aligned page annotations.
 
 ### 9. Slide Layout Helper Classes

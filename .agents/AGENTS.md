@@ -3,7 +3,7 @@
 ## 1. Slide Styling Constraints
 When creating or editing slides using the `html-deck` library:
 - **Strict Styling Prohibition**: Do not write custom CSS, `<style>` blocks, or inline `style="..."` attributes unless explicitly requested by the user.
-- **Utility and Layout Priority**: Rely entirely on native custom elements (e.g., `<hd-layout>`, `<hd-card>`) and predefined utility classes (e.g., `.hd-text-primary`, `.hd-mt-md`).
+- **Utility and Layout Priority**: Rely entirely on native custom elements (e.g., `<hd-layout>`, `<hd-card>`) and predefined utility classes (e.g., `.hd-accent`, `.hd-mt-3`).
 
 ## 2. Theme Creation Constraints
 When designing custom themes for `html-deck`:
