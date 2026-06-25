@@ -18,6 +18,7 @@ export class HdSlide extends HTMLElement {
         </div>
         <slot name="footer"></slot>
         <div class="page-number" id="page-num"></div>
+        <div class="slide-overlay"></div>
       </div>
     `;
 
@@ -610,6 +611,19 @@ HdSlide.baseStyles = `
     text-transform: var(--hd-text-peripheral-text-transform) !important;
     text-shadow: var(--hd-text-peripheral-text-shadow) !important;
     z-index: 10 !important;
+  }
+
+  .slide-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: var(--hd-slide-overlay-background, none);
+    mix-blend-mode: var(--hd-slide-overlay-mix-blend-mode, normal);
+    opacity: var(--hd-slide-overlay-opacity, 1);
+    z-index: 100;
   }
 `;
 

@@ -173,3 +173,23 @@ hd-slide mark {
   padding: var(--hd-mark-padding);
   border-radius: var(--hd-mark-border-radius);
 }
+
+/* Blinking animation for suffix cursors */
+@keyframes hd-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Suffix cursor support for slot text */
+hd-slide [slot="title"]::after {
+  content: var(--hd-layout-cover-title-suffix, "");
+  animation: var(--hd-layout-cover-title-suffix-animation, none);
+  display: inline-block;
+}
+
+[slot="heading"]::after {
+  content: var(--hd-layout-heading-suffix, "");
+  animation: var(--hd-layout-heading-suffix-animation, none);
+  display: inline-block;
+}
+

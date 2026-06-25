@@ -19,3 +19,8 @@ img, picture, svg, video {
   display: block;
   max-width: 100%;
 }
+
+::selection {
+  background-color: var(--hd-selection-background-color, #2563eb);
+  color: var(--hd-selection-text-color, #ffffff);
+}

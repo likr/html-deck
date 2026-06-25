@@ -371,4 +371,19 @@
 
   /* Split layout ratio */
   --hd-layout-split-ratio: minmax(0, 1fr) minmax(0, 1fr);
+
+  /* Selection styling */
+  --hd-selection-background-color: var(--hd-main-solid-background-color);
+  --hd-selection-text-color: var(--hd-main-solid-text-color);
+
+  /* Layout heading and cover text suffixes (e.g. blinking cursors) */
+  --hd-layout-cover-title-suffix: "";
+  --hd-layout-cover-title-suffix-animation: none;
+  --hd-layout-heading-suffix: "";
+  --hd-layout-heading-suffix-animation: none;
+
+  /* Slide Viewport Overlay (e.g., CRT scanline mesh overlay) */
+  --hd-slide-overlay-background: none;
+  --hd-slide-overlay-mix-blend-mode: normal;
+  --hd-slide-overlay-opacity: 1;
 }
