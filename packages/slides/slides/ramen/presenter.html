@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HD Slide - Presenter View (Ramen)</title>
+
+  <!-- Load HTML-Deck elements including presenter elements -->
+  <script type="module">
+    import 'html-deck';
+    import 'html-deck/presenter';
+    import './presenter.css';
+  </script>
+</head>
+
+<body>
+  <div class="dashboard">
+    <header>
+      <div class="logo">HD PRESENTATION SYSTEM (RAMEN)</div>
+      <div class="time-stats">
+        <div class="stat-box">
+          <div class="stat-label">Elapsed Time</div>
+          <hd-presenter-timer></hd-presenter-timer>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Current Time</div>
+          <hd-presenter-clock></hd-presenter-clock>
+        </div>
+      </div>
+    </header>
+
+    <main class="left-panel">
+      <div class="panel-card">
+        <h3 class="panel-title">Current Status</h3>
+        <hd-presenter-status></hd-presenter-status>
+      </div>
+
+      <div class="panel-card" style="flex-grow: 1.2; display: flex; flex-direction: column;">
+        <h3 class="panel-title">Current Slide</h3>
+        <div style="flex-grow: 1; min-height: 0;">
+          <hd-presenter-preview type="current"></hd-presenter-preview>
+        </div>
+      </div>
+
+      <div class="panel-card" style="flex-grow: 1; display: flex; flex-direction: column;">
+        <h3 class="panel-title">Next Slide Preview</h3>
+        <div style="flex-grow: 1; min-height: 0;">
+          <hd-presenter-preview type="next"></hd-presenter-preview>
+        </div>
+      </div>
+
+      <div class="navigation-controls">
+        <hd-presenter-controls></hd-presenter-controls>
+      </div>
+    </main>
+
+    <aside class="right-panel">
+      <div class="panel-card" style="height: 100%; display: flex; flex-direction: column;">
+        <h3 class="panel-title">Speaker Notes</h3>
+        <div class="notes-card-content">
+          <hd-presenter-notes></hd-presenter-notes>
+        </div>
+      </div>
+    </aside>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+:root {
+  /* Fonts & Typography */
+  --hd-font-family: 'Outfit', 'Noto Sans JP', sans-serif;
+  --hd-body-font: var(--hd-font-family);
+  --hd-heading-font: var(--hd-font-family);
+
+  --hd-size-1: 56px;
+  --hd-size-2: 36px;
+  --hd-size-3: 24px;
+  --hd-size-4: 18px;
+  --hd-size-5: 14px;
+  --hd-size-6: 12px;
+
+  /* --- 48-Color Matrix overrides (Traditional Ramen Shop Theme) --- */
+
+  /* Base Soft: Warm Off-White / Bamboo Cream background, Dark Charcoal text */
+  --hd-base-soft-background-color: #fffcf5;
+  --hd-base-soft-text-color: #1a120b;
+  --hd-base-soft-text-highlight-color: #c82c14; /* Ramen Vermilion Red */
+  --hd-base-soft-text-muted-color: #70655c;
+
+  /* Base Solid: Soft Wood / Noodle Yellow border/fill, Dark Charcoal text */
+  --hd-base-solid-background-color: #f7ebd3;
+  --hd-base-solid-text-color: #1a120b;
+  --hd-base-solid-text-highlight-color: #c82c14;
+  --hd-base-solid-text-muted-color: #70655c;
+
+  /* Base Soft Inverted: Dark Charcoal background, Warm Off-White text */
+  --hd-base-soft-background-color-inverted: #1a120b;
+  --hd-base-soft-text-color-inverted: #fffcf5;
+  --hd-base-soft-text-highlight-color-inverted: #ffcc00; /* Noodle Gold */
+  --hd-base-soft-text-muted-color-inverted: #b3a79d;
+
+  /* Base Solid Inverted: Slightly lighter dark wood/charcoal background */
+  --hd-base-solid-background-color-inverted: #2d2218;
+  --hd-base-solid-text-color-inverted: #fffcf5;
+  --hd-base-solid-text-highlight-color-inverted: #ffcc00;
+  --hd-base-solid-text-muted-color-inverted: #b3a79d;
+
+  /* Main Soft: Light Red Tint background, Dark Red text */
+  --hd-main-soft-background-color: #fff0eb;
+  --hd-main-soft-text-color: #8a1705;
+  --hd-main-soft-text-highlight-color: #e5a900;
+  --hd-main-soft-text-muted-color: #a3584c;
+
+  /* Main Solid: Ramen Vermilion Red background, White text */
+  --hd-main-solid-background-color: #c82c14;
+  --hd-main-solid-text-color: #ffffff;
+  --hd-main-solid-text-highlight-color: #ffcc00;
+  --hd-main-solid-text-muted-color: #ffc4ba;
+
+  /* Main Soft Inverted: Dark Red background, Warm Off-White text */
+  --hd-main-soft-background-color-inverted: #8a1705;
+  --hd-main-soft-text-color-inverted: #fff0eb;
+  --hd-main-soft-text-highlight-color-inverted: #ffcc00;
+  --hd-main-soft-text-muted-color-inverted: #df9e94;
+
+  /* Main Solid Inverted: White background, Ramen Vermilion Red text */
+  --hd-main-solid-background-color-inverted: #ffffff;
+  --hd-main-solid-text-color-inverted: #c82c14;
+  --hd-main-solid-text-highlight-color-inverted: #ffcc00;
+  --hd-main-solid-text-muted-color-inverted: #ffc4ba;
+
+  /* Accent Soft: Golden Broth Light background, Dark Gold text */
+  --hd-accent-soft-background-color: #fffdeb;
+  --hd-accent-soft-text-color: #7a5f00;
+  --hd-accent-soft-text-highlight-color: #c82c14;
+  --hd-accent-soft-text-muted-color: #9c8024;
+
+  /* Accent Solid: Noodle Gold background, Dark Charcoal text */
+  --hd-accent-solid-background-color: #e5a900;
+  --hd-accent-solid-text-color: #1a120b;
+  --hd-accent-solid-text-highlight-color: #c82c14;
+  --hd-accent-solid-text-muted-color: #fffdeb;
+
+  /* Accent Soft Inverted: Dark Gold background, Golden Broth Light text */
+  --hd-accent-soft-background-color-inverted: #7a5f00;
+  --hd-accent-soft-text-color-inverted: #fffdeb;
+  --hd-accent-soft-text-highlight-color-inverted: #ffcc00;
+  --hd-accent-soft-text-muted-color-inverted: #d6be6b;
+
+  /* Accent Solid Inverted: White background, Noodle Gold text */
+  --hd-accent-solid-background-color-inverted: #ffffff;
+  --hd-accent-solid-text-color-inverted: #e5a900;
+  --hd-accent-solid-text-highlight-color-inverted: #c82c14;
+  --hd-accent-solid-text-muted-color-inverted: #fffdeb;
+
+  /* Layout and Spacing overrides */
+  --hd-slide-margin-top: 60px;
+  --hd-slide-margin-right: 80px;
+  --hd-slide-margin-bottom: 60px;
+  --hd-slide-margin-left: 80px;
+
+  /* UI Component Styling overriding */
+  --hd-card-border-radius: 8px;
+  --hd-card-border-color: rgba(from var(--hd-base-soft-text-color) r g b / 0.15);
+  --hd-card-box-shadow: 0 4px 10px rgba(from var(--hd-base-soft-text-color) r g b / 0.04);
+  --hd-card-heading-background-color: var(--hd-base-solid-background-color);
+  --hd-card-heading-text-color: var(--hd-base-solid-text-color);
+
+  --hd-box-border-radius: 8px;
+  --hd-box-border-color: rgba(from var(--hd-base-soft-text-color) r g b / 0.15);
+  --hd-box-heading-background-color: var(--hd-base-solid-background-color);
+  --hd-box-heading-text-color: var(--hd-base-solid-text-color);
+
+  --hd-callout-border-radius: 6px;
+  --hd-callout-background-color: rgba(from var(--hd-main-solid-background-color) r g b / 0.08);
+  --hd-callout-border-color: var(--hd-main-solid-background-color);
+
+  --hd-code-background-color: rgba(from var(--hd-base-soft-text-highlight-color) r g b / 0.08);
+  --hd-code-text-color: var(--hd-base-soft-text-highlight-color);
+}
