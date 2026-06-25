@@ -152,6 +152,14 @@ export class HdDeck extends HTMLElement {
     this.handleKeyDown = this.handleKeyDown.bind(this);
     this.handleResize = this.handleResize.bind(this);
     this.handleMessage = this.handleMessage.bind(this);
+    this.handleTouchStart = this.handleTouchStart.bind(this);
+    this.handleTouchMove = this.handleTouchMove.bind(this);
+    this.handleTouchEnd = this.handleTouchEnd.bind(this);
+
+    this.touchStartX = 0;
+    this.touchStartY = 0;
+    this.touchStartTime = 0;
+    this.isTouchScrollable = false;
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
@@ -186,6 +194,9 @@ export class HdDeck extends HTMLElement {
 
     // Event listeners
     window.addEventListener('keydown', this.handleKeyDown);
+    this.addEventListener('touchstart', this.handleTouchStart, { passive: true });
+    this.addEventListener('touchmove', this.handleTouchMove, { passive: false });
+    this.addEventListener('touchend', this.handleTouchEnd, { passive: true });
 
     const container = this.shadowRoot.querySelector('.deck-container');
     this.resizeObserver = new ResizeObserver(this.handleResize);
@@ -233,6 +244,9 @@ export class HdDeck extends HTMLElement {
 
   disconnectedCallback() {
     window.removeEventListener('keydown', this.handleKeyDown);
+    this.removeEventListener('touchstart', this.handleTouchStart);
+    this.removeEventListener('touchmove', this.handleTouchMove);
+    this.removeEventListener('touchend', this.handleTouchEnd);
     if (this.resizeObserver) {
       this.resizeObserver.disconnect();
     }
@@ -278,6 +292,70 @@ export class HdDeck extends HTMLElement {
         event.preventDefault();
         this.openPresenter();
         break;
+    }
+  }
+
+  handleTouchStart(event) {
+    if (event.touches.length !== 1) return;
+    this.touchStartX = event.touches[0].clientX;
+    this.touchStartY = event.touches[0].clientY;
+    this.touchStartTime = Date.now();
+
+    // Check if the touch target or any of its ancestors in the composed path is horizontally scrollable.
+    this.isTouchScrollable = false;
+    const path = event.composedPath();
+    for (const el of path) {
+      if (el.nodeType !== Node.ELEMENT_NODE) continue;
+
+      // Specifically check hd-codeblock or other custom components with internal scroll
+      if (el.tagName === 'HD-CODEBLOCK') {
+        this.isTouchScrollable = true;
+        break;
+      }
+
+      const style = window.getComputedStyle(el);
+      const overflowX = style.getPropertyValue('overflow-x') || style.getPropertyValue('overflow');
+      if (overflowX === 'auto' || overflowX === 'scroll') {
+        if (el.scrollWidth > el.clientWidth) {
+          this.isTouchScrollable = true;
+          break;
+        }
+      }
+    }
+  }
+
+  handleTouchMove(event) {
+    if (this.isTouchScrollable || event.touches.length !== 1) return;
+
+    const deltaX = event.touches[0].clientX - this.touchStartX;
+    const deltaY = event.touches[0].clientY - this.touchStartY;
+
+    // If it's mostly a horizontal swipe, prevent default scroll/bounce behavior.
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 10) {
+      if (event.cancelable) {
+        event.preventDefault();
+      }
+    }
+  }
+
+  handleTouchEnd(event) {
+    if (this.isTouchScrollable) return;
+
+    // changedTouches is used because on touchend, touches might be empty
+    if (event.changedTouches.length !== 1) return;
+
+    const deltaX = event.changedTouches[0].clientX - this.touchStartX;
+    const deltaY = event.changedTouches[0].clientY - this.touchStartY;
+    const duration = Date.now() - this.touchStartTime;
+
+    // Swipe must occur within 500ms, with at least 50px displacement,
+    // and horizontal movement must exceed vertical movement.
+    if (duration < 500 && Math.abs(deltaX) >= 50 && Math.abs(deltaX) > Math.abs(deltaY)) {
+      if (deltaX < 0) {
+        this.next();
+      } else {
+        this.prev();
+      }
     }
   }
 
