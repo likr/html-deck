@@ -122,20 +122,23 @@ Customize font sizing, weight, line-height, letter-spacing, and shadows for diff
 Each UI component has specific CSS variables mapping its styles to standard theme behaviors:
 
 ### Card (`.hd-card`)
-- `--hd-card-border-radius`: Border radius. (Default: `8px`)
+- `--hd-card-border-radius`: Border radius. (Default: `12px`)
 - `--hd-card-padding`: Padding. (Default: `var(--hd-gap-3)`)
 - `--hd-card-margin-bottom`: Margin bottom. (Default: `var(--hd-gap-3)`)
 - `--hd-card-font-size`: Inner text size. (Default: `var(--hd-size-4)`)
 - `--hd-card-background-color`: Card fill color. (Default: `var(--hd-base-color-muted)`)
 - `--hd-card-text-color`: Card text. (Default: `var(--hd-base-text-color)`)
-- `--hd-card-border-color`: Card border outline. (Default: `var(--hd-base-text-color-muted)`)
+- `--hd-card-border-width`: Card border width. (Default: `1px`)
+- `--hd-card-border-style`: Card border style. (Default: `solid`)
+- `--hd-card-border-color`: Card border outline. (Default: `rgba(from var(--hd-base-text-color) r g b / 0.08)`)
+- `--hd-card-box-shadow`: Card outer drop shadow. (Default: `0 4px 12px rgba(from var(--hd-base-text-color) r g b / 0.03), 0 1px 2px rgba(from var(--hd-base-text-color) r g b / 0.02)`)
 - `--hd-card-heading-background-color` / `--hd-card-heading-text-color` / `--hd-card-heading-border-color`: Style mappings for card title headers.
 
 ### Box (`.hd-box`)
-- `--hd-box-border-radius` / `--hd-box-padding` / `--hd-box-margin-bottom` / `--hd-box-font-size` / `--hd-box-background-color` / `--hd-box-text-color` / `--hd-box-border-color` / `--hd-box-heading-background-color` / `--hd-box-heading-text-color` / `--hd-box-heading-border-color`
+- `--hd-box-border-radius` / `--hd-box-padding` / `--hd-box-margin-bottom` / `--hd-box-font-size` / `--hd-box-background-color` / `--hd-box-text-color` / `--hd-box-border-width` / `--hd-box-border-style` / `--hd-box-border-color` / `--hd-box-box-shadow` / `--hd-box-heading-background-color` / `--hd-box-heading-text-color` / `--hd-box-heading-border-color`
 
 ### Callout (`.hd-callout`)
-- `--hd-callout-border-radius` / `--hd-callout-padding` / `--hd-callout-margin-bottom` / `--hd-callout-font-size` / `--hd-callout-background-color` / `--hd-callout-text-color` / `--hd-callout-border-color`
+- `--hd-callout-border-radius` / `--hd-callout-padding` / `--hd-callout-margin-bottom` / `--hd-callout-font-size` / `--hd-callout-background-color` / `--hd-callout-text-color` / `--hd-callout-border-width` / `--hd-callout-border-style` / `--hd-callout-border-color` / `--hd-callout-box-shadow`
 
 ### Codeblock (`<hd-codeblock>`)
 - `--hd-codeblock-border-radius`: Border radius. (Default: `8px`)

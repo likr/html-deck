@@ -1,43 +1,43 @@
 /* variables.css - Global CSS variables for HTML-Deck */
 :root {
   /* Fonts */
-  --hd-font-family: system-ui, -apple-system, sans-serif;
-  --hd-font-family-serif: Georgia, 'Times New Roman', Times, serif;
+  --hd-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  --hd-font-family-serif: Georgia, Cambria, "Times New Roman", Times, serif;
   --hd-body-font: var(--hd-font-family);
   --hd-heading-font: var(--hd-font-family);
 
   /* 24-Color Matrix */
   /* Normal */
   --hd-base-color: #ffffff;
-  --hd-base-text-color: #0f172a;
-  --hd-main-color: #3b82f6;
+  --hd-base-text-color: #000000;
+  --hd-main-color: #4f46e5;
   --hd-main-text-color: #ffffff;
-  --hd-accent-color: #10b981;
+  --hd-accent-color: #0d9488;
   --hd-accent-text-color: #ffffff;
 
   /* Muted */
-  --hd-base-color-muted: #f8fafc;
-  --hd-base-text-color-muted: #64748b;
-  --hd-main-color-muted: #eff6ff;
-  --hd-main-text-color-muted: #1d4ed8;
-  --hd-accent-color-muted: #ecfdf5;
-  --hd-accent-text-color-muted: #047857;
+  --hd-base-color-muted: rgba(from var(--hd-base-text-color) r g b / 0.03);
+  --hd-base-text-color-muted: rgba(from var(--hd-base-text-color) r g b / 0.6);
+  --hd-main-color-muted: rgba(from var(--hd-main-color) r g b / 0.08);
+  --hd-main-text-color-muted: #4338ca;
+  --hd-accent-color-muted: rgba(from var(--hd-accent-color) r g b / 0.08);
+  --hd-accent-text-color-muted: #0f766e;
 
   /* Inverted */
-  --hd-base-color-inverted: #0f172a;
-  --hd-base-text-color-inverted: #f8fafc;
-  --hd-main-color-inverted: #3b82f6;
-  --hd-main-text-color-inverted: #ffffff;
-  --hd-accent-color-inverted: #10b981;
-  --hd-accent-text-color-inverted: #ffffff;
+  --hd-base-color-inverted: #000000;
+  --hd-base-text-color-inverted: #ffffff;
+  --hd-main-color-inverted: #818cf8;
+  --hd-main-text-color-inverted: #000000;
+  --hd-accent-color-inverted: #2dd4bf;
+  --hd-accent-text-color-inverted: #000000;
 
   /* Muted Inverted */
-  --hd-base-color-muted-inverted: #1e293b;
-  --hd-base-text-color-muted-inverted: #94a3b8;
-  --hd-main-color-muted-inverted: #1e3a8a;
-  --hd-main-text-color-muted-inverted: #93c5fd;
-  --hd-accent-color-muted-inverted: #064e3b;
-  --hd-accent-text-color-muted-inverted: #a7f3d0;
+  --hd-base-color-muted-inverted: rgba(from var(--hd-base-text-color-inverted) r g b / 0.08);
+  --hd-base-text-color-muted-inverted: rgba(from var(--hd-base-text-color-inverted) r g b / 0.65);
+  --hd-main-color-muted-inverted: rgba(from var(--hd-main-color-inverted) r g b / 0.15);
+  --hd-main-text-color-muted-inverted: #c7d2fe;
+  --hd-accent-color-muted-inverted: rgba(from var(--hd-accent-color-inverted) r g b / 0.15);
+  --hd-accent-text-color-muted-inverted: #99f6e4;
 
   /* Semantic Slide Colors (mapped from base colors) */
   --hd-slide-background-color: var(--hd-base-color);
@@ -45,14 +45,12 @@
   --hd-slide-border-color: var(--hd-base-text-color-muted);
 
   /* 6-Level Sizing Scale */
-  --hd-size-1: 48px;
-  --hd-size-2: 32px;
+  --hd-size-1: 64px;
+  --hd-size-2: 40px;
   --hd-size-3: 24px;
-  /* Default body size */
-  --hd-size-4: 18px;
-  --hd-size-5: 14px;
-  --hd-size-6: 12px;
-  /* Default peripheral size */
+  --hd-size-4: 20px;
+  --hd-size-5: 16px;
+  --hd-size-6: 14px;
 
   /* Text Types Decoration Configurations */
   /* Title Text Type */
@@ -60,8 +58,8 @@
   --hd-text-title-color: var(--hd-base-text-color);
   --hd-text-title-font-size: var(--hd-size-1);
   --hd-text-title-font-weight: var(--hd-font-weight-bold, 700);
-  --hd-text-title-line-height: 1.2;
-  --hd-text-title-letter-spacing: -0.02em;
+  --hd-text-title-line-height: 1;
+  --hd-text-title-letter-spacing: -0.03em;
   --hd-text-title-text-transform: none;
   --hd-text-title-text-shadow: none;
 
@@ -70,8 +68,8 @@
   --hd-text-heading-color: var(--hd-base-text-color);
   --hd-text-heading-font-size: var(--hd-size-2);
   --hd-text-heading-font-weight: var(--hd-font-weight-bold, 700);
-  --hd-text-heading-line-height: 1.3;
-  --hd-text-heading-letter-spacing: -0.01em;
+  --hd-text-heading-line-height: 1;
+  --hd-text-heading-letter-spacing: -0.02em;
   --hd-text-heading-text-transform: none;
   --hd-text-heading-text-shadow: none;
 
@@ -80,7 +78,7 @@
   --hd-text-subheading-color: var(--hd-base-text-color-muted);
   --hd-text-subheading-font-size: var(--hd-size-4);
   --hd-text-subheading-font-weight: var(--hd-font-weight-semibold, 600);
-  --hd-text-subheading-line-height: 1.4;
+  --hd-text-subheading-line-height: 1;
   --hd-text-subheading-letter-spacing: normal;
   --hd-text-subheading-text-transform: none;
   --hd-text-subheading-text-shadow: none;
@@ -90,7 +88,7 @@
   --hd-text-body-color: var(--hd-base-text-color);
   --hd-text-body-font-size: var(--hd-size-3);
   --hd-text-body-font-weight: var(--hd-font-weight-normal, 400);
-  --hd-text-body-line-height: 1.6;
+  --hd-text-body-line-height: 1.5;
   --hd-text-body-letter-spacing: 0.01em;
   --hd-text-body-text-transform: none;
   --hd-text-body-text-shadow: none;
@@ -100,7 +98,7 @@
   --hd-text-quote-color: var(--hd-base-text-color-muted);
   --hd-text-quote-font-size: var(--hd-size-3);
   --hd-text-quote-font-weight: var(--hd-font-weight-normal, 400);
-  --hd-text-quote-line-height: 1.5;
+  --hd-text-quote-line-height: 1.4;
   --hd-text-quote-letter-spacing: normal;
   --hd-text-quote-text-transform: none;
   --hd-text-quote-text-shadow: none;
@@ -140,57 +138,71 @@
   --hd-slide-margin-left: var(--hd-gap-6);
 
   /* Peripheral Absolute Position Offset (Unified vertical/horizontal margin offset) */
-  --hd-peripheral-offset: var(--hd-gap-3);
+  --hd-peripheral-offset: var(--hd-gap-2);
 
   /* Spacing Scale (Gap classes) */
   --hd-gap-0: 0px;
-  --hd-gap-1: 4px;
-  --hd-gap-2: 8px;
-  --hd-gap-3: 16px;
-  --hd-gap-4: 24px;
-  --hd-gap-5: 32px;
+  --hd-gap-1: 8px;
+  --hd-gap-2: 16px;
+  --hd-gap-3: 24px;
+  --hd-gap-4: 32px;
+  --hd-gap-5: 40px;
   --hd-gap-6: 48px;
 
   /* Layout Spacing Configuration defaults */
   --hd-layout-before-margin: var(--hd-gap-2);
   --hd-layout-after-margin: var(--hd-gap-2);
-  --hd-layout-heading-padding-bottom: var(--hd-gap-3);
-  --hd-layout-heading-margin: var(--hd-gap-3);
+  --hd-layout-heading-padding: var(--hd-slide-margin-top) var(--hd-slide-margin-right) var(--hd-gap-3) var(--hd-slide-margin-left);
+  --hd-layout-body-padding: var(--hd-gap-3) var(--hd-slide-margin-right) var(--hd-slide-margin-bottom) var(--hd-slide-margin-left);
+  --hd-layout-heading-margin: var(--hd-gap-4);
   --hd-layout-cover-title-margin-bottom: var(--hd-gap-3);
   --hd-layout-cover-subtitle-margin-bottom: var(--hd-gap-4);
 
   /* Component Properties */
-  --hd-card-border-radius: 8px;
-  --hd-card-padding: var(--hd-gap-3);
-  --hd-card-margin-bottom: var(--hd-gap-3);
+  /* Card */
+  --hd-card-border-radius: var(--hd-gap-1);
+  --hd-card-padding: var(--hd-gap-1);
+  --hd-card-margin-bottom: var(--hd-gap-2);
   --hd-card-font-size: var(--hd-size-4);
   --hd-card-background-color: var(--hd-base-color-muted);
   --hd-card-text-color: var(--hd-base-text-color);
-  --hd-card-border-color: var(--hd-base-text-color-muted);
+  --hd-card-border-width: 1px;
+  --hd-card-border-style: solid;
+  --hd-card-border-color: rgba(from var(--hd-base-text-color) r g b / 0.08);
+  --hd-card-box-shadow: 0 4px 12px rgba(from var(--hd-base-text-color) r g b / 0.03), 0 1px 2px rgba(from var(--hd-base-text-color) r g b / 0.02);
   --hd-card-heading-background-color: var(--hd-base-color);
   --hd-card-heading-text-color: var(--hd-base-text-color);
-  --hd-card-heading-border-color: var(--hd-base-text-color-muted);
+  --hd-card-heading-border-color: rgba(from var(--hd-base-text-color) r g b / 0.08);
 
-  --hd-box-border-radius: 8px;
-  --hd-box-padding: var(--hd-gap-3);
-  --hd-box-margin-bottom: var(--hd-gap-3);
+  /* Box */
+  --hd-box-border-radius: var(--hd-gap-1);
+  --hd-box-padding: var(--hd-gap-1);
+  --hd-box-margin-bottom: var(--hd-gap-2);
   --hd-box-font-size: var(--hd-size-4);
   --hd-box-background-color: var(--hd-base-color-muted);
   --hd-box-text-color: var(--hd-base-text-color);
-  --hd-box-border-color: var(--hd-base-text-color-muted);
+  --hd-box-border-width: 1px;
+  --hd-box-border-style: solid;
+  --hd-box-border-color: rgba(from var(--hd-base-text-color) r g b / 0.08);
+  --hd-box-box-shadow: 0 4px 12px rgba(from var(--hd-base-text-color) r g b / 0.03), 0 1px 2px rgba(from var(--hd-base-text-color) r g b / 0.02);
   --hd-box-heading-background-color: var(--hd-base-color);
   --hd-box-heading-text-color: var(--hd-base-text-color);
-  --hd-box-heading-border-color: var(--hd-base-text-color-muted);
+  --hd-box-heading-border-color: rgba(from var(--hd-base-text-color) r g b / 0.08);
 
-  --hd-callout-border-radius: 4px;
-  --hd-callout-padding: var(--hd-gap-3);
-  --hd-callout-margin-bottom: var(--hd-gap-3);
+  /* Callout */
+  --hd-callout-border-radius: var(--hd-gap-1);
+  --hd-callout-padding: var(--hd-gap-1) var(--hd-gap-2);
+  --hd-callout-margin-bottom: var(--hd-gap-2);
   --hd-callout-font-size: var(--hd-size-4);
   --hd-callout-background-color: var(--hd-base-color-muted);
   --hd-callout-text-color: var(--hd-base-text-color);
-  --hd-callout-border-color: var(--hd-base-text-color-muted);
+  --hd-callout-border-width: 0 0 0 4px;
+  --hd-callout-border-style: solid;
+  --hd-callout-border-color: var(--hd-base-text-color);
+  --hd-callout-box-shadow: none;
 
-  --hd-codeblock-border-radius: 8px;
+  /* Codeblock */
+  --hd-codeblock-border-radius: var(--hd-gap-1);
   --hd-codeblock-background-color: transparent;
   --hd-codeblock-border-width: 1px;
   --hd-codeblock-border-style: solid;
@@ -199,8 +211,8 @@
 
   /* Table */
   --hd-table-border-color: var(--hd-slide-border-color);
-  --hd-table-cell-padding: 6px 10px;
-  --hd-table-margin-bottom: var(--hd-gap-3);
+  --hd-table-cell-padding: var(--hd-gap-1);
+  --hd-table-margin-bottom: var(--hd-gap-2);
   --hd-table-font-size: var(--hd-size-4);
 
   /* Lists */
@@ -223,25 +235,25 @@
   --hd-blockquote-text-shadow: var(--hd-text-quote-text-shadow);
   --hd-blockquote-border-color: var(--hd-slide-border-color);
   --hd-blockquote-border-width: 3px;
-  --hd-blockquote-padding-left: var(--hd-gap-3);
-  --hd-blockquote-margin-bottom: var(--hd-gap-3);
+  --hd-blockquote-padding-left: var(--hd-gap-2);
+  --hd-blockquote-margin-bottom: var(--hd-gap-2);
 
   /* Image */
   --hd-img-max-width: 100%;
   --hd-img-height: auto;
-  --hd-img-border-radius: 8px;
+  --hd-img-border-radius: var(--hd-gap-1);
   --hd-img-border-width: 1px;
   --hd-img-border-style: solid;
   --hd-img-border-color: var(--hd-slide-border-color);
   --hd-img-box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
 
   /* Pre block and code styling */
-  --hd-pre-margin-bottom: var(--hd-gap-3);
-  --hd-pre-padding: var(--hd-gap-3);
+  --hd-pre-margin-bottom: var(--hd-gap-2);
+  --hd-pre-padding: var(--hd-gap-1);
 
   /* Scrollbars */
-  --hd-scrollbar-width: 8px;
-  --hd-scrollbar-height: 8px;
+  --hd-scrollbar-width: var(--hd-gap-1);
+  --hd-scrollbar-height: var(--hd-gap-1);
   --hd-scrollbar-track-bg: transparent;
   --hd-scrollbar-thumb-bg: var(--hd-slide-border-color);
   --hd-scrollbar-thumb-radius: 4px;
@@ -251,8 +263,8 @@
   --hd-codeblock-border-color: var(--hd-slide-border-color);
 
   /* Split/Three column layout gap variables */
-  --hd-layout-split-gap: var(--hd-gap-5);
-  --hd-layout-three-gap: var(--hd-gap-5);
+  --hd-layout-split-gap: var(--hd-gap-2);
+  --hd-layout-three-gap: var(--hd-gap-2);
 
   /* Split layout ratio */
   --hd-layout-split-ratio: minmax(0, 1fr) minmax(0, 1fr);

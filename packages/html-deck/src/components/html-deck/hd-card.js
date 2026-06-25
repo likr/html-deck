@@ -18,7 +18,10 @@ export class HdCard extends HTMLElement {
           height: auto;
           background-color: var(--hd-card-background-color);
           color: var(--hd-card-text-color);
-          border: 1px solid var(--hd-card-border-color);
+          border-width: var(--hd-card-border-width);
+          border-style: var(--hd-card-border-style);
+          border-color: var(--hd-card-border-color);
+          box-shadow: var(--hd-card-box-shadow);
           overflow: hidden;
         }
 

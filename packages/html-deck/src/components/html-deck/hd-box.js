@@ -18,7 +18,10 @@ export class HdBox extends HTMLElement {
           height: 100%;
           background-color: var(--hd-box-background-color);
           color: var(--hd-box-text-color);
-          border: 1px solid var(--hd-box-border-color);
+          border-width: var(--hd-box-border-width);
+          border-style: var(--hd-box-border-style);
+          border-color: var(--hd-box-border-color);
+          box-shadow: var(--hd-box-box-shadow);
           overflow: hidden;
         }
 

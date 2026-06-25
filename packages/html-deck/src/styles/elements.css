@@ -62,7 +62,6 @@ hd-slide [slot="title"] {
 
 [slot="heading"] {
   font-family: var(--hd-text-heading-font);
-  color: inherit;
   font-size: var(--hd-text-heading-font-size);
   font-weight: var(--hd-text-heading-font-weight);
   line-height: var(--hd-text-heading-line-height);

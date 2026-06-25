@@ -17,10 +17,10 @@ export class HdCallout extends HTMLElement {
           font-size: var(--hd-callout-font-size);
           background-color: var(--hd-callout-background-color);
           color: var(--hd-callout-text-color);
-          border-style: solid;
-          border-width: 0 0 0 4px;
-          border-color: transparent;
-          border-left-color: var(--hd-callout-border-color);
+          border-width: var(--hd-callout-border-width);
+          border-style: var(--hd-callout-border-style);
+          border-color: var(--hd-callout-border-color);
+          box-shadow: var(--hd-callout-box-shadow);
           text-align: left;
         }
 
