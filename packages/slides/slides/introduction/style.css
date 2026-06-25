@@ -1,15 +1,29 @@
 :root {
-    --hd-default-background-color: #ffffff;
-    --hd-default-color: #1e293b;
-    --hd-primary-color: #3b82f6;
-    --hd-secondary-color: #ec4899;
-    --hd-accent-color: #10b981;
+    /* Fonts & Weights */
     --hd-font-family: 'Outfit', 'Noto Sans JP', sans-serif;
-    --hd-slide-padding-top: 60px;
-    --hd-slide-padding-right: 80px;
-    --hd-slide-padding-bottom: 60px;
-    --hd-slide-padding-left: 80px;
-    --hd-slide-padding: var(--hd-slide-padding-top) var(--hd-slide-padding-right) var(--hd-slide-padding-bottom) var(--hd-slide-padding-left);
+    --hd-body-font: var(--hd-font-family);
+    --hd-heading-font: var(--hd-font-family);
+
+    /* --- 48-Color Matrix overrides --- */
+    /* Soft Surface (Slide default) */
+    --hd-base-soft-background-color: #ffffff;
+    --hd-base-soft-text-color: #1e293b;
+    --hd-base-soft-text-highlight-color: #3b82f6; /* Primary */
+    --hd-base-soft-text-muted-color: #64748b;
+
+    /* Main theme solid (Blue) */
+    --hd-main-solid-background-color: #3b82f6;
+    --hd-main-solid-text-color: #ffffff;
+
+    /* Accent theme solid (Magenta) */
+    --hd-accent-solid-background-color: #ec4899;
+    --hd-accent-solid-text-color: #ffffff;
+
+    /* Slide Margins (replacing old padding-top/right/bottom/left) */
+    --hd-slide-margin-top: 60px;
+    --hd-slide-margin-right: 80px;
+    --hd-slide-margin-bottom: 60px;
+    --hd-slide-margin-left: 80px;
 }
 
 /* Large fonts for high-impact LT */
@@ -65,6 +79,8 @@ hd-layout-split ul, hd-layout-split ol {
     animation: rainbow-flow 2s linear infinite;
     filter: drop-shadow(0 0 8px rgba(0, 242, 254, 0.5)) drop-shadow(0 0 15px rgba(254, 1, 154, 0.4));
     font-weight: 900;
+    font-size: 84px;
+    text-align: center;
 }
 
 @keyframes rainbow-flow {
@@ -91,17 +107,17 @@ hd-layout-split ul, hd-layout-split ol {
     padding: 16px 36px;
     font-size: 26px;
     font-weight: 700;
-    border: 3px solid var(--hd-default-color);
-    background: var(--hd-default-background-color);
-    color: var(--hd-default-color);
+    border: 3px solid var(--hd-base-soft-text-color);
+    background: var(--hd-base-soft-background-color);
+    color: var(--hd-base-soft-text-color);
     cursor: pointer;
     border-radius: 12px;
     transition: all 0.2s ease;
 }
 
 .theme-btn:hover {
-    background: var(--hd-default-color);
-    color: var(--hd-default-background-color);
+    background: var(--hd-base-soft-text-color);
+    color: var(--hd-base-soft-background-color);
 }
 
 /* Slide wrapper for relative positioning */
@@ -130,6 +146,14 @@ hd-layout-split ul, hd-layout-split ol {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    padding: 60px 80px;
+    box-sizing: border-box;
+}
+
+.interaction-p {
+    color: #e2e8f0;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+    font-weight: 600;
 }
 
 /* Pendulum canvas container */

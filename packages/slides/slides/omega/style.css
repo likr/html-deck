@@ -1,42 +1,54 @@
 :root {
-    --hd-default-background-color: #070913;
-    --hd-default-color: #e2e8f0;
-    --hd-primary-color: #00f0ff;
-    /* Electric Cyan */
-    --hd-secondary-color: #d946ef;
-    /* Electric Magenta */
-    --hd-accent-color: #10b981;
-    /* Emerald Accent */
+    /* Fonts & Weights */
     --hd-font-family: 'Outfit', 'Inter', 'Noto Sans JP', sans-serif;
-    --hd-slide-padding-top: 50px;
-    --hd-slide-padding-right: 70px;
-    --hd-slide-padding-bottom: 50px;
-    --hd-slide-padding-left: 70px;
-    --hd-slide-padding: var(--hd-slide-padding-top) var(--hd-slide-padding-right) var(--hd-slide-padding-bottom) var(--hd-slide-padding-left);
+    --hd-body-font: var(--hd-font-family);
+    --hd-heading-font: var(--hd-font-family);
+
+    /* --- 48-Color Matrix overrides (Tokyo Midnight Dark) --- */
+    /* Soft Surface (Slide default) */
+    --hd-base-soft-background-color: radial-gradient(circle at 10% 10%, rgba(0, 240, 255, 0.08) 0%, transparent 40%),
+                                      radial-gradient(circle at 90% 90%, rgba(217, 70, 239, 0.08) 0%, transparent 40%),
+                                      radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 0.5) 0%, transparent 100%),
+                                      #070913;
+    --hd-base-soft-text-color: #e2e8f0;
+    --hd-base-soft-text-highlight-color: #00f0ff; /* Electric Cyan */
+    --hd-base-soft-text-muted-color: #94a3b8;
+
+    /* Main theme solid (Cyan) */
+    --hd-main-solid-background-color: #00f0ff;
+    --hd-main-solid-text-color: #070913;
+
+    /* Accent theme solid (Electric Magenta) */
+    --hd-accent-solid-background-color: #d946ef;
+    --hd-accent-solid-text-color: #ffffff;
+
+    /* Slide Margins (replacing old padding-top/right/bottom/left) */
+    --hd-slide-margin-top: 50px;
+    --hd-slide-margin-right: 70px;
+    --hd-slide-margin-bottom: 50px;
+    --hd-slide-margin-left: 70px;
 
     /* Title slide style overrides */
-    --hd-title-slide-padding: 60px 80px;
-    --hd-title-slide-title-size: 38px;
-    --hd-title-slide-subtitle-size: 18px;
-    --hd-title-slide-divider-bg: linear-gradient(90deg, var(--hd-primary-color), var(--hd-secondary-color));
-    --hd-title-slide-divider-height: 2px;
-    --hd-title-slide-divider-margin: 24px 0;
+    --hd-layout-cover-padding: 60px 80px;
+    --hd-text-title-font-size: 38px;
+    --hd-text-subheading-font-size: 18px;
+    --hd-layout-heading-divider-display: block;
+    --hd-layout-heading-divider-height: 2px;
+    --hd-layout-heading-divider-box-shadow: none;
 
-    /* Global elements overrides */
-    --hd-heading-color-1: #ffffff;
-    --hd-heading-color-2: #ffffff;
-    --hd-heading-color-3: #cbd5e1;
-    --hd-codeblock-bg: #0d111d;
-    --hd-codeblock-border: rgba(0, 240, 255, 0.15);
-    --hd-codeblock-text: #e2e8f0;
-}
+    /* Codeblock styling variables from matrix */
+    --hd-codeblock-background-color: #0d111d;
+    --hd-codeblock-border-color: rgba(0, 240, 255, 0.15);
 
-/* Elegant gradient background for all slides */
-hd-slide {
-    background-image:
-        radial-gradient(circle at 10% 10%, rgba(0, 240, 255, 0.08) 0%, transparent 40%),
-        radial-gradient(circle at 90% 90%, rgba(217, 70, 239, 0.08) 0%, transparent 40%),
-        radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 0.5) 0%, transparent 100%);
+    /* Table styling variables */
+    --hd-table-border-color: rgba(255, 255, 255, 0.05);
+    --hd-table-cell-padding: 12px 16px;
+    --hd-table-font-size: 13px;
+    --hd-table-header-font-family: 'Outfit', sans-serif;
+    --hd-table-header-font-weight: 700;
+    --hd-table-header-border-width: 2px;
+    --hd-table-header-text-color: #ffffff;
+    --hd-table-row-background-color: transparent;
 }
 
 /* Custom utility classes */
@@ -166,30 +178,7 @@ hd-slide {
     animation: flow 1.5s linear infinite;
 }
 
-/* Table styling overrides */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-}
-
-th {
-    font-family: 'Outfit', sans-serif;
-    font-weight: 700;
-    text-align: left;
-    padding: 12px 16px;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
-    color: #ffffff;
-    font-size: 13px;
-}
-
-td {
-    padding: 12px 16px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    color: #cbd5e1;
-    font-size: 13px;
-}
-
+/* Table hover styling override (not covered by variables) */
 tr:hover td {
     color: #ffffff;
     background: rgba(0, 240, 255, 0.02);

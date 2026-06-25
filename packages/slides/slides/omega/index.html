@@ -49,31 +49,31 @@
     </hd-slide>
 
     <!-- スライド2: 背景と従来手法の課題 -->
-    <hd-slide title="背景と従来手法の課題">
-      <hd-layout>
+    <hd-slide>
+      <hd-layout-grid cols="2">
         <h2 slot="heading">背景：ストレスベース描画と従来手法の限界</h2>
 
-        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--hd-gap-3, 16px); width: 100%; box-sizing: border-box;">
-          <div class="highlight-card">
-            <h3><span class="icon">🔍</span> ストレスベースのグラフ描画</h3>
-            <p class="hd-text-5">
-              ノード間の<strong>「理想的な距離」</strong>と、画面上の<strong>「実際の距離」</strong>の差の二乗誤差（ストレス）を最小化する最適化問題。
-              <div>$$E(X) = \sum_{i \lt j} w_{ij} (||x_i - x_j|| - d_{ij})^2$$</div>
-              ここで <span>\(d_{ij}\)</span> が理想的な距離、 <span>\(w_{ij}\)</span> は重み。
-            </p>
-          </div>
+        <hd-card variant="base">
+          <h3 slot="heading"><span class="icon">🔍</span> ストレスベースのグラフ描画</h3>
+          <p class="hd-text hd-size-5">
+            ノード間の<strong>「理想的な距離」</strong>と、画面上の<strong>「実際の距離」</strong>の差の二乗誤差（ストレス）を最小化する最適化問題。
+          </p>
+          <hd-math block>E(X) = \sum_{i \lt j} w_{ij} (||x_i - x_j|| - d_{ij})^2</hd-math>
+          <p class="hd-text hd-size-5">
+            ここで <hd-math>d_{ij}</hd-math> が理想的な距離、 <hd-math>w_{ij}</hd-math> は重み。
+          </p>
+        </hd-card>
 
-          <div class="highlight-card">
-            <h3><span class="icon">⚠️</span> 従来手法（最短経路距離）の課題</h3>
-            <ul class="hd-text-6">
-              <li><strong>大域的構造の欠落：</strong> 最短経路は「1つの最短パス」しか見ないため、並列する複数の迂回経路があるような「強いつながり（クラスタ）」を大域的に捉えられない。</li>
-              <li><strong>高コストな全対最短経路計算：</strong> すべてのノード間の最短経路距離を事前に求めると <span>\(\mathcal{O}(V^3)\)</span> や
-                <span>\(\mathcal{O}(V^2 \log V + VE)\)</span> の計算量が必要となり、大規模グラフではメモリ・CPUともに限界に達する。
-              </li>
-            </ul>
-          </div>
-        </div>
-      </hd-layout>
+        <hd-card variant="base">
+          <h3 slot="heading"><span class="icon">⚠️</span> 従来手法（最短経路距離）の課題</h3>
+          <ul class="hd-list hd-size-6">
+            <li><strong>大域的構造の欠落：</strong> 最短経路は「1つの最短パス」しか見ないため、並列する複数の迂回経路があるような「強いつながり（クラスタ）」を大域的に捉えられない。</li>
+            <li><strong>高コストな全対最短経路計算：</strong> すべてのノード間の最短経路距離を事前に求めると <hd-math>\mathcal{O}(V^3)</hd-math> や
+              <hd-math>\mathcal{O}(V^2 \log V + VE)</hd-math> の計算量が必要となり、大規模グラフではメモリ・CPUともに限界に達する。
+            </li>
+          </ul>
+        </hd-card>
+      </hd-layout-grid>
 
       <div slot="notes">
         <h2>発表者用メモ: スライド2</h2>
@@ -88,12 +88,12 @@
     </hd-slide>
 
     <!-- スライド3: キーコンセプト「抵抗距離」 -->
-    <hd-slide title="キーコンセプト：抵抗距離 (Resistance Distance)">
+    <hd-slide>
       <hd-layout>
         <h2 slot="heading">キーコンセプト：抵抗距離 (Resistance Distance)</h2>
 
-        <p class="hd-text-5">
-          グラフを<strong>「電気回路（すべてのエッジを1Ωの抵抗とする）」</strong>と見立てたときの、2ノード間の<strong>合成抵抗</strong>を理想距離 <span>\(d_{ij}\)</span>
+        <p class="hd-text hd-size-5">
+          グラフを<strong>「電気回路（すべてのエッジを1Ωの抵抗とする）」</strong>と見立てたときの、2ノード間の<strong>合成抵抗</strong>を理想距離 <hd-math>d_{ij}</hd-math>
           として採用。
         </p>
 
@@ -173,47 +173,45 @@
     </hd-slide>
 
     <!-- スライド4: 提案アルゴリズム「Omega」 -->
-    <hd-slide title="提案アルゴリズム：「Omega (Ω)」">
-      <hd-layout>
+    <hd-slide>
+      <hd-layout-split ratio="2:3">
         <h2 slot="heading">提案アルゴリズム：「Omega (Ω)」</h2>
 
-        <div style="display: flex; gap: var(--hd-gap-3, 16px); width: 100%; box-sizing: border-box;">
-          <div class="highlight-card" style="flex: 4; border-left: 3px solid var(--hd-primary-color);">
-            <h3><span class="icon">⚡</span> 線形時間 <span>\(\mathcal{O}(|E|)\)</span> の実現</h3>
-            <ul class="hd-text-6">
-              <li><strong>高速な埋め込み事前計算：</strong> グラフラプラシアンの有効な固有値スペクトルを利用し、抵抗距離をユークリッド空間へ高速に等長埋め込み。</li>
-              <li><strong>ランダムペアサンプリングの統合：</strong> SGD（確率的勾配降下法）を用いることで、全ノード対のストレスストレス計算を省略。エッジ数に比例した
-                <span>\(\mathcal{O}(|E|)\)</span> 時間での最適化を達成.
-              </li>
-            </ul>
-          </div>
+        <hd-box slot="left" variant="main">
+          <h3 slot="heading"><span class="icon">⚡</span> 線形時間 <hd-math>\mathcal{O}(|E|)</hd-math> の実現</h3>
+          <ul class="hd-list hd-size-6">
+            <li><strong>高速な埋め込み事前計算：</strong> グラフラプラシアンの有効な固有値スペクトルを利用し、抵抗距離をユークリッド空間へ高速に等長埋め込み。</li>
+            <li><strong>ランダムペアサンプリングの統合：</strong> SGD（確率的勾配降下法）を用いることで、全ノード対のストレスストレス計算を省略。エッジ数に比例した
+              <hd-math>\mathcal{O}(|E|)</hd-math> 時間での最適化を達成.
+            </li>
+          </ul>
+        </hd-box>
 
-          <div class="highlight-card" style="flex: 6; border-left: 3px solid var(--hd-secondary);">
-            <h3><span class="icon">🚀</span> 従来サンプリングとの違い</h3>
-            <table style="margin-top: 5px;">
-              <thead>
-                <tr>
-                  <th>アプローチ</th>
-                  <th>サンプリング戦略</th>
-                  <th>堅牢性 (Robustness)</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><strong>従来 (Pivotベース)</strong></td>
-                  <td>特定の代表点 (Pivot) からの距離に依存</td>
-                  <td>代表点の選択によって描画品質が不安定化</td>
-                </tr>
-                <tr>
-                  <td><strong style="color:var(--hd-secondary)">提案 (Omega)</strong></td>
-                  <td>事前計算された埋め込み空間からの全ランダムサンプリング</td>
-                  <td><strong>極めて堅牢で偏りのない大域的収束</strong></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </hd-layout>
+        <hd-box slot="right" variant="accent">
+          <h3 slot="heading"><span class="icon">🚀</span> 従来サンプリングとの違い</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>アプローチ</th>
+                <th>サンプリング戦略</th>
+                <th>堅牢性 (Robustness)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>従来 (Pivotベース)</strong></td>
+                <td>特定の代表点 (Pivot) からの距離に依存</td>
+                <td>代表点の選択によって描画品質が不安定化</td>
+              </tr>
+              <tr>
+                <td><strong class="hd-accent">提案 (Omega)</strong></td>
+                <td>事前計算された埋め込み空間からの全ランダムサンプリング</td>
+                <td><strong>極めて堅牢で偏りのない大域的収束</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </hd-box>
+      </hd-layout-split>
 
       <div slot="notes">
         <h2>発表者用メモ: スライド4</h2>
@@ -228,36 +226,34 @@
     </hd-slide>
 
     <!-- スライド5: 実験結果と評価 -->
-    <hd-slide title="実験評価：描画品質と最適化の安定性">
-      <hd-layout>
+    <hd-slide>
+      <hd-layout-grid cols="2">
         <h2 slot="heading">実験評価：描画品質と最適化の安定性</h2>
 
-        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--hd-gap-3, 16px); width: 100%; box-sizing: border-box;">
-          <div class="highlight-card">
-            <h3><span class="icon">📈</span> 描画品質の向上</h3>
-            <ul class="hd-text-6">
-              <li><strong>近傍保存性 (Neighborhood Preservation)</strong><br>
-                ローカルな接続関係を正しく配置する能力が向上。
-              </li>
-              <li class="hd-mt-2"><strong>クラスタの忠実性 (Cluster Faithfulness)</strong><br>
-                大域的なつながりを加味した抵抗距離の効果により、重なりがちなコミュニティやクラスタが直感的に識別しやすく分離・描画される。
-              </li>
-            </ul>
-          </div>
+        <hd-card variant="base">
+          <h3 slot="heading"><span class="icon">📈</span> 描画品質の向上</h3>
+          <ul class="hd-list hd-size-6">
+            <li><strong>近傍保存性 (Neighborhood Preservation)</strong><br>
+              ローカルな接続関係を正しく配置する能力が向上。
+            </li>
+            <li class="hd-mt-2"><strong>クラスタの忠実性 (Cluster Faithfulness)</strong><br>
+              大域的なつながりを加味した抵抗距離の効果により、重なりがちなコミュニティやクラスタが直感的に識別しやすく分離・描画される。
+            </li>
+          </ul>
+        </hd-card>
 
-          <div class="highlight-card">
-            <h3><span class="icon">🎯</span> 最適化の安定性と効率</h3>
-            <p class="hd-text-5">
-              提案された<strong>ランダムペアサンプリング戦略</strong>は、従来アルゴリズムと比較して：
-            </p>
-            <ul class="hd-text-6">
-              <li>最適化が局所解に陥りにくく、<strong>「より低いストレス値」</strong>に到達。</li>
-              <li>試行ごとの分散が小さく、<strong>「極めて高い再現性と安定性」</strong>を達成。</li>
-              <li>数万エッジの巨大な実世界ネットワークも数秒から数十秒でレイアウト完了。</li>
-            </ul>
-          </div>
-        </div>
-      </hd-layout>
+        <hd-card variant="base">
+          <h3 slot="heading"><span class="icon">🎯</span> 最適化の安定性と効率</h3>
+          <p class="hd-text hd-size-5">
+            提案された<strong>ランダムペアサンプリング戦略</strong>は、従来アルゴリズムと比較して：
+          </p>
+          <ul class="hd-list hd-size-6">
+            <li>最適化が局所解に陥りにくく、<strong>「より低いストレス値」</strong>に到達。</li>
+            <li>試行ごとの分散が小さく、<strong>「極めて高い再現性と安定性」</strong>を達成。</li>
+            <li>数万エッジの巨大な実世界ネットワークも数秒から数十秒でレイアウト完了。</li>
+          </ul>
+        </hd-card>
+      </hd-layout-grid>
 
       <div slot="notes">
         <h2>発表者用メモ: スライド5</h2>
@@ -272,23 +268,23 @@
     </hd-slide>
 
     <!-- スライド6: 結論と今後の展望 -->
-    <hd-slide title="結論と今後の展望">
+    <hd-slide>
       <hd-layout>
         <h2 slot="heading">結論と今後の展望</h2>
 
-        <div class="highlight-card" style="border-top: 3px solid var(--hd-primary-color);">
-          <h3><span class="icon">🏆</span> 本研究の貢献</h3>
-          <ul class="hd-text-6">
+        <hd-card variant="main">
+          <h3 slot="heading"><span class="icon">🏆</span> 本研究の貢献</h3>
+          <ul class="hd-list hd-size-6">
             <li><strong>理論的架け橋：</strong>
               「スペクトラルグラフ理論」と「ストレスベースレイアウト」という、独立して研究されがちだった2分野の間に強固な数学的結びつき（抵抗距離の埋め込み）を実証した。</li>
             <li class="hd-mt-2"><strong>実用的な可視化：</strong> 実世界の大規模で複雑なソーシャルネットワークや共著関係ネットワークに対して、高速かつ忠実度の高いレイアウトシステムを
-              <span>\(\mathcal{O}(|E|)\)</span> で提供。
+              <hd-math>\mathcal{O}(|E|)</hd-math> で提供。
             </li>
           </ul>
-        </div>
+        </hd-card>
 
-        <div class="hd-text-center hd-mt-4">
-          <p class="hd-text-3 hd-text-weight-bold text-gradient">ご清聴ありがとうございました。ご質問があればお受けいたします。</p>
+        <div class="hd-text-center hd-mt-5">
+          <p class="hd-size-3 hd-text-weight-bold text-gradient">ご清聴ありがとうございました。ご質問があればお受けいたします。</p>
         </div>
       </hd-layout>
 
