@@ -22,7 +22,7 @@ export class HdLayoutSplit extends HTMLElement {
           width: 100%;
           box-sizing: border-box;
           padding: var(--hd-layout-heading-padding);
-          background-color: var(--hd-layout-heading-background-color);
+          background: var(--hd-layout-heading-background-color);
           color: var(--hd-layout-heading-text-color);
           box-shadow: var(--hd-layout-heading-box-shadow, none);
           text-align: var(--hd-layout-heading-text-align, left);

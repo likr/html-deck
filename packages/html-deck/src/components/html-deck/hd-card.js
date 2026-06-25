@@ -16,7 +16,7 @@ export class HdCard extends HTMLElement {
           margin-bottom: var(--hd-card-margin-bottom);
           font-size: var(--hd-card-font-size);
           height: auto;
-          background-color: var(--hd-card-background-color);
+          background: var(--hd-card-background-color);
           color: var(--hd-card-text-color);
           border-width: var(--hd-card-border-width);
           border-style: var(--hd-card-border-style);
@@ -161,7 +161,7 @@ export class HdCard extends HTMLElement {
           display: block !important;
           box-sizing: border-box !important;
           padding: var(--hd-card-padding) !important;
-          background-color: var(--hd-card-heading-background-color) !important;
+          background: var(--hd-card-heading-background-color) !important;
           color: var(--hd-card-heading-text-color) !important;
           border-bottom: 1px solid var(--hd-card-heading-border-color) !important;
           font-family: var(--hd-text-subheading-font) !important;

@@ -54,8 +54,9 @@
    - [utilities.css](file:///home/likr/work/likr/html-deck/packages/html-deck/src/styles/utilities.css) または [components.css](file:///home/likr/work/likr/html-deck/packages/html-deck/src/styles/components.css) で行います。
 5. **コンポーネント固有のスタイル**:
    - WebComponent の Shadow DOM スタイルシート（各 JS 内）で定義します。コンポーネントの構造や動作に必要な境界内部のスタイルです。
-   - **注意**: レイアウトコンポーネントにおいては、`:host` に対して直接 padding を設定することは避け、必ず `.layout-content` や `.cover-content` などの内部ラッパーに対して設定変数（`--hd-layout-body-padding` や `--hd-layout-cover-padding`）を介して padding を適用してください。
-   - **注意**: `!important` をグローバルなリセットルール（`*:last-child { margin-bottom: 0 !important; }` など）で使用することは、個別ユーティリティクラス（`.hd-align-middle` など）の挙動を破壊するため禁止します。
+    - **注意**: レイアウトコンポーネントにおいては、`:host` に対して直接 padding を設定することは避け、必ず `.layout-content` や `.cover-content` などの内部ラッパーに対して設定変数（`--hd-layout-body-padding` や `--hd-layout-cover-padding`）を介して padding を適用してください。
+    - **注意**: `hd-card`, `hd-box`, `hd-callout` などのコンテナ型コンポーネント、および `hd-layout` などのレイアウト見出し領域の背景スタイルには、`background-color` プロパティではなく、`background` 略記法プロパティを使用してください。これにより、カスタムテーマから線形・放射状グラデーション（`linear-gradient` / `radial-gradient`）背景をCSS変数経由で適用できるようになります。
+    - **注意**: `!important` をグローバルなリセットルール（`*:last-child { margin-bottom: 0 !important; }` など）で使用することは、個別ユーティリティクラス（`.hd-align-middle` など）の挙動を破壊するため禁止します。
 
 ---
 

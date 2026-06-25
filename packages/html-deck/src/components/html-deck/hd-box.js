@@ -16,7 +16,7 @@ export class HdBox extends HTMLElement {
           margin-bottom: var(--hd-box-margin-bottom);
           font-size: var(--hd-box-font-size);
           height: 100%;
-          background-color: var(--hd-box-background-color);
+          background: var(--hd-box-background-color);
           color: var(--hd-box-text-color);
           border-width: var(--hd-box-border-width);
           border-style: var(--hd-box-border-style);
@@ -161,7 +161,7 @@ export class HdBox extends HTMLElement {
           display: block !important;
           box-sizing: border-box !important;
           padding: var(--hd-box-padding) !important;
-          background-color: var(--hd-box-heading-background-color) !important;
+          background: var(--hd-box-heading-background-color) !important;
           color: var(--hd-box-heading-text-color) !important;
           border-bottom: 1px solid var(--hd-box-heading-border-color) !important;
           font-family: var(--hd-text-subheading-font) !important;

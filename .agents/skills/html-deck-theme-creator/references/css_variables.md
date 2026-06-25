@@ -159,7 +159,8 @@ Customize font sizing, weight, line-height, letter-spacing, and shadows for diff
 
 ## 6. Component Styling
 
-Each UI component has specific CSS variables mapping its styles to standard theme behaviors. These are defined on `:root` to map to base defaults but are overridden on `<hd-card>` and `<hd-box>` based on their `variant` (`base`, `main`, `accent`) and `surface` (`soft`, `solid`) attributes:
+Each UI component has specific CSS variables mapping its styles to standard theme behaviors. These are defined on `:root` to map to base defaults but are overridden on `<hd-card>` and `<hd-box>` based on their `variant` (`base`, `main`, `accent`) and `surface` (`soft`, `solid`) attributes.
+Note: Card, Box, Callout, and Layout Heading elements use the CSS `background` shorthand property instead of `background-color`, meaning theme creators can assign linear or radial gradients directly to their background variables (e.g. `--hd-card-background-color: linear-gradient(...);`).
 
 ### Card (`.hd-card`)
 - `--hd-card-border-radius`: Border radius. (Default: `12px`)

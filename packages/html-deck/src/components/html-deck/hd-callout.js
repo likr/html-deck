@@ -15,7 +15,7 @@ export class HdCallout extends HTMLElement {
           padding: var(--hd-callout-padding);
           margin-bottom: var(--hd-callout-margin-bottom);
           font-size: var(--hd-callout-font-size);
-          background-color: var(--hd-callout-background-color);
+          background: var(--hd-callout-background-color);
           color: var(--hd-callout-text-color);
           border-width: var(--hd-callout-border-width);
           border-style: var(--hd-callout-border-style);
