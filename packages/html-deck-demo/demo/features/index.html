@@ -81,11 +81,11 @@
   <!-- Slideshow Deck -->
   <hd-deck transition="fade" presenter-url="presenter.html" aspect-ratio="16:9">
 
-    <!-- Slide 1: Cover Layout component -->
+    <!-- Slide 1: Cover Layout -->
     <hd-slide>
       <hd-layout-cover>
-        <div slot="title"><span class="hd-accent hd-text-weight-bold">HTML-Deck</span> Showcase</div>
-        <div slot="subtitle">Comprehensive Feature Verification Slide Deck</div>
+        <h1 slot="title"><span class="hd-accent hd-text-weight-bold">HTML-Deck</span> Showcase</h1>
+        <p slot="subtitle">Comprehensive Feature Verification Slide Deck</p>
         <div slot="meta">
           <div>AI Agent & Human Team</div>
           <div>demo/features/index.html</div>
@@ -98,149 +98,272 @@
         </p>
       </hd-layout-cover>
       <div slot="notes">
-        <h3>Slide 1: Welcome</h3>
+        <h3>Slide 1: Welcome Cover</h3>
         <ul>
-          <li>Showcases the cover layout component.</li>
-          <li>Notes sync to speaker view automatically.</li>
+          <li>Showcases the cover layout component (&lt;hd-layout-cover&gt;).</li>
+          <li>Page numbers are automatically hidden on cover layouts by default.</li>
         </ul>
       </div>
     </hd-slide>
 
-    <!-- Slide 2: Standard Layout component -->
+    <!-- Slide 2: Standard Layout -->
     <hd-slide>
-      <div slot="header" class="hd-size-6 hd-muted">Header Slot Content</div>
+      <div slot="header" class="hd-size-6 hd-muted">Slide Header (Slide Level)</div>
       <hd-layout>
         <h2 slot="heading">Standard Layout Component</h2>
-        <p slot="before" class="hd-size-6 hd-muted">Before Slot: Standard layout can display content directly before the body area.</p>
-        <p>This slide uses <code>&lt;hd-layout&gt;</code> which renders title and body areas, while 
-          the <code>header</code> and <code>footer</code> slots are managed by the parent <code>&lt;hd-slide&gt;</code>.</p>
-        <hd-box>
-          <p>Header and footer content are absolutely positioned inside the margins, aligned with the slide's content padding boundaries.</p>
-        </hd-box>
-        <hd-callout slot="after" variant="main">After Slot: Useful for footnotes, signatures, or layout-bound annotations.</hd-callout>
+        <p slot="before" class="hd-muted">Before Slot: Renders directly before the main body area.</p>
+        <p>This is the default slide structure using <code>&lt;hd-layout&gt;</code>, which manages the title heading and
+          body layout area. Slide-level header and footer slots are absolutely positioned inside margins, aligning with
+          the canvas borders.</p>
+        <p slot="after" class="hd-accent">After Slot: Positioned directly below the body area.</p>
       </hd-layout>
-      <div slot="footer" class="hd-size-6 hd-muted">Footer Slot Content</div>
+      <div slot="footer" class="hd-size-6 hd-muted">Slide Footer (Slide Level)</div>
       <div slot="notes">
         <h3>Slide 2: Standard Layout</h3>
-        <p>Header and footer slots are moved to the slide component, positioned in margins.</p>
+        <ul>
+          <li>Renders title (heading), before, main body, and after slots.</li>
+          <li>Slide-level headers and footers align with layout borders.</li>
+        </ul>
       </div>
     </hd-slide>
 
-    <!-- Slide 3: Split Layout component -->
+    <!-- Slide 3: Split Layout -->
     <hd-slide>
       <hd-layout-split ratio="1:1">
-        <h2 slot="heading">Split Layout (1:1 Ratio)</h2>
-        <p slot="before" class="hd-size-6 hd-muted">Before Slot: Introduces the split-pane comparison below.</p>
-        <hd-box slot="left" variant="main">
-          <h3 slot="heading">Left Column</h3>
-          <p>Arranges contents side-by-side automatically into two equal-width columns when
-            <code>ratio="1:1"</code> (default).
+        <h2 slot="heading">Split Layout (Equal Columns)</h2>
+        <p slot="before" class="hd-muted">Before Slot: Full-width panel introducing the comparison below.</p>
+        <div slot="left">
+          <p class="hd-text-weight-bold hd-accent">Left Column Pane</p>
+          <p>The <code>&lt;hd-layout-split&gt;</code> component organizes content side-by-side. By default (or when
+            <code>ratio="1:1"</code>), both columns occupy equal widths.
           </p>
-        </hd-box>
-        <hd-box slot="right" variant="accent">
-          <h3 slot="heading">Right Column</h3>
-          <p>Excellent for comparisons, listing pros and cons, or showing text side-by-side with images.
-          </p>
-        </hd-box>
-        <hd-callout slot="after" variant="accent">After Slot: Bottom annotation spanning the full split layout width.</hd-callout>
+        </div>
+        <div slot="right">
+          <p class="hd-text-weight-bold hd-accent">Right Column Pane</p>
+          <p>Great for comparing parallel items, listing pros/cons, or placing descriptive text next to graphics and
+            media blocks.</p>
+        </div>
+        <p slot="after" class="hd-muted">After Slot: Full-width footer annotation.</p>
       </hd-layout-split>
       <div slot="notes">
         <h3>Slide 3: Split Layout</h3>
-        <p>Showcases equal column widths via hd-layout-split.</p>
+        <ul>
+          <li>Demonstrates two-column side-by-side slotting.</li>
+          <li>By default uses a 1:1 width ratio.</li>
+        </ul>
       </div>
     </hd-slide>
 
-    <!-- Slide 4: Split Layout ratios -->
+    <!-- Slide 4: Split Layout Ratios -->
     <hd-slide>
       <hd-layout-split ratio="1:2">
-        <h2 slot="heading">Split Layout (Custom 1:2 Ratio)</h2>
-        <hd-box slot="left" variant="main">
-          <h3 slot="heading">Sidebar</h3>
-          <p>Using <code>ratio="1:2"</code> makes the right column twice as wide as the left column.</p>
-        </hd-box>
-        <hd-box slot="right">
-          <h3 slot="heading">Main Content Area</h3>
-          <p>This wider panel can host larger diagrams, tables, or lists while the narrower sidebar
-            contains explanatory metadata or references.</p>
+        <h2 slot="heading">Split Layout: Custom Ratio</h2>
+        <div slot="left">
+          <p class="hd-text-weight-bold">Sidebar Column</p>
+          <p>By specifying <code>ratio="1:2"</code>, the left pane is configured to be half the width of the right pane.
+          </p>
+        </div>
+        <div slot="right">
+          <p class="hd-text-weight-bold">Main content panel</p>
+          <p>This layout is extremely useful when displaying a narrow sidebar list next to a larger main chart, code
+            example, or detailed text block.</p>
+        </div>
+      </hd-layout-split>
+      <div slot="notes">
+        <h3>Slide 4: Split Layout Ratios</h3>
+        <ul>
+          <li>Showcases custom ratios such as 1:2.</li>
+          <li>Ratios map directly to flex-grow proportions.</li>
+        </ul>
+      </div>
+    </hd-slide>
+
+    <!-- Slide 5: Three-Column Layout -->
+    <hd-slide>
+      <hd-layout-three>
+        <h2 slot="heading">Three-Column Layout</h2>
+        <p slot="before" class="hd-muted">Before Slot: Full-width text spanning all columns.</p>
+        <div slot="left">
+          <p class="hd-text-weight-semibold">Column One</p>
+          <p>Renders as the left column, occupying one-third of the content area.</p>
+        </div>
+        <div slot="middle">
+          <p class="hd-text-weight-semibold">Column Two</p>
+          <p>Renders as the middle column in the center of the viewport.</p>
+        </div>
+        <div slot="right">
+          <p class="hd-text-weight-semibold">Column Three</p>
+          <p>Renders as the right column, completing the horizontal layout.</p>
+        </div>
+      </hd-layout-three>
+      <div slot="notes">
+        <h3>Slide 5: Three-Column Layout</h3>
+        <ul>
+          <li>Uses &lt;hd-layout-three&gt; layout helper.</li>
+          <li>Supports left, middle, right, before, and after slots.</li>
+        </ul>
+      </div>
+    </hd-slide>
+
+    <!-- Slide 6: Blank Canvas & Centering -->
+    <hd-slide center>
+      <div class="hd-align-center hd-align-middle hd-text-center">
+        <h2>Blank Canvas & Centering</h2>
+        <p class="hd-muted">Using a slide without any layout component allows for freeform positioning.</p>
+        <p>Adding the <code>center</code> attribute directly to <code>&lt;hd-slide&gt;</code> centers all slide elements
+          vertically and horizontally.</p>
+      </div>
+      <div slot="notes">
+        <h3>Slide 6: Blank Slide Centering</h3>
+        <ul>
+          <li>Verifies slide-level vertical and horizontal centering layout.</li>
+          <li>Useful for key quotes, statistics, or simple images.</li>
+        </ul>
+      </div>
+    </hd-slide>
+
+    <!-- Slide 7: Cards Container -->
+    <hd-slide>
+      <hd-layout>
+        <h2 slot="heading">Card Components</h2>
+        <p>Cards are boxed containers with margins, backgrounds, and borders, ideal for grouping chunked information.
+        </p>
+        <hd-card variant="main">
+          <h3 slot="heading">Main Theme Card</h3>
+          <p>Cards support distinct style variants (base, main, accent) and heading slots that automatically render
+            styled sub-headers.</p>
+        </hd-card>
+      </hd-layout>
+      <div slot="notes">
+        <h3>Slide 7: Card Components</h3>
+        <ul>
+          <li>Uses &lt;hd-card&gt; element.</li>
+          <li>Displays border, padding, and slot behaviors.</li>
+        </ul>
+      </div>
+    </hd-slide>
+
+    <!-- Slide 8: Boxes Container -->
+    <hd-slide>
+      <hd-layout-split>
+        <h2 slot="heading">Box Components</h2>
+        <div slot="left">
+          <p>Unlike cards, boxes are configured to stretch to 100% height of their parent flex container.</p>
+          <p>This is extremely useful inside columns to align adjacent blocks at equal heights.</p>
+        </div>
+        <hd-box slot="right" variant="accent">
+          <h3 slot="heading">Full-Height Accent Box</h3>
+          <p>This box stretches to match the height of the left column. Try resizing the window to see how it scales.
+          </p>
         </hd-box>
       </hd-layout-split>
       <div slot="notes">
-        <h3>Slide 4: Split Layout Ratio</h3>
-        <p>Tests custom width distribution via ratio attribute.</p>
+        <h3>Slide 8: Box Components</h3>
+        <ul>
+          <li>Uses &lt;hd-box&gt; element.</li>
+          <li>Shows the difference in height scaling compared to &lt;hd-card&gt;.</li>
+        </ul>
       </div>
     </hd-slide>
 
-    <!-- Slide 5: Blank Layout & Vertical Centering -->
-    <hd-slide center>
-      <hd-card class="hd-width-8 hd-align-center hd-align-middle hd-text-center">
-        <h2>Blank Layout & Slide Centering</h2>
-        <p>Using a slide without any layout component (like <code>&lt;hd-layout&gt;</code>)
-          gives you a blank canvas.</p>
-        <p>Applying the <code>center</code> attribute to <code>&lt;hd-slide&gt;</code> vertically and
-          horizontally centers its contents.</p>
-      </hd-card>
-      <div slot="notes">
-        <h3>Slide 5: Blank slide centering</h3>
-        <p>Test vertical centering of elements directly placed inside a slide.</p>
-      </div>
-    </hd-slide>
-
-    <!-- Slide 6: Centering in Standard Layout -->
-    <hd-slide center>
+    <!-- Slide 9: Callout Boxes -->
+    <hd-slide>
       <hd-layout>
-        <h2 slot="heading">Centering inside Standard Layout</h2>
-        <hd-callout variant="main" class="hd-align-center hd-align-middle hd-width-8">
-          <p class="hd-size-4">Title remains aligned at the top...</p>
-          <p>...while the body contents are vertically centered inside the remaining layout space!</p>
+        <h2 slot="heading">Callout Boxes</h2>
+        <p>Callouts are styled text blocks with thick left-accent borders to emphasize recommendations, warning alerts,
+          or quotes.</p>
+        <hd-callout variant="accent">
+          <p class="hd-text-weight-bold">Accent Callout</p>
+          <p>Draws intense focus for alerts, notes, or warnings.</p>
+        </hd-callout>
+        <hd-callout variant="main">
+          <p class="hd-text-weight-bold">Main Callout</p>
+          <p>Subtle theme color formatting for key highlights.</p>
         </hd-callout>
       </hd-layout>
       <div slot="notes">
-        <h3>Slide 6: Centering in standard layout</h3>
-        <p>Checks that center on standard layout centers the body and doesn't shift the title.</p>
+        <h3>Slide 9: Callouts</h3>
+        <ul>
+          <li>Uses &lt;hd-callout&gt; element.</li>
+          <li>Verifies left-accent border styling and spacing.</li>
+        </ul>
       </div>
     </hd-slide>
 
-    <!-- Slide 7: Font Weights -->
-    <hd-slide>
+    <!-- Slide 10: Slide Theme Variations (Variants) -->
+    <hd-slide variant="accent">
       <hd-layout>
-        <h2 slot="heading">Font Weights</h2>
-        <p>Use classes instead of custom style rules to control text weight:</p>
-        <p class="hd-text-weight-light">Light text: <code>.hd-text-weight-light</code></p>
-        <p class="hd-text-weight-normal">Normal text: <code>.hd-text-weight-normal</code></p>
-        <p class="hd-text-weight-medium">Medium text: <code>.hd-text-weight-medium</code></p>
-        <p class="hd-text-weight-semibold">Semibold text: <code>.hd-text-weight-semibold</code></p>
-        <p class="hd-text-weight-bold">Bold text: <code>.hd-text-weight-bold</code></p>
-        <p class="hd-text-weight-extrabold">Extrabold text: <code>.hd-text-weight-extrabold</code></p>
+        <h2 slot="heading">Slide Customization: Variants</h2>
+        <p>Slide colors can be configured globally or overridden per-slide using the <code>variant</code> attribute.</p>
+        <p>This slide uses <code>variant="accent"</code>, which switches the body text color and background to the
+          theme's
+          secondary soft color scheme, and the header to the solid theme color.</p>
       </hd-layout>
       <div slot="notes">
-        <h3>Slide 7: Font weights</h3>
-        <p>Make sure all semantic font weights are supported.</p>
+        <h3>Slide 10: Slide Variants</h3>
+        <ul>
+          <li>Demonstrates slide-level variant customization using the &quot;accent&quot; preset.</li>
+          <li>Variant options include base, main, and accent.</li>
+        </ul>
       </div>
     </hd-slide>
 
-    <!-- Slide 8: Text Styles & Transformations -->
-    <hd-slide>
+    <!-- Slide 11: Slide Theme Variations (Surface) -->
+    <hd-slide variant="main" surface="solid">
       <hd-layout>
-        <h2 slot="heading">Text Styles & Transformations</h2>
-        <p>Apply font styles, decoration, and text transformations:</p>
-        <p class="hd-italic">Italic text: <code>.hd-italic</code></p>
-        <p class="hd-underlined">Underlined text: <code>.hd-underlined</code></p>
-        <p class="hd-capitalized">Capitalized text: <code>.hd-capitalized</code></p>
-        <p class="hd-lowercase">Lowercase text: <code>.hd-lowercase</code></p>
-        <p class="hd-uppercase">Uppercase text: <code>.hd-uppercase</code></p>
-        <p><s>Line through text: <code>&lt;s&gt;</code> HTML tag</s></p>
+        <h2 slot="heading">Slide Customization: Surfaces</h2>
+        <p>Fine-tune colors with the <code>surface</code> attribute.</p>
+        <p>This slide is set to <code>variant="main" surface="solid"</code>. This forces both the slide body and
+          heading backgrounds to a solid main color scheme.</p>
       </hd-layout>
       <div slot="notes">
-        <h3>Slide 8: Text styles</h3>
-        <p>Verify italics, underlines, text transformations, and standard HTML s tag.</p>
+        <h3>Slide 11: Slide Surfaces</h3>
+        <ul>
+          <li>Demonstrates forcing solid background surface states on the slide.</li>
+        </ul>
       </div>
     </hd-slide>
 
-    <!-- Slide 9: Text Sizes -->
+    <!-- Slide 12: Slide Customization: Heading Base -->
+    <hd-slide heading="base" surface="soft">
+      <hd-layout>
+        <h2 slot="heading">Slide Customization: Heading Base</h2>
+        <p>The <code>heading</code> attribute overrides the heading slot colors specifically, regardless of the slide's
+          main variant.</p>
+        <p>This slide uses <code>heading="base" surce="soft"</code>, which sets the body theme to base-soft while
+          overriding the heading theme to base-soft.</p>
+      </hd-layout>
+      <div slot="notes">
+        <h3>Slide 12: Heading Base Override</h3>
+        <ul>
+          <li>Demonstrates heading="base" overriding variant="base".</li>
+        </ul>
+      </div>
+    </hd-slide>
+
+    <!-- Slide 13: Inverted Slide Override -->
+    <hd-slide variant="base" inverted>
+      <hd-layout>
+        <h2 slot="heading">Inverted Slide Override</h2>
+        <p>The <code>inverted</code> attribute inverts the slide background and text colors completely.</p>
+        <p>This slide uses <code>variant="base" inverted</code>, which forces the base-soft-inverted color scheme,
+          perfect for section separators.</p>
+      </hd-layout>
+      <div slot="notes">
+        <h3>Slide 13: Inverted Slides</h3>
+        <ul>
+          <li>Demonstrates the inverted attribute override with variant="base".</li>
+          <li>Ensures high-contrast color flipping.</li>
+        </ul>
+      </div>
+    </hd-slide>
+
+    <!-- Slide 14: Typography - Sizes -->
     <hd-slide>
       <hd-layout>
-        <h2 slot="heading">Text Sizes</h2>
-        <p>Control text sizes using scale utilities from 1 (largest) to 6 (smallest):</p>
+        <h2 slot="heading">Typography: Sizing Scales</h2>
+        <p>Control text sizing using six predefined classes (<code>.hd-size-1</code> to <code>.hd-size-6</code>) aligned
+          with layout grids:</p>
         <p class="hd-size-1">Size 1 (48px): <code>.hd-size-1</code></p>
         <p class="hd-size-2">Size 2 (32px): <code>.hd-size-2</code></p>
         <p class="hd-size-3">Size 3 (24px): <code>.hd-size-3</code></p>
@@ -249,47 +372,155 @@
         <p class="hd-size-6">Size 6 (12px): <code>.hd-size-6</code></p>
       </hd-layout>
       <div slot="notes">
-        <h3>Slide 9: Text sizes</h3>
-        <p>Check relative text scales 1 to 6.</p>
+        <h3>Slide 14: Sizing Utilities</h3>
+        <ul>
+          <li>Verifies absolute text sizing classes from 1 (largest) to 6 (smallest).</li>
+        </ul>
       </div>
     </hd-slide>
 
-    <!-- Slide 10: Text Colors -->
+    <!-- Slide 15: Typography - Weights -->
     <hd-slide>
       <hd-layout>
-        <h2 slot="heading">Text Accent & Muted Modifiers</h2>
-        <p>Color text using the primary theme colors or layout styling, or apply these two modifier classes:</p>
-        <p class="hd-accent">Accent Text Color: <code>.hd-accent</code></p>
-        <p class="hd-muted">Muted Text Color: <code>.hd-muted</code></p>
+        <h2 slot="heading">Typography: Text Weights</h2>
+        <p>Predefined classes configure the font weights consistently without custom style overrides:</p>
+        <p class="hd-text-weight-light">Light Weight (300): <code>.hd-text-weight-light</code></p>
+        <p class="hd-text-weight-normal">Normal Weight (400): <code>.hd-text-weight-normal</code></p>
+        <p class="hd-text-weight-medium">Medium Weight (500): <code>.hd-text-weight-medium</code></p>
+        <p class="hd-text-weight-semibold">Semibold Weight (600): <code>.hd-text-weight-semibold</code></p>
+        <p class="hd-text-weight-bold">Bold Weight (700): <code>.hd-text-weight-bold</code></p>
+        <p class="hd-text-weight-extrabold">Extrabold Weight (800): <code>.hd-text-weight-extrabold</code></p>
       </hd-layout>
       <div slot="notes">
-        <h3>Slide 10: Accent & Muted modifiers</h3>
-        <p>Verify theme-defined modifier colors apply correctly to text elements.</p>
+        <h3>Slide 15: Font Weights</h3>
+        <ul>
+          <li>Ensures weights map correctly to the loaded Google Fonts configurations.</li>
+        </ul>
       </div>
     </hd-slide>
 
-    <!-- Slide 11: Text Alignments -->
+    <!-- Slide 16: Typography - Styles & Transforms -->
     <hd-slide>
       <hd-layout>
-        <h2 slot="heading">Text Alignments</h2>
-        <p>Align block text elements using direction helper utilities:</p>
-        <p class="hd-text-left">Left-aligned text (Default): <code>.hd-text-left</code></p>
-        <p class="hd-text-center">Centered text: <code>.hd-text-center</code></p>
-        <p class="hd-text-right">Right-aligned text: <code>.hd-text-right</code></p>
-        <p class="hd-text-justified">Justified text: <code>.hd-text-justified</code></p>
+        <h2 slot="heading">Typography: Styles & Transforms</h2>
+        <p>Standard decoration and case transformations are supported via helper classes:</p>
+        <p class="hd-italic">Italic text: <code>.hd-italic</code></p>
+        <p class="hd-underlined">Underlined text: <code>.hd-underlined</code></p>
+        <p class="hd-capitalized">capitalized text: <code>.hd-capitalized</code></p>
+        <p class="hd-lowercase">LOWERCASE TEXT: <code>.hd-lowercase</code></p>
+        <p class="hd-uppercase">uppercase text: <code>.hd-uppercase</code></p>
+        <p><s>Strikethrough text</s>: HTML <code>&lt;s&gt;</code> element tag</p>
       </hd-layout>
       <div slot="notes">
-        <h3>Slide 11: Text alignments</h3>
-        <p>Verify text alignment utilities: left, center, right, and justified.</p>
+        <h3>Slide 16: Styles &amp; Transforms</h3>
+        <ul>
+          <li>Verifies standard text decoration and character case classes.</li>
+        </ul>
       </div>
     </hd-slide>
 
-    <!-- Slide 12: Lists (Ordered and Unordered) -->
+    <!-- Slide 17: Typography - Color Modifiers -->
+    <hd-slide>
+      <hd-layout>
+        <h2 slot="heading">Typography: Text Color Modifiers</h2>
+        <p>Quickly apply accent or muted color tints to parts of paragraphs or labels using layout modifiers:</p>
+        <p class="hd-size-2">This is an <span class="hd-accent hd-text-weight-bold">accentuated keyword</span> in a
+          heading.</p>
+        <p class="hd-size-3">This is an <span class="hd-muted">obscured caption</span> to indicate secondary info.</p>
+        <p>These modifiers inherit directly from the slide's active variant theme, maintaining harmony.</p>
+      </hd-layout>
+      <div slot="notes">
+        <h3>Slide 17: Color Modifiers</h3>
+        <ul>
+          <li>Tests .hd-accent and .hd-muted utility tags.</li>
+        </ul>
+      </div>
+    </hd-slide>
+
+    <!-- Slide 18: Layout Alignment -->
+    <hd-slide>
+      <hd-layout>
+        <h2 slot="heading">Layout Alignment Utilities</h2>
+        <p>Position block-level elements horizontally and vertically using margin-based alignment utilities:</p>
+        <hd-card class="hd-width-6 hd-align-center hd-align-middle hd-text-center">
+          <h3 slot="heading">Centered Block Element</h3>
+          <p>Uses <code>.hd-width-6</code>, <code>.hd-align-center</code>, <code>.hd-align-middle</code>, and
+            <code>.hd-text-center</code>.
+          </p>
+        </hd-card>
+      </hd-layout>
+      <div slot="notes">
+        <h3>Slide 18: Alignment</h3>
+        <ul>
+          <li>Verifies margin-based block alignment class mappings.</li>
+        </ul>
+      </div>
+    </hd-slide>
+
+    <!-- Slide 19: Layout Spacing Scales -->
+    <hd-slide>
+      <hd-layout-three>
+        <h2 slot="heading">Spacing Utilities (Margins & Paddings)</h2>
+        <p slot="before" class="hd-muted">Explicit spacing scale from 0 to 6 (0px, 4px, 8px, 16px, 24px, 32px, 48px):
+        </p>
+        <hd-box slot="left" class="hd-mb-3">
+          <h3 slot="heading">Level 2 Padding</h3>
+          <div class="hd-p-2">
+            <p>Uses inner <code>.hd-p-2</code> content padding and <code>.hd-mb-3</code> margin.</p>
+          </div>
+        </hd-box>
+        <hd-box slot="middle" class="hd-mb-0">
+          <h3 slot="heading">Level 4 Padding</h3>
+          <div class="hd-p-4">
+            <p>Uses inner <code>.hd-p-4</code> content padding and <code>.hd-mb-0</code> margin.</p>
+          </div>
+        </hd-box>
+        <hd-box slot="right">
+          <h3 slot="heading">Level 6 Padding</h3>
+          <div class="hd-p-6">
+            <p>Uses inner <code>.hd-p-6</code> content padding for generous spacing.</p>
+          </div>
+        </hd-box>
+      </hd-layout-three>
+      <div slot="notes">
+        <h3>Slide 19: Spacing</h3>
+        <ul>
+          <li>Demonstrates spacing utilities using inner padding divs side-by-side.</li>
+        </ul>
+      </div>
+    </hd-slide>
+
+    <!-- Slide 20: Width Utilities -->
+    <hd-slide>
+      <hd-layout>
+        <h2 slot="heading">Grid Width Sizing</h2>
+        <p>Control exact block widths relative to parent elements using a 1/12 grid scale (<code>.hd-width-1</code> to
+          <code>.hd-width-12</code>):
+        </p>
+        <hd-box class="hd-width-4 hd-align-left hd-mb-2">
+          <p class="hd-text-center">Width 4 (33.3%): <code>.hd-width-4</code></p>
+        </hd-box>
+        <hd-box class="hd-width-8 hd-align-left hd-mb-2">
+          <p class="hd-text-center">Width 8 (66.6%): <code>.hd-width-8</code></p>
+        </hd-box>
+        <hd-box class="hd-width-12 hd-align-left">
+          <p class="hd-text-center">Width 12 (100%): <code>.hd-width-12</code></p>
+        </hd-box>
+      </hd-layout>
+      <div slot="notes">
+        <h3>Slide 20: Width Utilities</h3>
+        <ul>
+          <li>Verifies absolute fractional sizing across the slide area.</li>
+        </ul>
+      </div>
+    </hd-slide>
+
+    <!-- Slide 21: List Nesting & Formatting -->
     <hd-slide>
       <hd-layout-split>
-        <h2 slot="heading">Lists (Ordered & Unordered)</h2>
+        <h2 slot="heading">Lists: Bullet & Ordered</h2>
         <div slot="left">
-          <p class="hd-text-weight-bold">Unordered Bullet List</p>
+          <p class="hd-text-weight-bold">Unordered Nested List</p>
           <ul>
             <li>Level 1 (Disc bullet)
               <ul>
@@ -303,7 +534,7 @@
           </ul>
         </div>
         <div slot="right">
-          <p class="hd-text-weight-bold">Ordered Number List</p>
+          <p class="hd-text-weight-bold">Ordered Nested List</p>
           <ol>
             <li>Step One (Decimal)
               <ol>
@@ -318,250 +549,120 @@
         </div>
       </hd-layout-split>
       <div slot="notes">
-        <h3>Slide 12: List nesting</h3>
-        <p>Bullets and numbers change automatically based on nesting level.</p>
+        <h3>Slide 21: Lists</h3>
+        <ul>
+          <li>Nested lists automatically alternate bullet symbols and numbering formats.</li>
+        </ul>
       </div>
     </hd-slide>
 
-    <!-- Slide 13: Standard Tables -->
+    <!-- Slide 22: Table Formatting -->
     <hd-slide>
       <hd-layout>
         <h2 slot="heading">Standard Tables</h2>
-        <p>Tables placed inside slides are automatically styled and given clear border margins:</p>
+        <p>Tables placed inside slides are automatically styled with borders and paddings:</p>
         <table>
           <thead>
             <tr>
-              <th>Layout Type</th>
-              <th>Required Slots</th>
-              <th>Usage Target</th>
+              <th>Component</th>
+              <th>Attribute</th>
+              <th>Options / Target</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Cover</td>
-              <td>title, subtitle, meta</td>
-              <td>Presentation start or section break</td>
+              <td><code>&lt;hd-slide&gt;</code></td>
+              <td><code>variant</code></td>
+              <td>default, base, main, accent</td>
             </tr>
             <tr>
-              <td>Standard</td>
-              <td>title, default</td>
-              <td>General information pages (header/footer are slide-level)</td>
+              <td><code>&lt;hd-card&gt;</code></td>
+              <td><code>surface</code></td>
+              <td>soft, solid</td>
             </tr>
             <tr>
-              <td>Split</td>
-              <td>title, left, right</td>
-              <td>Comparisons, lists next to media</td>
+              <td><code>&lt;hd-layout-split&gt;</code></td>
+              <td><code>ratio</code></td>
+              <td>1:1, 1:2, 2:1 etc.</td>
             </tr>
           </tbody>
         </table>
       </hd-layout>
       <div slot="notes">
-        <h3>Slide 13: Tables</h3>
-        <p>Verifies table formatting, spacing, and cell paddings.</p>
+        <h3>Slide 22: Tables</h3>
+        <ul>
+          <li>Verifies table margins, header formatting, and row border lines.</li>
+        </ul>
       </div>
     </hd-slide>
 
-    <!-- Slide 14: Card Components -->
+    <!-- Slide 23: Image Auto-Styling -->
     <hd-slide>
-      <hd-layout-three>
-        <h2 slot="heading">Card & Box Containers (Three-Column Layout)</h2>
-        <p slot="before">Three columns are configured side-by-side using <code>&lt;hd-layout-three&gt;</code>. Boxes and cards help group content blocks.</p>
-        <hd-box slot="left">
-          <h3 slot="heading">Standard Box</h3>
-          <p class="hd-size-5">Simple 100% height border box styled with default colors.</p>
-        </hd-box>
-        <hd-box slot="middle" variant="main">
-          <h3 slot="heading">Primary Themed Box</h3>
-          <p class="hd-size-5">Filled with the primary background color and contrast text.</p>
-        </hd-box>
-        <hd-box slot="right" variant="accent">
-          <h3 slot="heading">Secondary Themed Box</h3>
-          <p class="hd-size-5">Filled with the secondary background color and contrast text.</p>
-        </hd-box>
-      </hd-layout-three>
-      <div slot="notes">
-        <h3>Slide 14: Three Columns</h3>
-        <p>Checks three equal-height columns using the new hd-layout-three component.</p>
-      </div>
-    </hd-slide>
-
-    <!-- Slide 15: Callout Boxes -->
-    <hd-slide>
-      <hd-layout>
-        <h2 slot="heading">Callout Boxes (<code>&lt;hd-callout&gt;</code>)</h2>
-        <p>Draw attention to special comments or warnings using left border accents:</p>
-        <hd-callout variant="base">
-          <p class="hd-text-weight-bold">Base Callout</p>
-          <p class="hd-size-5">Highlight important tips or recommendations.</p>
-        </hd-callout>
-        <hd-callout variant="main">
-          <p class="hd-text-weight-bold">Main Callout</p>
-          <p class="hd-size-5">Alternative color style for supplementary notes.</p>
-        </hd-callout>
-        <hd-callout variant="accent">
-          <p class="hd-text-weight-bold">Accent Callout</p>
-          <p class="hd-size-5">Critical warnings or error cases.</p>
-        </hd-callout>
-      </hd-layout>
-      <div slot="notes">
-        <h3>Slide 15: Callouts</h3>
-        <p>Checks callout border-left styling and color variables.</p>
-      </div>
-    </hd-slide>
-
-
-
-    <!-- Slide 17: Content Overflow & Scrolling -->
-    <hd-slide>
-      <hd-layout>
-        <h2 slot="heading">Content Overflow & Scrolling</h2>
-        <p>When contents exceed standard boundaries, add scrolling to containers (like cards) using standard CSS properties:</p>
-        <hd-card variant="accent" style="max-height: 250px; overflow-y: auto;">
-          <h3 slot="heading">Scrollable Content Block</h3>
-          <p>This list is long and overflows the container. Scroll to read more.</p>
-          <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
-            <li>Item 5</li>
-            <li>Item 6</li>
-            <li>Item 7</li>
-            <li>Item 8</li>
-            <li>Item 9</li>
-            <li>Item 10</li>
-          </ul>
-        </hd-card>
-      </hd-layout>
-      <div slot="notes">
-        <h3>Slide 17: Content Overflow</h3>
-        <p>Verify that scrollbars work properly on container elements inside the slide.</p>
-      </div>
-    </hd-slide>
-
-    <!-- Slide 18: Individual Contrast Override -->
-    <hd-slide inverted>
-      <hd-layout>
-        <h2 slot="heading">Individual Contrast Override (Inverted Slide)</h2>
-        <p>Applying the <code>inverted</code> attribute directly to
-          <code>&lt;hd-slide&gt;</code> overrides its background and text colors completely to inverted equivalents.
-        </p>
-        <hd-card class="hd-mt-4">
-          <p>This specific slide will remain styled with the inverted colors regardless of what global
-            theme is loaded, making it perfect for section divider slides or key highlights.</p>
-        </hd-card>
-      </hd-layout>
-      <div slot="notes">
-        <h3>Slide 18: Inverted slide overrides</h3>
-        <p>Checks slide-level inverted attributes override root theme variable colors.</p>
-      </div>
-    </hd-slide>
-
-    <!-- Slide 19: Keyboard Navigation & Shortcuts -->
-    <hd-slide>
-      <hd-layout>
-        <h2 slot="heading">Keyboard Shortcuts</h2>
-        <p>You can interact with the deck using the following keys:</p>
-        <div
-          style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--hd-gap-3, 16px); width: 100%;">
-          <hd-box>
-            <h3 slot="heading">Navigation</h3>
-            <ul>
-              <li><strong>ArrowRight / Space / Enter</strong>: Next slide</li>
-              <li><strong>ArrowLeft / Backspace</strong>: Previous slide</li>
-            </ul>
-          </hd-box>
-          <hd-box>
-            <h3 slot="heading">Special Modes</h3>
-            <ul>
-              <li><strong>F / f</strong>: Toggle fullscreen</li>
-              <li><strong>P / p</strong>: Open presenter view popup</li>
-            </ul>
-          </hd-box>
-        </div>
-      </hd-layout>
-      <div slot="notes">
-        <h3>Slide 19: Keyboard Shortcuts</h3>
-        <p>Instruct speaker on shortcut configurations.</p>
-      </div>
-    </hd-slide>
-
-    <!-- Slide 20: Presenter Synchronization & Notes -->
-    <hd-slide>
-      <hd-layout>
-        <h2 slot="heading">Presenter Synchronization</h2>
-        <p>This library uses a local <code>BroadcastChannel</code> synchronization protocol.</p>
-        <div class="hd-callout hd-accent">
-          <p>When you press <strong>P</strong>, a separate speaker dashboard opens in a popup window. It
-            displays: elapsed stopwatch timer, current local system clock, slide index status, current slide previews,
-            next slide previews, and custom notes.</p>
-        </div>
-        <p>The text you see in the presenter notes is fetched from the
-          <code>&lt;div slot="notes"&gt;</code> element contained inside the slide HTML markup.
-        </p>
-      </hd-layout>
-      <div slot="notes">
-        <h3>Slide 20: Presenter Notes</h3>
-        <p>These notes are displayed on the presenter view side and are completely hidden from the main slideshow view
-          screen!</p>
-      </div>
-    </hd-slide>
-
-    <!-- Slide 21: Standard Image Component constraints -->
-    <hd-slide>
-      <hd-layout-split>
-        <h2 slot="heading">Standard Image Constraints</h2>
+      <hd-layout-split ratio="2:1">
+        <h2 slot="heading">Standard Image Styling</h2>
         <div slot="left">
-          <p>Standard <code>&lt;img&gt;</code> elements are automatically styled inside slides with
-            unified border-radii, subtle shadows, and responsive width adjustments:</p>
-          <p class="hd-muted hd-text-5">No extra classes or custom CSS rules are needed to format graphics
-            beautifully.</p>
+          <p>Standard <code>&lt;img&gt;</code> tags are automatically configured with:</p>
+          <ul>
+            <li>Uniform border-radius</li>
+            <li>Subtle drop shadow depth</li>
+            <li>Theme border boundaries</li>
+          </ul>
+          <p class="hd-muted">No custom CSS rules are needed to format image elements.</p>
         </div>
         <div slot="right">
-          <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&q=80" alt="Unsplash Abstract Art"
-            style="width:100%; height: 180px; object-fit: cover;">
+          <img src="./abstract-tech.png" alt="Abstract Tech Graphic">
         </div>
       </hd-layout-split>
       <div slot="notes">
-        <h3>Slide 21: Images</h3>
-        <p>Verifies image borders, padding, and drop-shadows.</p>
+        <h3>Slide 23: Images</h3>
+        <ul>
+          <li>Shows the generated abstract-tech.png image in a 2:1 split layout.</li>
+          <li>Ensures correct border radius and shadow scaling.</li>
+        </ul>
       </div>
     </hd-slide>
 
-    <!-- Slide 22: Color Customization Showcase -->
-    <hd-slide variant="main" heading="accent" surface="soft">
+    <!-- Slide 24: Presenter Synchronization & Speaker Notes -->
+    <hd-slide>
       <hd-layout>
-        <h2 slot="heading">Slide: variant="main" heading="accent" surface="soft"</h2>
-        <p>This slide has a main-soft body and an accent-soft heading.</p>
-        <div style="display: flex; gap: var(--hd-gap-2);">
-          <hd-card variant="accent" surface="soft" style="flex: 1;">
-            <h3 slot="heading">Card accent soft</h3>
-            <p>This card uses variant="accent" and surface="soft" (soft body and heading).</p>
-          </hd-card>
-          <hd-box variant="main" surface="solid" style="flex: 1;">
-            <h3 slot="heading">Box main solid</h3>
-            <p>This box uses variant="main" and surface="solid" (solid body and heading).</p>
-          </hd-box>
-        </div>
+        <h2 slot="heading">Presenter Mode Synchronization</h2>
+        <p>Slides are synchronizable in real-time across browser windows using the BroadcastChannel protocol.</p>
+        <hd-callout variant="main">
+          <p>The speaker view dashboard displays the current/next slide previews, stopwatch, clock, and custom speaker
+            notes defined inside the <code>slot="notes"</code> element of each slide.</p>
+        </hd-callout>
       </hd-layout>
+      <div slot="notes">
+        <h3>Slide 24: Presenter Notes</h3>
+        <p>This is the slot="notes" content that shows up only on the presenter view dashboard screen!</p>
+      </div>
     </hd-slide>
 
-    <!-- Slide 23: Solid Slide with Inverted variations -->
-    <hd-slide variant="accent" surface="solid" inverted>
-      <hd-layout>
-        <h2 slot="heading">Slide: variant="accent" surface="solid" inverted</h2>
-        <p>This slide is accent-solid-inverted, and heading is accent-solid-inverted.</p>
-        <div style="display: flex; gap: var(--hd-gap-2);">
-          <hd-card variant="base" surface="soft" style="flex: 1;">
-            <h3 slot="heading">Card base soft</h3>
-            <p>This card uses variant="base" and surface="soft".</p>
-          </hd-card>
-          <hd-box variant="accent" style="flex: 1;">
-            <h3 slot="heading">Box accent default</h3>
-            <p>This box uses variant="accent" and default surface (soft body, solid heading).</p>
-          </hd-box>
+    <!-- Slide 25: Keyboard Shortcuts & Navigation Controls -->
+    <hd-slide>
+      <hd-layout-split>
+        <h2 slot="heading">Keyboard Navigation & Interactivity</h2>
+        <div slot="left">
+          <p class="hd-text-weight-bold">Slide Navigation</p>
+          <ul>
+            <li><code>ArrowRight</code>, <code>Space</code>, <code>Enter</code>: Go to next slide</li>
+            <li><code>ArrowLeft</code>, <code>Backspace</code>: Go to previous slide</li>
+          </ul>
         </div>
-      </hd-layout>
+        <div slot="right">
+          <p class="hd-text-weight-bold">Controls & Modes</p>
+          <ul>
+            <li><code>F / f</code>: Toggle fullscreen presentation mode</li>
+            <li><code>P / p</code>: Launch presenter dashboard popup</li>
+          </ul>
+        </div>
+      </hd-layout-split>
+      <div slot="notes">
+        <h3>Slide 25: Shortcuts</h3>
+        <ul>
+          <li>Final slide explaining basic shortcuts and interactivity handlers.</li>
+        </ul>
+      </div>
     </hd-slide>
 
   </hd-deck>
