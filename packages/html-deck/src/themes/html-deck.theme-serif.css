@@ -1,47 +1,40 @@
 /* html-deck.theme-serif.css - Serif / Academic Theme for HTML-Deck */
-
 :root {
   /* Fonts */
   --hd-font-family: 'Lora', Georgia, 'Times New Roman', Times, serif;
   --hd-body-font: var(--hd-font-family);
   --hd-heading-font: 'Playfair Display', Georgia, serif;
-  --hd-heading-font-weight: 600;
 
-  /* Colors */
-  --hd-default-color: #1c1917;   /* Ink Black */
-  --hd-muted-color: #78716c;  /* Stone Gray */
-  --hd-primary-color: #1c1917;      /* Ink Black */
-  --hd-secondary-color: #44403c;    /* Deep Gray-brown */
-  --hd-accent-color: #78716c;
-  --hd-danger-color: #991b1b;       /* Academic Wine Red */
-  --hd-warning-color: #854d0e;
-  --hd-success-color: #166534;
-  --hd-info-color: #075985;
+  /* 24-Color Matrix (Academic Paper themed) */
+  /* Normal */
+  --hd-base-color: #fafaf9; /* Paper Warm White */
+  --hd-base-text-color: #1c1917; /* Ink Black */
+  --hd-main-color: #f5f5f4;
+  --hd-main-text-color: #1c1917;
+  --hd-accent-color: #eae9e7;
+  --hd-accent-text-color: #78716c; /* Stone Gray accent */
 
-  /* Background colors (used when background is colored, keeping hue/vibe) */
-  --hd-default-background-color: #fafaf9;           /* Paper Warm White */
-  --hd-primary-background-color: #f5f5f4;
-  --hd-secondary-background-color: #f5f5f4;
-  --hd-accent-background-color: #fafaf9;
-  --hd-danger-background-color: #fef2f2;
-  --hd-warning-background-color: #fef8e8;
-  --hd-success-background-color: #f0fdf4;
-  --hd-info-background-color: #f0f9ff;
-  --hd-muted-background-color: #f5f5f4;
+  /* Muted */
+  --hd-base-color-muted: rgba(28, 25, 23, 0.01);
+  --hd-base-text-color-muted: #78716c;
+  --hd-main-color-muted: #e7e5e4;
+  --hd-main-text-color-muted: #57534e;
+  --hd-accent-color-muted: #e7e5e4;
+  --hd-accent-text-color-muted: #57534e;
 
-  /* Border colors (used for borders/lines of elements) */
-  --hd-default-border-color: #e7e5e4;
-  --hd-primary-border-color: #e7e5e4;
-  --hd-secondary-border-color: #e7e5e4;
-  --hd-accent-border-color: #d6d3d1;
-  --hd-danger-border-color: #fee2e2;
-  --hd-warning-border-color: #fef08a;
-  --hd-success-border-color: #bbf7d0;
-  --hd-info-border-color: #e0f2fe;
-  --hd-muted-border-color: #e7e5e4;
+  /* Inverted (Deep brown/ink background) */
+  --hd-base-color-inverted: #1c1917;
+  --hd-base-text-color-inverted: #fafaf9;
+  --hd-main-color-inverted: #292524;
+  --hd-main-text-color-inverted: #fafaf9;
+  --hd-accent-color-inverted: #3f3f46;
+  --hd-accent-text-color-inverted: #d6d3d1;
 
-  /* Card configuration overrides */
-  --hd-card-background-color: rgba(28, 25, 23, 0.01);
-  --hd-card-text-color: var(--hd-default-color);
-  --hd-card-border-color: var(--hd-default-border-color);
+  /* Muted Inverted */
+  --hd-base-color-muted-inverted: #292524;
+  --hd-base-text-color-muted-inverted: #a8a29e;
+  --hd-main-color-muted-inverted: #44403c;
+  --hd-main-text-color-muted-inverted: #e7e5e4;
+  --hd-accent-color-muted-inverted: #44403c;
+  --hd-accent-text-color-muted-inverted: #d6d3d1;
 }

@@ -1,82 +1,40 @@
 /* html-deck.theme-corporate.css - Corporate Theme for HTML-Deck */
-
 :root {
   /* Fonts */
   --hd-font-family: 'Inter', system-ui, -apple-system, sans-serif;
   --hd-body-font: var(--hd-font-family);
   --hd-heading-font: var(--hd-font-family);
 
-  /* Colors */
-  --hd-default-color: #0f172a;
-  --hd-muted-color: #475569;  /* Slate 600 */
-  --hd-primary-color: #1e3a8a;      /* Trust Navy Blue */
-  --hd-secondary-color: #0d9488;    /* Corporate Teal */
-  --hd-accent-color: #2563eb;       /* Royal Blue */
-  --hd-danger-color: #dc2626;       /* Red */
-  --hd-warning-color: #d97706;      /* Amber */
-  --hd-success-color: #16a34a;
-  --hd-info-color: #0284c7;
+  /* 24-Color Matrix (Corporate Navy themed) */
+  /* Normal */
+  --hd-base-color: #ffffff;
+  --hd-base-text-color: #0f172a; /* Slate 900 */
+  --hd-main-color: #1e3a8a; /* Navy Blue main (used for headings bg) */
+  --hd-main-text-color: #ffffff; /* White heading text */
+  --hd-accent-color: #0d9488; /* Corporate Teal accent */
+  --hd-accent-text-color: #ffffff;
 
-  /* Background colors (used when background is colored, keeping hue/vibe) */
-  --hd-default-background-color: #ffffff;
-  --hd-primary-background-color: #f0f4ff;
-  --hd-secondary-background-color: #f0fdfa;
-  --hd-accent-background-color: #eff6ff;
-  --hd-danger-background-color: #fef2f2;
-  --hd-warning-background-color: #fffbeb;
-  --hd-success-background-color: #f0fdf4;
-  --hd-info-background-color: #f0f9ff;
-  --hd-muted-background-color: #f8fafc;
+  /* Muted */
+  --hd-base-color-muted: #f8fafc; /* Slate 50 */
+  --hd-base-text-color-muted: #475569; /* Slate 600 */
+  --hd-main-color-muted: #f0f4ff;
+  --hd-main-text-color-muted: #1e3a8a;
+  --hd-accent-color-muted: #f0fdfa;
+  --hd-accent-text-color-muted: #0d9488;
 
-  /* Border colors (used for borders/lines of elements) */
-  --hd-default-border-color: #e2e8f0;
-  --hd-primary-border-color: #dbeafe;
-  --hd-secondary-border-color: #ccfbf1;
-  --hd-accent-border-color: #bfdbfe;
-  --hd-danger-border-color: #fecaca;
-  --hd-warning-border-color: #fef3c7;
-  --hd-success-border-color: #bbf7d0;
-  --hd-info-border-color: #e0f2fe;
-  --hd-muted-border-color: #cbd5e1;
+  /* Inverted (Navy Blue slide background) */
+  --hd-base-color-inverted: #1e3a8a;
+  --hd-base-text-color-inverted: #ffffff;
+  --hd-main-color-inverted: #0f172a;
+  --hd-main-text-color-inverted: #ffffff;
+  --hd-accent-color-inverted: #0d9488;
+  --hd-accent-text-color-inverted: #ffffff;
 
-  /* Card configuration overrides */
-  --hd-card-background-color: var(--hd-default-background-color);
-  --hd-card-text-color: var(--hd-default-color);
-  --hd-card-border-color: var(--hd-default-border-color);
-
-  /* Heading & layout theme overrides */
-  --hd-default-header-background-color: var(--hd-primary-color);
-  --hd-primary-header-background-color: var(--hd-primary-color);
-  --hd-secondary-header-background-color: var(--hd-secondary-color);
-  --hd-accent-header-background-color: var(--hd-accent-color);
-  --hd-danger-header-background-color: var(--hd-danger-color);
-  --hd-warning-header-background-color: var(--hd-warning-color);
-  --hd-success-header-background-color: var(--hd-success-color);
-  --hd-info-header-background-color: var(--hd-info-color);
-  --hd-muted-header-background-color: var(--hd-muted-color);
-
-  /* Override text variables to white for high contrast on navy heading backgrounds */
-  --hd-default-header-text-color: #ffffff;
-  --hd-primary-header-text-color: #ffffff;
-  --hd-secondary-header-text-color: #ffffff;
-  --hd-accent-header-text-color: #ffffff;
-  --hd-danger-header-text-color: #ffffff;
-  --hd-warning-header-text-color: #ffffff;
-  --hd-success-header-text-color: #ffffff;
-  --hd-info-header-text-color: #ffffff;
-  --hd-muted-header-text-color: #ffffff;
-
-  --hd-layout-heading-bg-default: var(--hd-primary-color);
-  --hd-layout-heading-color-default: var(--hd-primary-header-text-color);
-  --hd-layout-content-margin: var(--hd-slide-padding-bottom) 0 0 0;
-
-  --hd-layout-heading-color-primary: var(--hd-primary-header-text-color);
-  --hd-layout-heading-color-secondary: var(--hd-secondary-header-text-color);
-  --hd-layout-heading-color-accent: var(--hd-accent-header-text-color);
-  --hd-layout-heading-color-danger: var(--hd-danger-header-text-color);
-  --hd-layout-heading-color-warning: var(--hd-warning-header-text-color);
-  --hd-layout-heading-color-success: var(--hd-success-header-text-color);
-  --hd-layout-heading-color-info: var(--hd-info-header-text-color);
-  --hd-layout-heading-color-muted: var(--hd-muted-header-text-color);
-
+  /* Muted Inverted */
+  --hd-base-color-muted-inverted: #172554;
+  --hd-base-text-color-muted-inverted: #bfdbfe;
+  --hd-main-color-muted-inverted: #1e293b;
+  --hd-main-text-color-muted-inverted: #94a3b8;
+  --hd-accent-color-muted-inverted: #115e59;
+  --hd-accent-text-color-muted-inverted: #99f6e4;
 }

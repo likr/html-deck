@@ -1,82 +1,128 @@
 /* variables.css - Global CSS variables for HTML-Deck */
 :root {
+  /* Fonts */
   --hd-font-family: system-ui, -apple-system, sans-serif;
   --hd-font-family-serif: Georgia, 'Times New Roman', Times, serif;
   --hd-body-font: var(--hd-font-family);
   --hd-heading-font: var(--hd-font-family);
-  --hd-font-size: 18px;
 
-  --hd-default-color: #000000;
-  --hd-muted-color: #64748b;
-  --hd-primary-color: #3b82f6;
-  --hd-secondary-color: #a855f7;
+  /* 24-Color Matrix */
+  /* Normal */
+  --hd-base-color: #ffffff;
+  --hd-base-text-color: #0f172a;
+  --hd-main-color: #3b82f6;
+  --hd-main-text-color: #ffffff;
   --hd-accent-color: #10b981;
-  --hd-danger-color: #ef4444;
-  --hd-warning-color: #f59e0b;
-  --hd-success-color: #10b981;
-  --hd-info-color: #06b6d4;
+  --hd-accent-text-color: #ffffff;
 
-  /* Background colors (used when background is colored, keeping hue/vibe of the color) */
-  --hd-default-background-color: #ffffff;
-  --hd-primary-background-color: #eff6ff;
-  --hd-secondary-background-color: #faf5ff;
-  --hd-accent-background-color: #ecfdf5;
-  --hd-danger-background-color: #fef2f2;
-  --hd-warning-background-color: #fffbeb;
-  --hd-success-background-color: #ecfdf5;
-  --hd-info-background-color: #ecfeff;
-  --hd-muted-background-color: #f8fafc;
+  /* Muted */
+  --hd-base-color-muted: #f8fafc;
+  --hd-base-text-color-muted: #64748b;
+  --hd-main-color-muted: #eff6ff;
+  --hd-main-text-color-muted: #1d4ed8;
+  --hd-accent-color-muted: #ecfdf5;
+  --hd-accent-text-color-muted: #047857;
 
-  /* Border colors (used for borders/lines of elements) */
-  --hd-default-border-color: #e2e8f0;
-  --hd-primary-border-color: #bfdbfe;
-  --hd-secondary-border-color: #e9d5ff;
-  --hd-accent-border-color: #a7f3d0;
-  --hd-danger-border-color: #fecaca;
-  --hd-warning-border-color: #fef3c7;
-  --hd-success-border-color: #a7f3d0;
-  --hd-info-border-color: #cffafe;
-  --hd-muted-border-color: #cbd5e1;
+  /* Inverted */
+  --hd-base-color-inverted: #0f172a;
+  --hd-base-text-color-inverted: #f8fafc;
+  --hd-main-color-inverted: #3b82f6;
+  --hd-main-text-color-inverted: #ffffff;
+  --hd-accent-color-inverted: #10b981;
+  --hd-accent-text-color-inverted: #ffffff;
 
-  --hd-default-header-text-color: var(--hd-default-color);
-  --hd-primary-header-text-color: var(--hd-primary-color);
-  --hd-secondary-header-text-color: var(--hd-secondary-color);
-  --hd-accent-header-text-color: var(--hd-accent-color);
-  --hd-danger-header-text-color: var(--hd-danger-color);
-  --hd-warning-header-text-color: var(--hd-warning-color);
-  --hd-success-header-text-color: var(--hd-success-color);
-  --hd-info-header-text-color: var(--hd-info-color);
-  --hd-muted-header-text-color: var(--hd-muted-color);
+  /* Muted Inverted */
+  --hd-base-color-muted-inverted: #1e293b;
+  --hd-base-text-color-muted-inverted: #94a3b8;
+  --hd-main-color-muted-inverted: #1e3a8a;
+  --hd-main-text-color-muted-inverted: #93c5fd;
+  --hd-accent-color-muted-inverted: #064e3b;
+  --hd-accent-text-color-muted-inverted: #a7f3d0;
 
-  /* Slide type specific header background colors */
-  --hd-default-header-background-color: var(--hd-default-background-color);
-  --hd-primary-header-background-color: var(--hd-primary-background-color);
-  --hd-secondary-header-background-color: var(--hd-secondary-background-color);
-  --hd-accent-header-background-color: var(--hd-accent-background-color);
-  --hd-danger-header-background-color: var(--hd-danger-background-color);
-  --hd-warning-header-background-color: var(--hd-warning-background-color);
-  --hd-success-header-background-color: var(--hd-success-background-color);
-  --hd-info-header-background-color: var(--hd-info-background-color);
-  --hd-muted-header-background-color: var(--hd-muted-background-color);
+  /* Semantic Slide Colors (mapped from base colors) */
+  --hd-slide-background-color: var(--hd-base-color);
+  --hd-slide-text-color: var(--hd-base-text-color);
+  --hd-slide-border-color: var(--hd-base-text-color-muted);
 
-  /* Card configuration variables */
-  --hd-card-background-color: var(--hd-default-background-color);
-  --hd-card-text-color: var(--hd-default-color);
-  --hd-card-border-color: var(--hd-default-border-color);
-  --hd-card-border-width: 1px;
-  --hd-card-border-style: solid;
-  --hd-card-border-radius: 8px;
-  --hd-card-padding: 16px;
-  --hd-card-box-shadow: none;
-  --hd-card-margin-bottom: var(--hd-gap-3);
-  --hd-box-margin-bottom: var(--hd-gap-3);
+  /* 6-Level Sizing Scale */
+  --hd-size-1: 48px;
+  --hd-size-2: 32px;
+  --hd-size-3: 24px; /* Default body size */
+  --hd-size-4: 18px;
+  --hd-size-5: 14px;
+  --hd-size-6: 12px; /* Default peripheral size */
 
-  --hd-slide-font-size: var(--hd-font-size);
-  --hd-slide-padding-top: 30px;
-  --hd-slide-padding-right: 40px;
-  --hd-slide-padding-bottom: 30px;
-  --hd-slide-padding-left: 40px;
-  --hd-slide-padding: var(--hd-slide-padding-top) var(--hd-slide-padding-right) var(--hd-slide-padding-bottom) var(--hd-slide-padding-left);
+  /* Text Types Decoration Configurations */
+  /* Title Text Type */
+  --hd-text-title-font: var(--hd-heading-font);
+  --hd-text-title-color: var(--hd-base-text-color);
+  --hd-text-title-font-size: var(--hd-size-1);
+  --hd-text-title-font-weight: var(--hd-font-weight-bold, 700);
+  --hd-text-title-line-height: 1.2;
+  --hd-text-title-letter-spacing: -0.02em;
+  --hd-text-title-text-transform: none;
+  --hd-text-title-text-shadow: none;
+
+  /* Heading Text Type */
+  --hd-text-heading-font: var(--hd-heading-font);
+  --hd-text-heading-color: var(--hd-base-text-color);
+  --hd-text-heading-font-size: var(--hd-size-2);
+  --hd-text-heading-font-weight: var(--hd-font-weight-bold, 700);
+  --hd-text-heading-line-height: 1.3;
+  --hd-text-heading-letter-spacing: -0.01em;
+  --hd-text-heading-text-transform: none;
+  --hd-text-heading-text-shadow: none;
+
+  /* Subheading Text Type */
+  --hd-text-subheading-font: var(--hd-heading-font);
+  --hd-text-subheading-color: var(--hd-base-text-color-muted);
+  --hd-text-subheading-font-size: var(--hd-size-4);
+  --hd-text-subheading-font-weight: var(--hd-font-weight-semibold, 600);
+  --hd-text-subheading-line-height: 1.4;
+  --hd-text-subheading-letter-spacing: normal;
+  --hd-text-subheading-text-transform: none;
+  --hd-text-subheading-text-shadow: none;
+
+  /* Body Text Type */
+  --hd-text-body-font: var(--hd-body-font);
+  --hd-text-body-color: var(--hd-base-text-color);
+  --hd-text-body-font-size: var(--hd-size-3);
+  --hd-text-body-font-weight: var(--hd-font-weight-normal, 400);
+  --hd-text-body-line-height: 1.6;
+  --hd-text-body-letter-spacing: 0.01em;
+  --hd-text-body-text-transform: none;
+  --hd-text-body-text-shadow: none;
+
+  /* Quote Text Type */
+  --hd-text-quote-font: var(--hd-font-family-serif);
+  --hd-text-quote-color: var(--hd-base-text-color-muted);
+  --hd-text-quote-font-size: var(--hd-size-3);
+  --hd-text-quote-font-weight: var(--hd-font-weight-normal, 400);
+  --hd-text-quote-line-height: 1.5;
+  --hd-text-quote-letter-spacing: normal;
+  --hd-text-quote-text-transform: none;
+  --hd-text-quote-text-shadow: none;
+
+  /* Caption Text Type */
+  --hd-text-caption-font: var(--hd-body-font);
+  --hd-text-caption-color: var(--hd-base-text-color-muted);
+  --hd-text-caption-font-size: var(--hd-size-5);
+  --hd-text-caption-font-weight: var(--hd-font-weight-normal, 400);
+  --hd-text-caption-line-height: 1.4;
+  --hd-text-caption-letter-spacing: normal;
+  --hd-text-caption-text-transform: none;
+  --hd-text-caption-text-shadow: none;
+
+  /* Peripheral Text Type */
+  --hd-text-peripheral-font: var(--hd-body-font);
+  --hd-text-peripheral-color: var(--hd-base-text-color-muted);
+  --hd-text-peripheral-font-size: var(--hd-size-6);
+  --hd-text-peripheral-font-weight: var(--hd-font-weight-medium, 500);
+  --hd-text-peripheral-line-height: 1;
+  --hd-text-peripheral-letter-spacing: 0.05em;
+  --hd-text-peripheral-text-transform: uppercase;
+  --hd-text-peripheral-text-shadow: none;
+
   /* Font Weights */
   --hd-font-weight-light: 300;
   --hd-font-weight-normal: 400;
@@ -85,176 +131,16 @@
   --hd-font-weight-bold: 700;
   --hd-font-weight-extrabold: 800;
 
-  --hd-heading-font-weight: var(--hd-font-weight-bold);
-  --hd-heading-line-height: 1.2;
-  --hd-heading-margin-bottom: 8px;
-  --hd-text-size-1: 32px;
-  --hd-text-size-2: 24px;
-  --hd-text-size-3: 18px;
-  --hd-text-size-4: 16px;
-  --hd-text-size-5: 14px;
-  --hd-text-size-6: 12px;
-  --hd-title-font-size: var(--hd-text-size-2);
+  /* Slide layout margin parameters */
+  --hd-slide-margin-top: 30px;
+  --hd-slide-margin-right: 40px;
+  --hd-slide-margin-bottom: 30px;
+  --hd-slide-margin-left: 40px;
 
-  /* --- Deck properties defaults --- */
-  --hd-deck-background-color: #000000;
-  --hd-deck-text-color: var(--hd-default-color);
-  --hd-deck-button-text-color: #ffffff;
-  --hd-deck-font-family: var(--hd-body-font);
+  /* Peripheral Absolute Position Offset (Unified vertical/horizontal margin offset) */
+  --hd-peripheral-offset: 12px;
 
-  /* --- Cover Layout properties defaults --- */
-  --hd-layout-cover-padding: var(--hd-slide-padding);
-  --hd-layout-cover-justify-content: center;
-  --hd-layout-cover-align-items: center;
-  --hd-layout-cover-text-align: center;
-  --hd-layout-cover-title-margin-bottom: var(--hd-gap-3);
-  --hd-layout-cover-subtitle-margin-bottom: var(--hd-gap-4);
-  --hd-layout-cover-title-font-size: var(--hd-text-size-1);
-  --hd-layout-cover-title-text-color: inherit;
-  --hd-layout-cover-title-text-shadow: none;
-  --hd-layout-cover-subtitle-font-size: var(--hd-text-size-2);
-  --hd-layout-cover-subtitle-text-color: var(--hd-muted-color);
-  --hd-layout-cover-subtitle-text-shadow: none;
-  --hd-layout-cover-meta-font-size: var(--hd-text-size-5);
-  --hd-layout-cover-meta-text-color: var(--hd-muted-color);
-
-  /* --- Layout properties defaults --- */
-  --hd-slide-background-color: var(--hd-default-background-color);
-  --hd-slide-text-color: var(--hd-default-color);
-  --hd-layout-heading-margin: var(--hd-gap-3);
-  --hd-layout-heading-background-color: var(--hd-layout-heading-bg-default);
-  --hd-layout-heading-text-color: var(--hd-layout-heading-color-default);
-  --hd-layout-content-margin: 0px;
-  --hd-layout-header-text-color: var(--hd-default-header-text-color);
-  --hd-layout-heading-font-size: var(--hd-text-size-2);
-  --hd-layout-heading-padding-bottom: var(--hd-slide-padding-top);
-  --hd-layout-heading-text-align: left;
-  --hd-layout-heading-box-shadow: none;
-  --hd-layout-heading-padding-top: var(--hd-slide-padding-top);
-  --hd-layout-heading-text-shadow: none;
-  --hd-layout-heading-height: auto;
-  --hd-layout-heading-divider-display: none;
-  --hd-layout-heading-divider-height: 1px;
-  --hd-layout-heading-divider-background-color: var(--hd-layout-heading-divider-background-color-default);
-  --hd-layout-heading-divider-box-shadow: var(--hd-layout-heading-divider-box-shadow-default);
-  --hd-layout-before-margin: var(--hd-gap-2);
-  --hd-layout-after-margin: var(--hd-gap-2);
-  --hd-codeblock-background-color: transparent;
-  --hd-codeblock-border-width: 1px;
-  --hd-codeblock-border-style: solid;
-  --hd-codeblock-border-color: var(--hd-default-border-color);
-  --hd-codeblock-border-radius: 8px;
-  --hd-codeblock-box-shadow: none;
-
-  /* --- Heading color-override parameters for hd-slide[heading="..."] --- */
-  --hd-layout-heading-color-primary: var(--hd-primary-color);
-  --hd-layout-heading-color-secondary: var(--hd-secondary-color);
-  --hd-layout-heading-color-accent: var(--hd-accent-color);
-  --hd-layout-heading-color-danger: var(--hd-danger-color);
-  --hd-layout-heading-color-warning: var(--hd-warning-color);
-  --hd-layout-heading-color-success: var(--hd-success-color);
-  --hd-layout-heading-color-info: var(--hd-info-color);
-  --hd-layout-heading-color-muted: var(--hd-muted-color);
-
-  /* --- Dynamic class override defaults --- */
-  --hd-layout-heading-background-color-class: var(--hd-layout-heading-color-class);
-  --hd-layout-heading-color-class-final: var(--hd-layout-heading-text-color-class);
-  --hd-layout-heading-text-shadow-class: none;
-  --hd-layout-heading-divider-background-color-class: var(--hd-layout-heading-color-class);
-  --hd-layout-heading-divider-box-shadow-class: none;
-
-  --hd-card-box-shadow-primary: none;
-  --hd-card-box-shadow-secondary: none;
-  --hd-card-box-shadow-accent: none;
-  --hd-card-box-shadow-danger: none;
-  --hd-card-box-shadow-warning: none;
-  --hd-card-box-shadow-success: none;
-  --hd-card-box-shadow-info: none;
-  --hd-card-box-shadow-muted: none;
-
-  --hd-callout-background-color: transparent;
-  --hd-callout-border-style: solid;
-  --hd-callout-border-color: var(--hd-default-border-color);
-  --hd-callout-border-left-color: var(--hd-callout-border-color);
-  --hd-callout-border-radius: 0px;
-  --hd-callout-box-shadow: none;
-
-  /* Callout color modifier variables */
-  --hd-callout-background-color-primary: transparent;
-  --hd-callout-border-color-primary: var(--hd-primary-border-color);
-  --hd-callout-box-shadow-primary: none;
-
-  --hd-callout-background-color-secondary: transparent;
-  --hd-callout-border-color-secondary: var(--hd-secondary-border-color);
-  --hd-callout-box-shadow-secondary: none;
-
-  --hd-callout-background-color-accent: transparent;
-  --hd-callout-border-color-accent: var(--hd-accent-border-color);
-  --hd-callout-box-shadow-accent: none;
-
-  --hd-callout-background-color-danger: transparent;
-  --hd-callout-border-color-danger: var(--hd-danger-border-color);
-  --hd-callout-box-shadow-danger: none;
-
-  --hd-callout-background-color-warning: transparent;
-  --hd-callout-border-color-warning: var(--hd-warning-border-color);
-  --hd-callout-box-shadow-warning: none;
-
-  --hd-callout-background-color-success: transparent;
-  --hd-callout-border-color-success: var(--hd-success-border-color);
-  --hd-callout-box-shadow-success: none;
-
-  --hd-callout-background-color-info: transparent;
-  --hd-callout-border-color-info: var(--hd-info-border-color);
-  --hd-callout-box-shadow-info: none;
-
-  --hd-callout-background-color-muted: transparent;
-  --hd-callout-border-color-muted: var(--hd-muted-border-color);
-  --hd-callout-box-shadow-muted: none;
-
-  /* Split layout defaults */
-  --hd-layout-split-ratio: minmax(0, 1fr) minmax(0, 1fr);
-  --hd-scrollbar-width: 8px;
-  --hd-scrollbar-height: 8px;
-  --hd-scrollbar-track-bg: transparent;
-  --hd-scrollbar-thumb-bg: var(--hd-muted-border-color);
-  --hd-scrollbar-thumb-radius: 4px;
-  --hd-scrollbar-thumb-hover-bg: var(--hd-muted-color);
-  --hd-list-margin-bottom: 12px;
-  --hd-list-padding-left: 19px;
-  --hd-list-item-margin-bottom: 4px;
-  --hd-table-border-color: var(--hd-default-border-color);
-  --hd-table-cell-padding: 6px 10px;
-  --hd-callout-padding-left: 12px;
-  --hd-callout-margin-bottom: 12px;
-
-  /* Peripheral variables */
-  --peripheral-font-size: 9px;
-  --peripheral-line-height: 1;
-  --peripheral-header-top: 12px;
-  --peripheral-footer-bottom: 12px;
-
-  --hd-slide-page-number-color: var(--hd-muted-color);
-  --hd-slide-footnote-bottom: 12px;
-  --hd-slide-footnote-left: 16px;
-  --hd-slide-footnote-font-size: var(--peripheral-font-size);
-  --hd-slide-footnote-text-color: var(--hd-muted-color);
-  --hd-slide-footnote-opacity: 0.85;
-
-  --hd-slide-header-top: var(--peripheral-header-top);
-  --hd-slide-header-left: var(--hd-slide-padding-left);
-  --hd-slide-header-font-size: var(--peripheral-font-size);
-  --hd-slide-header-text-color: var(--hd-muted-color);
-  --hd-slide-header-opacity: 0.85;
-
-  --hd-slide-footer-bottom: var(--peripheral-footer-bottom);
-  --hd-slide-footer-left: var(--hd-slide-padding-left);
-  --hd-slide-footer-font-size: var(--peripheral-font-size);
-  --hd-slide-footer-text-color: var(--hd-muted-color);
-  --hd-slide-footer-opacity: 0.85;
-  --hd-text-font-size: var(--hd-font-size);
-  --hd-text-line-height: 1.6;
-  --hd-text-margin-bottom: 8px;
+  /* Spacing Scale (Gap classes) */
   --hd-gap-0: 0px;
   --hd-gap-1: 4px;
   --hd-gap-2: 8px;
@@ -262,4 +148,51 @@
   --hd-gap-4: 24px;
   --hd-gap-5: 32px;
   --hd-gap-6: 48px;
+
+  /* Layout Spacing Configuration defaults */
+  --hd-layout-before-margin: var(--hd-gap-2);
+  --hd-layout-after-margin: var(--hd-gap-2);
+
+  /* Component Properties */
+  --hd-card-border-radius: 8px;
+  --hd-card-padding: 16px;
+  --hd-card-margin-bottom: var(--hd-gap-3);
+
+  --hd-box-border-radius: 8px;
+  --hd-box-padding: 16px;
+  --hd-box-margin-bottom: var(--hd-gap-3);
+
+  --hd-callout-border-radius: 4px;
+  --hd-callout-padding-left: 12px;
+  --hd-callout-margin-bottom: 12px;
+
+  --hd-codeblock-border-radius: 8px;
+  --hd-codeblock-background-color: transparent;
+  --hd-codeblock-border-width: 1px;
+  --hd-codeblock-border-style: solid;
+  --hd-codeblock-border-color: var(--hd-slide-border-color);
+  --hd-codeblock-box-shadow: none;
+
+  /* Table */
+  --hd-table-border-color: var(--hd-slide-border-color);
+  --hd-table-cell-padding: 6px 10px;
+
+  /* Lists */
+  --hd-list-margin-bottom: 12px;
+  --hd-list-padding-left: 19px;
+  --hd-list-item-margin-bottom: 4px;
+
+  /* Scrollbars */
+  --hd-scrollbar-width: 8px;
+  --hd-scrollbar-height: 8px;
+  --hd-scrollbar-track-bg: transparent;
+  --hd-scrollbar-thumb-bg: var(--hd-slide-border-color);
+  --hd-scrollbar-thumb-radius: 4px;
+  --hd-scrollbar-thumb-hover-bg: var(--hd-base-text-color-muted);
+
+  /* Code Block styling details */
+  --hd-codeblock-border-color: var(--hd-slide-border-color);
+
+  /* Split layout ratio */
+  --hd-layout-split-ratio: minmax(0, 1fr) minmax(0, 1fr);
 }

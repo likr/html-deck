@@ -1,46 +1,40 @@
 /* html-deck.theme-warm.css - Warm (Sepia) Theme for HTML-Deck */
-
 :root {
   /* Fonts */
   --hd-font-family: 'Outfit', system-ui, -apple-system, sans-serif;
   --hd-body-font: var(--hd-font-family);
   --hd-heading-font: var(--hd-font-family);
 
-  /* Colors */
-  --hd-default-color: #433422;   /* Deep Espresso Brown */
-  --hd-muted-color: #8c7a65;  /* Muted Soft Brown */
-  --hd-primary-color: #d97706;      /* Amber 600 */
-  --hd-secondary-color: #be123c;    /* Rose 700 */
-  --hd-accent-color: #059669;       /* Emerald 600 */
-  --hd-danger-color: #e11d48;       /* Rose Red */
-  --hd-warning-color: #ca8a04;      /* Gold */
-  --hd-success-color: #16a34a;
-  --hd-info-color: #0d9488;
+  /* 24-Color Matrix (Warm Sepia themed) */
+  /* Normal */
+  --hd-base-color: #fdfaf2; /* Gentle Warm Ivory */
+  --hd-base-text-color: #433422; /* Deep Espresso Brown */
+  --hd-main-color: #f6efe2;
+  --hd-main-text-color: #d97706; /* Amber main */
+  --hd-accent-color: #e6dfd1;
+  --hd-accent-text-color: #be123c; /* Rose accent */
 
-  /* Background colors (used when background is colored, keeping hue/vibe) */
-  --hd-default-background-color: #fdfaf2;           /* Gentle Warm Ivory */
-  --hd-primary-background-color: #fefaf0;
-  --hd-secondary-background-color: #fff1f2;
-  --hd-accent-background-color: #f0fdf4;
-  --hd-danger-background-color: #fff1f2;
-  --hd-warning-background-color: #fefdf0;
-  --hd-success-background-color: #f0fdf4;
-  --hd-info-background-color: #f2fdfb;
-  --hd-muted-background-color: #faf8f5;
+  /* Muted */
+  --hd-base-color-muted: rgba(67, 52, 34, 0.02);
+  --hd-base-text-color-muted: #8c7a65;
+  --hd-main-color-muted: #fef3c7;
+  --hd-main-text-color-muted: #ca8a04;
+  --hd-accent-color-muted: #ffe4e6;
+  --hd-accent-text-color-muted: #e11d48;
 
-  /* Border colors (used for borders/lines of elements) */
-  --hd-default-border-color: #f0ede9;
-  --hd-primary-border-color: #fef3c7;
-  --hd-secondary-border-color: #ffe4e6;
-  --hd-accent-border-color: #d1fae5;
-  --hd-danger-border-color: #ffe4e6;
-  --hd-warning-border-color: #fef9c3;
-  --hd-success-border-color: #d1fae5;
-  --hd-info-border-color: #ccfbf1;
-  --hd-muted-border-color: #f0ede9;
+  /* Inverted (Deep Espresso background) */
+  --hd-base-color-inverted: #433422;
+  --hd-base-text-color-inverted: #fdfaf2;
+  --hd-main-color-inverted: #544431;
+  --hd-main-text-color-inverted: #fef3c7;
+  --hd-accent-color-inverted: #5c4731;
+  --hd-accent-text-color-inverted: #ffe4e6;
 
-  /* Card configuration overrides */
-  --hd-card-background-color: rgba(67, 52, 34, 0.02);
-  --hd-card-text-color: var(--hd-default-color);
-  --hd-card-border-color: var(--hd-default-border-color);
+  /* Muted Inverted */
+  --hd-base-color-muted-inverted: #544431;
+  --hd-base-text-color-muted-inverted: #a1907b;
+  --hd-main-color-muted-inverted: #78350f;
+  --hd-main-text-color-muted-inverted: #fcd34d;
+  --hd-accent-color-muted-inverted: #881337;
+  --hd-accent-text-color-muted-inverted: #fda4af;
 }

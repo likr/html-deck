@@ -7,39 +7,53 @@ export class HdLayoutCover extends HTMLElement {
         :host {
           display: flex;
           flex-direction: column;
-          justify-content: var(--hd-layout-cover-justify-content);
-          align-items: var(--hd-layout-cover-align-items);
-          text-align: var(--hd-layout-cover-text-align);
+          justify-content: var(--hd-layout-cover-justify-content, center);
+          align-items: var(--hd-layout-cover-align-items, center);
+          text-align: var(--hd-layout-cover-text-align, center);
           height: 100%;
           width: 100%;
           box-sizing: border-box;
+          padding-top: var(--hd-slide-margin-top);
+          padding-bottom: var(--hd-slide-margin-bottom);
+          padding-left: var(--hd-slide-margin-left);
+          padding-right: var(--hd-slide-margin-right);
         }
         .cover-container {
           display: flex;
           flex-direction: column;
-          justify-content: var(--hd-layout-cover-justify-content);
-          align-items: var(--hd-layout-cover-align-items);
-          text-align: var(--hd-layout-cover-text-align);
+          justify-content: var(--hd-layout-cover-justify-content, center);
+          align-items: var(--hd-layout-cover-align-items, center);
+          text-align: var(--hd-layout-cover-text-align, center);
           width: 100%;
           flex-grow: 1;
         }
         .title-area {
-          margin-bottom: var(--hd-layout-cover-title-margin-bottom);
+          margin-bottom: var(--hd-layout-cover-title-margin-bottom, var(--hd-gap-3));
           width: 100%;
         }
         .title-area ::slotted(*) {
-          font-size: var(--hd-layout-cover-title-font-size);
-          color: var(--hd-layout-cover-title-text-color);
+          font-family: var(--hd-text-title-font);
+          font-size: var(--hd-text-title-font-size);
+          color: var(--hd-text-title-color);
+          font-weight: var(--hd-text-title-font-weight);
+          line-height: var(--hd-text-title-line-height);
+          letter-spacing: var(--hd-text-title-letter-spacing);
+          text-transform: var(--hd-text-title-text-transform);
           text-shadow: var(--hd-layout-cover-title-text-shadow, none);
           margin: 0;
         }
         .subtitle-area {
-          margin-bottom: var(--hd-layout-cover-subtitle-margin-bottom);
+          margin-bottom: var(--hd-layout-cover-subtitle-margin-bottom, var(--hd-gap-4));
           width: 100%;
         }
         .subtitle-area ::slotted(*) {
-          font-size: var(--hd-layout-cover-subtitle-font-size);
-          color: var(--hd-layout-cover-subtitle-text-color);
+          font-family: var(--hd-text-subheading-font);
+          font-size: var(--hd-text-subheading-font-size);
+          color: var(--hd-text-subheading-color);
+          font-weight: var(--hd-text-subheading-font-weight);
+          line-height: var(--hd-text-subheading-line-height);
+          letter-spacing: var(--hd-text-subheading-letter-spacing);
+          text-transform: var(--hd-text-subheading-text-transform);
           text-shadow: var(--hd-layout-cover-subtitle-text-shadow, none);
           margin: 0;
         }
@@ -47,8 +61,12 @@ export class HdLayoutCover extends HTMLElement {
           width: 100%;
         }
         .meta-area ::slotted(*) {
-          font-size: var(--hd-layout-cover-meta-font-size);
-          color: var(--hd-layout-cover-meta-text-color);
+          font-family: var(--hd-text-caption-font);
+          font-size: var(--hd-text-caption-font-size);
+          color: var(--hd-text-caption-color);
+          font-weight: var(--hd-text-caption-font-weight);
+          line-height: var(--hd-text-caption-line-height);
+          letter-spacing: var(--hd-text-caption-letter-spacing);
           margin: 0;
         }
       </style>

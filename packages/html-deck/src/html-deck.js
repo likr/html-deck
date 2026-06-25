@@ -9,6 +9,9 @@ import { HdLayout } from './components/html-deck/hd-layout.js';
 import { HdLayoutSplit } from './components/html-deck/hd-layout-split.js';
 import { HdLayoutCover } from './components/html-deck/hd-layout-cover.js';
 import { HdLayoutThree } from './components/html-deck/hd-layout-three.js';
+import { HdCard } from './components/html-deck/hd-card.js';
+import { HdBox } from './components/html-deck/hd-box.js';
+import { HdCallout } from './components/html-deck/hd-callout.js';
 
 // Register presentation custom elements
 customElements.define('hd-deck', HdDeck);
@@ -17,4 +20,8 @@ customElements.define('hd-layout', HdLayout);
 customElements.define('hd-layout-split', HdLayoutSplit);
 customElements.define('hd-layout-cover', HdLayoutCover);
 customElements.define('hd-layout-three', HdLayoutThree);
+customElements.define('hd-card', HdCard);
+customElements.define('hd-box', HdBox);
+customElements.define('hd-callout', HdCallout);
+
 

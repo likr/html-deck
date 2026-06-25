@@ -30,61 +30,37 @@
 }
 
 /* Text Colors */
-.hd-primary {
-  color: var(--hd-primary-color) !important;
-}
-
-.hd-secondary {
-  color: var(--hd-secondary-color) !important;
-}
-
 .hd-accent {
   color: var(--hd-accent-color) !important;
 }
 
-.hd-danger {
-  color: var(--hd-danger-color) !important;
-}
-
-.hd-warning {
-  color: var(--hd-warning-color) !important;
-}
-
-.hd-success {
-  color: var(--hd-success-color) !important;
-}
-
-.hd-info {
-  color: var(--hd-info-color) !important;
-}
-
 .hd-muted {
-  color: var(--hd-muted-color) !important;
+  color: var(--hd-base-text-color-muted) !important;
 }
 
 /* Text Sizes (1 is largest, 6 is smallest) */
-.hd-text-1 {
-  font-size: var(--hd-text-size-1) !important;
+.hd-size-1 {
+  font-size: var(--hd-size-1) !important;
 }
 
-.hd-text-2 {
-  font-size: var(--hd-text-size-2) !important;
+.hd-size-2 {
+  font-size: var(--hd-size-2) !important;
 }
 
-.hd-text-3 {
-  font-size: var(--hd-text-size-3) !important;
+.hd-size-3 {
+  font-size: var(--hd-size-3) !important;
 }
 
-.hd-text-4 {
-  font-size: var(--hd-text-size-4) !important;
+.hd-size-4 {
+  font-size: var(--hd-size-4) !important;
 }
 
-.hd-text-5 {
-  font-size: var(--hd-text-size-5) !important;
+.hd-size-5 {
+  font-size: var(--hd-size-5) !important;
 }
 
-.hd-text-6 {
-  font-size: var(--hd-text-size-6) !important;
+.hd-size-6 {
+  font-size: var(--hd-size-6) !important;
 }
 
 /* Text Transformations & Underline */
@@ -110,39 +86,7 @@
 
 /* Borders */
 .hd-border {
-  border: 1px solid var(--hd-default-border-color) !important;
-}
-
-.hd-border.hd-primary {
-  border-color: var(--hd-primary-border-color) !important;
-}
-
-.hd-border.hd-secondary {
-  border-color: var(--hd-secondary-border-color) !important;
-}
-
-.hd-border.hd-accent {
-  border-color: var(--hd-accent-border-color) !important;
-}
-
-.hd-border.hd-danger {
-  border-color: var(--hd-danger-border-color) !important;
-}
-
-.hd-border.hd-warning {
-  border-color: var(--hd-warning-border-color) !important;
-}
-
-.hd-border.hd-success {
-  border-color: var(--hd-success-border-color) !important;
-}
-
-.hd-border.hd-info {
-  border-color: var(--hd-info-border-color) !important;
-}
-
-.hd-border.hd-muted {
-  border-color: var(--hd-muted-border-color) !important;
+  border: 1px solid var(--hd-slide-border-color) !important;
 }
 
 /* Spacing (Margin Top) */

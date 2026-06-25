@@ -72,14 +72,43 @@ HdSlide.baseStyles = `
     background: var(--hd-slide-background-color);
     color: var(--hd-slide-text-color);
     font-family: var(--hd-body-font);
-    font-size: var(--hd-slide-font-size);
-    line-height: var(--hd-text-line-height, 1.6);
-    letter-spacing: 0.01em;
+    font-size: var(--hd-size-3);
+    line-height: var(--hd-text-body-line-height, 1.6);
+    letter-spacing: var(--hd-text-body-letter-spacing, 0.01em);
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
     overflow: hidden;
     box-sizing: border-box;
+  }
+
+  :host([inverted]) {
+    --hd-base-color: var(--hd-base-color-inverted);
+    --hd-base-text-color: var(--hd-base-text-color-inverted);
+    --hd-main-color: var(--hd-main-color-inverted);
+    --hd-main-text-color: var(--hd-main-text-color-inverted);
+    --hd-accent-color: var(--hd-accent-color-inverted);
+    --hd-accent-text-color: var(--hd-accent-text-color-inverted);
+
+    --hd-base-color-muted: var(--hd-base-color-muted-inverted);
+    --hd-base-text-color-muted: var(--hd-base-text-color-muted-inverted);
+    --hd-main-color-muted: var(--hd-main-color-muted-inverted);
+    --hd-main-text-color-muted: var(--hd-main-text-color-muted-inverted);
+    --hd-accent-color-muted: var(--hd-accent-color-muted-inverted);
+    --hd-accent-text-color-muted: var(--hd-accent-text-color-muted-inverted);
+
+    /* Explicitly override slide and text type colors to inverted values to fix CSS variable inheritance evaluation */
+    --hd-slide-background-color: var(--hd-base-color-inverted);
+    --hd-slide-text-color: var(--hd-base-text-color-inverted);
+    --hd-slide-border-color: var(--hd-base-text-color-muted-inverted);
+
+    --hd-text-title-color: var(--hd-base-text-color-inverted);
+    --hd-text-heading-color: var(--hd-base-text-color-inverted);
+    --hd-text-subheading-color: var(--hd-base-text-color-muted-inverted);
+    --hd-text-body-color: var(--hd-base-text-color-inverted);
+    --hd-text-quote-color: var(--hd-base-text-color-muted-inverted);
+    --hd-text-caption-color: var(--hd-base-text-color-muted-inverted);
+    --hd-text-peripheral-color: var(--hd-base-text-color-muted-inverted);
   }
 
   :host([active]) {
@@ -109,19 +138,8 @@ HdSlide.baseStyles = `
     width: 100%;
     height: 100%;
     box-sizing: border-box;
-    padding: var(--hd-slide-padding);
-    position: relative;
-  }
-
-  :host([no-padding]) {
-    --hd-slide-padding-top: 0px;
-    --hd-slide-padding-right: 0px;
-    --hd-slide-padding-bottom: 0px;
-    --hd-slide-padding-left: 0px;
-  }
-
-  :host([no-padding]) .slide-content {
     padding: 0;
+    position: relative;
   }
 
   .body-area {
@@ -135,13 +153,18 @@ HdSlide.baseStyles = `
 
   .page-number {
     position: absolute;
-    bottom: var(--peripheral-footer-bottom, 12px);
-    right: 16px;
-    font-size: var(--peripheral-font-size, 9px);
-    color: var(--hd-slide-page-number-color);
+    bottom: var(--hd-peripheral-offset, 12px);
+    right: var(--hd-peripheral-offset, 12px);
+    font-family: var(--hd-text-peripheral-font);
+    color: var(--hd-text-peripheral-color);
+    font-size: var(--hd-text-peripheral-font-size);
+    font-weight: var(--hd-text-peripheral-font-weight);
+    line-height: var(--hd-text-peripheral-line-height);
+    letter-spacing: var(--hd-text-peripheral-letter-spacing);
+    text-transform: var(--hd-text-peripheral-text-transform);
+    text-shadow: var(--hd-text-peripheral-text-shadow);
     z-index: 10;
     user-select: none;
-    font-family: var(--hd-body-font);
   }
 
   /* Print Styles */
@@ -179,28 +202,36 @@ HdSlide.baseStyles = `
   ::slotted([slot="header"]) {
     display: block !important;
     position: absolute !important;
-    top: var(--peripheral-header-top, 12px) !important;
-    left: var(--hd-slide-header-left) !important;
-    font-size: var(--peripheral-font-size, 9px) !important;
-    color: var(--hd-slide-header-text-color) !important;
-    opacity: var(--hd-slide-header-opacity) !important;
-    font-family: var(--hd-body-font) !important;
+    top: var(--hd-peripheral-offset, 12px) !important;
+    left: var(--hd-slide-margin-left) !important;
+    right: var(--hd-slide-margin-right) !important;
+    font-family: var(--hd-text-peripheral-font) !important;
+    color: var(--hd-text-peripheral-color) !important;
+    font-size: var(--hd-text-peripheral-font-size) !important;
+    font-weight: var(--hd-text-peripheral-font-weight) !important;
+    line-height: var(--hd-text-peripheral-line-height) !important;
+    letter-spacing: var(--hd-text-peripheral-letter-spacing) !important;
+    text-transform: var(--hd-text-peripheral-text-transform) !important;
+    text-shadow: var(--hd-text-peripheral-text-shadow) !important;
     z-index: 10 !important;
     user-select: none !important;
-    line-height: var(--peripheral-line-height, 1) !important;
   }
 
   ::slotted([slot="footer"]) {
     display: block !important;
     position: absolute !important;
-    bottom: var(--peripheral-footer-bottom, 12px) !important;
-    left: var(--hd-slide-footer-left) !important;
-    font-size: var(--peripheral-font-size, 9px) !important;
-    color: var(--hd-slide-footer-text-color) !important;
-    opacity: var(--hd-slide-footer-opacity) !important;
-    font-family: var(--hd-body-font) !important;
+    bottom: var(--hd-peripheral-offset, 12px) !important;
+    left: var(--hd-slide-margin-left) !important;
+    right: var(--hd-slide-margin-right) !important;
+    font-family: var(--hd-text-peripheral-font) !important;
+    color: var(--hd-text-peripheral-color) !important;
+    font-size: var(--hd-text-peripheral-font-size) !important;
+    font-weight: var(--hd-text-peripheral-font-weight) !important;
+    line-height: var(--hd-text-peripheral-line-height) !important;
+    letter-spacing: var(--hd-text-peripheral-letter-spacing) !important;
+    text-transform: var(--hd-text-peripheral-text-transform) !important;
+    text-shadow: var(--hd-text-peripheral-text-shadow) !important;
     z-index: 10 !important;
-    user-select: none !important;
-    line-height: var(--peripheral-line-height, 1) !important;
   }
 `;
+

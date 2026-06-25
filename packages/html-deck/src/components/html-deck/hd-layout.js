@@ -12,46 +12,56 @@ export class HdLayout extends HTMLElement {
           box-sizing: border-box;
         }
         .heading-area {
-          width: calc(100% + var(--hd-slide-padding-left) + var(--hd-slide-padding-right));
-          margin-top: calc(-1 * var(--hd-slide-padding-top));
-          margin-left: calc(-1 * var(--hd-slide-padding-left));
-          margin-right: calc(-1 * var(--hd-slide-padding-right));
-          padding-top: var(--hd-layout-heading-padding-top);
-          padding-bottom: var(--hd-layout-heading-padding-bottom);
-          padding-left: var(--hd-slide-padding-left);
-          padding-right: var(--hd-slide-padding-right);
-          background-color: var(--hd-layout-heading-background-color);
-          color: var(--hd-layout-heading-text-color);
-          box-shadow: var(--hd-layout-heading-box-shadow);
-          text-align: var(--hd-layout-heading-text-align);
-          box-sizing: border-box;
-          height: var(--hd-layout-heading-height);
           display: flex;
           flex-direction: column;
           justify-content: center;
+          width: 100%;
+          box-sizing: border-box;
+          padding-top: var(--hd-slide-margin-top);
+          padding-bottom: var(--hd-layout-heading-padding-bottom, 16px);
+          padding-left: var(--hd-slide-margin-left);
+          padding-right: var(--hd-slide-margin-right);
+          background-color: var(--hd-main-color);
+          color: var(--hd-main-text-color);
+          box-shadow: var(--hd-layout-heading-box-shadow, none);
+          text-align: var(--hd-layout-heading-text-align, left);
+        }
+        /* Hide heading area when heading slot is empty */
+        .heading-area:not(:has(slot[name="heading"]::slotted(*))) {
+          display: none;
         }
         .heading-divider {
-          display: var(--hd-layout-heading-divider-display);
+          display: var(--hd-layout-heading-divider-display, none);
           border: none;
-          height: var(--hd-layout-heading-divider-height);
-          background-color: var(--hd-layout-heading-divider-background-color);
-          box-shadow: var(--hd-layout-heading-divider-box-shadow);
-          margin-top: 0;
-          margin-bottom: 0;
-          margin-left: calc(-1 * var(--hd-slide-padding-left));
-          margin-right: calc(-1 * var(--hd-slide-padding-right));
-          width: calc(100% + var(--hd-slide-padding-left) + var(--hd-slide-padding-right));
+          height: var(--hd-layout-heading-divider-height, 1px);
+          background-color: var(--hd-slide-border-color);
+          box-shadow: var(--hd-layout-heading-divider-box-shadow, none);
+          margin: 0;
+          width: 100%;
+        }
+        .heading-area:not(:has(slot[name="heading"]::slotted(*))) + .heading-divider {
+          display: none;
         }
         .layout-content {
           display: flex;
           flex-direction: column;
           flex-grow: 1;
           width: 100%;
-          margin: var(--hd-layout-content-margin);
+          box-sizing: border-box;
+          padding-top: var(--hd-slide-margin-top);
+          padding-bottom: var(--hd-slide-margin-bottom);
+          padding-left: var(--hd-slide-margin-left);
+          padding-right: var(--hd-slide-margin-right);
+        }
+        /* When heading is present, remove padding-top and use margin-top */
+        .heading-area:has(slot[name="heading"]::slotted(*)) ~ .layout-content {
+          padding-top: 0;
+          margin-top: var(--hd-layout-heading-margin, var(--hd-gap-3));
         }
         .heading-area ::slotted(*) {
-          font-size: var(--hd-layout-heading-font-size);
-          color: var(--hd-layout-heading-text-color);
+          font-family: var(--hd-text-heading-font);
+          font-size: var(--hd-text-heading-font-size);
+          color: var(--hd-main-text-color);
           text-shadow: var(--hd-layout-heading-text-shadow, none);
           margin: 0;
         }

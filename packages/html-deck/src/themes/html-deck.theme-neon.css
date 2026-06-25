@@ -1,167 +1,71 @@
 /* html-deck.theme-neon.css - Neon / Cyberpunk Theme for HTML-Deck */
-
 :root {
   /* Fonts */
   --hd-font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
   --hd-body-font: var(--hd-font-family);
   --hd-heading-font: var(--hd-font-family);
 
-  /* Font Sizes */
-  --hd-font-size: 16px;
-  --hd-text-size-1: 32px;
-  --hd-text-size-2: 24px;
-  --hd-text-size-3: 18px;
-  --hd-text-size-4: 15px;
-  --hd-text-size-5: 13px;
-  --hd-text-size-6: 10px;
+  /* 24-Color Matrix (Neon Cyberpunk themed) */
+  /* Normal */
+  --hd-base-color: #030303;
+  --hd-base-text-color: #f1f5f9;
+  --hd-main-color: #0d0d1e;
+  --hd-main-text-color: #00f2fe; /* Neon Cyan */
+  --hd-accent-color: #1a0813;
+  --hd-accent-text-color: #fe019a; /* Neon Pink */
 
-  /* Colors */
-  --hd-default-color: #f1f5f9;
-  --hd-muted-color: #64748b;
-  /* Cool Gray */
-  --hd-primary-color: #00f2fe;
-  /* Neon Cyan */
-  --hd-secondary-color: #fe019a;
-  /* Neon Pink */
-  --hd-accent-color: #39ff14;
-  /* Neon Green */
-  --hd-danger-color: #ff073a;
-  /* Neon Red */
-  --hd-warning-color: #ffe600;
-  /* Neon Yellow */
-  --hd-success-color: #39ff14;
-  --hd-info-color: #00f2fe;
+  /* Muted */
+  --hd-base-color-muted: rgb(from #030303 calc(r + 7) calc(g + 7) calc(b + 15) / 0.8);
+  --hd-base-text-color-muted: #64748b;
+  --hd-main-color-muted: rgb(from #00f2fe r g b / 0.1);
+  --hd-main-text-color-muted: #00f2fe;
+  --hd-accent-color-muted: rgb(from #fe019a r g b / 0.1);
+  --hd-accent-text-color-muted: #fe019a;
 
-  /* Header Text Colors */
-  --hd-default-header-text-color: var(--hd-primary-color);
-  --hd-primary-header-text-color: var(--hd-primary-color);
-  --hd-secondary-header-text-color: var(--hd-secondary-color);
-  --hd-accent-header-text-color: var(--hd-accent-color);
-  --hd-danger-header-text-color: var(--hd-danger-color);
-  --hd-warning-header-text-color: var(--hd-warning-color);
-  --hd-success-header-text-color: var(--hd-success-color);
-  --hd-info-header-text-color: var(--hd-info-color);
-  --hd-muted-header-text-color: var(--hd-muted-color);
+  /* Inverted (Cyber White/Light Neon) */
+  --hd-base-color-inverted: #f8fafc;
+  --hd-base-text-color-inverted: #0f172a;
+  --hd-main-color-inverted: #f1f5f9;
+  --hd-main-text-color-inverted: #1e1b4b; /* Indigo Main text */
+  --hd-accent-color-inverted: #faf5ff;
+  --hd-accent-text-color-inverted: #7c3aed; /* Purple Accent */
 
-  /* Background colors (used when background is colored, keeping hue/vibe) */
-  --hd-default-background-color: #030303;
-  --hd-primary-background-color: rgb(from var(--hd-primary-color) r g b / 0.1);
-  --hd-secondary-background-color: rgb(from var(--hd-secondary-color) r g b / 0.1);
-  --hd-accent-background-color: rgb(from var(--hd-accent-color) r g b / 0.1);
-  --hd-danger-background-color: rgb(from var(--hd-danger-color) r g b / 0.1);
-  --hd-warning-background-color: rgb(from var(--hd-warning-color) r g b / 0.1);
-  --hd-success-background-color: rgb(from var(--hd-success-color) r g b / 0.1);
-  --hd-info-background-color: rgb(from var(--hd-info-color) r g b / 0.1);
-  --hd-muted-background-color: rgb(from var(--hd-muted-color) r g b / 0.1);
+  /* Muted Inverted */
+  --hd-base-color-muted-inverted: #e2e8f0;
+  --hd-base-text-color-muted-inverted: #64748b;
+  --hd-main-color-muted-inverted: #e0e7ff;
+  --hd-main-text-color-muted-inverted: #4338ca;
+  --hd-accent-color-muted-inverted: #f3e8ff;
+  --hd-accent-text-color-muted-inverted: #6d28d9;
 
-  /* Border colors (used for borders/lines of elements) */
-  --hd-default-border-color: #1e293b;
-  --hd-primary-border-color: rgb(from var(--hd-primary-color) r g b / 0.3);
-  --hd-secondary-border-color: rgb(from var(--hd-secondary-color) r g b / 0.3);
-  --hd-accent-border-color: rgb(from var(--hd-accent-color) r g b / 0.3);
-  --hd-danger-border-color: rgb(from var(--hd-danger-color) r g b / 0.3);
-  --hd-warning-border-color: rgb(from var(--hd-warning-color) r g b / 0.3);
-  --hd-success-border-color: rgb(from var(--hd-success-color) r g b / 0.3);
-  --hd-info-border-color: rgb(from var(--hd-info-color) r g b / 0.3);
-  --hd-muted-border-color: rgb(from var(--hd-muted-color) r g b / 0.3);
+  /* Typography sizes overrides if any */
+  --hd-size-1: 52px;
+  --hd-size-2: 36px;
+  --hd-size-3: 24px;
+  --hd-size-4: 16px;
+  --hd-size-5: 13px;
+  --hd-size-6: 10px;
 
-  /* Holographic Radial Slide Background & Headings moved to hd-slide below */
-
-  /* Tech-Terminal Cards & Boxes */
-  --hd-card-background-color: rgb(from var(--hd-default-background-color) calc(r + 7) calc(g + 7) calc(b + 15) / 0.8);
-  --hd-card-border-radius: 4px;
-  --hd-card-border-color: rgb(from var(--hd-default-color) r g b / 0.08);
-  --hd-card-box-shadow-primary: 0 0 15px rgb(from var(--hd-primary-color) r g b / 0.25);
-  --hd-card-box-shadow-secondary: 0 0 15px rgb(from var(--hd-secondary-color) r g b / 0.25);
-  --hd-card-box-shadow-accent: 0 0 15px rgb(from var(--hd-accent-color) r g b / 0.25);
-  --hd-card-box-shadow-danger: 0 0 15px rgb(from var(--hd-danger-color) r g b / 0.25);
-  --hd-card-box-shadow-warning: 0 0 15px rgb(from var(--hd-warning-color) r g b / 0.25);
-  --hd-card-box-shadow-success: 0 0 15px rgb(from var(--hd-success-color) r g b / 0.25);
-  --hd-card-box-shadow-info: 0 0 15px rgb(from var(--hd-info-color) r g b / 0.25);
-  --hd-card-box-shadow-muted: 0 0 15px rgb(from var(--hd-muted-color) r g b / 0.25);
-
-  /* Sci-Fi Warning Callouts */
-  --hd-callout-background-color: rgb(from var(--hd-default-color) r g b / 0.01);
-  --hd-callout-border-style: solid;
-  --hd-callout-border-width: 1px 1px 1px 4px;
-  --hd-callout-border-color: rgb(from var(--hd-default-color) r g b / 0.05);
-  --hd-callout-border-radius: 4px;
-
-  --hd-callout-background-color-primary: rgb(from var(--hd-primary-color) r g b / 0.04);
-  --hd-callout-border-color-primary: rgb(from var(--hd-primary-color) r g b / 0.2);
-  --hd-callout-box-shadow-primary: 0 0 15px rgb(from var(--hd-primary-color) r g b / 0.15);
-
-  --hd-callout-background-color-secondary: rgb(from var(--hd-secondary-color) r g b / 0.04);
-  --hd-callout-border-color-secondary: rgb(from var(--hd-secondary-color) r g b / 0.2);
-  --hd-callout-box-shadow-secondary: 0 0 15px rgb(from var(--hd-secondary-color) r g b / 0.15);
-
-  --hd-callout-background-color-accent: rgb(from var(--hd-accent-color) r g b / 0.04);
-  --hd-callout-border-color-accent: rgb(from var(--hd-accent-color) r g b / 0.2);
-  --hd-callout-box-shadow-accent: 0 0 15px rgb(from var(--hd-accent-color) r g b / 0.15);
-
-  --hd-callout-background-color-danger: rgb(from var(--hd-danger-color) r g b / 0.04);
-  --hd-callout-border-color-danger: rgb(from var(--hd-danger-color) r g b / 0.2);
-  --hd-callout-box-shadow-danger: 0 0 15px rgb(from var(--hd-danger-color) r g b / 0.15);
-
-  --hd-callout-background-color-warning: rgb(from var(--hd-warning-color) r g b / 0.04);
-  --hd-callout-border-color-warning: rgb(from var(--hd-warning-color) r g b / 0.2);
-  --hd-callout-box-shadow-warning: 0 0 15px rgb(from var(--hd-warning-color) r g b / 0.15);
-
-  --hd-callout-background-color-success: rgb(from var(--hd-success-color) r g b / 0.04);
-  --hd-callout-border-color-success: rgb(from var(--hd-success-color) r g b / 0.2);
-  --hd-callout-box-shadow-success: 0 0 15px rgb(from var(--hd-success-color) r g b / 0.15);
-
-  --hd-callout-background-color-info: rgb(from var(--hd-info-color) r g b / 0.04);
-  --hd-callout-border-color-info: rgb(from var(--hd-info-color) r g b / 0.2);
-  --hd-callout-box-shadow-info: 0 0 15px rgb(from var(--hd-info-color) r g b / 0.15);
-
-  --hd-callout-background-color-muted: rgb(from var(--hd-muted-color) r g b / 0.04);
-  --hd-callout-border-color-muted: rgb(from var(--hd-muted-color) r g b / 0.2);
-  --hd-callout-box-shadow-muted: 0 0 15px rgb(from var(--hd-muted-color) r g b / 0.15);
-
-  /* Cyber Code Blocks */
-  --hd-codeblock-background-color: rgb(from var(--hd-default-background-color) calc(r + 5) calc(g + 5) calc(b + 9) / 0.85);
-  --hd-codeblock-border-width: 1px;
-  --hd-codeblock-border-color: rgb(from var(--hd-default-color) r g b / 0.06);
-  --hd-codeblock-border-radius: 4px;
-  --hd-codeblock-box-shadow: inset 0 0 12px rgb(from var(--hd-default-background-color) 0 0 0 / 0.8);
-
-  /* Cybernetic Scrollbars */
-  --hd-scrollbar-width: 6px;
-  --hd-scrollbar-height: 6px;
-  --hd-scrollbar-track-bg: rgb(from var(--hd-default-background-color) 0 0 0 / 0.4);
-  --hd-scrollbar-thumb-bg: var(--hd-muted-color);
-  --hd-scrollbar-thumb-radius: 3px;
-  --hd-scrollbar-thumb-hover-bg: var(--hd-primary-color);
-  --hd-default-header-background-color: var(--hd-layout-heading-background-color-default);
-  --hd-primary-header-background-color: var(--hd-layout-heading-background-color-default);
-  --hd-secondary-header-background-color: var(--hd-layout-heading-background-color-default);
-  --hd-accent-header-background-color: var(--hd-layout-heading-background-color-default);
-  --hd-danger-header-background-color: var(--hd-layout-heading-background-color-default);
-  --hd-warning-header-background-color: var(--hd-layout-heading-background-color-default);
-  --hd-success-header-background-color: var(--hd-layout-heading-background-color-default);
-  --hd-info-header-background-color: var(--hd-layout-heading-background-color-default);
-  --hd-muted-header-background-color: var(--hd-layout-heading-background-color-default);
-
-  --hd-layout-heading-background-color-default: rgb(from var(--hd-default-background-color) calc(r + 6) calc(g + 6) calc(b + 8));
-  --hd-layout-heading-text-color-default: var(--hd-primary-color);
-  --hd-layout-heading-text-shadow-default: 0 0 10px var(--hd-primary-color), 0 0 20px rgb(from var(--hd-primary-color) r g b / 0.4);
-  --hd-layout-heading-divider-background-color-default: var(--hd-primary-color);
-  --hd-layout-heading-divider-box-shadow-default: 0 4px 15px var(--hd-primary-color);
-
-  --hd-slide-background-color: radial-gradient(circle at 50% 50%, rgb(from var(--hd-default-background-color) calc(r + 10) calc(g + 11) calc(b + 24)) 0%, var(--hd-default-background-color) 100%);
+  /* Heading & Cover Specific properties */
+  --hd-layout-heading-box-shadow: 0 0 15px rgb(from var(--hd-main-text-color) r g b / 0.25);
   --hd-layout-heading-divider-display: block;
-  --hd-layout-heading-padding-top: calc(var(--hd-slide-padding-top) + 8px);
-  --hd-layout-heading-text-align: center;
-  --hd-layout-content-margin: var(--hd-layout-heading-margin) 0 0 0;
+  --hd-layout-heading-divider-height: 2px;
+  --hd-layout-heading-divider-box-shadow: 0 0 10px var(--hd-main-text-color);
+  
+  --hd-layout-cover-title-text-shadow: 0 0 10px var(--hd-main-text-color), 0 0 20px rgb(from var(--hd-main-text-color) r g b / 0.4);
+  --hd-layout-cover-subtitle-text-shadow: 0 0 8px var(--hd-accent-text-color);
 
-  --hd-layout-cover-title-text-shadow: 0 0 10px var(--hd-primary-color), 0 0 20px rgb(from var(--hd-primary-color) r g b / 0.5);
-  --hd-layout-cover-subtitle-text-shadow: 0 0 8px var(--hd-secondary-color);
+  /* Card and code block cyber glow */
+  --hd-card-box-shadow: 0 0 15px rgb(from var(--hd-main-text-color) r g b / 0.15);
+  --hd-box-box-shadow: 0 0 15px rgb(from var(--hd-main-text-color) r g b / 0.15);
+  --hd-codeblock-background-color: rgb(from var(--hd-base-color) calc(r + 5) calc(g + 5) calc(b + 9) / 0.85);
+  --hd-codeblock-border-color: rgb(from var(--hd-base-text-color) r g b / 0.08);
+  --hd-codeblock-box-shadow: inset 0 0 12px rgb(from var(--hd-base-color) 0 0 0 / 0.8);
 
-  /* Dynamic mapping formulas under :root (highly simplified) */
-  --hd-layout-heading-background-color-class: var(--hd-layout-heading-background-color-default);
-  --hd-layout-heading-color-class-final: var(--hd-layout-heading-color-class);
-  --hd-layout-heading-text-shadow-class: 0 0 10px var(--hd-layout-heading-color-class), 0 0 20px rgb(from var(--hd-layout-heading-color-class) r g b / 0.4);
-  --hd-layout-heading-divider-background-color-class: var(--hd-layout-heading-color-class);
-  --hd-layout-heading-divider-box-shadow-class: 0 4px 15px var(--hd-layout-heading-color-class);
+  /* Scrollbar override thumbs */
+  --hd-scrollbar-track-bg: rgb(from var(--hd-base-color) 0 0 0 / 0.4);
+  --hd-scrollbar-thumb-hover-bg: var(--hd-main-text-color);
+
+  /* Slide Background Style (Neon Holographic Radial) */
+  --hd-slide-background-color: radial-gradient(circle at 50% 50%, rgb(from var(--hd-base-color) calc(r + 10) calc(g + 11) calc(b + 24)) 0%, var(--hd-base-color) 100%);
 }

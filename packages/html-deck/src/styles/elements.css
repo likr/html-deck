@@ -4,7 +4,7 @@ hd-slide img {
   max-width: 100%;
   height: auto;
   border-radius: 8px;
-  border: 1px solid var(--hd-default-border-color);
+  border: 1px solid var(--hd-slide-border-color);
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
 }
 
@@ -13,48 +13,154 @@ hd-slide a {
   text-decoration: none;
 }
 
+/* default headings (h1-h6) */
 hd-slide h1,
 hd-slide h2,
 hd-slide h3,
 hd-slide h4,
 hd-slide h5,
 hd-slide h6 {
-  font-family: var(--hd-heading-font);
-  font-weight: var(--hd-heading-font-weight);
-  line-height: var(--hd-heading-line-height);
+  font-family: var(--hd-text-heading-font);
+  color: var(--hd-text-heading-color);
+  font-size: var(--hd-text-heading-font-size);
+  font-weight: var(--hd-text-heading-font-weight);
+  line-height: var(--hd-text-heading-line-height);
+  letter-spacing: var(--hd-text-heading-letter-spacing);
+  text-transform: var(--hd-text-heading-text-transform);
+  text-shadow: var(--hd-text-heading-text-shadow);
   margin-top: 0;
-  margin-bottom: var(--hd-heading-margin-bottom);
-  letter-spacing: -0.02em;
-  font-size: 1em;
-  /* Override default User Agent styles to keep sizes identical */
+  margin-bottom: var(--hd-gap-2);
 }
 
-/* Title Slot styling */
-hd-slide [slot="title"] {
-  font-size: var(--hd-title-font-size);
+/* headings inside card/box structures automatically switch to subheading */
+hd-card h1, hd-card h2, hd-card h3, hd-card h4, hd-card h5, hd-card h6,
+hd-box h1, hd-box h2, hd-box h3, hd-box h4, hd-box h5, hd-box h6 {
+  font-family: var(--hd-text-subheading-font) !important;
+  color: var(--hd-text-subheading-color) !important;
+  font-size: var(--hd-text-subheading-font-size) !important;
+  font-weight: var(--hd-text-subheading-font-weight) !important;
+  line-height: var(--hd-text-subheading-line-height) !important;
+  letter-spacing: var(--hd-text-subheading-letter-spacing) !important;
+  text-transform: var(--hd-text-subheading-text-transform) !important;
+  text-shadow: var(--hd-text-subheading-text-shadow) !important;
 }
 
-/* Heading Slot styling */
-[slot="heading"] {
-  font-size: var(--hd-layout-heading-font-size);
+hd-card[variant="main"] h1, hd-card[variant="main"] h2, hd-card[variant="main"] h3, hd-card[variant="main"] h4, hd-card[variant="main"] h5, hd-card[variant="main"] h6,
+hd-box[variant="main"] h1, hd-box[variant="main"] h2, hd-box[variant="main"] h3, hd-box[variant="main"] h4, hd-box[variant="main"] h5, hd-box[variant="main"] h6 {
+  color: var(--hd-main-text-color-muted) !important;
 }
 
+hd-card[variant="accent"] h1, hd-card[variant="accent"] h2, hd-card[variant="accent"] h3, hd-card[variant="accent"] h4, hd-card[variant="accent"] h5, hd-card[variant="accent"] h6,
+hd-box[variant="accent"] h1, hd-box[variant="accent"] h2, hd-box[variant="accent"] h3, hd-box[variant="accent"] h4, hd-box[variant="accent"] h5, hd-box[variant="accent"] h6 {
+  color: var(--hd-accent-text-color-muted) !important;
+}
+
+/* Ensure contents inside container elements inherit the container's foreground color */
+hd-card p, hd-card ul, hd-card ol, hd-card li, hd-card blockquote, hd-card figcaption, hd-card caption,
+hd-box p, hd-box ul, hd-box ol, hd-box li, hd-box blockquote, hd-box figcaption, hd-box caption,
+hd-callout p, hd-callout ul, hd-callout ol, hd-callout li, hd-callout blockquote, hd-callout figcaption, hd-callout caption {
+  color: inherit !important;
+}
+
+/* Paragraphs / Lists (body) */
 hd-slide p {
+  font-family: var(--hd-text-body-font);
+  color: var(--hd-text-body-color);
+  font-size: var(--hd-text-body-font-size);
+  font-weight: var(--hd-text-body-font-weight);
+  line-height: var(--hd-text-body-line-height);
+  letter-spacing: var(--hd-text-body-letter-spacing);
+  text-transform: var(--hd-text-body-text-transform);
+  text-shadow: var(--hd-text-body-text-shadow);
   margin: 0;
-  margin-bottom: var(--hd-text-margin-bottom);
+  margin-bottom: var(--hd-list-item-margin-bottom);
 }
 
 hd-slide ul,
 hd-slide ol {
-  font-family: var(--hd-body-font);
+  font-family: var(--hd-text-body-font);
+  color: var(--hd-text-body-color);
+  font-size: var(--hd-text-body-font-size);
+  line-height: var(--hd-text-body-line-height);
   margin: 0 0 var(--hd-list-margin-bottom) 0;
   padding-left: var(--hd-list-padding-left);
-  font-size: var(--hd-text-font-size);
-  line-height: var(--hd-text-line-height);
 }
 
 hd-slide li {
   margin-bottom: var(--hd-list-item-margin-bottom);
+}
+
+/* Quote */
+hd-slide blockquote {
+  font-family: var(--hd-text-quote-font);
+  color: var(--hd-text-quote-color);
+  font-size: var(--hd-text-quote-font-size);
+  font-weight: var(--hd-text-quote-font-weight);
+  line-height: var(--hd-text-quote-line-height);
+  letter-spacing: var(--hd-text-quote-letter-spacing);
+  text-transform: var(--hd-text-quote-text-transform);
+  text-shadow: var(--hd-text-quote-text-shadow);
+  margin: 0 0 var(--hd-gap-3) 0;
+  border-left: 3px solid var(--hd-slide-border-color);
+  padding-left: var(--hd-gap-3);
+}
+
+/* Caption */
+hd-slide figcaption,
+hd-slide caption {
+  font-family: var(--hd-text-caption-font);
+  color: var(--hd-text-caption-color);
+  font-size: var(--hd-text-caption-font-size);
+  font-weight: var(--hd-text-caption-font-weight);
+  line-height: var(--hd-text-caption-line-height);
+  letter-spacing: var(--hd-text-caption-letter-spacing);
+  text-transform: var(--hd-text-caption-text-transform);
+  text-shadow: var(--hd-text-caption-text-shadow);
+}
+
+/* Slide components slots */
+hd-slide [slot="title"] {
+  font-family: var(--hd-text-title-font);
+  color: var(--hd-text-title-color);
+  font-size: var(--hd-text-title-font-size);
+  font-weight: var(--hd-text-title-font-weight);
+  line-height: var(--hd-text-title-line-height);
+  letter-spacing: var(--hd-text-title-letter-spacing);
+  text-transform: var(--hd-text-title-text-transform);
+  text-shadow: var(--hd-text-title-text-shadow);
+}
+
+[slot="heading"] {
+  font-family: var(--hd-text-heading-font);
+  color: inherit;
+  font-size: var(--hd-text-heading-font-size);
+  font-weight: var(--hd-text-heading-font-weight);
+  line-height: var(--hd-text-heading-line-height);
+  letter-spacing: var(--hd-text-heading-letter-spacing);
+  text-transform: var(--hd-text-heading-text-transform);
+  text-shadow: var(--hd-text-heading-text-shadow);
+}
+
+[slot="subtitle"] {
+  font-family: var(--hd-text-subheading-font);
+  color: var(--hd-text-subheading-color);
+  font-size: var(--hd-text-subheading-font-size);
+  font-weight: var(--hd-text-subheading-font-weight);
+  line-height: var(--hd-text-subheading-line-height);
+  letter-spacing: var(--hd-text-subheading-letter-spacing);
+  text-transform: var(--hd-text-subheading-text-transform);
+  text-shadow: var(--hd-text-subheading-text-shadow);
+}
+
+[slot="meta"] {
+  font-family: var(--hd-text-caption-font);
+  color: var(--hd-text-caption-color);
+  font-size: var(--hd-text-caption-font-size);
+  font-weight: var(--hd-text-caption-font-weight);
+  line-height: var(--hd-text-caption-line-height);
+  letter-spacing: var(--hd-text-caption-letter-spacing);
+  text-transform: var(--hd-text-caption-text-transform);
+  text-shadow: var(--hd-text-caption-text-shadow);
 }
 
 /* Nested List Styles */
