@@ -19,3 +19,9 @@ When running evaluation cycles via `skill-creator` and the `claude` CLI is unava
 - Do not run automated `claude -p` triggers.
 - Manually generate test case output assets, `timing.json`, and `grading.json` based on the skill rules, placing them under `<workspace>/iteration-N/eval-ID/...` directories.
 - Run `aggregate_benchmark.py` and `generate_review.py --static` to compile review pages for human inspection.
+
+## 4. Component Styling Overrides (Core Development)
+When writing component styles for `<hd-slide>`, `<hd-card>`, `<hd-box>`, or similar elements:
+- **Prefer Pure CSS Over JS**: Handle attribute-based overrides (e.g. `variant`, `surface`) in pure CSS using `:host([attribute="value"])` selectors in the Shadow DOM stylesheet rather than inline JS style updates.
+- **Declaration Order Precedence**: Since selectors with equal attribute counts (e.g., `:host([variant="main"][surface="soft"])` vs. `:host([heading="accent"][surface="soft"])`) have identical CSS specificity, declare the overriding rules (like `heading` attributes) below the general ones (like `variant` attributes) to ensure the cascade applies correctly.
+

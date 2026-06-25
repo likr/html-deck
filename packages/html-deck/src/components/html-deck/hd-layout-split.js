@@ -21,10 +21,7 @@ export class HdLayoutSplit extends HTMLElement {
           justify-content: center;
           width: 100%;
           box-sizing: border-box;
-          padding-top: var(--hd-slide-margin-top);
-          padding-bottom: var(--hd-layout-heading-padding-bottom);
-          padding-left: var(--hd-slide-margin-left);
-          padding-right: var(--hd-slide-margin-right);
+          padding: var(--hd-layout-heading-padding);
           background-color: var(--hd-layout-heading-background-color);
           color: var(--hd-layout-heading-text-color);
           box-shadow: var(--hd-layout-heading-box-shadow, none);
@@ -52,10 +49,7 @@ export class HdLayoutSplit extends HTMLElement {
           flex-grow: 1;
           width: 100%;
           box-sizing: border-box;
-          padding-top: var(--hd-slide-margin-top);
-          padding-bottom: var(--hd-slide-margin-bottom);
-          padding-left: var(--hd-slide-margin-left);
-          padding-right: var(--hd-slide-margin-right);
+          padding: var(--hd-layout-body-padding);
         }
         /* When heading is present, remove padding-top and use margin-top */
         .heading-area:has(slot[name="heading"]::slotted(*)) ~ .layout-content {

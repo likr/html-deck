@@ -99,14 +99,14 @@ No abbreviated names (like `bg` or `color`) should be introduced. Use `backgroun
 
 ## 3. Semantic Slide Colors
 
-These resolve dynamically to control slide borders, heading areas, and backgrounds:
-- `--hd-slide-background-color`: Mapped from `--hd-base-soft-background-color`.
-- `--hd-slide-text-color`: Mapped from `--hd-base-soft-text-color`.
-- `--hd-slide-text-highlight-color`: Mapped from `--hd-base-soft-text-highlight-color`.
-- `--hd-slide-text-muted-color`: Mapped from `--hd-base-soft-text-muted-color`.
-- `--hd-slide-border-color`: Mapped from `--hd-base-soft-text-muted-color`.
-- `--hd-layout-heading-background-color`: Mapped from `--hd-main-solid-background-color`.
-- `--hd-layout-heading-text-color`: Mapped from `--hd-main-solid-text-color`.
+These resolve dynamically to control slide borders, heading areas, and backgrounds. They are defined on `:root` to map to base defaults but are overridden on `<hd-slide>` based on the `variant`, `heading`, `surface`, and `inverted` attributes:
+- `--hd-slide-background-color`: Mapped from the soft/solid background color of the active body theme.
+- `--hd-slide-text-color`: Mapped from the soft/solid text color of the active body theme.
+- `--hd-slide-text-highlight-color`: Mapped from the soft/solid highlight color of the active body theme.
+- `--hd-slide-text-muted-color`: Mapped from the soft/solid muted color of the active body theme.
+- `--hd-slide-border-color`: Mapped from the soft/solid muted color of the active body theme.
+- `--hd-layout-heading-background-color`: Mapped from the soft/solid background color of the active heading theme.
+- `--hd-layout-heading-text-color`: Mapped from the soft/solid text color of the active heading theme.
 
 ---
 
@@ -159,7 +159,7 @@ Customize font sizing, weight, line-height, letter-spacing, and shadows for diff
 
 ## 6. Component Styling
 
-Each UI component has specific CSS variables mapping its styles to standard theme behaviors:
+Each UI component has specific CSS variables mapping its styles to standard theme behaviors. These are defined on `:root` to map to base defaults but are overridden on `<hd-card>` and `<hd-box>` based on their `variant` (`base`, `main`, `accent`) and `surface` (`soft`, `solid`) attributes:
 
 ### Card (`.hd-card`)
 - `--hd-card-border-radius`: Border radius. (Default: `12px`)

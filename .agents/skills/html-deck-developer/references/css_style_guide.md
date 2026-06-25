@@ -81,6 +81,9 @@
 - **Shadow DOM 詳細度問題**:
   Light DOM のグローバルセレクタ（`[slot="heading"]` など）は、Shadow DOM 内の `::slotted(*)` セレクタよりも詳細度が高く、コンポーネント内部 of テーマ/コントラストカラーを上書きしてしまいます。
   - **解決策**: Global CSS (`elements.css` など) 内の slotted 要素用セレクタでは `color: inherit;` を使用し、Shadow DOM 側のスタイルが正しく適用されるようにします。
+- **複数属性による配色の上書き優先順位（詳細度）の問題**:
+  `variant` と `heading`、`surface` のように複数のカスタマイズ属性を組み合わせて適用する場合、セレクタ同士のCSS詳細度が同一（例: `:host([variant="main"][surface="soft"])` と `:host([heading="base"][surface="soft"])`）だと、宣言の順序に依存してスタイルが決定されます。
+  - **解決策**: CSSファイル内での宣言順序を意識し、より特定の目的を持つ属性（例: `heading` 属性）のスタイル定義を必ず汎用的な属性（例: `variant` 属性）よりも**下部（後）に宣言**して、カスケードで上書きされるように制御してください。
 
 ---
 

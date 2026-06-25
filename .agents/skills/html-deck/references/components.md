@@ -45,6 +45,9 @@ The unified slide container component. It handles slide transitions, visibility 
 - `hide-page-number` (boolean): If present, disables the page number on this slide.
 - `inverted` (boolean): If present, inverts the background and text color of the slide (switches colors to inverted palette variants, useful for introducing dark slides).
 - `center` (boolean): If present, vertically and horizontally centers content within the slide.
+- `variant` (string): Theme variation for the slide. Options: `default` (heading main-solid, body base-soft), `base` (body base-soft, heading base-solid), `main` (body main-soft, heading main-solid), `accent` (body accent-soft, heading accent-solid).
+- `heading` (string): Specific theme variation for layout heading only, overriding the variant heading theme. Options: `base`, `main`, `accent` (sets heading to y-solid).
+- `surface` (string): Surface override configurations. Options: `soft` (forces heading to soft), `solid` (forces body to solid).
 
 #### Slots
 - **Default Slot**: Main content slot. Usually contains one of the layout components below.
@@ -117,7 +120,8 @@ These components help present block text, callouts, or mathematical equations wi
 A card container with a boxed layout, styled with background colors and borders. Good for highlighting specific sections of content.
 
 #### Attributes
-- `variant` (string): Theme variation mapping. Options: `main` (uses primary accent colors), `accent` (uses secondary accent colors). If omitted, renders with standard base muted styles.
+- `variant` (string): Theme variation mapping. Options: `base`, `main` (uses primary accent colors), `accent` (uses secondary accent colors). If omitted, renders with standard base muted styles.
+- `surface` (string): Surface override configuration. Options: `soft` (makes both card body and heading soft), `solid` (makes both card body and heading solid). Default (omitted): body is soft, heading is solid.
 
 #### Slots
 - `heading`: Card title header area. Automatically styled like a subheading.
@@ -129,7 +133,8 @@ A card container with a boxed layout, styled with background colors and borders.
 A boxed container similar to `<hd-card>` but configured to automatically stretch to fill 100% height of its parent column/container.
 
 #### Attributes
-- `variant` (string): Theme variation mapping. Options: `main`, `accent`. If omitted, renders with standard base muted styles.
+- `variant` (string): Theme variation mapping. Options: `base`, `main`, `accent`. If omitted, renders with standard base muted styles.
+- `surface` (string): Surface override configuration. Options: `soft` (makes both box body and heading soft), `solid` (makes both box body and heading solid). Default (omitted): body is soft, heading is solid.
 
 #### Slots
 - `heading`: Box title header area.

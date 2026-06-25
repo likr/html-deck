@@ -528,6 +528,42 @@
       </div>
     </hd-slide>
 
+    <!-- Slide 22: Color Customization Showcase -->
+    <hd-slide variant="main" heading="accent" surface="soft">
+      <hd-layout>
+        <h2 slot="heading">Slide: variant="main" heading="accent" surface="soft"</h2>
+        <p>This slide has a main-soft body and an accent-soft heading.</p>
+        <div style="display: flex; gap: var(--hd-gap-2);">
+          <hd-card variant="accent" surface="soft" style="flex: 1;">
+            <h3 slot="heading">Card accent soft</h3>
+            <p>This card uses variant="accent" and surface="soft" (soft body and heading).</p>
+          </hd-card>
+          <hd-box variant="main" surface="solid" style="flex: 1;">
+            <h3 slot="heading">Box main solid</h3>
+            <p>This box uses variant="main" and surface="solid" (solid body and heading).</p>
+          </hd-box>
+        </div>
+      </hd-layout>
+    </hd-slide>
+
+    <!-- Slide 23: Solid Slide with Inverted variations -->
+    <hd-slide variant="accent" surface="solid" inverted>
+      <hd-layout>
+        <h2 slot="heading">Slide: variant="accent" surface="solid" inverted</h2>
+        <p>This slide is accent-solid-inverted, and heading is accent-solid-inverted.</p>
+        <div style="display: flex; gap: var(--hd-gap-2);">
+          <hd-card variant="base" surface="soft" style="flex: 1;">
+            <h3 slot="heading">Card base soft</h3>
+            <p>This card uses variant="base" and surface="soft".</p>
+          </hd-card>
+          <hd-box variant="accent" style="flex: 1;">
+            <h3 slot="heading">Box accent default</h3>
+            <p>This box uses variant="accent" and default surface (soft body, solid heading).</p>
+          </hd-box>
+        </div>
+      </hd-layout>
+    </hd-slide>
+
   </hd-deck>
 
   <!-- Interactive script to load and swap theme stylesheets, aspect ratios, and transitions -->

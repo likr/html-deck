@@ -1,6 +1,6 @@
 export class HdBox extends HTMLElement {
   static get observedAttributes() {
-    return ['variant'];
+    return ['variant', 'surface'];
   }
 
   constructor() {
@@ -23,8 +23,88 @@ export class HdBox extends HTMLElement {
           border-color: var(--hd-box-border-color);
           box-shadow: var(--hd-box-box-shadow);
           overflow: hidden;
+
+          /* Explicit defaults */
+          --hd-box-background-color: var(--hd-base-soft-background-color);
+          --hd-box-text-color: var(--hd-base-soft-text-color);
+          --hd-box-border-color: var(--hd-base-solid-background-color);
+          --hd-box-heading-background-color: var(--hd-base-solid-background-color);
+          --hd-box-heading-text-color: var(--hd-base-solid-text-color);
+          --hd-box-heading-border-color: var(--hd-base-solid-background-color);
         }
 
+        /* Default theme with surface overrides */
+        :host([surface="soft"]) {
+          --hd-box-background-color: var(--hd-base-soft-background-color);
+          --hd-box-text-color: var(--hd-base-soft-text-color);
+          --hd-box-border-color: var(--hd-base-soft-background-color);
+          --hd-box-heading-background-color: var(--hd-base-soft-background-color);
+          --hd-box-heading-text-color: var(--hd-base-soft-text-color);
+          --hd-box-heading-border-color: var(--hd-base-soft-background-color);
+        }
+
+        :host([surface="solid"]) {
+          --hd-box-background-color: var(--hd-base-solid-background-color);
+          --hd-box-text-color: var(--hd-base-solid-text-color);
+          --hd-box-border-color: var(--hd-base-solid-background-color);
+          --hd-box-heading-background-color: var(--hd-base-solid-background-color);
+          --hd-box-heading-text-color: var(--hd-base-solid-text-color);
+          --hd-box-heading-border-color: var(--hd-base-solid-background-color);
+        }
+
+        /* Variant default */
+        :host([variant="default"]) {
+          --hd-box-background-color: var(--hd-base-soft-background-color);
+          --hd-box-text-color: var(--hd-base-soft-text-color);
+          --hd-box-border-color: var(--hd-base-solid-background-color);
+          --hd-box-heading-background-color: var(--hd-base-solid-background-color);
+          --hd-box-heading-text-color: var(--hd-base-solid-text-color);
+          --hd-box-heading-border-color: var(--hd-base-solid-background-color);
+        }
+        :host([variant="default"][surface="soft"]) {
+          --hd-box-background-color: var(--hd-base-soft-background-color);
+          --hd-box-text-color: var(--hd-base-soft-text-color);
+          --hd-box-border-color: var(--hd-base-soft-background-color);
+          --hd-box-heading-background-color: var(--hd-base-soft-background-color);
+          --hd-box-heading-text-color: var(--hd-base-soft-text-color);
+          --hd-box-heading-border-color: var(--hd-base-soft-background-color);
+        }
+        :host([variant="default"][surface="solid"]) {
+          --hd-box-background-color: var(--hd-base-solid-background-color);
+          --hd-box-text-color: var(--hd-base-solid-text-color);
+          --hd-box-border-color: var(--hd-base-solid-background-color);
+          --hd-box-heading-background-color: var(--hd-base-solid-background-color);
+          --hd-box-heading-text-color: var(--hd-base-solid-text-color);
+          --hd-box-heading-border-color: var(--hd-base-solid-background-color);
+        }
+
+        /* Variant base */
+        :host([variant="base"]) {
+          --hd-box-background-color: var(--hd-base-soft-background-color);
+          --hd-box-text-color: var(--hd-base-soft-text-color);
+          --hd-box-border-color: var(--hd-base-solid-background-color);
+          --hd-box-heading-background-color: var(--hd-base-solid-background-color);
+          --hd-box-heading-text-color: var(--hd-base-solid-text-color);
+          --hd-box-heading-border-color: var(--hd-base-solid-background-color);
+        }
+        :host([variant="base"][surface="soft"]) {
+          --hd-box-background-color: var(--hd-base-soft-background-color);
+          --hd-box-text-color: var(--hd-base-soft-text-color);
+          --hd-box-border-color: var(--hd-base-soft-background-color);
+          --hd-box-heading-background-color: var(--hd-base-soft-background-color);
+          --hd-box-heading-text-color: var(--hd-base-soft-text-color);
+          --hd-box-heading-border-color: var(--hd-base-soft-background-color);
+        }
+        :host([variant="base"][surface="solid"]) {
+          --hd-box-background-color: var(--hd-base-solid-background-color);
+          --hd-box-text-color: var(--hd-base-solid-text-color);
+          --hd-box-border-color: var(--hd-base-solid-background-color);
+          --hd-box-heading-background-color: var(--hd-base-solid-background-color);
+          --hd-box-heading-text-color: var(--hd-base-solid-text-color);
+          --hd-box-heading-border-color: var(--hd-base-solid-background-color);
+        }
+
+        /* Variant main */
         :host([variant="main"]) {
           --hd-box-background-color: var(--hd-main-soft-background-color);
           --hd-box-text-color: var(--hd-main-soft-text-color);
@@ -33,10 +113,43 @@ export class HdBox extends HTMLElement {
           --hd-box-heading-text-color: var(--hd-main-solid-text-color);
           --hd-box-heading-border-color: var(--hd-main-solid-background-color);
         }
+        :host([variant="main"][surface="soft"]) {
+          --hd-box-background-color: var(--hd-main-soft-background-color);
+          --hd-box-text-color: var(--hd-main-soft-text-color);
+          --hd-box-border-color: var(--hd-main-soft-background-color);
+          --hd-box-heading-background-color: var(--hd-main-soft-background-color);
+          --hd-box-heading-text-color: var(--hd-main-soft-text-color);
+          --hd-box-heading-border-color: var(--hd-main-soft-background-color);
+        }
+        :host([variant="main"][surface="solid"]) {
+          --hd-box-background-color: var(--hd-main-solid-background-color);
+          --hd-box-text-color: var(--hd-main-solid-text-color);
+          --hd-box-border-color: var(--hd-main-solid-background-color);
+          --hd-box-heading-background-color: var(--hd-main-solid-background-color);
+          --hd-box-heading-text-color: var(--hd-main-solid-text-color);
+          --hd-box-heading-border-color: var(--hd-main-solid-background-color);
+        }
 
+        /* Variant accent */
         :host([variant="accent"]) {
           --hd-box-background-color: var(--hd-accent-soft-background-color);
           --hd-box-text-color: var(--hd-accent-soft-text-color);
+          --hd-box-border-color: var(--hd-accent-solid-background-color);
+          --hd-box-heading-background-color: var(--hd-accent-solid-background-color);
+          --hd-box-heading-text-color: var(--hd-accent-solid-text-color);
+          --hd-box-heading-border-color: var(--hd-accent-solid-background-color);
+        }
+        :host([variant="accent"][surface="soft"]) {
+          --hd-box-background-color: var(--hd-accent-soft-background-color);
+          --hd-box-text-color: var(--hd-accent-soft-text-color);
+          --hd-box-border-color: var(--hd-accent-soft-background-color);
+          --hd-box-heading-background-color: var(--hd-accent-soft-background-color);
+          --hd-box-heading-text-color: var(--hd-accent-soft-text-color);
+          --hd-box-heading-border-color: var(--hd-accent-soft-background-color);
+        }
+        :host([variant="accent"][surface="solid"]) {
+          --hd-box-background-color: var(--hd-accent-solid-background-color);
+          --hd-box-text-color: var(--hd-accent-solid-text-color);
           --hd-box-border-color: var(--hd-accent-solid-background-color);
           --hd-box-heading-background-color: var(--hd-accent-solid-background-color);
           --hd-box-heading-text-color: var(--hd-accent-solid-text-color);
