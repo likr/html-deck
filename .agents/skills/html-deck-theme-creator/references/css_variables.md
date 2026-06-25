@@ -23,50 +23,90 @@ Used across various font sizes and spacing parameters:
 
 ---
 
-## 2. 24-Color Matrix
+## 2. 48-Color Matrix
 
-Theme configurations define these colors to align branding across standard, muted, and inverted slides:
+Theme configurations define these colors to align branding across standard, muted, and inverted slides. The naming convention is `--hd-{theme}-{surface}-{element}` (and `--hd-{theme}-{surface}-{element}-inverted` for inverted variants).
 
-### Normal (Standard Contrast)
-- `--hd-base-color`: Standard slide background. (Default: `#ffffff`)
-- `--hd-base-text-color`: Standard slide foreground text. (Default: `#0f172a`)
-- `--hd-main-color`: Primary branding color. (Default: `#3b82f6` - Blue)
-- `--hd-main-text-color`: Foreground text color on top of primary color backgrounds. (Default: `#ffffff`)
-- `--hd-accent-color`: Secondary branding/accent color. (Default: `#10b981` - Emerald)
-- `--hd-accent-text-color`: Foreground text color on top of accent color backgrounds. (Default: `#ffffff`)
+No abbreviated names (like `bg` or `color`) should be introduced. Use `background-color` and `text-color` explicitly.
 
-### Muted (Soft Contrast)
-- `--hd-base-color-muted`: Card backgrounds or subtle boxes. (Default: `#f8fafc`)
-- `--hd-base-text-color-muted`: Secondary metadata or secondary notes. (Default: `#64748b`)
-- `--hd-main-color-muted`: Soft background highlight for primary items. (Default: `#eff6ff`)
-- `--hd-main-text-color-muted`: Darker text color on top of soft primary highlights. (Default: `#1d4ed8`)
-- `--hd-accent-color-muted`: Soft background highlight for accent items. (Default: `#ecfdf5`)
-- `--hd-accent-text-color-muted`: Darker text color on top of soft accent highlights. (Default: `#047857`)
+### Base (Neutral/Standard) Theme
+- **Soft (Light bg / Dark text)**:
+  - `--hd-base-soft-background-color`: Standard slide background. (Default: `#ffffff`)
+  - `--hd-base-soft-text-color`: Standard slide text. (Default: `#111827`)
+  - `--hd-base-soft-text-highlight-color`: Slide highlight text. (Default: `#0f766e`)
+  - `--hd-base-soft-text-muted-color`: Slide muted text. (Default: `#4b5563`)
+- **Solid (Medium bg / Dark text)**:
+  - `--hd-base-solid-background-color`: Standard card header/border fill. (Default: `#f3f4f6`)
+  - `--hd-base-solid-text-color`: Standard card header text. (Default: `#111827`)
+  - `--hd-base-solid-text-highlight-color`: Solid highlight text. (Default: `#115e59`)
+  - `--hd-base-solid-text-muted-color`: Solid muted text. (Default: `#4b5563`)
+- **Soft Inverted (Dark bg / Light text)**:
+  - `--hd-base-soft-background-color-inverted` (Default: `#111827`)
+  - `--hd-base-soft-text-color-inverted` (Default: `#ffffff`)
+  - `--hd-base-soft-text-highlight-color-inverted` (Default: `#5eead4`)
+  - `--hd-base-soft-text-muted-color-inverted` (Default: `#9ca3af`)
+- **Solid Inverted (Dark bg / Light text)**:
+  - `--hd-base-solid-background-color-inverted` (Default: `#111827`)
+  - `--hd-base-solid-text-color-inverted` (Default: `#f3f4f6`)
+  - `--hd-base-solid-text-highlight-color-inverted` (Default: `#5eead4`)
+  - `--hd-base-solid-text-muted-color-inverted` (Default: `#9ca3af`)
 
-### Inverted (Dark Contrast - Used on Inverted Slides)
-- `--hd-base-color-inverted`: Dark slide background. (Default: `#0f172a`)
-- `--hd-base-text-color-inverted`: Light text color. (Default: `#f8fafc`)
-- `--hd-main-color-inverted`: Primary branding color on dark mode. (Default: `#3b82f6`)
-- `--hd-main-text-color-inverted`: Text on top of inverted primary background. (Default: `#ffffff`)
-- `--hd-accent-color-inverted`: Accent color on dark mode. (Default: `#10b981`)
-- `--hd-accent-text-color-inverted`: Text on top of inverted accent background. (Default: `#ffffff`)
+### Main (Brand/Indigo) Theme
+- **Soft**:
+  - `--hd-main-soft-background-color` (Default: `#eef2ff`)
+  - `--hd-main-soft-text-color` (Default: `#312e81`)
+  - `--hd-main-soft-text-highlight-color` (Default: `#0f766e`)
+  - `--hd-main-soft-text-muted-color` (Default: `#4338ca`)
+- **Solid**:
+  - `--hd-main-solid-background-color` (Default: `#4f46e5`)
+  - `--hd-main-solid-text-color` (Default: `#ffffff`)
+  - `--hd-main-solid-text-highlight-color` (Default: `#5eead4`)
+  - `--hd-main-solid-text-muted-color` (Default: `#e0e7ff`)
+- **Soft Inverted**:
+  - `--hd-main-soft-background-color-inverted` (Default: `#312e81`)
+  - `--hd-main-soft-text-color-inverted` (Default: `#eef2ff`)
+  - `--hd-main-soft-text-highlight-color-inverted` (Default: `#5eead4`)
+  - `--hd-main-soft-text-muted-color-inverted` (Default: `#a5b4fc`)
+- **Solid Inverted**:
+  - `--hd-main-solid-background-color-inverted` (Default: `#ffffff`)
+  - `--hd-main-solid-text-color-inverted` (Default: `#4f46e5`)
+  - `--hd-main-solid-text-highlight-color-inverted` (Default: `#0f766e`)
+  - `--hd-main-solid-text-muted-color-inverted` (Default: `#4338ca`)
 
-### Muted Inverted
-- `--hd-base-color-muted-inverted`: Card backgrounds on dark mode. (Default: `#1e293b`)
-- `--hd-base-text-color-muted-inverted`: Secondary text color on dark mode. (Default: `#94a3b8`)
-- `--hd-main-color-muted-inverted`: Soft primary highlight on dark mode. (Default: `#1e3a8a`)
-- `--hd-main-text-color-muted-inverted`: Text on top of soft primary highlight in dark mode. (Default: `#93c5fd`)
-- `--hd-accent-color-muted-inverted`: Soft accent highlight on dark mode. (Default: `#064e3b`)
-- `--hd-accent-text-color-muted-inverted`: Text on top of soft accent highlight in dark mode. (Default: `#a7f3d0`)
+### Accent (Teal) Theme
+- **Soft**:
+  - `--hd-accent-soft-background-color` (Default: `#f0fdfa`)
+  - `--hd-accent-soft-text-color` (Default: `#134e4a`)
+  - `--hd-accent-soft-text-highlight-color` (Default: `#4338ca`)
+  - `--hd-accent-soft-text-muted-color` (Default: `#0f766e`)
+- **Solid**:
+  - `--hd-accent-solid-background-color` (Default: `#0d9488`)
+  - `--hd-accent-solid-text-color` (Default: `#ffffff`)
+  - `--hd-accent-solid-text-highlight-color` (Default: `#c7d2fe`)
+  - `--hd-accent-solid-text-muted-color` (Default: `#99f6e4`)
+- **Soft Inverted**:
+  - `--hd-accent-soft-background-color-inverted` (Default: `#134e4a`)
+  - `--hd-accent-soft-text-color-inverted` (Default: `#f0fdfa`)
+  - `--hd-accent-soft-text-highlight-color-inverted` (Default: `#a5b4fc`)
+  - `--hd-accent-soft-text-muted-color-inverted` (Default: `#5eead4`)
+- **Solid Inverted**:
+  - `--hd-accent-solid-background-color-inverted` (Default: `#ffffff`)
+  - `--hd-accent-solid-text-color-inverted` (Default: `#0d9488`)
+  - `--hd-accent-solid-text-highlight-color-inverted` (Default: `#4338ca`)
+  - `--hd-accent-solid-text-muted-color-inverted` (Default: `#0f766e`)
 
 ---
 
 ## 3. Semantic Slide Colors
 
-These resolve directly to the base colors and control slide layout borders and backgrounds:
-- `--hd-slide-background-color`: Mapped from `--hd-base-color`.
-- `--hd-slide-text-color`: Mapped from `--hd-base-text-color`.
-- `--hd-slide-border-color`: Mapped from `--hd-base-text-color-muted`.
+These resolve dynamically to control slide borders, heading areas, and backgrounds:
+- `--hd-slide-background-color`: Mapped from `--hd-base-soft-background-color`.
+- `--hd-slide-text-color`: Mapped from `--hd-base-soft-text-color`.
+- `--hd-slide-text-highlight-color`: Mapped from `--hd-base-soft-text-highlight-color`.
+- `--hd-slide-text-muted-color`: Mapped from `--hd-base-soft-text-muted-color`.
+- `--hd-slide-border-color`: Mapped from `--hd-base-soft-text-muted-color`.
+- `--hd-layout-heading-background-color`: Mapped from `--hd-main-solid-background-color`.
+- `--hd-layout-heading-text-color`: Mapped from `--hd-main-solid-text-color`.
 
 ---
 
@@ -126,12 +166,12 @@ Each UI component has specific CSS variables mapping its styles to standard them
 - `--hd-card-padding`: Padding. (Default: `var(--hd-gap-3)`)
 - `--hd-card-margin-bottom`: Margin bottom. (Default: `var(--hd-gap-3)`)
 - `--hd-card-font-size`: Inner text size. (Default: `var(--hd-size-4)`)
-- `--hd-card-background-color`: Card fill color. (Default: `var(--hd-base-color-muted)`)
-- `--hd-card-text-color`: Card text. (Default: `var(--hd-base-text-color)`)
+- `--hd-card-background-color`: Card fill color. (Default: `var(--hd-base-soft-background-color)`)
+- `--hd-card-text-color`: Card text. (Default: `var(--hd-base-soft-text-color)`)
 - `--hd-card-border-width`: Card border width. (Default: `1px`)
 - `--hd-card-border-style`: Card border style. (Default: `solid`)
-- `--hd-card-border-color`: Card border outline. (Default: `rgba(from var(--hd-base-text-color) r g b / 0.08)`)
-- `--hd-card-box-shadow`: Card outer drop shadow. (Default: `0 4px 12px rgba(from var(--hd-base-text-color) r g b / 0.03), 0 1px 2px rgba(from var(--hd-base-text-color) r g b / 0.02)`)
+- `--hd-card-border-color`: Card border outline. (Default: `var(--hd-base-solid-background-color)`)
+- `--hd-card-box-shadow`: Card outer drop shadow. (Default: `0 4px 12px rgba(from var(--hd-base-soft-text-color) r g b / 0.03), 0 1px 2px rgba(from var(--hd-base-soft-text-color) r g b / 0.02)`)
 - `--hd-card-heading-background-color` / `--hd-card-heading-text-color` / `--hd-card-heading-border-color`: Style mappings for card title headers.
 
 ### Box (`.hd-box`)

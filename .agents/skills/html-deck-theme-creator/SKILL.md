@@ -62,19 +62,14 @@ Whenever you need to override colors, font sizes, padding, margins, or individua
 
 For a complete list of variables, refer to the library's [variables.css](file:///home/likr/work/likr/html-deck/packages/html-deck/src/styles/variables.css). The most common variables to override include:
 
-### 1. Palette Colors
-- `--hd-base-color`: Background color for standard container/slide blocks.
-- `--hd-base-text-color`: Foreground text color.
-- `--hd-main-color`: Primary branding color (used for links, primary buttons, highlights).
-- `--hd-main-text-color`: Foreground text color on top of primary branding color elements.
-- `--hd-accent-color`: Secondary accent branding color.
-- `--hd-accent-text-color`: Foreground text color on top of accent elements.
+### 1. 48-Color Matrix Variables
+Colors are organized by theme (`base`, `main`, `accent`), surface (`soft`, `solid`), and element type (`background-color`, `text-color`, `text-highlight-color`, `text-muted-color`).
+- **Normal Layouts**: `--hd-{theme}-{surface}-{element}` (e.g. `--hd-base-soft-background-color`, `--hd-main-solid-background-color`)
+- **Inverted Layouts**: `--hd-{theme}-{surface}-{element}-inverted` (e.g. `--hd-base-soft-background-color-inverted`, `--hd-main-solid-background-color-inverted`)
 
-### 2. Muted/Inverted Variants
-- `--hd-base-color-muted` & `--hd-base-text-color-muted`
-- `--hd-base-color-inverted` & `--hd-base-text-color-inverted`
+No abbreviated names (like `bg` or `color`) should be introduced. Use `background-color` and `text-color` explicitly.
 
-### 3. Slide Layout Margins & Gaps
+### 2. Slide Layout Margins & Gaps
 - `--hd-slide-margin-top` / `--hd-slide-margin-right` / `--hd-slide-margin-bottom` / `--hd-slide-margin-left`
 - `--hd-gap-1` to `--hd-gap-6` (Spacing scale)
 

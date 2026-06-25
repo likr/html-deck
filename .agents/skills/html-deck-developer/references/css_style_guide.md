@@ -12,6 +12,10 @@
   - ❌ 誤り: `color: var(--hd-primary-color, #0076ff);`
   -  正しい: `color: var(--hd-primary-color);`
   - **理由**: インラインでフォールバックを重複して書くと、テーマシステムやデフォルト値の管理が分散し、DRY（Don't Repeat Yourself）でなくなりメンテナンス性が著しく低下するためです。
+- **変数名の明示的定義（省略形の禁止）**:
+  新しく導入または変更するすべてのCSS変数名において、`bg` や `fg` などの省略形を使用してはなりません。背景色や文字色を表す場合は、必ず `background-color`、`text-color` などのように明示的なフルスペルを使用してください。
+  - ❌ 誤り: `--hd-layout-heading-bg`, `--hd-card-bg`, `--hd-layout-heading-color`
+  -  正しい: `--hd-layout-heading-background-color`, `--hd-card-background-color`, `--hd-layout-heading-text-color`
 
 ---
 

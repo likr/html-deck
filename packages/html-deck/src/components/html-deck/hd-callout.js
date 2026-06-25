@@ -25,15 +25,15 @@ export class HdCallout extends HTMLElement {
         }
 
         :host([variant="main"]) {
-          --hd-callout-background-color: var(--hd-main-color-muted);
-          --hd-callout-text-color: var(--hd-main-text-color-muted);
-          --hd-callout-border-color: var(--hd-main-text-color-muted);
+          --hd-callout-background-color: var(--hd-main-soft-background-color);
+          --hd-callout-text-color: var(--hd-main-soft-text-color);
+          --hd-callout-border-color: var(--hd-main-solid-background-color);
         }
 
         :host([variant="accent"]) {
-          --hd-callout-background-color: var(--hd-accent-color-muted);
-          --hd-callout-text-color: var(--hd-accent-text-color-muted);
-          --hd-callout-border-color: var(--hd-accent-text-color-muted);
+          --hd-callout-background-color: var(--hd-accent-soft-background-color);
+          --hd-callout-text-color: var(--hd-accent-soft-text-color);
+          --hd-callout-border-color: var(--hd-accent-solid-background-color);
         }
 
       </style>

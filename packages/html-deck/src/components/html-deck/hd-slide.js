@@ -84,32 +84,23 @@ HdSlide.baseStyles = `
   }
 
   :host([inverted]) {
-    --hd-base-color: var(--hd-base-color-inverted);
-    --hd-base-text-color: var(--hd-base-text-color-inverted);
-    --hd-main-color: var(--hd-main-color-inverted);
-    --hd-main-text-color: var(--hd-main-text-color-inverted);
-    --hd-accent-color: var(--hd-accent-color-inverted);
-    --hd-accent-text-color: var(--hd-accent-text-color-inverted);
-
-    --hd-base-color-muted: var(--hd-base-color-muted-inverted);
-    --hd-base-text-color-muted: var(--hd-base-text-color-muted-inverted);
-    --hd-main-color-muted: var(--hd-main-color-muted-inverted);
-    --hd-main-text-color-muted: var(--hd-main-text-color-muted-inverted);
-    --hd-accent-color-muted: var(--hd-accent-color-muted-inverted);
-    --hd-accent-text-color-muted: var(--hd-accent-text-color-muted-inverted);
-
     /* Explicitly override slide and text type colors to inverted values to fix CSS variable inheritance evaluation */
-    --hd-slide-background-color: var(--hd-base-color-inverted);
-    --hd-slide-text-color: var(--hd-base-text-color-inverted);
-    --hd-slide-border-color: var(--hd-base-text-color-muted-inverted);
+    --hd-slide-background-color: var(--hd-base-soft-background-color-inverted);
+    --hd-slide-text-color: var(--hd-base-soft-text-color-inverted);
+    --hd-slide-text-highlight-color: var(--hd-base-soft-text-highlight-color-inverted);
+    --hd-slide-text-muted-color: var(--hd-base-soft-text-muted-color-inverted);
+    --hd-slide-border-color: var(--hd-base-soft-text-muted-color-inverted);
 
-    --hd-text-title-color: var(--hd-base-text-color-inverted);
-    --hd-text-heading-color: var(--hd-base-text-color-inverted);
-    --hd-text-subheading-color: var(--hd-base-text-color-muted-inverted);
-    --hd-text-body-color: var(--hd-base-text-color-inverted);
-    --hd-text-quote-color: var(--hd-base-text-color-muted-inverted);
-    --hd-text-caption-color: var(--hd-base-text-color-muted-inverted);
-    --hd-text-peripheral-color: var(--hd-base-text-color-muted-inverted);
+    --hd-layout-heading-background-color: var(--hd-main-solid-background-color-inverted);
+    --hd-layout-heading-text-color: var(--hd-main-solid-text-color-inverted);
+
+    --hd-text-title-color: var(--hd-base-soft-text-color-inverted);
+    --hd-text-heading-color: var(--hd-base-soft-text-color-inverted);
+    --hd-text-subheading-color: var(--hd-base-soft-text-muted-color-inverted);
+    --hd-text-body-color: var(--hd-base-soft-text-color-inverted);
+    --hd-text-quote-color: var(--hd-base-soft-text-muted-color-inverted);
+    --hd-text-caption-color: var(--hd-base-soft-text-muted-color-inverted);
+    --hd-text-peripheral-color: var(--hd-base-soft-text-muted-color-inverted);
   }
 
   :host([active]) {

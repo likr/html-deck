@@ -26,21 +26,21 @@ export class HdCard extends HTMLElement {
         }
 
         :host([variant="main"]) {
-          --hd-card-background-color: var(--hd-main-color-muted);
-          --hd-card-text-color: var(--hd-main-text-color-muted);
-          --hd-card-border-color: var(--hd-main-text-color-muted);
-          --hd-card-heading-background-color: var(--hd-main-color);
-          --hd-card-heading-text-color: var(--hd-main-text-color);
-          --hd-card-heading-border-color: var(--hd-main-text-color-muted);
+          --hd-card-background-color: var(--hd-main-soft-background-color);
+          --hd-card-text-color: var(--hd-main-soft-text-color);
+          --hd-card-border-color: var(--hd-main-solid-background-color);
+          --hd-card-heading-background-color: var(--hd-main-solid-background-color);
+          --hd-card-heading-text-color: var(--hd-main-solid-text-color);
+          --hd-card-heading-border-color: var(--hd-main-solid-background-color);
         }
 
         :host([variant="accent"]) {
-          --hd-card-background-color: var(--hd-accent-color-muted);
-          --hd-card-text-color: var(--hd-accent-text-color-muted);
-          --hd-card-border-color: var(--hd-accent-text-color-muted);
-          --hd-card-heading-background-color: var(--hd-accent-color);
-          --hd-card-heading-text-color: var(--hd-accent-text-color);
-          --hd-card-heading-border-color: var(--hd-accent-text-color-muted);
+          --hd-card-background-color: var(--hd-accent-soft-background-color);
+          --hd-card-text-color: var(--hd-accent-soft-text-color);
+          --hd-card-border-color: var(--hd-accent-solid-background-color);
+          --hd-card-heading-background-color: var(--hd-accent-solid-background-color);
+          --hd-card-heading-text-color: var(--hd-accent-solid-text-color);
+          --hd-card-heading-border-color: var(--hd-accent-solid-background-color);
         }
 
 

@@ -18,8 +18,8 @@ export class HdLayout extends HTMLElement {
           width: 100%;
           box-sizing: border-box;
           padding: var(--hd-layout-heading-padding);
-          background-color: var(--hd-main-color);
-          color: var(--hd-main-text-color);
+          background-color: var(--hd-layout-heading-background-color);
+          color: var(--hd-layout-heading-text-color);
           box-shadow: var(--hd-layout-heading-box-shadow, none);
           text-align: var(--hd-layout-heading-text-align, left);
         }
@@ -55,7 +55,7 @@ export class HdLayout extends HTMLElement {
         .heading-area ::slotted(*) {
           font-family: var(--hd-text-heading-font);
           font-size: var(--hd-text-heading-font-size);
-          color: var(--hd-main-text-color);
+          color: var(--hd-layout-heading-text-color);
           text-shadow: var(--hd-layout-heading-text-shadow, none);
           margin: 0;
         }
