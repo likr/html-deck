@@ -4,7 +4,7 @@
 When creating or editing slides using the `html-deck` library:
 - **Strict Styling Prohibition**: Do not write custom CSS, `<style>` blocks, or inline `style="..."` attributes unless explicitly requested by the user.
 - **Utility and Layout Priority**: Rely entirely on native custom elements (e.g., `<hd-layout>`, `<hd-card>`) and predefined utility classes (e.g., `.hd-accent`, `.hd-mt-3`).
-- **Centering on Blank Slides**: The `center` attribute on `<hd-slide>` does not natively center slotted elements due to flex stretch constraints in the slide body-area. Wrap slide elements in a utility centering container (`<div class="hd-align-center hd-align-middle hd-text-center">`) for perfect centering on blank slides.
+- **Centering on Blank Slides**: The `center` attribute on `<hd-slide>` natively centers slotted elements vertically and horizontally. Direct child elements in the slide body-area will be centered without needing wrapping utilities.
 - **Card & Box Spacing**: Do not apply padding utility classes (e.g. `.hd-p-*`) directly to `<hd-card>` or `<hd-box>` host elements as it overrides container borders. Apply padding utilities on wrapper `div` elements inside their default slots instead.
 - **Preventing Image Overflow in Split Layouts**: To prevent large images from overflowing the slide canvas, narrow the image pane by specifying a custom column ratio (e.g. `<hd-layout-split ratio="2:1">`) rather than using default equal widths.
 

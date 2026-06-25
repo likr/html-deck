@@ -511,7 +511,7 @@ HdSlide.baseStyles = `
   }
 
   /* Vertical centering alignment */
-  :host([center]) .slide-content {
+  :host([center]) .body-area {
     justify-content: center;
     align-items: center;
   }

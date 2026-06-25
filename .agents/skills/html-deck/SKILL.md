@@ -102,14 +102,7 @@ Applying `position: relative` directly on `<hd-slide>` containers breaks the lay
 Always wrap mathematical expressions and formulas inside `<hd-math>` Web Components. Do not use standard raw delimiters like `$$...$$` or `$...$` directly in raw text nodes, as they will not be formatted and styled correctly. Use the `block` attribute on `<hd-math>` to render centered block-level equations.
 
 ### 6. Centering Elements on Blank Slides
-Because slide body-areas stretch and start at the top by default, simply setting `<hd-slide center>` will not center slotted elements. Wrap the content of a blank centered slide in a centering helper container:
-```html
-<hd-slide center>
-  <div class="hd-align-center hd-align-middle hd-text-center">
-    <h2>My Centered Title</h2>
-  </div>
-</hd-slide>
-```
+Setting the `center` attribute directly on `<hd-slide>` (e.g., `<hd-slide center>`) natively centers all slotted elements vertically and horizontally. This is the recommended way to center content (such as cards, quotes, or key statistics) on a blank slide.
 
 ### 7. Card and Box Inner Spacing
 Do not place padding classes (like `.hd-p-3`) on host `<hd-card>` or `<hd-box>` tags. Wrap slotted content in a `div` and apply padding utilities to that wrapper.
