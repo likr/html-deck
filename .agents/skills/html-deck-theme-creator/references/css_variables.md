@@ -33,67 +33,67 @@ No abbreviated names (like `bg` or `color`) should be introduced. Use `backgroun
 - **Soft (Light bg / Dark text)**:
   - `--hd-base-soft-background-color`: Standard slide background. (Default: `#ffffff`)
   - `--hd-base-soft-text-color`: Standard slide text. (Default: `#111827`)
-  - `--hd-base-soft-text-highlight-color`: Slide highlight text. (Default: `#0f766e`)
+  - `--hd-base-soft-text-highlight-color`: Slide highlight text. (Default: `#c2410c`)
   - `--hd-base-soft-text-muted-color`: Slide muted text. (Default: `#4b5563`)
 - **Solid (Medium bg / Dark text)**:
   - `--hd-base-solid-background-color`: Standard card header/border fill. (Default: `#f3f4f6`)
   - `--hd-base-solid-text-color`: Standard card header text. (Default: `#111827`)
-  - `--hd-base-solid-text-highlight-color`: Solid highlight text. (Default: `#115e59`)
+  - `--hd-base-solid-text-highlight-color`: Solid highlight text. (Default: `#9a3412`)
   - `--hd-base-solid-text-muted-color`: Solid muted text. (Default: `#4b5563`)
 - **Soft Inverted (Dark bg / Light text)**:
   - `--hd-base-soft-background-color-inverted` (Default: `#111827`)
   - `--hd-base-soft-text-color-inverted` (Default: `#ffffff`)
-  - `--hd-base-soft-text-highlight-color-inverted` (Default: `#5eead4`)
+  - `--hd-base-soft-text-highlight-color-inverted` (Default: `#fdba74`)
   - `--hd-base-soft-text-muted-color-inverted` (Default: `#9ca3af`)
 - **Solid Inverted (Dark bg / Light text)**:
   - `--hd-base-solid-background-color-inverted` (Default: `#111827`)
   - `--hd-base-solid-text-color-inverted` (Default: `#f3f4f6`)
-  - `--hd-base-solid-text-highlight-color-inverted` (Default: `#5eead4`)
+  - `--hd-base-solid-text-highlight-color-inverted` (Default: `#fdba74`)
   - `--hd-base-solid-text-muted-color-inverted` (Default: `#9ca3af`)
 
 ### Main (Brand/Indigo) Theme
 - **Soft**:
   - `--hd-main-soft-background-color` (Default: `#eef2ff`)
   - `--hd-main-soft-text-color` (Default: `#312e81`)
-  - `--hd-main-soft-text-highlight-color` (Default: `#0f766e`)
+  - `--hd-main-soft-text-highlight-color` (Default: `#c2410c`)
   - `--hd-main-soft-text-muted-color` (Default: `#4338ca`)
 - **Solid**:
   - `--hd-main-solid-background-color` (Default: `#4f46e5`)
   - `--hd-main-solid-text-color` (Default: `#ffffff`)
-  - `--hd-main-solid-text-highlight-color` (Default: `#5eead4`)
+  - `--hd-main-solid-text-highlight-color` (Default: `#fdba74`)
   - `--hd-main-solid-text-muted-color` (Default: `#e0e7ff`)
 - **Soft Inverted**:
   - `--hd-main-soft-background-color-inverted` (Default: `#312e81`)
   - `--hd-main-soft-text-color-inverted` (Default: `#eef2ff`)
-  - `--hd-main-soft-text-highlight-color-inverted` (Default: `#5eead4`)
+  - `--hd-main-soft-text-highlight-color-inverted` (Default: `#fdba74`)
   - `--hd-main-soft-text-muted-color-inverted` (Default: `#a5b4fc`)
 - **Solid Inverted**:
   - `--hd-main-solid-background-color-inverted` (Default: `#ffffff`)
   - `--hd-main-solid-text-color-inverted` (Default: `#4f46e5`)
-  - `--hd-main-solid-text-highlight-color-inverted` (Default: `#0f766e`)
+  - `--hd-main-solid-text-highlight-color-inverted` (Default: `#c2410c`)
   - `--hd-main-solid-text-muted-color-inverted` (Default: `#4338ca`)
 
-### Accent (Teal) Theme
+### Accent (Orange) Theme
 - **Soft**:
-  - `--hd-accent-soft-background-color` (Default: `#f0fdfa`)
-  - `--hd-accent-soft-text-color` (Default: `#134e4a`)
+  - `--hd-accent-soft-background-color` (Default: `#fff7ed`)
+  - `--hd-accent-soft-text-color` (Default: `#7c2d12`)
   - `--hd-accent-soft-text-highlight-color` (Default: `#4338ca`)
-  - `--hd-accent-soft-text-muted-color` (Default: `#0f766e`)
+  - `--hd-accent-soft-text-muted-color` (Default: `#c2410c`)
 - **Solid**:
-  - `--hd-accent-solid-background-color` (Default: `#0d9488`)
+  - `--hd-accent-solid-background-color` (Default: `#ea580c`)
   - `--hd-accent-solid-text-color` (Default: `#ffffff`)
   - `--hd-accent-solid-text-highlight-color` (Default: `#c7d2fe`)
-  - `--hd-accent-solid-text-muted-color` (Default: `#99f6e4`)
+  - `--hd-accent-solid-text-muted-color` (Default: `#fed7aa`)
 - **Soft Inverted**:
-  - `--hd-accent-soft-background-color-inverted` (Default: `#134e4a`)
-  - `--hd-accent-soft-text-color-inverted` (Default: `#f0fdfa`)
+  - `--hd-accent-soft-background-color-inverted` (Default: `#7c2d12`)
+  - `--hd-accent-soft-text-color-inverted` (Default: `#fff7ed`)
   - `--hd-accent-soft-text-highlight-color-inverted` (Default: `#a5b4fc`)
-  - `--hd-accent-soft-text-muted-color-inverted` (Default: `#5eead4`)
+  - `--hd-accent-soft-text-muted-color-inverted` (Default: `#fdba74`)
 - **Solid Inverted**:
   - `--hd-accent-solid-background-color-inverted` (Default: `#ffffff`)
-  - `--hd-accent-solid-text-color-inverted` (Default: `#0d9488`)
+  - `--hd-accent-solid-text-color-inverted` (Default: `#ea580c`)
   - `--hd-accent-solid-text-highlight-color-inverted` (Default: `#4338ca`)
-  - `--hd-accent-solid-text-muted-color-inverted` (Default: `#0f766e`)
+  - `--hd-accent-solid-text-muted-color-inverted` (Default: `#c2410c`)
 
 ---
 

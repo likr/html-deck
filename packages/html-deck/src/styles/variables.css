@@ -11,76 +11,76 @@
   /* Soft Surface (Light bg / Dark text) */
   --hd-base-soft-background-color: #ffffff;
   --hd-base-soft-text-color: #111827;
-  --hd-base-soft-text-highlight-color: #0f766e;
+  --hd-base-soft-text-highlight-color: #c2410c;
   --hd-base-soft-text-muted-color: #4b5563;
 
   /* Solid Surface (Medium bg / Dark text) */
   --hd-base-solid-background-color: #f3f4f6;
   --hd-base-solid-text-color: #111827;
-  --hd-base-solid-text-highlight-color: #115e59;
+  --hd-base-solid-text-highlight-color: #9a3412;
   --hd-base-solid-text-muted-color: #4b5563;
 
   /* Soft Surface Inverted (Dark bg / Light text) */
   --hd-base-soft-background-color-inverted: #111827;
   --hd-base-soft-text-color-inverted: #ffffff;
-  --hd-base-soft-text-highlight-color-inverted: #5eead4;
+  --hd-base-soft-text-highlight-color-inverted: #fdba74;
   --hd-base-soft-text-muted-color-inverted: #9ca3af;
 
   /* Solid Surface Inverted (Dark bg / Light text) */
   --hd-base-solid-background-color-inverted: #111827;
   --hd-base-solid-text-color-inverted: #f3f4f6;
-  --hd-base-solid-text-highlight-color-inverted: #5eead4;
+  --hd-base-solid-text-highlight-color-inverted: #fdba74;
   --hd-base-solid-text-muted-color-inverted: #9ca3af;
 
   /* --- Main Theme (Indigo) --- */
   /* Soft Surface (Light bg / Dark text) */
   --hd-main-soft-background-color: #eef2ff;
   --hd-main-soft-text-color: #312e81;
-  --hd-main-soft-text-highlight-color: #0f766e;
+  --hd-main-soft-text-highlight-color: #c2410c;
   --hd-main-soft-text-muted-color: #4338ca;
 
   /* Solid Surface (Vibrant bg / Light text) */
   --hd-main-solid-background-color: #4f46e5;
   --hd-main-solid-text-color: #ffffff;
-  --hd-main-solid-text-highlight-color: #5eead4;
+  --hd-main-solid-text-highlight-color: #fdba74;
   --hd-main-solid-text-muted-color: #e0e7ff;
 
   /* Soft Surface Inverted (Dark bg / Light text) */
   --hd-main-soft-background-color-inverted: #312e81;
   --hd-main-soft-text-color-inverted: #eef2ff;
-  --hd-main-soft-text-highlight-color-inverted: #5eead4;
+  --hd-main-soft-text-highlight-color-inverted: #fdba74;
   --hd-main-soft-text-muted-color-inverted: #a5b4fc;
 
   /* Solid Surface Inverted (Light bg / Vibrant text) */
   --hd-main-solid-background-color-inverted: #ffffff;
   --hd-main-solid-text-color-inverted: #4f46e5;
-  --hd-main-solid-text-highlight-color-inverted: #0f766e;
+  --hd-main-solid-text-highlight-color-inverted: #c2410c;
   --hd-main-solid-text-muted-color-inverted: #4338ca;
 
-  /* --- Accent Theme (Teal) --- */
+  /* --- Accent Theme (Orange) --- */
   /* Soft Surface (Light bg / Dark text) */
-  --hd-accent-soft-background-color: #f0fdfa;
-  --hd-accent-soft-text-color: #134e4a;
+  --hd-accent-soft-background-color: #fff7ed;
+  --hd-accent-soft-text-color: #7c2d12;
   --hd-accent-soft-text-highlight-color: #4338ca;
-  --hd-accent-soft-text-muted-color: #0f766e;
+  --hd-accent-soft-text-muted-color: #c2410c;
 
   /* Solid Surface (Vibrant bg / Light text) */
-  --hd-accent-solid-background-color: #0d9488;
+  --hd-accent-solid-background-color: #ea580c;
   --hd-accent-solid-text-color: #ffffff;
   --hd-accent-solid-text-highlight-color: #c7d2fe;
-  --hd-accent-solid-text-muted-color: #99f6e4;
+  --hd-accent-solid-text-muted-color: #fed7aa;
 
   /* Soft Surface Inverted (Dark bg / Light text) */
-  --hd-accent-soft-background-color-inverted: #134e4a;
-  --hd-accent-soft-text-color-inverted: #f0fdfa;
+  --hd-accent-soft-background-color-inverted: #7c2d12;
+  --hd-accent-soft-text-color-inverted: #fff7ed;
   --hd-accent-soft-text-highlight-color-inverted: #a5b4fc;
-  --hd-accent-soft-text-muted-color-inverted: #5eead4;
+  --hd-accent-soft-text-muted-color-inverted: #fdba74;
 
   /* Solid Surface Inverted (Light bg / Vibrant text) */
   --hd-accent-solid-background-color-inverted: #ffffff;
-  --hd-accent-solid-text-color-inverted: #0d9488;
+  --hd-accent-solid-text-color-inverted: #ea580c;
   --hd-accent-solid-text-highlight-color-inverted: #4338ca;
-  --hd-accent-solid-text-muted-color-inverted: #0f766e;
+  --hd-accent-solid-text-muted-color-inverted: #c2410c;
 
   /* Semantic Slide Colors (mapped from base soft colors) */
   --hd-slide-background-color: var(--hd-base-soft-background-color);

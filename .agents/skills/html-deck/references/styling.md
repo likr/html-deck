@@ -24,9 +24,9 @@ Themes are enabled by loading the corresponding CSS stylesheet in the presentati
 
 #### 1. Default (Minimalist Clean)
 - **Background**: `#ffffff` (White)
-- **Text Color**: `#1e293b` (Dark Slate)
-- **Primary Color**: `#3b82f6` (Blue)
-- **Secondary Color**: `#a855f7` (Purple)
+- **Text Color**: `#111827` (Dark Charcoal)
+- **Main Color**: `#4f46e5` (Indigo)
+- **Accent Color**: `#ea580c` (Orange)
 - **Font**: Default system font-family (`system-ui`).
 
 #### 2. Dark Slate Theme (`html-deck.theme-dark.css`)
