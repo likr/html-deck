@@ -1,0 +1,17 @@
+{
+  "skill_name": "html-deck-skills-evaluation",
+  "evals": [
+    {
+      "id": 0,
+      "prompt": "Create a 3-slide presentation deck explaining what WebComponents are. Slide 1: Cover layout. Slide 2: Standard layout with a text list and a callout highlighting benefits. Slide 3: Split layout with standard components. Style slide 2's callout using standard theme colors. Do not write any custom styles, style attributes, or css files.",
+      "expected_output": "A clean HTML slideshow containing standard layout elements and no custom styles/attributes.",
+      "files": []
+    },
+    {
+      "id": 1,
+      "prompt": "Create a custom dark neon theme for html-deck. Save it as `theme-neon-custom.css`. The background should be pitch black (#050505), body text bright green (#10b981), primary accent hot pink (#ff007f), and secondary accent neon blue (#00f2fe). Write the theme in a separate file. You must only override CSS variables under the `:root` selector. Do not use element or class selectors. Show how to import it in a sample JS entry point after `html-deck/css`.",
+      "expected_output": "A CSS theme file named theme-neon-custom.css containing only :root variable overrides, plus a sample file showing the import.",
+      "files": []
+    }
+  ]
+}

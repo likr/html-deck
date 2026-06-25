@@ -1,6 +1,6 @@
 ---
 name: html-deck
-description: How to create, write, and style new presentations or add slides using the html-deck WebComponents slideshow library. Trigger this skill whenever a user requests to build a presentation, edit slides, write math equations in slides, write code examples in slides, include external code source files, use image components, configure presenter options, customize themes or printing rules. Make sure to use this skill whenever the user mentions building, styling, presenting, or exporting slideshows.
+description: How to scaffold, write, and structure new presentations or add slides using the html-deck WebComponents library. This skill guides standard presentation authoring. It strictly forbids adding custom CSS, <style> blocks, or inline style="..." attributes unless explicitly requested by the user, forcing standard themes, layouts, and hd- utility classes instead. Make sure to use this skill whenever the user mentions building, presenting, or exporting slideshows.
 ---
 
 # html-deck Slide Authoring Skill
@@ -49,7 +49,7 @@ Keep the slide DOM flat inside the deck. Do not nest pages inside nested section
   <script type="module">
     import 'html-deck';
     import 'html-deck/css';
-    import './style.css'; // Custom overrides must be imported after html-deck/css
+    // Import custom theme CSS here *only* if a custom theme file (e.g. theme-custom.css) is explicitly requested or created.
   </script>
 </head>
 <body>
@@ -61,10 +61,10 @@ Keep the slide DOM flat inside the deck. Do not nest pages inside nested section
     </hd-slide>
 
     <hd-slide>
-      <hd-layout-standard>
-        <h2 slot="title">Slide Title</h2>
+      <hd-layout>
+        <h2 slot="heading">Slide Title</h2>
         <p class="hd-text">Body content here.</p>
-      </hd-layout-standard>
+      </hd-layout>
     </hd-slide>
   </hd-deck>
 </body>
@@ -88,14 +88,16 @@ To load external code dynamically without compiling HTML files manually, **modif
 </script>
 ```
 
-### 3. Absolute Units (`px`) for Custom Styles
-When writing custom slide styling (e.g. inside presentation `<style>` tags or inline styles), **always use absolute `px` units** for font sizes, paddings, and margins. Avoid using `rem` or structural `em` layout units, as they are dependent on the external environment's base font size and will cause text overflow or layout shifting when scaled or printed.
+### 3. Strict Style Prohibition: No Custom CSS, <style> or style="..."
+To ensure presentation consistency, **you MUST NOT write custom CSS styles, `<style>` blocks, or inline `style="..."` attributes** on elements unless the user explicitly requests you to do so. 
+- Rely entirely on standard theme stylesheets (e.g., `html-deck.theme-warm.css`), components, and predefined `hd-` utility classes (e.g., `.hd-text-primary`, `.hd-mt-md`, `.hd-semibold`, `.hd-text-center`).
+- If custom CSS is explicitly requested by the user:
+  - **Always use absolute `px` units** for font sizes, paddings, and margins. Avoid `rem` or structural `em` layout units as they break scaled resolution.
+  - Define custom styles in a separate CSS file and import it **after** `html-deck/css`.
 
-### 4. Custom CSS Loading Order & JavaScript Import
-In a Vite environment, slide-specific custom CSS should be imported via JavaScript `import './style.css'` in the `<script type="module">` block rather than using inline `<style>` tags. Always ensure that the custom CSS is imported **after** `html-deck/css` so that custom overrides take precedence in the loading order.
-
-### 5. Never Apply `position: relative` directly to `<hd-slide>`
+### 4. Never Apply `position: relative` directly to `<hd-slide>`
 Applying `position: relative` directly on `<hd-slide>` containers breaks the layout and virtual resolution scaling computations of the slideshow. If you need relative positioning for absolute-positioned child elements, wrap the content in a child `<div>` container and style that wrapper instead.
 
-### 6. Math Rendering with `<hd-math>`
+### 5. Math Rendering with `<hd-math>`
 Always wrap mathematical expressions and formulas inside `<hd-math>` Web Components. Do not use standard raw delimiters like `$$...$$` or `$...$` directly in raw text nodes, as they will not be formatted and styled correctly. Use the `block` attribute on `<hd-math>` to render centered block-level equations.
+

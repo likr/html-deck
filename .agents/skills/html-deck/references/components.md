@@ -14,6 +14,7 @@ The root container of the presentation slideshow. It manages layout scaling, key
 - `transition` (string): Transition style between slides. Options: `fade`, `none`. Default: `fade`.
 - `hide-page-number` (boolean): If present, disables slide numbers globally.
 - `presenter-url` (string): The path to the presenter dashboard (e.g., `./presenter.html`). When specified, enables the presenter button and `P` shortcut key.
+
 #### Slots
 - **Default Slot**: Accepts only slide components (`<hd-slide>`). Nested structure must remain completely flat.
 
@@ -31,7 +32,7 @@ The root container of the presentation slideshow. It manages layout scaling, key
 
 ## 🎴 Slide & Layout Components
 
-Slides are represented by the thin container `<hd-slide>`. Structural layout layouts are nested inside slides using dedicated custom layout elements (`<hd-layout-standard>`, `<hd-layout-split>`, `<hd-layout-cover>`).
+Slides are represented by the container `<hd-slide>`. Structural layout layouts are nested inside slides using dedicated custom layout elements (`<hd-layout>`, `<hd-layout-split>`, `<hd-layout-three>`, `<hd-layout-cover>`).
 
 ### 2. `<hd-slide>`
 The unified slide container component. It handles slide transitions, visibility switching, color scheme overrides, page number tracking, and scrollability.
@@ -42,31 +43,29 @@ The unified slide container component. It handles slide transitions, visibility 
 - `page-index` (number): Dynamic 1-based page index.
 - `page-total` (number): Dynamic total slide count.
 - `hide-page-number` (boolean): If present, disables the page number on this slide.
-- `scrollable` (boolean): If present, enables vertical scrolling.
-- `height` (string): Max height for scrollable content (e.g. `100%`, `350px`).
-- `invert` (boolean): Inverts slide background and text colors.
-- `bg` (string): Sets background preset color. Options: `primary`, `secondary`.
+- `inverted` (boolean): If present, inverts the background and text color of the slide (switches colors to inverted palette variants, useful for introducing dark slides).
+- `center` (boolean): If present, vertically and horizontally centers content within the slide.
 
 #### Slots
-- **Default Slot**: Main content slot. Standalone slide (with no layout component) acts as a blank slide (padding: `0`). Usually contains one of the layout components below.
+- **Default Slot**: Main content slot. Usually contains one of the layout components below.
 - `notes`: Speaker notes slot. Element inside this slot (e.g. `<div slot="notes">`) is hidden on the slide and displayed in the presenter view dashboard.
-- `footnote`: Footnote annotation slot. Element inside this slot (e.g. `<div slot="footnote">`) is automatically positioned at the bottom left of the slide viewport.
+- `header`: Top header annotation slot (automatically positioned at the top left of the slide viewport).
+- `footer`: Bottom footer annotation slot (automatically positioned at the bottom left of the slide viewport).
 
 #### CSS Variables
-- `--hd-slide-bg`: Custom background color override.
+- `--hd-slide-background-color`: Custom background color override.
 - `--hd-slide-text-color`: Custom text color override.
-- `--hd-slide-padding`: Customize interior margins of layout components. Default: `30px 40px`.
 
 ---
 
-### 3. `<hd-layout-standard>`
-Standard slide layout component.
+### 3. `<hd-layout>`
+Standard slide layout component. Typically contains heading, before, body, and after slots.
 
 #### Slots
-- `header`: Top header area slot.
-- `title`: Slide title area slot (usually contains standard `<h2>` tag).
-- `footer`: Bottom footer area slot.
-- **Default Slot**: Main content area. Automatically grows (`flex-grow: 1`) to fill the vertical space between title and footer.
+- `heading`: Title area slot (usually contains standard `<h2>` tag).
+- `before`: Content to place *before* the main slot.
+- **Default Slot**: Main content area. Automatically grows (`flex-grow: 1`) to fill the vertical space.
+- `after`: Content to place *after* the main slot.
 
 ---
 
@@ -77,25 +76,79 @@ A 2-column slide layout component.
 - `ratio` (string): Sizing ratio for left and right columns (e.g., `1:1`, `2:1`, `1:2`). Default: `1:1`.
 
 #### Slots
-- `title`: Slide title area slot.
+- `heading`: Slide title area slot (usually contains standard `<h2>` tag).
+- `before`: Content to place *before* the columns.
 - `left`: Left-hand column slot.
 - `right`: Right-hand column slot.
+- `after`: Content to place *after* the columns.
 
 ---
 
-### 5. `<hd-layout-cover>`
+### 5. `<hd-layout-three>`
+A 3-column slide layout component.
+
+#### Slots
+- `heading`: Slide title area slot (usually contains standard `<h2>` tag).
+- `before`: Content to place *before* the columns.
+- `left`: Left-hand column slot.
+- `middle`: Middle column slot.
+- `right`: Right-hand column slot.
+- `after`: Content to place *after* the columns.
+
+---
+
+### 6. `<hd-layout-cover>`
 A cover or section divider slide layout component. Centers content vertically and horizontally, and automatically hides page numbers on the parent slide.
 
 #### Slots
+- `before`: Content to place *before* the cover area.
 - `title`: Large cover title slot (usually contains standard `<h1>` tag).
 - `subtitle`: Subtitle description slot.
 - `meta`: Meta information area slot (e.g., author, date).
+- `after`: Content to place *after* the cover area.
 
 ---
 
-## 📐 Math Component
+## 🎨 UI & Content Components
 
-### 6. `<hd-math>`
+These components help present block text, callouts, or mathematical equations within the slides.
+
+### 7. `<hd-card>`
+A card container with a boxed layout, styled with background colors and borders. Good for highlighting specific sections of content.
+
+#### Attributes
+- `variant` (string): Theme variation mapping. Options: `main` (uses primary accent colors), `accent` (uses secondary accent colors). If omitted, renders with standard base muted styles.
+
+#### Slots
+- `heading`: Card title header area. Automatically styled like a subheading.
+- **Default Slot**: Main interior body content of the card.
+
+---
+
+### 8. `<hd-box>`
+A boxed container similar to `<hd-card>` but configured to automatically stretch to fill 100% height of its parent column/container.
+
+#### Attributes
+- `variant` (string): Theme variation mapping. Options: `main`, `accent`. If omitted, renders with standard base muted styles.
+
+#### Slots
+- `heading`: Box title header area.
+- **Default Slot**: Main interior body content.
+
+---
+
+### 9. `<hd-callout>`
+Draws a highlighted text block with a left border marker to emphasize specific statements or quotes.
+
+#### Attributes
+- `variant` (string): Theme variation mapping. Options: `main`, `accent`. If omitted, renders with standard base muted styles.
+
+#### Slots
+- **Default Slot**: Main content to render within the callout box.
+
+---
+
+### 10. `<hd-math>`
 An equation rendering component powered by KaTeX.
 
 #### Attributes

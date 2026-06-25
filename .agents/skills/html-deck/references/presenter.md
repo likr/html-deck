@@ -16,10 +16,10 @@ Specify the path to the presenter file in `<hd-deck>`:
 ```html
 <hd-deck presenter-url="./presenter.html" aspect-ratio="16:9">
   <hd-slide>
-    <hd-layout-standard>
-      <h2 slot="title">Slide Title</h2>
+    <hd-layout>
+      <h2 slot="heading">Slide Title</h2>
       <p class="hd-text">Presentation content.</p>
-    </hd-layout-standard>
+    </hd-layout>
     <div slot="notes">Speaker cues and talking points go here.</div>
   </hd-slide>
 </hd-deck>
