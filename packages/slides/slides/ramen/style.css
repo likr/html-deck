@@ -1,3 +1,5 @@
+@import "html-deck/css";
+
 :root {
   /* Fonts & Typography */
   --hd-font-family: 'Outfit', 'Noto Sans JP', sans-serif;
