@@ -107,7 +107,15 @@ Setting the `center` attribute directly on `<hd-slide>` (e.g., `<hd-slide center
 ### 7. Card and Box Inner Spacing
 Do not place padding classes (like `.hd-p-3`) on host `<hd-card>` or `<hd-box>` tags. Wrap slotted content in a `div` and apply padding utilities to that wrapper.
 
-### 8. Image Ratios in Column Layouts
-When slotting graphics inside `<hd-layout-split>`, use narrow ratios (such as `ratio="2:1"` or `ratio="1:2"`) to shrink the image pane, allowing the image to scale down cleanly and avoid slide height overflows.
+### 8. Column Widths in Split Layouts
+When slotting graphics, large cards, or long lists inside `<hd-layout-split>`, avoid equal `1:1` column layouts if one side is significantly heavier.
+- Use unequal ratios (such as `ratio="2:1"` or `ratio="3:2"`) to expand the column space for text/lists and prevent text clipping or height overflows.
+
+### 9. Preventing Content Overflow and Height Collapses
+Presentations operate on rigid aspect-ratio canvasses (e.g. `16:9`).
+- **Concise Content**: Keep bullet points, list items, and paragraph descriptions brief and punchy.
+- **Vertical Spacing**: Ensure you do not stack too many block elements (like a long paragraph, a list, and a large callout/box) on a single slide.
+- **Verification**: Always preview slides in both presentation mode and presenter mode to check for overflows.
+
 
 

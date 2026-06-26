@@ -18,13 +18,29 @@ Always read the relevant sub-document using the `view_file` tool to inspect cust
 
 ## 🎨 Theme Customization Core Principles
 
-### 1. Dedicated CSS File for Theme Overrides
-Create a dedicated CSS file (e.g., `theme-custom.css`) to define the custom theme. Do not write CSS variable overrides directly in `<style>` blocks or general utility sheets.
-Apply the theme in your application entry point (JS/TS or HTML script) by importing it **after** the default `html-deck` CSS:
-```javascript
-import 'html-deck/css';
-import './theme-custom.css'; // Always import your custom theme after html-deck/css
-```
+### 1. Dedicated CSS File for Theme Overrides & Bundle Cascade Order
+Create a dedicated CSS file (e.g., `style.css`) to define the custom theme. Do not write CSS variable overrides directly in `<style>` blocks.
+
+To guarantee correct cascade ordering during production builds (preventing the core library variables from overriding your custom rules), **always import the library CSS at the top of your custom theme file using `@import`** instead of importing them separately in the script block:
+
+- **Correct Theme Stylesheet (`style.css`)**:
+  ```css
+  @import "html-deck/css";
+
+  :root {
+    --hd-base-soft-background-color: #fffcf5;
+    ...
+  }
+  ```
+
+- **Correct Presentation Entry Point (`index.html`)**:
+  ```html
+  <script type="module">
+    import 'html-deck';
+    import './style.css'; // Only import the stylesheet that imports the core styles
+  </script>
+  ```
+
 
 ### 2. Variable Overrides ONLY
 Theme CSS stylesheets **MUST** only contain rules under the `:root` selector. You are **strictly prohibited** from targeting HTML element tags (like `hd-slide`, `h1`, `p`) or class names (like `.hd-card`, `.hd-callout`) directly to change their visual properties.
