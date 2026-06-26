@@ -12,9 +12,10 @@ export class HdPresenterStatus extends HTMLElement {
       <style>
         :host {
           display: block;
-          font-size: var(--hd-presenter-status-size, 2rem);
+          font-family: var(--hd-presenter-font);
+          font-size: var(--hd-presenter-status-size);
           font-weight: 700;
-          color: var(--hd-presenter-status-color, #ffffff);
+          color: var(--hd-presenter-text-color);
           text-align: center;
         }
       </style>

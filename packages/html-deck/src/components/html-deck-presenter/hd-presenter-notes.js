@@ -12,25 +12,26 @@ export class HdPresenterNotes extends HTMLElement {
       <style>
         :host {
           display: block;
-          font-size: var(--hd-presenter-notes-size, 1.5rem);
+          font-family: var(--hd-presenter-font);
+          font-size: var(--hd-presenter-notes-size);
           line-height: 1.6;
-          color: var(--hd-presenter-notes-color, #e2e8f0);
+          color: var(--hd-presenter-text-color);
         }
         .empty-notes {
-          color: #64748b;
+          color: var(--hd-presenter-text-muted-color);
           font-style: italic;
         }
         p {
           margin-top: 0;
-          margin-bottom: 1.5rem;
+          margin-bottom: 24px;
         }
         ul, ol {
           margin-top: 0;
-          margin-bottom: 1.5rem;
-          padding-left: 2rem;
+          margin-bottom: 24px;
+          padding-left: 32px;
         }
         li {
-          margin-bottom: 0.75rem;
+          margin-bottom: 12px;
         }
       </style>
       <div id="notes">

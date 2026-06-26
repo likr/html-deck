@@ -34,7 +34,7 @@ export class HdPresenterPreview extends HTMLElement {
           left: 50%;
           transform-origin: center center;
           flex-shrink: 0;
-          background-color: var(--hd-default-background-color, #ffffff);
+          background-color: var(--hd-base-soft-background-color);
           display: block;
         }
         .end-presentation {
@@ -42,10 +42,10 @@ export class HdPresenterPreview extends HTMLElement {
           align-items: center;
           justify-content: center;
           height: 100%;
-          font-family: var(--hd-presenter-font, sans-serif);
-          font-size: var(--hd-presenter-preview-size, 1.4rem);
+          font-family: var(--hd-presenter-font);
+          font-size: var(--hd-presenter-preview-size);
           font-weight: 600;
-          color: var(--hd-presenter-preview-color, #10b981);
+          color: var(--hd-presenter-accent-color);
         }
       </style>
       <div id="preview">None</div>

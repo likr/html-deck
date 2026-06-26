@@ -1,69 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HD Slide - Presenter View</title>
+  <title>HD Slide - Presenter View (Introduction)</title>
 
   <!-- Load HTML-Deck elements including presenter elements -->
   <script type="module">
     import 'html-deck';
     import 'html-deck/presenter';
-    import './style.css'
+    import './style.css';
   </script>
 </head>
-
 <body>
-  <div class="dashboard">
-    <header>
-      <div class="logo">HD PRESENTATION SYSTEM</div>
-      <div class="time-stats">
-        <div class="stat-box">
-          <div class="stat-label">Elapsed Time</div>
-          <hd-presenter-timer></hd-presenter-timer>
-        </div>
-        <div class="stat-box">
-          <div class="stat-label">Current Time</div>
-          <hd-presenter-clock></hd-presenter-clock>
-        </div>
-      </div>
-    </header>
+  <hd-presenter>
+    <!-- Header -->
+    <div slot="header">
+      <hd-presenter-logo></hd-presenter-logo>
+      <hd-presenter-status></hd-presenter-status>
+      <hd-presenter-timer></hd-presenter-timer>
+      <hd-presenter-clock></hd-presenter-clock>
+      <hd-presenter-controls></hd-presenter-controls>
+      <hd-presenter-slide-button></hd-presenter-slide-button>
+    </div>
 
-    <main class="left-panel">
-      <div class="panel-card">
-        <h3 class="panel-title">Current Status</h3>
-        <hd-presenter-status></hd-presenter-status>
-      </div>
+    <!-- Left Panel -->
+    <div slot="left">
+      <hd-presenter-card title="Current Slide">
+        <hd-presenter-preview type="current"></hd-presenter-preview>
+      </hd-presenter-card>
 
-      <div class="panel-card" style="flex-grow: 1.2; display: flex; flex-direction: column;">
-        <h3 class="panel-title">Current Slide</h3>
-        <div style="flex-grow: 1; min-height: 0;">
-          <hd-presenter-preview type="current"></hd-presenter-preview>
-        </div>
-      </div>
+      <hd-presenter-card title="Next Slide Preview">
+        <hd-presenter-preview type="next"></hd-presenter-preview>
+      </hd-presenter-card>
+    </div>
 
-      <div class="panel-card" style="flex-grow: 1; display: flex; flex-direction: column;">
-        <h3 class="panel-title">Next Slide Preview</h3>
-        <div style="flex-grow: 1; min-height: 0;">
-          <hd-presenter-preview type="next"></hd-presenter-preview>
-        </div>
-      </div>
-
-      <div class="navigation-controls">
-        <hd-presenter-controls></hd-presenter-controls>
-      </div>
-    </main>
-
-    <aside class="right-panel">
-      <div class="panel-card" style="height: 100%; display: flex; flex-direction: column;">
-        <h3 class="panel-title">Speaker Notes</h3>
-        <div class="notes-card-content">
-          <hd-presenter-notes></hd-presenter-notes>
-        </div>
-      </div>
-    </aside>
-  </div>
+    <!-- Right Panel -->
+    <div slot="right">
+      <hd-presenter-card title="Speaker Notes">
+        <hd-presenter-notes></hd-presenter-notes>
+      </hd-presenter-card>
+    </div>
+  </hd-presenter>
 </body>
-
 </html>

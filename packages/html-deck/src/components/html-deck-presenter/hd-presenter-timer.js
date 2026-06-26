@@ -17,25 +17,25 @@ export class HdPresenterTimer extends HTMLElement {
           display: inline-flex;
           align-items: center;
           gap: 12px;
-          font-family: var(--hd-presenter-font, monospace);
+          font-family: var(--hd-presenter-font);
         }
         .timer-val {
-          font-size: var(--hd-presenter-timer-size, 1.8rem);
+          font-size: var(--hd-presenter-timer-size);
           font-weight: bold;
-          color: var(--hd-presenter-timer-color, #ffffff);
+          color: var(--hd-presenter-text-color);
         }
         .reset-btn {
-          background: rgba(255, 255, 255, 0.1);
-          border: 1px solid rgba(255, 255, 255, 0.15);
-          color: #ffffff;
+          background: rgba(from var(--hd-presenter-text-color) r g b / 0.1);
+          border: 1px solid var(--hd-presenter-border-color);
+          color: var(--hd-presenter-text-color);
           border-radius: 4px;
           padding: 4px 8px;
           cursor: pointer;
-          font-size: 0.8rem;
+          font-size: 12px;
           transition: background 0.2s;
         }
         .reset-btn:hover {
-          background: rgba(255, 255, 255, 0.2);
+          background: rgba(from var(--hd-presenter-text-color) r g b / 0.2);
         }
       </style>
       <div class="timer-val" id="timer">00:00:00</div>

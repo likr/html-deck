@@ -7,10 +7,10 @@ export class HdPresenterClock extends HTMLElement {
       <style>
         :host {
           display: inline-block;
-          font-family: var(--hd-presenter-font, monospace);
-          font-size: var(--hd-presenter-clock-size, 1.8rem);
+          font-family: var(--hd-presenter-font);
+          font-size: var(--hd-presenter-clock-size);
           font-weight: bold;
-          color: var(--hd-presenter-clock-color, #ffffff);
+          color: var(--hd-presenter-text-color);
         }
       </style>
       <div id="clock">12:00:00 PM</div>

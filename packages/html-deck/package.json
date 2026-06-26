@@ -23,6 +23,10 @@
     "./presenter": {
       "development": "./src/html-deck-presenter.js",
       "default": "./dist/html-deck-presenter.js"
+    },
+    "./presenter/css": {
+      "development": "./src/html-deck-presenter.css",
+      "default": "./dist/html-deck-presenter.css"
     }
   },
   "files": [

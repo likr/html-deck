@@ -1,0 +1,141 @@
+/* html-deck-presenter.css - Helper classes and layouts for Presenter View */
+
+:root {
+  /* Presenter View Default Styling Variables */
+  --hd-presenter-font: 'Outfit', system-ui, -apple-system, sans-serif;
+  --hd-presenter-background-color: #0f172a;
+  --hd-presenter-panel-background-color: #1e293b;
+  --hd-presenter-text-color: #f8fafc;
+  --hd-presenter-text-muted-color: #94a3b8;
+  --hd-presenter-primary-color: #3b82f6;
+  --hd-presenter-primary-hover-color: #2563eb;
+  --hd-presenter-accent-color: #10b981;
+  --hd-presenter-border-color: rgba(255, 255, 255, 0.08);
+  --hd-presenter-gap: 24px;
+  --hd-presenter-card-padding: 20px;
+  --hd-presenter-timer-size: 28px;
+  --hd-presenter-clock-size: 28px;
+  --hd-presenter-status-size: 40px;
+  --hd-presenter-preview-size: 22px;
+  --hd-presenter-notes-size: 24px;
+  --hd-presenter-btn-padding: 14px 20px;
+  --hd-presenter-btn-font-size: 18px;
+  --hd-presenter-split-ratio: 1.2fr 1fr;
+}
+
+hd-presenter .hd-presenter-span-all {
+  grid-column: 1 / -1;
+}
+
+/* Header Slot Styling and Alignment scoped to hd-presenter */
+hd-presenter [slot="header"] {
+  display: flex;
+  align-items: center;
+  gap: var(--hd-presenter-gap);
+  background-color: var(--hd-presenter-panel-background-color);
+  border-bottom: 1px solid var(--hd-presenter-border-color);
+  padding: 12px var(--hd-presenter-card-padding);
+  border-radius: 12px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+hd-presenter [slot="header"] > hd-presenter-logo {
+  margin-right: auto;
+}
+
+/* Compact overrides for header descendants scoped to hd-presenter */
+hd-presenter [slot="header"] hd-presenter-timer,
+hd-presenter [slot="header"] hd-presenter-clock {
+  --hd-presenter-timer-size: 18px;
+  --hd-presenter-clock-size: 18px;
+}
+
+hd-presenter [slot="header"] hd-presenter-status {
+  --hd-presenter-status-size: 18px;
+}
+
+hd-presenter [slot="header"] hd-presenter-controls {
+  --hd-presenter-btn-padding: 8px 14px;
+  --hd-presenter-btn-font-size: 14px;
+}
+
+hd-presenter [slot="header"] hd-presenter-slide-button {
+  --hd-presenter-btn-padding: 8px 14px;
+  --hd-presenter-btn-font-size: 14px;
+}
+
+/* Layout Slots vertical auto-division behavior scoped to hd-presenter */
+hd-presenter [slot="left"],
+hd-presenter [slot="right"] {
+  display: flex;
+  flex-direction: column;
+  gap: var(--hd-presenter-gap);
+  height: 100%;
+  min-height: 0;
+}
+
+hd-presenter [slot="left"] > *,
+hd-presenter [slot="right"] > * {
+  flex: 1 1 0%;
+  min-height: 0;
+}
+
+/* Ratio Helper Classes */
+.hd-presenter-ratio-1-1 {
+  --hd-presenter-split-ratio: 1fr 1fr;
+}
+.hd-presenter-ratio-3-2 {
+  --hd-presenter-split-ratio: 3fr 2fr;
+}
+.hd-presenter-ratio-2-1 {
+  --hd-presenter-split-ratio: 2fr 1fr;
+}
+.hd-presenter-ratio-1-2 {
+  --hd-presenter-split-ratio: 1fr 2fr;
+}
+
+/* Flex Grow Helper Classes */
+.hd-presenter-grow-0 {
+  flex-grow: 0 !important;
+  flex-shrink: 0 !important;
+  flex-basis: auto !important;
+}
+.hd-presenter-grow-1 {
+  flex-grow: 1 !important;
+}
+.hd-presenter-grow-2 {
+  flex-grow: 2 !important;
+}
+.hd-presenter-grow-3 {
+  flex-grow: 3 !important;
+}
+
+/* General Layout utilities */
+.hd-presenter-time-stats {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.hd-presenter-stat-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.hd-presenter-stat-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--hd-presenter-text-muted-color);
+  margin-bottom: 2px;
+  font-family: var(--hd-presenter-font);
+}
+
+.hd-presenter-controls-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}

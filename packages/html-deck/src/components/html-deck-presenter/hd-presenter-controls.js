@@ -7,18 +7,17 @@ export class HdPresenterControls extends HTMLElement {
     this.shadowRoot.innerHTML = `
       <style>
         :host {
-          display: flex;
-          gap: 16px;
-          width: 100%;
+          display: inline-flex;
+          gap: 8px;
+          font-family: var(--hd-presenter-font);
         }
         .btn {
-          flex: 1;
-          background-color: var(--hd-presenter-btn-bg, #3b82f6);
-          color: #ffffff;
-          border: none;
+          background-color: rgba(from var(--hd-presenter-text-color) r g b / 0.08);
+          border: 1px solid var(--hd-presenter-border-color);
+          color: var(--hd-presenter-text-color);
           border-radius: 8px;
-          padding: 14px 20px;
-          font-size: 1.1rem;
+          padding: var(--hd-presenter-btn-padding);
+          font-size: var(--hd-presenter-btn-font-size);
           font-weight: 600;
           cursor: pointer;
           display: flex;
@@ -26,23 +25,24 @@ export class HdPresenterControls extends HTMLElement {
           justify-content: center;
           gap: 8px;
           transition: background-color 0.2s, transform 0.1s;
+          font-family: var(--hd-presenter-font);
         }
         .btn:hover {
-          background-color: var(--hd-presenter-btn-hover-bg, #2563eb);
+          background-color: rgba(from var(--hd-presenter-text-color) r g b / 0.15);
         }
         .btn:active {
           transform: scale(0.98);
         }
-        .btn-secondary {
-          background-color: var(--hd-presenter-btn-sec-bg, rgba(255, 255, 255, 0.08));
-          border: 1px solid var(--hd-presenter-btn-sec-border, rgba(255, 255, 255, 0.08));
-        }
-        .btn-secondary:hover {
-          background-color: var(--hd-presenter-btn-sec-hover-bg, rgba(255, 255, 255, 0.15));
+        .btn-text {
+          display: var(--hd-presenter-btn-text-display, inline);
         }
       </style>
-      <button class="btn btn-secondary" id="prev">◀ Previous</button>
-      <button class="btn" id="next">Next ▶</button>
+      <button class="btn" id="prev" title="Previous Slide">
+        <span>◀</span><span class="btn-text"> Previous</span>
+      </button>
+      <button class="btn" id="next" title="Next Slide">
+        <span class="btn-text">Next </span><span>▶</span>
+      </button>
     `;
     this.handleKeyDown = this.handleKeyDown.bind(this);
   }

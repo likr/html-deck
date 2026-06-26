@@ -367,6 +367,8 @@ export class HdDeck extends HTMLElement {
       if (action === 'goto' && typeof index === 'number') this.goto(index);
     } else if (type === 'request-sync') {
       this.syncPresenter();
+    } else if (type === 'focus-deck') {
+      window.focus();
     }
   }
 
