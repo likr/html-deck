@@ -41,7 +41,8 @@ export class HdPresenterSlideButton extends HTMLElement {
       if (window.opener && !window.opener.closed) {
         window.opener.focus();
       } else {
-        const channel = new BroadcastChannel('hd-deck-channel');
+        const channelName = this.getAttribute('channel') || new URLSearchParams(window.location.search).get('channel') || 'hd-deck-channel';
+        const channel = new BroadcastChannel(channelName);
         channel.postMessage({ type: 'focus-deck' });
         channel.close();
       }

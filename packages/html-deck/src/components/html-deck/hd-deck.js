@@ -135,7 +135,7 @@ TEMPLATE.innerHTML = `
 
 export class HdDeck extends HTMLElement {
   static get observedAttributes() {
-    return ['aspect-ratio', 'presenter-url', 'transition', 'hide-page-number'];
+    return ['aspect-ratio', 'presenter-url', 'transition', 'hide-page-number', 'channel'];
   }
 
   constructor() {
@@ -146,7 +146,7 @@ export class HdDeck extends HTMLElement {
     this.currentIndex = 0;
     this.slides = [];
     this.resizeObserver = null;
-    this.channel = new BroadcastChannel('hd-deck-channel');
+    this.channel = null;
 
     // Bind methods
     this.handleKeyDown = this.handleKeyDown.bind(this);
@@ -186,6 +186,15 @@ export class HdDeck extends HTMLElement {
     if (name === 'hide-page-number') {
       this.updateSlides();
     }
+    if (name === 'channel') {
+      if (this.channel) {
+        this.channel.removeEventListener('message', this.handleMessage);
+        this.channel.close();
+      }
+      const channelName = newValue || 'hd-deck-channel';
+      this.channel = new BroadcastChannel(channelName);
+      this.channel.addEventListener('message', this.handleMessage);
+    }
   }
 
   connectedCallback() {
@@ -197,6 +206,17 @@ export class HdDeck extends HTMLElement {
     this.addEventListener('touchstart', this.handleTouchStart, { passive: true });
     this.addEventListener('touchmove', this.handleTouchMove, { passive: false });
     this.addEventListener('touchend', this.handleTouchEnd, { passive: true });
+
+    // Listen for style/theme changes in the document
+    this.styleObserver = new MutationObserver(() => {
+      this.syncPresenter();
+    });
+    this.styleObserver.observe(document.head, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ['href']
+    });
 
     const container = this.shadowRoot.querySelector('.deck-container');
     this.resizeObserver = new ResizeObserver(this.handleResize);
@@ -217,7 +237,11 @@ export class HdDeck extends HTMLElement {
     }
 
     // BroadcastChannel sync
-    this.channel.addEventListener('message', this.handleMessage);
+    if (!this.channel) {
+      const channelName = this.getAttribute('channel') || 'hd-deck-channel';
+      this.channel = new BroadcastChannel(channelName);
+      this.channel.addEventListener('message', this.handleMessage);
+    }
 
     // Wait for children to be parsed in DOM
     setTimeout(() => {
@@ -247,11 +271,18 @@ export class HdDeck extends HTMLElement {
     this.removeEventListener('touchstart', this.handleTouchStart);
     this.removeEventListener('touchmove', this.handleTouchMove);
     this.removeEventListener('touchend', this.handleTouchEnd);
+    if (this.styleObserver) {
+      this.styleObserver.disconnect();
+      this.styleObserver = null;
+    }
     if (this.resizeObserver) {
       this.resizeObserver.disconnect();
     }
-    this.channel.removeEventListener('message', this.handleMessage);
-    this.channel.close();
+    if (this.channel) {
+      this.channel.removeEventListener('message', this.handleMessage);
+      this.channel.close();
+      this.channel = null;
+    }
 
     const styleEl = document.getElementById('hd-deck-print-styles');
     if (styleEl) {
@@ -522,7 +553,27 @@ export class HdDeck extends HTMLElement {
     return clone.outerHTML;
   }
 
+  getActiveStylesheets() {
+    const styles = [];
+    document.querySelectorAll('style').forEach(el => {
+      styles.push({ type: 'style', content: el.textContent });
+    });
+    document.querySelectorAll('link[rel="stylesheet"]').forEach(el => {
+      const href = el.getAttribute('href');
+      if (href) {
+        try {
+          const absoluteHref = new URL(href, window.location.href).href;
+          styles.push({ type: 'link', href: absoluteHref });
+        } catch (e) {
+          console.warn(`Failed to resolve stylesheet href: ${href}`, e);
+        }
+      }
+    });
+    return styles;
+  }
+
   syncPresenter() {
+    if (!this.channel) return;
     if (!this.slides || this.slides.length === 0) {
       this.slides = Array.from(this.querySelectorAll('hd-slide'));
     }
@@ -536,6 +587,8 @@ export class HdDeck extends HTMLElement {
     const nextTitle = nextSlide ? (nextSlide.getAttribute('title') || `Slide ${this.currentIndex + 2}`) : 'End of Deck';
     const nextHTML = nextSlide ? this.resolveRelativePaths(nextSlide) : '';
 
+    const stylesheets = this.getActiveStylesheets();
+
     this.channel.postMessage({
       type: 'sync',
       index: this.currentIndex,
@@ -544,7 +597,8 @@ export class HdDeck extends HTMLElement {
       activeHTML: activeHTML,
       nextTitle: nextTitle,
       nextHTML: nextHTML,
-      aspectRatio: this.getAttribute('aspect-ratio') || '16:9'
+      aspectRatio: this.getAttribute('aspect-ratio') || '16:9',
+      stylesheets: stylesheets
     });
   }
 
@@ -561,8 +615,10 @@ export class HdDeck extends HTMLElement {
   openPresenter() {
     const presenterUrl = this.getAttribute('presenter-url');
     if (!presenterUrl) return;
-    const resolvedUrl = new URL(presenterUrl, window.location.href).href;
-    window.open(resolvedUrl, 'Presenter View', 'width=1000,height=700');
+    const channelName = this.getAttribute('channel') || 'hd-deck-channel';
+    const resolvedUrl = new URL(presenterUrl, window.location.href);
+    resolvedUrl.searchParams.set('channel', channelName);
+    window.open(resolvedUrl.href, 'Presenter View', 'width=1000,height=700');
     // Request sync immediately after window opens
     setTimeout(() => this.syncPresenter(), 500);
   }

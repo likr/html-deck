@@ -1,10 +1,8 @@
-const channel = new BroadcastChannel('hd-deck-channel');
-
-function requestSync() {
-  channel.postMessage({ type: 'request-sync' });
-}
-
 export class HdPresenterPreview extends HTMLElement {
+  static get observedAttributes() {
+    return ['channel'];
+  }
+
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
@@ -53,30 +51,51 @@ export class HdPresenterPreview extends HTMLElement {
     this.handleMessage = this.handleMessage.bind(this);
     this.resizePreview = this.resizePreview.bind(this);
     this.aspectRatio = '16:9';
+    this.stylesheets = [];
     this.resizeObserver = null;
+    this.channel = null;
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (oldValue === newValue) return;
+    if (name === 'channel' && this.channel) {
+      this.channel.removeEventListener('message', this.handleMessage);
+      this.channel.close();
+      const channelName = newValue || new URLSearchParams(window.location.search).get('channel') || 'hd-deck-channel';
+      this.channel = new BroadcastChannel(channelName);
+      this.channel.addEventListener('message', this.handleMessage);
+      this.channel.postMessage({ type: 'request-sync' });
+    }
   }
 
   connectedCallback() {
-    channel.addEventListener('message', this.handleMessage);
+    const channelName = this.getAttribute('channel') || new URLSearchParams(window.location.search).get('channel') || 'hd-deck-channel';
+    this.channel = new BroadcastChannel(channelName);
+    this.channel.addEventListener('message', this.handleMessage);
     const wrapper = this.shadowRoot.getElementById('preview');
     if (wrapper) {
       this.resizeObserver = new ResizeObserver(() => this.resizePreview());
       this.resizeObserver.observe(wrapper);
     }
-    requestSync();
+    this.channel.postMessage({ type: 'request-sync' });
   }
 
   disconnectedCallback() {
-    channel.removeEventListener('message', this.handleMessage);
+    if (this.channel) {
+      this.channel.removeEventListener('message', this.handleMessage);
+      this.channel.close();
+      this.channel = null;
+    }
     if (this.resizeObserver) {
       this.resizeObserver.disconnect();
     }
   }
 
   handleMessage(event) {
-    const { type, activeHTML, nextTitle, nextHTML, aspectRatio } = event.data;
+    const { type, activeHTML, nextTitle, nextHTML, aspectRatio, stylesheets } = event.data;
     if (type === 'sync') {
       this.aspectRatio = aspectRatio || '16:9';
+      this.stylesheets = stylesheets || [];
       const typeAttr = this.getAttribute('type') || 'next';
       const container = this.shadowRoot.getElementById('preview');
 
@@ -88,6 +107,26 @@ export class HdPresenterPreview extends HTMLElement {
       }
 
       if (targetHTML) {
+        let stylesContainer = document.getElementById('hd-presenter-injected-styles');
+        if (!stylesContainer) {
+          stylesContainer = document.createElement('div');
+          stylesContainer.id = 'hd-presenter-injected-styles';
+          stylesContainer.style.display = 'none';
+          document.head.appendChild(stylesContainer);
+        }
+
+        let stylesHTML = '';
+        if (this.stylesheets && Array.isArray(this.stylesheets)) {
+          this.stylesheets.forEach(sheet => {
+            if (sheet.type === 'style') {
+              stylesHTML += `<style>${sheet.content}</style>`;
+            } else if (sheet.type === 'link') {
+              stylesHTML += `<link rel="stylesheet" href="${sheet.href}">`;
+            }
+          });
+        }
+        stylesContainer.innerHTML = stylesHTML;
+
         container.innerHTML = `
           <div class="preview-wrapper">
             <div class="preview-container">

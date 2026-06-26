@@ -1,10 +1,8 @@
-const channel = new BroadcastChannel('hd-deck-channel');
-
-function requestSync() {
-  channel.postMessage({ type: 'request-sync' });
-}
-
 export class HdPresenterStatus extends HTMLElement {
+  static get observedAttributes() {
+    return ['channel'];
+  }
+
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
@@ -22,15 +20,34 @@ export class HdPresenterStatus extends HTMLElement {
       <div id="status">Slide 0 / 0</div>
     `;
     this.handleMessage = this.handleMessage.bind(this);
+    this.channel = null;
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (oldValue === newValue) return;
+    if (name === 'channel' && this.channel) {
+      this.channel.removeEventListener('message', this.handleMessage);
+      this.channel.close();
+      const channelName = newValue || new URLSearchParams(window.location.search).get('channel') || 'hd-deck-channel';
+      this.channel = new BroadcastChannel(channelName);
+      this.channel.addEventListener('message', this.handleMessage);
+      this.channel.postMessage({ type: 'request-sync' });
+    }
   }
 
   connectedCallback() {
-    channel.addEventListener('message', this.handleMessage);
-    requestSync();
+    const channelName = this.getAttribute('channel') || new URLSearchParams(window.location.search).get('channel') || 'hd-deck-channel';
+    this.channel = new BroadcastChannel(channelName);
+    this.channel.addEventListener('message', this.handleMessage);
+    this.channel.postMessage({ type: 'request-sync' });
   }
 
   disconnectedCallback() {
-    channel.removeEventListener('message', this.handleMessage);
+    if (this.channel) {
+      this.channel.removeEventListener('message', this.handleMessage);
+      this.channel.close();
+      this.channel = null;
+    }
   }
 
   handleMessage(event) {

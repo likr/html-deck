@@ -1,6 +1,8 @@
-const channel = new BroadcastChannel('hd-deck-channel');
-
 export class HdPresenterControls extends HTMLElement {
+  static get observedAttributes() {
+    return ['channel'];
+  }
+
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
@@ -45,20 +47,37 @@ export class HdPresenterControls extends HTMLElement {
       </button>
     `;
     this.handleKeyDown = this.handleKeyDown.bind(this);
+    this.channel = null;
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (oldValue === newValue) return;
+    if (name === 'channel' && this.channel) {
+      this.channel.close();
+      const channelName = newValue || new URLSearchParams(window.location.search).get('channel') || 'hd-deck-channel';
+      this.channel = new BroadcastChannel(channelName);
+    }
   }
 
   connectedCallback() {
+    const channelName = this.getAttribute('channel') || new URLSearchParams(window.location.search).get('channel') || 'hd-deck-channel';
+    this.channel = new BroadcastChannel(channelName);
+
     this.shadowRoot.getElementById('prev').addEventListener('click', () => {
-      channel.postMessage({ type: 'nav', action: 'prev' });
+      if (this.channel) this.channel.postMessage({ type: 'nav', action: 'prev' });
     });
     this.shadowRoot.getElementById('next').addEventListener('click', () => {
-      channel.postMessage({ type: 'nav', action: 'next' });
+      if (this.channel) this.channel.postMessage({ type: 'nav', action: 'next' });
     });
     window.addEventListener('keydown', this.handleKeyDown);
   }
 
   disconnectedCallback() {
     window.removeEventListener('keydown', this.handleKeyDown);
+    if (this.channel) {
+      this.channel.close();
+      this.channel = null;
+    }
   }
 
   handleKeyDown(event) {
@@ -70,10 +89,10 @@ export class HdPresenterControls extends HTMLElement {
     }
     if (event.key === 'ArrowRight' || event.key === ' ' || event.key === 'Enter') {
       event.preventDefault();
-      channel.postMessage({ type: 'nav', action: 'next' });
+      if (this.channel) this.channel.postMessage({ type: 'nav', action: 'next' });
     } else if (event.key === 'ArrowLeft' || event.key === 'Backspace') {
       event.preventDefault();
-      channel.postMessage({ type: 'nav', action: 'prev' });
+      if (this.channel) this.channel.postMessage({ type: 'nav', action: 'prev' });
     }
   }
 }

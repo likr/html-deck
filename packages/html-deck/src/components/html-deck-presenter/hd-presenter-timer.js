@@ -1,9 +1,3 @@
-const channel = new BroadcastChannel('hd-deck-channel');
-
-function requestSync() {
-  channel.postMessage({ type: 'request-sync' });
-}
-
 export class HdPresenterTimer extends HTMLElement {
   constructor() {
     super();
@@ -46,7 +40,11 @@ export class HdPresenterTimer extends HTMLElement {
   connectedCallback() {
     this.start();
     this.shadowRoot.getElementById('reset').addEventListener('click', () => this.start());
-    requestSync();
+    
+    const channelName = this.getAttribute('channel') || new URLSearchParams(window.location.search).get('channel') || 'hd-deck-channel';
+    const channel = new BroadcastChannel(channelName);
+    channel.postMessage({ type: 'request-sync' });
+    channel.close();
   }
 
   disconnectedCallback() {
