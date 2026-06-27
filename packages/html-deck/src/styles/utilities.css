@@ -309,3 +309,11 @@
   right: 0 !important;
   width: 100% !important;
 }
+
+/* Print Utilities */
+@media print {
+  .hd-no-print {
+    display: none !important;
+  }
+}
+

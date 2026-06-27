@@ -14,7 +14,6 @@ export class HdPresenterCard extends HTMLElement {
           background-color: var(--hd-presenter-panel-background-color);
           border: 1px solid var(--hd-presenter-border-color);
           border-radius: 12px;
-          padding: var(--hd-presenter-card-padding);
           box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
           box-sizing: border-box;
           overflow: hidden;
@@ -28,8 +27,10 @@ export class HdPresenterCard extends HTMLElement {
           text-transform: uppercase;
           letter-spacing: 0.1em;
           color: var(--hd-presenter-text-muted-color);
-          margin-top: 0;
-          margin-bottom: 12px;
+          margin: 0;
+          padding: 12px var(--hd-presenter-card-padding);
+          background-color: var(--hd-presenter-card-header-background-color);
+          border-bottom: 1px solid var(--hd-presenter-border-color);
           font-family: var(--hd-presenter-font);
         }
         .card-content {
@@ -38,6 +39,8 @@ export class HdPresenterCard extends HTMLElement {
           flex-direction: column;
           min-height: 0;
           height: 100%;
+          padding: var(--hd-presenter-card-padding);
+          box-sizing: border-box;
         }
       </style>
       <h3 class="card-title" id="title-el" style="display: none;"></h3>
