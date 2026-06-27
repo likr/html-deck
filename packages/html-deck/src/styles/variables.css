@@ -83,21 +83,21 @@
   --hd-accent-solid-text-highlight-color-inverted: #4338ca;
   --hd-accent-solid-text-muted-color-inverted: #c2410c;
 
-  /* Semantic Slide Colors (mapped from base soft colors) */
-  --hd-slide-background-color: var(--hd-base-soft-background-color);
-  --hd-slide-text-color: var(--hd-base-soft-text-color);
-  --hd-slide-text-highlight-color: var(--hd-base-soft-text-highlight-color);
-  --hd-slide-text-muted-color: var(--hd-base-soft-text-muted-color);
+  /* 8 Semantic Color Variables (Core Slide Colors) */
+  --hd-body-background-color: var(--hd-base-soft-background-color);
+  --hd-body-text-color: var(--hd-base-soft-text-color);
+  --hd-body-text-highlight-color: var(--hd-base-soft-text-highlight-color);
+  --hd-body-text-muted-color: var(--hd-base-soft-text-muted-color);
+
+  --hd-heading-background-color: var(--hd-main-solid-background-color);
+  --hd-heading-text-color: var(--hd-main-solid-text-color);
+  --hd-heading-text-highlight-color: var(--hd-main-solid-text-highlight-color);
+  --hd-heading-text-muted-color: var(--hd-main-solid-text-muted-color);
 
   /* Slide Border parameters */
   --hd-slide-border-width: 0px;
   --hd-slide-border-style: solid;
-  --hd-slide-border-color: var(--hd-layout-heading-text-color);
 
-  /* Layout heading background, text, and divider colors */
-  --hd-layout-heading-background-color: var(--hd-main-solid-background-color);
-  --hd-layout-heading-text-color: var(--hd-main-solid-text-color);
-  --hd-layout-divider-color: var(--hd-layout-heading-text-color);
 
   /* 6-Level Sizing Scale */
   --hd-size-1: 64px;
@@ -110,7 +110,7 @@
   /* Text Types Decoration Configurations */
   /* Title Text Type */
   --hd-text-title-font: var(--hd-heading-font);
-  --hd-text-title-color: var(--hd-base-soft-text-color);
+  --hd-text-title-color: var(--hd-body-text-color);
   --hd-text-title-font-size: var(--hd-size-1);
   --hd-text-title-font-weight: var(--hd-font-weight-bold, 700);
   --hd-text-title-line-height: 1;
@@ -120,7 +120,7 @@
 
   /* Heading Text Type */
   --hd-text-heading-font: var(--hd-heading-font);
-  --hd-text-heading-color: var(--hd-base-soft-text-color);
+  --hd-text-heading-color: var(--hd-body-text-color);
   --hd-text-heading-font-size: var(--hd-size-2);
   --hd-text-heading-font-weight: var(--hd-font-weight-bold, 700);
   --hd-text-heading-line-height: 1;
@@ -130,7 +130,7 @@
 
   /* Subheading Text Type */
   --hd-text-subheading-font: var(--hd-heading-font);
-  --hd-text-subheading-color: var(--hd-base-soft-text-muted-color);
+  --hd-text-subheading-color: var(--hd-body-text-muted-color);
   --hd-text-subheading-font-size: var(--hd-size-4);
   --hd-text-subheading-font-weight: var(--hd-font-weight-semibold, 600);
   --hd-text-subheading-line-height: 1;
@@ -140,7 +140,7 @@
 
   /* Body Text Type */
   --hd-text-body-font: var(--hd-body-font);
-  --hd-text-body-color: var(--hd-base-soft-text-color);
+  --hd-text-body-color: var(--hd-body-text-color);
   --hd-text-body-font-size: var(--hd-size-3);
   --hd-text-body-font-weight: var(--hd-font-weight-normal, 400);
   --hd-text-body-line-height: 1.5;
@@ -150,7 +150,7 @@
 
   /* Quote Text Type */
   --hd-text-quote-font: var(--hd-font-family-serif);
-  --hd-text-quote-color: var(--hd-base-soft-text-muted-color);
+  --hd-text-quote-color: var(--hd-body-text-muted-color);
   --hd-text-quote-font-size: var(--hd-size-3);
   --hd-text-quote-font-weight: var(--hd-font-weight-normal, 400);
   --hd-text-quote-line-height: 1.4;
@@ -160,7 +160,7 @@
 
   /* Caption Text Type */
   --hd-text-caption-font: var(--hd-body-font);
-  --hd-text-caption-color: var(--hd-base-soft-text-muted-color);
+  --hd-text-caption-color: var(--hd-body-text-muted-color);
   --hd-text-caption-font-size: var(--hd-size-5);
   --hd-text-caption-font-weight: var(--hd-font-weight-normal, 400);
   --hd-text-caption-line-height: 1.4;
@@ -170,13 +170,14 @@
 
   /* Peripheral Text Type */
   --hd-text-peripheral-font: var(--hd-body-font);
-  --hd-text-peripheral-color: var(--hd-base-soft-text-muted-color);
+  --hd-text-peripheral-color: var(--hd-body-text-muted-color);
   --hd-text-peripheral-font-size: var(--hd-size-6);
   --hd-text-peripheral-font-weight: var(--hd-font-weight-medium, 500);
   --hd-text-peripheral-line-height: 1;
   --hd-text-peripheral-letter-spacing: 0.05em;
   --hd-text-peripheral-text-transform: uppercase;
   --hd-text-peripheral-text-shadow: none;
+
 
   /* Font Weights */
   --hd-font-weight-light: 300;
@@ -262,11 +263,11 @@
   --hd-codeblock-background-color: transparent;
   --hd-codeblock-border-width: 1px;
   --hd-codeblock-border-style: solid;
-  --hd-codeblock-border-color: var(--hd-layout-divider-color);
+  --hd-codeblock-border-color: var(--hd-heading-text-color);
   --hd-codeblock-box-shadow: none;
 
   /* Table */
-  --hd-table-border-color: var(--hd-layout-divider-color);
+  --hd-table-border-color: var(--hd-heading-text-color);
   --hd-table-cell-padding: var(--hd-gap-1);
   --hd-table-margin-bottom: var(--hd-gap-2);
   --hd-table-font-size: var(--hd-size-4);
@@ -304,7 +305,7 @@
   --hd-blockquote-letter-spacing: var(--hd-text-quote-letter-spacing);
   --hd-blockquote-text-transform: var(--hd-text-quote-text-transform);
   --hd-blockquote-text-shadow: var(--hd-text-quote-text-shadow);
-  --hd-blockquote-border-color: var(--hd-layout-divider-color);
+  --hd-blockquote-border-color: var(--hd-heading-text-color);
   --hd-blockquote-border-width: 3px;
   --hd-blockquote-border-style: solid;
   --hd-blockquote-padding-top: 0px;
@@ -319,7 +320,7 @@
   --hd-img-border-radius: var(--hd-gap-1);
   --hd-img-border-width: 1px;
   --hd-img-border-style: solid;
-  --hd-img-border-color: var(--hd-layout-divider-color);
+  --hd-img-border-color: var(--hd-heading-text-color);
   --hd-img-box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
 
   /* Pre block and code styling */
@@ -327,44 +328,37 @@
   --hd-pre-padding: var(--hd-gap-1);
 
   /* Inline Code styling */
-  --hd-code-background-color: rgba(from var(--hd-slide-text-color) r g b / 0.05);
-  --hd-code-text-color: var(--hd-slide-text-highlight-color);
   --hd-code-padding: 2px 6px;
   --hd-code-border-radius: 4px;
   --hd-code-font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
   --hd-code-font-size: 0.85em;
   --hd-code-border-width: 1px;
   --hd-code-border-style: solid;
-  --hd-code-border-color: rgba(from var(--hd-slide-text-color) r g b / 0.08);
 
   /* Keyboard Input styling */
-  --hd-kbd-background-color: rgba(from var(--hd-slide-text-color) r g b / 0.05);
-  --hd-kbd-text-color: var(--hd-slide-text-color);
   --hd-kbd-padding: 2px 5px;
   --hd-kbd-border-radius: 4px;
   --hd-kbd-font-family: var(--hd-body-font);
   --hd-kbd-font-size: 0.85em;
   --hd-kbd-border-width: 1px 1px 3px 1px;
   --hd-kbd-border-style: solid;
-  --hd-kbd-border-color: rgba(from var(--hd-slide-text-color) r g b / 0.15);
   --hd-kbd-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
 
   /* Highlight Mark styling */
-  --hd-mark-background-color: rgba(from var(--hd-slide-text-highlight-color) r g b / 0.15);
-  --hd-mark-text-color: var(--hd-slide-text-highlight-color);
   --hd-mark-padding: 0px 4px;
   --hd-mark-border-radius: 2px;
+
 
   /* Scrollbars */
   --hd-scrollbar-width: var(--hd-gap-1);
   --hd-scrollbar-height: var(--hd-gap-1);
   --hd-scrollbar-track-bg: transparent;
-  --hd-scrollbar-thumb-bg: var(--hd-layout-divider-color);
+  --hd-scrollbar-thumb-bg: var(--hd-heading-text-color);
   --hd-scrollbar-thumb-radius: 4px;
   --hd-scrollbar-thumb-hover-bg: var(--hd-base-text-color-muted);
 
   /* Code Block styling details */
-  --hd-codeblock-border-color: var(--hd-layout-divider-color);
+  --hd-codeblock-border-color: var(--hd-heading-text-color);
 
   /* Split/Grid layout gap variables */
   --hd-layout-split-gap: var(--hd-gap-2);

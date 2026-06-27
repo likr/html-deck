@@ -1,149 +1,154 @@
 /* html-deck.theme-neon.css - Neon / Tokyo Midnight Cyberpunk Theme for HTML-Deck */
 :root {
-  /* Fonts & Weights */
-  --hd-font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
-  --hd-body-font: var(--hd-font-family);
-  --hd-heading-font: var(--hd-font-family);
+   /* Fonts & Weights */
+   --hd-font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+   --hd-body-font: var(--hd-font-family);
+   --hd-heading-font: var(--hd-font-family);
 
-  /* --- 48-Color Matrix (Tokyo Midnight Cyberpunk) --- */
-  
-  /* ========================================================
+   /* --- 48-Color Matrix (Tokyo Midnight Cyberpunk) --- */
+
+   /* ========================================================
      BASE THEME (Standard/Neutral) - Dark Cyber Navy by default, Cyber White Inverted
      ======================================================== */
-  /* Soft Surface (Slide default) */
-  --hd-base-soft-background-color: radial-gradient(circle at 50% 50%, #0c0d1e 0%, #05050a 100%);
-  --hd-base-soft-text-color: #f1f5f9;
-  --hd-base-soft-text-highlight-color: #00f2fe; /* Neon Cyan */
-  --hd-base-soft-text-muted-color: #64748b;
+   /* Soft Surface (Slide default) */
+   --hd-base-soft-background-color: radial-gradient(circle at 50% 50%, #0c0d1e 0%, #05050a 100%);
+   --hd-base-soft-text-color: #f1f5f9;
+   --hd-base-soft-text-highlight-color: #00f2fe;
+   /* Neon Cyan */
+   --hd-base-soft-text-muted-color: #64748b;
 
-  /* Solid Surface (Medium bg / Dark text) */
-  --hd-base-solid-background-color: #111124;
-  --hd-base-solid-text-color: #e2e8f0;
-  --hd-base-solid-text-highlight-color: #fe019a; /* Neon Pink */
-  --hd-base-solid-text-muted-color: #475569;
+   /* Solid Surface (Medium bg / Dark text) */
+   --hd-base-solid-background-color: #111124;
+   --hd-base-solid-text-color: #e2e8f0;
+   --hd-base-solid-text-highlight-color: #fe019a;
+   /* Neon Pink */
+   --hd-base-solid-text-muted-color: #475569;
 
-  /* Soft Surface Inverted (Light Cyber Mode) */
-  --hd-base-soft-background-color-inverted: radial-gradient(circle at 50% 50%, #f8fafc 0%, #e2e8f0 100%);
-  --hd-base-soft-text-color-inverted: #0f172a;
-  --hd-base-soft-text-highlight-color-inverted: #d946ef;
-  --hd-base-soft-text-muted-color-inverted: #64748b;
+   /* Soft Surface Inverted (Light Cyber Mode) */
+   --hd-base-soft-background-color-inverted: radial-gradient(circle at 50% 50%, #f8fafc 0%, #e2e8f0 100%);
+   --hd-base-soft-text-color-inverted: #0f172a;
+   --hd-base-soft-text-highlight-color-inverted: #d946ef;
+   --hd-base-soft-text-muted-color-inverted: #64748b;
 
-  /* Solid Surface Inverted (Light Cyber Solid Mode) */
-  --hd-base-solid-background-color-inverted: #f1f5f9;
-  --hd-base-solid-text-color-inverted: #0f172a;
-  --hd-base-solid-text-highlight-color-inverted: #06b6d4;
-  --hd-base-solid-text-muted-color-inverted: #64748b;
+   /* Solid Surface Inverted (Light Cyber Solid Mode) */
+   --hd-base-solid-background-color-inverted: #f1f5f9;
+   --hd-base-solid-text-color-inverted: #0f172a;
+   --hd-base-solid-text-highlight-color-inverted: #06b6d4;
+   --hd-base-solid-text-muted-color-inverted: #64748b;
 
-  /* ========================================================
+   /* ========================================================
      MAIN THEME (Brand Cyan) - Neon Cyan themed
      ======================================================== */
-  /* Soft Surface */
-  --hd-main-soft-background-color: radial-gradient(circle at 50% 50%, #062b33 0%, #020c0f 100%);
-  --hd-main-soft-text-color: #00f2fe;
-  --hd-main-soft-text-highlight-color: #fe019a;
-  --hd-main-soft-text-muted-color: #008b96;
+   /* Soft Surface */
+   --hd-main-soft-background-color: radial-gradient(circle at 50% 50%, #062b33 0%, #020c0f 100%);
+   --hd-main-soft-text-color: #00f2fe;
+   --hd-main-soft-text-highlight-color: #fe019a;
+   --hd-main-soft-text-muted-color: #008b96;
 
-  /* Solid Surface */
-  --hd-main-solid-background-color: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
-  --hd-main-solid-text-color: #05050a;
-  --hd-main-solid-text-highlight-color: #99005c;
-  --hd-main-solid-text-muted-color: #0f4c5c;
+   /* Solid Surface */
+   --hd-main-solid-background-color: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+   --hd-main-solid-text-color: #05050a;
+   --hd-main-solid-text-highlight-color: #99005c;
+   --hd-main-solid-text-muted-color: #0f4c5c;
 
-  /* Soft Surface Inverted */
-  --hd-main-soft-background-color-inverted: #ecfeff;
-  --hd-main-soft-text-color-inverted: #083344;
-  --hd-main-soft-text-highlight-color-inverted: #d946ef;
-  --hd-main-soft-text-muted-color-inverted: #0891b2;
+   /* Soft Surface Inverted */
+   --hd-main-soft-background-color-inverted: #ecfeff;
+   --hd-main-soft-text-color-inverted: #083344;
+   --hd-main-soft-text-highlight-color-inverted: #d946ef;
+   --hd-main-soft-text-muted-color-inverted: #0891b2;
 
-  /* Solid Surface Inverted */
-  --hd-main-solid-background-color-inverted: linear-gradient(135deg, #ffffff 0%, #cffafe 100%);
-  --hd-main-solid-text-color-inverted: #00a5b5;
-  --hd-main-solid-text-highlight-color-inverted: #99005c;
-  --hd-main-solid-text-muted-color-inverted: #008b96;
+   /* Solid Surface Inverted */
+   --hd-main-solid-background-color-inverted: linear-gradient(135deg, #ffffff 0%, #cffafe 100%);
+   --hd-main-solid-text-color-inverted: #00a5b5;
+   --hd-main-solid-text-highlight-color-inverted: #99005c;
+   --hd-main-solid-text-muted-color-inverted: #008b96;
 
-  /* ========================================================
+   /* ========================================================
      ACCENT THEME (Brand Pink) - Neon Pink themed
      ======================================================== */
-  /* Soft Surface */
-  --hd-accent-soft-background-color: radial-gradient(circle at 50% 50%, #330628 0%, #0f020c 100%);
-  --hd-accent-soft-text-color: #fe019a;
-  --hd-accent-soft-text-highlight-color: #00f2fe;
-  --hd-accent-soft-text-muted-color: #b80170;
+   /* Soft Surface */
+   --hd-accent-soft-background-color: radial-gradient(circle at 50% 50%, #330628 0%, #0f020c 100%);
+   --hd-accent-soft-text-color: #fe019a;
+   --hd-accent-soft-text-highlight-color: #00f2fe;
+   --hd-accent-soft-text-muted-color: #b80170;
 
-  /* Solid Surface */
-  --hd-accent-solid-background-color: linear-gradient(135deg, #fe019a 0%, #f9a8d4 100%);
-  --hd-accent-solid-text-color: #ffffff;
-  --hd-accent-solid-text-highlight-color: #00f2fe;
-  --hd-accent-solid-text-muted-color: #ffc0e7;
+   /* Solid Surface */
+   --hd-accent-solid-background-color: linear-gradient(135deg, #fe019a 0%, #f9a8d4 100%);
+   --hd-accent-solid-text-color: #ffffff;
+   --hd-accent-solid-text-highlight-color: #00f2fe;
+   --hd-accent-solid-text-muted-color: #ffc0e7;
 
-  /* Soft Surface Inverted */
-  --hd-accent-soft-background-color-inverted: #fdf4ff;
-  --hd-accent-soft-text-color-inverted: #4a044e;
-  --hd-accent-soft-text-highlight-color-inverted: #0891b2;
-  --hd-accent-soft-text-muted-color-inverted: #c084fc;
+   /* Soft Surface Inverted */
+   --hd-accent-soft-background-color-inverted: #fdf4ff;
+   --hd-accent-soft-text-color-inverted: #4a044e;
+   --hd-accent-soft-text-highlight-color-inverted: #0891b2;
+   --hd-accent-soft-text-muted-color-inverted: #c084fc;
 
-  /* Solid Surface Inverted */
-  --hd-accent-solid-background-color-inverted: linear-gradient(135deg, #ffffff 0%, #f3e8ff 100%);
-  --hd-accent-solid-text-color-inverted: #d946ef;
-  --hd-accent-solid-text-highlight-color-inverted: #4a044e;
-  --hd-accent-solid-text-muted-color-inverted: #c084fc;
+   /* Solid Surface Inverted */
+   --hd-accent-solid-background-color-inverted: linear-gradient(135deg, #ffffff 0%, #f3e8ff 100%);
+   --hd-accent-solid-text-color-inverted: #d946ef;
+   --hd-accent-solid-text-highlight-color-inverted: #4a044e;
+   --hd-accent-solid-text-muted-color-inverted: #c084fc;
 
-  /* ========================================================
+   /* ========================================================
      SEMANTIC SLIDE COLORS (Explicit default mappings)
      ======================================================== */
-  --hd-slide-background-color: var(--hd-base-soft-background-color);
-  --hd-slide-text-color: var(--hd-base-soft-text-color);
-  --hd-slide-text-highlight-color: var(--hd-base-soft-text-highlight-color);
-  --hd-slide-text-muted-color: var(--hd-base-soft-text-muted-color);
-  
-  --hd-layout-heading-background-color: var(--hd-main-soft-background-color);
-  --hd-layout-heading-text-color: var(--hd-main-soft-text-color);
+   --hd-body-background-color: var(--hd-base-soft-background-color);
+   --hd-body-text-color: var(--hd-base-soft-text-color);
+   --hd-body-text-highlight-color: var(--hd-base-soft-text-highlight-color);
+   --hd-body-text-muted-color: var(--hd-base-soft-text-muted-color);
 
-  /* Typography size scale overrides if needed */
-  --hd-size-1: 52px;
-  --hd-size-2: 36px;
-  --hd-size-3: 24px;
-  --hd-size-4: 18px;
-  --hd-size-5: 14px;
-  --hd-size-6: 12px;
+   --hd-heading-background-color: var(--hd-base-soft-background-color);
+   --hd-heading-text-color: var(--hd-base-soft-text-color);
+   --hd-heading-text-highlight-color: var(--hd-base-soft-text-highlight-color);
+   --hd-heading-text-muted-color: var(--hd-base-soft-text-muted-color);
 
-  /* ========================================================
+
+   /* Typography size scale overrides if needed */
+   --hd-size-1: 52px;
+   --hd-size-2: 36px;
+   --hd-size-3: 24px;
+   --hd-size-4: 18px;
+   --hd-size-5: 14px;
+   --hd-size-6: 12px;
+
+   /* ========================================================
      CYBERGLOW SPECIFIC DECORATIONS & EFFECTS
      ======================================================== */
-  --hd-layout-heading-box-shadow: 0 0 15px rgba(from var(--hd-main-soft-text-color) r g b / 0.25);
-  --hd-layout-heading-divider-display: block;
-  --hd-layout-heading-divider-height: 2px;
-  --hd-layout-heading-divider-box-shadow: 0 0 10px var(--hd-main-soft-text-color);
-  
-  --hd-layout-cover-title-text-shadow: 0 0 10px var(--hd-main-soft-text-color), 0 0 20px rgba(from var(--hd-main-soft-text-color) r g b / 0.4);
-  --hd-layout-cover-subtitle-text-shadow: 0 0 8px var(--hd-accent-soft-text-color);
+   --hd-layout-heading-box-shadow: 0 0 15px rgba(from var(--hd-main-soft-text-color) r g b / 0.25);
+   --hd-layout-heading-divider-display: block;
+   --hd-layout-heading-divider-height: 2px;
+   --hd-layout-heading-divider-box-shadow: 0 0 10px var(--hd-main-soft-text-color);
 
-  /* Component Glowing Effects - utilizing the newly unlocked background gradient capability */
-  --hd-card-background-color: linear-gradient(145deg, #111124 0%, #08080f 100%);
-  --hd-card-border-color: rgba(from var(--hd-main-soft-text-color) r g b / 0.3);
-  --hd-card-border-width: 1px;
-  --hd-card-box-shadow: 0 0 15px rgba(from var(--hd-main-soft-text-color) r g b / 0.15);
-  --hd-card-heading-background-color: linear-gradient(90deg, #1e1e3f 0%, #111124 100%);
-  --hd-card-heading-text-color: var(--hd-main-soft-text-color);
-  --hd-card-heading-border-color: rgba(from var(--hd-main-soft-text-color) r g b / 0.3);
+   --hd-layout-cover-title-text-shadow: 0 0 10px var(--hd-main-soft-text-color), 0 0 20px rgba(from var(--hd-main-soft-text-color) r g b / 0.4);
+   --hd-layout-cover-subtitle-text-shadow: 0 0 8px var(--hd-accent-soft-text-color);
 
-  --hd-box-background-color: linear-gradient(145deg, #140410 0%, #08080f 100%);
-  --hd-box-border-color: rgba(from var(--hd-accent-soft-text-color) r g b / 0.3);
-  --hd-box-border-width: 1px;
-  --hd-box-box-shadow: 0 0 15px rgba(from var(--hd-accent-soft-text-color) r g b / 0.15);
-  --hd-box-heading-background-color: linear-gradient(90deg, #3f1e38 0%, #140410 100%);
-  --hd-box-heading-text-color: var(--hd-accent-soft-text-color);
-  --hd-box-heading-border-color: rgba(from var(--hd-accent-soft-text-color) r g b / 0.3);
+   /* Component Glowing Effects - utilizing the newly unlocked background gradient capability */
+   --hd-card-background-color: linear-gradient(145deg, #111124 0%, #08080f 100%);
+   --hd-card-border-color: rgba(from var(--hd-main-soft-text-color) r g b / 0.3);
+   --hd-card-border-width: 1px;
+   --hd-card-box-shadow: 0 0 15px rgba(from var(--hd-main-soft-text-color) r g b / 0.15);
+   --hd-card-heading-background-color: linear-gradient(90deg, #1e1e3f 0%, #111124 100%);
+   --hd-card-heading-text-color: var(--hd-main-soft-text-color);
+   --hd-card-heading-border-color: rgba(from var(--hd-main-soft-text-color) r g b / 0.3);
 
-  --hd-callout-background-color: linear-gradient(90deg, rgba(from var(--hd-main-soft-text-color) r g b / 0.1) 0%, rgba(from var(--hd-base-soft-background-color) r g b / 0) 100%);
-  --hd-callout-border-color: var(--hd-main-soft-text-color);
+   --hd-box-background-color: linear-gradient(145deg, #140410 0%, #08080f 100%);
+   --hd-box-border-color: rgba(from var(--hd-accent-soft-text-color) r g b / 0.3);
+   --hd-box-border-width: 1px;
+   --hd-box-box-shadow: 0 0 15px rgba(from var(--hd-accent-soft-text-color) r g b / 0.15);
+   --hd-box-heading-background-color: linear-gradient(90deg, #3f1e38 0%, #140410 100%);
+   --hd-box-heading-text-color: var(--hd-accent-soft-text-color);
+   --hd-box-heading-border-color: rgba(from var(--hd-accent-soft-text-color) r g b / 0.3);
 
-  /* Codeblock Styling */
-  --hd-codeblock-background-color: rgba(from var(--hd-base-solid-background-color) r g b / 0.85);
-  --hd-codeblock-border-color: rgba(from var(--hd-base-soft-text-color) r g b / 0.08);
-  --hd-codeblock-box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.8);
+   --hd-callout-background-color: linear-gradient(90deg, rgba(from var(--hd-main-soft-text-color) r g b / 0.1) 0%, rgba(from var(--hd-base-soft-background-color) r g b / 0) 100%);
+   --hd-callout-border-color: var(--hd-main-soft-text-color);
 
-  /* Scrollbars thumbs */
-  --hd-scrollbar-track-bg: rgba(0, 0, 0, 0.4);
-  --hd-scrollbar-thumb-hover-bg: var(--hd-main-soft-text-color);
+   /* Codeblock Styling */
+   --hd-codeblock-background-color: rgba(from var(--hd-base-solid-background-color) r g b / 0.85);
+   --hd-codeblock-border-color: rgba(from var(--hd-base-soft-text-color) r g b / 0.08);
+   --hd-codeblock-box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.8);
+
+   /* Scrollbars thumbs */
+   --hd-scrollbar-track-bg: rgba(0, 0, 0, 0.4);
+   --hd-scrollbar-thumb-hover-bg: var(--hd-main-soft-text-color);
 }
