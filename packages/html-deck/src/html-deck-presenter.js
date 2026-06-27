@@ -1,7 +1,18 @@
 // HTML-Deck Presenter Entry File
 // Registers all presenter components used in the presenter view dashboard.
 
-import './html-deck-presenter.css';
+import cssText from './html-deck-presenter.css?inline';
+
+// Dynamically inject global presenter stylesheet if not already present
+if (typeof document !== 'undefined') {
+    const styleId = 'hd-presenter-global-styles';
+    if (!document.getElementById(styleId)) {
+        const style = document.createElement('style');
+        style.id = styleId;
+        style.textContent = cssText;
+        document.head.appendChild(style);
+    }
+}
 
 import { HdPresenterTimer } from './components/html-deck-presenter/hd-presenter-timer.js';
 import { HdPresenterClock } from './components/html-deck-presenter/hd-presenter-clock.js';

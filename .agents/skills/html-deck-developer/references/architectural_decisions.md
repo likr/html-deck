@@ -115,3 +115,16 @@
   - Shadow DOM 内の Grid コンテナ（`display: grid`）の直下にデフォルトの `<slot></slot>` を配置することで、スロットされた Light DOM の子要素を自動的に Grid アイテムとしてレイアウトできます。
   - スライド寸法からはみ出るのを防ぐため、Grid トラック定義（`grid-template-columns` / `grid-template-rows`）には必ず `minmax(0, 1fr)` を使用してください（例: `repeat(N, minmax(0, 1fr))`）。
 
+---
+
+## 7. グローバルCSSの動的注入とインラインインポート
+- **ゼロ設定CSSロード (Zero-config CSS loading)**:
+  ユーザーが明示的に `import 'html-deck/css'` を記述しなくても済むように、`html-deck.js` および `html-deck-presenter.js` 内で関連するグローバルCSSを自動的に `document.head` に動的注入します。
+- **Vite `?inline` インポートの活用**:
+  スタイルシートはメンテナンス性のために別ファイル（`html-deck.css` や `html-deck-presenter.css`）として維持し、JS側からは Vite の `?inline` クエリパラメータを使用してコンパイル・結合されたCSS文字列としてインポートします（例: `import cssText from './html-deck.css?inline'`）。
+- **DOM動的インジェクション**:
+  モジュールロード時に、指定されたID（`hd-global-styles` または `hd-presenter-global-styles`）を持つ `<style>` タグが存在しない場合のみ、`document.head.appendChild()` によってDOMにインジェクションします。これにより、二重ロードや不要な再パースを防ぎます。
+- **後方互換性の維持**:
+  既存のテンプレートや手動で `html-deck/css` を読み込んでいるユーザーのビルドが壊れないよう、パッケージの `package.json` での `css` エクスポート定義と、Viteビルド時におけるCSSファイル抽出・出力用の通常の `import` ステートメントはそのまま残します。
+
+

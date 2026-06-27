@@ -1,7 +1,18 @@
 // HTML-Deck Main Module Entry File
 // Registers deck custom elements.
 
-import './html-deck.css';
+import cssText from './html-deck.css?inline';
+
+// Dynamically inject global stylesheet if not already present
+if (typeof document !== 'undefined') {
+    const styleId = 'hd-global-styles';
+    if (!document.getElementById(styleId)) {
+        const style = document.createElement('style');
+        style.id = styleId;
+        style.textContent = cssText;
+        document.head.appendChild(style);
+    }
+}
 
 import { HdDeck } from './components/html-deck/hd-deck.js';
 import { HdSlide } from './components/html-deck/hd-slide.js';

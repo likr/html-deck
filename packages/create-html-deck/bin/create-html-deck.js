@@ -110,10 +110,9 @@ export default defineConfig({
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Presentation - HTML-Deck</title>
 
-  <!-- Load HTML-Deck Script and CSS utilities -->
+  <!-- Load HTML-Deck Script -->
   <script type="module">
     import 'html-deck';
-    import 'html-deck/css';
   </script>
   
   <!-- Custom Overrides -->

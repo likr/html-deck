@@ -68,10 +68,9 @@ A minimal HTML-Deck slideshow looks like this:
   <meta charset="UTF-8">
   <title>Presentation Title</title>
   
-  <!-- Load HTML-Deck elements & CSS utilities -->
+  <!-- Load HTML-Deck elements -->
   <script type="module">
     import 'html-deck';
-    import 'html-deck/css';
   </script>
 </head>
 <body>
