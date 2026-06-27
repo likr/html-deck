@@ -81,7 +81,7 @@
   </div>
 
   <!-- Slideshow Deck -->
-  <hd-deck transition="fade" presenter-url="presenter.html" aspect-ratio="16:9" channel="features-channel">
+  <hd-deck transition="fade" presenter-url="presenter.html" aspect-ratio="16:9" presenter-channel="features-channel">
 
     <!-- Slide 1: Cover Layout -->
     <hd-slide>
@@ -775,8 +775,12 @@
       const theme = e.target.value;
       if (theme && window.themeUrls && window.themeUrls[theme]) {
         themeLink.href = window.themeUrls[theme] + '?t=' + Date.now();
+        themeLink.onload = () => {
+          deck.sync();
+        };
       } else {
         themeLink.href = '';
+        deck.sync();
       }
     });
 

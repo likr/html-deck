@@ -1,6 +1,6 @@
 export class HdPresenterControls extends HTMLElement {
   static get observedAttributes() {
-    return ['channel'];
+    return [];
   }
 
   constructor() {
@@ -47,21 +47,27 @@ export class HdPresenterControls extends HTMLElement {
       </button>
     `;
     this.handleKeyDown = this.handleKeyDown.bind(this);
+    this.handleChannelChange = this.handleChannelChange.bind(this);
     this.channel = null;
+    this.presenter = null;
   }
 
-  attributeChangedCallback(name, oldValue, newValue) {
-    if (oldValue === newValue) return;
-    if (name === 'channel' && this.channel) {
+  setupChannel() {
+    if (this.channel) {
       this.channel.close();
-      const channelName = newValue || new URLSearchParams(window.location.search).get('channel') || 'hd-deck-channel';
-      this.channel = new BroadcastChannel(channelName);
+      this.channel = null;
     }
+    const presenter = this.closest('hd-presenter');
+    const channelName = (presenter && presenter.getAttribute('presenter-channel')) || 'hd-deck-channel';
+    this.channel = new BroadcastChannel(channelName);
+  }
+
+  handleChannelChange(event) {
+    this.setupChannel();
   }
 
   connectedCallback() {
-    const channelName = this.getAttribute('channel') || new URLSearchParams(window.location.search).get('channel') || 'hd-deck-channel';
-    this.channel = new BroadcastChannel(channelName);
+    this.setupChannel();
 
     this.shadowRoot.getElementById('prev').addEventListener('click', () => {
       if (this.channel) this.channel.postMessage({ type: 'nav', action: 'prev' });
@@ -70,10 +76,19 @@ export class HdPresenterControls extends HTMLElement {
       if (this.channel) this.channel.postMessage({ type: 'nav', action: 'next' });
     });
     window.addEventListener('keydown', this.handleKeyDown);
+
+    this.presenter = this.closest('hd-presenter');
+    if (this.presenter) {
+      this.presenter.addEventListener('presenter-channel-change', this.handleChannelChange);
+    }
   }
 
   disconnectedCallback() {
     window.removeEventListener('keydown', this.handleKeyDown);
+    if (this.presenter) {
+      this.presenter.removeEventListener('presenter-channel-change', this.handleChannelChange);
+      this.presenter = null;
+    }
     if (this.channel) {
       this.channel.close();
       this.channel = null;

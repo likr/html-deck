@@ -1,4 +1,8 @@
 export class HdPresenterSlideButton extends HTMLElement {
+  static get observedAttributes() {
+    return ['slide-url'];
+  }
+
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
@@ -41,10 +45,10 @@ export class HdPresenterSlideButton extends HTMLElement {
       if (window.opener && !window.opener.closed) {
         window.opener.focus();
       } else {
-        const channelName = this.getAttribute('channel') || new URLSearchParams(window.location.search).get('channel') || 'hd-deck-channel';
-        const channel = new BroadcastChannel(channelName);
-        channel.postMessage({ type: 'focus-deck' });
-        channel.close();
+        const slideUrl = this.getAttribute('slide-url');
+        if (slideUrl) {
+          window.open(slideUrl, '_blank');
+        }
       }
     });
   }

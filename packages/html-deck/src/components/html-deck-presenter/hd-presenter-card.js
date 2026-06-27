@@ -20,6 +20,10 @@ export class HdPresenterCard extends HTMLElement {
           overflow: hidden;
         }
         .card-title {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
           font-size: 11px;
           text-transform: uppercase;
           letter-spacing: 0.1em;

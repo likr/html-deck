@@ -1,4 +1,8 @@
 export class HdPresenter extends HTMLElement {
+  static get observedAttributes() {
+    return ['presenter-channel'];
+  }
+
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
@@ -18,8 +22,6 @@ export class HdPresenter extends HTMLElement {
           color: var(--hd-presenter-text-color);
           font-family: var(--hd-presenter-font);
           box-sizing: border-box;
-          padding: var(--hd-presenter-gap);
-          gap: var(--hd-presenter-gap);
           overflow: hidden;
         }
 
@@ -39,7 +41,7 @@ export class HdPresenter extends HTMLElement {
           flex-direction: column;
           gap: var(--hd-presenter-gap);
           min-height: 0;
-          width: 100%;
+          margin: var(--hd-presenter-gap);
         }
 
         .presenter-main-split {
@@ -93,6 +95,16 @@ export class HdPresenter extends HTMLElement {
         <slot name="bottom"></slot>
       </div>
     `;
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (name === 'presenter-channel' && oldValue !== newValue) {
+      this.dispatchEvent(new CustomEvent('presenter-channel-change', {
+        detail: { channelName: newValue },
+        bubbles: true,
+        composed: true
+      }));
+    }
   }
 
   connectedCallback() {

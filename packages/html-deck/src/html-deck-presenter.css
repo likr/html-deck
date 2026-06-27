@@ -37,7 +37,6 @@ hd-presenter [slot="header"] {
   background-color: var(--hd-presenter-panel-background-color);
   border-bottom: 1px solid var(--hd-presenter-border-color);
   padding: 12px var(--hd-presenter-card-padding);
-  border-radius: 12px;
   box-sizing: border-box;
   width: 100%;
 }

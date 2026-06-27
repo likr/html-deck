@@ -1,6 +1,6 @@
 export class HdPresenterStatus extends HTMLElement {
   static get observedAttributes() {
-    return ['channel'];
+    return [];
   }
 
   constructor() {
@@ -20,29 +20,47 @@ export class HdPresenterStatus extends HTMLElement {
       <div id="status">Slide 0 / 0</div>
     `;
     this.handleMessage = this.handleMessage.bind(this);
+    this.handleChannelChange = this.handleChannelChange.bind(this);
     this.channel = null;
+    this.presenter = null;
   }
 
-  attributeChangedCallback(name, oldValue, newValue) {
-    if (oldValue === newValue) return;
-    if (name === 'channel' && this.channel) {
+  setupChannel() {
+    if (this.channel) {
       this.channel.removeEventListener('message', this.handleMessage);
       this.channel.close();
-      const channelName = newValue || new URLSearchParams(window.location.search).get('channel') || 'hd-deck-channel';
-      this.channel = new BroadcastChannel(channelName);
-      this.channel.addEventListener('message', this.handleMessage);
+      this.channel = null;
+    }
+    const presenter = this.closest('hd-presenter');
+    const channelName = (presenter && presenter.getAttribute('presenter-channel')) || 'hd-deck-channel';
+    this.channel = new BroadcastChannel(channelName);
+    this.channel.addEventListener('message', this.handleMessage);
+  }
+
+  handleChannelChange(event) {
+    this.setupChannel();
+    if (this.channel) {
       this.channel.postMessage({ type: 'request-sync' });
     }
   }
 
   connectedCallback() {
-    const channelName = this.getAttribute('channel') || new URLSearchParams(window.location.search).get('channel') || 'hd-deck-channel';
-    this.channel = new BroadcastChannel(channelName);
-    this.channel.addEventListener('message', this.handleMessage);
-    this.channel.postMessage({ type: 'request-sync' });
+    this.setupChannel();
+    if (this.channel) {
+      this.channel.postMessage({ type: 'request-sync' });
+    }
+
+    this.presenter = this.closest('hd-presenter');
+    if (this.presenter) {
+      this.presenter.addEventListener('presenter-channel-change', this.handleChannelChange);
+    }
   }
 
   disconnectedCallback() {
+    if (this.presenter) {
+      this.presenter.removeEventListener('presenter-channel-change', this.handleChannelChange);
+      this.presenter = null;
+    }
     if (this.channel) {
       this.channel.removeEventListener('message', this.handleMessage);
       this.channel.close();

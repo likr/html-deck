@@ -135,7 +135,7 @@ TEMPLATE.innerHTML = `
 
 export class HdDeck extends HTMLElement {
   static get observedAttributes() {
-    return ['aspect-ratio', 'presenter-url', 'transition', 'hide-page-number', 'channel'];
+    return ['aspect-ratio', 'presenter-url', 'transition', 'hide-page-number', 'presenter-channel'];
   }
 
   constructor() {
@@ -186,7 +186,7 @@ export class HdDeck extends HTMLElement {
     if (name === 'hide-page-number') {
       this.updateSlides();
     }
-    if (name === 'channel') {
+    if (name === 'presenter-channel') {
       if (this.channel) {
         this.channel.removeEventListener('message', this.handleMessage);
         this.channel.close();
@@ -238,7 +238,7 @@ export class HdDeck extends HTMLElement {
 
     // BroadcastChannel sync
     if (!this.channel) {
-      const channelName = this.getAttribute('channel') || 'hd-deck-channel';
+      const channelName = this.getAttribute('presenter-channel') || 'hd-deck-channel';
       this.channel = new BroadcastChannel(channelName);
       this.channel.addEventListener('message', this.handleMessage);
     }
@@ -398,8 +398,6 @@ export class HdDeck extends HTMLElement {
       if (action === 'goto' && typeof index === 'number') this.goto(index);
     } else if (type === 'request-sync') {
       this.syncPresenter();
-    } else if (type === 'focus-deck') {
-      window.focus();
     }
   }
 
@@ -565,6 +563,10 @@ export class HdDeck extends HTMLElement {
     return vars;
   }
 
+  sync() {
+    this.syncPresenter();
+  }
+
   syncPresenter() {
     if (!this.channel) return;
     if (!this.slides || this.slides.length === 0) {
@@ -608,9 +610,7 @@ export class HdDeck extends HTMLElement {
   openPresenter() {
     const presenterUrl = this.getAttribute('presenter-url');
     if (!presenterUrl) return;
-    const channelName = this.getAttribute('channel') || 'hd-deck-channel';
     const resolvedUrl = new URL(presenterUrl, window.location.href);
-    resolvedUrl.searchParams.set('channel', channelName);
     window.open(resolvedUrl.href, 'Presenter View', 'width=1000,height=700');
     // Request sync immediately after window opens
     setTimeout(() => this.syncPresenter(), 500);

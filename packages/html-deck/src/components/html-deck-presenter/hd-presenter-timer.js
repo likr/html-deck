@@ -41,7 +41,8 @@ export class HdPresenterTimer extends HTMLElement {
     this.start();
     this.shadowRoot.getElementById('reset').addEventListener('click', () => this.start());
     
-    const channelName = this.getAttribute('channel') || new URLSearchParams(window.location.search).get('channel') || 'hd-deck-channel';
+    const presenter = this.closest('hd-presenter');
+    const channelName = (presenter && presenter.getAttribute('presenter-channel')) || 'hd-deck-channel';
     const channel = new BroadcastChannel(channelName);
     channel.postMessage({ type: 'request-sync' });
     channel.close();
