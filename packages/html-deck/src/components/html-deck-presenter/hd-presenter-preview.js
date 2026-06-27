@@ -14,10 +14,6 @@ export class HdPresenterPreview extends HTMLElement {
           height: 100%;
           box-sizing: border-box;
         }
-        #preview {
-          width: 100%;
-          height: 100%;
-        }
         .preview-wrapper {
           position: relative;
           width: 100%;
@@ -46,12 +42,18 @@ export class HdPresenterPreview extends HTMLElement {
           color: var(--hd-presenter-accent-color);
         }
       </style>
-      <div id="preview">None</div>
+      <style id="preview-styles"></style>
+      <div class="preview-wrapper">
+        <div class="preview-container" id="preview-container">
+          <slot></slot>
+        </div>
+      </div>
     `;
     this.handleMessage = this.handleMessage.bind(this);
     this.resizePreview = this.resizePreview.bind(this);
     this.aspectRatio = '16:9';
-    this.stylesheets = [];
+    this.themeVariables = {};
+    this.lastThemeVariablesKey = '';
     this.resizeObserver = null;
     this.channel = null;
   }
@@ -72,7 +74,7 @@ export class HdPresenterPreview extends HTMLElement {
     const channelName = this.getAttribute('channel') || new URLSearchParams(window.location.search).get('channel') || 'hd-deck-channel';
     this.channel = new BroadcastChannel(channelName);
     this.channel.addEventListener('message', this.handleMessage);
-    const wrapper = this.shadowRoot.getElementById('preview');
+    const wrapper = this.shadowRoot.querySelector('.preview-wrapper');
     if (wrapper) {
       this.resizeObserver = new ResizeObserver(() => this.resizePreview());
       this.resizeObserver.observe(wrapper);
@@ -92,12 +94,11 @@ export class HdPresenterPreview extends HTMLElement {
   }
 
   handleMessage(event) {
-    const { type, activeHTML, nextTitle, nextHTML, aspectRatio, stylesheets } = event.data;
+    const { type, activeHTML, nextTitle, nextHTML, aspectRatio, themeVariables } = event.data;
     if (type === 'sync') {
       this.aspectRatio = aspectRatio || '16:9';
-      this.stylesheets = stylesheets || [];
+      this.themeVariables = themeVariables || {};
       const typeAttr = this.getAttribute('type') || 'next';
-      const container = this.shadowRoot.getElementById('preview');
 
       let targetHTML = '';
       if (typeAttr === 'current') {
@@ -107,41 +108,30 @@ export class HdPresenterPreview extends HTMLElement {
       }
 
       if (targetHTML) {
-        let stylesContainer = document.getElementById('hd-presenter-injected-styles');
-        if (!stylesContainer) {
-          stylesContainer = document.createElement('div');
-          stylesContainer.id = 'hd-presenter-injected-styles';
-          stylesContainer.style.display = 'none';
-          document.head.appendChild(stylesContainer);
-        }
-
-        let stylesHTML = '';
-        if (this.stylesheets && Array.isArray(this.stylesheets)) {
-          this.stylesheets.forEach(sheet => {
-            if (sheet.type === 'style') {
-              stylesHTML += `<style>${sheet.content}</style>`;
-            } else if (sheet.type === 'link') {
-              stylesHTML += `<link rel="stylesheet" href="${sheet.href}">`;
+        // Performance Check: Only update style block if variables have actually changed
+        const varsKey = JSON.stringify(this.themeVariables);
+        if (varsKey !== this.lastThemeVariablesKey) {
+          const stylesContainer = this.shadowRoot.getElementById('preview-styles');
+          if (stylesContainer) {
+            let cssContent = ':host {\n';
+            for (const [prop, val] of Object.entries(this.themeVariables)) {
+              cssContent += `  ${prop}: ${val};\n`;
             }
-          });
+            cssContent += '}';
+            stylesContainer.textContent = cssContent;
+          }
+          this.lastThemeVariablesKey = varsKey;
         }
-        stylesContainer.innerHTML = stylesHTML;
 
-        container.innerHTML = `
-          <div class="preview-wrapper">
-            <div class="preview-container">
-              ${targetHTML}
-            </div>
-          </div>
-        `;
-        const slide = container.querySelector('hd-slide');
+        this.innerHTML = targetHTML;
+        const slide = this.querySelector('hd-slide');
         if (slide) {
           slide.setAttribute('active', '');
           slide.setAttribute('transition-style', 'none');
         }
 
         // Force browser repaint/reflow to avoid GPU compositing bugs under scale transforms (black screen)
-        const containerEl = container.querySelector('.preview-container');
+        const containerEl = this.shadowRoot.getElementById('preview-container');
         if (containerEl) {
           containerEl.style.display = 'none';
           containerEl.offsetHeight; // trigger reflow
@@ -154,7 +144,7 @@ export class HdPresenterPreview extends HTMLElement {
         });
       } else {
         const placeholderText = typeAttr === 'current' ? 'No slide' : (nextTitle || 'End of Presentation');
-        container.innerHTML = `<div class="end-presentation">${placeholderText}</div>`;
+        this.innerHTML = `<div class="end-presentation">${placeholderText}</div>`;
       }
     }
   }

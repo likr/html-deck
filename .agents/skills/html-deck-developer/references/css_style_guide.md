@@ -63,8 +63,10 @@
 ## 5. テーマ（Theme）設計とオーバーライドの規則
 - **Skeletonライブラリとしての原則**:
   `html-deck` はデフォルトでシンプルなスケルトン（白背景、最小限の装飾）であり、外部のテーマCSSファイルで見た目を切り替えます。
-- **テーマCSSの記述制限**:
-  テーマCSSは、**排他的に `:root` セレクタ下のCSS変数をオーバーライド**しなければなりません。テーマCSS内でHTMLタグやクラス名（`hd-slide` や `.hd-card` など）を直接ターゲットにしてはなりません。
+- **テーマCSSの記述制限と Cascade Layers による優先度保証**:
+  デフォルトのCSS変数は `variables.css` および `html-deck-presenter.css` 内でそれぞれ `@layer hd-variables`、`@layer hd-presenter-variables` レイヤーにラップされています。
+  テーマCSSは、**レイヤー外（unlayered）の `:root` セレクタ下でCSS変数をオーバーライド**しなければなりません。 unlayered な定義は layered な定義よりも常に優先されるため、これによりCSSの読み込み順序に依存しない確実な上書きが保証されます。
+  テーマCSS内でHTMLタグやクラス名（`hd-slide` や `.hd-card` など）を直接ターゲットにしてはなりません。
   - カスタムスタイル（枠線、スクロールバー、コードブロック、シャドウなど）が必要な場合、それらの要素にはあらかじめパラメータ化されたCSS変数（`--hd-card-shadow-primary` など）を定義しておき、テーマCSSではその変数をオーバーライドします。
 - **CSS Relative Color Syntax の使用**:
   テーマCSS内では、透明度や影、ボーダーのバリエーションなどを表現する際に、生の `hex` や `rgba` のカラーリテラルをハードコードしてはなりません。

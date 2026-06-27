@@ -1,5 +1,6 @@
 /* html-deck-presenter.css - Helper classes and layouts for Presenter View */
 
+@layer hd-presenter-variables {
 :root {
   /* Presenter View Default Styling Variables */
   --hd-presenter-font: 'Outfit', system-ui, -apple-system, sans-serif;
@@ -21,6 +22,7 @@
   --hd-presenter-btn-padding: 14px 20px;
   --hd-presenter-btn-font-size: 18px;
   --hd-presenter-split-ratio: 1.2fr 1fr;
+}
 }
 
 hd-presenter .hd-presenter-span-all {

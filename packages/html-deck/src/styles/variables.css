@@ -1,4 +1,5 @@
 /* variables.css - Global CSS variables for HTML-Deck */
+@layer hd-variables {
 :root {
   /* Fonts */
   --hd-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
@@ -385,5 +386,5 @@
   /* Slide Viewport Overlay (e.g., CRT scanline mesh overlay) */
   --hd-slide-overlay-background: none;
   --hd-slide-overlay-mix-blend-mode: normal;
-  --hd-slide-overlay-opacity: 1;
+}
 }

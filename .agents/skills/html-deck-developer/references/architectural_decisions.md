@@ -78,8 +78,10 @@
   - **パターン**: スライドデータを別ウインドウに送信する前に、すべての相対 `src` および `href` 属性を絶対 URL（例: `new URL(val, window.location.href).href`）に書き換える処理を挟みます。
 - **BroadcastChannel チャンネル名のカスタマイズと混線回避**:
   複数ウィンドウで異なるスライドショーを開いた際の混線を防ぐため、`BroadcastChannel` のチャンネル名は固定せず、`<hd-deck>` および各プレゼンター用コンポーネント（`<hd-presenter-preview>` など）の `channel` 属性、または URL のクエリパラメータ `?channel=...` から動的に決定します。プレゼンター画面を起動する際、親の `<hd-deck>` は自身のチャンネル名を URL パラメータに自動で引き継ぎます。
-- **スライドとプレビューのスタイル一致保証（スタイルシートの伝播）**:
-  プレゼンター画面とメイン画面でテーマ、カスタム CSS、および CSS 変数が不一致になるのを防ぐため、`<hd-deck>` は同期メッセージ送信時にページ内の有効な `<style>` および `<link rel="stylesheet">`（絶対 URL に解決済み）のメタデータを収集して送信し、`<hd-presenter-preview>` は受信したスタイルをプレゼンター画面のグローバルな `document.head` 内に動的にインジェクトして適用します（テーマスタイルが用いる `:root` セレクタによる変数定義を、プレビュー用 Shadow DOM 内に継承・伝播させるためです）。また、メイン画面でのテーマ切り替えを即時反映させるため、`<hd-deck>` は `MutationObserver` で `document.head` 内のスタイル更新を監視し、変更時に自動で再同期をトリガーします。
+- **スライドとプレビューのスタイル一致保証（CSS変数の伝播とLight DOMスロット方式）**:
+  プレゼンター画面とメイン画面でテーマおよびCSS変数が不一致になるのを防ぐため、`<hd-deck>` は同期メッセージ送信時に `window.getComputedStyle(this)` を用いて `--hd-` から始まるすべての計算済みCSS変数を抽出して送信します。
+  また、プレビューコンポーネント `<hd-presenter-preview>` は、Shadow DOM 内にレイアウトコンテナ（`.preview-wrapper`, `.preview-container`）と `<slot></slot>` を定義し、スライドHTMLを自身の **Light DOM**（`this.innerHTML`）に挿入します。これにより、スライド要素は自動的に Shadow DOM のコンテナへスロットされ、計算された寸法スケール（Scale Transform）が適用されます。
+  スライドHTMLが Light DOM に存在するため、グローバルな `html-deck.css`（`presenter.html` でロード済み）の要素・クラススタイル（`table`, `img`, `.hd-accent` 等）がShadow DOMの境界を越えてネイティブに適用されます。テーマ変数については、プレビューの Shadow DOM 内の `<style id="preview-styles">` に `:host { --hd-...: ... }` としてインジェクトされ、スロットされた子要素へ継承されます。また、不要なCSSの再パースやチラつきを防ぐため、受信した変数のJSON文字列をキャッシュキーとして比較し、変化がある場合のみスタイル適用を更新します。メイン画面でのテーマ切り替えを即時反映させるため、`<hd-deck>` は `MutationObserver` で `document.head` 内のスタイル更新を監視し、変更時に自動で再同期をトリガーします。
 - **標準レイアウトとカードの利用によるコード簡素化**:
   発表者ビュー（Presenter View）の実装を簡素化するため、`<hd-presenter>`、`<hd-presenter-logo>`、`<hd-presenter-slide-button>`および`<hd-presenter-card>`が導入されました。以前の `<hd-presenter-layout>` は不要となったため廃止・削除されています。
   - **レイアウトとスロット**: `<hd-presenter>`は、`slot="header"`（上部ヘッダー）、`slot="before"`、`slot="left"`またはデフォルトスロット（左側ペイン）、`slot="right"`（右側ペイン）、`slot="bottom"`（下部ペイン）で構成されます。body要素のデフォルト余白・スクロールのリセットスタイルは自動注入されます。

@@ -553,23 +553,16 @@ export class HdDeck extends HTMLElement {
     return clone.outerHTML;
   }
 
-  getActiveStylesheets() {
-    const styles = [];
-    document.querySelectorAll('style').forEach(el => {
-      styles.push({ type: 'style', content: el.textContent });
-    });
-    document.querySelectorAll('link[rel="stylesheet"]').forEach(el => {
-      const href = el.getAttribute('href');
-      if (href) {
-        try {
-          const absoluteHref = new URL(href, window.location.href).href;
-          styles.push({ type: 'link', href: absoluteHref });
-        } catch (e) {
-          console.warn(`Failed to resolve stylesheet href: ${href}`, e);
-        }
+  getComputedThemeVariables() {
+    const styles = window.getComputedStyle(this);
+    const vars = {};
+    for (let i = 0; i < styles.length; i++) {
+      const prop = styles[i];
+      if (prop && prop.startsWith('--hd-')) {
+        vars[prop] = styles.getPropertyValue(prop).trim();
       }
-    });
-    return styles;
+    }
+    return vars;
   }
 
   syncPresenter() {
@@ -587,7 +580,7 @@ export class HdDeck extends HTMLElement {
     const nextTitle = nextSlide ? (nextSlide.getAttribute('title') || `Slide ${this.currentIndex + 2}`) : 'End of Deck';
     const nextHTML = nextSlide ? this.resolveRelativePaths(nextSlide) : '';
 
-    const stylesheets = this.getActiveStylesheets();
+    const themeVariables = this.getComputedThemeVariables();
 
     this.channel.postMessage({
       type: 'sync',
@@ -598,7 +591,7 @@ export class HdDeck extends HTMLElement {
       nextTitle: nextTitle,
       nextHTML: nextHTML,
       aspectRatio: this.getAttribute('aspect-ratio') || '16:9',
-      stylesheets: stylesheets
+      themeVariables: themeVariables
     });
   }
 
