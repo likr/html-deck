@@ -77,7 +77,13 @@ When designing or modifying a theme, define exactly 4 base variables under the `
 
 ALL other colors in the 48-color matrix (including muted states, highlights, secondary background shades, and dark/inverted variants) **MUST** be derived from these 4 base colors using CSS Relative Color Syntax (`rgba(from var(...) r g b / opacity)`) or color mixing (`color-mix(in srgb, ...)`). Do not hardcode raw hex, rgb, or hsl values for matrix elements. This ensures visual harmony and guarantees that changing the 4 base variables will cleanly propagate through the entire presentation theme.
 
-### 5. Consult the Variables Reference
+### 5. Prevent Header/Footer Overlaps & Ensure Symmetrical Alignment (ヘッダー/フッターの重複防止と対称配置)
+When scaling down typography sizes or spacing gaps to create high-density layouts (e.g., academic or professional editorial styles), the absolute-positioned `header` element (slotted at the top) can overlap with the slide's main `heading` area. To resolve this and maintain visual symmetry:
+- **Shrink and Shift Peripherals**: Reduce `--hd-text-peripheral-font-size` (e.g., to `10px` or `11px`) and lower `--hd-peripheral-offset` (e.g., to `8px`) to shift header/footer text closer to the slide canvas edges.
+- **Ensure Heading Padding**: Increase the top padding of the heading area via `--hd-layout-heading-padding` (e.g., using `var(--hd-gap-3)` = `18px` or larger for the top/bottom pads) to provide a safety clearance from the header.
+- **Maintain Symmetry**: Ensure that both `--hd-layout-heading-padding` and `--hd-layout-body-padding` maintain symmetrical top and bottom padding sizes (top = bottom) to ensure layout alignment, while keeping the header/footer offsets symmetrical using the shared `--hd-peripheral-offset` variable.
+
+### 6. Consult the Variables Reference
 Whenever you need to override colors, font sizes, padding, margins, or individual component properties, **you MUST read the [css_variables.md](file:///home/likr/work/likr/html-deck/.agents/skills/html-deck-theme-creator/references/css_variables.md) reference file** using the `view_file` tool to locate the exact variable name and its default behavior.
 
 

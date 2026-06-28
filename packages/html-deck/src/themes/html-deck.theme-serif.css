@@ -96,14 +96,38 @@
   --hd-slide-border-width: 1px;
   --hd-slide-border-style: solid;
 
+  /* 6-Level Sizing Scale Override for Academic Elegance */
+  --hd-size-1: 54px;
+  --hd-size-2: 32px;
+  --hd-size-3: 20px;
+  --hd-size-4: 16px;
+  --hd-size-5: 13px;
+  --hd-size-6: 10px; /* Reduced from 11px to make header/footer smaller */
 
-  /* Spacing & Layout - Generous and structured */
-  --hd-gap-1: 8px;
-  --hd-gap-2: 16px;
-  --hd-gap-3: 24px;
-  --hd-gap-4: 32px;
-  --hd-gap-5: 48px;
-  --hd-gap-6: 64px;
+  /* Spacing & Layout - Academic, refined and dense */
+  --hd-gap-1: 6px;
+  --hd-gap-2: 12px;
+  --hd-gap-3: 18px;
+  --hd-gap-4: 24px;
+  --hd-gap-5: 36px;
+  --hd-gap-6: 48px;
+
+  /* Slide margins (slimmed) */
+  --hd-slide-margin-top: var(--hd-gap-3);
+  --hd-slide-margin-bottom: var(--hd-gap-3);
+  --hd-slide-margin-left: var(--hd-gap-5);
+  --hd-slide-margin-right: var(--hd-gap-5);
+
+  /* Peripheral Absolute Position Offset (Symmetrical positioning of header and footer) */
+  --hd-peripheral-offset: 8px;
+
+  /* Layout Spacing Configurations (Symmetrical & Compact) */
+  --hd-layout-heading-padding: var(--hd-gap-3) var(--hd-slide-margin-right) var(--hd-gap-3) var(--hd-slide-margin-left); /* Expanded from gap-2 to gap-3 to give heading more breathing room and prevent overlap */
+  --hd-layout-body-padding: var(--hd-gap-3) var(--hd-slide-margin-right) var(--hd-gap-3) var(--hd-slide-margin-left);
+  --hd-layout-cover-padding: var(--hd-gap-4) var(--hd-slide-margin-right) var(--hd-gap-4) var(--hd-slide-margin-left);
+  --hd-layout-heading-margin: var(--hd-gap-3);
+  --hd-layout-cover-title-margin-bottom: var(--hd-gap-2);
+  --hd-layout-cover-subtitle-margin-bottom: var(--hd-gap-3);
 
   /* Heading Dividers - Thin, elegant hairline accent color divider */
   --hd-layout-heading-divider-display: block;
@@ -124,14 +148,17 @@
 
   /* Card Decor: Minimalist Bookplate Style */
   --hd-card-border-width: 1px;
+  --hd-card-padding: var(--hd-gap-2);
   --hd-card-box-shadow: 0 1px 3px rgba(from var(--hd-base-soft-text-color) r g b / 0.02), 0 6px 18px rgba(from var(--hd-base-soft-text-color) r g b / 0.02);
 
   /* Box Decor */
   --hd-box-border-width: 1px;
+  --hd-box-padding: var(--hd-gap-2);
   --hd-box-box-shadow: none;
 
   /* Callout Decor: Elegant left-border panel with warm paper tint background */
   --hd-callout-border-width: 0 0 0 3px;
+  --hd-callout-padding: var(--hd-gap-1) var(--hd-gap-2);
 
   /* Codeblock Decor */
   --hd-codeblock-background-color: #1e1b18; /* Vintage dark charcoal tint for code */
@@ -140,7 +167,7 @@
 
   /* Table Decor */
   --hd-table-border-color: rgba(from var(--hd-base-soft-text-color) r g b / 0.15);
-  --hd-table-cell-padding: 8px 12px;
+  --hd-table-cell-padding: var(--hd-gap-1) var(--hd-gap-2);
 
   /* Blockquote Decor */
   --hd-blockquote-border-width: 3px;
