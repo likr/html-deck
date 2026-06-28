@@ -15,18 +15,13 @@ export class HdCallout extends HTMLElement {
           padding: var(--hd-callout-padding);
           margin-bottom: var(--hd-callout-margin-bottom);
           font-size: var(--hd-callout-font-size);
-          background: var(--hd-body-background-color);
-          color: var(--hd-body-text-color);
+          background: var(--hd-background-color);
+          color: var(--hd-text-color);
           border-width: var(--hd-callout-border-width);
           border-style: var(--hd-callout-border-style);
           border-color: var(--hd-border-color);
           box-shadow: var(--hd-callout-box-shadow);
           text-align: left;
-
-          /* Default (base) State Variable Values */
-          --hd-soft-background-color: var(--hd-base-soft-background-color);
-          --hd-soft-text-color: var(--hd-base-soft-text-color);
-          --hd-solid-background-color: var(--hd-base-solid-background-color);
         }
 
         /* Variant main */

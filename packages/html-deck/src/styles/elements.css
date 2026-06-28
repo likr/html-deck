@@ -145,31 +145,31 @@ hd-slide pre {
 }
 
 hd-slide code:not(pre code) {
-  background-color: rgba(from var(--hd-body-text-color) r g b / 0.05);
-  color: var(--hd-body-text-highlight-color);
+  background-color: rgba(from var(--hd-text-color) r g b / 0.05);
+  color: var(--hd-text-highlight-color);
   padding: var(--hd-code-padding);
   border-radius: var(--hd-code-border-radius);
   font-family: var(--hd-code-font-family);
   font-size: var(--hd-code-font-size);
-  border: var(--hd-code-border-width) var(--hd-code-border-style) rgba(from var(--hd-body-text-color) r g b / 0.08);
+  border: var(--hd-code-border-width) var(--hd-code-border-style) rgba(from var(--hd-text-color) r g b / 0.08);
 }
 
 hd-slide kbd {
-  background-color: rgba(from var(--hd-body-text-color) r g b / 0.05);
-  color: var(--hd-body-text-color);
+  background-color: rgba(from var(--hd-text-color) r g b / 0.05);
+  color: var(--hd-text-color);
   padding: var(--hd-kbd-padding);
   border-radius: var(--hd-kbd-border-radius);
   font-family: var(--hd-kbd-font-family);
   font-size: var(--hd-kbd-font-size);
   border-width: var(--hd-kbd-border-width);
   border-style: var(--hd-kbd-border-style);
-  border-color: rgba(from var(--hd-body-text-color) r g b / 0.15);
+  border-color: rgba(from var(--hd-text-color) r g b / 0.15);
   box-shadow: var(--hd-kbd-box-shadow);
 }
 
 hd-slide mark {
-  background-color: rgba(from var(--hd-body-text-highlight-color) r g b / 0.15);
-  color: var(--hd-body-text-highlight-color);
+  background-color: rgba(from var(--hd-text-highlight-color) r g b / 0.15);
+  color: var(--hd-text-highlight-color);
   padding: var(--hd-mark-padding);
   border-radius: var(--hd-mark-border-radius);
 }

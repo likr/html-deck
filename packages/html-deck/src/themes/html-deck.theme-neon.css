@@ -115,39 +115,29 @@
    --hd-layout-cover-title-text-shadow: 0 0 10px var(--hd-main-soft-text-color), 0 0 20px rgba(from var(--hd-main-soft-text-color) r g b / 0.4);
    --hd-layout-cover-subtitle-text-shadow: 0 0 8px var(--hd-accent-soft-text-color);
 
-   /* Component Glowing Effects - utilizing the newly unlocked background gradient capability */
-   --hd-card-background-color: linear-gradient(145deg, #111124 0%, #08080f 100%);
-   --hd-card-border-color: rgba(from var(--hd-main-soft-text-color) r g b / 0.3);
-   --hd-card-border-width: 1px;
-   --hd-card-box-shadow: 0 0 15px rgba(from var(--hd-main-soft-text-color) r g b / 0.15);
-   --hd-card-heading-background-color: linear-gradient(90deg, #1e1e3f 0%, #111124 100%);
-   --hd-card-heading-text-color: var(--hd-main-soft-text-color);
-   --hd-card-heading-border-color: rgba(from var(--hd-main-soft-text-color) r g b / 0.3);
+    --hd-soft-background-color: linear-gradient(145deg, #111124 0%, #08080f 100%);
+    --hd-solid-background-color: linear-gradient(145deg, #140410 0%, #08080f 100%);
 
-   --hd-box-background-color: linear-gradient(145deg, #140410 0%, #08080f 100%);
-   --hd-box-border-color: rgba(from var(--hd-accent-soft-text-color) r g b / 0.3);
-   --hd-box-border-width: 1px;
-   --hd-box-box-shadow: 0 0 15px rgba(from var(--hd-accent-soft-text-color) r g b / 0.15);
-   --hd-box-heading-background-color: linear-gradient(90deg, #3f1e38 0%, #140410 100%);
-   --hd-box-heading-text-color: var(--hd-accent-soft-text-color);
-   --hd-box-heading-border-color: rgba(from var(--hd-accent-soft-text-color) r g b / 0.3);
+    --hd-card-border-width: 1px;
+    --hd-card-box-shadow: 0 0 15px rgba(from var(--hd-main-soft-text-color) r g b / 0.15);
 
-   --hd-callout-background-color: linear-gradient(90deg, rgba(from var(--hd-main-soft-text-color) r g b / 0.1) 0%, rgba(from var(--hd-base-soft-background-color) r g b / 0) 100%);
-   --hd-callout-border-color: var(--hd-main-soft-text-color);
+    --hd-box-border-width: 1px;
+    --hd-box-box-shadow: 0 0 15px rgba(from var(--hd-accent-soft-text-color) r g b / 0.15);
 
-   /* Codeblock Styling */
-   --hd-codeblock-background-color: rgba(from var(--hd-base-solid-background-color) r g b / 0.85);
-   --hd-codeblock-border-color: rgba(from var(--hd-base-soft-text-color) r g b / 0.08);
-   --hd-codeblock-box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.8);
+    /* Codeblock Styling */
+    --hd-codeblock-background-color: rgba(from var(--hd-base-solid-background-color) r g b / 0.85);
+    --hd-codeblock-border-color: rgba(from var(--hd-base-soft-text-color) r g b / 0.08);
+    --hd-codeblock-box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.8);
 
-   /* Scrollbars thumbs */
-   --hd-scrollbar-track-bg: rgba(0, 0, 0, 0.4);
-   --hd-scrollbar-thumb-hover-bg: var(--hd-main-soft-text-color);
+    /* Scrollbars thumbs */
+    --hd-scrollbar-track-bg: rgba(0, 0, 0, 0.4);
+    --hd-scrollbar-thumb-hover-bg: var(--hd-main-soft-text-color);
 }
 
-hd-slide {
-  --hd-heading-background-color: var(--hd-slide-heading-soft-background-color);
-  --hd-heading-text-color: var(--hd-slide-heading-soft-text-color);
-  --hd-heading-text-highlight-color: var(--hd-slide-heading-soft-text-highlight-color);
-  --hd-heading-text-muted-color: var(--hd-slide-heading-soft-text-muted-color);
+[slot="header"],
+[slot="heading"] {
+  --hd-background-color: var(--hd-base-soft-background-color);
+  --hd-text-color: var(--hd-base-soft-text-color);
+  --hd-text-highlight-color: var(--hd-base-soft-text-highlight-color);
+  --hd-text-muted-color: var(--hd-base-soft-text-muted-color);
 }

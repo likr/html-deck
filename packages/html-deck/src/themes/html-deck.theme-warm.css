@@ -88,18 +88,7 @@
   --hd-accent-solid-text-highlight-color-inverted: #e06b4d;
   --hd-accent-solid-text-muted-color-inverted: #ba9142;
 
-  /* ========================================================
-     SEMANTIC SLIDE COLORS (Explicit default mappings)
-     ======================================================== */
-  --hd-body-background-color: var(--hd-base-soft-background-color);
-  --hd-body-text-color: var(--hd-base-soft-text-color);
-  --hd-body-text-highlight-color: var(--hd-base-soft-text-highlight-color);
-  --hd-body-text-muted-color: var(--hd-base-soft-text-muted-color);
 
-  --hd-heading-background-color: var(--hd-main-soft-background-color);
-  --hd-heading-text-color: var(--hd-main-soft-text-color);
-  --hd-heading-text-highlight-color: var(--hd-main-soft-text-highlight-color);
-  --hd-heading-text-muted-color: var(--hd-main-soft-text-muted-color);
 
 
   /* ========================================================
@@ -150,25 +139,15 @@
   --hd-img-border-radius: 12px;
 
   /* Card Decor: Cozy Rounded Floating Box */
-  --hd-card-background-color: #ffffff;
   --hd-card-border-width: 1px;
-  --hd-card-border-color: rgba(from var(--hd-base-soft-text-color) r g b / 0.08);
   --hd-card-box-shadow: 0 4px 20px rgba(from var(--hd-base-soft-text-color) r g b / 0.04), 0 1px 3px rgba(from var(--hd-base-soft-text-color) r g b / 0.02);
-  --hd-card-heading-background-color: var(--hd-base-solid-background-color);
-  --hd-card-heading-text-color: var(--hd-base-soft-text-color);
-  --hd-card-heading-border-color: rgba(from var(--hd-base-soft-text-color) r g b / 0.08);
 
   /* Box Decor: Warm Clay Plate */
-  --hd-box-background-color: var(--hd-base-solid-background-color);
   --hd-box-border-width: 1px;
-  --hd-box-border-color: rgba(from var(--hd-base-soft-text-color) r g b / 0.08);
   --hd-box-box-shadow: none;
 
   /* Callout Decor: Sunlit Left-Border Panel */
-  --hd-callout-background-color: rgba(from var(--hd-accent-soft-background-color) r g b / 0.65);
-  --hd-callout-border-color: var(--hd-accent-soft-text-color);
   --hd-callout-border-width: 0 0 0 4px;
-  --hd-callout-text-color: var(--hd-base-soft-text-color);
 
   /* Codeblock Decor: Vintage Dark Clay Terminal */
   --hd-codeblock-background-color: #27211d;

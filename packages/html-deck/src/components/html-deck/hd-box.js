@@ -16,24 +16,13 @@ export class HdBox extends HTMLElement {
           margin-bottom: var(--hd-box-margin-bottom);
           font-size: var(--hd-box-font-size);
           height: 100%;
-          background: var(--hd-body-background-color);
-          color: var(--hd-body-text-color);
+          background: var(--hd-background-color);
+          color: var(--hd-text-color);
           border-width: var(--hd-box-border-width);
           border-style: var(--hd-box-border-style);
           border-color: var(--hd-border-color);
           box-shadow: var(--hd-box-box-shadow);
           overflow: hidden;
-
-          /* Default (base) State Variable Values */
-          --hd-soft-background-color: var(--hd-base-soft-background-color);
-          --hd-soft-text-color: var(--hd-base-soft-text-color);
-          --hd-soft-text-highlight-color: var(--hd-base-soft-text-highlight-color);
-          --hd-soft-text-muted-color: var(--hd-base-soft-text-muted-color);
-
-          --hd-solid-background-color: var(--hd-base-solid-background-color);
-          --hd-solid-text-color: var(--hd-base-solid-text-color);
-          --hd-solid-text-highlight-color: var(--hd-base-solid-text-highlight-color);
-          --hd-solid-text-muted-color: var(--hd-base-solid-text-muted-color);
         }
 
         /* Variant default / base */

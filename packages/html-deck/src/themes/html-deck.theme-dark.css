@@ -84,38 +84,21 @@
   /* ========================================================
      SEMANTIC SLIDE COLORS (Explicit mappings)
      ======================================================== */
-  --hd-body-background-color: var(--hd-base-soft-background-color);
-  --hd-body-text-color: var(--hd-base-soft-text-color);
-  --hd-body-text-highlight-color: var(--hd-base-soft-text-highlight-color);
-  --hd-body-text-muted-color: var(--hd-base-soft-text-muted-color);
-
-  --hd-heading-background-color: var(--hd-main-soft-background-color);
-  --hd-heading-text-color: var(--hd-main-soft-text-color);
-  --hd-heading-text-highlight-color: var(--hd-main-soft-text-highlight-color);
-  --hd-heading-text-muted-color: var(--hd-main-soft-text-muted-color);
+  /* Card elevation: map component soft variables to solid base variables */
+  --hd-soft-background-color: var(--hd-base-solid-background-color);
+  --hd-soft-text-color: var(--hd-base-solid-text-color);
+  --hd-soft-text-highlight-color: var(--hd-base-solid-text-highlight-color);
+  --hd-soft-text-muted-color: var(--hd-base-solid-text-muted-color);
 
 
   /* ========================================================
      DARK-SPECIFIC COMPONENT OVERRIDES & ELEVATIONS
      ======================================================== */
   /* Card Design - Elevate with Solid background and proper dark shadow */
-  --hd-card-background-color: var(--hd-base-solid-background-color);
-  --hd-card-border-color: rgba(255, 255, 255, 0.08);
   --hd-card-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.2);
-  --hd-card-heading-background-color: rgba(255, 255, 255, 0.04);
-  --hd-card-heading-border-color: rgba(255, 255, 255, 0.08);
 
   /* Box Design */
-  --hd-box-background-color: var(--hd-base-solid-background-color);
-  --hd-box-border-color: rgba(255, 255, 255, 0.08);
   --hd-box-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.2);
-  --hd-box-heading-background-color: rgba(255, 255, 255, 0.04);
-  --hd-box-heading-border-color: rgba(255, 255, 255, 0.08);
-
-  /* Callout Design */
-  --hd-callout-background-color: rgba(from var(--hd-main-soft-background-color) r g b / 0.4);
-  --hd-callout-border-color: var(--hd-main-solid-background-color);
-  --hd-callout-text-color: var(--hd-base-soft-text-color);
 
   /* Codeblock Design - Darker background for contrast inside cards/slides */
   --hd-codeblock-background-color: #0b0f19;

@@ -130,32 +130,20 @@
   --hd-layout-cover-text-align: left;
 
   /* Card components overrides */
-  --hd-card-background-color: #000000;
-  --hd-card-text-color: var(--hd-base-soft-text-color);
   --hd-card-border-width: 2px;
   --hd-card-border-style: dotted;
-  --hd-card-border-color: var(--hd-base-soft-text-color);
   --hd-card-box-shadow: none;
   --hd-card-border-radius: 0px;
-  --hd-card-heading-background-color: var(--hd-base-soft-text-color);
-  --hd-card-heading-text-color: #000000;
-  --hd-card-heading-border-color: var(--hd-base-soft-text-color);
 
   /* Box components overrides */
-  --hd-box-background-color: #000000;
-  --hd-box-text-color: var(--hd-base-soft-text-color);
   --hd-box-border-width: 2px;
   --hd-box-border-style: dotted;
-  --hd-box-border-color: var(--hd-base-soft-text-muted-color);
   --hd-box-box-shadow: none;
   --hd-box-border-radius: 0px;
 
   /* Callout components overrides */
-  --hd-callout-background-color: rgba(0, 255, 102, 0.05);
-  --hd-callout-text-color: var(--hd-base-soft-text-color);
   --hd-callout-border-width: 0px 0px 0px 4px;
   --hd-callout-border-style: dotted;
-  --hd-callout-border-color: var(--hd-base-soft-text-color);
   --hd-callout-box-shadow: none;
   --hd-callout-border-radius: 0px;
 
@@ -181,9 +169,10 @@
   /* Table borders overrides (using color, not gradient) */
 }
 
-hd-slide {
-  --hd-heading-background-color: var(--hd-slide-heading-soft-background-color);
-  --hd-heading-text-color: var(--hd-slide-heading-soft-text-color);
-  --hd-heading-text-highlight-color: var(--hd-slide-heading-soft-text-highlight-color);
-  --hd-heading-text-muted-color: var(--hd-slide-heading-soft-text-muted-color);
+[slot="header"],
+[slot="heading"] {
+  --hd-background-color: var(--hd-base-soft-background-color);
+  --hd-text-color: var(--hd-base-soft-text-color);
+  --hd-text-highlight-color: var(--hd-base-soft-text-highlight-color);
+  --hd-text-muted-color: var(--hd-base-soft-text-muted-color);
 }
