@@ -30,17 +30,20 @@ Theme configurations define these colors to align branding across standard, mute
 No abbreviated names (like `bg` or `color`) should be introduced. Use `background-color` and `text-color` explicitly.
 
 ### The 4-Color Derivation Rule
-To maintain visual harmony and ease of branding, do not hardcode static colors for the matrix. Define 4 base colors at the top:
-- `--theme-background-color` (Background)
-- `--theme-text-color` (Text)
-- `--theme-main-color` (Main/Brand Primary)
-- `--theme-accent-color` (Accent/Brand Secondary)
+To maintain visual harmony and ease of branding, do not hardcode static colors for the matrix. The core standard theme (`variables.css`) defines 4 base variables under `:root` to derive the entire matrix:
+- `--hd-theme-background-color` (Background, default `#ffffff`)
+- `--hd-theme-text-color` (Text, default `#111827`)
+- `--hd-theme-main-color` (Main/Brand Primary, default `#4f46e5`)
+- `--hd-theme-accent-color` (Accent/Brand Secondary, default `#ea580c`)
 
 Derive all 48 variables from these 4 colors using CSS Relative Color Syntax and `color-mix()`:
 - **Soft Backgrounds**: Derive by applying high opacity/alpha to the base color, e.g., `rgba(from var(--theme-main-color) r g b / 0.06)`.
 - **Muted Texts**: Derive with translucent alpha, e.g., `rgba(from var(--theme-text-color) r g b / 0.6)`.
 - **Solid Surfaces**: Bind the solid base color directly, e.g., `var(--theme-main-color)` for background and `var(--theme-background-color)` for text.
 - **Inverted Surfaces**: Swap base background and text variables, or blend colors using `color-mix(in srgb, var(--theme-text-color) 85%, var(--theme-background-color))` to create high-quality dark tones.
+
+For custom themes or presentation-specific overrides, you can simply override these 4 variables under the `:root` selector in a custom CSS file (e.g. `style.css`).
+
 
 ### Base (Neutral/Standard) Theme
 - **Soft (Light bg / Dark text)**:
@@ -259,7 +262,7 @@ Also: Card, Box, Callout, and Layout Heading elements use the CSS `background` s
 - `--hd-table-margin-bottom`: Table bottom spacing. (Default: `var(--hd-gap-2)` = `16px`)
 - `--hd-table-font-size`: Inner cell text size. (Default: `var(--hd-size-4)` = `18px`)
 
-### Lists (`ul`, `ol` class="hd-list")
+### Lists (`ul`, `ol`)
 - `--hd-list-margin-bottom` / `--hd-list-padding-left` / `--hd-list-item-margin-bottom` / `--hd-list-font-family` / `--hd-list-font-size` / `--hd-list-color` / `--hd-list-line-height`
 
 ### Blockquote (`blockquote`)

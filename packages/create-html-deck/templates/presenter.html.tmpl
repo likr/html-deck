@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML-Deck - Presenter View</title>
+  
+  <!-- Load HTML-Deck elements including presenter elements -->
+  <script type="module">
+    import 'html-deck';
+    import 'html-deck/presenter';
+  </script>
+</head>
+<body>
+  <hd-presenter presenter-channel="{{channelName}}">
+    <!-- Header -->
+    <div slot="header">
+      <hd-presenter-logo></hd-presenter-logo>
+      <hd-presenter-status></hd-presenter-status>
+      <hd-presenter-timer></hd-presenter-timer>
+      <hd-presenter-clock></hd-presenter-clock>
+      <hd-presenter-controls></hd-presenter-controls>
+      <hd-presenter-slide-button slide-url="index.html"></hd-presenter-slide-button>
+    </div>
+
+    <!-- Left Panel -->
+    <div slot="left">
+      <hd-presenter-card title="Current Slide">
+        <hd-presenter-preview type="current"></hd-presenter-preview>
+      </hd-presenter-card>
+
+      <hd-presenter-card title="Next Slide Preview">
+        <hd-presenter-preview type="next"></hd-presenter-preview>
+      </hd-presenter-card>
+    </div>
+
+    <!-- Right Panel -->
+    <div slot="right">
+      <hd-presenter-card title="Speaker Notes">
+        <hd-presenter-notes></hd-presenter-notes>
+      </hd-presenter-card>
+    </div>
+  </hd-presenter>
+</body>
+</html>

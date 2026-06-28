@@ -90,7 +90,7 @@ A minimal HTML-Deck slideshow looks like this:
       <hd-layout>
         <h2 slot="heading">Slide Title</h2>
         <p class="hd-text">This is body content.</p>
-        <ul class="hd-list">
+        <ul>
           <li>Bullet point A</li>
           <li>Bullet point B</li>
         </ul>

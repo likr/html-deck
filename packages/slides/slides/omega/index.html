@@ -65,7 +65,7 @@
 
         <hd-card variant="base">
           <h3 slot="heading"><span class="icon">⚠️</span> 従来手法（最短経路距離）の課題</h3>
-          <ul class="hd-list hd-size-6">
+          <ul class="hd-size-6">
             <li><strong>大域的構造の欠落：</strong> 最短経路は「1つの最短パス」しか見ないため、並列する複数の迂回経路があるような「強いつながり（クラスタ）」を大域的に捉えられない。</li>
             <li><strong>高コストな全対最短経路計算：</strong> すべてのノード間の最短経路距離を事前に求めると <hd-math>\mathcal{O}(V^3)</hd-math> や
               <hd-math>\mathcal{O}(V^2 \log V + VE)</hd-math> の計算量が必要となり、大規模グラフではメモリ・CPUともに限界に達する。
@@ -178,7 +178,7 @@
 
         <hd-box slot="left" variant="main">
           <h3 slot="heading"><span class="icon">⚡</span> 線形時間 <hd-math>\mathcal{O}(|E|)</hd-math> の実現</h3>
-          <ul class="hd-list hd-size-6">
+          <ul class="hd-size-6">
             <li><strong>高速な埋め込み事前計算：</strong> グラフラプラシアンの有効な固有値スペクトルを利用し、抵抗距離をユークリッド空間へ高速に等長埋め込み。</li>
             <li><strong>ランダムペアサンプリングの統合：</strong> SGD（確率的勾配降下法）を用いることで、全ノード対のストレスストレス計算を省略。エッジ数に比例した
               <hd-math>\mathcal{O}(|E|)</hd-math> 時間での最適化を達成.
@@ -231,7 +231,7 @@
 
         <hd-card variant="base">
           <h3 slot="heading"><span class="icon">📈</span> 描画品質の向上</h3>
-          <ul class="hd-list hd-size-6">
+          <ul class="hd-size-6">
             <li><strong>近傍保存性 (Neighborhood Preservation)</strong><br>
               ローカルな接続関係を正しく配置する能力が向上。
             </li>
@@ -246,7 +246,7 @@
           <p class="hd-text hd-size-5">
             提案された<strong>ランダムペアサンプリング戦略</strong>は、従来アルゴリズムと比較して：
           </p>
-          <ul class="hd-list hd-size-6">
+          <ul class="hd-size-6">
             <li>最適化が局所解に陥りにくく、<strong>「より低いストレス値」</strong>に到達。</li>
             <li>試行ごとの分散が小さく、<strong>「極めて高い再現性と安定性」</strong>を達成。</li>
             <li>数万エッジの巨大な実世界ネットワークも数秒から数十秒でレイアウト完了。</li>
@@ -273,7 +273,7 @@
 
         <hd-card variant="main">
           <h3 slot="heading"><span class="icon">🏆</span> 本研究の貢献</h3>
-          <ul class="hd-list hd-size-6">
+          <ul class="hd-size-6">
             <li><strong>理論的架け橋：</strong>
               「スペクトラルグラフ理論」と「ストレスベースレイアウト」という、独立して研究されがちだった2分野の間に強固な数学的結びつき（抵抗距離の埋め込み）を実証した。</li>
             <li class="hd-mt-2"><strong>実用的な可視化：</strong> 実世界の大規模で複雑なソーシャルネットワークや共著関係ネットワークに対して、高速かつ忠実度の高いレイアウトシステムを

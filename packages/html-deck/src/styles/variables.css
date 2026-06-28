@@ -8,78 +8,84 @@
     --hd-heading-font: var(--hd-font-family);
 
     /* 48-Color Matrix */
+    /* --- 4-Color Palette base variables --- */
+    --hd-theme-background-color: #ffffff;
+    --hd-theme-text-color: #111827;
+    --hd-theme-main-color: #4f46e5;
+    --hd-theme-accent-color: #ea580c;
+
     /* --- Base Theme (Standard/Neutral) --- */
     /* Soft Surface (Light bg / Dark text) */
-    --hd-base-soft-background-color: #ffffff;
-    --hd-base-soft-text-color: #111827;
-    --hd-base-soft-text-highlight-color: #c2410c;
-    --hd-base-soft-text-muted-color: #4b5563;
+    --hd-base-soft-background-color: var(--hd-theme-background-color);
+    --hd-base-soft-text-color: var(--hd-theme-text-color);
+    --hd-base-soft-text-highlight-color: hsl(from var(--hd-theme-accent-color) h s 41%);
+    --hd-base-soft-text-muted-color: rgba(from var(--hd-theme-text-color) r g b / 0.6);
 
     /* Solid Surface (Medium bg / Dark text) */
-    --hd-base-solid-background-color: #f3f4f6;
-    --hd-base-solid-text-color: #111827;
-    --hd-base-solid-text-highlight-color: #9a3412;
-    --hd-base-solid-text-muted-color: #4b5563;
+    --hd-base-solid-background-color: rgba(from var(--hd-theme-text-color) r g b / 0.05);
+    --hd-base-solid-text-color: var(--hd-theme-text-color);
+    --hd-base-solid-text-highlight-color: hsl(from var(--hd-theme-accent-color) h s 34%);
+    --hd-base-solid-text-muted-color: rgba(from var(--hd-theme-text-color) r g b / 0.6);
 
     /* Soft Surface Inverted (Dark bg / Light text) */
-    --hd-base-soft-background-color-inverted: #111827;
-    --hd-base-soft-text-color-inverted: #ffffff;
-    --hd-base-soft-text-highlight-color-inverted: #fdba74;
-    --hd-base-soft-text-muted-color-inverted: #9ca3af;
+    --hd-base-soft-background-color-inverted: var(--hd-theme-text-color);
+    --hd-base-soft-text-color-inverted: var(--hd-theme-background-color);
+    --hd-base-soft-text-highlight-color-inverted: hsl(from var(--hd-theme-accent-color) h s 72%);
+    --hd-base-soft-text-muted-color-inverted: rgba(from var(--hd-theme-background-color) r g b / 0.6);
 
     /* Solid Surface Inverted (Dark bg / Light text) */
-    --hd-base-solid-background-color-inverted: #111827;
-    --hd-base-solid-text-color-inverted: #f3f4f6;
-    --hd-base-solid-text-highlight-color-inverted: #fdba74;
-    --hd-base-solid-text-muted-color-inverted: #9ca3af;
+    --hd-base-solid-background-color-inverted: var(--hd-theme-text-color);
+    --hd-base-solid-text-color-inverted: rgba(from var(--hd-theme-background-color) r g b / 0.95);
+    --hd-base-solid-text-highlight-color-inverted: hsl(from var(--hd-theme-accent-color) h s 72%);
+    --hd-base-solid-text-muted-color-inverted: rgba(from var(--hd-theme-background-color) r g b / 0.6);
 
     /* --- Main Theme (Indigo) --- */
     /* Soft Surface (Light bg / Dark text) */
-    --hd-main-soft-background-color: #eef2ff;
-    --hd-main-soft-text-color: #312e81;
-    --hd-main-soft-text-highlight-color: #c2410c;
-    --hd-main-soft-text-muted-color: #4338ca;
+    --hd-main-soft-background-color: color-mix(in srgb, var(--hd-theme-main-color) 6%, var(--hd-theme-background-color));
+    --hd-main-soft-text-color: color-mix(in srgb, var(--hd-theme-main-color) 50%, var(--hd-theme-text-color));
+    --hd-main-soft-text-highlight-color: hsl(from var(--hd-theme-accent-color) h s 41%);
+    --hd-main-soft-text-muted-color: color-mix(in srgb, var(--hd-theme-main-color) 85%, var(--hd-theme-text-color));
 
     /* Solid Surface (Vibrant bg / Light text) */
-    --hd-main-solid-background-color: #4f46e5;
-    --hd-main-solid-text-color: #ffffff;
-    --hd-main-solid-text-highlight-color: #fdba74;
-    --hd-main-solid-text-muted-color: #e0e7ff;
+    --hd-main-solid-background-color: var(--hd-theme-main-color);
+    --hd-main-solid-text-color: var(--hd-theme-background-color);
+    --hd-main-solid-text-highlight-color: hsl(from var(--hd-theme-accent-color) h s 72%);
+    --hd-main-solid-text-muted-color: color-mix(in srgb, var(--hd-theme-main-color) 15%, var(--hd-theme-background-color));
 
     /* Soft Surface Inverted (Dark bg / Light text) */
-    --hd-main-soft-background-color-inverted: #312e81;
-    --hd-main-soft-text-color-inverted: #eef2ff;
-    --hd-main-soft-text-highlight-color-inverted: #fdba74;
-    --hd-main-soft-text-muted-color-inverted: #a5b4fc;
+    --hd-main-soft-background-color-inverted: color-mix(in srgb, var(--hd-theme-main-color) 50%, var(--hd-theme-text-color));
+    --hd-main-soft-text-color-inverted: color-mix(in srgb, var(--hd-theme-main-color) 6%, var(--hd-theme-background-color));
+    --hd-main-soft-text-highlight-color-inverted: hsl(from var(--hd-theme-accent-color) h s 72%);
+    --hd-main-soft-text-muted-color-inverted: color-mix(in srgb, var(--hd-theme-main-color) 40%, var(--hd-theme-background-color));
 
     /* Solid Surface Inverted (Light bg / Vibrant text) */
-    --hd-main-solid-background-color-inverted: #ffffff;
-    --hd-main-solid-text-color-inverted: #4f46e5;
-    --hd-main-solid-text-highlight-color-inverted: #c2410c;
-    --hd-main-solid-text-muted-color-inverted: #4338ca;
+    --hd-main-solid-background-color-inverted: var(--hd-theme-background-color);
+    --hd-main-solid-text-color-inverted: var(--hd-theme-main-color);
+    --hd-main-solid-text-highlight-color-inverted: hsl(from var(--hd-theme-accent-color) h s 41%);
+    --hd-main-solid-text-muted-color-inverted: color-mix(in srgb, var(--hd-theme-main-color) 85%, var(--hd-theme-text-color));
 
     /* --- Accent Theme (Orange) --- */
     /* Soft Surface (Light bg / Dark text) */
-    --hd-accent-soft-background-color: #fff7ed;
-    --hd-accent-soft-text-color: #7c2d12;
-    --hd-accent-soft-text-highlight-color: #4338ca;
-    --hd-accent-soft-text-muted-color: #c2410c;
+    --hd-accent-soft-background-color: color-mix(in srgb, var(--hd-theme-accent-color) 6%, var(--hd-theme-background-color));
+    --hd-accent-soft-text-color: color-mix(in srgb, var(--hd-theme-accent-color) 50%, var(--hd-theme-text-color));
+    --hd-accent-soft-text-highlight-color: var(--hd-theme-main-color);
+    --hd-accent-soft-text-muted-color: hsl(from var(--hd-theme-accent-color) h s 41%);
 
     /* Solid Surface (Vibrant bg / Light text) */
-    --hd-accent-solid-background-color: #ea580c;
-    --hd-accent-solid-text-color: #ffffff;
-    --hd-accent-solid-text-highlight-color: #c7d2fe;
-    --hd-accent-solid-text-muted-color: #fed7aa;
+    --hd-accent-solid-background-color: var(--hd-theme-accent-color);
+    --hd-accent-solid-text-color: var(--hd-theme-background-color);
+    --hd-accent-solid-text-highlight-color: color-mix(in srgb, var(--hd-theme-main-color) 20%, var(--hd-theme-background-color));
+    --hd-accent-solid-text-muted-color: color-mix(in srgb, var(--hd-theme-accent-color) 20%, var(--hd-theme-background-color));
 
     /* Soft Surface Inverted (Dark bg / Light text) */
-    --hd-accent-soft-background-color-inverted: #7c2d12;
-    --hd-accent-soft-text-color-inverted: #fff7ed;
-    --hd-accent-soft-text-highlight-color-inverted: #a5b4fc;
-    --hd-accent-soft-text-muted-color-inverted: #fdba74;
-    --hd-accent-solid-background-color-inverted: #ffffff;
-    --hd-accent-solid-text-color-inverted: #ea580c;
-    --hd-accent-solid-text-highlight-color-inverted: #4338ca;
-    --hd-accent-solid-text-muted-color-inverted: #c2410c;
+    --hd-accent-soft-background-color-inverted: color-mix(in srgb, var(--hd-theme-accent-color) 50%, var(--hd-theme-text-color));
+    --hd-accent-soft-text-color-inverted: color-mix(in srgb, var(--hd-theme-accent-color) 6%, var(--hd-theme-background-color));
+    --hd-accent-soft-text-highlight-color-inverted: color-mix(in srgb, var(--hd-theme-main-color) 40%, var(--hd-theme-background-color));
+    --hd-accent-soft-text-muted-color-inverted: color-mix(in srgb, var(--hd-theme-accent-color) 45%, var(--hd-theme-background-color));
+    --hd-accent-solid-background-color-inverted: var(--hd-theme-background-color);
+    --hd-accent-solid-text-color-inverted: var(--hd-theme-accent-color);
+    --hd-accent-solid-text-highlight-color-inverted: var(--hd-theme-main-color);
+    --hd-accent-solid-text-muted-color-inverted: hsl(from var(--hd-theme-accent-color) h s 41%);
 
     /* Slide Border parameters */
     --hd-slide-border-width: 0px;

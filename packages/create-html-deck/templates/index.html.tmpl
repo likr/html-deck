@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="{{lang}}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Presentation - HTML-Deck</title>
+
+  <!-- Load HTML-Deck Script -->
+  <script type="module">
+    import 'html-deck';
+  </script>
+  
+  <!-- Custom Overrides -->
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <hd-deck transition="fade" aspect-ratio="{{aspectRatio}}"{{presenterAttr}}>
+
+    <!-- Slide 1: Title -->
+    <hd-slide>
+      <hd-layout-cover>
+        <h1 slot="title">Welcome to HTML-Deck</h1>
+        <p slot="subtitle">A modern WebComponents slideshow platform scaffolded via CLI.</p>
+      </hd-layout-cover>
+      <div slot="notes">
+        <h2>Speaker Notes: Slide 1</h2>
+        <p>Edit index.html to add your custom content.</p>
+      </div>
+    </hd-slide>
+
+    <!-- Slide 2: Content -->
+    <hd-slide>
+      <hd-layout>
+        <h2 slot="heading">Rich Features & Customization</h2>
+        <ul>
+          <li>Create clean slides using declarative layout components</li>
+          <li>Synchronize speaker views and present confidently offline</li>
+          <li>Customize colors instantly with the 4 basic theme variables</li>
+        </ul>
+      </hd-layout>
+      <div slot="notes">
+        <h2>Speaker Notes: Slide 2</h2>
+        <p>This is a standard slide. Use other layouts like hd-layout-split or hd-layout-grid as needed.</p>
+      </div>
+    </hd-slide>
+
+  </hd-deck>
+
+</body>
+</html>
