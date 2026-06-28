@@ -1,7 +1,26 @@
 {
   "name": "html-deck",
   "version": "1.0.0-alpha.1",
+  "license": "MIT",
   "description": "An Agent-First WebComponents Slideshow Library",
+  "author": "Yosuke Onoue <onoue@likr-lab.com>",
+  "homepage": "https://github.com/likr/html-deck#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/likr/html-deck.git",
+    "directory": "packages/html-deck"
+  },
+  "bugs": {
+    "url": "https://github.com/likr/html-deck/issues"
+  },
+  "keywords": [
+    "slideshow",
+    "presentation",
+    "webcomponents",
+    "agent-first",
+    "deck",
+    "html"
+  ],
   "type": "module",
   "main": "dist/html-deck.js",
   "module": "dist/html-deck.js",

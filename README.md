@@ -207,3 +207,9 @@ When writing custom slide styles (fonts, margins, paddings), **always use absolu
 | `ArrowLeft`, `Backspace` | Previous Slide |
 | `F`, `f` | Toggle Fullscreen |
 | `P`, `p` | Open Presenter View (requires `presenter-url`) |
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
