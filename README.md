@@ -4,11 +4,11 @@ An agent-first, lightweight WebComponents slideshow platform designed for humans
 
 ## 🚀 Features
 
-- 🤖 **Agent-First Design**: Flat DOM tree structures (`<hd-slide>` directly under `<hd-deck>`) and declarative slots make it incredibly easy for LLM agents to generate, read, and edit presentations.
-- 🎨 **Built-in Modern Themes**: Includes Corporate, Neon Cyberpunk, Warm Sepia, Serif Academic, and Dark Slate themes built with a carefully curated HSL color palette.
+- 🤖 **Agent-First Design**: Flat DOM tree structures (`<hd-slide>` directly under `<hd-deck>`) and declarative layout components (`<hd-layout>`, `<hd-layout-split>`, etc.) make it incredibly easy for LLM agents to generate, read, and edit presentations.
+- 🎨 **Built-in Modern Themes**: Includes Corporate, Neon Cyberpunk, Warm Sepia, Serif Academic, and Dark Slate themes built with a carefully curated HSL color palette. Global CSS is automatically injected.
 - 👥 **Presenter View**: A local speaker dashboard synchronized using `BroadcastChannel`. Features elapsed time tracking, a clock, slide previews (current/next), speaker notes, and navigation controls.
 - 🖨️ **PDF Export & Printing**: Perfect, landscape-oriented PDF printing via the browser (`Ctrl+P` / `Cmd+P`) without layout shifts or overlap.
-- ⚙️ **Mathematical & Code Blocks**: Syntax highlighting powered by Prism.js (`<hd-codeblock>`) and math equation rendering powered by KaTeX (`<hd-math>`).
+- ⚙️ **Mathematical & Code Blocks**: Easily integrated with Prism.js and KaTeX to support math equation rendering and code syntax highlighting on raw HTML elements.
 
 ## 📁 Repository Structure
 
@@ -68,29 +68,36 @@ A minimal HTML-Deck slideshow looks like this:
   <meta charset="UTF-8">
   <title>Presentation Title</title>
   
-  <!-- Load HTML-Deck elements -->
-  <script type="module">
-    import 'html-deck';
-  </script>
+  <!-- Load HTML-Deck (automatically injects CSS) -->
+  <script type="module" src="https://unpkg.com/html-deck"></script>
 </head>
 <body>
   <hd-deck aspect-ratio="16:9">
     
     <!-- Title Slide -->
-    <hd-title-slide>
-      <div slot="title">My Awesome Presentation</div>
-      <div slot="subtitle">Built with WebComponents</div>
-    </hd-title-slide>
+    <hd-slide>
+      <hd-layout-cover>
+        <h1 slot="title">My Awesome Presentation</h1>
+        <p slot="subtitle">Built with WebComponents</p>
+      </hd-layout-cover>
+      <div slot="notes">
+        <p>Introduce the topic here.</p>
+      </div>
+    </hd-slide>
 
     <!-- Standard Slide -->
-    <hd-slide layout="title-body">
-      <hd-heading slot="heading">Slide Title</hd-heading>
-      <hd-text>This is body content.</hd-text>
-      
-      <!-- Speaker Notes -->
-      <hd-notes>
-        <p>Introduce the topic here.</p>
-      </hd-notes>
+    <hd-slide>
+      <hd-layout>
+        <h2 slot="heading">Slide Title</h2>
+        <p class="hd-text">This is body content.</p>
+        <ul class="hd-list">
+          <li>Bullet point A</li>
+          <li>Bullet point B</li>
+        </ul>
+      </hd-layout>
+      <div slot="notes">
+        <p>Notes visible in presenter view.</p>
+      </div>
     </hd-slide>
 
   </hd-deck>
@@ -102,24 +109,19 @@ A minimal HTML-Deck slideshow looks like this:
 
 ## 📚 Component Reference Summaries
 
-HTML-Deck includes 15 distinct WebComponents. Here is a brief summary of the key elements:
+HTML-Deck includes 9 distinct core WebComponents. Here is a brief summary of the key elements:
 
 | Component | Description / Slots |
 | :--- | :--- |
 | `<hd-deck>` | Root container. Manages transitions, aspect ratio scaling, routing, and presenter sync. |
-| `<hd-slide>` | Single slide container. Supports `layout` presets (`title`, `title-body`, `split`, `blank`). |
-| `<hd-title-slide>` | Specialized cover slide component with slots for `title`, `subtitle`, `presenter`, `location`, `date`. |
-| `<hd-columns>` / `<hd-column>` | Multi-column flex layout components for grouping content. |
-| `<hd-heading>` | Renders header text (supports `level="1"`, `"2"`, or `"3"`). |
-| `<hd-text>` | Standard block paragraph wrapper. |
-| `<hd-list>` | Smart lists showing different bullet/number styles depending on depth. |
-| `<hd-image>` | Render images with rounded corners, captions, shadows, and fit modes. |
-| `<hd-table>` | Style-enhanced wrapper for standard HTML `<table>` elements. |
-| `<hd-callout>` | Highlight boxes for key callouts (`type="primary"`, `"secondary"`, `"danger"`, etc.). |
-| `<hd-codeblock>` | Code block with syntax highlighting powered by Prism.js. |
-| `<hd-math>` | Inline or block LaTeX equation renderer powered by KaTeX. |
-| `<hd-footnote>` | Absolute or static bottom annotations. |
-| `<hd-notes>` | Speaker cues hidden in the main deck, visible in presenter view. |
+| `<hd-slide>` | Slide container. Supports active state, inverted theme, centering, and theme variants. |
+| `<hd-layout>` | Standard slide layout component (slots: `heading`, `before`, default, `after`). |
+| `<hd-layout-split>` | Two-column layout component with customizable column ratio (attributes: `ratio`, slots: `heading`, `before`, `left`, `right`, `after`). |
+| `<hd-layout-grid>` | Grid layout component that arranges child elements into columns and rows (attributes: `cols`, `rows`, slots: `heading`, `before`, default, `after`). |
+| `<hd-layout-cover>` | Cover or section divider layout component (slots: `before`, `title`, `subtitle`, `meta`, `after`). |
+| `<hd-card>` | Styled card container with borders and headers (attributes: `variant`, `surface`, slots: `heading`, default). |
+| `<hd-box>` | Box container similar to `<hd-card>` but stretches to 100% height of its grid cell/parent container (attributes: `variant`, `surface`, slots: `heading`, default). |
+| `<hd-callout>` | Highlighted blockquote-like container with a left border marker (attributes: `variant`, slot: default). |
 
 For full properties, attributes, and variables, see the detailed [Components Reference](.agents/skills/html-deck/references/components.md).
 
@@ -127,7 +129,7 @@ For full properties, attributes, and variables, see the detailed [Components Ref
 
 ## 🎨 Built-in Themes
 
-Themes are enabled by loading the CSS preset stylesheet in the HTML `<head>` after the main library styles.
+Themes are enabled by loading the corresponding CSS preset stylesheet in the HTML `<head>` after the main library script.
 
 To support all themes, load Google Fonts:
 ```html
@@ -140,11 +142,19 @@ To support all themes, load Google Fonts:
 1. **Default (Minimalist Clean)**: Slate text on a clean white background.
 2. **Dark Slate** (`html-deck.theme-dark.css`): Slate-900 background with light purple/blue highlights.
 3. **Corporate** (`html-deck.theme-corporate.css`): White background, trust navy blue titles, Inter font.
-4. **Neon Cyberpunk** (`html-deck.theme-neon.css`): Jet black background, glowing cyan codeblocks, Space Grotesk font.
+4. **Neon Cyberpunk** (`html-deck.theme-neon.css`): Jet black background, glowing cyan outlines, Space Grotesk font.
 5. **Warm Sepia** (`html-deck.theme-warm.css`): Warm Ivory background, espresso brown text, Outfit font.
 6. **Serif Academic** (`html-deck.theme-serif.css`): Paper white, Playfair Display headers, Lora body text.
 
 For utility classes (e.g., margins, alignments, absolute positioning), see the [Themes & Styling Reference](.agents/skills/html-deck/references/styling.md).
+
+### 🛠️ Theme Creation Constraints
+
+When designing custom themes for `html-deck`, you must adhere to the following rules:
+- **CSS Variable Overrides Only**: All custom themes must be created in a dedicated CSS file containing ONLY variable overrides under the `:root` selector.
+- **Direct Selector Prohibition**: Direct styling of HTML element tags (like `hd-slide`, `h1`) or class names (like `.hd-card`) is strictly prohibited.
+- **Relative Color Syntax**: Use CSS Relative Color Syntax (e.g., `rgba(from var(--hd-main-color) r g b / 0.15)`) to derive translucent or muted colors.
+- **Explicit Variable Names**: Do not introduce or use abbreviated variable names like `bg` or `color` for backgrounds or text colors. Always use full, explicit names such as `background-color` and `text-color` (e.g., `--hd-card-background-color` instead of `--hd-card-bg`).
 
 ---
 
@@ -162,20 +172,10 @@ For details on viewport calculations, see the [PDF Export & Printing Reference](
 
 ## ⚠️ Critical Development Rules
 
-### 1. Escape HTML in `<hd-codeblock>`
-If you display HTML example templates inside `<hd-codeblock>`, **always escape brackets** (`&lt;` and `&gt;`). Raw tags inside the block will be parsed as real slides, which breaks slide deck page indexes.
+### 1. Escape HTML in Code Blocks
+If you display HTML example templates inside `<pre><code>` blocks, **always escape brackets** (`&lt;` and `&gt;`) if they are evaluated by the browser in the DOM, or set text via JavaScript `.textContent` to prevent them from being parsed as real slides.
 
-### 2. Loading External Files
-Use Vite raw imports to insert file content into codeblocks:
-```html
-<hd-codeblock language="javascript" id="my-block"></hd-codeblock>
-<script type="module">
-  import codeText from './sample-code.js?raw';
-  document.getElementById('my-block').textContent = codeText;
-</script>
-```
-
-### 3. Absolute Units (`px`)
+### 2. Absolute Units (`px`)
 When writing custom slide styles (fonts, margins, paddings), **always use absolute `px` units**. Avoid `rem` or structural `em` layout units, as they can cause text overflows or alignment shifts during scaling or printing.
 
 ---

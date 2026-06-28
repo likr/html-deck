@@ -301,19 +301,19 @@
         <div class="feature-card">
           <span class="feature-icon">🤖</span>
           <h3>Agent-First Design</h3>
-          <p>Flat markup avoids the deeply nested section tags typical of Reveal.js. Simple layout attributes like layout="split" prevent AI syntax errors.</p>
+          <p>Flat slide list avoids the deeply nested section tags typical of Reveal.js. Simple layout components like &lt;hd-layout-split&gt; prevent AI syntax and nesting errors.</p>
         </div>
 
         <div class="feature-card">
           <span class="feature-icon">⚡</span>
           <h3>Build-Free</h3>
-          <p>No bundling, Vite, or npm scripts needed. Just import html-deck.js and link html-deck.css into a plain HTML file, and you are ready to write slides.</p>
+          <p>No bundling or build setup required. Just load the html-deck script via CDN or package managers, and you are ready. Global CSS styles are automatically injected.</p>
         </div>
 
         <div class="feature-card">
           <span class="feature-icon">📶</span>
           <h3>Offline Support</h3>
-          <p>Math equations (KaTeX) and syntax highlighting (PrismJS) are resolved from local vendor files, enabling complete offline editing.</p>
+          <p>Math equations (KaTeX) and syntax highlighting (PrismJS) can be integrated easily using standard third-party scripts, enabling offline editing.</p>
         </div>
 
         <div class="feature-card">
@@ -331,7 +331,7 @@
         <div class="feature-card">
           <span class="feature-icon">🎨</span>
           <h3>CSS Variable Customization</h3>
-          <p>No opinionated theme constraints. Define colors, font sizes, transitions, and line-heights globally using custom properties.</p>
+          <p>No opinionated theme constraints. Define colors, font sizes, transitions, and line-heights globally using custom properties under :root.</p>
         </div>
       </section>
 
@@ -347,52 +347,52 @@
   &lt;<span class="tag">meta</span> <span class="attr">charset</span>=<span class="val">"UTF-8"</span>&gt;
   &lt;<span class="tag">title</span>&gt;My Presentation&lt;/<span class="tag">title</span>&gt;
   
-  <span class="comment">&lt;!-- 1. Load HTML-Deck Script & Styles --&gt;</span>
-  &lt;<span class="tag">script</span> <span class="attr">type</span>=<span class="val">"module"</span> <span class="attr">src</span>=<span class="val">"./src/html-deck.js"</span>&gt;&lt;/<span class="tag">script</span>&gt;
-  &lt;<span class="tag">link</span> <span class="attr">rel</span>=<span class="val">"stylesheet"</span> <span class="attr">href</span>=<span class="val">"./src/html-deck.css"</span>&gt;
+  <span class="comment">&lt;!-- 1. Load HTML-Deck (automatically injects CSS) --&gt;</span>
+  &lt;<span class="tag">script</span> <span class="attr">type</span>=<span class="val">"module"</span> <span class="attr">src</span>=<span class="val">"https://unpkg.com/html-deck"</span>&gt;&lt;/<span class="tag">script</span>&gt;
   
-  <span class="comment">&lt;!-- 2. Customize variables globally --&gt;</span>
+  <span class="comment">&lt;!-- (Optional) Load a theme preset --&gt;</span>
+  &lt;<span class="tag">link</span> <span class="attr">rel</span>=<span class="val">"stylesheet"</span> <span class="attr">href</span>=<span class="val">"https://unpkg.com/html-deck/src/themes/html-deck.theme-dark.css"</span>&gt;
+  
+  <span class="comment">&lt;!-- 2. Customize variables globally under :root --&gt;</span>
   &lt;<span class="tag">style</span>&gt;
     <span class="keyword">:root</span> {
-      <span class="keyword">--hd-default-background-color</span>: <span class="val">#0f172a</span>;
-      <span class="keyword">--hd-default-color</span>: <span class="val">#f8fafc</span>;
-      <span class="keyword">--hd-primary</span>: <span class="val">#3b82f6</span>;
+      <span class="keyword">--hd-base-soft-background-color</span>: <span class="val">#0f172a</span>;
+      <span class="keyword">--hd-base-soft-text-color</span>: <span class="val">#f8fafc</span>;
+      <span class="keyword">--hd-base-soft-text-highlight-color</span>: <span class="val">#3b82f6</span>;
     }
   &lt;/<span class="tag">style</span>&gt;
 &lt;/<span class="tag">head</span>&gt;
 &lt;<span class="tag">body</span>&gt;
-
+ 
   <span class="comment">&lt;!-- 3. Declare slides --&gt;</span>
-  &lt;<span class="tag">hd-deck</span> <span class="attr">transition</span>=<span class="val">"fade"</span> <span class="attr">presenter-url</span>=<span class="val">"./demo/features/presenter.html"</span> <span class="attr">aspect-ratio</span>=<span class="val">"16:9"</span>&gt;
+  &lt;<span class="tag">hd-deck</span> <span class="attr">transition</span>=<span class="val">"fade"</span> <span class="attr">aspect-ratio</span>=<span class="val">"16:9"</span>&gt;
     
     <span class="comment">&lt;!-- Title Slide --&gt;</span>
     &lt;<span class="tag">hd-slide</span>&gt;
       &lt;<span class="tag">hd-layout-cover</span>&gt;
-        &lt;<span class="tag">h1</span> <span class="attr">slot</span>=<span class="val">"title"</span>&gt;&lt;<span class="tag">span</span> <span class="attr">class</span>=<span class="val">"gradient-title"</span>&gt;Welcome to HTML-Deck&lt;/<span class="tag">span</span>&gt;&lt;/<span class="tag">h1</span>&gt;
+        &lt;<span class="tag">h1</span> <span class="attr">slot</span>=<span class="val">"title"</span>&gt;Welcome to HTML-Deck&lt;/<span class="tag">h1</span>&gt;
         &lt;<span class="tag">p</span> <span class="attr">slot</span>=<span class="val">"subtitle"</span>&gt;A modern WebComponents slideshow platform.&lt;/<span class="tag">p</span>&gt;
       &lt;/<span class="tag">hd-layout-cover</span>&gt;
       &lt;<span class="tag">div</span> <span class="attr">slot</span>=<span class="val">"notes"</span>&gt;
-        &lt;<span class="tag">h2</span>&gt;Speaker Notes: Slide 1&lt;/<span class="tag">h2</span>&gt;
         &lt;<span class="tag">p</span>&gt;Edit index.html to add your custom content.&lt;/<span class="tag">p</span>&gt;
       &lt;/<span class="tag">div</span>&gt;
     &lt;/<span class="tag">hd-slide</span>&gt;
-
-    <span class="comment">&lt;!-- Bullet Slide with Speaker Notes --&gt;</span>
+ 
+    <span class="comment">&lt;!-- Standard Slide --&gt;</span>
     &lt;<span class="tag">hd-slide</span>&gt;
       &lt;<span class="tag">hd-layout</span>&gt;
-        &lt;<span class="tag">h2</span> <span class="attr">slot</span>=<span class="val">"title"</span>&gt;Presentation Agenda&lt;/<span class="tag">h2</span>&gt;
-        &lt;<span class="tag">ul</span>&gt;
+        &lt;<span class="tag">h2</span> <span class="attr">slot</span>=<span class="val">"heading"</span>&gt;Presentation Agenda&lt;/<span class="tag">h2</span>&gt;
+        &lt;<span class="tag">ul</span> <span class="attr">class</span>=<span class="val">"hd-list"</span>&gt;
           &lt;<span class="tag">li</span>&gt;WebComponents Introduction&lt;/<span class="tag">li</span>&gt;
           &lt;<span class="tag">li</span>&gt;Declarative layouts&lt;/<span class="tag">li</span>&gt;
-          &lt;<span class="tag">li</span>&gt;KaTeX & PrismJS rendering&lt;/<span class="tag">li</span>&gt;
+          &lt;<span class="tag">li</span>&gt;Rich theme customization&lt;/<span class="tag">li</span>&gt;
         &lt;/<span class="tag">ul</span>&gt;
       &lt;/<span class="tag">hd-layout</span>&gt;
       &lt;<span class="tag">div</span> <span class="attr">slot</span>=<span class="val">"notes"</span>&gt;
-        &lt;<span class="tag">h2</span>&gt;Presenter notes&lt;/<span class="tag">h2</span>&gt;
         &lt;<span class="tag">p</span>&gt;Emphasize that custom elements prevent library pollution.&lt;/<span class="tag">p</span>&gt;
       &lt;/<span class="tag">div</span>&gt;
     &lt;/<span class="tag">hd-slide</span>&gt;
-
+ 
   &lt;/<span class="tag">hd-deck</span>&gt;
 &lt;/<span class="tag">body</span>&gt;
 &lt;/<span class="tag">html</span>&gt;</code></pre>
