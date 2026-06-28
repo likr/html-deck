@@ -76,24 +76,10 @@
     --hd-accent-soft-text-color-inverted: #fff7ed;
     --hd-accent-soft-text-highlight-color-inverted: #a5b4fc;
     --hd-accent-soft-text-muted-color-inverted: #fdba74;
-
-    /* Solid Surface Inverted (Light bg / Vibrant text) */
     --hd-accent-solid-background-color-inverted: #ffffff;
     --hd-accent-solid-text-color-inverted: #ea580c;
     --hd-accent-solid-text-highlight-color-inverted: #4338ca;
     --hd-accent-solid-text-muted-color-inverted: #c2410c;
-
-    /* State variables default values (base-soft / main-solid) */
-    --hd-soft-background-color: var(--hd-base-soft-background-color);
-    --hd-soft-text-color: var(--hd-base-soft-text-color);
-    --hd-soft-text-highlight-color: var(--hd-base-soft-text-highlight-color);
-    --hd-soft-text-muted-color: var(--hd-base-soft-text-muted-color);
-
-    --hd-solid-background-color: var(--hd-main-solid-background-color);
-    --hd-solid-text-color: var(--hd-main-solid-text-color);
-    --hd-solid-text-highlight-color: var(--hd-main-solid-text-highlight-color);
-    --hd-solid-text-muted-color: var(--hd-main-solid-text-muted-color);
-
 
     /* Slide Border parameters */
     --hd-slide-border-width: 0px;
@@ -368,104 +354,16 @@
     --hd-slide-overlay-mix-blend-mode: normal;
   }
 
-  /* ========================================================
-     CUSTOM ELEMENT COMPONENT BINDINGS (Scoped to Elements)
-     ======================================================== */
-
-  /* --- HD-Slide --- */
-  hd-slide {
-    --hd-background-color: var(--hd-soft-background-color);
-    --hd-text-color: var(--hd-soft-text-color);
-    --hd-text-highlight-color: var(--hd-soft-text-highlight-color);
-    --hd-text-muted-color: var(--hd-soft-text-muted-color);
+  * {
+    --hd-heading-background-color: var(--hd-solid-background-color);
+    --hd-heading-text-color: var(--hd-solid-text-color);
+    --hd-heading-text-highlight-color: var(--hd-solid-text-highlight-color);
+    --hd-heading-text-muted-color: var(--hd-solid-text-muted-color);
+    --hd-body-background-color: var(--hd-soft-background-color);
+    --hd-body-text-color: var(--hd-soft-text-color);
+    --hd-body-text-highlight-color: var(--hd-soft-text-highlight-color);
+    --hd-body-text-muted-color: var(--hd-soft-text-muted-color);
   }
 
-  /* --- HD-Card --- */
-  hd-card {
-    --hd-background-color: var(--hd-soft-background-color);
-    --hd-text-color: var(--hd-soft-text-color);
-    --hd-text-highlight-color: var(--hd-soft-text-highlight-color);
-    --hd-text-muted-color: var(--hd-soft-text-muted-color);
 
-    --hd-border-color: var(--hd-solid-background-color);
-  }
-
-  hd-card[surface="soft"] {
-    --hd-background-color: var(--hd-soft-background-color);
-    --hd-text-color: var(--hd-soft-text-color);
-    --hd-text-highlight-color: var(--hd-soft-text-highlight-color);
-    --hd-text-muted-color: var(--hd-soft-text-muted-color);
-
-    --hd-border-color: var(--hd-soft-background-color);
-  }
-
-  hd-card[surface="solid"] {
-    --hd-background-color: var(--hd-solid-background-color);
-    --hd-text-color: var(--hd-solid-text-color);
-    --hd-text-highlight-color: var(--hd-solid-text-highlight-color);
-    --hd-text-muted-color: var(--hd-solid-text-muted-color);
-
-    --hd-border-color: var(--hd-solid-background-color);
-  }
-
-  /* --- HD-Box --- */
-  hd-box {
-    --hd-background-color: var(--hd-soft-background-color);
-    --hd-text-color: var(--hd-soft-text-color);
-    --hd-text-highlight-color: var(--hd-soft-text-highlight-color);
-    --hd-text-muted-color: var(--hd-soft-text-muted-color);
-
-    --hd-border-color: var(--hd-solid-background-color);
-  }
-
-  hd-box[surface="soft"] {
-    --hd-background-color: var(--hd-soft-background-color);
-    --hd-text-color: var(--hd-soft-text-color);
-    --hd-text-highlight-color: var(--hd-soft-text-highlight-color);
-    --hd-text-muted-color: var(--hd-soft-text-muted-color);
-
-    --hd-border-color: var(--hd-soft-background-color);
-  }
-
-  hd-box[surface="solid"] {
-    --hd-background-color: var(--hd-solid-background-color);
-    --hd-text-color: var(--hd-solid-text-color);
-    --hd-text-highlight-color: var(--hd-solid-text-highlight-color);
-    --hd-text-muted-color: var(--hd-solid-text-muted-color);
-
-    --hd-border-color: var(--hd-solid-background-color);
-  }
-
-  /* --- HD-Callout --- */
-  hd-callout {
-    --hd-background-color: var(--hd-soft-background-color);
-    --hd-text-color: var(--hd-soft-text-color);
-    --hd-text-highlight-color: var(--hd-soft-text-highlight-color);
-    --hd-text-muted-color: var(--hd-soft-text-muted-color);
-
-    --hd-border-color: var(--hd-solid-background-color);
-  }
-
-  hd-callout[surface="soft"] {
-    --hd-background-color: var(--hd-soft-background-color);
-    --hd-text-color: var(--hd-soft-text-color);
-
-    --hd-border-color: var(--hd-soft-background-color);
-  }
-
-  hd-callout[surface="solid"] {
-    --hd-background-color: var(--hd-solid-background-color);
-    --hd-text-color: var(--hd-soft-text-color);
-
-    --hd-border-color: var(--hd-solid-background-color);
-  }
-
-  /* --- Heading Context Overrides --- */
-  [slot="header"],
-  [slot="heading"] {
-    --hd-background-color: var(--hd-solid-background-color);
-    --hd-text-color: var(--hd-solid-text-color);
-    --hd-text-highlight-color: var(--hd-solid-text-highlight-color);
-    --hd-text-muted-color: var(--hd-solid-text-muted-color);
-  }
 }

@@ -34,40 +34,51 @@ When designing or modifying layout components (e.g., `<hd-layout>`, `<hd-layout-
 - **Inner Content Wrapper**: Wrap all slot containers (including `before`, `after`, and body/main content) in an inner wrapper div (e.g., `.layout-content` or `.cover-content`) and apply layout-specific padding variables (e.g., `--hd-layout-body-padding`, `--hd-layout-cover-padding`) to that wrapper.
 - **Slotted Margins**: Explicitly define margins for slotted `before` and `after` elements in the layout stylesheet using `--hd-layout-before-margin` and `--hd-layout-after-margin` to ensure layout consistency.
 
-## 6. CSS Variable Propagation and Context Overrides
-When styling layouts or container contexts with distinct background/foreground areas (e.g. layout headings):
-- **No Custom/Component-Specific Color Variables**: Do not introduce custom heading or context variables (e.g. `--hd-layout-heading-background-color`, `--hd-card-heading-background-color`). Rely entirely on standard variables (e.g. `--hd-background-color`, `--hd-text-color`) whose values are dynamically overridden based on the context.
-- **Direct Variable Mapping in Shadow DOM**: Inside layout stylesheets (Shadow DOM), map `.heading-area` background and color properties directly to standard variables without local alias overrides:
-  ```css
-  .heading-area {
-    background: var(--hd-background-color);
-    color: var(--hd-text-color);
-  }
-  .heading-divider {
-    background: var(--hd-text-color);
-  }
-  .heading-area ::slotted(*) {
-    color: var(--hd-text-color);
-  }
-  ```
-- **Light DOM Context Overrides via `:has`**: To style container hosts differently based on their children in the Light DOM (like layouts with heading slots), override the standard variables on the host in the Light DOM using relational selectors (e.g., `:has(> [slot="heading"])`). Avoid applying background/color variables to `:host([has-heading])` or using JS state updates.
-  ```css
-  /* In variables.css (Default theme) */
-  [slot="header"],
-  [slot="heading"],
-  :has(> [slot="heading"]) {
-    --hd-background-color: var(--hd-solid-background-color);
-    --hd-text-color: var(--hd-solid-text-color);
-  }
+## 6. CSS Variable Propagation via Intermediate State Variables
 
-  /* In theme-neon.css / theme-dotted.css */
-  [slot="header"],
-  [slot="heading"],
-  :has(> [slot="heading"]) {
-    --hd-background-color: var(--hd-base-soft-background-color);
-    --hd-text-color: var(--hd-base-soft-text-color);
+When styling layouts or container contexts with distinct background/foreground areas (like layout heading areas vs layout bodies):
+- **Intermediate State Variables**: We use two sets of intermediate state variables: `--hd-heading-*` (for headings/header areas) and `--hd-body-*` (for bodies).
+- **Universal Selector Definition**: In `variables.css` and themes, we define default mappings globally on the `*` selector:
+  ```css
+  * {
+    --hd-heading-background-color: var(--hd-solid-background-color);
+    --hd-heading-text-color: var(--hd-solid-text-color);
+    --hd-heading-text-highlight-color: var(--hd-solid-text-highlight-color);
+    --hd-heading-text-muted-color: var(--hd-solid-text-muted-color);
+    --hd-body-background-color: var(--hd-soft-background-color);
+    --hd-body-text-color: var(--hd-soft-text-color);
+    --hd-body-text-highlight-color: var(--hd-soft-text-highlight-color);
+    --hd-body-text-muted-color: var(--hd-soft-text-muted-color);
   }
   ```
-- **Slide Header Protection Trap**: Never include `:has(> [slot="header"])` in solid background override rules. Since `<hd-slide>` contains `slot="header"`, this would incorrectly match the slide itself and force its entire canvas to render with a solid instead of soft background.
-- **Card & Box Exception**: Do not modify card and box components for this override pattern unless explicitly requested. Focus strictly on layout components (`hd-layout.js`, `hd-layout-split.js`, `hd-layout-grid.js`).
+- **Component Local Mapping in Shadow DOM**:
+  - In `hd-slide.js`, the standard variables on the slide `:host` map to the body variables:
+    ```css
+    :host {
+      --hd-background-color: var(--hd-body-background-color);
+      --hd-text-color: var(--hd-body-text-color);
+      --hd-text-highlight-color: var(--hd-body-text-highlight-color);
+      --hd-text-muted-color: var(--hd-body-text-muted-color);
+    }
+    ```
+  - In layout components (`hd-layout.js` etc.), the heading wrapper class `.heading-area` maps them to the heading variables:
+    ```css
+    .heading-area {
+      --hd-background-color: var(--hd-heading-background-color);
+      --hd-text-color: var(--hd-heading-text-color);
+      --hd-text-highlight-color: var(--hd-heading-text-highlight-color);
+      --hd-text-muted-color: var(--hd-heading-text-muted-color);
+      
+      background: var(--hd-background-color);
+      color: var(--hd-text-color);
+    }
+    .heading-divider {
+      background: var(--hd-heading-text-color);
+    }
+    .heading-area ::slotted(*) {
+      color: var(--hd-heading-text-color);
+    }
+    ```
+- **Container Surfaces**: Containers (like `<hd-card>`, `<hd-box>`, `<hd-callout>`) override the `--hd-heading-*` and `--hd-body-*` variables inside `variables.css` depending on their surface attribute (`soft` vs `solid`). The standard variables (`--hd-background-color` etc.) will dynamically resolve to these overridden variables for their entire subtree, preventing any leakage.
+- **Theme Mappings**: Themes can customize heading/body behaviors globally by overriding the mappings under the `*` selector (e.g. mapping `--hd-heading-*` to `--hd-soft-*` variables instead of `--hd-solid-*` variables in `theme-neon.css` and `theme-dotted.css`).
 

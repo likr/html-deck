@@ -23,6 +23,20 @@ export class HdBox extends HTMLElement {
           border-color: var(--hd-border-color);
           box-shadow: var(--hd-box-box-shadow);
           overflow: hidden;
+
+          --hd-soft-background-color: var(--hd-base-soft-background-color);
+          --hd-soft-text-color: var(--hd-base-soft-text-color);
+          --hd-soft-text-highlight-color: var(--hd-base-soft-text-highlight-color);
+          --hd-soft-text-muted-color: var(--hd-base-soft-text-muted-color);
+          --hd-solid-background-color: var(--hd-base-solid-background-color);
+          --hd-solid-text-color: var(--hd-base-solid-text-color);
+          --hd-solid-text-highlight-color: var(--hd-base-solid-text-highlight-color);
+          --hd-solid-text-muted-color: var(--hd-base-solid-text-muted-color);
+          --hd-background-color: var(--hd-body-background-color);
+          --hd-text-color: var(--hd-body-text-color);
+          --hd-text-highlight-color: var(--hd-body-text-highlight-color);
+          --hd-text-muted-color: var(--hd-body-text-muted-color);
+          --hd-border-color: var(--hd-solid-background-color);
         }
 
         /* Variant default / base */
@@ -62,6 +76,23 @@ export class HdBox extends HTMLElement {
           --hd-solid-text-color: var(--hd-accent-solid-text-color);
           --hd-solid-text-highlight-color: var(--hd-accent-solid-text-highlight-color);
           --hd-solid-text-muted-color: var(--hd-accent-solid-text-muted-color);
+        }
+
+        /* Surface Overrides */
+        :host([surface="soft"]) {
+          --hd-solid-background-color: var(--hd-soft-background-color);
+          --hd-solid-text-color: var(--hd-soft-text-color);
+          --hd-solid-text-highlight-color: var(--hd-soft-text-highlight-color);
+          --hd-solid-text-muted-color: var(--hd-soft-text-muted-color);
+          --hd-border-color: var(--hd-soft-background-color);
+        }
+
+        :host([surface="solid"]) {
+          --hd-soft-background-color: var(--hd-solid-background-color);
+          --hd-soft-text-color: var(--hd-solid-text-color);
+          --hd-soft-text-highlight-color: var(--hd-solid-text-highlight-color);
+          --hd-soft-text-muted-color: var(--hd-solid-text-muted-color);
+          --hd-border-color: var(--hd-solid-background-color);
         }
 
         ::slotted([slot="heading"]) {

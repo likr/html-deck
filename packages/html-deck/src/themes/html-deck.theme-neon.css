@@ -134,10 +134,13 @@
     --hd-scrollbar-thumb-hover-bg: var(--hd-main-soft-text-color);
 }
 
-[slot="header"],
-[slot="heading"] {
-  --hd-background-color: var(--hd-base-soft-background-color);
-  --hd-text-color: var(--hd-base-soft-text-color);
-  --hd-text-highlight-color: var(--hd-base-soft-text-highlight-color);
-  --hd-text-muted-color: var(--hd-base-soft-text-muted-color);
+* {
+  --hd-heading-background-color: var(--hd-soft-background-color);
+  --hd-heading-text-color: var(--hd-soft-text-color);
+  --hd-heading-text-highlight-color: var(--hd-soft-text-highlight-color);
+  --hd-heading-text-muted-color: var(--hd-soft-text-muted-color);
+  --hd-body-background-color: var(--hd-soft-background-color);
+  --hd-body-text-color: var(--hd-soft-text-color);
+  --hd-body-text-highlight-color: var(--hd-soft-text-highlight-color);
+  --hd-body-text-muted-color: var(--hd-soft-text-muted-color);
 }

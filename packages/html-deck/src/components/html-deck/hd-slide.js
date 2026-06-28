@@ -84,16 +84,19 @@ HdSlide.baseStyles = `
     overflow: hidden;
     box-sizing: border-box;
 
-    /* Default (base) State Variable Values: heading is main-solid, body is base-soft */
     --hd-soft-background-color: var(--hd-base-soft-background-color);
     --hd-soft-text-color: var(--hd-base-soft-text-color);
     --hd-soft-text-highlight-color: var(--hd-base-soft-text-highlight-color);
     --hd-soft-text-muted-color: var(--hd-base-soft-text-muted-color);
-
     --hd-solid-background-color: var(--hd-main-solid-background-color);
     --hd-solid-text-color: var(--hd-main-solid-text-color);
     --hd-solid-text-highlight-color: var(--hd-main-solid-text-highlight-color);
     --hd-solid-text-muted-color: var(--hd-main-solid-text-muted-color);
+    --hd-background-color: var(--hd-body-background-color);
+    --hd-text-color: var(--hd-body-text-color);
+    --hd-text-highlight-color: var(--hd-body-text-highlight-color);
+    --hd-text-muted-color: var(--hd-body-text-muted-color);
+
   }
 
   :host([inverted]) {
