@@ -84,345 +84,250 @@ HdSlide.baseStyles = `
     overflow: hidden;
     box-sizing: border-box;
 
-    --hd-body-background-color: var(--hd-base-soft-background-color);
-    --hd-body-text-color: var(--hd-base-soft-text-color);
-    --hd-body-text-highlight-color: var(--hd-base-soft-text-highlight-color);
-    --hd-body-text-muted-color: var(--hd-base-soft-text-muted-color);
 
-    --hd-heading-background-color: var(--hd-main-solid-background-color);
-    --hd-heading-text-color: var(--hd-main-solid-text-color);
-    --hd-heading-text-highlight-color: var(--hd-main-solid-text-highlight-color);
-    --hd-heading-text-muted-color: var(--hd-main-solid-text-muted-color);
+
+    /* Default (base) State Variable Values */
+    --hd-slide-body-soft-background-color: var(--hd-base-soft-background-color);
+    --hd-slide-body-soft-text-color: var(--hd-base-soft-text-color);
+    --hd-slide-body-soft-text-highlight-color: var(--hd-base-soft-text-highlight-color);
+    --hd-slide-body-soft-text-muted-color: var(--hd-base-soft-text-muted-color);
+
+    --hd-slide-body-solid-background-color: var(--hd-main-solid-background-color);
+    --hd-slide-body-solid-text-color: var(--hd-main-solid-text-color);
+    --hd-slide-body-solid-text-highlight-color: var(--hd-main-solid-text-highlight-color);
+    --hd-slide-body-solid-text-muted-color: var(--hd-main-solid-text-muted-color);
+
+    --hd-slide-heading-soft-background-color: var(--hd-base-soft-background-color);
+    --hd-slide-heading-soft-text-color: var(--hd-base-soft-text-color);
+    --hd-slide-heading-soft-text-highlight-color: var(--hd-base-soft-text-highlight-color);
+    --hd-slide-heading-soft-text-muted-color: var(--hd-base-soft-text-muted-color);
+
+    --hd-slide-heading-solid-background-color: var(--hd-main-solid-background-color);
+    --hd-slide-heading-solid-text-color: var(--hd-main-solid-text-color);
+    --hd-slide-heading-solid-text-highlight-color: var(--hd-main-solid-text-highlight-color);
+    --hd-slide-heading-solid-text-muted-color: var(--hd-main-solid-text-muted-color);
   }
-
 
   :host([inverted]) {
-    --hd-body-background-color: var(--hd-base-soft-background-color-inverted);
-    --hd-body-text-color: var(--hd-base-soft-text-color-inverted);
-    --hd-body-text-highlight-color: var(--hd-base-soft-text-highlight-color-inverted);
-    --hd-body-text-muted-color: var(--hd-base-soft-text-muted-color-inverted);
+    --hd-slide-body-soft-background-color: var(--hd-base-soft-background-color-inverted);
+    --hd-slide-body-soft-text-color: var(--hd-base-soft-text-color-inverted);
+    --hd-slide-body-soft-text-highlight-color: var(--hd-base-soft-text-highlight-color-inverted);
+    --hd-slide-body-soft-text-muted-color: var(--hd-base-soft-text-muted-color-inverted);
 
-    --hd-heading-background-color: var(--hd-main-solid-background-color-inverted);
-    --hd-heading-text-color: var(--hd-main-solid-text-color-inverted);
-    --hd-heading-text-highlight-color: var(--hd-main-solid-text-highlight-color-inverted);
-    --hd-heading-text-muted-color: var(--hd-main-solid-text-muted-color-inverted);
-  }
+    --hd-slide-body-solid-background-color: var(--hd-main-solid-background-color-inverted);
+    --hd-slide-body-solid-text-color: var(--hd-main-solid-text-color-inverted);
+    --hd-slide-body-solid-text-highlight-color: var(--hd-main-solid-text-highlight-color-inverted);
+    --hd-slide-body-solid-text-muted-color: var(--hd-main-solid-text-muted-color-inverted);
 
-  /* --- Body Theme Customizations --- */
-  :host([variant="default"]) {
-    --hd-body-background-color: var(--hd-base-soft-background-color);
-    --hd-body-text-color: var(--hd-base-soft-text-color);
-    --hd-body-text-highlight-color: var(--hd-base-soft-text-highlight-color);
-    --hd-body-text-muted-color: var(--hd-base-soft-text-muted-color);
-  }
-  :host([variant="default"][inverted]) {
-    --hd-body-background-color: var(--hd-base-soft-background-color-inverted);
-    --hd-body-text-color: var(--hd-base-soft-text-color-inverted);
-    --hd-body-text-highlight-color: var(--hd-base-soft-text-highlight-color-inverted);
-    --hd-body-text-muted-color: var(--hd-base-soft-text-muted-color-inverted);
+    --hd-slide-heading-soft-background-color: var(--hd-base-soft-background-color-inverted);
+    --hd-slide-heading-soft-text-color: var(--hd-base-soft-text-color-inverted);
+    --hd-slide-heading-soft-text-highlight-color: var(--hd-base-soft-text-highlight-color-inverted);
+    --hd-slide-heading-soft-text-muted-color: var(--hd-base-soft-text-muted-color-inverted);
+
+    --hd-slide-heading-solid-background-color: var(--hd-main-solid-background-color-inverted);
+    --hd-slide-heading-solid-text-color: var(--hd-main-solid-text-color-inverted);
+    --hd-slide-heading-solid-text-highlight-color: var(--hd-main-solid-text-highlight-color-inverted);
+    --hd-slide-heading-solid-text-muted-color: var(--hd-main-solid-text-muted-color-inverted);
   }
 
-  :host([variant="base"]) {
-    --hd-body-background-color: var(--hd-base-soft-background-color);
-    --hd-body-text-color: var(--hd-base-soft-text-color);
-    --hd-body-text-highlight-color: var(--hd-base-soft-text-highlight-color);
-    --hd-body-text-muted-color: var(--hd-base-soft-text-muted-color);
-  }
-  :host([variant="base"][inverted]) {
-    --hd-body-background-color: var(--hd-base-soft-background-color-inverted);
-    --hd-body-text-color: var(--hd-base-soft-text-color-inverted);
-    --hd-body-text-highlight-color: var(--hd-base-soft-text-highlight-color-inverted);
-    --hd-body-text-muted-color: var(--hd-base-soft-text-muted-color-inverted);
-  }
+  /* --- Variant Overrides (modifies state variables only) --- */
+  :host([variant="default"]), :host([variant="base"]) {
+    --hd-slide-body-soft-background-color: var(--hd-base-soft-background-color);
+    --hd-slide-body-soft-text-color: var(--hd-base-soft-text-color);
+    --hd-slide-body-soft-text-highlight-color: var(--hd-base-soft-text-highlight-color);
+    --hd-slide-body-soft-text-muted-color: var(--hd-base-soft-text-muted-color);
 
-  :host([variant="main"]) {
-    --hd-body-background-color: var(--hd-main-soft-background-color);
-    --hd-body-text-color: var(--hd-main-soft-text-color);
-    --hd-body-text-highlight-color: var(--hd-main-soft-text-highlight-color);
-    --hd-body-text-muted-color: var(--hd-main-soft-text-muted-color);
-  }
-  :host([variant="main"][inverted]) {
-    --hd-body-background-color: var(--hd-main-soft-background-color-inverted);
-    --hd-body-text-color: var(--hd-main-soft-text-color-inverted);
-    --hd-body-text-highlight-color: var(--hd-main-soft-text-highlight-color-inverted);
-    --hd-body-text-muted-color: var(--hd-main-soft-text-muted-color-inverted);
-  }
+    --hd-slide-body-solid-background-color: var(--hd-base-solid-background-color);
+    --hd-slide-body-solid-text-color: var(--hd-base-solid-text-color);
+    --hd-slide-body-solid-text-highlight-color: var(--hd-base-solid-text-highlight-color);
+    --hd-slide-body-solid-text-muted-color: var(--hd-base-solid-text-muted-color);
 
-  :host([variant="accent"]) {
-    --hd-body-background-color: var(--hd-accent-soft-background-color);
-    --hd-body-text-color: var(--hd-accent-soft-text-color);
-    --hd-body-text-highlight-color: var(--hd-accent-soft-text-highlight-color);
-    --hd-body-text-muted-color: var(--hd-accent-soft-text-muted-color);
-  }
-  :host([variant="accent"][inverted]) {
-    --hd-body-background-color: var(--hd-accent-soft-background-color-inverted);
-    --hd-body-text-color: var(--hd-accent-soft-text-color-inverted);
-    --hd-body-text-highlight-color: var(--hd-accent-soft-text-highlight-color-inverted);
-    --hd-body-text-muted-color: var(--hd-accent-soft-text-muted-color-inverted);
-  }
+    --hd-slide-heading-soft-background-color: var(--hd-base-soft-background-color);
+    --hd-slide-heading-soft-text-color: var(--hd-base-soft-text-color);
+    --hd-slide-heading-soft-text-highlight-color: var(--hd-base-soft-text-highlight-color);
+    --hd-slide-heading-soft-text-muted-color: var(--hd-base-soft-text-muted-color);
 
-  /* --- Body Surface Overrides (solid) --- */
-  :host([surface="solid"]) {
-    --hd-body-background-color: var(--hd-base-solid-background-color);
-    --hd-body-text-color: var(--hd-base-solid-text-color);
-    --hd-body-text-highlight-color: var(--hd-base-solid-text-highlight-color);
-    --hd-body-text-muted-color: var(--hd-base-solid-text-muted-color);
+    --hd-slide-heading-solid-background-color: var(--hd-base-solid-background-color);
+    --hd-slide-heading-solid-text-color: var(--hd-base-solid-text-color);
+    --hd-slide-heading-solid-text-highlight-color: var(--hd-base-solid-text-highlight-color);
+    --hd-slide-heading-solid-text-muted-color: var(--hd-base-solid-text-muted-color);
   }
-  :host([surface="solid"][inverted]) {
-    --hd-body-background-color: var(--hd-base-solid-background-color-inverted);
-    --hd-body-text-color: var(--hd-base-solid-text-color-inverted);
-    --hd-body-text-highlight-color: var(--hd-base-solid-text-highlight-color-inverted);
-    --hd-body-text-muted-color: var(--hd-base-solid-text-muted-color-inverted);
-  }
+  :host([variant="default"][inverted]), :host([variant="base"][inverted]) {
+    --hd-slide-body-soft-background-color: var(--hd-base-soft-background-color-inverted);
+    --hd-slide-body-soft-text-color: var(--hd-base-soft-text-color-inverted);
+    --hd-slide-body-soft-text-highlight-color: var(--hd-base-soft-text-highlight-color-inverted);
+    --hd-slide-body-soft-text-muted-color: var(--hd-base-soft-text-muted-color-inverted);
 
-  :host([variant="default"][surface="solid"]) {
-    --hd-body-background-color: var(--hd-base-solid-background-color);
-    --hd-body-text-color: var(--hd-base-solid-text-color);
-    --hd-body-text-highlight-color: var(--hd-base-solid-text-highlight-color);
-    --hd-body-text-muted-color: var(--hd-base-solid-text-muted-color);
-  }
-  :host([variant="default"][surface="solid"][inverted]) {
-    --hd-body-background-color: var(--hd-base-solid-background-color-inverted);
-    --hd-body-text-color: var(--hd-base-solid-text-color-inverted);
-    --hd-body-text-highlight-color: var(--hd-base-solid-text-highlight-color-inverted);
-    --hd-body-text-muted-color: var(--hd-base-solid-text-muted-color-inverted);
-  }
+    --hd-slide-body-solid-background-color: var(--hd-base-solid-background-color-inverted);
+    --hd-slide-body-solid-text-color: var(--hd-base-solid-text-color-inverted);
+    --hd-slide-body-solid-text-highlight-color: var(--hd-base-solid-text-highlight-color-inverted);
+    --hd-slide-body-solid-text-muted-color: var(--hd-base-solid-text-muted-color-inverted);
 
-  :host([variant="base"][surface="solid"]) {
-    --hd-body-background-color: var(--hd-base-solid-background-color);
-    --hd-body-text-color: var(--hd-base-solid-text-color);
-    --hd-body-text-highlight-color: var(--hd-base-solid-text-highlight-color);
-    --hd-body-text-muted-color: var(--hd-base-solid-text-muted-color);
-  }
-  :host([variant="base"][surface="solid"][inverted]) {
-    --hd-body-background-color: var(--hd-base-solid-background-color-inverted);
-    --hd-body-text-color: var(--hd-base-solid-text-color-inverted);
-    --hd-body-text-highlight-color: var(--hd-base-solid-text-highlight-color-inverted);
-    --hd-body-text-muted-color: var(--hd-base-solid-text-muted-color-inverted);
-  }
+    --hd-slide-heading-soft-background-color: var(--hd-base-soft-background-color-inverted);
+    --hd-slide-heading-soft-text-color: var(--hd-base-soft-text-color-inverted);
+    --hd-slide-heading-soft-text-highlight-color: var(--hd-base-soft-text-highlight-color-inverted);
+    --hd-slide-heading-soft-text-muted-color: var(--hd-base-soft-text-muted-color-inverted);
 
-  :host([variant="main"][surface="solid"]) {
-    --hd-body-background-color: var(--hd-main-solid-background-color);
-    --hd-body-text-color: var(--hd-main-solid-text-color);
-    --hd-body-text-highlight-color: var(--hd-main-solid-text-highlight-color);
-    --hd-body-text-muted-color: var(--hd-main-solid-text-muted-color);
-  }
-  :host([variant="main"][surface="solid"][inverted]) {
-    --hd-body-background-color: var(--hd-main-solid-background-color-inverted);
-    --hd-body-text-color: var(--hd-main-solid-text-color-inverted);
-    --hd-body-text-highlight-color: var(--hd-main-solid-text-highlight-color-inverted);
-    --hd-body-text-muted-color: var(--hd-main-solid-text-muted-color-inverted);
-  }
-
-  :host([variant="accent"][surface="solid"]) {
-    --hd-body-background-color: var(--hd-accent-solid-background-color);
-    --hd-body-text-color: var(--hd-accent-solid-text-color);
-    --hd-body-text-highlight-color: var(--hd-accent-solid-text-highlight-color);
-    --hd-body-text-muted-color: var(--hd-accent-solid-text-muted-color);
-  }
-  :host([variant="accent"][surface="solid"][inverted]) {
-    --hd-body-background-color: var(--hd-accent-solid-background-color-inverted);
-    --hd-body-text-color: var(--hd-accent-solid-text-color-inverted);
-    --hd-body-text-highlight-color: var(--hd-accent-solid-text-highlight-color-inverted);
-    --hd-body-text-muted-color: var(--hd-accent-solid-text-muted-color-inverted);
-  }
-
-  /* --- Heading Theme Customizations --- */
-  :host([variant="default"]) {
-    --hd-heading-background-color: var(--hd-main-solid-background-color);
-    --hd-heading-text-color: var(--hd-main-solid-text-color);
-    --hd-heading-text-highlight-color: var(--hd-main-solid-text-highlight-color);
-    --hd-heading-text-muted-color: var(--hd-main-solid-text-muted-color);
-  }
-  :host([variant="default"][inverted]) {
-    --hd-heading-background-color: var(--hd-main-solid-background-color-inverted);
-    --hd-heading-text-color: var(--hd-main-solid-text-color-inverted);
-    --hd-heading-text-highlight-color: var(--hd-main-solid-text-highlight-color-inverted);
-    --hd-heading-text-muted-color: var(--hd-main-solid-text-muted-color-inverted);
-  }
-
-  :host([variant="base"]) {
-    --hd-heading-background-color: var(--hd-base-solid-background-color);
-    --hd-heading-text-color: var(--hd-base-solid-text-color);
-    --hd-heading-text-highlight-color: var(--hd-base-solid-text-highlight-color);
-    --hd-heading-text-muted-color: var(--hd-base-solid-text-muted-color);
-  }
-  :host([variant="base"][inverted]) {
-    --hd-heading-background-color: var(--hd-base-solid-background-color-inverted);
-    --hd-heading-text-color: var(--hd-base-solid-text-color-inverted);
-    --hd-heading-text-highlight-color: var(--hd-base-solid-text-highlight-color-inverted);
-    --hd-heading-text-muted-color: var(--hd-base-solid-text-muted-color-inverted);
+    --hd-slide-heading-solid-background-color: var(--hd-base-solid-background-color-inverted);
+    --hd-slide-heading-solid-text-color: var(--hd-base-solid-text-color-inverted);
+    --hd-slide-heading-solid-text-highlight-color: var(--hd-base-solid-text-highlight-color-inverted);
+    --hd-slide-heading-solid-text-muted-color: var(--hd-base-solid-text-muted-color-inverted);
   }
 
   :host([variant="main"]) {
-    --hd-heading-background-color: var(--hd-main-solid-background-color);
-    --hd-heading-text-color: var(--hd-main-solid-text-color);
-    --hd-heading-text-highlight-color: var(--hd-main-solid-text-highlight-color);
-    --hd-heading-text-muted-color: var(--hd-main-solid-text-muted-color);
+    --hd-slide-body-soft-background-color: var(--hd-main-soft-background-color);
+    --hd-slide-body-soft-text-color: var(--hd-main-soft-text-color);
+    --hd-slide-body-soft-text-highlight-color: var(--hd-main-soft-text-highlight-color);
+    --hd-slide-body-soft-text-muted-color: var(--hd-main-soft-text-muted-color);
+
+    --hd-slide-body-solid-background-color: var(--hd-main-solid-background-color);
+    --hd-slide-body-solid-text-color: var(--hd-main-solid-text-color);
+    --hd-slide-body-solid-text-highlight-color: var(--hd-main-solid-text-highlight-color);
+    --hd-slide-body-solid-text-muted-color: var(--hd-main-solid-text-muted-color);
+
+    --hd-slide-heading-soft-background-color: var(--hd-main-soft-background-color);
+    --hd-slide-heading-soft-text-color: var(--hd-main-soft-text-color);
+    --hd-slide-heading-soft-text-highlight-color: var(--hd-main-soft-text-highlight-color);
+    --hd-slide-heading-soft-text-muted-color: var(--hd-main-soft-text-muted-color);
+
+    --hd-slide-heading-solid-background-color: var(--hd-main-solid-background-color);
+    --hd-slide-heading-solid-text-color: var(--hd-main-solid-text-color);
+    --hd-slide-heading-solid-text-highlight-color: var(--hd-main-solid-text-highlight-color);
+    --hd-slide-heading-solid-text-muted-color: var(--hd-main-solid-text-muted-color);
   }
   :host([variant="main"][inverted]) {
-    --hd-heading-background-color: var(--hd-main-solid-background-color-inverted);
-    --hd-heading-text-color: var(--hd-main-solid-text-color-inverted);
-    --hd-heading-text-highlight-color: var(--hd-main-solid-text-highlight-color-inverted);
-    --hd-heading-text-muted-color: var(--hd-main-solid-text-muted-color-inverted);
+    --hd-slide-body-soft-background-color: var(--hd-main-soft-background-color-inverted);
+    --hd-slide-body-soft-text-color: var(--hd-main-soft-text-color-inverted);
+    --hd-slide-body-soft-text-highlight-color: var(--hd-main-soft-text-highlight-color-inverted);
+    --hd-slide-body-soft-text-muted-color: var(--hd-main-soft-text-muted-color-inverted);
+
+    --hd-slide-body-solid-background-color: var(--hd-main-solid-background-color-inverted);
+    --hd-slide-body-solid-text-color: var(--hd-main-solid-text-color-inverted);
+    --hd-slide-body-solid-text-highlight-color: var(--hd-main-solid-text-highlight-color-inverted);
+    --hd-slide-body-solid-text-muted-color: var(--hd-main-solid-text-muted-color-inverted);
+
+    --hd-slide-heading-soft-background-color: var(--hd-main-soft-background-color-inverted);
+    --hd-slide-heading-soft-text-color: var(--hd-main-soft-text-color-inverted);
+    --hd-slide-heading-soft-text-highlight-color: var(--hd-main-soft-text-highlight-color-inverted);
+    --hd-slide-heading-soft-text-muted-color: var(--hd-main-soft-text-muted-color-inverted);
+
+    --hd-slide-heading-solid-background-color: var(--hd-main-solid-background-color-inverted);
+    --hd-slide-heading-solid-text-color: var(--hd-main-solid-text-color-inverted);
+    --hd-slide-heading-solid-text-highlight-color: var(--hd-main-solid-text-highlight-color-inverted);
+    --hd-slide-heading-solid-text-muted-color: var(--hd-main-solid-text-muted-color-inverted);
   }
 
   :host([variant="accent"]) {
-    --hd-heading-background-color: var(--hd-accent-solid-background-color);
-    --hd-heading-text-color: var(--hd-accent-solid-text-color);
-    --hd-heading-text-highlight-color: var(--hd-accent-solid-text-highlight-color);
-    --hd-heading-text-muted-color: var(--hd-accent-solid-text-muted-color);
+    --hd-slide-body-soft-background-color: var(--hd-accent-soft-background-color);
+    --hd-slide-body-soft-text-color: var(--hd-accent-soft-text-color);
+    --hd-slide-body-soft-text-highlight-color: var(--hd-accent-soft-text-highlight-color);
+    --hd-slide-body-soft-text-muted-color: var(--hd-accent-soft-text-muted-color);
+
+    --hd-slide-body-solid-background-color: var(--hd-accent-solid-background-color);
+    --hd-slide-body-solid-text-color: var(--hd-accent-solid-text-color);
+    --hd-slide-body-solid-text-highlight-color: var(--hd-accent-solid-text-highlight-color);
+    --hd-slide-body-solid-text-muted-color: var(--hd-accent-solid-text-muted-color);
+
+    --hd-slide-heading-soft-background-color: var(--hd-accent-soft-background-color);
+    --hd-slide-heading-soft-text-color: var(--hd-accent-soft-text-color);
+    --hd-slide-heading-soft-text-highlight-color: var(--hd-accent-soft-text-highlight-color);
+    --hd-slide-heading-soft-text-muted-color: var(--hd-accent-soft-text-muted-color);
+
+    --hd-slide-heading-solid-background-color: var(--hd-accent-solid-background-color);
+    --hd-slide-heading-solid-text-color: var(--hd-accent-solid-text-color);
+    --hd-slide-heading-solid-text-highlight-color: var(--hd-accent-solid-text-highlight-color);
+    --hd-slide-heading-solid-text-muted-color: var(--hd-accent-solid-text-muted-color);
   }
   :host([variant="accent"][inverted]) {
-    --hd-heading-background-color: var(--hd-accent-solid-background-color-inverted);
-    --hd-heading-text-color: var(--hd-accent-solid-text-color-inverted);
-    --hd-heading-text-highlight-color: var(--hd-accent-solid-text-highlight-color-inverted);
-    --hd-heading-text-muted-color: var(--hd-accent-solid-text-muted-color-inverted);
+    --hd-slide-body-soft-background-color: var(--hd-accent-soft-background-color-inverted);
+    --hd-slide-body-soft-text-color: var(--hd-accent-soft-text-color-inverted);
+    --hd-slide-body-soft-text-highlight-color: var(--hd-accent-soft-text-highlight-color-inverted);
+    --hd-slide-body-soft-text-muted-color: var(--hd-accent-soft-text-muted-color-inverted);
+
+    --hd-slide-body-solid-background-color: var(--hd-accent-solid-background-color-inverted);
+    --hd-slide-body-solid-text-color: var(--hd-accent-solid-text-color-inverted);
+    --hd-slide-body-solid-text-highlight-color: var(--hd-accent-solid-text-highlight-color-inverted);
+    --hd-slide-body-solid-text-muted-color: var(--hd-accent-solid-text-muted-color-inverted);
+
+    --hd-slide-heading-soft-background-color: var(--hd-accent-soft-background-color-inverted);
+    --hd-slide-heading-soft-text-color: var(--hd-accent-soft-text-color-inverted);
+    --hd-slide-heading-soft-text-highlight-color: var(--hd-accent-soft-text-highlight-color-inverted);
+    --hd-slide-heading-soft-text-muted-color: var(--hd-accent-soft-text-muted-color-inverted);
+
+    --hd-slide-heading-solid-background-color: var(--hd-accent-solid-background-color-inverted);
+    --hd-slide-heading-solid-text-color: var(--hd-accent-solid-text-color-inverted);
+    --hd-slide-heading-solid-text-highlight-color: var(--hd-accent-solid-text-highlight-color-inverted);
+    --hd-slide-heading-solid-text-muted-color: var(--hd-accent-solid-text-muted-color-inverted);
   }
 
-  /* --- Heading Attribute Customizations (takes precedence over variant theme) --- */
+  /* --- Heading Attribute Customizations --- */
   :host([heading="base"]) {
-    --hd-heading-background-color: var(--hd-base-solid-background-color);
-    --hd-heading-text-color: var(--hd-base-solid-text-color);
-    --hd-heading-text-highlight-color: var(--hd-base-solid-text-highlight-color);
-    --hd-heading-text-muted-color: var(--hd-base-solid-text-muted-color);
+    --hd-slide-heading-solid-background-color: var(--hd-base-solid-background-color);
+    --hd-slide-heading-solid-text-color: var(--hd-base-solid-text-color);
+    --hd-slide-heading-solid-text-highlight-color: var(--hd-base-solid-text-highlight-color);
+    --hd-slide-heading-solid-text-muted-color: var(--hd-base-solid-text-muted-color);
+
+    --hd-slide-heading-soft-background-color: var(--hd-base-soft-background-color);
+    --hd-slide-heading-soft-text-color: var(--hd-base-soft-text-color);
+    --hd-slide-heading-soft-text-highlight-color: var(--hd-base-soft-text-highlight-color);
+    --hd-slide-heading-soft-text-muted-color: var(--hd-base-soft-text-muted-color);
   }
   :host([heading="base"][inverted]) {
-    --hd-heading-background-color: var(--hd-base-solid-background-color-inverted);
-    --hd-heading-text-color: var(--hd-base-solid-text-color-inverted);
-    --hd-heading-text-highlight-color: var(--hd-base-solid-text-highlight-color-inverted);
-    --hd-heading-text-muted-color: var(--hd-base-solid-text-muted-color-inverted);
+    --hd-slide-heading-solid-background-color: var(--hd-base-solid-background-color-inverted);
+    --hd-slide-heading-solid-text-color: var(--hd-base-solid-text-color-inverted);
+    --hd-slide-heading-solid-text-highlight-color: var(--hd-base-solid-text-highlight-color-inverted);
+    --hd-slide-heading-solid-text-muted-color: var(--hd-base-solid-text-muted-color-inverted);
+
+    --hd-slide-heading-soft-background-color: var(--hd-base-soft-background-color-inverted);
+    --hd-slide-heading-soft-text-color: var(--hd-base-soft-text-color-inverted);
+    --hd-slide-heading-soft-text-highlight-color: var(--hd-base-soft-text-highlight-color-inverted);
+    --hd-slide-heading-soft-text-muted-color: var(--hd-base-soft-text-muted-color-inverted);
   }
 
   :host([heading="main"]) {
-    --hd-heading-background-color: var(--hd-main-solid-background-color);
-    --hd-heading-text-color: var(--hd-main-solid-text-color);
-    --hd-heading-text-highlight-color: var(--hd-main-solid-text-highlight-color);
-    --hd-heading-text-muted-color: var(--hd-main-solid-text-muted-color);
+    --hd-slide-heading-solid-background-color: var(--hd-main-solid-background-color);
+    --hd-slide-heading-solid-text-color: var(--hd-main-solid-text-color);
+    --hd-slide-heading-solid-text-highlight-color: var(--hd-main-solid-text-highlight-color);
+    --hd-slide-heading-solid-text-muted-color: var(--hd-main-solid-text-muted-color);
+
+    --hd-slide-heading-soft-background-color: var(--hd-main-soft-background-color);
+    --hd-slide-heading-soft-text-color: var(--hd-main-soft-text-color);
+    --hd-slide-heading-soft-text-highlight-color: var(--hd-main-soft-text-highlight-color);
+    --hd-slide-heading-soft-text-muted-color: var(--hd-main-soft-text-muted-color);
   }
   :host([heading="main"][inverted]) {
-    --hd-heading-background-color: var(--hd-main-solid-background-color-inverted);
-    --hd-heading-text-color: var(--hd-main-solid-text-color-inverted);
-    --hd-heading-text-highlight-color: var(--hd-main-solid-text-highlight-color-inverted);
-    --hd-heading-text-muted-color: var(--hd-main-solid-text-muted-color-inverted);
+    --hd-slide-heading-solid-background-color: var(--hd-main-solid-background-color-inverted);
+    --hd-slide-heading-solid-text-color: var(--hd-main-solid-text-color-inverted);
+    --hd-slide-heading-solid-text-highlight-color: var(--hd-main-solid-text-highlight-color-inverted);
+    --hd-slide-heading-solid-text-muted-color: var(--hd-main-solid-text-muted-color-inverted);
+
+    --hd-slide-heading-soft-background-color: var(--hd-main-soft-background-color-inverted);
+    --hd-slide-heading-soft-text-color: var(--hd-main-soft-text-color-inverted);
+    --hd-slide-heading-soft-text-highlight-color: var(--hd-main-soft-text-highlight-color-inverted);
+    --hd-slide-heading-soft-text-muted-color: var(--hd-main-soft-text-muted-color-inverted);
   }
 
   :host([heading="accent"]) {
-    --hd-heading-background-color: var(--hd-accent-solid-background-color);
-    --hd-heading-text-color: var(--hd-accent-solid-text-color);
-    --hd-heading-text-highlight-color: var(--hd-accent-solid-text-highlight-color);
-    --hd-heading-text-muted-color: var(--hd-accent-solid-text-muted-color);
+    --hd-slide-heading-solid-background-color: var(--hd-accent-solid-background-color);
+    --hd-slide-heading-solid-text-color: var(--hd-accent-solid-text-color);
+    --hd-slide-heading-solid-text-highlight-color: var(--hd-accent-solid-text-highlight-color);
+    --hd-slide-heading-solid-text-muted-color: var(--hd-accent-solid-text-muted-color);
+
+    --hd-slide-heading-soft-background-color: var(--hd-accent-soft-background-color);
+    --hd-slide-heading-soft-text-color: var(--hd-accent-soft-text-color);
+    --hd-slide-heading-soft-text-highlight-color: var(--hd-accent-soft-text-highlight-color);
+    --hd-slide-heading-soft-text-muted-color: var(--hd-accent-soft-text-muted-color);
   }
   :host([heading="accent"][inverted]) {
-    --hd-heading-background-color: var(--hd-accent-solid-background-color-inverted);
-    --hd-heading-text-color: var(--hd-accent-solid-text-color-inverted);
-    --hd-heading-text-highlight-color: var(--hd-accent-solid-text-highlight-color-inverted);
-    --hd-heading-text-muted-color: var(--hd-accent-solid-text-muted-color-inverted);
-  }
+    --hd-slide-heading-solid-background-color: var(--hd-accent-solid-background-color-inverted);
+    --hd-slide-heading-solid-text-color: var(--hd-accent-solid-text-color-inverted);
+    --hd-slide-heading-solid-text-highlight-color: var(--hd-accent-solid-text-highlight-color-inverted);
+    --hd-slide-heading-solid-text-muted-color: var(--hd-accent-solid-text-muted-color-inverted);
 
-  /* --- Heading Surface Overrides (soft) --- */
-  :host([surface="soft"]) {
-    --hd-heading-background-color: var(--hd-main-soft-background-color);
-    --hd-heading-text-color: var(--hd-main-soft-text-color);
-    --hd-heading-text-highlight-color: var(--hd-main-soft-text-highlight-color);
-    --hd-heading-text-muted-color: var(--hd-main-soft-text-muted-color);
-  }
-  :host([surface="soft"][inverted]) {
-    --hd-heading-background-color: var(--hd-main-soft-background-color-inverted);
-    --hd-heading-text-color: var(--hd-main-soft-text-color-inverted);
-    --hd-heading-text-highlight-color: var(--hd-main-soft-text-highlight-color-inverted);
-    --hd-heading-text-muted-color: var(--hd-main-soft-text-muted-color-inverted);
-  }
-
-  :host([variant="default"][surface="soft"]) {
-    --hd-heading-background-color: var(--hd-main-soft-background-color);
-    --hd-heading-text-color: var(--hd-main-soft-text-color);
-    --hd-heading-text-highlight-color: var(--hd-main-soft-text-highlight-color);
-    --hd-heading-text-muted-color: var(--hd-main-soft-text-muted-color);
-  }
-  :host([variant="default"][surface="soft"][inverted]) {
-    --hd-heading-background-color: var(--hd-main-soft-background-color-inverted);
-    --hd-heading-text-color: var(--hd-main-soft-text-color-inverted);
-    --hd-heading-text-highlight-color: var(--hd-main-soft-text-highlight-color-inverted);
-    --hd-heading-text-muted-color: var(--hd-main-soft-text-muted-color-inverted);
-  }
-
-  :host([variant="base"][surface="soft"]) {
-    --hd-heading-background-color: var(--hd-base-soft-background-color);
-    --hd-heading-text-color: var(--hd-base-soft-text-color);
-    --hd-heading-text-highlight-color: var(--hd-base-soft-text-highlight-color);
-    --hd-heading-text-muted-color: var(--hd-base-soft-text-muted-color);
-  }
-  :host([variant="base"][surface="soft"][inverted]) {
-    --hd-heading-background-color: var(--hd-base-soft-background-color-inverted);
-    --hd-heading-text-color: var(--hd-base-soft-text-color-inverted);
-    --hd-heading-text-highlight-color: var(--hd-base-soft-text-highlight-color-inverted);
-    --hd-heading-text-muted-color: var(--hd-base-soft-text-muted-color-inverted);
-  }
-
-  :host([variant="main"][surface="soft"]) {
-    --hd-heading-background-color: var(--hd-main-soft-background-color);
-    --hd-heading-text-color: var(--hd-main-soft-text-color);
-    --hd-heading-text-highlight-color: var(--hd-main-soft-text-highlight-color);
-    --hd-heading-text-muted-color: var(--hd-main-soft-text-muted-color);
-  }
-  :host([variant="main"][surface="soft"][inverted]) {
-    --hd-heading-background-color: var(--hd-main-soft-background-color-inverted);
-    --hd-heading-text-color: var(--hd-main-soft-text-color-inverted);
-    --hd-heading-text-highlight-color: var(--hd-main-soft-text-highlight-color-inverted);
-    --hd-heading-text-muted-color: var(--hd-main-soft-text-muted-color-inverted);
-  }
-
-  :host([variant="accent"][surface="soft"]) {
-    --hd-heading-background-color: var(--hd-accent-soft-background-color);
-    --hd-heading-text-color: var(--hd-accent-soft-text-color);
-    --hd-heading-text-highlight-color: var(--hd-accent-soft-text-highlight-color);
-    --hd-heading-text-muted-color: var(--hd-accent-soft-text-muted-color);
-  }
-  :host([variant="accent"][surface="soft"][inverted]) {
-    --hd-heading-background-color: var(--hd-accent-soft-background-color-inverted);
-    --hd-heading-text-color: var(--hd-accent-soft-text-color-inverted);
-    --hd-heading-text-highlight-color: var(--hd-accent-soft-text-highlight-color-inverted);
-    --hd-heading-text-muted-color: var(--hd-accent-soft-text-muted-color-inverted);
-  }
-
-  :host([heading="base"][surface="soft"]) {
-    --hd-heading-background-color: var(--hd-base-soft-background-color);
-    --hd-heading-text-color: var(--hd-base-soft-text-color);
-    --hd-heading-text-highlight-color: var(--hd-base-soft-text-highlight-color);
-    --hd-heading-text-muted-color: var(--hd-base-soft-text-muted-color);
-  }
-  :host([heading="base"][surface="soft"][inverted]) {
-    --hd-heading-background-color: var(--hd-base-soft-background-color-inverted);
-    --hd-heading-text-color: var(--hd-base-soft-text-color-inverted);
-    --hd-heading-text-highlight-color: var(--hd-base-soft-text-highlight-color-inverted);
-    --hd-heading-text-muted-color: var(--hd-base-soft-text-muted-color-inverted);
-  }
-
-  :host([heading="main"][surface="soft"]) {
-    --hd-heading-background-color: var(--hd-main-soft-background-color);
-    --hd-heading-text-color: var(--hd-main-soft-text-color);
-    --hd-heading-text-highlight-color: var(--hd-main-soft-text-highlight-color);
-    --hd-heading-text-muted-color: var(--hd-main-soft-text-muted-color);
-  }
-  :host([heading="main"][surface="soft"][inverted]) {
-    --hd-heading-background-color: var(--hd-main-soft-background-color-inverted);
-    --hd-heading-text-color: var(--hd-main-soft-text-color-inverted);
-    --hd-heading-text-highlight-color: var(--hd-main-soft-text-highlight-color-inverted);
-    --hd-heading-text-muted-color: var(--hd-main-soft-text-muted-color-inverted);
-  }
-
-  :host([heading="accent"][surface="soft"]) {
-    --hd-heading-background-color: var(--hd-accent-soft-background-color);
-    --hd-heading-text-color: var(--hd-accent-soft-text-color);
-    --hd-heading-text-highlight-color: var(--hd-accent-soft-text-highlight-color);
-    --hd-heading-text-muted-color: var(--hd-accent-soft-text-muted-color);
-  }
-  :host([heading="accent"][surface="soft"][inverted]) {
-    --hd-heading-background-color: var(--hd-accent-soft-background-color-inverted);
-    --hd-heading-text-color: var(--hd-accent-soft-text-color-inverted);
-    --hd-heading-text-highlight-color: var(--hd-accent-soft-text-highlight-color-inverted);
-    --hd-heading-text-muted-color: var(--hd-accent-soft-text-muted-color-inverted);
+    --hd-slide-heading-soft-background-color: var(--hd-accent-soft-background-color-inverted);
+    --hd-slide-heading-soft-text-color: var(--hd-accent-soft-text-color-inverted);
+    --hd-slide-heading-soft-text-highlight-color: var(--hd-accent-soft-text-highlight-color-inverted);
+    --hd-slide-heading-soft-text-muted-color: var(--hd-accent-soft-text-muted-color-inverted);
   }
 
   :host([active]) {

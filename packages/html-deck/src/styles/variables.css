@@ -1,384 +1,538 @@
 /* variables.css - Global CSS variables for HTML-Deck */
 @layer hd-variables {
-:root {
-  /* Fonts */
-  --hd-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-  --hd-font-family-serif: Georgia, Cambria, "Times New Roman", Times, serif;
-  --hd-body-font: var(--hd-font-family);
-  --hd-heading-font: var(--hd-font-family);
+  :root {
+    /* Fonts */
+    --hd-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    --hd-font-family-serif: Georgia, Cambria, "Times New Roman", Times, serif;
+    --hd-body-font: var(--hd-font-family);
+    --hd-heading-font: var(--hd-font-family);
 
-  /* 48-Color Matrix */
-  /* --- Base Theme (Standard/Neutral) --- */
-  /* Soft Surface (Light bg / Dark text) */
-  --hd-base-soft-background-color: #ffffff;
-  --hd-base-soft-text-color: #111827;
-  --hd-base-soft-text-highlight-color: #c2410c;
-  --hd-base-soft-text-muted-color: #4b5563;
+    /* 48-Color Matrix */
+    /* --- Base Theme (Standard/Neutral) --- */
+    /* Soft Surface (Light bg / Dark text) */
+    --hd-base-soft-background-color: #ffffff;
+    --hd-base-soft-text-color: #111827;
+    --hd-base-soft-text-highlight-color: #c2410c;
+    --hd-base-soft-text-muted-color: #4b5563;
 
-  /* Solid Surface (Medium bg / Dark text) */
-  --hd-base-solid-background-color: #f3f4f6;
-  --hd-base-solid-text-color: #111827;
-  --hd-base-solid-text-highlight-color: #9a3412;
-  --hd-base-solid-text-muted-color: #4b5563;
+    /* Solid Surface (Medium bg / Dark text) */
+    --hd-base-solid-background-color: #f3f4f6;
+    --hd-base-solid-text-color: #111827;
+    --hd-base-solid-text-highlight-color: #9a3412;
+    --hd-base-solid-text-muted-color: #4b5563;
 
-  /* Soft Surface Inverted (Dark bg / Light text) */
-  --hd-base-soft-background-color-inverted: #111827;
-  --hd-base-soft-text-color-inverted: #ffffff;
-  --hd-base-soft-text-highlight-color-inverted: #fdba74;
-  --hd-base-soft-text-muted-color-inverted: #9ca3af;
+    /* Soft Surface Inverted (Dark bg / Light text) */
+    --hd-base-soft-background-color-inverted: #111827;
+    --hd-base-soft-text-color-inverted: #ffffff;
+    --hd-base-soft-text-highlight-color-inverted: #fdba74;
+    --hd-base-soft-text-muted-color-inverted: #9ca3af;
 
-  /* Solid Surface Inverted (Dark bg / Light text) */
-  --hd-base-solid-background-color-inverted: #111827;
-  --hd-base-solid-text-color-inverted: #f3f4f6;
-  --hd-base-solid-text-highlight-color-inverted: #fdba74;
-  --hd-base-solid-text-muted-color-inverted: #9ca3af;
+    /* Solid Surface Inverted (Dark bg / Light text) */
+    --hd-base-solid-background-color-inverted: #111827;
+    --hd-base-solid-text-color-inverted: #f3f4f6;
+    --hd-base-solid-text-highlight-color-inverted: #fdba74;
+    --hd-base-solid-text-muted-color-inverted: #9ca3af;
 
-  /* --- Main Theme (Indigo) --- */
-  /* Soft Surface (Light bg / Dark text) */
-  --hd-main-soft-background-color: #eef2ff;
-  --hd-main-soft-text-color: #312e81;
-  --hd-main-soft-text-highlight-color: #c2410c;
-  --hd-main-soft-text-muted-color: #4338ca;
+    /* --- Main Theme (Indigo) --- */
+    /* Soft Surface (Light bg / Dark text) */
+    --hd-main-soft-background-color: #eef2ff;
+    --hd-main-soft-text-color: #312e81;
+    --hd-main-soft-text-highlight-color: #c2410c;
+    --hd-main-soft-text-muted-color: #4338ca;
 
-  /* Solid Surface (Vibrant bg / Light text) */
-  --hd-main-solid-background-color: #4f46e5;
-  --hd-main-solid-text-color: #ffffff;
-  --hd-main-solid-text-highlight-color: #fdba74;
-  --hd-main-solid-text-muted-color: #e0e7ff;
+    /* Solid Surface (Vibrant bg / Light text) */
+    --hd-main-solid-background-color: #4f46e5;
+    --hd-main-solid-text-color: #ffffff;
+    --hd-main-solid-text-highlight-color: #fdba74;
+    --hd-main-solid-text-muted-color: #e0e7ff;
 
-  /* Soft Surface Inverted (Dark bg / Light text) */
-  --hd-main-soft-background-color-inverted: #312e81;
-  --hd-main-soft-text-color-inverted: #eef2ff;
-  --hd-main-soft-text-highlight-color-inverted: #fdba74;
-  --hd-main-soft-text-muted-color-inverted: #a5b4fc;
+    /* Soft Surface Inverted (Dark bg / Light text) */
+    --hd-main-soft-background-color-inverted: #312e81;
+    --hd-main-soft-text-color-inverted: #eef2ff;
+    --hd-main-soft-text-highlight-color-inverted: #fdba74;
+    --hd-main-soft-text-muted-color-inverted: #a5b4fc;
 
-  /* Solid Surface Inverted (Light bg / Vibrant text) */
-  --hd-main-solid-background-color-inverted: #ffffff;
-  --hd-main-solid-text-color-inverted: #4f46e5;
-  --hd-main-solid-text-highlight-color-inverted: #c2410c;
-  --hd-main-solid-text-muted-color-inverted: #4338ca;
+    /* Solid Surface Inverted (Light bg / Vibrant text) */
+    --hd-main-solid-background-color-inverted: #ffffff;
+    --hd-main-solid-text-color-inverted: #4f46e5;
+    --hd-main-solid-text-highlight-color-inverted: #c2410c;
+    --hd-main-solid-text-muted-color-inverted: #4338ca;
 
-  /* --- Accent Theme (Orange) --- */
-  /* Soft Surface (Light bg / Dark text) */
-  --hd-accent-soft-background-color: #fff7ed;
-  --hd-accent-soft-text-color: #7c2d12;
-  --hd-accent-soft-text-highlight-color: #4338ca;
-  --hd-accent-soft-text-muted-color: #c2410c;
+    /* --- Accent Theme (Orange) --- */
+    /* Soft Surface (Light bg / Dark text) */
+    --hd-accent-soft-background-color: #fff7ed;
+    --hd-accent-soft-text-color: #7c2d12;
+    --hd-accent-soft-text-highlight-color: #4338ca;
+    --hd-accent-soft-text-muted-color: #c2410c;
 
-  /* Solid Surface (Vibrant bg / Light text) */
-  --hd-accent-solid-background-color: #ea580c;
-  --hd-accent-solid-text-color: #ffffff;
-  --hd-accent-solid-text-highlight-color: #c7d2fe;
-  --hd-accent-solid-text-muted-color: #fed7aa;
+    /* Solid Surface (Vibrant bg / Light text) */
+    --hd-accent-solid-background-color: #ea580c;
+    --hd-accent-solid-text-color: #ffffff;
+    --hd-accent-solid-text-highlight-color: #c7d2fe;
+    --hd-accent-solid-text-muted-color: #fed7aa;
 
-  /* Soft Surface Inverted (Dark bg / Light text) */
-  --hd-accent-soft-background-color-inverted: #7c2d12;
-  --hd-accent-soft-text-color-inverted: #fff7ed;
-  --hd-accent-soft-text-highlight-color-inverted: #a5b4fc;
-  --hd-accent-soft-text-muted-color-inverted: #fdba74;
+    /* Soft Surface Inverted (Dark bg / Light text) */
+    --hd-accent-soft-background-color-inverted: #7c2d12;
+    --hd-accent-soft-text-color-inverted: #fff7ed;
+    --hd-accent-soft-text-highlight-color-inverted: #a5b4fc;
+    --hd-accent-soft-text-muted-color-inverted: #fdba74;
 
-  /* Solid Surface Inverted (Light bg / Vibrant text) */
-  --hd-accent-solid-background-color-inverted: #ffffff;
-  --hd-accent-solid-text-color-inverted: #ea580c;
-  --hd-accent-solid-text-highlight-color-inverted: #4338ca;
-  --hd-accent-solid-text-muted-color-inverted: #c2410c;
+    /* Solid Surface Inverted (Light bg / Vibrant text) */
+    --hd-accent-solid-background-color-inverted: #ffffff;
+    --hd-accent-solid-text-color-inverted: #ea580c;
+    --hd-accent-solid-text-highlight-color-inverted: #4338ca;
+    --hd-accent-solid-text-muted-color-inverted: #c2410c;
 
-  /* 8 Semantic Color Variables (Core Slide Colors) */
-  --hd-body-background-color: var(--hd-base-soft-background-color);
-  --hd-body-text-color: var(--hd-base-soft-text-color);
-  --hd-body-text-highlight-color: var(--hd-base-soft-text-highlight-color);
-  --hd-body-text-muted-color: var(--hd-base-soft-text-muted-color);
+    /* State variables default values (base-soft / main-solid) */
+    --hd-soft-background-color: var(--hd-base-soft-background-color);
+    --hd-soft-text-color: var(--hd-base-soft-text-color);
+    --hd-soft-text-highlight-color: var(--hd-base-soft-text-highlight-color);
+    --hd-soft-text-muted-color: var(--hd-base-soft-text-muted-color);
 
-  --hd-heading-background-color: var(--hd-main-solid-background-color);
-  --hd-heading-text-color: var(--hd-main-solid-text-color);
-  --hd-heading-text-highlight-color: var(--hd-main-solid-text-highlight-color);
-  --hd-heading-text-muted-color: var(--hd-main-solid-text-muted-color);
-
-  /* Slide Border parameters */
-  --hd-slide-border-width: 0px;
-  --hd-slide-border-style: solid;
+    --hd-solid-background-color: var(--hd-main-solid-background-color);
+    --hd-solid-text-color: var(--hd-main-solid-text-color);
+    --hd-solid-text-highlight-color: var(--hd-main-solid-text-highlight-color);
+    --hd-solid-text-muted-color: var(--hd-main-solid-text-muted-color);
 
 
-  /* 6-Level Sizing Scale */
-  --hd-size-1: 64px;
-  --hd-size-2: 40px;
-  --hd-size-3: 24px;
-  --hd-size-4: 20px;
-  --hd-size-5: 16px;
-  --hd-size-6: 14px;
-
-  /* Text Types Decoration Configurations */
-  /* Title Text Type */
-  --hd-text-title-font: var(--hd-heading-font);
-  --hd-text-title-color: var(--hd-body-text-color);
-  --hd-text-title-font-size: var(--hd-size-1);
-  --hd-text-title-font-weight: var(--hd-font-weight-bold, 700);
-  --hd-text-title-line-height: 1;
-  --hd-text-title-letter-spacing: -0.03em;
-  --hd-text-title-text-transform: none;
-  --hd-text-title-text-shadow: none;
-
-  /* Heading Text Type */
-  --hd-text-heading-font: var(--hd-heading-font);
-  --hd-text-heading-color: var(--hd-body-text-color);
-  --hd-text-heading-font-size: var(--hd-size-2);
-  --hd-text-heading-font-weight: var(--hd-font-weight-bold, 700);
-  --hd-text-heading-line-height: 1;
-  --hd-text-heading-letter-spacing: -0.02em;
-  --hd-text-heading-text-transform: none;
-  --hd-text-heading-text-shadow: none;
-
-  /* Subheading Text Type */
-  --hd-text-subheading-font: var(--hd-heading-font);
-  --hd-text-subheading-color: var(--hd-body-text-muted-color);
-  --hd-text-subheading-font-size: var(--hd-size-4);
-  --hd-text-subheading-font-weight: var(--hd-font-weight-semibold, 600);
-  --hd-text-subheading-line-height: 1;
-  --hd-text-subheading-letter-spacing: normal;
-  --hd-text-subheading-text-transform: none;
-  --hd-text-subheading-text-shadow: none;
-
-  /* Body Text Type */
-  --hd-text-body-font: var(--hd-body-font);
-  --hd-text-body-color: var(--hd-body-text-color);
-  --hd-text-body-font-size: var(--hd-size-3);
-  --hd-text-body-font-weight: var(--hd-font-weight-normal, 400);
-  --hd-text-body-line-height: 1.5;
-  --hd-text-body-letter-spacing: 0.01em;
-  --hd-text-body-text-transform: none;
-  --hd-text-body-text-shadow: none;
-
-  /* Quote Text Type */
-  --hd-text-quote-font: var(--hd-font-family-serif);
-  --hd-text-quote-color: var(--hd-body-text-muted-color);
-  --hd-text-quote-font-size: var(--hd-size-3);
-  --hd-text-quote-font-weight: var(--hd-font-weight-normal, 400);
-  --hd-text-quote-line-height: 1.4;
-  --hd-text-quote-letter-spacing: normal;
-  --hd-text-quote-text-transform: none;
-  --hd-text-quote-text-shadow: none;
-
-  /* Caption Text Type */
-  --hd-text-caption-font: var(--hd-body-font);
-  --hd-text-caption-color: var(--hd-body-text-muted-color);
-  --hd-text-caption-font-size: var(--hd-size-5);
-  --hd-text-caption-font-weight: var(--hd-font-weight-normal, 400);
-  --hd-text-caption-line-height: 1.4;
-  --hd-text-caption-letter-spacing: normal;
-  --hd-text-caption-text-transform: none;
-  --hd-text-caption-text-shadow: none;
-
-  /* Peripheral Text Type */
-  --hd-text-peripheral-font: var(--hd-body-font);
-  --hd-text-peripheral-color: var(--hd-body-text-muted-color);
-  --hd-text-peripheral-font-size: var(--hd-size-6);
-  --hd-text-peripheral-font-weight: var(--hd-font-weight-medium, 500);
-  --hd-text-peripheral-line-height: 1;
-  --hd-text-peripheral-letter-spacing: 0.05em;
-  --hd-text-peripheral-text-transform: uppercase;
-  --hd-text-peripheral-text-shadow: none;
+    /* Slide Border parameters */
+    --hd-slide-border-width: 0px;
+    --hd-slide-border-style: solid;
 
 
-  /* Font Weights */
-  --hd-font-weight-light: 300;
-  --hd-font-weight-normal: 400;
-  --hd-font-weight-medium: 500;
-  --hd-font-weight-semibold: 600;
-  --hd-font-weight-bold: 700;
-  --hd-font-weight-extrabold: 800;
+    /* 6-Level Sizing Scale */
+    --hd-size-1: 64px;
+    --hd-size-2: 40px;
+    --hd-size-3: 24px;
+    --hd-size-4: 20px;
+    --hd-size-5: 16px;
+    --hd-size-6: 14px;
 
-  /* Slide layout margin parameters */
-  --hd-slide-margin-top: var(--hd-gap-5);
-  --hd-slide-margin-right: var(--hd-gap-6);
-  --hd-slide-margin-bottom: var(--hd-gap-5);
-  --hd-slide-margin-left: var(--hd-gap-6);
+    /* Text Types Decoration Configurations */
+    /* Title Text Type */
+    --hd-text-title-font: var(--hd-heading-font);
+    --hd-text-title-color: var(--hd-body-text-color);
+    --hd-text-title-font-size: var(--hd-size-1);
+    --hd-text-title-font-weight: var(--hd-font-weight-bold, 700);
+    --hd-text-title-line-height: 1;
+    --hd-text-title-letter-spacing: -0.03em;
+    --hd-text-title-text-transform: none;
+    --hd-text-title-text-shadow: none;
 
-  /* Peripheral Absolute Position Offset (Unified vertical/horizontal margin offset) */
-  --hd-peripheral-offset: var(--hd-gap-2);
+    /* Heading Text Type */
+    --hd-text-heading-font: var(--hd-heading-font);
+    --hd-text-heading-color: var(--hd-body-text-color);
+    --hd-text-heading-font-size: var(--hd-size-2);
+    --hd-text-heading-font-weight: var(--hd-font-weight-bold, 700);
+    --hd-text-heading-line-height: 1;
+    --hd-text-heading-letter-spacing: -0.02em;
+    --hd-text-heading-text-transform: none;
+    --hd-text-heading-text-shadow: none;
 
-  /* Spacing Scale (Gap classes) */
-  --hd-gap-0: 0px;
-  --hd-gap-1: 8px;
-  --hd-gap-2: 16px;
-  --hd-gap-3: 24px;
-  --hd-gap-4: 32px;
-  --hd-gap-5: 40px;
-  --hd-gap-6: 48px;
+    /* Subheading Text Type */
+    --hd-text-subheading-font: var(--hd-heading-font);
+    --hd-text-subheading-color: var(--hd-body-text-muted-color);
+    --hd-text-subheading-font-size: var(--hd-size-4);
+    --hd-text-subheading-font-weight: var(--hd-font-weight-semibold, 600);
+    --hd-text-subheading-line-height: 1;
+    --hd-text-subheading-letter-spacing: normal;
+    --hd-text-subheading-text-transform: none;
+    --hd-text-subheading-text-shadow: none;
 
-  /* Layout Spacing Configuration defaults */
-  --hd-layout-before-margin: var(--hd-gap-2);
-  --hd-layout-after-margin: var(--hd-gap-2);
-  --hd-layout-heading-padding: var(--hd-slide-margin-top) var(--hd-slide-margin-right) var(--hd-gap-3) var(--hd-slide-margin-left);
-  --hd-layout-body-padding: var(--hd-gap-3) var(--hd-slide-margin-right) var(--hd-slide-margin-bottom) var(--hd-slide-margin-left);
-  --hd-layout-cover-padding: var(--hd-slide-margin-top) var(--hd-slide-margin-right) var(--hd-slide-margin-bottom) var(--hd-slide-margin-left);
-  --hd-layout-heading-margin: var(--hd-gap-4);
-  --hd-layout-cover-title-margin-bottom: var(--hd-gap-3);
-  --hd-layout-cover-subtitle-margin-bottom: var(--hd-gap-4);
+    /* Body Text Type */
+    --hd-text-body-font: var(--hd-body-font);
+    --hd-text-body-color: var(--hd-body-text-color);
+    --hd-text-body-font-size: var(--hd-size-3);
+    --hd-text-body-font-weight: var(--hd-font-weight-normal, 400);
+    --hd-text-body-line-height: 1.5;
+    --hd-text-body-letter-spacing: 0.01em;
+    --hd-text-body-text-transform: none;
+    --hd-text-body-text-shadow: none;
 
-  /* Component Properties */
-  /* Card */
-  --hd-card-border-radius: var(--hd-gap-1);
-  --hd-card-padding: var(--hd-gap-1);
-  --hd-card-margin-bottom: var(--hd-gap-2);
-  --hd-card-font-size: var(--hd-size-4);
-  --hd-card-background-color: var(--hd-base-soft-background-color);
-  --hd-card-text-color: var(--hd-base-soft-text-color);
-  --hd-card-border-width: 1px;
-  --hd-card-border-style: solid;
-  --hd-card-border-color: var(--hd-base-solid-background-color);
-  --hd-card-box-shadow: 0 4px 12px rgba(from var(--hd-base-soft-text-color) r g b / 0.03), 0 1px 2px rgba(from var(--hd-base-soft-text-color) r g b / 0.02);
-  --hd-card-heading-background-color: var(--hd-base-solid-background-color);
-  --hd-card-heading-text-color: var(--hd-base-solid-text-color);
-  --hd-card-heading-border-color: var(--hd-base-solid-background-color);
+    /* Quote Text Type */
+    --hd-text-quote-font: var(--hd-font-family-serif);
+    --hd-text-quote-color: var(--hd-body-text-muted-color);
+    --hd-text-quote-font-size: var(--hd-size-3);
+    --hd-text-quote-font-weight: var(--hd-font-weight-normal, 400);
+    --hd-text-quote-line-height: 1.4;
+    --hd-text-quote-letter-spacing: normal;
+    --hd-text-quote-text-transform: none;
+    --hd-text-quote-text-shadow: none;
 
-  /* Box */
-  --hd-box-border-radius: var(--hd-gap-1);
-  --hd-box-padding: var(--hd-gap-1);
-  --hd-box-margin-bottom: var(--hd-gap-2);
-  --hd-box-font-size: var(--hd-size-4);
-  --hd-box-background-color: var(--hd-base-soft-background-color);
-  --hd-box-text-color: var(--hd-base-soft-text-color);
-  --hd-box-border-width: 1px;
-  --hd-box-border-style: solid;
-  --hd-box-border-color: var(--hd-base-solid-background-color);
-  --hd-box-box-shadow: 0 4px 12px rgba(from var(--hd-base-soft-text-color) r g b / 0.03), 0 1px 2px rgba(from var(--hd-base-soft-text-color) r g b / 0.02);
-  --hd-box-heading-background-color: var(--hd-base-solid-background-color);
-  --hd-box-heading-text-color: var(--hd-base-solid-text-color);
-  --hd-box-heading-border-color: var(--hd-base-solid-background-color);
+    /* Caption Text Type */
+    --hd-text-caption-font: var(--hd-body-font);
+    --hd-text-caption-color: var(--hd-body-text-muted-color);
+    --hd-text-caption-font-size: var(--hd-size-5);
+    --hd-text-caption-font-weight: var(--hd-font-weight-normal, 400);
+    --hd-text-caption-line-height: 1.4;
+    --hd-text-caption-letter-spacing: normal;
+    --hd-text-caption-text-transform: none;
+    --hd-text-caption-text-shadow: none;
 
-  /* Callout */
-  --hd-callout-border-radius: var(--hd-gap-1);
-  --hd-callout-padding: var(--hd-gap-1) var(--hd-gap-2);
-  --hd-callout-margin-bottom: var(--hd-gap-2);
-  --hd-callout-font-size: var(--hd-size-4);
-  --hd-callout-background-color: var(--hd-base-soft-background-color);
-  --hd-callout-text-color: var(--hd-base-soft-text-color);
-  --hd-callout-border-width: 0 0 0 4px;
-  --hd-callout-border-style: solid;
-  --hd-callout-border-color: var(--hd-base-solid-background-color);
-  --hd-callout-box-shadow: none;
-
-  /* Codeblock */
-  --hd-codeblock-border-radius: var(--hd-gap-1);
-  --hd-codeblock-background-color: transparent;
-  --hd-codeblock-border-width: 1px;
-  --hd-codeblock-border-style: solid;
-  --hd-codeblock-border-color: var(--hd-heading-text-color);
-  --hd-codeblock-box-shadow: none;
-
-  /* Table */
-  --hd-table-border-color: var(--hd-heading-text-color);
-  --hd-table-cell-padding: var(--hd-gap-1);
-  --hd-table-margin-bottom: var(--hd-gap-2);
-  --hd-table-font-size: var(--hd-size-4);
-  --hd-table-header-font-family: var(--hd-heading-font);
-  --hd-table-header-font-weight: var(--hd-font-weight-bold);
-  --hd-table-header-background-color: transparent;
-  --hd-table-header-text-color: inherit;
-  --hd-table-row-background-color: transparent;
-  --hd-table-row-striped-background-color: transparent;
-  --hd-table-cell-border-width: 1px;
-  --hd-table-header-border-width: 2px;
-
-  /* Lists */
-  --hd-list-margin-bottom: var(--hd-gap-2);
-  --hd-list-padding-left: var(--hd-gap-4);
-  --hd-list-item-margin-bottom: var(--hd-gap-1);
-  --hd-list-font-family: var(--hd-text-body-font);
-  --hd-list-font-size: var(--hd-text-body-font-size);
-  --hd-list-color: var(--hd-text-body-color);
-  --hd-list-line-height: var(--hd-text-body-line-height);
-  --hd-list-marker-color: inherit;
-  --hd-list-style-type: disc;
-  --hd-list-style-type-2: circle;
-  --hd-list-style-type-3: square;
-  --hd-list-ol-style-type: decimal;
-  --hd-list-ol-style-type-2: lower-alpha;
-  --hd-list-ol-style-type-3: lower-roman;
-
-  /* Blockquote */
-  --hd-blockquote-font-family: var(--hd-text-quote-font);
-  --hd-blockquote-color: var(--hd-text-quote-color);
-  --hd-blockquote-font-size: var(--hd-text-quote-font-size);
-  --hd-blockquote-font-weight: var(--hd-text-quote-font-weight);
-  --hd-blockquote-line-height: var(--hd-text-quote-line-height);
-  --hd-blockquote-letter-spacing: var(--hd-text-quote-letter-spacing);
-  --hd-blockquote-text-transform: var(--hd-text-quote-text-transform);
-  --hd-blockquote-text-shadow: var(--hd-text-quote-text-shadow);
-  --hd-blockquote-border-color: var(--hd-heading-text-color);
-  --hd-blockquote-border-width: 3px;
-  --hd-blockquote-border-style: solid;
-  --hd-blockquote-padding-top: 0px;
-  --hd-blockquote-padding-right: 0px;
-  --hd-blockquote-padding-bottom: 0px;
-  --hd-blockquote-padding-left: var(--hd-gap-2);
-  --hd-blockquote-margin-bottom: var(--hd-gap-2);
-
-  /* Image */
-  --hd-img-max-width: 100%;
-  --hd-img-height: auto;
-  --hd-img-border-radius: var(--hd-gap-1);
-  --hd-img-border-width: 1px;
-  --hd-img-border-style: solid;
-  --hd-img-border-color: var(--hd-heading-text-color);
-  --hd-img-box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
-
-  /* Pre block and code styling */
-  --hd-pre-margin-bottom: var(--hd-gap-2);
-  --hd-pre-padding: var(--hd-gap-1);
-
-  /* Inline Code styling */
-  --hd-code-padding: 2px 6px;
-  --hd-code-border-radius: 4px;
-  --hd-code-font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
-  --hd-code-font-size: 0.85em;
-  --hd-code-border-width: 1px;
-  --hd-code-border-style: solid;
-
-  /* Keyboard Input styling */
-  --hd-kbd-padding: 2px 5px;
-  --hd-kbd-border-radius: 4px;
-  --hd-kbd-font-family: var(--hd-body-font);
-  --hd-kbd-font-size: 0.85em;
-  --hd-kbd-border-width: 1px 1px 3px 1px;
-  --hd-kbd-border-style: solid;
-  --hd-kbd-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
-
-  /* Highlight Mark styling */
-  --hd-mark-padding: 0px 4px;
-  --hd-mark-border-radius: 2px;
+    /* Peripheral Text Type */
+    --hd-text-peripheral-font: var(--hd-body-font);
+    --hd-text-peripheral-color: var(--hd-body-text-muted-color);
+    --hd-text-peripheral-font-size: var(--hd-size-6);
+    --hd-text-peripheral-font-weight: var(--hd-font-weight-medium, 500);
+    --hd-text-peripheral-line-height: 1;
+    --hd-text-peripheral-letter-spacing: 0.05em;
+    --hd-text-peripheral-text-transform: uppercase;
+    --hd-text-peripheral-text-shadow: none;
 
 
-  /* Scrollbars */
-  --hd-scrollbar-width: var(--hd-gap-1);
-  --hd-scrollbar-height: var(--hd-gap-1);
-  --hd-scrollbar-track-bg: transparent;
-  --hd-scrollbar-thumb-bg: var(--hd-heading-text-color);
-  --hd-scrollbar-thumb-radius: 4px;
-  --hd-scrollbar-thumb-hover-bg: var(--hd-base-text-color-muted);
+    /* Font Weights */
+    --hd-font-weight-light: 300;
+    --hd-font-weight-normal: 400;
+    --hd-font-weight-medium: 500;
+    --hd-font-weight-semibold: 600;
+    --hd-font-weight-bold: 700;
+    --hd-font-weight-extrabold: 800;
 
-  /* Code Block styling details */
-  --hd-codeblock-border-color: var(--hd-heading-text-color);
+    /* Slide layout margin parameters */
+    --hd-slide-margin-top: var(--hd-gap-5);
+    --hd-slide-margin-right: var(--hd-gap-6);
+    --hd-slide-margin-bottom: var(--hd-gap-5);
+    --hd-slide-margin-left: var(--hd-gap-6);
 
-  /* Split/Grid layout gap variables */
-  --hd-layout-split-gap: var(--hd-gap-2);
-  --hd-layout-grid-gap: var(--hd-gap-2);
+    /* Peripheral Absolute Position Offset (Unified vertical/horizontal margin offset) */
+    --hd-peripheral-offset: var(--hd-gap-2);
 
-  /* Split layout ratio */
-  --hd-layout-split-ratio: minmax(0, 1fr) minmax(0, 1fr);
+    /* Spacing Scale (Gap classes) */
+    --hd-gap-0: 0px;
+    --hd-gap-1: 8px;
+    --hd-gap-2: 16px;
+    --hd-gap-3: 24px;
+    --hd-gap-4: 32px;
+    --hd-gap-5: 40px;
+    --hd-gap-6: 48px;
 
-  /* Selection styling */
-  --hd-selection-background-color: var(--hd-main-solid-background-color);
-  --hd-selection-text-color: var(--hd-main-solid-text-color);
+    /* Layout Spacing Configuration defaults */
+    --hd-layout-before-margin: var(--hd-gap-2);
+    --hd-layout-after-margin: var(--hd-gap-2);
+    --hd-layout-heading-padding: var(--hd-slide-margin-top) var(--hd-slide-margin-right) var(--hd-gap-3) var(--hd-slide-margin-left);
+    --hd-layout-body-padding: var(--hd-gap-3) var(--hd-slide-margin-right) var(--hd-slide-margin-bottom) var(--hd-slide-margin-left);
+    --hd-layout-cover-padding: var(--hd-slide-margin-top) var(--hd-slide-margin-right) var(--hd-slide-margin-bottom) var(--hd-slide-margin-left);
+    --hd-layout-heading-margin: var(--hd-gap-4);
+    --hd-layout-cover-title-margin-bottom: var(--hd-gap-3);
+    --hd-layout-cover-subtitle-margin-bottom: var(--hd-gap-4);
 
-  /* Layout heading and cover text suffixes (e.g. blinking cursors) */
-  --hd-layout-cover-title-suffix: "";
-  --hd-layout-cover-title-suffix-animation: none;
-  --hd-layout-heading-suffix: "";
-  --hd-layout-heading-suffix-animation: none;
+    /* Component Properties */
+    /* Card */
+    --hd-card-border-radius: var(--hd-gap-1);
+    --hd-card-padding: var(--hd-gap-1);
+    --hd-card-margin-bottom: var(--hd-gap-2);
+    --hd-card-font-size: var(--hd-size-4);
+    --hd-card-background-color: var(--hd-base-soft-background-color);
+    --hd-card-text-color: var(--hd-base-soft-text-color);
+    --hd-card-border-width: 1px;
+    --hd-card-border-style: solid;
+    --hd-card-border-color: var(--hd-base-solid-background-color);
+    --hd-card-box-shadow: 0 4px 12px rgba(from var(--hd-base-soft-text-color) r g b / 0.03), 0 1px 2px rgba(from var(--hd-base-soft-text-color) r g b / 0.02);
+    --hd-card-heading-background-color: var(--hd-base-solid-background-color);
+    --hd-card-heading-text-color: var(--hd-base-solid-text-color);
+    --hd-card-heading-border-color: var(--hd-base-solid-background-color);
 
-  /* Slide Viewport Overlay (e.g., CRT scanline mesh overlay) */
-  --hd-slide-overlay-background: none;
-  --hd-slide-overlay-mix-blend-mode: normal;
-}
+    /* Box */
+    --hd-box-border-radius: var(--hd-gap-1);
+    --hd-box-padding: var(--hd-gap-1);
+    --hd-box-margin-bottom: var(--hd-gap-2);
+    --hd-box-font-size: var(--hd-size-4);
+    --hd-box-background-color: var(--hd-base-soft-background-color);
+    --hd-box-text-color: var(--hd-base-soft-text-color);
+    --hd-box-border-width: 1px;
+    --hd-box-border-style: solid;
+    --hd-box-border-color: var(--hd-base-solid-background-color);
+    --hd-box-box-shadow: 0 4px 12px rgba(from var(--hd-base-soft-text-color) r g b / 0.03), 0 1px 2px rgba(from var(--hd-base-soft-text-color) r g b / 0.02);
+    --hd-box-heading-background-color: var(--hd-base-solid-background-color);
+    --hd-box-heading-text-color: var(--hd-base-solid-text-color);
+    --hd-box-heading-border-color: var(--hd-base-solid-background-color);
+
+    /* Callout */
+    --hd-callout-border-radius: var(--hd-gap-1);
+    --hd-callout-padding: var(--hd-gap-1) var(--hd-gap-2);
+    --hd-callout-margin-bottom: var(--hd-gap-2);
+    --hd-callout-font-size: var(--hd-size-4);
+    --hd-callout-background-color: var(--hd-base-soft-background-color);
+    --hd-callout-text-color: var(--hd-base-soft-text-color);
+    --hd-callout-border-width: 0 0 0 4px;
+    --hd-callout-border-style: solid;
+    --hd-callout-border-color: var(--hd-base-solid-background-color);
+    --hd-callout-box-shadow: none;
+
+    /* Codeblock */
+    --hd-codeblock-border-radius: var(--hd-gap-1);
+    --hd-codeblock-background-color: transparent;
+    --hd-codeblock-border-width: 1px;
+    --hd-codeblock-border-style: solid;
+    --hd-codeblock-border-color: var(--hd-heading-text-color);
+    --hd-codeblock-box-shadow: none;
+
+    /* Table */
+    --hd-table-border-color: var(--hd-heading-text-color);
+    --hd-table-cell-padding: var(--hd-gap-1);
+    --hd-table-margin-bottom: var(--hd-gap-2);
+    --hd-table-font-size: var(--hd-size-4);
+    --hd-table-header-font-family: var(--hd-heading-font);
+    --hd-table-header-font-weight: var(--hd-font-weight-bold);
+    --hd-table-header-background-color: transparent;
+    --hd-table-header-text-color: inherit;
+    --hd-table-row-background-color: transparent;
+    --hd-table-row-striped-background-color: transparent;
+    --hd-table-cell-border-width: 1px;
+    --hd-table-header-border-width: 2px;
+
+    /* Lists */
+    --hd-list-margin-bottom: var(--hd-gap-2);
+    --hd-list-padding-left: var(--hd-gap-4);
+    --hd-list-item-margin-bottom: var(--hd-gap-1);
+    --hd-list-font-family: var(--hd-text-body-font);
+    --hd-list-font-size: var(--hd-text-body-font-size);
+    --hd-list-color: var(--hd-text-body-color);
+    --hd-list-line-height: var(--hd-text-body-line-height);
+    --hd-list-marker-color: inherit;
+    --hd-list-style-type: disc;
+    --hd-list-style-type-2: circle;
+    --hd-list-style-type-3: square;
+    --hd-list-ol-style-type: decimal;
+    --hd-list-ol-style-type-2: lower-alpha;
+    --hd-list-ol-style-type-3: lower-roman;
+
+    /* Blockquote */
+    --hd-blockquote-font-family: var(--hd-text-quote-font);
+    --hd-blockquote-color: var(--hd-text-quote-color);
+    --hd-blockquote-font-size: var(--hd-text-quote-font-size);
+    --hd-blockquote-font-weight: var(--hd-text-quote-font-weight);
+    --hd-blockquote-line-height: var(--hd-text-quote-line-height);
+    --hd-blockquote-letter-spacing: var(--hd-text-quote-letter-spacing);
+    --hd-blockquote-text-transform: var(--hd-text-quote-text-transform);
+    --hd-blockquote-text-shadow: var(--hd-text-quote-text-shadow);
+    --hd-blockquote-border-color: var(--hd-heading-text-color);
+    --hd-blockquote-border-width: 3px;
+    --hd-blockquote-border-style: solid;
+    --hd-blockquote-padding-top: 0px;
+    --hd-blockquote-padding-right: 0px;
+    --hd-blockquote-padding-bottom: 0px;
+    --hd-blockquote-padding-left: var(--hd-gap-2);
+    --hd-blockquote-margin-bottom: var(--hd-gap-2);
+
+    /* Image */
+    --hd-img-max-width: 100%;
+    --hd-img-height: auto;
+    --hd-img-border-radius: var(--hd-gap-1);
+    --hd-img-border-width: 1px;
+    --hd-img-border-style: solid;
+    --hd-img-border-color: var(--hd-heading-text-color);
+    --hd-img-box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+
+    /* Pre block and code styling */
+    --hd-pre-margin-bottom: var(--hd-gap-2);
+    --hd-pre-padding: var(--hd-gap-1);
+
+    /* Inline Code styling */
+    --hd-code-padding: 2px 6px;
+    --hd-code-border-radius: 4px;
+    --hd-code-font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+    --hd-code-font-size: 0.85em;
+    --hd-code-border-width: 1px;
+    --hd-code-border-style: solid;
+
+    /* Keyboard Input styling */
+    --hd-kbd-padding: 2px 5px;
+    --hd-kbd-border-radius: 4px;
+    --hd-kbd-font-family: var(--hd-body-font);
+    --hd-kbd-font-size: 0.85em;
+    --hd-kbd-border-width: 1px 1px 3px 1px;
+    --hd-kbd-border-style: solid;
+    --hd-kbd-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+
+    /* Highlight Mark styling */
+    --hd-mark-padding: 0px 4px;
+    --hd-mark-border-radius: 2px;
+
+
+    /* Scrollbars */
+    --hd-scrollbar-width: var(--hd-gap-1);
+    --hd-scrollbar-height: var(--hd-gap-1);
+    --hd-scrollbar-track-bg: transparent;
+    --hd-scrollbar-thumb-bg: var(--hd-heading-text-color);
+    --hd-scrollbar-thumb-radius: 4px;
+    --hd-scrollbar-thumb-hover-bg: var(--hd-base-text-color-muted);
+
+    /* Code Block styling details */
+    --hd-codeblock-border-color: var(--hd-heading-text-color);
+
+    /* Split/Grid layout gap variables */
+    --hd-layout-split-gap: var(--hd-gap-2);
+    --hd-layout-grid-gap: var(--hd-gap-2);
+
+    /* Split layout ratio */
+    --hd-layout-split-ratio: minmax(0, 1fr) minmax(0, 1fr);
+
+    /* Selection styling */
+    --hd-selection-background-color: var(--hd-main-solid-background-color);
+    --hd-selection-text-color: var(--hd-main-solid-text-color);
+
+    /* Layout heading and cover text suffixes (e.g. blinking cursors) */
+    --hd-layout-cover-title-suffix: "";
+    --hd-layout-cover-title-suffix-animation: none;
+    --hd-layout-heading-suffix: "";
+    --hd-layout-heading-suffix-animation: none;
+
+    /* Slide Viewport Overlay (e.g., CRT scanline mesh overlay) */
+    --hd-slide-overlay-background: none;
+    --hd-slide-overlay-mix-blend-mode: normal;
+  }
+
+  /* ========================================================
+     CUSTOM ELEMENT COMPONENT BINDINGS (Scoped to Elements)
+     ======================================================== */
+
+  /* --- HD-Slide --- */
+  hd-slide {
+    --hd-body-background-color: var(--hd-slide-body-soft-background-color);
+    --hd-body-text-color: var(--hd-slide-body-soft-text-color);
+    --hd-body-text-highlight-color: var(--hd-slide-body-soft-text-highlight-color);
+    --hd-body-text-muted-color: var(--hd-slide-body-soft-text-muted-color);
+
+    --hd-heading-background-color: var(--hd-slide-heading-solid-background-color);
+    --hd-heading-text-color: var(--hd-slide-heading-solid-text-color);
+    --hd-heading-text-highlight-color: var(--hd-slide-heading-solid-text-highlight-color);
+    --hd-heading-text-muted-color: var(--hd-slide-heading-solid-text-muted-color);
+  }
+
+  hd-slide[surface="soft"] {
+    --hd-body-background-color: var(--hd-slide-body-soft-background-color);
+    --hd-body-text-color: var(--hd-slide-body-soft-text-color);
+    --hd-body-text-highlight-color: var(--hd-slide-body-soft-text-highlight-color);
+    --hd-body-text-muted-color: var(--hd-slide-body-soft-text-muted-color);
+    --hd-heading-background-color: var(--hd-slide-heading-soft-background-color);
+    --hd-heading-text-color: var(--hd-slide-heading-soft-text-color);
+    --hd-heading-text-highlight-color: var(--hd-slide-heading-soft-text-highlight-color);
+    --hd-heading-text-muted-color: var(--hd-slide-heading-soft-text-muted-color);
+  }
+
+  hd-slide[surface="solid"] {
+    --hd-body-background-color: var(--hd-slide-body-solid-background-color);
+    --hd-body-text-color: var(--hd-slide-body-solid-text-color);
+    --hd-body-text-highlight-color: var(--hd-slide-body-solid-text-highlight-color);
+    --hd-body-text-muted-color: var(--hd-slide-body-solid-text-muted-color);
+    --hd-heading-background-color: var(--hd-slide-heading-solid-background-color);
+    --hd-heading-text-color: var(--hd-slide-heading-solid-text-color);
+    --hd-heading-text-highlight-color: var(--hd-slide-heading-solid-text-highlight-color);
+    --hd-heading-text-muted-color: var(--hd-slide-heading-solid-text-muted-color);
+  }
+
+  /* --- HD-Card --- */
+  hd-card {
+    --hd-body-background-color: var(--hd-soft-background-color);
+    --hd-body-text-color: var(--hd-soft-text-color);
+    --hd-body-text-highlight-color: var(--hd-soft-text-highlight-color);
+    --hd-body-text-muted-color: var(--hd-soft-text-muted-color);
+
+    --hd-heading-background-color: var(--hd-solid-background-color);
+    --hd-heading-text-color: var(--hd-solid-text-color);
+    --hd-heading-text-highlight-color: var(--hd-solid-text-highlight-color);
+    --hd-heading-text-muted-color: var(--hd-solid-text-muted-color);
+
+    --hd-border-color: var(--hd-solid-background-color);
+  }
+
+  hd-card[surface="soft"] {
+    --hd-body-background-color: var(--hd-soft-background-color);
+    --hd-body-text-color: var(--hd-soft-text-color);
+    --hd-body-text-highlight-color: var(--hd-soft-text-highlight-color);
+    --hd-body-text-muted-color: var(--hd-soft-text-muted-color);
+
+    --hd-heading-background-color: var(--hd-soft-background-color);
+    --hd-heading-text-color: var(--hd-soft-text-color);
+    --hd-heading-text-highlight-color: var(--hd-soft-text-highlight-color);
+    --hd-heading-text-muted-color: var(--hd-soft-text-muted-color);
+
+    --hd-border-color: var(--hd-soft-background-color);
+  }
+
+  hd-card[surface="solid"] {
+    --hd-body-background-color: var(--hd-solid-background-color);
+    --hd-body-text-color: var(--hd-solid-text-color);
+    --hd-body-text-highlight-color: var(--hd-solid-text-highlight-color);
+    --hd-body-text-muted-color: var(--hd-solid-text-muted-color);
+
+    --hd-heading-background-color: var(--hd-solid-background-color);
+    --hd-heading-text-color: var(--hd-solid-text-color);
+    --hd-heading-text-highlight-color: var(--hd-solid-text-highlight-color);
+    --hd-heading-text-muted-color: var(--hd-solid-text-muted-color);
+
+    --hd-border-color: var(--hd-solid-background-color);
+  }
+
+  /* --- HD-Box --- */
+  hd-box {
+    --hd-body-background-color: var(--hd-soft-background-color);
+    --hd-body-text-color: var(--hd-soft-text-color);
+    --hd-body-text-highlight-color: var(--hd-soft-text-highlight-color);
+    --hd-body-text-muted-color: var(--hd-soft-text-muted-color);
+
+    --hd-heading-background-color: var(--hd-solid-background-color);
+    --hd-heading-text-color: var(--hd-solid-text-color);
+    --hd-heading-text-highlight-color: var(--hd-solid-text-highlight-color);
+    --hd-heading-text-muted-color: var(--hd-solid-text-muted-color);
+
+    --hd-border-color: var(--hd-solid-background-color);
+  }
+
+  hd-box[surface="soft"] {
+    --hd-body-background-color: var(--hd-soft-background-color);
+    --hd-body-text-color: var(--hd-soft-text-color);
+    --hd-body-text-highlight-color: var(--hd-soft-text-highlight-color);
+    --hd-body-text-muted-color: var(--hd-soft-text-muted-color);
+
+    --hd-heading-background-color: var(--hd-soft-background-color);
+    --hd-heading-text-color: var(--hd-soft-text-color);
+    --hd-heading-text-highlight-color: var(--hd-soft-text-highlight-color);
+    --hd-heading-text-muted-color: var(--hd-soft-text-muted-color);
+
+    --hd-border-color: var(--hd-soft-background-color);
+  }
+
+  hd-box[surface="solid"] {
+    --hd-body-background-color: var(--hd-solid-background-color);
+    --hd-body-text-color: var(--hd-solid-text-color);
+    --hd-body-text-highlight-color: var(--hd-solid-text-highlight-color);
+    --hd-body-text-muted-color: var(--hd-solid-text-muted-color);
+
+    --hd-heading-background-color: var(--hd-solid-background-color);
+    --hd-heading-text-color: var(--hd-solid-text-color);
+    --hd-heading-text-highlight-color: var(--hd-solid-text-highlight-color);
+    --hd-heading-text-muted-color: var(--hd-solid-text-muted-color);
+
+    --hd-border-color: var(--hd-solid-background-color);
+  }
+
+  /* --- HD-Callout --- */
+  hd-callout {
+    --hd-body-background-color: var(--hd-soft-background-color);
+    --hd-body-text-color: var(--hd-soft-text-color);
+    --hd-body-text-highlight-color: var(--hd-soft-text-highlight-color);
+    --hd-body-text-muted-color: var(--hd-soft-text-muted-color);
+    --hd-border-color: var(--hd-solid-background-color);
+  }
+
+  hd-callout[surface="soft"] {
+    --hd-body-background-color: var(--hd-soft-background-color);
+    --hd-body-text-color: var(--hd-soft-text-color);
+    --hd-border-color: var(--hd-soft-background-color);
+  }
+
+  hd-callout[surface="solid"] {
+    --hd-body-background-color: var(--hd-solid-background-color);
+    --hd-body-text-color: var(--hd-soft-text-color);
+    --hd-border-color: var(--hd-solid-background-color);
+  }
+
+  /* --- Heading Context Overrides (Enforces Heading highlight inside slots) --- */
+  [slot="header"],
+  [slot="heading"] {
+    --hd-body-text-highlight-color: var(--hd-heading-text-highlight-color);
+    --hd-body-text-muted-color: var(--hd-heading-text-muted-color);
+  }
 }

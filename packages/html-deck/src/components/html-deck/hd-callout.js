@@ -15,27 +15,33 @@ export class HdCallout extends HTMLElement {
           padding: var(--hd-callout-padding);
           margin-bottom: var(--hd-callout-margin-bottom);
           font-size: var(--hd-callout-font-size);
-          background: var(--hd-callout-background-color);
-          color: var(--hd-callout-text-color);
+          background: var(--hd-body-background-color);
+          color: var(--hd-body-text-color);
           border-width: var(--hd-callout-border-width);
           border-style: var(--hd-callout-border-style);
-          border-color: var(--hd-callout-border-color);
+          border-color: var(--hd-border-color);
           box-shadow: var(--hd-callout-box-shadow);
           text-align: left;
+
+          /* Default (base) State Variable Values */
+          --hd-soft-background-color: var(--hd-base-soft-background-color);
+          --hd-soft-text-color: var(--hd-base-soft-text-color);
+          --hd-solid-background-color: var(--hd-base-solid-background-color);
         }
 
+        /* Variant main */
         :host([variant="main"]) {
-          --hd-callout-background-color: var(--hd-main-soft-background-color);
-          --hd-callout-text-color: var(--hd-main-soft-text-color);
-          --hd-callout-border-color: var(--hd-main-solid-background-color);
+          --hd-soft-background-color: var(--hd-main-soft-background-color);
+          --hd-soft-text-color: var(--hd-main-soft-text-color);
+          --hd-solid-background-color: var(--hd-main-solid-background-color);
         }
 
+        /* Variant accent */
         :host([variant="accent"]) {
-          --hd-callout-background-color: var(--hd-accent-soft-background-color);
-          --hd-callout-text-color: var(--hd-accent-soft-text-color);
-          --hd-callout-border-color: var(--hd-accent-solid-background-color);
+          --hd-soft-background-color: var(--hd-accent-soft-background-color);
+          --hd-soft-text-color: var(--hd-accent-soft-text-color);
+          --hd-solid-background-color: var(--hd-accent-solid-background-color);
         }
-
       </style>
       <slot></slot>
     `;

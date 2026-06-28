@@ -16,154 +16,72 @@ export class HdBox extends HTMLElement {
           margin-bottom: var(--hd-box-margin-bottom);
           font-size: var(--hd-box-font-size);
           height: 100%;
-          background: var(--hd-box-background-color);
-          color: var(--hd-box-text-color);
+          background: var(--hd-body-background-color);
+          color: var(--hd-body-text-color);
           border-width: var(--hd-box-border-width);
           border-style: var(--hd-box-border-style);
-          border-color: var(--hd-box-border-color);
+          border-color: var(--hd-border-color);
           box-shadow: var(--hd-box-box-shadow);
           overflow: hidden;
 
-          /* Explicit defaults */
-          --hd-box-background-color: var(--hd-base-soft-background-color);
-          --hd-box-text-color: var(--hd-base-soft-text-color);
-          --hd-box-border-color: var(--hd-base-solid-background-color);
-          --hd-box-heading-background-color: var(--hd-base-solid-background-color);
-          --hd-box-heading-text-color: var(--hd-base-solid-text-color);
-          --hd-box-heading-border-color: var(--hd-base-solid-background-color);
+          /* Default (base) State Variable Values */
+          --hd-soft-background-color: var(--hd-base-soft-background-color);
+          --hd-soft-text-color: var(--hd-base-soft-text-color);
+          --hd-soft-text-highlight-color: var(--hd-base-soft-text-highlight-color);
+          --hd-soft-text-muted-color: var(--hd-base-soft-text-muted-color);
+
+          --hd-solid-background-color: var(--hd-base-solid-background-color);
+          --hd-solid-text-color: var(--hd-base-solid-text-color);
+          --hd-solid-text-highlight-color: var(--hd-base-solid-text-highlight-color);
+          --hd-solid-text-muted-color: var(--hd-base-solid-text-muted-color);
         }
 
-        /* Default theme with surface overrides */
-        :host([surface="soft"]) {
-          --hd-box-background-color: var(--hd-base-soft-background-color);
-          --hd-box-text-color: var(--hd-base-soft-text-color);
-          --hd-box-border-color: var(--hd-base-soft-background-color);
-          --hd-box-heading-background-color: var(--hd-base-soft-background-color);
-          --hd-box-heading-text-color: var(--hd-base-soft-text-color);
-          --hd-box-heading-border-color: var(--hd-base-soft-background-color);
-        }
+        /* Variant default / base */
+        :host([variant="default"]), :host([variant="base"]) {
+          --hd-soft-background-color: var(--hd-base-soft-background-color);
+          --hd-soft-text-color: var(--hd-base-soft-text-color);
+          --hd-soft-text-highlight-color: var(--hd-base-soft-text-highlight-color);
+          --hd-soft-text-muted-color: var(--hd-base-soft-text-muted-color);
 
-        :host([surface="solid"]) {
-          --hd-box-background-color: var(--hd-base-solid-background-color);
-          --hd-box-text-color: var(--hd-base-solid-text-color);
-          --hd-box-border-color: var(--hd-base-solid-background-color);
-          --hd-box-heading-background-color: var(--hd-base-solid-background-color);
-          --hd-box-heading-text-color: var(--hd-base-solid-text-color);
-          --hd-box-heading-border-color: var(--hd-base-solid-background-color);
-        }
-
-        /* Variant default */
-        :host([variant="default"]) {
-          --hd-box-background-color: var(--hd-base-soft-background-color);
-          --hd-box-text-color: var(--hd-base-soft-text-color);
-          --hd-box-border-color: var(--hd-base-solid-background-color);
-          --hd-box-heading-background-color: var(--hd-base-solid-background-color);
-          --hd-box-heading-text-color: var(--hd-base-solid-text-color);
-          --hd-box-heading-border-color: var(--hd-base-solid-background-color);
-        }
-        :host([variant="default"][surface="soft"]) {
-          --hd-box-background-color: var(--hd-base-soft-background-color);
-          --hd-box-text-color: var(--hd-base-soft-text-color);
-          --hd-box-border-color: var(--hd-base-soft-background-color);
-          --hd-box-heading-background-color: var(--hd-base-soft-background-color);
-          --hd-box-heading-text-color: var(--hd-base-soft-text-color);
-          --hd-box-heading-border-color: var(--hd-base-soft-background-color);
-        }
-        :host([variant="default"][surface="solid"]) {
-          --hd-box-background-color: var(--hd-base-solid-background-color);
-          --hd-box-text-color: var(--hd-base-solid-text-color);
-          --hd-box-border-color: var(--hd-base-solid-background-color);
-          --hd-box-heading-background-color: var(--hd-base-solid-background-color);
-          --hd-box-heading-text-color: var(--hd-base-solid-text-color);
-          --hd-box-heading-border-color: var(--hd-base-solid-background-color);
-        }
-
-        /* Variant base */
-        :host([variant="base"]) {
-          --hd-box-background-color: var(--hd-base-soft-background-color);
-          --hd-box-text-color: var(--hd-base-soft-text-color);
-          --hd-box-border-color: var(--hd-base-solid-background-color);
-          --hd-box-heading-background-color: var(--hd-base-solid-background-color);
-          --hd-box-heading-text-color: var(--hd-base-solid-text-color);
-          --hd-box-heading-border-color: var(--hd-base-solid-background-color);
-        }
-        :host([variant="base"][surface="soft"]) {
-          --hd-box-background-color: var(--hd-base-soft-background-color);
-          --hd-box-text-color: var(--hd-base-soft-text-color);
-          --hd-box-border-color: var(--hd-base-soft-background-color);
-          --hd-box-heading-background-color: var(--hd-base-soft-background-color);
-          --hd-box-heading-text-color: var(--hd-base-soft-text-color);
-          --hd-box-heading-border-color: var(--hd-base-soft-background-color);
-        }
-        :host([variant="base"][surface="solid"]) {
-          --hd-box-background-color: var(--hd-base-solid-background-color);
-          --hd-box-text-color: var(--hd-base-solid-text-color);
-          --hd-box-border-color: var(--hd-base-solid-background-color);
-          --hd-box-heading-background-color: var(--hd-base-solid-background-color);
-          --hd-box-heading-text-color: var(--hd-base-solid-text-color);
-          --hd-box-heading-border-color: var(--hd-base-solid-background-color);
+          --hd-solid-background-color: var(--hd-base-solid-background-color);
+          --hd-solid-text-color: var(--hd-base-solid-text-color);
+          --hd-solid-text-highlight-color: var(--hd-base-solid-text-highlight-color);
+          --hd-solid-text-muted-color: var(--hd-base-solid-text-muted-color);
         }
 
         /* Variant main */
         :host([variant="main"]) {
-          --hd-box-background-color: var(--hd-main-soft-background-color);
-          --hd-box-text-color: var(--hd-main-soft-text-color);
-          --hd-box-border-color: var(--hd-main-solid-background-color);
-          --hd-box-heading-background-color: var(--hd-main-solid-background-color);
-          --hd-box-heading-text-color: var(--hd-main-solid-text-color);
-          --hd-box-heading-border-color: var(--hd-main-solid-background-color);
-        }
-        :host([variant="main"][surface="soft"]) {
-          --hd-box-background-color: var(--hd-main-soft-background-color);
-          --hd-box-text-color: var(--hd-main-soft-text-color);
-          --hd-box-border-color: var(--hd-main-soft-background-color);
-          --hd-box-heading-background-color: var(--hd-main-soft-background-color);
-          --hd-box-heading-text-color: var(--hd-main-soft-text-color);
-          --hd-box-heading-border-color: var(--hd-main-soft-background-color);
-        }
-        :host([variant="main"][surface="solid"]) {
-          --hd-box-background-color: var(--hd-main-solid-background-color);
-          --hd-box-text-color: var(--hd-main-solid-text-color);
-          --hd-box-border-color: var(--hd-main-solid-background-color);
-          --hd-box-heading-background-color: var(--hd-main-solid-background-color);
-          --hd-box-heading-text-color: var(--hd-main-solid-text-color);
-          --hd-box-heading-border-color: var(--hd-main-solid-background-color);
+          --hd-soft-background-color: var(--hd-main-soft-background-color);
+          --hd-soft-text-color: var(--hd-main-soft-text-color);
+          --hd-soft-text-highlight-color: var(--hd-main-soft-text-highlight-color);
+          --hd-soft-text-muted-color: var(--hd-main-soft-text-muted-color);
+
+          --hd-solid-background-color: var(--hd-main-solid-background-color);
+          --hd-solid-text-color: var(--hd-main-solid-text-color);
+          --hd-solid-text-highlight-color: var(--hd-main-solid-text-highlight-color);
+          --hd-solid-text-muted-color: var(--hd-main-solid-text-muted-color);
         }
 
         /* Variant accent */
         :host([variant="accent"]) {
-          --hd-box-background-color: var(--hd-accent-soft-background-color);
-          --hd-box-text-color: var(--hd-accent-soft-text-color);
-          --hd-box-border-color: var(--hd-accent-solid-background-color);
-          --hd-box-heading-background-color: var(--hd-accent-solid-background-color);
-          --hd-box-heading-text-color: var(--hd-accent-solid-text-color);
-          --hd-box-heading-border-color: var(--hd-accent-solid-background-color);
-        }
-        :host([variant="accent"][surface="soft"]) {
-          --hd-box-background-color: var(--hd-accent-soft-background-color);
-          --hd-box-text-color: var(--hd-accent-soft-text-color);
-          --hd-box-border-color: var(--hd-accent-soft-background-color);
-          --hd-box-heading-background-color: var(--hd-accent-soft-background-color);
-          --hd-box-heading-text-color: var(--hd-accent-soft-text-color);
-          --hd-box-heading-border-color: var(--hd-accent-soft-background-color);
-        }
-        :host([variant="accent"][surface="solid"]) {
-          --hd-box-background-color: var(--hd-accent-solid-background-color);
-          --hd-box-text-color: var(--hd-accent-solid-text-color);
-          --hd-box-border-color: var(--hd-accent-solid-background-color);
-          --hd-box-heading-background-color: var(--hd-accent-solid-background-color);
-          --hd-box-heading-text-color: var(--hd-accent-solid-text-color);
-          --hd-box-heading-border-color: var(--hd-accent-solid-background-color);
-        }
+          --hd-soft-background-color: var(--hd-accent-soft-background-color);
+          --hd-soft-text-color: var(--hd-accent-soft-text-color);
+          --hd-soft-text-highlight-color: var(--hd-accent-soft-text-highlight-color);
+          --hd-soft-text-muted-color: var(--hd-accent-soft-text-muted-color);
 
+          --hd-solid-background-color: var(--hd-accent-solid-background-color);
+          --hd-solid-text-color: var(--hd-accent-solid-text-color);
+          --hd-solid-text-highlight-color: var(--hd-accent-solid-text-highlight-color);
+          --hd-solid-text-muted-color: var(--hd-accent-solid-text-muted-color);
+        }
 
         ::slotted([slot="heading"]) {
           display: block !important;
           box-sizing: border-box !important;
           padding: var(--hd-box-padding) !important;
-          background: var(--hd-box-heading-background-color) !important;
-          color: var(--hd-box-heading-text-color) !important;
-          border-bottom: 1px solid var(--hd-box-heading-border-color) !important;
+          background: var(--hd-heading-background-color) !important;
+          color: var(--hd-heading-text-color) !important;
+          border-bottom: 1px solid var(--hd-heading-background-color) !important;
           font-family: var(--hd-text-subheading-font) !important;
           font-size: var(--hd-text-subheading-font-size) !important;
           font-weight: var(--hd-text-subheading-font-weight) !important;

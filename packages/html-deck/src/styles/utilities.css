@@ -31,11 +31,11 @@
 
 /* Text Colors */
 .hd-accent {
-  color: var(--hd-slide-text-highlight-color) !important;
+  color: var(--hd-body-text-highlight-color) !important;
 }
 
 .hd-muted {
-  color: var(--hd-slide-text-muted-color) !important;
+  color: var(--hd-body-text-muted-color) !important;
 }
 
 /* Text Sizes (1 is largest, 6 is smallest) */

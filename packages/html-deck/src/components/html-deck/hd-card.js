@@ -17,154 +17,72 @@ export class HdCard extends HTMLElement {
           font-size: var(--hd-card-font-size);
           height: auto;
           align-self: flex-start;
-          background: var(--hd-card-background-color);
-          color: var(--hd-card-text-color);
+          background: var(--hd-body-background-color);
+          color: var(--hd-body-text-color);
           border-width: var(--hd-card-border-width);
           border-style: var(--hd-card-border-style);
-          border-color: var(--hd-card-border-color);
+          border-color: var(--hd-border-color);
           box-shadow: var(--hd-card-box-shadow);
           overflow: hidden;
 
-          /* Explicit defaults */
-          --hd-card-background-color: var(--hd-base-soft-background-color);
-          --hd-card-text-color: var(--hd-base-soft-text-color);
-          --hd-card-border-color: var(--hd-base-solid-background-color);
-          --hd-card-heading-background-color: var(--hd-base-solid-background-color);
-          --hd-card-heading-text-color: var(--hd-base-solid-text-color);
-          --hd-card-heading-border-color: var(--hd-base-solid-background-color);
+          /* Default (base) State Variable Values */
+          --hd-soft-background-color: var(--hd-base-soft-background-color);
+          --hd-soft-text-color: var(--hd-base-soft-text-color);
+          --hd-soft-text-highlight-color: var(--hd-base-soft-text-highlight-color);
+          --hd-soft-text-muted-color: var(--hd-base-soft-text-muted-color);
+
+          --hd-solid-background-color: var(--hd-base-solid-background-color);
+          --hd-solid-text-color: var(--hd-base-solid-text-color);
+          --hd-solid-text-highlight-color: var(--hd-base-solid-text-highlight-color);
+          --hd-solid-text-muted-color: var(--hd-base-solid-text-muted-color);
         }
 
-        /* Default theme with surface overrides */
-        :host([surface="soft"]) {
-          --hd-card-background-color: var(--hd-base-soft-background-color);
-          --hd-card-text-color: var(--hd-base-soft-text-color);
-          --hd-card-border-color: var(--hd-base-soft-background-color);
-          --hd-card-heading-background-color: var(--hd-base-soft-background-color);
-          --hd-card-heading-text-color: var(--hd-base-soft-text-color);
-          --hd-card-heading-border-color: var(--hd-base-soft-background-color);
-        }
+        /* Variant default / base */
+        :host([variant="default"]), :host([variant="base"]) {
+          --hd-soft-background-color: var(--hd-base-soft-background-color);
+          --hd-soft-text-color: var(--hd-base-soft-text-color);
+          --hd-soft-text-highlight-color: var(--hd-base-soft-text-highlight-color);
+          --hd-soft-text-muted-color: var(--hd-base-soft-text-muted-color);
 
-        :host([surface="solid"]) {
-          --hd-card-background-color: var(--hd-base-solid-background-color);
-          --hd-card-text-color: var(--hd-base-solid-text-color);
-          --hd-card-border-color: var(--hd-base-solid-background-color);
-          --hd-card-heading-background-color: var(--hd-base-solid-background-color);
-          --hd-card-heading-text-color: var(--hd-base-solid-text-color);
-          --hd-card-heading-border-color: var(--hd-base-solid-background-color);
-        }
-
-        /* Variant default */
-        :host([variant="default"]) {
-          --hd-card-background-color: var(--hd-base-soft-background-color);
-          --hd-card-text-color: var(--hd-base-soft-text-color);
-          --hd-card-border-color: var(--hd-base-solid-background-color);
-          --hd-card-heading-background-color: var(--hd-base-solid-background-color);
-          --hd-card-heading-text-color: var(--hd-base-solid-text-color);
-          --hd-card-heading-border-color: var(--hd-base-solid-background-color);
-        }
-        :host([variant="default"][surface="soft"]) {
-          --hd-card-background-color: var(--hd-base-soft-background-color);
-          --hd-card-text-color: var(--hd-base-soft-text-color);
-          --hd-card-border-color: var(--hd-base-soft-background-color);
-          --hd-card-heading-background-color: var(--hd-base-soft-background-color);
-          --hd-card-heading-text-color: var(--hd-base-soft-text-color);
-          --hd-card-heading-border-color: var(--hd-base-soft-background-color);
-        }
-        :host([variant="default"][surface="solid"]) {
-          --hd-card-background-color: var(--hd-base-solid-background-color);
-          --hd-card-text-color: var(--hd-base-solid-text-color);
-          --hd-card-border-color: var(--hd-base-solid-background-color);
-          --hd-card-heading-background-color: var(--hd-base-solid-background-color);
-          --hd-card-heading-text-color: var(--hd-base-solid-text-color);
-          --hd-card-heading-border-color: var(--hd-base-solid-background-color);
-        }
-
-        /* Variant base */
-        :host([variant="base"]) {
-          --hd-card-background-color: var(--hd-base-soft-background-color);
-          --hd-card-text-color: var(--hd-base-soft-text-color);
-          --hd-card-border-color: var(--hd-base-solid-background-color);
-          --hd-card-heading-background-color: var(--hd-base-solid-background-color);
-          --hd-card-heading-text-color: var(--hd-base-solid-text-color);
-          --hd-card-heading-border-color: var(--hd-base-solid-background-color);
-        }
-        :host([variant="base"][surface="soft"]) {
-          --hd-card-background-color: var(--hd-base-soft-background-color);
-          --hd-card-text-color: var(--hd-base-soft-text-color);
-          --hd-card-border-color: var(--hd-base-soft-background-color);
-          --hd-card-heading-background-color: var(--hd-base-soft-background-color);
-          --hd-card-heading-text-color: var(--hd-base-soft-text-color);
-          --hd-card-heading-border-color: var(--hd-base-soft-background-color);
-        }
-        :host([variant="base"][surface="solid"]) {
-          --hd-card-background-color: var(--hd-base-solid-background-color);
-          --hd-card-text-color: var(--hd-base-solid-text-color);
-          --hd-card-border-color: var(--hd-base-solid-background-color);
-          --hd-card-heading-background-color: var(--hd-base-solid-background-color);
-          --hd-card-heading-text-color: var(--hd-base-solid-text-color);
-          --hd-card-heading-border-color: var(--hd-base-solid-background-color);
+          --hd-solid-background-color: var(--hd-base-solid-background-color);
+          --hd-solid-text-color: var(--hd-base-solid-text-color);
+          --hd-solid-text-highlight-color: var(--hd-base-solid-text-highlight-color);
+          --hd-solid-text-muted-color: var(--hd-base-solid-text-muted-color);
         }
 
         /* Variant main */
         :host([variant="main"]) {
-          --hd-card-background-color: var(--hd-main-soft-background-color);
-          --hd-card-text-color: var(--hd-main-soft-text-color);
-          --hd-card-border-color: var(--hd-main-solid-background-color);
-          --hd-card-heading-background-color: var(--hd-main-solid-background-color);
-          --hd-card-heading-text-color: var(--hd-main-solid-text-color);
-          --hd-card-heading-border-color: var(--hd-main-solid-background-color);
-        }
-        :host([variant="main"][surface="soft"]) {
-          --hd-card-background-color: var(--hd-main-soft-background-color);
-          --hd-card-text-color: var(--hd-main-soft-text-color);
-          --hd-card-border-color: var(--hd-main-soft-background-color);
-          --hd-card-heading-background-color: var(--hd-main-soft-background-color);
-          --hd-card-heading-text-color: var(--hd-main-soft-text-color);
-          --hd-card-heading-border-color: var(--hd-main-soft-background-color);
-        }
-        :host([variant="main"][surface="solid"]) {
-          --hd-card-background-color: var(--hd-main-solid-background-color);
-          --hd-card-text-color: var(--hd-main-solid-text-color);
-          --hd-card-border-color: var(--hd-main-solid-background-color);
-          --hd-card-heading-background-color: var(--hd-main-solid-background-color);
-          --hd-card-heading-text-color: var(--hd-main-solid-text-color);
-          --hd-card-heading-border-color: var(--hd-main-solid-background-color);
+          --hd-soft-background-color: var(--hd-main-soft-background-color);
+          --hd-soft-text-color: var(--hd-main-soft-text-color);
+          --hd-soft-text-highlight-color: var(--hd-main-soft-text-highlight-color);
+          --hd-soft-text-muted-color: var(--hd-main-soft-text-muted-color);
+
+          --hd-solid-background-color: var(--hd-main-solid-background-color);
+          --hd-solid-text-color: var(--hd-main-solid-text-color);
+          --hd-solid-text-highlight-color: var(--hd-main-solid-text-highlight-color);
+          --hd-solid-text-muted-color: var(--hd-main-solid-text-muted-color);
         }
 
         /* Variant accent */
         :host([variant="accent"]) {
-          --hd-card-background-color: var(--hd-accent-soft-background-color);
-          --hd-card-text-color: var(--hd-accent-soft-text-color);
-          --hd-card-border-color: var(--hd-accent-solid-background-color);
-          --hd-card-heading-background-color: var(--hd-accent-solid-background-color);
-          --hd-card-heading-text-color: var(--hd-accent-solid-text-color);
-          --hd-card-heading-border-color: var(--hd-accent-solid-background-color);
-        }
-        :host([variant="accent"][surface="soft"]) {
-          --hd-card-background-color: var(--hd-accent-soft-background-color);
-          --hd-card-text-color: var(--hd-accent-soft-text-color);
-          --hd-card-border-color: var(--hd-accent-soft-background-color);
-          --hd-card-heading-background-color: var(--hd-accent-soft-background-color);
-          --hd-card-heading-text-color: var(--hd-accent-soft-text-color);
-          --hd-card-heading-border-color: var(--hd-accent-soft-background-color);
-        }
-        :host([variant="accent"][surface="solid"]) {
-          --hd-card-background-color: var(--hd-accent-solid-background-color);
-          --hd-card-text-color: var(--hd-accent-solid-text-color);
-          --hd-card-border-color: var(--hd-accent-solid-background-color);
-          --hd-card-heading-background-color: var(--hd-accent-solid-background-color);
-          --hd-card-heading-text-color: var(--hd-accent-solid-text-color);
-          --hd-card-heading-border-color: var(--hd-accent-solid-background-color);
-        }
+          --hd-soft-background-color: var(--hd-accent-soft-background-color);
+          --hd-soft-text-color: var(--hd-accent-soft-text-color);
+          --hd-soft-text-highlight-color: var(--hd-accent-soft-text-highlight-color);
+          --hd-soft-text-muted-color: var(--hd-accent-soft-text-muted-color);
 
+          --hd-solid-background-color: var(--hd-accent-solid-background-color);
+          --hd-solid-text-color: var(--hd-accent-solid-text-color);
+          --hd-solid-text-highlight-color: var(--hd-accent-solid-text-highlight-color);
+          --hd-solid-text-muted-color: var(--hd-accent-solid-text-muted-color);
+        }
 
         ::slotted([slot="heading"]) {
           display: block !important;
           box-sizing: border-box !important;
           padding: var(--hd-card-padding) !important;
-          background: var(--hd-card-heading-background-color) !important;
-          color: var(--hd-card-heading-text-color) !important;
-          border-bottom: 1px solid var(--hd-card-heading-border-color) !important;
+          background: var(--hd-heading-background-color) !important;
+          color: var(--hd-heading-text-color) !important;
+          border-bottom: 1px solid var(--hd-heading-background-color) !important;
           font-family: var(--hd-text-subheading-font) !important;
           font-size: var(--hd-text-subheading-font-size) !important;
           font-weight: var(--hd-text-subheading-font-weight) !important;
