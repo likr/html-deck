@@ -11,6 +11,7 @@ export default defineConfig({
         main: resolve(__dirname, 'index.html'),
         features: resolve(__dirname, 'demo/features/index.html'),
         presenter: resolve(__dirname, 'demo/features/presenter.html'),
+        variantTest: resolve(__dirname, 'demo/variant-test/index.html'),
       }
     }
   }

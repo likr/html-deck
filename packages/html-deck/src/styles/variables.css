@@ -352,6 +352,15 @@
     /* Slide Viewport Overlay (e.g., CRT scanline mesh overlay) */
     --hd-slide-overlay-background: none;
     --hd-slide-overlay-mix-blend-mode: normal;
+
+    --hd-soft-background-color: var(--hd-base-soft-background-color);
+    --hd-soft-text-color: var(--hd-base-soft-text-color);
+    --hd-soft-text-highlight-color: var(--hd-base-soft-text-highlight-color);
+    --hd-soft-text-muted-color: var(--hd-base-soft-text-muted-color);
+    --hd-solid-background-color: var(--hd-main-solid-background-color);
+    --hd-solid-text-color: var(--hd-main-solid-text-color);
+    --hd-solid-text-highlight-color: var(--hd-main-solid-text-highlight-color);
+    --hd-solid-text-muted-color: var(--hd-main-solid-text-muted-color);
   }
 
   * {
