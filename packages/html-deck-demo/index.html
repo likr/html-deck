@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HTML-Deck - Agent-First WebComponents Slideshow Library</title>
-  <meta name="description" content="A buildless, lightweight WebComponents-based presentation library designed to be easily read and written by AI agents and humans alike.">
-  
+  <meta name="description"
+    content="A buildless, lightweight WebComponents-based presentation library designed to be easily read and written by AI agents and humans alike.">
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;600;700;800&family=Fira+Code:wght@400;500&display=swap"
+    rel="stylesheet">
 
   <style>
     :root {
@@ -18,9 +22,12 @@
       --border: rgba(255, 255, 255, 0.08);
       --text: #f3f4f6;
       --text-muted: #9ca3af;
-      --primary: #3b82f6;       /* Blue */
-      --secondary: #8b5cf6;     /* Purple */
-      --accent: #10b981;        /* Emerald */
+      --primary: #3b82f6;
+      /* Blue */
+      --secondary: #8b5cf6;
+      /* Purple */
+      --accent: #10b981;
+      /* Emerald */
       --font-title: 'Outfit', sans-serif;
       --font-body: 'Inter', sans-serif;
       --font-mono: 'Fira Code', monospace;
@@ -34,7 +41,7 @@
 
     body {
       background-color: var(--bg);
-      background-image: 
+      background-image:
         radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.15) 0%, transparent 40%),
         radial-gradient(circle at 90% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 40%);
       color: var(--text);
@@ -104,9 +111,17 @@
     }
 
     @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4); }
-      70% { box-shadow: 0 0 0 8px rgba(59, 130, 246, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+      0% {
+        box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4);
+      }
+
+      70% {
+        box-shadow: 0 0 0 8px rgba(59, 130, 246, 0);
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
+      }
     }
 
     h1 {
@@ -256,11 +271,26 @@
       color: #e2e8f0;
     }
 
-    .keyword { color: #f43f5e; }
-    .tag { color: #3b82f6; }
-    .attr { color: #10b981; }
-    .val { color: #eab308; }
-    .comment { color: #64748b; font-style: italic; }
+    .keyword {
+      color: #f43f5e;
+    }
+
+    .tag {
+      color: #3b82f6;
+    }
+
+    .attr {
+      color: #10b981;
+    }
+
+    .val {
+      color: #eab308;
+    }
+
+    .comment {
+      color: #64748b;
+      font-style: italic;
+    }
 
     /* Footer */
     footer {
@@ -272,11 +302,20 @@
     }
 
     @media (max-width: 768px) {
-      h1 { font-size: 2.8rem; }
-      .cta-group { flex-direction: column; align-items: stretch; max-width: 320px; margin: 0 auto; }
+      h1 {
+        font-size: 2.8rem;
+      }
+
+      .cta-group {
+        flex-direction: column;
+        align-items: stretch;
+        max-width: 320px;
+        margin: 0 auto;
+      }
     }
   </style>
 </head>
+
 <body>
 
   <div class="container">
@@ -289,8 +328,9 @@
       <section class="hero">
         <div class="badge">BUILDLESS & OFFLINE READY</div>
         <h1>Slideshows Built for<br><span>AI Coding Agents & Humans</span></h1>
-        <p class="subtitle">A WebComponents-based presentation library with a flat, declarative DOM tree. Clean APIs make it extremely easy for coding agents to maintain, update, and build slides.</p>
-        
+        <p class="subtitle">A WebComponents-based presentation library with a flat, declarative DOM tree. Clean APIs
+          make it extremely easy for coding agents to maintain, update, and build slides.</p>
+
         <div class="cta-group">
           <a href="demo/features/index.html" class="btn btn-primary" id="btn-demo">Open Features Demo</a>
           <a href="#quick-start" class="btn btn-secondary">View Documentation</a>
@@ -301,37 +341,43 @@
         <div class="feature-card">
           <span class="feature-icon">🤖</span>
           <h3>Agent-First Design</h3>
-          <p>Flat slide list avoids the deeply nested section tags typical of Reveal.js. Simple layout components like &lt;hd-layout-split&gt; prevent AI syntax and nesting errors.</p>
+          <p>Flat slide list avoids the deeply nested section tags typical of Reveal.js. Simple layout components like
+            &lt;hd-layout-split&gt; prevent AI syntax and nesting errors.</p>
         </div>
 
         <div class="feature-card">
           <span class="feature-icon">⚡</span>
           <h3>Build-Free</h3>
-          <p>No bundling or build setup required. Just load the html-deck script via CDN or package managers, and you are ready. Global CSS styles are automatically injected.</p>
+          <p>No bundling or build setup required. Just load the html-deck script via CDN or package managers, and you
+            are ready. Global CSS styles are automatically injected.</p>
         </div>
 
         <div class="feature-card">
           <span class="feature-icon">📶</span>
           <h3>Offline Support</h3>
-          <p>Math equations (KaTeX) and syntax highlighting (PrismJS) can be integrated easily using standard third-party scripts, enabling offline editing.</p>
+          <p>Math equations (KaTeX) and syntax highlighting (PrismJS) can be integrated easily using standard
+            third-party scripts, enabling offline editing.</p>
         </div>
 
         <div class="feature-card">
           <span class="feature-icon">👤</span>
           <h3>Presenter Synchronizer</h3>
-          <p>Press 'P' to open a separate presenter dashboard. Uses BroadcastChannel to sync slides, elapsed clocks, and presenter notes.</p>
+          <p>Press 'P' to open a separate presenter dashboard. Uses BroadcastChannel to sync slides, elapsed clocks, and
+            presenter notes.</p>
         </div>
 
         <div class="feature-card">
           <span class="feature-icon">🖨️</span>
           <h3>Flawless Printing</h3>
-          <p>Prints cleanly out of the box. Automatically enforces aspect ratio constraints on A4 Landscape sheets and removes UI elements.</p>
+          <p>Prints cleanly out of the box. Automatically enforces aspect ratio constraints on A4 Landscape sheets and
+            removes UI elements.</p>
         </div>
 
         <div class="feature-card">
           <span class="feature-icon">🎨</span>
           <h3>CSS Variable Customization</h3>
-          <p>No opinionated theme constraints. Define colors, font sizes, transitions, and line-heights globally using custom properties under :root.</p>
+          <p>No opinionated theme constraints. Define colors, font sizes, transitions, and line-heights globally using
+            custom properties under :root.</p>
         </div>
       </section>
 
@@ -398,12 +444,29 @@
 &lt;/<span class="tag">html</span>&gt;</code></pre>
         </div>
       </section>
+
+      <section class="usage" id="scaffold">
+        <h2 class="section-title">Scaffold a Presentation</h2>
+        <p class="section-subtitle">Bootstrap a presentation project with a local development server in seconds using
+          the CLI.</p>
+
+        <div class="code-container">
+          <pre><code><span class="comment"># Create a new presentation project</span>
+<span class="keyword">npm</span> create html-deck my-presentation
+
+<span class="comment"># Navigate, install dependencies, and run development server</span>
+<span class="keyword">cd</span> my-presentation
+<span class="keyword">npm</span> install
+<span class="keyword">npm</span> run dev</code></pre>
+        </div>
+      </section>
     </main>
 
     <footer>
-      <p>&copy; 2026 HTML-Deck Presentation Engine. MIT License.</p>
+      <p>&copy; 2026 Yosuke Onoue. MIT License.</p>
     </footer>
   </div>
 
 </body>
+
 </html>

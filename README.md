@@ -45,7 +45,21 @@ To run the development server or build the monorepo projects locally:
 
 ## 📦 Scaffolding a New Presentation
 
-To create a new presentation from scratch, use the `create-html-deck` CLI:
+To quickly bootstrap a new presentation project with build setups and template files, use the `create-html-deck` CLI:
+
+```bash
+# 1. Create a new presentation project
+npm create html-deck my-presentation
+
+# 2. Navigate to the project directory
+cd my-presentation
+
+# 3. Install dependencies and start development server
+npm install
+npm run dev
+```
+
+For more advanced setups, you can customize the scaffolding using options:
 
 ```bash
 npm create html-deck <project-directory> [options]
@@ -53,6 +67,7 @@ npm create html-deck <project-directory> [options]
 
 ### Options
 - `--aspect <ratio>`: Set slide aspect ratio. Examples: `16:9` (default), `4:3`, `1.6`.
+- `--lang <lang>`: Set HTML lang attribute. Examples: `ja`, `en` (default).
 - `--presenter`: Scaffold a local presenter view dashboard (`presenter.html`) and link it.
 
 ---
