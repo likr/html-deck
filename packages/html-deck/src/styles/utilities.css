@@ -30,8 +30,12 @@
 }
 
 /* Text Colors */
-.hd-accent {
+.hd-highlight {
   color: var(--hd-text-highlight-color) !important;
+}
+
+.hd-default {
+  color: var(--hd-text-color) !important;
 }
 
 .hd-muted {

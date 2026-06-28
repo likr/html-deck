@@ -123,16 +123,16 @@
     <!-- Slide 1: Cover Layout -->
     <hd-slide>
       <hd-layout-cover>
-        <h1 slot="title"><span class="hd-accent hd-text-weight-bold">HTML-Deck</span> Showcase</h1>
+        <h1 slot="title"><span class="hd-highlight hd-text-weight-bold">HTML-Deck</span> Showcase</h1>
         <p slot="subtitle">Comprehensive Feature Verification Slide Deck</p>
         <div slot="meta">
           <div>Yosuke Onoue (@_likr)</div>
           <div>June 2026</div>
         </div>
         <p slot="after" class="hd-muted hd-size-6 hd-text-center">
-          Press <span class="hd-accent hd-text-weight-bold">Right Arrow</span> or <span
-            class="hd-accent hd-text-weight-bold">Space</span> to navigate. Press <span
-            class="hd-accent hd-text-weight-bold">P</span> for presenter view.
+          Press <span class="hd-highlight hd-text-weight-bold">Right Arrow</span> or <span
+            class="hd-highlight hd-text-weight-bold">Space</span> to navigate. Press <span
+            class="hd-highlight hd-text-weight-bold">P</span> for presenter view.
         </p>
       </hd-layout-cover>
       <div slot="notes">
@@ -153,7 +153,7 @@
         <p>This is the default slide structure using <code>&lt;hd-layout&gt;</code>, which manages the title heading and
           body layout area. Slide-level header and footer slots are absolutely positioned inside margins, aligning with
           the canvas borders.</p>
-        <p slot="after" class="hd-accent">After Slot: Positioned directly below the body area.</p>
+        <p slot="after" class="hd-highlight">After Slot: Positioned directly below the body area.</p>
       </hd-layout>
       <div slot="footer" class="hd-size-6 hd-muted">Slide Footer (Slide Level)</div>
       <div slot="notes">
@@ -171,13 +171,13 @@
         <h2 slot="heading">Split Layout (Equal Columns)</h2>
         <p slot="before" class="hd-muted">Before Slot: Full-width panel introducing the comparison below.</p>
         <div slot="left">
-          <p class="hd-text-weight-bold hd-accent">Left Column Pane</p>
+          <p class="hd-text-weight-bold hd-highlight">Left Column Pane</p>
           <p>The <code>&lt;hd-layout-split&gt;</code> component organizes content side-by-side. By default (or when
             <code>ratio="1:1"</code>), both columns occupy equal widths.
           </p>
         </div>
         <div slot="right">
-          <p class="hd-text-weight-bold hd-accent">Right Column Pane</p>
+          <p class="hd-text-weight-bold hd-highlight">Right Column Pane</p>
           <p>Great for comparing parallel items, listing pros/cons, or placing descriptive text next to graphics and
             media blocks.</p>
         </div>
@@ -509,7 +509,7 @@
       <hd-layout>
         <h2 slot="heading">Typography: Text Color Modifiers</h2>
         <p>Quickly apply accent or muted color tints to parts of paragraphs or labels using layout modifiers:</p>
-        <p class="hd-size-2">This is an <span class="hd-accent hd-text-weight-bold">accentuated keyword</span> in a
+        <p class="hd-size-2">This is an <span class="hd-highlight hd-text-weight-bold">accentuated keyword</span> in a
           heading.</p>
         <p class="hd-size-3">This is an <span class="hd-muted">obscured caption</span> to indicate secondary info.</p>
         <p>These modifiers inherit directly from the slide's active variant theme, maintaining harmony.</p>
@@ -517,7 +517,7 @@
       <div slot="notes">
         <h3>Slide 18: Color Modifiers</h3>
         <ul>
-          <li>Tests .hd-accent and .hd-muted utility tags.</li>
+          <li>Tests .hd-highlight and .hd-muted utility tags.</li>
         </ul>
       </div>
     </hd-slide>

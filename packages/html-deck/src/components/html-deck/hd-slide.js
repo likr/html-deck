@@ -366,7 +366,14 @@ HdSlide.baseStyles = `
     left: var(--hd-slide-margin-left) !important;
     right: var(--hd-slide-margin-right) !important;
     font-family: var(--hd-text-peripheral-font) !important;
-    color: var(--hd-heading-text-muted-color) !important;
+
+    /* Variables mapping: heading */
+    --hd-background-color: var(--hd-heading-background-color);
+    --hd-text-color: var(--hd-heading-text-color);
+    --hd-text-highlight-color: var(--hd-heading-text-highlight-color);
+    --hd-text-muted-color: var(--hd-heading-text-muted-color);
+
+    color: var(--hd-text-muted-color) !important;
     font-size: var(--hd-text-peripheral-font-size) !important;
     font-weight: var(--hd-text-peripheral-font-weight) !important;
     line-height: var(--hd-text-peripheral-line-height) !important;
@@ -384,7 +391,14 @@ HdSlide.baseStyles = `
     left: var(--hd-slide-margin-left) !important;
     right: var(--hd-slide-margin-right) !important;
     font-family: var(--hd-text-peripheral-font) !important;
-    color: var(--hd-body-text-muted-color) !important;
+
+    /* Variables mapping: body */
+    --hd-background-color: var(--hd-body-background-color);
+    --hd-text-color: var(--hd-body-text-color);
+    --hd-text-highlight-color: var(--hd-body-text-highlight-color);
+    --hd-text-muted-color: var(--hd-body-text-muted-color);
+
+    color: var(--hd-text-muted-color) !important;
     font-size: var(--hd-text-peripheral-font-size) !important;
     font-weight: var(--hd-text-peripheral-font-weight) !important;
     line-height: var(--hd-text-peripheral-line-height) !important;
