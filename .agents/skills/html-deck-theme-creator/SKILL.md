@@ -95,7 +95,7 @@ No abbreviated names (like `bg` or `color`) should be introduced. Use `backgroun
 - `--hd-size-1` (largest heading) to `--hd-size-6` (smallest footnote).
 
 ### 5. Component Styling
-- `--hd-card-border-radius` / `--hd-card-background-color` / `--hd-card-border-color`
-- `--hd-box-border-radius` / `--hd-box-background-color` / `--hd-box-border-color`
-- `--hd-callout-border-radius` / `--hd-callout-background-color` / `--hd-callout-border-color`
-- `--hd-codeblock-border-radius` / `--hd-codeblock-border-color`
+- `--hd-card-border-radius` / `--hd-card-padding` / `--hd-card-border-width` / `--hd-card-border-style` / `--hd-card-box-shadow`
+- `--hd-box-border-radius` / `--hd-box-padding` / `--hd-box-border-width` / `--hd-box-border-style` / `--hd-box-box-shadow`
+- `--hd-callout-border-radius` / `--hd-callout-padding` / `--hd-callout-border-width` / `--hd-callout-border-style` / `--hd-callout-box-shadow`
+- `--hd-codeblock-border-radius` / `--hd-codeblock-border-width` / `--hd-codeblock-border-style` / `--hd-codeblock-border-color` / `--hd-codeblock-background-color` / `--hd-codeblock-box-shadow` (for `pre` code block elements)

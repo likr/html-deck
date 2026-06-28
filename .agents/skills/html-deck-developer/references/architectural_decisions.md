@@ -54,7 +54,7 @@
   - **ルール**: CSS 側では、デフォルトで見出し領域と境界線を非表示にし、余白を `--hd-slide-margin-top` に設定します。そして `:host([has-heading])` セレクタが適用された時のみ、見出し領域を表示し、余白を通常のレイアウト用余白（`var(--hd-gap-3)`）に切り替えるようにスタイルを定義してください。
 - **モバイルスワイプ操作とスクロール競合の回避**:
   - **ルール**: モバイル端末でのスライド切り替え（スワイプ）は、水平方向（左スワイプで進む、右スワイプで戻る）のジェスチャーのみに対応させます。誤作動を防ぐため、水平移動量（`Math.abs(deltaX)`）が `50px` 以上かつ垂直移動量（`Math.abs(deltaY)`）より大きく、ジェスチャーが `500ms` 以内に完了した場合のみスライド切り替えをトリガーします。
-  - **ルール**: スライド内に横スクロール可能な要素（`<hd-codeblock>` や `overflow-x: auto / scroll` を持つテーブル等）が存在する場合、そこでのスワイプはコンテンツのスクロールを優先させ、スライドのページ遷移をトリガーさせてはなりません。タッチの開始位置から親要素へと伝播する `event.composedPath()` を走査し、横スクロール可能な要素がパスに含まれている場合はスワイプナビゲーションを無効にします。
+  - **ルール**: スライド内に横スクロール可能な要素（`pre` などのコードブロックや `overflow-x: auto / scroll` を持つテーブル等）が存在する場合、そこでのスワイプはコンテンツのスクロールを優先させ、スライドのページ遷移をトリガーさせてはなりません。タッチの開始位置から親要素へと伝播する `event.composedPath()` を走査し、横スクロール可能な要素がパスに含まれている場合はスワイプナビゲーションを無効にします。
   - **ルール**: `touchmove` イベントリスナーはブラウザの既定スクロール/バウンス挙動を防止（`event.preventDefault()`）できるように、必ず `{ passive: false }` オプション付きで登録します。
 
 ---
@@ -82,7 +82,7 @@
 - **スライドとプレビューのスタイル一致保証（CSS変数の伝播とLight DOMスロット方式）**:
   プレゼンター画面とメイン画面でテーマおよびCSS変数が不一致になるのを防ぐため、`<hd-deck>` は同期メッセージ送信時に `window.getComputedStyle(this)` を用いて `--hd-` から始まるすべての計算済みCSS変数を抽出して送信します。
   また、プレビューコンポーネント `<hd-presenter-preview>` は、Shadow DOM 内にレイアウトコンテナ（`.preview-wrapper`, `.preview-container`）と `<slot></slot>` を定義し、スライドHTMLを自身の **Light DOM**（`this.innerHTML`）に挿入します。これにより、スライド要素は自動的に Shadow DOM のコンテナへスロットされ、計算された寸法スケール（Scale Transform）が適用されます。
-  スライドHTMLが Light DOM に存在するため、グローバルな `html-deck.css`（`presenter.html` でロード済み）の要素・クラススタイル（`table`, `img`, `.hd-accent` 等）がShadow DOMの境界を越えてネイティブに適用されます。テーマ変数については、プレビューの Shadow DOM 内の `<style id="preview-styles">` に `:host { --hd-...: ... }` としてインジェクトされ、スロットされた子要素へ継承されます。また、不要なCSSの再パースやチラつきを防ぐため、受信した変数のJSON文字列をキャッシュキーとして比較し、変化がある場合のみスタイル適用を更新します。メイン画面でのテーマ切り替えを即時反映させるため、`<hd-deck>` は `MutationObserver` で `document.head` 内のスタイル更新を監視し、変更時に自動で再同期をトリガーします。
+  スライドHTMLが Light DOM に存在するため、グローバルな `html-deck.css`（`presenter.html` でロード済み）の要素・クラススタイル（`table`, `img`, `.hd-highlight` 等）がShadow DOMの境界を越えてネイティブに適用されます。テーマ変数については、プレビューの Shadow DOM 内の `<style id="preview-styles">` に `:host { --hd-...: ... }` としてインジェクトされ、スロットされた子要素へ継承されます。また、不要なCSSの再パースやチラつきを防ぐため、受信した変数のJSON文字列をキャッシュキーとして比較し、変化がある場合のみスタイル適用を更新します。メイン画面でのテーマ切り替えを即時反映させるため、`<hd-deck>` は `MutationObserver` で `document.head` 内のスタイル更新を監視し、変更時に自動で再同期をトリガーします。
 - **標準レイアウトとカードの利用によるコード簡素化**:
   発表者ビュー（Presenter View）の実装を簡素化するため、`<hd-presenter>`、`<hd-presenter-logo>`、`<hd-presenter-slide-button>`および`<hd-presenter-card>`が導入されました。以前の `<hd-presenter-layout>` は不要となったため廃止・削除されています。
   - **レイアウトとスロット**: `<hd-presenter>`は、`slot="header"`（上部ヘッダー）、`slot="before"`、`slot="left"`またはデフォルトスロット（左側ペイン）、`slot="right"`（右側ペイン）、`slot="bottom"`（下部ペイン）で構成されます。body要素のデフォルト余白・スクロールのリセットスタイルは自動注入されます。
@@ -95,19 +95,6 @@
 ---
 
 ## 6. コンポーネント固有の実装パターン
-- **hd-codeblock: 実行時 src フェッチの廃止 (DEPRECATED)**:
-  ネットワーク依存やパス解決エラーを防ぐため、`<hd-codeblock>` の `src` 属性による動的フェッチは廃止されました。
-  - **パターン**: Vite の `?raw` インポートを使用してソースコードを文字列として読み込み、`code` 属性に直接セットします。
-    ```html
-    <hd-codeblock language="javascript" id="my-block"></hd-codeblock>
-    <script type="module">
-      import codeText from './file.js?raw';
-      document.getElementById('my-block').setAttribute('code', codeText);
-    </script>
-    ```
-- **hd-table: カプセル化テーブルスロットクローンパターン**:
-  Shadow DOM 内からは、スロットされた `::slotted(table)` の深い子要素（`tr`, `td`, `th`）を柔軟にスタイリングできません。
-  - **パターン**: スロット要素自体は CSS で非表示にし（`slot { display: none; }`）、`slotchange` イベントをハンドリングしてテーブル要素を `table.cloneNode(true)` でコピーし、Shadow DOM 内のコンテナへ追加します。これにより Shadow DOM 境界内で完全なテーブルのスタイリングを可能にします。
 - **レイアウトコンポーネントにおける余白・パディング挙動の統一**:
   すべてのレイアウト要素（`<hd-layout>`, `<hd-layout-cover>`, `<hd-layout-split>`, `<hd-layout-grid>`）は、余白設定に関して統一された挙動を提供する必要があります。
   - **パターン**: `:host` または内部のレイアウトコンテンツの padding には、直接値を指定せず、必ず `variables.css` で定義された統一的なレイアウト用 CSS 変数（例：`--hd-layout-body-padding` や `--hd-layout-cover-padding`）を使用します。

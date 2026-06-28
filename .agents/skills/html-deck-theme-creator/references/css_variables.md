@@ -99,17 +99,44 @@ No abbreviated names (like `bg` or `color`) should be introduced. Use `backgroun
 
 ## 3. Semantic Slide Colors & Borders
 
-These resolve dynamically to control slide borders, heading areas, and backgrounds. They are defined on `:root` to map to base defaults but are overridden on `<hd-slide>` based on the `variant`, `heading`, `surface`, and `inverted` attributes:
-- `--hd-slide-background-color`: Mapped from the soft/solid background color of the active body theme.
-- `--hd-slide-text-color`: Mapped from the soft/solid text color of the active body theme.
-- `--hd-slide-text-highlight-color`: Mapped from the soft/solid highlight color of the active body theme.
-- `--hd-slide-text-muted-color`: Mapped from the soft/solid muted color of the active body theme.
-- `--hd-layout-divider-color`: Mapped from the text color of the active heading theme.
-- `--hd-layout-heading-background-color`: Mapped from the soft/solid background color of the active heading theme.
-- `--hd-layout-heading-text-color`: Mapped from the soft/solid text color of the active heading theme.
+The presentation library resolves standard colors dynamically on components and slides using a color propagation system:
+- `--hd-background-color`: Local background color for the slide or component.
+- `--hd-text-color`: Local standard text color.
+- `--hd-text-highlight-color`: Local highlight text color.
+- `--hd-text-muted-color`: Local muted text color.
+- `--hd-border-color`: Local border outline color.
+
+### Intermediate State Variables
+To prevent leakage and ensure proper heading/body color separation, intermediate variables are defined globally on the `*` selector:
+```css
+* {
+  --hd-heading-background-color: var(--hd-solid-background-color);
+  --hd-heading-text-color: var(--hd-solid-text-color);
+  --hd-heading-text-highlight-color: var(--hd-solid-text-highlight-color);
+  --hd-heading-text-muted-color: var(--hd-solid-text-muted-color);
+  --hd-body-background-color: var(--hd-soft-background-color);
+  --hd-body-text-color: var(--hd-soft-text-color);
+  --hd-body-text-highlight-color: var(--hd-soft-text-highlight-color);
+  --hd-body-text-muted-color: var(--hd-soft-text-muted-color);
+  --hd-border-color-default: var(--hd-heading-background-color);
+  --hd-border-color-surfaced: var(--hd-heading-text-color);
+}
+```
+
+On slides, the standard variables (`--hd-background-color` etc.) resolve to the body variables (`--hd-body-*`). In heading areas, they resolve to the heading variables (`--hd-heading-*`).
+
+### Slide Borders & Customization
+Themes can customize default and surfaced border behaviors globally by overriding `--hd-border-color-default` and `--hd-border-color-surfaced` under the `*` selector. To keep color settings contextual, themes should derive these border colors from active contextual variables (like `--hd-body-text-color`) using relative color syntax rather than hardcoding static color values.
+- Example:
+  ```css
+  * {
+    --hd-border-color-default: rgba(from var(--hd-body-text-color) r g b / 0.15);
+    --hd-border-color-surfaced: rgba(from var(--hd-body-text-color) r g b / 0.3);
+  }
+  ```
 - `--hd-slide-border-width`: Slide border thickness. (Default: `0px` - hidden by default)
 - `--hd-slide-border-style`: Slide border pattern style. (Default: `solid`)
-- `--hd-slide-border-color`: Slide border outline color. (Default: `var(--hd-layout-heading-text-color)`)
+- `--hd-slide-border-color`: Slide border outline color. (Default: `var(--hd-border-color-default)`)
 
 ---
 
@@ -117,11 +144,11 @@ These resolve dynamically to control slide borders, heading areas, and backgroun
 
 ### Spacing Scale (Gap Scale)
 - `--hd-gap-0`: `0px`
-- `--hd-gap-1`: `4px`
-- `--hd-gap-2`: `8px`
-- `--hd-gap-3`: `16px`
-- `--hd-gap-4`: `24px`
-- `--hd-gap-5`: `32px`
+- `--hd-gap-1`: `8px`
+- `--hd-gap-2`: `16px`
+- `--hd-gap-3`: `24px`
+- `--hd-gap-4`: `32px`
+- `--hd-gap-5`: `40px`
 - `--hd-gap-6`: `48px`
 
 ### Slide Margins & Offsets
@@ -162,59 +189,62 @@ Customize font sizing, weight, line-height, letter-spacing, and shadows for diff
 
 ## 6. Component Styling
 
-Each UI component has specific CSS variables mapping its styles to standard theme behaviors. These are defined on `:root` to map to base defaults but are overridden on `<hd-card>` and `<hd-box>` based on their `variant` (`base`, `main`, `accent`) and `surface` (`soft`, `solid`) attributes.
-Note: Card, Box, Callout, and Layout Heading elements use the CSS `background` shorthand property instead of `background-color`, meaning theme creators can assign linear or radial gradients directly to their background variables (e.g. `--hd-card-background-color: linear-gradient(...);`).
+Each UI component has specific CSS sizing, padding, and layout variables. 
+Note: Container background and border colors are **not** customized using individual component color variables. Instead, they automatically inherit and map dynamically to standard variables (`--hd-background-color`, `--hd-text-color`, `--hd-border-color`) derived from active themes, surface attributes, and intermediate state variables (`--hd-body-*` / `--hd-heading-*`).
+Also: Card, Box, Callout, and Layout Heading elements use the CSS `background` shorthand property, allowing themes to apply gradient backgrounds or textures directly.
 
-### Card (`.hd-card`)
-- `--hd-card-border-radius`: Border radius. (Default: `12px`)
-- `--hd-card-padding`: Padding. (Default: `var(--hd-gap-3)`)
-- `--hd-card-margin-bottom`: Margin bottom. (Default: `var(--hd-gap-3)`)
-- `--hd-card-font-size`: Inner text size. (Default: `var(--hd-size-4)`)
-- `--hd-card-background-color`: Card fill color. (Default: `var(--hd-base-soft-background-color)`)
-- `--hd-card-text-color`: Card text. (Default: `var(--hd-base-soft-text-color)`)
+### Card (`<hd-card>`)
+- `--hd-card-border-radius`: Border radius. (Default: `var(--hd-gap-1)` = `8px`)
+- `--hd-card-padding`: Padding. (Default: `var(--hd-gap-1)` = `8px`)
+- `--hd-card-margin-bottom`: Margin bottom. (Default: `var(--hd-gap-2)` = `16px`)
+- `--hd-card-font-size`: Inner text size. (Default: `var(--hd-size-4)` = `18px`)
 - `--hd-card-border-width`: Card border width. (Default: `1px`)
 - `--hd-card-border-style`: Card border style. (Default: `solid`)
-- `--hd-card-border-color`: Card border outline. (Default: `var(--hd-base-solid-background-color)`)
-- `--hd-card-box-shadow`: Card outer drop shadow. (Default: `0 4px 12px rgba(from var(--hd-base-soft-text-color) r g b / 0.03), 0 1px 2px rgba(from var(--hd-base-soft-text-color) r g b / 0.02)`)
-- `--hd-card-heading-background-color` / `--hd-card-heading-text-color` / `--hd-card-heading-border-color`: Style mappings for card title headers.
+- `--hd-card-box-shadow`: Card outer drop shadow. (Default: `0 4px 12px rgba(from var(--hd-base-soft-text-color) r g b / 0.03), ...`)
 
-### Box (`.hd-box`)
-- `--hd-box-border-radius` / `--hd-box-padding` / `--hd-box-margin-bottom` / `--hd-box-font-size` / `--hd-box-background-color` / `--hd-box-text-color` / `--hd-box-border-width` / `--hd-box-border-style` / `--hd-box-border-color` / `--hd-box-box-shadow` / `--hd-box-heading-background-color` / `--hd-box-heading-text-color` / `--hd-box-heading-border-color`
+### Box (`<hd-box>`)
+- `--hd-box-border-radius` / `--hd-box-padding` / `--hd-box-margin-bottom` / `--hd-box-font-size` / `--hd-box-border-width` / `--hd-box-border-style` / `--hd-box-box-shadow` (Same sizing/layout scale defaults as Card, configured to fill 100% height of parent container).
 
-### Callout (`.hd-callout`)
-- `--hd-callout-border-radius` / `--hd-callout-padding` / `--hd-callout-margin-bottom` / `--hd-callout-font-size` / `--hd-callout-background-color` / `--hd-callout-text-color` / `--hd-callout-border-width` / `--hd-callout-border-style` / `--hd-callout-border-color` / `--hd-callout-box-shadow`
+### Callout (`<hd-callout>`)
+- `--hd-callout-border-radius`: Border radius. (Default: `var(--hd-gap-1)` = `8px`)
+- `--hd-callout-padding`: Padding. (Default: `var(--hd-gap-1) var(--hd-gap-2)` = `8px 16px`)
+- `--hd-callout-margin-bottom`: Margin bottom. (Default: `var(--hd-gap-2)` = `16px`)
+- `--hd-callout-font-size`: Inner text size. (Default: `var(--hd-size-4)` = `18px`)
+- `--hd-callout-border-width`: Left border marker width. (Default: `0 0 0 4px`)
+- `--hd-callout-border-style`: Border style. (Default: `solid`)
+- `--hd-callout-box-shadow`: Box drop shadow. (Default: `none`)
 
-### Codeblock (`<hd-codeblock>`)
-- `--hd-codeblock-border-radius`: Border radius. (Default: `8px`)
+### Codeblock (Standard `<pre>` tags)
+- `--hd-codeblock-border-radius`: Border radius. (Default: `var(--hd-gap-1)` = `8px`)
 - `--hd-codeblock-background-color`: Fill background color. (Default: `transparent` - inherits from parent container)
 - `--hd-codeblock-border-width`: Border line width. (Default: `1px`)
 - `--hd-codeblock-border-style`: Border pattern. (Default: `solid`)
-- `--hd-codeblock-border-color`: Border frame color. (Default: `var(--hd-layout-divider-color)`)
+- `--hd-codeblock-border-color`: Border frame color. (Default: `var(--hd-heading-text-color)`)
 - `--hd-codeblock-box-shadow`: Outer drop shadow. (Default: `none`)
 
 ### Inline Code (`code`)
-- `--hd-code-background-color`: Inline code background tint. (Default: `rgba(from var(--hd-slide-text-color) r g b / 0.05)`)
-- `--hd-code-text-color`: Inline code text color. (Default: `var(--hd-slide-text-highlight-color)`)
+- `--hd-code-background-color`: Inline code background tint. (Default: `rgba(from var(--hd-text-color) r g b / 0.05)`)
+- `--hd-code-text-color`: Inline code text color. (Default: `var(--hd-text-highlight-color)`)
 - `--hd-code-padding`: Inner padding. (Default: `2px 6px`)
 - `--hd-code-border-radius`: Border radius. (Default: `4px`)
 - `--hd-code-font-family`: Font family. (Default: monospace stack)
 - `--hd-code-font-size`: Font size multiplier. (Default: `0.85em`)
-- `--hd-code-border-width` / `--hd-code-border-style` / `--hd-code-border-color`: Inline border properties. (Default: `1px solid rgba(from var(--hd-slide-text-color) r g b / 0.08)`)
+- `--hd-code-border-width` / `--hd-code-border-style` / `--hd-code-border-color`: Inline border properties. (Default: `1px solid rgba(from var(--hd-text-color) r g b / 0.08)`)
 
 ### Keyboard Input (`kbd`)
-- `--hd-kbd-background-color` / `--hd-kbd-text-color` / `--hd-kbd-padding` / `--hd-kbd-border-radius` / `--hd-kbd-font-family` / `--hd-kbd-font-size` / `--hd-kbd-border-width` / `--hd-kbd-border-style` / `--hd-kbd-border-color` / `--hd-kbd-box-shadow`: Styling parameters for `<kbd>` elements. (Defaults to a dynamic, pressable button style adapting to the slide text color).
+- `--hd-kbd-background-color` / `--hd-kbd-text-color` / `--hd-kbd-padding` / `--hd-kbd-border-radius` / `--hd-kbd-font-family` / `--hd-kbd-font-size` / `--hd-kbd-border-width` / `--hd-kbd-border-style` / `--hd-kbd-border-color` / `--hd-kbd-box-shadow`: Styling parameters for `<kbd>` elements. (Defaults to a dynamic, pressable button style adapting to the slide text color `var(--hd-text-color)`).
 
 ### Highlight Mark (`mark`)
-- `--hd-mark-background-color`: Highlighter background fill. (Default: `rgba(from var(--hd-slide-text-highlight-color) r g b / 0.15)`)
-- `--hd-mark-text-color`: Highlighter text color. (Default: `var(--hd-slide-text-highlight-color)`)
+- `--hd-mark-background-color`: Highlighter background fill. (Default: `rgba(from var(--hd-text-highlight-color) r g b / 0.15)`)
+- `--hd-mark-text-color`: Highlighter text color. (Default: `var(--hd-text-highlight-color)`)
 - `--hd-mark-padding`: Highlighter padding. (Default: `0px 4px`)
 - `--hd-mark-border-radius`: Highlighter corner rounding. (Default: `2px`)
 
 ### Table (`table`)
-- `--hd-table-border-color`: Cell border divider. (Default: `var(--hd-layout-divider-color)`)
-- `--hd-table-cell-padding`: Cell margins. (Default: `6px 10px`)
-- `--hd-table-margin-bottom`: Table bottom spacing. (Default: `var(--hd-gap-3)`)
-- `--hd-table-font-size`: Inner cell text size. (Default: `var(--hd-size-4)`)
+- `--hd-table-border-color`: Cell border divider. (Default: `var(--hd-heading-text-color)`)
+- `--hd-table-cell-padding`: Cell margins. (Default: `var(--hd-gap-1)` = `8px`)
+- `--hd-table-margin-bottom`: Table bottom spacing. (Default: `var(--hd-gap-2)` = `16px`)
+- `--hd-table-font-size`: Inner cell text size. (Default: `var(--hd-size-4)` = `18px`)
 
 ### Lists (`ul`, `ol` class="hd-list")
 - `--hd-list-margin-bottom` / `--hd-list-padding-left` / `--hd-list-item-margin-bottom` / `--hd-list-font-family` / `--hd-list-font-size` / `--hd-list-color` / `--hd-list-line-height`
@@ -225,10 +255,10 @@ Note: Card, Box, Callout, and Layout Heading elements use the CSS `background` s
 ### Image (`img`)
 - `--hd-img-max-width`: Max-width bounds. (Default: `100%`)
 - `--hd-img-height`: Sizing calculation. (Default: `auto`)
-- `--hd-img-border-radius`: Border rounding. (Default: `8px`)
+- `--hd-img-border-radius`: Border rounding. (Default: `var(--hd-gap-1)` = `8px`)
 - `--hd-img-border-width`: Border line width. (Default: `1px`)
 - `--hd-img-border-style`: Border pattern. (Default: `solid`)
-- `--hd-img-border-color`: Border color. (Default: `var(--hd-layout-divider-color)`)
+- `--hd-img-border-color`: Border color. (Default: `var(--hd-heading-text-color)`)
 - `--hd-img-box-shadow`: Box drop shadow. (Default: `0 4px 6px -1px rgba(0, 0, 0, 0.2)`)
 
 ---

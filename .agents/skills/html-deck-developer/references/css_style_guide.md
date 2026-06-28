@@ -93,9 +93,46 @@
   レイアウトコンポーネント（`<hd-layout>` など）やコンテナ（`<hd-card>` など）の配色において、見出し領域とボディ領域で異なる配色テーマを適用する場合、`:has(> [slot="heading"])` のような複雑なリレーショナルセレクタによる標準変数の直接上書きは、配下のスロット要素への予期せぬ値のリーク（親スコープからの継承による低コントラスト化）を発生させます。
   これを防ぐため、グローバルな `*` セレクタ下で中間状態変数（`--hd-heading-*` および `--hd-body-*`）を定義し、Shadow DOM 内ではこれらの中間変数を経由して標準変数（`--hd-background-color`、`--hd-text-color`等）に割り当ててください。
   - **解決策**:
-    1. グローバル `*` セレクタで `--hd-heading-background-color: var(--hd-solid-background-color)` と `--hd-body-background-color: var(--hd-soft-background-color)` などの基本マッピングを定義します。
-    2. `hd-slide` の `:host` 内では標準変数を `--hd-body-*` にマッピングし、レイアウトコンポーネントの `.heading-area` 内では標準変数を `--hd-heading-*` にマッピングします。
-    3. `hd-card` などのコンテナ型コンポーネントは、`surface` 等の属性に応じてコンポーネント側で `--hd-heading-*` / `--hd-body-*` の設定値のみを切り替えます。これにより、配下の子要素やスロットコンテンツが正しくローカルコンテキストに応じた変数値を参照でき、漏洩やレイアウト崩れを完全に防ぐことができます。
+    1. グローバル `*` セレクタ（`variables.css`）で基本マッピングを定義します：
+       ```css
+       * {
+         --hd-heading-background-color: var(--hd-solid-background-color);
+         --hd-heading-text-color: var(--hd-solid-text-color);
+         --hd-heading-text-highlight-color: var(--hd-solid-text-highlight-color);
+         --hd-heading-text-muted-color: var(--hd-solid-text-muted-color);
+         --hd-body-background-color: var(--hd-soft-background-color);
+         --hd-body-text-color: var(--hd-soft-text-color);
+         --hd-body-text-highlight-color: var(--hd-soft-text-highlight-color);
+         --hd-body-text-muted-color: var(--hd-soft-text-muted-color);
+       }
+       ```
+    2. `hd-slide` の Shadow DOM（`:host`）で標準変数を `--hd-body-*` にマッピングします：
+       ```css
+       :host {
+         --hd-background-color: var(--hd-body-background-color);
+         --hd-text-color: var(--hd-body-text-color);
+         --hd-text-highlight-color: var(--hd-body-text-highlight-color);
+         --hd-text-muted-color: var(--hd-body-text-muted-color);
+       }
+       ```
+    3. レイアウトコンポーネントの見出し領域（`.heading-area`）では、標準変数を `--hd-heading-*` に再マッピングします：
+       ```css
+       .heading-area {
+         --hd-background-color: var(--hd-heading-background-color);
+         --hd-text-color: var(--hd-heading-text-color);
+         --hd-text-highlight-color: var(--hd-heading-text-highlight-color);
+         --hd-text-muted-color: var(--hd-heading-text-muted-color);
+         
+         background: var(--hd-background-color);
+         color: var(--hd-text-color);
+       }
+       ```
+    4. `hd-card` などのコンテナ型コンポーネントは、`surface` 等の属性に応じてコンポーネント側で `--hd-heading-*` / `--hd-body-*` の設定値のみを切り替えます。これにより、配下の子要素やスロットコンテンツが正しくローカルコンテキストに応じた変数値を参照でき、漏洩やレイアウト崩れを完全に防ぐことができます。
+    5. 境界線の定義ルール：
+       - デフォルトは `--hd-border-color-default` (デフォルト: `var(--hd-heading-background-color)`) を適用。
+       - `surface="soft"` または `solid` が指定された場合は、`--hd-border-color-surfaced` (デフォルト: `var(--hd-heading-text-color)`) で上書き。
+       - テーマ側からは `*` セレクタ下で Relative Color Syntax を用いてこれらをオーバーライド。
+         - 例: `--hd-border-color-default: rgba(from var(--hd-body-text-color) r g b / 0.15);`
 
 ---
 
@@ -107,7 +144,7 @@
 - **フォントウェイト**:
   数値ではなくセマンティックな名称を使用します（`.hd-text-weight-light`, `.hd-text-weight-normal`, `.hd-text-weight-medium`, `.hd-text-weight-semibold`, `.hd-text-weight-bold`, `.hd-text-weight-extrabold`）。
 - **カラーユーティリティ**:
-  テキストの文字色を直接変更するためのユーティリティクラスは `.hd-accent`（アクセントカラー）と `.hd-muted`（ミュートカラー）のみが利用可能です。テキストの標準色やプライマリカラーの定義は、個別のユーティリティクラスではなく、テーマ変数（`--hd-base-text-color` や `--hd-accent-color` など）の切り替えによって制御します。
+  テキストの文字色を直接変更するためのユーティリティクラスは `.hd-highlight`（強調テキストカラー）、`.hd-default`（標準テキストカラー）、および `.hd-muted`（ミュートテキストカラー）のみが利用可能です。テキストの標準色やプライマリカラーの定義は、個別のユーティリティクラスではなく、テーマ変数（`--hd-text-color` や `--hd-text-highlight-color` など）の切り替えによって制御します。
 - **印刷非表示ユーティリティ**:
   印刷時に特定の要素（プレゼンテーション外のコントロールパネルなど）を非表示にしたい場合は、ユーティリティクラス `.hd-no-print` を使用します。
 

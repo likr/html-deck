@@ -116,7 +116,7 @@ A cover or section divider slide layout component. Centers content vertically an
 
 ## 🎨 UI & Content Components
 
-These components help present block text, callouts, or mathematical equations within the slides.
+These components help present block text and callouts within the slides.
 
 ### 7. `<hd-card>`
 A card container with a boxed layout, styled with background colors and borders. Good for highlighting specific sections of content.
@@ -152,11 +152,3 @@ Draws a highlighted text block with a left border marker to emphasize specific s
 
 #### Slots
 - **Default Slot**: Main content to render within the callout box.
-
----
-
-### 10. `<hd-math>`
-An equation rendering component powered by KaTeX.
-
-#### Attributes
-- `block` (boolean): If present, centers and renders the math formula as a standalone block.

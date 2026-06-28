@@ -30,7 +30,7 @@ To keep the developer skill concise and maintainable, guidelines are organized i
 2. **Architectural Decisions & Traps**
    - **File**: [architectural_decisions.md](file:///home/likr/work/likr/html-deck/.agents/skills/html-deck-developer/references/architectural_decisions.md)
    - **When to read**: Whenever you are refactoring components logic, layout scripts, event handling, printing styles, presenter view sync, or resolving scaling and rendering bugs.
-   - **Key contents**: Lifecycle timing traps (`connectedCallback`, dynamic rendering), sizing & scaling, padding limitations, printing configurations, presenter synchronization, and custom component patterns (like slot tables and `hd-codeblock` `?raw` import).
+   - **Key contents**: Lifecycle timing traps (`connectedCallback`, dynamic rendering), sizing & scaling, padding limitations, printing configurations, presenter synchronization, and custom component patterns.
 
 ---
 
@@ -41,7 +41,7 @@ The project is organized as an **npm workspaces monorepo** under `packages/`:
 - **`packages/html-deck/`** — the publishable library package:
   - `src/components/html-deck/`: Core slide elements (`hd-deck.js`, `hd-slide.js`, etc.).
   - `src/components/html-deck-presenter/`: Presenter dashboard elements.
-  - `src/html-deck.js`: Main library entry point — imports KaTeX/Prism JS and CSS as bundled strings (`?raw`), registers all core components.
+  - `src/html-deck.js`: Main library entry point — imports and dynamically injects core CSS styles as an inline string (`?inline`), and registers all core components.
   - `src/html-deck-presenter.js`: Presenter view entry point.
   - `src/html-deck.css`: Main CSS entry point that imports all sub-stylesheets from `src/styles/`.
   - `src/styles/`: Modularized CSS files (e.g., `reset.css`, `variables.css`, `elements.css`, `components.css`, `utilities.css`).

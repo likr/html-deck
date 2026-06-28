@@ -76,21 +76,24 @@ Keep the slide DOM flat inside the deck. Do not nest pages inside nested section
 ## ⚠️ Critical Coding Guidelines
 
 ### 1. HTML Entity Escaping inside Code Blocks
-When showing HTML examples (especially containing `hd-` tags) inside `<hd-codeblock>`, **always escape the brackets** using `&lt;` and `&gt;`. If you write raw HTML tags inside `<hd-codeblock>`, the browser will interpret it as a real slide, breaking layout constraints and causing page collapses.
+When showing HTML examples (especially containing `hd-` tags) inside a `<pre><code>` block, **always escape the brackets** using `&lt;` and `&gt;`. If you write raw HTML tags inside `<code>` without escaping, the browser will interpret it as active DOM elements, breaking layout constraints and causing slide collapses.
 
 ### 2. Loading External Files in Code Blocks (Vite Raw Imports)
-To load external code dynamically without compiling HTML files manually, **modify the `.textContent` property** rather than using attributes. Direct imports using a `src` attribute on `<hd-codeblock>` are deprecated.
+To load external code dynamically, use Vite's `?raw` imports and set the `.textContent` property of a nested `<code>` tag.
 ```html
-<hd-codeblock language="javascript" id="my-block"></hd-codeblock>
+<pre><code class="language-javascript" id="my-block"></code></pre>
 <script type="module">
   import codeText from './sample-code.js?raw';
-  document.getElementById('my-block').textContent = codeText;
+  const el = document.getElementById('my-block');
+  el.textContent = codeText;
+  // Trigger Prism highlighting if loaded
+  setTimeout(() => window.Prism && window.Prism.highlightElement(el), 0);
 </script>
 ```
 
 ### 3. Strict Style Prohibition: No Custom CSS, <style> or style="..."
 To ensure presentation consistency, **you MUST NOT write custom CSS styles, `<style>` blocks, or inline `style="..."` attributes** on elements unless the user explicitly requests you to do so. 
-- Rely entirely on standard theme stylesheets (e.g., `html-deck.theme-warm.css`), components, and predefined `hd-` utility classes (e.g., `.hd-accent`, `.hd-mt-3`, `.hd-text-weight-semibold`, `.hd-text-center`).
+- Rely entirely on standard theme stylesheets (e.g., `html-deck.theme-warm.css`), components, and predefined `hd-` utility classes (e.g., `.hd-highlight`, `.hd-mt-3`, `.hd-text-weight-semibold`, `.hd-text-center`).
 - If custom CSS is explicitly requested by the user:
   - **Always use absolute `px` units** for font sizes, paddings, and margins. Avoid `rem` or structural `em` layout units as they break scaled resolution.
   - Define custom styles in a separate CSS file and import it **after** `html-deck/css`.
@@ -98,8 +101,31 @@ To ensure presentation consistency, **you MUST NOT write custom CSS styles, `<st
 ### 4. Never Apply `position: relative` directly to `<hd-slide>`
 Applying `position: relative` directly on `<hd-slide>` containers breaks the layout and virtual resolution scaling computations of the slideshow. If you need relative positioning for absolute-positioned child elements, wrap the content in a child `<div>` container and style that wrapper instead.
 
-### 5. Math Rendering with `<hd-math>`
-Always wrap mathematical expressions and formulas inside `<hd-math>` Web Components. Do not use standard raw delimiters like `$$...$$` or `$...$` directly in raw text nodes, as they will not be formatted and styled correctly. Use the `block` attribute on `<hd-math>` to render centered block-level equations.
+### 5. Math Rendering with KaTeX
+To render mathematical expressions and formulas:
+- Load the KaTeX CDN stylesheet and scripts in the HTML `<head>`:
+  ```html
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+  ```
+- Run KaTeX's `renderMathInElement` on document load:
+  ```html
+  <script type="module">
+    window.addEventListener('load', () => {
+      if (window.renderMathInElement) {
+        window.renderMathInElement(document.body, {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '\\(', right: '\\)', display: false }
+          ],
+          throwOnError: false
+        });
+      }
+    });
+  </script>
+  ```
+- Use the configured delimiters (e.g., `$$...$$` or `\(...\)`) directly in your text content. Do not use non-standard raw custom tags for math, and make sure KaTeX scripts are properly deferred in the document `<head>`.
 
 ### 6. Centering Elements on Blank Slides
 Setting the `center` attribute directly on `<hd-slide>` (e.g., `<hd-slide center>`) natively centers all slotted elements vertically and horizontally. This is the recommended way to center content (such as cards, quotes, or key statistics) on a blank slide.

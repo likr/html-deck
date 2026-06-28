@@ -115,12 +115,13 @@ Font sizes are explicitly set using the global sizing scale (sizes 1-6, where 1 
 - `.hd-size-6`: `12px` (micro/peripheral text)
 
 ### 3. Theme Colors
-Sets the foreground text color using key theme color variables:
-- `.hd-accent`: Uses the primary accent color (`var(--hd-accent-color)`)
-- `.hd-muted`: Uses the muted text color (`var(--hd-base-text-color-muted)`)
+Sets the foreground text color using active theme color variables:
+- `.hd-highlight`: Uses the text highlight color (`var(--hd-text-highlight-color)`)
+- `.hd-default`: Uses the standard body text color (`var(--hd-text-color)`)
+- `.hd-muted`: Uses the muted text color (`var(--hd-text-muted-color)`)
 
 ### 5. Layout and Spacings (Margins, Paddings, Gaps)
-Apply standard spacing intervals using numeric levels `0` to `6` (mapping to 0px, 4px, 8px, 16px, 24px, 32px, and 48px):
+Apply standard spacing intervals using numeric levels `0` to `6` (mapping to 0px, 8px, 16px, 24px, 32px, 40px, and 48px):
 - **Margins (`m`, `mt`, `mb`, `ml`, `mr`, `mx`, `my`)**:
   - `.hd-m-0` to `.hd-m-6`: Margin for all sides.
   - `.hd-mt-0` to `.hd-mt-6`: Margin top.
