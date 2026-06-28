@@ -5,143 +5,176 @@
   --hd-body-font: var(--hd-font-family);
   --hd-heading-font: 'Outfit', var(--hd-font-family);
 
-  /* --- 48-Color Matrix (Modern Tech Corporate) --- */
+  /* --- Sizing & Typography Overrides (Minimal Executive) --- */
+  --hd-size-1: 48px;
+  --hd-size-2: 32px;
+  --hd-size-3: 20px;
+  --hd-size-4: 16px;
+  --hd-size-5: 13px;
+  --hd-size-6: 11px;
+
+  --hd-text-title-font-weight: 700;
+  --hd-text-title-letter-spacing: -0.02em;
+  --hd-text-title-line-height: 1.15;
+
+  --hd-text-heading-font-weight: 600;
+  --hd-text-heading-letter-spacing: -0.02em;
+  --hd-text-heading-line-height: 1.2;
+
+  --hd-text-subheading-font-weight: 500;
+  --hd-text-subheading-letter-spacing: -0.01em;
+
+  --hd-text-body-line-height: 1.6;
+
+  /* --- 4-Color Palette base variables --- */
+  --corporate-background-color: #fcfcfc;
+  --corporate-text-color: #0b132b;
+  --corporate-main-color: #0a1931;
+  --corporate-accent-color: #c25e2e;
+
+  /* --- 48-Color Matrix (Minimal Executive - Derived from 4 Base Colors) --- */
 
   /* ========================================================
-     BASE THEME (Standard/Neutral) - Crisp White, Midnight Slate Inverted
+     BASE THEME (Standard/Neutral) - Onyx White, Obsidian Dark Inverted
      ======================================================== */
   /* Soft Surface (Slide default) */
-  --hd-base-soft-background-color: #ffffff;
-  --hd-base-soft-text-color: #0f172a; /* Slate 900 */
-  --hd-base-soft-text-highlight-color: #d97706; /* Golden Amber */
-  --hd-base-soft-text-muted-color: #64748b; /* Slate 500 */
+  --hd-base-soft-background-color: var(--corporate-background-color);
+  --hd-base-soft-text-color: var(--corporate-text-color);
+  --hd-base-soft-text-highlight-color: var(--corporate-accent-color);
+  --hd-base-soft-text-muted-color: rgba(from var(--corporate-text-color) r g b / 0.6);
 
   /* Solid Surface (Medium bg / Dark text) */
-  --hd-base-solid-background-color: #f1f5f9; /* Slate 100 */
-  --hd-base-solid-text-color: #0f172a;
-  --hd-base-solid-text-highlight-color: #b45309; /* Deep Amber */
-  --hd-base-solid-text-muted-color: #475569; /* Slate 600 */
+  --hd-base-solid-background-color: rgba(from var(--corporate-text-color) r g b / 0.05);
+  --hd-base-solid-text-color: var(--corporate-text-color);
+  --hd-base-solid-text-highlight-color: var(--corporate-accent-color);
+  --hd-base-solid-text-muted-color: rgba(from var(--corporate-text-color) r g b / 0.6);
 
-  /* Soft Surface Inverted (Midnight Slate Mode) */
-  --hd-base-soft-background-color-inverted: #0f172a; /* Slate 900 */
-  --hd-base-soft-text-color-inverted: #ffffff;
-  --hd-base-soft-text-highlight-color-inverted: #fbbf24; /* Amber Gold Inverted */
-  --hd-base-soft-text-muted-color-inverted: #94a3b8; /* Slate 400 */
-
-  /* Solid Surface Inverted (Slate Solid Mode) */
-  --hd-base-solid-background-color-inverted: #1e293b; /* Slate 800 */
-  --hd-base-solid-text-color-inverted: #f8fafc; /* Slate 50 */
-  --hd-base-solid-text-highlight-color-inverted: #fbbf24;
-  --hd-base-solid-text-muted-color-inverted: #94a3b8;
-
-  /* ========================================================
-     MAIN THEME (Brand Trust Navy) - Trust Blue / Steel themed
-     ======================================================== */
-  /* Soft Surface */
-  --hd-main-soft-background-color: #f0f4f8; /* Cool Light Ice Blue */
-  --hd-main-soft-text-color: #1e3a8a; /* Deep Navy */
-  --hd-main-soft-text-highlight-color: #d97706;
-  --hd-main-soft-text-muted-color: #475569;
-
-  /* Solid Surface */
-  --hd-main-solid-background-color: #1e40af; /* Vibrant Blue/Navy */
-  --hd-main-solid-text-color: #ffffff;
-  --hd-main-solid-text-highlight-color: #fcd34d; /* Bright Gold */
-  --hd-main-solid-text-muted-color: #bfdbfe;
-
-  /* Soft Surface Inverted */
-  --hd-main-soft-background-color-inverted: #1e3a8a; /* Deep Navy Background */
-  --hd-main-soft-text-color-inverted: #f0f4f8;
-  --hd-main-soft-text-highlight-color-inverted: #fbbf24;
-  --hd-main-soft-text-muted-color-inverted: #93c5fd;
+  /* Soft Surface Inverted (Obsidian Dark Mode) */
+  --hd-base-soft-background-color-inverted: var(--corporate-text-color);
+  --hd-base-soft-text-color-inverted: var(--corporate-background-color);
+  --hd-base-soft-text-highlight-color-inverted: color-mix(in srgb, var(--corporate-accent-color) 80%, var(--corporate-background-color));
+  --hd-base-soft-text-muted-color-inverted: rgba(from var(--corporate-background-color) r g b / 0.6);
 
   /* Solid Surface Inverted */
-  --hd-main-solid-background-color-inverted: #ffffff;
-  --hd-main-solid-text-color-inverted: #1e3a8a;
-  --hd-main-solid-text-highlight-color-inverted: #d97706;
-  --hd-main-solid-text-muted-color-inverted: #475569;
+  --hd-base-solid-background-color-inverted: color-mix(in srgb, var(--corporate-text-color) 88%, var(--corporate-background-color));
+  --hd-base-solid-text-color-inverted: var(--corporate-background-color);
+  --hd-base-solid-text-highlight-color-inverted: color-mix(in srgb, var(--corporate-accent-color) 80%, var(--corporate-background-color));
+  --hd-base-solid-text-muted-color-inverted: rgba(from var(--corporate-background-color) r g b / 0.6);
 
   /* ========================================================
-     ACCENT THEME (Brand Teal) - Corporate Teal themed
+     MAIN THEME (Brand Trust Navy) - Classic Deep Navy
      ======================================================== */
   /* Soft Surface */
-  --hd-accent-soft-background-color: #f0fdfa; /* Light Teal Tint */
-  --hd-accent-soft-text-color: #0f766e; /* Deep Teal */
-  --hd-accent-soft-text-highlight-color: #d97706;
-  --hd-accent-soft-text-muted-color: #4b5563;
+  --hd-main-soft-background-color: rgba(from var(--corporate-main-color) r g b / 0.06);
+  --hd-main-soft-text-color: var(--corporate-main-color);
+  --hd-main-soft-text-highlight-color: var(--corporate-accent-color);
+  --hd-main-soft-text-muted-color: rgba(from var(--corporate-main-color) r g b / 0.65);
 
   /* Solid Surface */
-  --hd-accent-solid-background-color: #0d9488; /* Corporate Teal Accent */
-  --hd-accent-solid-text-color: #ffffff;
-  --hd-accent-solid-text-highlight-color: #fdba74;
-  --hd-accent-solid-text-muted-color: #ccfbf1;
+  --hd-main-solid-background-color: var(--corporate-main-color);
+  --hd-main-solid-text-color: var(--corporate-background-color);
+  --hd-main-solid-text-highlight-color: color-mix(in srgb, var(--corporate-accent-color) 70%, var(--corporate-background-color));
+  --hd-main-solid-text-muted-color: rgba(from var(--corporate-background-color) r g b / 0.7);
 
   /* Soft Surface Inverted */
-  --hd-accent-soft-background-color-inverted: #115e59; /* Deep Teal Background */
-  --hd-accent-soft-text-color-inverted: #f0fdfa;
-  --hd-accent-soft-text-highlight-color-inverted: #fbbf24;
-  --hd-accent-soft-text-muted-color-inverted: #99f6e4;
+  --hd-main-soft-background-color-inverted: var(--corporate-main-color);
+  --hd-main-soft-text-color-inverted: var(--corporate-background-color);
+  --hd-main-soft-text-highlight-color-inverted: color-mix(in srgb, var(--corporate-accent-color) 70%, var(--corporate-background-color));
+  --hd-main-soft-text-muted-color-inverted: rgba(from var(--corporate-background-color) r g b / 0.7);
 
   /* Solid Surface Inverted */
-  --hd-accent-solid-background-color-inverted: #ffffff;
-  --hd-accent-solid-text-color-inverted: #0d9488;
-  --hd-accent-solid-text-highlight-color-inverted: #d97706;
-  --hd-accent-solid-text-muted-color-inverted: #475569;
+  --hd-main-solid-background-color-inverted: var(--corporate-background-color);
+  --hd-main-solid-text-color-inverted: var(--corporate-main-color);
+  --hd-main-solid-text-highlight-color-inverted: var(--corporate-accent-color);
+  --hd-main-solid-text-muted-color-inverted: rgba(from var(--corporate-main-color) r g b / 0.65);
 
   /* ========================================================
-     POLISHED EXECUTIVE DESIGN OVERRIDES
+     ACCENT THEME (Brand Copper) - Classic Copper Accent
+     ======================================================== */
+  /* Soft Surface */
+  --hd-accent-soft-background-color: rgba(from var(--corporate-accent-color) r g b / 0.06);
+  --hd-accent-soft-text-color: var(--corporate-accent-color);
+  --hd-accent-soft-text-highlight-color: var(--corporate-main-color);
+  --hd-accent-soft-text-muted-color: rgba(from var(--corporate-accent-color) r g b / 0.65);
+
+  /* Solid Surface */
+  --hd-accent-solid-background-color: var(--corporate-accent-color);
+  --hd-accent-solid-text-color: var(--corporate-background-color);
+  --hd-accent-solid-text-highlight-color: color-mix(in srgb, var(--corporate-main-color) 40%, var(--corporate-background-color));
+  --hd-accent-solid-text-muted-color: rgba(from var(--corporate-background-color) r g b / 0.7);
+
+  /* Soft Surface Inverted */
+  --hd-accent-soft-background-color-inverted: var(--corporate-accent-color);
+  --hd-accent-soft-text-color-inverted: var(--corporate-background-color);
+  --hd-accent-soft-text-highlight-color-inverted: color-mix(in srgb, var(--corporate-main-color) 40%, var(--corporate-background-color));
+  --hd-accent-soft-text-muted-color-inverted: rgba(from var(--corporate-background-color) r g b / 0.7);
+
+  /* Solid Surface Inverted */
+  --hd-accent-solid-background-color-inverted: var(--corporate-background-color);
+  --hd-accent-solid-text-color-inverted: var(--corporate-accent-color);
+  --hd-accent-solid-text-highlight-color-inverted: var(--corporate-main-color);
+  --hd-accent-solid-text-muted-color-inverted: rgba(from var(--corporate-accent-color) r g b / 0.65);
+
+  /* ========================================================
+     MINIMAL EXECUTIVE DESIGN OVERRIDES
      ======================================================== */
 
-  /* Spacing Scale (Fine-tuned for a cleaner, tighter layout) */
-  --hd-gap-1: 6px;
-  --hd-gap-2: 12px;
-  --hd-gap-3: 20px;
-  --hd-gap-4: 28px;
-  --hd-gap-5: 36px;
-  --hd-gap-6: 48px;
+  /* Spacing Scale (8-byte base, spacious for negative space) */
+  --hd-gap-1: 8px;
+  --hd-gap-2: 16px;
+  --hd-gap-3: 24px;
+  --hd-gap-4: 36px;
+  --hd-gap-5: 48px;
+  --hd-gap-6: 64px;
+
+  /* Slide Margins (Spacious) */
+  --hd-slide-margin-top: var(--hd-gap-5);
+  --hd-slide-margin-bottom: var(--hd-gap-5);
+  --hd-slide-margin-left: var(--hd-gap-6);
+  --hd-slide-margin-right: var(--hd-gap-6);
 
   /* Heading Dividers - Custom Corporate Accent Stripe */
   --hd-layout-heading-divider-display: block;
   --hd-layout-heading-divider-height: 2px;
 
-  /* Component Rounding - Sharp and precise */
-  --hd-card-border-radius: 6px;
-  --hd-box-border-radius: 6px;
-  --hd-callout-border-radius: 6px;
-  --hd-codeblock-border-radius: 6px;
-  --hd-img-border-radius: 6px;
+  /* Component Rounding - Sharp and minimal */
+  --hd-card-border-radius: 4px;
+  --hd-box-border-radius: 4px;
+  --hd-callout-border-radius: 4px;
+  --hd-codeblock-border-radius: 4px;
+  --hd-img-border-radius: 4px;
 
-  /* Card Design Overrides */
+  /* Card Design Overrides - Minimal Flat Border, Almost No Shadow */
   --hd-card-border-width: 1px;
-  --hd-card-box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03), 0 8px 24px rgba(15, 23, 42, 0.04);
+  --hd-card-box-shadow: 0 1px 2px rgba(from var(--hd-base-soft-text-color) r g b / 0.04);
 
   /* Box Design Overrides */
   --hd-box-border-width: 1px;
   --hd-box-box-shadow: none;
 
   /* Callout Design Overrides */
-  --hd-callout-border-width: 0 0 0 4px;
+  --hd-callout-border-width: 0 0 0 3px;
 
   /* Codeblock Overrides - Slate Dark theme for code */
-  --hd-codeblock-background-color: #0f172a;
-  --hd-codeblock-border-color: rgba(255, 255, 255, 0.1);
+  --hd-codeblock-background-color: #0c1322;
+  --hd-codeblock-border-color: rgba(255, 255, 255, 0.08);
   --hd-codeblock-box-shadow: none;
 
   /* Table Design Overrides */
-  --hd-table-border-color: rgba(from var(--hd-base-soft-text-color) r g b / 0.1);
-  --hd-table-cell-padding: 10px 14px;
+  --hd-table-border-color: rgba(from var(--hd-base-soft-text-color) r g b / 0.08);
+  --hd-table-cell-padding: 8px 12px;
 
   /* Image Shadow Overrides */
-  --hd-img-border-color: rgba(from var(--hd-base-soft-text-color) r g b / 0.08);
-  --hd-img-box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
+  --hd-img-border-color: rgba(from var(--hd-base-soft-text-color) r g b / 0.06);
+  --hd-img-box-shadow: none;
 
   /* Scrollbars thumbs */
   --hd-scrollbar-track-bg: transparent;
-  --hd-scrollbar-thumb-bg: rgba(from var(--hd-base-soft-text-color) r g b / 0.15);
-  --hd-scrollbar-thumb-hover-bg: rgba(from var(--hd-base-soft-text-color) r g b / 0.3);
+  --hd-scrollbar-thumb-bg: rgba(from var(--hd-base-soft-text-color) r g b / 0.12);
+  --hd-scrollbar-thumb-hover-bg: rgba(from var(--hd-base-soft-text-color) r g b / 0.25);
 }
 
 * {
-  --hd-border-color-default: rgba(from var(--hd-body-text-color) r g b / 0.12);
-  --hd-border-color-surfaced: rgba(from var(--hd-body-text-color) r g b / 0.25);
+  --hd-border-color-default: rgba(from var(--hd-body-text-color) r g b / 0.08);
+  --hd-border-color-surfaced: rgba(from var(--hd-body-text-color) r g b / 0.18);
 }

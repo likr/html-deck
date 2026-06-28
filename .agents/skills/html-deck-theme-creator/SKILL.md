@@ -68,7 +68,16 @@ When defining translucent borders, shadows, or secondary tones derived from prim
   }
   ```
 
-### 4. Consult the Variables Reference
+### 4. The 4-Color Principle (4色の原則)
+When designing or modifying a theme, define exactly 4 base variables under the `:root` selector representing the core color palette:
+1. **Background Color** (e.g. `--custom-theme-background-color`)
+2. **Text Color** (e.g. `--custom-theme-text-color`)
+3. **Main Color** (e.g. `--custom-theme-main-color`)
+4. **Accent Color** (e.g. `--custom-theme-accent-color`)
+
+ALL other colors in the 48-color matrix (including muted states, highlights, secondary background shades, and dark/inverted variants) **MUST** be derived from these 4 base colors using CSS Relative Color Syntax (`rgba(from var(...) r g b / opacity)`) or color mixing (`color-mix(in srgb, ...)`). Do not hardcode raw hex, rgb, or hsl values for matrix elements. This ensures visual harmony and guarantees that changing the 4 base variables will cleanly propagate through the entire presentation theme.
+
+### 5. Consult the Variables Reference
 Whenever you need to override colors, font sizes, padding, margins, or individual component properties, **you MUST read the [css_variables.md](file:///home/likr/work/likr/html-deck/.agents/skills/html-deck-theme-creator/references/css_variables.md) reference file** using the `view_file` tool to locate the exact variable name and its default behavior.
 
 
