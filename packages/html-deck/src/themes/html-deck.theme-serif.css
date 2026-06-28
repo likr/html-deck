@@ -95,7 +95,6 @@
   /* Slide Border Customization - Fine thin border around slides */
   --hd-slide-border-width: 1px;
   --hd-slide-border-style: solid;
-  --hd-slide-border-color: rgba(from var(--hd-text-color) r g b / 0.15);
 
 
   /* Spacing & Layout - Generous and structured */
@@ -109,7 +108,6 @@
   /* Heading Dividers - Thin, elegant hairline accent color divider */
   --hd-layout-heading-divider-display: block;
   --hd-layout-heading-divider-height: 1px;
-  --hd-layout-divider-color: rgba(from var(--hd-main-soft-text-color) r g b / 0.3);
 
   /* Typography Fine-Tuning */
   --hd-text-title-letter-spacing: -0.01em;
@@ -147,7 +145,7 @@
   /* Blockquote Decor */
   --hd-blockquote-border-width: 3px;
   --hd-blockquote-border-style: solid;
-  --hd-blockquote-border-color: var(--hd-layout-divider-color);
+  --hd-blockquote-border-color: var(--hd-border-color);
   --hd-blockquote-padding-top: 4px;
   --hd-blockquote-padding-right: 0px;
   --hd-blockquote-padding-bottom: 4px;
@@ -161,4 +159,9 @@
   --hd-scrollbar-track-bg: transparent;
   --hd-scrollbar-thumb-bg: rgba(from var(--hd-base-soft-text-color) r g b / 0.12);
   --hd-scrollbar-thumb-hover-bg: rgba(from var(--hd-base-soft-text-color) r g b / 0.25);
+}
+
+* {
+  --hd-border-color-default: rgba(from var(--hd-body-text-color) r g b / 0.15);
+  --hd-border-color-surfaced: rgba(from var(--hd-body-text-color) r g b / 0.3);
 }

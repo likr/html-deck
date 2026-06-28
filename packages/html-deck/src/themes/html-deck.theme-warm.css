@@ -115,7 +115,6 @@
   /* Heading Dividers - Thin clay color divider */
   --hd-layout-heading-divider-display: block;
   --hd-layout-heading-divider-height: 2px;
-  --hd-layout-divider-color: rgba(from var(--hd-main-soft-text-color) r g b / 0.25);
 
   /* Typography Sizing Scale Adjustments */
   --hd-size-1: 56px;
@@ -177,4 +176,9 @@
   --hd-scrollbar-track-bg: transparent;
   --hd-scrollbar-thumb-bg: rgba(from var(--hd-base-soft-text-color) r g b / 0.15);
   --hd-scrollbar-thumb-hover-bg: var(--hd-main-soft-text-color);
+}
+
+* {
+  --hd-border-color-default: rgba(from var(--hd-body-text-color) r g b / 0.15);
+  --hd-border-color-surfaced: rgba(from var(--hd-body-text-color) r g b / 0.25);
 }

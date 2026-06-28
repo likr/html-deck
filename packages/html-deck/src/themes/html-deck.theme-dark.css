@@ -1,122 +1,143 @@
 /* html-deck.theme-dark.css - Slate Dark Theme for HTML-Deck */
 :root {
-  /* ========================================================
+   /* ========================================================
      BASE THEME (Standard/Neutral) - Slate Dark, Crisp White Inverted
      ======================================================== */
-  /* Soft Surface (Slide default) */
-  --hd-base-soft-background-color: #0f172a; /* Slate 900 */
-  --hd-base-soft-text-color: #f8fafc; /* Slate 50 */
-  --hd-base-soft-text-highlight-color: #fb923c; /* Orange 400 */
-  --hd-base-soft-text-muted-color: #94a3b8; /* Slate 400 */
+   /* Soft Surface (Slide default) */
+   --hd-base-soft-background-color: #0f172a;
+   /* Slate 900 */
+   --hd-base-soft-text-color: #f8fafc;
+   /* Slate 50 */
+   --hd-base-soft-text-highlight-color: #fb923c;
+   /* Orange 400 */
+   --hd-base-soft-text-muted-color: #94a3b8;
+   /* Slate 400 */
 
-  /* Solid Surface (Medium bg / Dark text) */
-  --hd-base-solid-background-color: #1e293b; /* Slate 800 */
-  --hd-base-solid-text-color: #f8fafc;
-  --hd-base-solid-text-highlight-color: #fb923c;
-  --hd-base-solid-text-muted-color: #94a3b8;
+   /* Solid Surface (Medium bg / Dark text) */
+   --hd-base-solid-background-color: #1e293b;
+   /* Slate 800 */
+   --hd-base-solid-text-color: #f8fafc;
+   --hd-base-solid-text-highlight-color: #fb923c;
+   --hd-base-solid-text-muted-color: #94a3b8;
 
-  /* Soft Surface Inverted (Light Slide Mode) */
-  --hd-base-soft-background-color-inverted: #ffffff;
-  --hd-base-soft-text-color-inverted: #0f172a; /* Slate 900 */
-  --hd-base-soft-text-highlight-color-inverted: #c2410c; /* Orange 700 */
-  --hd-base-soft-text-muted-color-inverted: #475569; /* Slate 600 */
+   /* Soft Surface Inverted (Light Slide Mode) */
+   --hd-base-soft-background-color-inverted: #ffffff;
+   --hd-base-soft-text-color-inverted: #0f172a;
+   /* Slate 900 */
+   --hd-base-soft-text-highlight-color-inverted: #c2410c;
+   /* Orange 700 */
+   --hd-base-soft-text-muted-color-inverted: #475569;
+   /* Slate 600 */
 
-  /* Solid Surface Inverted (Slate Solid Light Mode) */
-  --hd-base-solid-background-color-inverted: #f1f5f9; /* Slate 100 */
-  --hd-base-solid-text-color-inverted: #0f172a;
-  --hd-base-solid-text-highlight-color-inverted: #9a3412; /* Deep Orange */
-  --hd-base-solid-text-muted-color-inverted: #475569;
+   /* Solid Surface Inverted (Slate Solid Light Mode) */
+   --hd-base-solid-background-color-inverted: #f1f5f9;
+   /* Slate 100 */
+   --hd-base-solid-text-color-inverted: #0f172a;
+   --hd-base-solid-text-highlight-color-inverted: #9a3412;
+   /* Deep Orange */
+   --hd-base-solid-text-muted-color-inverted: #475569;
 
-  /* ========================================================
+   /* ========================================================
      MAIN THEME (Brand Trust Navy/Indigo)
      ======================================================== */
-  /* Soft Surface (Deep Navy bg) */
-  --hd-main-soft-background-color: #1e1b4b; /* Indigo 955 */
-  --hd-main-soft-text-color: #c7d2fe; /* Indigo 200 */
-  --hd-main-soft-text-highlight-color: #fb923c; /* Orange 400 */
-  --hd-main-soft-text-muted-color: #818cf8; /* Indigo 400 */
+   /* Soft Surface (Deep Navy bg) */
+   --hd-main-soft-background-color: #1e1b4b;
+   /* Indigo 955 */
+   --hd-main-soft-text-color: #c7d2fe;
+   /* Indigo 200 */
+   --hd-main-soft-text-highlight-color: #fb923c;
+   /* Orange 400 */
+   --hd-main-soft-text-muted-color: #818cf8;
+   /* Indigo 400 */
 
-  /* Solid Surface (Vibrant Brand Blue) */
-  --hd-main-solid-background-color: #4f46e5; /* Indigo 600 */
-  --hd-main-solid-text-color: #ffffff;
-  --hd-main-solid-text-highlight-color: #fed7aa; /* Orange 200 */
-  --hd-main-solid-text-muted-color: #c7d2fe;
+   /* Solid Surface (Vibrant Brand Blue) */
+   --hd-main-solid-background-color: #4f46e5;
+   /* Indigo 600 */
+   --hd-main-solid-text-color: #ffffff;
+   --hd-main-solid-text-highlight-color: #fed7aa;
+   /* Orange 200 */
+   --hd-main-solid-text-muted-color: #c7d2fe;
 
-  /* Soft Surface Inverted (Light Indigo Mode) */
-  --hd-main-soft-background-color-inverted: #eef2ff; /* Indigo 50 */
-  --hd-main-soft-text-color-inverted: #312e81; /* Indigo 900 */
-  --hd-main-soft-text-highlight-color-inverted: #c2410c; /* Orange 700 */
-  --hd-main-soft-text-muted-color-inverted: #4338ca; /* Indigo 700 */
+   /* Soft Surface Inverted (Light Indigo Mode) */
+   --hd-main-soft-background-color-inverted: #eef2ff;
+   /* Indigo 50 */
+   --hd-main-soft-text-color-inverted: #312e81;
+   /* Indigo 900 */
+   --hd-main-soft-text-highlight-color-inverted: #c2410c;
+   /* Orange 700 */
+   --hd-main-soft-text-muted-color-inverted: #4338ca;
+   /* Indigo 700 */
 
-  /* Solid Surface Inverted */
-  --hd-main-solid-background-color-inverted: #ffffff;
-  --hd-main-solid-text-color-inverted: #4f46e5;
-  --hd-main-solid-text-highlight-color-inverted: #c2410c;
-  --hd-main-solid-text-muted-color-inverted: #4338ca;
+   /* Solid Surface Inverted */
+   --hd-main-solid-background-color-inverted: #ffffff;
+   --hd-main-solid-text-color-inverted: #4f46e5;
+   --hd-main-solid-text-highlight-color-inverted: #c2410c;
+   --hd-main-solid-text-muted-color-inverted: #4338ca;
 
-  /* ========================================================
+   /* ========================================================
      ACCENT THEME (Brand Amber/Orange)
      ======================================================== */
-  /* Soft Surface (Deep Warm Rust bg) */
-  --hd-accent-soft-background-color: #431407; /* Orange 955/Rust */
-  --hd-accent-soft-text-color: #fed7aa; /* Orange 200 */
-  --hd-accent-soft-text-highlight-color: #a5b4fc; /* Indigo 300 */
-  --hd-accent-soft-text-muted-color: #f97316; /* Orange 500 */
+   /* Soft Surface (Deep Warm Rust bg) */
+   --hd-accent-soft-background-color: #431407;
+   /* Orange 955/Rust */
+   --hd-accent-soft-text-color: #fed7aa;
+   /* Orange 200 */
+   --hd-accent-soft-text-highlight-color: #a5b4fc;
+   /* Indigo 300 */
+   --hd-accent-soft-text-muted-color: #f97316;
+   /* Orange 500 */
 
-  /* Solid Surface (Vibrant Orange Accent) */
-  --hd-accent-solid-background-color: #ea580c; /* Orange 600 */
-  --hd-accent-solid-text-color: #ffffff;
-  --hd-accent-solid-text-highlight-color: #c7d2fe; /* Indigo 200 */
-  --hd-accent-solid-text-muted-color: #fed7aa;
+   /* Solid Surface (Vibrant Orange Accent) */
+   --hd-accent-solid-background-color: #ea580c;
+   /* Orange 600 */
+   --hd-accent-solid-text-color: #ffffff;
+   --hd-accent-solid-text-highlight-color: #c7d2fe;
+   /* Indigo 200 */
+   --hd-accent-solid-text-muted-color: #fed7aa;
 
-  /* Soft Surface Inverted (Light Orange Mode) */
-  --hd-accent-soft-background-color-inverted: #fff7ed; /* Orange 50 */
-  --hd-accent-soft-text-color-inverted: #7c2d12; /* Orange 900 */
-  --hd-accent-soft-text-highlight-color-inverted: #4338ca; /* Indigo 700 */
-  --hd-accent-soft-text-muted-color-inverted: #c2410c; /* Orange 700 */
+   /* Soft Surface Inverted (Light Orange Mode) */
+   --hd-accent-soft-background-color-inverted: #fff7ed;
+   /* Orange 50 */
+   --hd-accent-soft-text-color-inverted: #7c2d12;
+   /* Orange 900 */
+   --hd-accent-soft-text-highlight-color-inverted: #4338ca;
+   /* Indigo 700 */
+   --hd-accent-soft-text-muted-color-inverted: #c2410c;
+   /* Orange 700 */
 
-  /* Solid Surface Inverted */
-  --hd-accent-solid-background-color-inverted: #ffffff;
-  --hd-accent-solid-text-color-inverted: #ea580c;
-  --hd-accent-solid-text-highlight-color-inverted: #4338ca;
-  --hd-accent-solid-text-muted-color-inverted: #c2410c;
-
-  /* ========================================================
-     SEMANTIC SLIDE COLORS (Explicit mappings)
-     ======================================================== */
-  /* Card elevation: map component soft variables to solid base variables */
-  --hd-soft-background-color: var(--hd-base-solid-background-color);
-  --hd-soft-text-color: var(--hd-base-solid-text-color);
-  --hd-soft-text-highlight-color: var(--hd-base-solid-text-highlight-color);
-  --hd-soft-text-muted-color: var(--hd-base-solid-text-muted-color);
+   /* Solid Surface Inverted */
+   --hd-accent-solid-background-color-inverted: #ffffff;
+   --hd-accent-solid-text-color-inverted: #ea580c;
+   --hd-accent-solid-text-highlight-color-inverted: #4338ca;
+   --hd-accent-solid-text-muted-color-inverted: #c2410c;
 
 
-  /* ========================================================
+   /* ========================================================
      DARK-SPECIFIC COMPONENT OVERRIDES & ELEVATIONS
      ======================================================== */
-  /* Card Design - Elevate with Solid background and proper dark shadow */
-  --hd-card-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.2);
+   /* Card Design - Elevate with Solid background and proper dark shadow */
+   --hd-card-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.2);
 
-  /* Box Design */
-  --hd-box-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.2);
+   /* Box Design */
+   --hd-box-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.2);
 
-  /* Codeblock Design - Darker background for contrast inside cards/slides */
-  --hd-codeblock-background-color: #0b0f19;
-  --hd-codeblock-border-color: rgba(255, 255, 255, 0.1);
+   /* Codeblock Design - Darker background for contrast inside cards/slides */
+   --hd-codeblock-background-color: #0b0f19;
+   --hd-codeblock-border-color: rgba(255, 255, 255, 0.1);
 
-  /* Image border color */
-  --hd-img-border-color: rgba(255, 255, 255, 0.08);
-  --hd-img-box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+   /* Image border color */
+   --hd-img-border-color: rgba(255, 255, 255, 0.08);
+   --hd-img-box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 
-  /* Table Decor */
-  --hd-table-border-color: rgba(255, 255, 255, 0.1);
-  --hd-table-row-striped-background-color: rgba(255, 255, 255, 0.02);
+   /* Table Decor */
+   --hd-table-border-color: rgba(255, 255, 255, 0.1);
+   --hd-table-row-striped-background-color: rgba(255, 255, 255, 0.02);
 
-  /* Blockquote Decor */
-  --hd-blockquote-border-color: rgba(255, 255, 255, 0.2);
+   /* Blockquote Decor */
+   --hd-blockquote-border-color: rgba(255, 255, 255, 0.2);
 
-  /* Scrollbars thumbs - Elegant dynamic translucent gray */
-  --hd-scrollbar-track-bg: transparent;
-  --hd-scrollbar-thumb-bg: rgba(from var(--hd-base-soft-text-color) r g b / 0.15);
-  --hd-scrollbar-thumb-hover-bg: rgba(from var(--hd-base-soft-text-color) r g b / 0.3);
+   /* Scrollbars thumbs - Elegant dynamic translucent gray */
+   --hd-scrollbar-track-bg: transparent;
+   --hd-scrollbar-thumb-bg: rgba(from var(--hd-base-soft-text-color) r g b / 0.15);
+   --hd-scrollbar-thumb-hover-bg: rgba(from var(--hd-base-soft-text-color) r g b / 0.3);
 }

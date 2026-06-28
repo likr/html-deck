@@ -106,7 +106,6 @@
    /* Layout Spacing Overrides */
    --hd-layout-heading-divider-display: block;
    --hd-layout-heading-divider-height: 2px;
-   --hd-layout-divider-color: repeating-linear-gradient(90deg, var(--hd-heading-text-color) 0 4px, transparent 4px 8px);
 
 
    /* Text Selection overrides */
@@ -179,4 +178,6 @@
    --hd-body-text-color: var(--hd-soft-text-color);
    --hd-body-text-highlight-color: var(--hd-soft-text-highlight-color);
    --hd-body-text-muted-color: var(--hd-soft-text-muted-color);
+   --hd-border-color-default: repeating-linear-gradient(90deg, var(--hd-heading-text-color) 0 4px, transparent 4px 8px);
+   --hd-border-color-surfaced: repeating-linear-gradient(90deg, var(--hd-heading-text-color) 0 4px, transparent 4px 8px);
 }

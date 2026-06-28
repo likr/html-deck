@@ -351,13 +351,17 @@
         <h2 slot="heading">Callout Boxes</h2>
         <p>Callouts are styled text blocks with thick left-accent borders to emphasize recommendations, warning alerts,
           or quotes.</p>
-        <hd-callout variant="accent">
-          <p class="hd-text-weight-bold">Accent Callout</p>
-          <p>Draws intense focus for alerts, notes, or warnings.</p>
+        <hd-callout variant="base">
+          <p class="hd-text-weight-bold">Base Callout</p>
+          <p>This is a callout with base styling.</p>
         </hd-callout>
         <hd-callout variant="main">
           <p class="hd-text-weight-bold">Main Callout</p>
           <p>Subtle theme color formatting for key highlights.</p>
+        </hd-callout>
+        <hd-callout variant="accent">
+          <p class="hd-text-weight-bold">Accent Callout</p>
+          <p>Draws intense focus for alerts, notes, or warnings.</p>
         </hd-callout>
       </hd-layout>
       <div slot="notes">
@@ -656,41 +660,41 @@
     <hd-slide>
       <hd-layout-split>
         <h2 slot="heading">Lists: Bullet & Ordered</h2>
-      <div slot="left">
-        <p class="hd-text-weight-bold">Unordered Nested List</p>
+        <div slot="left">
+          <p class="hd-text-weight-bold">Unordered Nested List</p>
+          <ul>
+            <li>Level 1 (Disc bullet)
+              <ul>
+                <li>Level 2 (Circle bullet)
+                  <ul>
+                    <li>Level 3 (Square bullet)</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div slot="right">
+          <p class="hd-text-weight-bold">Ordered Nested List</p>
+          <ol>
+            <li>Step One (Decimal)
+              <ol>
+                <li>Substep A (Lower-Alpha)
+                  <ol>
+                    <li>Detail i (Lower-Roman)</li>
+                  </ol>
+                </li>
+              </ol>
+            </li>
+          </ol>
+        </div>
+      </hd-layout-split>
+      <div slot="notes">
+        <h3>Slide 22: Lists</h3>
         <ul>
-          <li>Level 1 (Disc bullet)
-            <ul>
-              <li>Level 2 (Circle bullet)
-                <ul>
-                  <li>Level 3 (Square bullet)</li>
-                </ul>
-              </li>
-            </ul>
-          </li>
+          <li>Nested lists automatically alternate bullet symbols and numbering formats.</li>
         </ul>
       </div>
-      <div slot="right">
-        <p class="hd-text-weight-bold">Ordered Nested List</p>
-        <ol>
-          <li>Step One (Decimal)
-            <ol>
-              <li>Substep A (Lower-Alpha)
-                <ol>
-                  <li>Detail i (Lower-Roman)</li>
-                </ol>
-              </li>
-            </ol>
-          </li>
-        </ol>
-      </div>
-    </hd-layout-split>
-    <div slot="notes">
-      <h3>Slide 22: Lists</h3>
-      <ul>
-        <li>Nested lists automatically alternate bullet symbols and numbering formats.</li>
-      </ul>
-    </div>
     </hd-slide>
 
     <!-- Slide 23: Table Formatting -->

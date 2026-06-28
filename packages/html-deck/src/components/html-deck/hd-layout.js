@@ -35,7 +35,7 @@ export class HdLayout extends HTMLElement {
           display: none;
           border: none;
           height: var(--hd-layout-heading-divider-height, 1px);
-          background: var(--hd-heading-text-color);
+          background: var(--hd-border-color);
           box-shadow: var(--hd-layout-heading-divider-box-shadow, none);
           margin: 0;
           width: 100%;

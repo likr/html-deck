@@ -73,12 +73,20 @@ When styling layouts or container contexts with distinct background/foreground a
       color: var(--hd-text-color);
     }
     .heading-divider {
-      background: var(--hd-heading-text-color);
+      background: var(--hd-border-color);
     }
     .heading-area ::slotted(*) {
       color: var(--hd-heading-text-color);
     }
     ```
 - **Container Surfaces**: Containers (like `<hd-card>`, `<hd-box>`, `<hd-callout>`) override the `--hd-heading-*` and `--hd-body-*` variables inside `variables.css` depending on their surface attribute (`soft` vs `solid`). The standard variables (`--hd-background-color` etc.) will dynamically resolve to these overridden variables for their entire subtree, preventing any leakage.
-- **Theme Mappings**: Themes can customize heading/body behaviors globally by overriding the mappings under the `*` selector (e.g. mapping `--hd-heading-*` to `--hd-soft-*` variables instead of `--hd-solid-*` variables in `theme-neon.css` and `theme-dotted.css`).
+- **Unified Border Variables**:
+  - We define two border state variables globally on the `*` selector: `--hd-border-color-default` (defaults to `var(--hd-heading-background-color)`) and `--hd-border-color-surfaced` (defaults to `var(--hd-heading-text-color)`).
+  - In default component `:host` styling, we map `--hd-border-color: var(--hd-border-color-default);`.
+  - When `surface` is `soft` or `solid` on slides or container components, we override `--hd-border-color: var(--hd-border-color-surfaced);` in their component stylesheets.
+- **Theme Border Customization**:
+  - Themes can customize default and surfaced border behaviors globally by overriding `--hd-border-color-default` and `--hd-border-color-surfaced` under the `*` selector.
+  - To keep color settings contextual, themes should derive these border colors from active contextual variables (like `--hd-body-text-color`) using relative color syntax rather than hardcoding static color values.
+    - Example: `--hd-border-color-default: rgba(from var(--hd-body-text-color) r g b / 0.15);`
+    - Example: `--hd-border-color-surfaced: rgba(from var(--hd-body-text-color) r g b / 0.3);`
 

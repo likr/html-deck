@@ -77,53 +77,21 @@ HdSlide.baseStyles = `
     font-weight: var(--hd-text-body-font-weight);
     line-height: var(--hd-text-body-line-height);
     letter-spacing: var(--hd-text-body-letter-spacing);
-    border: var(--hd-slide-border-width) var(--hd-slide-border-style) var(--hd-heading-text-color);
+    border: var(--hd-slide-border-width) var(--hd-slide-border-style) var(--hd-border-color);
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
     overflow: hidden;
     box-sizing: border-box;
 
-    --hd-soft-background-color: var(--hd-base-soft-background-color);
-    --hd-soft-text-color: var(--hd-base-soft-text-color);
-    --hd-soft-text-highlight-color: var(--hd-base-soft-text-highlight-color);
-    --hd-soft-text-muted-color: var(--hd-base-soft-text-muted-color);
-    --hd-solid-background-color: var(--hd-main-solid-background-color);
-    --hd-solid-text-color: var(--hd-main-solid-text-color);
-    --hd-solid-text-highlight-color: var(--hd-main-solid-text-highlight-color);
-    --hd-solid-text-muted-color: var(--hd-main-solid-text-muted-color);
     --hd-background-color: var(--hd-body-background-color);
     --hd-text-color: var(--hd-body-text-color);
     --hd-text-highlight-color: var(--hd-body-text-highlight-color);
     --hd-text-muted-color: var(--hd-body-text-muted-color);
-
+    --hd-border-color: var(--hd-border-color-default);
   }
 
   :host([inverted]) {
-    --hd-soft-background-color: var(--hd-base-soft-background-color-inverted);
-    --hd-soft-text-color: var(--hd-base-soft-text-color-inverted);
-    --hd-soft-text-highlight-color: var(--hd-base-soft-text-highlight-color-inverted);
-    --hd-soft-text-muted-color: var(--hd-base-soft-text-muted-color-inverted);
-
-    --hd-solid-background-color: var(--hd-main-solid-background-color-inverted);
-    --hd-solid-text-color: var(--hd-main-solid-text-color-inverted);
-    --hd-solid-text-highlight-color: var(--hd-main-solid-text-highlight-color-inverted);
-    --hd-solid-text-muted-color: var(--hd-main-solid-text-muted-color-inverted);
-  }
-
-  /* --- Variant Overrides (modifies state variables only) --- */
-  :host([variant="default"]) {
-    --hd-soft-background-color: var(--hd-base-soft-background-color);
-    --hd-soft-text-color: var(--hd-base-soft-text-color);
-    --hd-soft-text-highlight-color: var(--hd-base-soft-text-highlight-color);
-    --hd-soft-text-muted-color: var(--hd-base-soft-text-muted-color);
-
-    --hd-solid-background-color: var(--hd-main-solid-background-color);
-    --hd-solid-text-color: var(--hd-main-solid-text-color);
-    --hd-solid-text-highlight-color: var(--hd-main-solid-text-highlight-color);
-    --hd-solid-text-muted-color: var(--hd-main-solid-text-muted-color);
-  }
-  :host([variant="default"][inverted]) {
     --hd-soft-background-color: var(--hd-base-soft-background-color-inverted);
     --hd-soft-text-color: var(--hd-base-soft-text-color-inverted);
     --hd-soft-text-highlight-color: var(--hd-base-soft-text-highlight-color-inverted);
@@ -141,10 +109,10 @@ HdSlide.baseStyles = `
     --hd-soft-text-highlight-color: var(--hd-base-soft-text-highlight-color);
     --hd-soft-text-muted-color: var(--hd-base-soft-text-muted-color);
 
-    --hd-solid-background-color: var(--hd-base-soft-background-color);
-    --hd-solid-text-color: var(--hd-base-soft-text-color);
-    --hd-solid-text-highlight-color: var(--hd-base-soft-text-highlight-color);
-    --hd-solid-text-muted-color: var(--hd-base-soft-text-muted-color);
+    --hd-solid-background-color: var(--hd-base-solid-background-color);
+    --hd-solid-text-color: var(--hd-base-solid-text-color);
+    --hd-solid-text-highlight-color: var(--hd-base-solid-text-highlight-color);
+    --hd-solid-text-muted-color: var(--hd-base-solid-text-muted-color);
   }
   :host([variant="base"][inverted]) {
     --hd-soft-background-color: var(--hd-base-soft-background-color-inverted);
@@ -152,10 +120,10 @@ HdSlide.baseStyles = `
     --hd-soft-text-highlight-color: var(--hd-base-soft-text-highlight-color-inverted);
     --hd-soft-text-muted-color: var(--hd-base-soft-text-muted-color-inverted);
 
-    --hd-solid-background-color: var(--hd-base-soft-background-color-inverted);
-    --hd-solid-text-color: var(--hd-base-soft-text-color-inverted);
-    --hd-solid-text-highlight-color: var(--hd-base-soft-text-highlight-color-inverted);
-    --hd-solid-text-muted-color: var(--hd-base-soft-text-muted-color-inverted);
+    --hd-solid-background-color: var(--hd-base-solid-background-color-inverted);
+    --hd-solid-text-color: var(--hd-base-solid-text-color-inverted);
+    --hd-solid-text-highlight-color: var(--hd-base-solid-text-highlight-color-inverted);
+    --hd-solid-text-muted-color: var(--hd-base-solid-text-muted-color-inverted);
   }
 
   :host([variant="main"]) {
@@ -210,12 +178,14 @@ HdSlide.baseStyles = `
     --hd-solid-text-color: var(--hd-soft-text-color);
     --hd-solid-text-highlight-color: var(--hd-soft-text-highlight-color);
     --hd-solid-text-muted-color: var(--hd-soft-text-muted-color);
+    --hd-border-color: var(--hd-border-color-surfaced);
   }
   :host([surface="soft"][inverted]) {
     --hd-solid-background-color: var(--hd-soft-background-color);
     --hd-solid-text-color: var(--hd-soft-text-color);
     --hd-solid-text-highlight-color: var(--hd-soft-text-highlight-color);
     --hd-solid-text-muted-color: var(--hd-soft-text-muted-color);
+    --hd-border-color: var(--hd-border-color-surfaced);
   }
 
   :host([surface="solid"]) {
@@ -223,12 +193,14 @@ HdSlide.baseStyles = `
     --hd-soft-text-color: var(--hd-solid-text-color);
     --hd-soft-text-highlight-color: var(--hd-solid-text-highlight-color);
     --hd-soft-text-muted-color: var(--hd-solid-text-muted-color);
+    --hd-border-color: var(--hd-border-color-surfaced);
   }
   :host([surface="solid"][inverted]) {
     --hd-soft-background-color: var(--hd-solid-background-color);
     --hd-soft-text-color: var(--hd-solid-text-color);
     --hd-soft-text-highlight-color: var(--hd-solid-text-highlight-color);
     --hd-soft-text-muted-color: var(--hd-solid-text-muted-color);
+    --hd-border-color: var(--hd-border-color-surfaced);
   }
 
   /* --- Heading Attribute Customizations --- */

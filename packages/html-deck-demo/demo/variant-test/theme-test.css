@@ -1,104 +1,99 @@
 @import "html-deck/css";
 
 :root {
-  /* Fonts & General Styles */
-  --hd-font-family: 'Outfit', system-ui, sans-serif;
-  --hd-body-font: var(--hd-font-family);
-  --hd-heading-font: var(--hd-font-family);
+   /* Fonts & General Styles */
+   --hd-font-family: 'Outfit', system-ui, sans-serif;
+   --hd-body-font: var(--hd-font-family);
+   --hd-heading-font: var(--hd-font-family);
 
-  /* Border width for slides to make it clear */
-  --hd-slide-border-width: 4px;
-  --hd-slide-border-style: solid;
+   /* Border width for slides to make it clear */
+   --hd-slide-border-width: 4px;
+   --hd-slide-border-style: solid;
 
-  /* ========================================================
+   /* ========================================================
      BASE THEME (Standard/Neutral) - Highly contrasting colors
      ======================================================== */
-  /* Soft Surface (Slide default / Card base default) */
-  --hd-base-soft-background-color: #ffffff;
-  --hd-base-soft-text-color: #111111;
-  --hd-base-soft-text-highlight-color: #e11d48;
-  --hd-base-soft-text-muted-color: #71717a;
+   /* Soft Surface (Slide default / Card base default) */
+   --hd-base-soft-background-color: #ffffff;
+   --hd-base-soft-text-color: #111111;
+   --hd-base-soft-text-highlight-color: #e11d48;
+   --hd-base-soft-text-muted-color: #71717a;
 
-  /* Solid Surface (Layout Heading default) */
-  --hd-base-solid-background-color: #f4f4f5;
-  --hd-base-solid-text-color: #09090b;
-  --hd-base-solid-text-highlight-color: #dc2626;
-  --hd-base-solid-text-muted-color: #52525b;
+   /* Solid Surface (Layout Heading default) */
+   --hd-base-solid-background-color: #f4f4f5;
+   --hd-base-solid-text-color: #09090b;
+   --hd-base-solid-text-highlight-color: #dc2626;
+   --hd-base-solid-text-muted-color: #52525b;
 
-  /* Soft Surface Inverted */
-  --hd-base-soft-background-color-inverted: #09090b;
-  --hd-base-soft-text-color-inverted: #fafafa;
-  --hd-base-soft-text-highlight-color-inverted: #fb7185;
-  --hd-base-soft-text-muted-color-inverted: #a1a1aa;
+   /* Soft Surface Inverted */
+   --hd-base-soft-background-color-inverted: #09090b;
+   --hd-base-soft-text-color-inverted: #fafafa;
+   --hd-base-soft-text-highlight-color-inverted: #fb7185;
+   --hd-base-soft-text-muted-color-inverted: #a1a1aa;
 
-  /* Solid Surface Inverted */
-  --hd-base-solid-background-color-inverted: #18181b;
-  --hd-base-solid-text-color-inverted: #f4f4f5;
-  --hd-base-solid-text-highlight-color-inverted: #fca5a5;
-  --hd-base-solid-text-muted-color-inverted: #71717a;
+   /* Solid Surface Inverted */
+   --hd-base-solid-background-color-inverted: #18181b;
+   --hd-base-solid-text-color-inverted: #f4f4f5;
+   --hd-base-solid-text-highlight-color-inverted: #fca5a5;
+   --hd-base-solid-text-muted-color-inverted: #71717a;
 
-  /* ========================================================
+   /* ========================================================
      MAIN THEME (Purple) - Indigo / Purple contrast
      ======================================================== */
-  /* Soft Surface (Callout variant main default) */
-  --hd-main-soft-background-color: #f3e8ff;
-  --hd-main-soft-text-color: #4c1d95;
-  --hd-main-soft-text-highlight-color: #db2777;
-  --hd-main-soft-text-muted-color: #7c3aed;
+   /* Soft Surface (Callout variant main default) */
+   --hd-main-soft-background-color: #f3e8ff;
+   --hd-main-soft-text-color: #4c1d95;
+   --hd-main-soft-text-highlight-color: #db2777;
+   --hd-main-soft-text-muted-color: #7c3aed;
 
-  /* Solid Surface */
-  --hd-main-solid-background-color: #6d28d9;
-  --hd-main-solid-text-color: #ffffff;
-  --hd-main-solid-text-highlight-color: #fbbf24;
-  --hd-main-solid-text-muted-color: #c084fc;
+   /* Solid Surface */
+   --hd-main-solid-background-color: #6d28d9;
+   --hd-main-solid-text-color: #ffffff;
+   --hd-main-solid-text-highlight-color: #fbbf24;
+   --hd-main-solid-text-muted-color: #c084fc;
 
-  /* Soft Surface Inverted */
-  --hd-main-soft-background-color-inverted: #2e1065;
-  --hd-main-soft-text-color-inverted: #f5f3ff;
-  --hd-main-soft-text-highlight-color-inverted: #fcd34d;
-  --hd-main-soft-text-muted-color-inverted: #a78bfa;
+   /* Soft Surface Inverted */
+   --hd-main-soft-background-color-inverted: #2e1065;
+   --hd-main-soft-text-color-inverted: #f5f3ff;
+   --hd-main-soft-text-highlight-color-inverted: #fcd34d;
+   --hd-main-soft-text-muted-color-inverted: #a78bfa;
 
-  /* Solid Surface Inverted */
-  --hd-main-solid-background-color-inverted: #edd8fc;
-  --hd-main-solid-text-color-inverted: #3b0764;
-  --hd-main-solid-text-highlight-color-inverted: #c026d3;
-  --hd-main-solid-text-muted-color-inverted: #6b21a8;
+   /* Solid Surface Inverted */
+   --hd-main-solid-background-color-inverted: #edd8fc;
+   --hd-main-solid-text-color-inverted: #3b0764;
+   --hd-main-solid-text-highlight-color-inverted: #c026d3;
+   --hd-main-solid-text-muted-color-inverted: #6b21a8;
 
-  /* ========================================================
+   /* ========================================================
      ACCENT THEME (Teal/Emerald) - Teal contrast
      ======================================================== */
-  /* Soft Surface */
-  --hd-accent-soft-background-color: #ecfdf5;
-  --hd-accent-soft-text-color: #065f46;
-  --hd-accent-soft-text-highlight-color: #d97706;
-  --hd-accent-soft-text-muted-color: #059669;
+   /* Soft Surface */
+   --hd-accent-soft-background-color: #ecfdf5;
+   --hd-accent-soft-text-color: #065f46;
+   --hd-accent-soft-text-highlight-color: #d97706;
+   --hd-accent-soft-text-muted-color: #059669;
 
-  /* Solid Surface (Box variant accent default) */
-  --hd-accent-solid-background-color: #059669;
-  --hd-accent-solid-text-color: #ffffff;
-  --hd-accent-solid-text-highlight-color: #fde047;
-  --hd-accent-solid-text-muted-color: #6ee7b7;
+   /* Solid Surface (Box variant accent default) */
+   --hd-accent-solid-background-color: #059669;
+   --hd-accent-solid-text-color: #ffffff;
+   --hd-accent-solid-text-highlight-color: #fde047;
+   --hd-accent-solid-text-muted-color: #6ee7b7;
 
-  /* Soft Surface Inverted */
-  --hd-accent-soft-background-color-inverted: #064e3b;
-  --hd-accent-soft-text-color-inverted: #ecfdf5;
-  --hd-accent-soft-text-highlight-color-inverted: #f59e0b;
-  --hd-accent-soft-text-muted-color-inverted: #34d399;
+   /* Soft Surface Inverted */
+   --hd-accent-soft-background-color-inverted: #064e3b;
+   --hd-accent-soft-text-color-inverted: #ecfdf5;
+   --hd-accent-soft-text-highlight-color-inverted: #f59e0b;
+   --hd-accent-soft-text-muted-color-inverted: #34d399;
 
-  /* Solid Surface Inverted */
-  --hd-accent-solid-background-color-inverted: #d1fae5;
-  --hd-accent-solid-text-color-inverted: #047857;
-  --hd-accent-solid-text-highlight-color-inverted: #b91c1c;
-  --hd-accent-solid-text-muted-color-inverted: #059669;
+   /* Solid Surface Inverted */
+   --hd-accent-solid-background-color-inverted: #d1fae5;
+   --hd-accent-solid-text-color-inverted: #047857;
+   --hd-accent-solid-text-highlight-color-inverted: #b91c1c;
+   --hd-accent-solid-text-muted-color-inverted: #059669;
 
-  /* ========================================================
-     COMPONENT BORDER STYLES - Using Relative Color Syntax
-     ======================================================== */
-  --hd-card-border-color: rgba(from var(--hd-text-color) r g b / 0.2);
-  --hd-box-border-color: rgba(from var(--hd-text-color) r g b / 0.2);
-  --hd-callout-border-color: rgba(from var(--hd-text-color) r g b / 0.4);
+   --hd-callout-border-color: rgba(from var(--hd-text-color) r g b / 0.4);
 
-  /* Layout heading divider overrides */
-  --hd-layout-heading-divider-display: block;
-  --hd-layout-heading-divider-height: 2px;
+   /* Layout heading divider overrides */
+   --hd-layout-heading-divider-display: block;
+   --hd-layout-heading-divider-height: 2px;
 }
