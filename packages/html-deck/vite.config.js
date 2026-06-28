@@ -1,8 +1,18 @@
 import { defineConfig } from 'vite';
 import { resolve } from 'path';
+import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 export default defineConfig({
-  plugins: [],
+  plugins: [
+    viteStaticCopy({
+      targets: [
+        {
+          src: 'src/themes/*',
+          dest: 'themes'
+        }
+      ]
+    })
+  ],
   build: {
     lib: {
       entry: {

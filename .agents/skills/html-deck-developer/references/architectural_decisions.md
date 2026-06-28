@@ -114,5 +114,8 @@
   モジュールロード時に、指定されたID（`hd-global-styles` または `hd-presenter-global-styles`）を持つ `<style>` タグが存在しない場合のみ、`document.head.appendChild()` によってDOMにインジェクションします。これにより、二重ロードや不要な再パースを防ぎます。
 - **後方互換性の維持**:
   既存のテンプレートや手動で `html-deck/css` を読み込んでいるユーザーのビルドが壊れないよう、パッケージの `package.json` での `css` エクスポート定義と、Viteビルド時におけるCSSファイル抽出・出力用の通常の `import` ステートメントはそのまま残します。
+- **重複したCSSインポートの禁止とビルドエラーの回避**:
+  コアスタイルは `html-deck.js` にて自動でインジェクトされるようになったため、カスタムテーマなどのCSSファイル内で `@import "html-deck/css"` やそれに類するインポートを行ってはなりません。これは不要であるだけでなく、PostCSS や Vite のビルドプロセスにおいて解決エラー (`ENOENT: no such file or directory, open 'html-deck/css'`) を引き起こす原因となります。
+
 
 
