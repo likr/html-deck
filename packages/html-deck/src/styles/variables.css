@@ -201,6 +201,7 @@
     --hd-layout-heading-margin: var(--hd-gap-4);
     --hd-layout-cover-title-margin-bottom: var(--hd-gap-3);
     --hd-layout-cover-subtitle-margin-bottom: var(--hd-gap-4);
+    --hd-layout-heading-divider-style: solid;
 
     /* Component Properties */
     /* Card */

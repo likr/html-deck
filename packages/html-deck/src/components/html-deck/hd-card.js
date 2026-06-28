@@ -126,7 +126,6 @@ export class HdCard extends HTMLElement {
           padding: var(--hd-card-padding) !important;
           background: var(--hd-heading-background-color) !important;
           color: var(--hd-heading-text-color) !important;
-          border-bottom: 1px solid var(--hd-heading-background-color) !important;
           font-family: var(--hd-text-subheading-font) !important;
           font-size: var(--hd-text-subheading-font-size) !important;
           font-weight: var(--hd-text-subheading-font-weight) !important;
@@ -144,6 +143,7 @@ export class HdCard extends HTMLElement {
           width: 100%;
           flex-grow: 1;
           padding: var(--hd-card-padding);
+          border-top: var(--hd-card-border-width) var(--hd-card-border-style) var(--hd-border-color);
         }
       </style>
       <slot name="heading"></slot>

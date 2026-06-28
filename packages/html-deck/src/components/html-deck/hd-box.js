@@ -125,7 +125,6 @@ export class HdBox extends HTMLElement {
           padding: var(--hd-box-padding) !important;
           background: var(--hd-heading-background-color) !important;
           color: var(--hd-heading-text-color) !important;
-          border-bottom: 1px solid var(--hd-heading-background-color) !important;
           font-family: var(--hd-text-subheading-font) !important;
           font-size: var(--hd-text-subheading-font-size) !important;
           font-weight: var(--hd-text-subheading-font-weight) !important;
@@ -143,6 +142,7 @@ export class HdBox extends HTMLElement {
           width: 100%;
           flex-grow: 1;
           padding: var(--hd-box-padding);
+          border-top: var(--hd-box-border-width) var(--hd-box-border-style) var(--hd-border-color) !important;
         }
       </style>
       <slot name="heading"></slot>
