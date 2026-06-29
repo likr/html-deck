@@ -21,7 +21,10 @@ When designing custom themes for `html-deck`:
 When running evaluation cycles via `skill-creator` and the `claude` CLI is unavailable:
 - Do not run automated `claude -p` triggers.
 - Manually generate test case output assets, `timing.json`, and `grading.json` based on the skill rules, placing them under `<workspace>/iteration-N/eval-ID/...` directories.
-- Run `aggregate_benchmark.py` and `generate_review.py --static` to compile review pages for human inspection.
+- Run `aggregate_benchmark.py` and `generate_review.py` to compile review pages for human inspection.
+- **Evaluation Slide Sandbox Standard**: To enable immediate visual previews in the review workspace without local Vite builds, all slide outputs generated inside evaluation test environments must import the module directly from the unpkg CDN (specifically version `1.0.0-alpha.2`):
+  - `<script type="module" src="https://unpkg.com/html-deck@1.0.0-alpha.2"></script>`
+- **Inline Theme Styling for Evals**: All custom themes produced during evaluations must be embedded directly inside an inline `<style>` element under the `:root` selector inside the slide HTML, rather than external `.css` files. Note that `html-deck` automatically bundles and resolves its internal layout stylesheets via custom components, so you must **never** load external `html-deck.css` files.
 
 ## 4. Component Styling Overrides (Core Development)
 When writing component styles for `<hd-slide>`, `<hd-card>`, `<hd-box>`, or similar elements:

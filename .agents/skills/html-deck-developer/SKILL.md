@@ -65,3 +65,13 @@ npm run dev -w slides             # Dev server for personal slides
 - **Conditional Exports Rule**: The library's `package.json` maps `exports` dynamically. The `"development"` condition points to `./src/` files, while the `"default"` condition points to `./dist/` files. This lets Vite resolve source files automatically during development, removing the need for any custom `resolve.alias` configs in consumer workspaces.
 - **Rule**: During local development, the consumer packages (`html-deck-demo` and `slides`) resolve `html-deck` imports directly from the `src/` directory. Therefore, **you do NOT need to run `npm run build -w html-deck` when testing local changes** in the dev server (even if the `dist/` directory is completely deleted).
 - **Rule**: You only need to run `npm run build -w html-deck` to update `dist/` when preparing for release or verifying the final production bundle.
+
+---
+
+## 🧪 Evaluation Test Standards
+
+When developing or executing evaluation tests (e.g. for theme-creation, slide structure validation) inside evaluation workspaces:
+- **CDN Loading Syntax**: Always use direct unpkg CDN module imports inside slide HTML files, specifying the target version to ensure hermetic and reproducible execution:
+  - `<script type="module" src="https://unpkg.com/html-deck@1.0.0-alpha.2"></script>`
+- **No Bundle/External CSS Requirement**: Since `html-deck` encapsulates its styles, never import external `html-deck.css` or similar stylesheets.
+- **Inline Custom Theme Blocks**: Inline all CSS variable theme definitions in a `<style>` element under the `:root` selector in the slide HTML. Do not output standalone `.css` theme files inside evaluation workspaces.

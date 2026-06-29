@@ -3,14 +3,20 @@
   "evals": [
     {
       "id": 0,
-      "prompt": "Create a 3-slide presentation deck explaining what WebComponents are. Slide 1: Cover layout. Slide 2: Standard layout with a text list and a callout highlighting benefits. Slide 3: Split layout with standard components. Style slide 2's callout using standard theme colors. Do not write any custom styles, style attributes, or css files.",
-      "expected_output": "A clean HTML slideshow containing standard layout elements and no custom styles/attributes.",
+      "prompt": "Create a 3-slide presentation deck explaining what WebComponents are. Import html-deck version 1.0.0-alpha.2 directly from unpkg (https://unpkg.com/html-deck@1.0.0-alpha.2) in a module script tag. Slide 1: Cover layout. Slide 2: Standard layout with a text list and a callout highlighting benefits. Slide 3: Split layout with standard components. Style slide 2's callout using standard theme colors. Do not write any custom styles, style attributes, or css files.",
+      "expected_output": "A clean HTML slideshow loading html-deck@1.0.0-alpha.2 from unpkg containing standard layout elements and no custom styles/attributes.",
       "files": []
     },
     {
       "id": 1,
-      "prompt": "Create a custom dark neon theme for html-deck. Save it as `theme-neon-custom.css`. The background should be pitch black (#050505), body text bright green (#10b981), primary accent hot pink (#ff007f), and secondary accent neon blue (#00f2fe). Write the theme in a separate file. You must only override CSS variables under the `:root` selector. Do not use element or class selectors. Show how to import it in a sample JS entry point after `html-deck/css`.",
-      "expected_output": "A CSS theme file named theme-neon-custom.css containing only :root variable overrides, plus a sample file showing the import.",
+      "prompt": "Create a standalone HTML presentation slide that loads html-deck@1.0.0-alpha.2 directly from unpkg. In an inline <style> block, design a custom dark neon theme under the :root selector. The background must be pitch black (#050505), body text bright green (#10b981), primary accent hot pink (#ff007f), and secondary accent neon blue (#00f2fe). Do not use element or class selectors. Derive secondary colors using relative color syntax.",
+      "expected_output": "A standalone HTML slide deck file index.html with unpkg loader and inline <style> dark neon variables under :root.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Create a standalone HTML slide deck that loads html-deck@1.0.0-alpha.2 from unpkg. In an inline <style> block, define a custom corporate presentation theme under the :root selector. It must include header/footer offset configurations, and apply a compact sizing scale (fonts and gaps) and proper heading top padding safety calculations to avoid overlaps, specifically optimized for dense academic slides. Design it with a professional slate-blue color palette. Ensure high readability (WCAG AA contrast >= 4.5:1) and derive secondary colors using relative color syntax.",
+      "expected_output": "A standalone HTML slide deck index.html. The inline <style> must use small fonts and gaps suited for high density, establish correct padding relations relative to the header offset/font-size to avoid overlap, satisfy WCAG AA contrast, and derive secondary colors from base colors.",
       "files": []
     }
   ]

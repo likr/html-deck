@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dense Academic Slide Sample - New Theme</title>
+  <script type="module" src="https://unpkg.com/html-deck@1.0.0-alpha.2"></script>
+  <style>
+    :root {
+      /* 1. Cohesive slate-blue colors meeting contrast requirements */
+      --hd-theme-background-color: #0f172a; /* Dark slate */
+      --hd-theme-text-color: #e2e8f0; /* Soft light slate (extremely high contrast ~12:1) */
+      --hd-theme-main-color: #3b82f6; /* Slate blue */
+      --hd-theme-accent-color: #f59e0b;
+
+      /* 2. Cohesive derivation rule - derive secondary colors from base colors */
+      --hd-base-soft-background-color: var(--hd-theme-background-color);
+      --hd-base-soft-text-color: var(--hd-theme-text-color);
+      --hd-base-soft-text-highlight-color: var(--hd-theme-accent-color);
+      --hd-card-background-color: rgba(from var(--hd-theme-text-color) r g b / 0.08); /* Derived translucency */
+
+      /* 3. Spacing parameters configured symmetrically for overlap safety */
+      --hd-peripheral-offset: 12px;
+      --hd-text-peripheral-font-size: 11px;
+      --hd-text-peripheral-line-height: 1.2;
+
+      /* Top heading padding (40px) is larger than offset + font-size*line-height (12px + 11px*1.2 = 25.2px) + safety margin */
+      --hd-layout-heading-padding: 40px var(--hd-slide-margin-right) 20px var(--hd-slide-margin-left);
+      --hd-layout-body-padding: 20px var(--hd-slide-margin-right) 40px var(--hd-slide-margin-left);
+
+      /* 4. Applied compact sizing scale for dense presentations to prevent overflows */
+      --hd-size-1: 44px; /* Title (standard: 64px) */
+      --hd-size-2: 30px; /* Heading (standard: 40px) */
+      --hd-size-3: 18px; /* Body text (standard: 24px) */
+      --hd-size-4: 15px; /* Component/Card text (standard: 20px) */
+      
+      --hd-gap-2: 12px;
+      --hd-gap-3: 16px; /* standard: 24px */
+      --hd-gap-4: 20px; /* standard: 32px */
+      --hd-gap-5: 24px; /* standard: 40px */
+      --hd-gap-6: 32px; /* standard: 48px */
+
+      --hd-slide-margin-top: var(--hd-gap-4);
+      --hd-slide-margin-bottom: var(--hd-gap-4);
+      --hd-slide-margin-left: var(--hd-gap-5);
+      --hd-slide-margin-right: var(--hd-gap-5);
+    }
+  </style>
+</head>
+<body>
+  <hd-deck>
+    <hd-slide>
+      <div slot="header">Academic Seminar: Modern Web Tech</div>
+      <hd-layout-heading heading="WebComponents Deep Dive" subheading="Evaluating custom elements, shadow DOM, and HTML templates"></hd-layout-heading>
+      <hd-layout>
+        <hd-card heading="Key Concepts">
+          <ul>
+            <li>Custom Elements: APIs to define new HTML tags with custom behavior.</li>
+            <li>Shadow DOM: Encapsulated style and markup, preventing style leaks.</li>
+            <li>HTML Templates: Reusable markup templates written using &lt;template&gt; tags.</li>
+            <li>ES Modules: Standardized JavaScript packaging and loading mechanism.</li>
+            <li>CSS Variables: Custom properties propagated through CSS scope.</li>
+          </ul>
+        </hd-card>
+        <hd-callout variant="accent">
+          WebComponents are native, framework-agnostic, and run directly in modern browsers.
+        </hd-callout>
+      </hd-layout>
+      <div slot="footer">Page 2 | Confidential</div>
+    </hd-slide>
+  </hd-deck>
+</body>
+</html>

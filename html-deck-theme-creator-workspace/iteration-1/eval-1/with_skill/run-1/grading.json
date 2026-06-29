@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "The custom theme is embedded inside an inline <style> element in index.html under the :root selector",
+      "passed": true,
+      "evidence": "Inline <style> element containing :root selector variables was found."
+    },
+    {
+      "text": "No external CSS files are imported (no css link loader or old css import)",
+      "passed": true,
+      "evidence": "No <link rel=\"stylesheet\"> for html-deck.css, and no @import rules found."
+    },
+    {
+      "text": "The theme specifies the exact core colors requested (background: #050505, text: #10b981, main: #ff007f, accent: #00f2fe)",
+      "passed": true,
+      "evidence": "Core variables defined correctly inside inline style :root."
+    },
+    {
+      "text": "The html-deck module is loaded via unpkg.com with version 1.0.0-alpha.2",
+      "passed": true,
+      "evidence": "Script source is 'https://unpkg.com/html-deck@1.0.0-alpha.2'."
+    },
+    {
+      "text": "Text meets WCAG AA contrast standard against background colors",
+      "passed": true,
+      "evidence": "Text color derived with 100% opacity against pitch black (#050505) yields ~6.2:1 contrast, satisfying the 4.5:1 requirement."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1.0
+  },
+  "timing": {
+    "executor_duration_seconds": 16.0,
+    "grader_duration_seconds": 5.0,
+    "total_duration_seconds": 21.0
+  }
+}

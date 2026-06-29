@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Introduction to WebComponents</title>
+  <script type="module" src="https://unpkg.com/html-deck@1.0.0-alpha.2"></script>
+</head>
+<body>
+  <hd-deck>
+    <!-- Slide 1: Cover -->
+    <hd-slide center>
+      <hd-layout-cover title="WebComponents Intro" subtitle="Building reusable widgets for the modern web"></hd-layout-cover>
+    </hd-slide>
+
+    <!-- Slide 2: Standard -->
+    <hd-slide>
+      <hd-layout-heading heading="Key Benefits" subheading="Why choose native WebComponents"></hd-layout-heading>
+      <hd-layout>
+        <hd-card>
+          <ul>
+            <li>Reusability: Define once, use anywhere.</li>
+            <li>Encapsulation: Style encapsulation via Shadow DOM.</li>
+            <li>Native: No framework dependencies required.</li>
+          </ul>
+        </hd-card>
+        <hd-callout variant="main">
+          A powerful standard built directly into the browser platform.
+        </hd-callout>
+      </hd-layout>
+    </hd-slide>
+
+    <!-- Slide 3: Split -->
+    <hd-slide>
+      <hd-layout-heading heading="Under the Hood" subheading="The three core standards"></hd-layout-heading>
+      <hd-layout-split>
+        <hd-box heading="1. Custom Elements">
+          API to define HTML elements with custom behavior.
+        </hd-box>
+        <hd-box heading="2. Shadow DOM">
+          Provides styling encapsulation for widgets.
+        </hd-box>
+      </hd-layout-split>
+    </hd-slide>
+  </hd-deck>
+</body>
+</html>

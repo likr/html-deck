@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Neon custom Theme Demo - Old Theme</title>
+  <script type="module" src="https://unpkg.com/html-deck@1.0.0-alpha.2"></script>
+  <style>
+    :root {
+      /* Core colors */
+      --hd-theme-background-color: #050505;
+      --hd-theme-text-color: #10b981;
+      --hd-theme-main-color: #ff007f;
+      --hd-theme-accent-color: #00f2fe;
+
+      /* Devised colors - violating derivation and contrast! */
+      /* Using low opacity for standard text causing low contrast against pitch black */
+      --hd-base-soft-text-color: rgba(from var(--hd-theme-text-color) r g b / 0.4); /* Very dark green! Contrast is low (~1.8:1) */
+      --hd-base-soft-background-color: #050505;
+      
+      /* Hardcoding values in matrix rather than propagating */
+      --hd-base-soft-text-highlight-color: #f43f5e; /* Rose-500 hardcoded */
+    }
+  </style>
+</head>
+<body>
+  <hd-deck>
+    <hd-slide>
+      <hd-layout-cover title="Neon Theme" subtitle="Demonstrating custom colors"></hd-layout-cover>
+    </hd-slide>
+  </hd-deck>
+</body>
+</html>

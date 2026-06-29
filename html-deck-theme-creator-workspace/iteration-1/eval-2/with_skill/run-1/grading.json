@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "Text and background colors meet WCAG AA contrast ratio of at least 4.5:1",
+      "passed": true,
+      "evidence": "Background (#0f172a) and text (#e2e8f0) have a contrast ratio of ~12:1 inside the inline <style> block, which safely exceeds the WCAG AA threshold of 4.5:1."
+    },
+    {
+      "text": "Heading top padding satisfies the dynamic formula against the peripheral offset and font size to avoid overlap",
+      "passed": true,
+      "evidence": "Heading top padding (40px) is larger than peripheral offset (12px) + font size (11px) * line height (1.2) = 25.2px. This provides a safety margin of 14.8px, preventing overlap."
+    },
+    {
+      "text": "Compact sizing scale (fonts and gaps) is applied for high content density slides",
+      "passed": true,
+      "evidence": "Compact variables (size-1: 44px, gap-3: 16px) were correctly configured to scale down typography and spacing for high density."
+    },
+    {
+      "text": "Matrix colors are derived from base colors using relative color syntax",
+      "passed": true,
+      "evidence": "All secondary variables such as base soft colors and card backgrounds are derived cleanly from base colors using CSS Relative Color Syntax (e.g. rgba(from var(--hd-theme-text-color) r g b / 0.08))."
+    },
+    {
+      "text": "The html-deck module is loaded via unpkg.com with version 1.0.0-alpha.2",
+      "passed": true,
+      "evidence": "Script source loads from 'https://unpkg.com/html-deck@1.0.0-alpha.2'."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1.0
+  },
+  "timing": {
+    "executor_duration_seconds": 18.0,
+    "grader_duration_seconds": 6.0,
+    "total_duration_seconds": 24.0
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "expectations": [
+    {
+      "text": "The presentation contains exactly 3 slides",
+      "passed": true,
+      "evidence": "Found 3 <hd-slide> tags in the HTML file."
+    },
+    {
+      "text": "No custom CSS styles, style attributes, or css files are included",
+      "passed": true,
+      "evidence": "No <style> tags or inline style attributes found."
+    },
+    {
+      "text": "Slides use correct Cover, Standard, and Split layouts respectively",
+      "passed": true,
+      "evidence": "Slide 1 uses <hd-layout-cover>. Slide 2 uses <hd-layout>. Slide 3 uses <hd-layout-split>."
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 0,
+    "total": 3,
+    "pass_rate": 1.0
+  },
+  "timing": {
+    "executor_duration_seconds": 12.0,
+    "grader_duration_seconds": 4.0,
+    "total_duration_seconds": 16.0
+  }
+}

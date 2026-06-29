@@ -1,0 +1,11 @@
+{
+  "eval_id": 2,
+  "eval_name": "dense-corporate-theme",
+  "prompt": "Create a custom corporate presentation theme called `theme-dense-corporate.css`. It must include a global header and footer offset configuration, styling for lists and cards, and be highly optimized for text-heavy academic slides with dense information (e.g. typical slides have 5+ bullet points and code blocks). Additionally, design it with a professional slate-blue color palette. Ensure the text is highly readable (meeting WCAG AA contrast ratio of 4.5:1), colors are derived using relative color syntax, and the heading margins are dynamically adjusted relative to the header offsets so there is no text overlap. Provide a sample HTML slide structure to demonstrate a dense slide with a header and footer.",
+  "assertions": [
+    "Text and background colors meet WCAG AA contrast ratio of at least 4.5:1",
+    "Heading top padding satisfies the dynamic formula against the peripheral offset and font size to avoid overlap",
+    "Compact sizing scale (fonts and gaps) is applied for high content density slides",
+    "Matrix colors are derived from base colors using relative color syntax"
+  ]
+}

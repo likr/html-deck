@@ -28,3 +28,14 @@ Thumbs.db
 
 # Agents skills workspaces
 .agents/skills/*-workspace/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+.pytest_cache/
+.coverage
+htmlcov/

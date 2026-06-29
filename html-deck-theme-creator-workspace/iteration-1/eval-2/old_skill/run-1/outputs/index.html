@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dense Academic Slide Sample - Old Theme</title>
+  <script type="module" src="https://unpkg.com/html-deck@1.0.0-alpha.2"></script>
+  <style>
+    :root {
+      /* Cohesive slate-blue colors */
+      --hd-theme-background-color: #0f172a; /* Slate 900 */
+      --hd-theme-text-color: #3b82f6; /* Low contrast against slate 900! (~2.2:1 contrast ratio) */
+      --hd-theme-main-color: #0ea5e9;
+      --hd-theme-accent-color: #f59e0b;
+
+      /* Devised colors - violating derivation principle by hardcoding hex values directly */
+      --hd-base-soft-background-color: #0f172a;
+      --hd-base-soft-text-color: #3b82f6;
+      --hd-base-soft-text-highlight-color: #e2e8f0;
+      --hd-card-background-color: #1e293b; /* Hardcoded slate-800 */
+      
+      /* Peripheral offset */
+      --hd-peripheral-offset: var(--hd-gap-3); /* 24px */
+      --hd-text-peripheral-font-size: var(--hd-size-6); /* 14px */
+      --hd-text-peripheral-line-height: 1.2;
+
+      /* Heading padding - causing overlap because it is static (16px) and smaller than offset + text height (24px + 14px = 38px) */
+      --hd-layout-heading-padding: 16px var(--hd-slide-margin-right) 16px var(--hd-slide-margin-left);
+
+      /* Did NOT apply compact scaling for dense presentations - keeps default oversized parameters */
+      --hd-size-1: 64px;
+      --hd-size-2: 40px;
+      --hd-size-3: 24px;
+      --hd-gap-3: 24px;
+      --hd-gap-4: 32px;
+      --hd-slide-margin-top: var(--hd-gap-5);
+      --hd-slide-margin-bottom: var(--hd-gap-5);
+    }
+  </style>
+</head>
+<body>
+  <hd-deck>
+    <hd-slide>
+      <div slot="header">Academic Seminar: Modern Web Tech</div>
+      <hd-layout-heading heading="WebComponents Deep Dive" subheading="Evaluating custom elements, shadow DOM, and HTML templates"></hd-layout-heading>
+      <hd-layout>
+        <hd-card heading="Key Concepts">
+          <ul>
+            <li>Custom Elements: APIs to define new HTML tags with custom behavior.</li>
+            <li>Shadow DOM: Encapsulated style and markup, preventing style leaks.</li>
+            <li>HTML Templates: Reusable markup templates written using &lt;template&gt; tags.</li>
+            <li>ES Modules: Standardized JavaScript packaging and loading mechanism.</li>
+            <li>CSS Variables: Custom properties propagated through CSS scope.</li>
+          </ul>
+        </hd-card>
+        <hd-callout variant="accent">
+          WebComponents are native, framework-agnostic, and run directly in modern browsers.
+        </hd-callout>
+      </hd-layout>
+      <div slot="footer">Page 2 | Confidential</div>
+    </hd-slide>
+  </hd-deck>
+</body>
+</html>

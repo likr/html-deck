@@ -1,0 +1,12 @@
+{
+  "eval_id": 1,
+  "eval_name": "neon-custom-theme",
+  "prompt": "Create a custom dark neon theme for html-deck. Save it as `theme-neon-custom.css`. The background should be pitch black (#050505), body text bright green (#10b981), primary accent hot pink (#ff007f), and secondary accent neon blue (#00f2fe). Write the theme in a separate file. You must only override CSS variables under the `:root` selector. Do not use element or class selectors. Show how to import it in a sample JS entry point after `html-deck/css`.",
+  "assertions": [
+    "The custom theme is written in a separate CSS file named theme-neon-custom.css",
+    "The CSS file contains only overrides under the :root selector",
+    "The theme specifies the exact core colors requested (background: #050505, text: #10b981, main: #ff007f, accent: #00f2fe)",
+    "The sample import structure is correctly demonstrated",
+    "Text meets WCAG AA contrast standard against background colors"
+  ]
+}
