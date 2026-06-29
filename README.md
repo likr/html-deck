@@ -84,7 +84,7 @@ A minimal HTML-Deck slideshow looks like this:
   <title>Presentation Title</title>
   
   <!-- Load HTML-Deck (automatically injects CSS) -->
-  <script type="module" src="https://unpkg.com/html-deck/dist/html-deck.js"></script>
+  <script type="module" src="https://unpkg.com/html-deck@1.0.0-alpha.2/dist/html-deck.js"></script>
 </head>
 <body>
   <hd-deck aspect-ratio="16:9">
@@ -147,7 +147,7 @@ For full properties, attributes, and variables, see the detailed [Components Ref
 Themes are enabled by loading the corresponding CSS preset stylesheet in the HTML `<head>` after the main library script:
 
 ```html
-<link rel="stylesheet" href="https://unpkg.com/html-deck/dist/themes/html-deck.theme-[theme-name].css">
+<link rel="stylesheet" href="https://unpkg.com/html-deck@1.0.0-alpha.2/dist/themes/html-deck.theme-[theme-name].css">
 ```
 
 To support all themes, load Google Fonts:
