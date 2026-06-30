@@ -5,7 +5,7 @@
   "description": "Automated slide layout & accessibility validator for html-deck",
   "type": "module",
   "bin": {
-    "html-deck-audit": "./bin/html-deck-audit.js"
+    "html-deck-validator": "./bin/html-deck-validator.js"
   },
   "files": [
     "bin",

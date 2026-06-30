@@ -19,10 +19,10 @@ Start your slide server, then run the validation command against your running sl
 
 ```bash
 # General
-npx html-deck-audit <url>
+npx html-deck-validator <url>
 
 # Example
-npx html-deck-audit http://localhost:5173/slides/ramen/index.html
+npx html-deck-validator http://localhost:5173/slides/ramen/index.html
 ```
 
 ## Checks Performed

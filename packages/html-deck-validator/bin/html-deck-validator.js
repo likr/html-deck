@@ -5,13 +5,13 @@ import { chromium } from 'playwright';
 const url = process.argv[2];
 if (!url) {
   console.error('\x1b[31mError: Please specify the target slideshow URL.\x1b[0m');
-  console.error('Usage: npx html-deck-audit <url>');
-  console.error('Example: npx html-deck-audit http://localhost:5173/slides/ramen/index.html');
+  console.error('Usage: npx html-deck-validator <url>');
+  console.error('Example: npx html-deck-validator http://localhost:5173/slides/ramen/index.html');
   process.exit(1);
 }
 
 (async () => {
-  console.log(`\n\x1b[36m⚡ Starting Slide Audit on: ${url}\x1b[0m\n`);
+  console.log(`\n\x1b[36m⚡ Starting Slide Validation on: ${url}\x1b[0m\n`);
 
   const browser = await chromium.launch({ headless: true });
   const page = await browser.newPage();
