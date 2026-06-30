@@ -109,3 +109,18 @@ Presentations operate on rigid aspect-ratio canvasses (e.g., `16:9`). Use the fo
 2. **Vertical Stack Limits**: Do not stack too many block elements (like a long paragraph, a list, and a large callout/box) on a single slide.
 3. **Multi-column and Theme-aware Overflow Safety**: Always consider the theme's default fonts, font sizes, margins, and gaps when designing slide contents. Keep layouts breathable and use column scaling to accommodate varying sizes.
 4. **Compact Sizing Theme**: If the slide contains high-density content that cannot be made shorter, use the compact variables mapping (detailed in the Theme Customization reference).
+
+---
+
+## 🔍 6. Slide Layout & Accessibility Validation
+
+To ensure slide decks conform to spacing guidelines and are accessible, authors can run the automated validation tool via `npx` against their running slideshow server:
+
+```bash
+npx html-deck-audit <url>
+```
+
+This tool audits all slides inside the presentation for three categories of issues:
+1. **Color Contrast**: Verifies compliance with WCAG AA standards (4.5:1 for regular text, 3.0:1 for large/bold text).
+2. **Boundary Overflow**: Identifies elements spilling outside the physical canvas boundaries of `<hd-slide>`.
+3. **Element Overlap**: Flags elements colliding or overlaying on top of each other (excluding parent-child groups and background/decor elements styled with `pointer-events: none`).

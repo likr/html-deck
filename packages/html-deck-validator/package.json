@@ -1,0 +1,17 @@
+{
+  "name": "html-deck-validator",
+  "version": "1.0.0-alpha.2",
+  "license": "MIT",
+  "description": "Automated slide layout & accessibility validator for html-deck",
+  "type": "module",
+  "bin": {
+    "html-deck-audit": "./bin/html-deck-audit.js"
+  },
+  "files": [
+    "bin",
+    "README.md"
+  ],
+  "dependencies": {
+    "playwright": "^1.40.0"
+  }
+}

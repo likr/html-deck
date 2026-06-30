@@ -10,6 +10,11 @@ export class HdLayoutCover extends HTMLElement {
           height: 100%;
           width: 100%;
           box-sizing: border-box;
+
+          /* Variables propagation and re-mapping for slotted cover elements */
+          --hd-text-title-color: var(--hd-body-text-color);
+          --hd-text-subheading-color: var(--hd-body-text-muted-color);
+          --hd-text-caption-color: var(--hd-body-text-muted-color);
         }
         .cover-content {
           display: flex;

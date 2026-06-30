@@ -75,3 +75,15 @@ When developing or executing evaluation tests (e.g. for theme-creation, slide st
   - `<script type="module" src="https://unpkg.com/html-deck@1.0.0-alpha.2"></script>`
 - **No Bundle/External CSS Requirement**: Since `html-deck` encapsulates its styles, never import external `html-deck.css` or similar stylesheets.
 - **Inline Custom Theme Blocks**: Inline all CSS variable theme definitions in a `<style>` element under the `:root` selector in the slide HTML. Do not output standalone `.css` theme files inside evaluation workspaces.
+
+---
+
+## 🔍 Standalone Layout & Accessibility Auditor (Local Development)
+
+Core developers must verify that style variations, components (e.g. `<hd-layout-cover>`), and styling changes do not break presentation layouts or accessibility. Execute the local auditor script from the monorepo root:
+
+```bash
+node packages/html-deck-validator/bin/html-deck-audit.js <url>
+```
+
+Ensure that all local modifications (e.g., intermediate variable mapping changes, layout bounds) resolve without generating violations.
