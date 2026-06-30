@@ -17,6 +17,8 @@ Always read the relevant sub-document using the `view_file` tool to inspect full
   - Link: [presenter.md](file:///home/likr/work/likr/html-deck/.agents/skills/html-deck/references/presenter.md)
 - 🎨 **Themes & Custom Styling**: Global CSS variables, custom preset themes (e.g. Neon, Corporate, Warm), Google Fonts loading, and utility classes (e.g. `.hd-absolute-bottom`).
   - Link: [styling.md](file:///home/likr/work/likr/html-deck/.agents/skills/html-deck/references/styling.md)
+- 📊 **Standard Built-in Themes Parameters**: Detailed variable values, default fonts, background settings, and color mappings for the 6 standard built-in themes.
+  - Link: [themes.md](file:///home/likr/work/likr/html-deck/.agents/skills/html-deck/references/themes.md)
 - 🖨️ **PDF Export & Printing**: Viewport calculations, print-specific CSS rules, and browser settings for perfect PDF exports.
   - Link: [printing.md](file:///home/likr/work/likr/html-deck/.agents/skills/html-deck/references/printing.md)
 
@@ -142,6 +144,18 @@ Presentations operate on rigid aspect-ratio canvasses (e.g. `16:9`).
 - **Concise Content**: Keep bullet points, list items, and paragraph descriptions brief and punchy.
 - **Vertical Spacing**: Ensure you do not stack too many block elements (like a long paragraph, a list, and a large callout/box) on a single slide.
 - **Verification**: Always preview slides in both presentation mode and presenter mode to check for overflows.
+
+### 10. Visual Panels for Semantics, Not Decoration
+Do not use `<hd-card>`, `<hd-box>`, and `<hd-callout>` (or other visual customization features) simply for visual decoration. Use them only to express information hierarchy/importance (such as highlighting key details, warnings, or distinct content groupings).
+
+### 11. Card vs. Box inside Layouts (Anti-pattern)
+Do not use `<hd-card>` as a standalone, single child element inside layout columns/cells (e.g., inside `<hd-layout-split>` or `<hd-layout-grid>`).
+- `<hd-card>` is designed to emphasize specific information *within* a larger flow of text/content (e.g., sandwiched between other paragraphs).
+- If you need a standalone container that spans the entire height of a column/cell, use `<hd-box>` instead of `<hd-card>`.
+
+### 12. Multi-column and Theme-aware Overflow Safety
+Always consider the theme's default fonts, font sizes, margins, and gaps when designing slide contents to avoid text overflowing the aspect-ratio container. Keep layouts breathable and use column scaling to accommodate varying sizes.
+
 
 
 

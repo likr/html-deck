@@ -1,0 +1,12 @@
+{
+  "eval_id": 2,
+  "eval_name": "dense-corporate-theme",
+  "prompt": "Create a standalone HTML presentation slide that loads html-deck@1.0.0-alpha.2 from unpkg. In an inline <style> block, define a custom corporate presentation theme under the :root selector. It must include header/footer offset configurations, and apply a compact sizing scale (fonts and gaps) and proper heading top padding safety calculations to avoid overlaps, specifically optimized for dense academic slides. Design it with a professional slate-blue color palette. Ensure high readability (WCAG AA contrast >= 4.5:1) and derive secondary colors using relative color syntax.",
+  "assertions": [
+    "The custom theme is embedded inside an inline <style> element in index.html under the :root selector",
+    "No direct styling of HTML element tags or class names is used in the CSS block",
+    "No abbreviated variable names like -bg or -color for background/text are used; explicit names like -background-color and -text-color are used",
+    "The layout uses explicit offset variables and compact font/gap scale, preventing text overlap or overflow on a dense slide structure",
+    "Text meets WCAG AA contrast standard (>= 4.5:1)"
+  ]
+}

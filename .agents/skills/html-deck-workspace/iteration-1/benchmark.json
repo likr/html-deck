@@ -1,0 +1,313 @@
+{
+  "metadata": {
+    "skill_name": "html-deck",
+    "skill_path": "<path/to/skill>",
+    "executor_model": "<model-name>",
+    "analyzer_model": "<model-name>",
+    "timestamp": "2026-06-30T03:01:38Z",
+    "evals_run": [
+      0,
+      1,
+      2
+    ],
+    "runs_per_configuration": 3
+  },
+  "runs": [
+    {
+      "eval_id": 0,
+      "configuration": "old_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.5,
+        "passed": 2,
+        "failed": 2,
+        "total": 4,
+        "time_seconds": 18.7,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "The presentation contains exactly 3 slides",
+          "passed": true,
+          "evidence": "Found exactly 3 <hd-slide> elements."
+        },
+        {
+          "text": "No custom CSS styles, style attributes, or css files are included",
+          "passed": false,
+          "evidence": "Found custom inline style attribute 'border-left: 5px solid red; background-color: #ffebeb; padding: 10px;' on hd-callout."
+        },
+        {
+          "text": "Slides use correct Cover, Standard, and Split layouts respectively",
+          "passed": true,
+          "evidence": "Layout tags <hd-layout-cover>, <hd-layout>, and <hd-layout-split> are placed inside the slides in correct order."
+        },
+        {
+          "text": "No standalone hd-card is used directly inside layout columns (use hd-box instead)",
+          "passed": false,
+          "evidence": "Found standalone <hd-card> elements directly slotted inside the 'left' and 'right' columns of <hd-layout-split> on slide 3."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "old_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.6,
+        "passed": 3,
+        "failed": 2,
+        "total": 5,
+        "time_seconds": 16.7,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "The custom theme is embedded inside an inline <style> element in index.html under the :root selector",
+          "passed": true,
+          "evidence": "Inline <style> block containing :root overrides was found."
+        },
+        {
+          "text": "No direct styling of HTML element tags or class names is used in the CSS block",
+          "passed": false,
+          "evidence": "Found tag selector 'h2' and class selector '.hd-card' in CSS block."
+        },
+        {
+          "text": "No abbreviated variable names like -bg or -color for background/text are used; explicit names like -background-color and -text-color are used",
+          "passed": false,
+          "evidence": "Found abbreviated variables '--hd-card-bg' and '--hd-layout-heading-color' inside :root block."
+        },
+        {
+          "text": "The theme specifies the exact core colors requested (background: #050505, text: #10b981, main: #ff007f, accent: #00f2fe)",
+          "passed": true,
+          "evidence": "Core variables defined correctly inside inline style :root."
+        },
+        {
+          "text": "Derives secondary/translucent colors using relative color syntax",
+          "passed": true,
+          "evidence": "Muted text color derived with relative color syntax (rgba(from var(...) r g b / 0.6)) was found."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "old_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.4,
+        "passed": 2,
+        "failed": 3,
+        "total": 5,
+        "time_seconds": 20.2,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "The custom theme is embedded inside an inline <style> element in index.html under the :root selector",
+          "passed": true,
+          "evidence": "Inline <style> element under :root was found."
+        },
+        {
+          "text": "No direct styling of HTML element tags or class names is used in the CSS block",
+          "passed": false,
+          "evidence": "Found direct element tag selector 'h2' in style block."
+        },
+        {
+          "text": "No abbreviated variable names like -bg or -color for background/text are used; explicit names like -background-color and -text-color are used",
+          "passed": false,
+          "evidence": "Found abbreviated CSS variables '--hd-card-bg' and '--hd-layout-heading-color'."
+        },
+        {
+          "text": "The layout uses explicit offset variables and compact font/gap scale, preventing text overlap or overflow on a dense slide structure",
+          "passed": false,
+          "evidence": "No dynamic top padding/margin offset formulas are present. This causes heading elements to collide/overlap on standard layouts."
+        },
+        {
+          "text": "Text meets WCAG AA contrast standard (>= 4.5:1)",
+          "passed": true,
+          "evidence": "Obsidian text (#0f172a) on slate background (#f8fafc) yields 15.6:1 contrast ratio, satisfying requirements."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 0,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 21.9,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "The presentation contains exactly 3 slides",
+          "passed": true,
+          "evidence": "Found exactly 3 <hd-slide> elements."
+        },
+        {
+          "text": "No custom CSS styles, style attributes, or css files are included",
+          "passed": true,
+          "evidence": "No custom inline style attributes or <style> tags found. All elements styled via native component attributes (e.g. variant='main')."
+        },
+        {
+          "text": "Slides use correct Cover, Standard, and Split layouts respectively",
+          "passed": true,
+          "evidence": "Layout tags <hd-layout-cover>, <hd-layout>, and <hd-layout-split> are placed inside the slides in correct order."
+        },
+        {
+          "text": "No standalone hd-card is used directly inside layout columns (use hd-box instead)",
+          "passed": true,
+          "evidence": "No <hd-card> elements are used stand-alone. Slide 3 columns correctly utilize <hd-box> components for column-wide containment."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 18.6,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "The custom theme is embedded inside an inline <style> element in index.html under the :root selector",
+          "passed": true,
+          "evidence": "Inline <style> block containing :root overrides was found."
+        },
+        {
+          "text": "No direct styling of HTML element tags or class names is used in the CSS block",
+          "passed": true,
+          "evidence": "CSS block contains only definitions under the :root selector."
+        },
+        {
+          "text": "No abbreviated variable names like -bg or -color for background/text are used; explicit names like -background-color and -text-color are used",
+          "passed": true,
+          "evidence": "No abbreviated variables found. Fully explicit names like '--hd-card-background-color' and '--hd-layout-heading-text-color' are used."
+        },
+        {
+          "text": "The theme specifies the exact core colors requested (background: #050505, text: #10b981, main: #ff007f, accent: #00f2fe)",
+          "passed": true,
+          "evidence": "Core variables defined correctly inside inline style :root."
+        },
+        {
+          "text": "Derives secondary/translucent colors using relative color syntax",
+          "passed": true,
+          "evidence": "Muted text color derived with relative color syntax (rgba(from var(...) r g b / 0.6)) was found."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 22.7,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "The custom theme is embedded inside an inline <style> element in index.html under the :root selector",
+          "passed": true,
+          "evidence": "Inline <style> element under :root was found."
+        },
+        {
+          "text": "No direct styling of HTML element tags or class names is used in the CSS block",
+          "passed": true,
+          "evidence": "No element tags or class selectors are used inside the style block. All overrides are defined under :root."
+        },
+        {
+          "text": "No abbreviated variable names like -bg or -color for background/text are used; explicit names like -background-color and -text-color are used",
+          "passed": true,
+          "evidence": "Theme uses correct explicit variable names like '--hd-card-background-color' and '--hd-layout-heading-text-color'."
+        },
+        {
+          "text": "The layout uses explicit offset variables and compact font/gap scale, preventing text overlap or overflow on a dense slide structure",
+          "passed": true,
+          "evidence": "Theme contains calc formulas like 'calc(var(--hd-slide-header-offset) + 16px)' for heading top padding, which prevents overlap, along with academic scale size overrides."
+        },
+        {
+          "text": "Text meets WCAG AA contrast standard (>= 4.5:1)",
+          "passed": true,
+          "evidence": "Obsidian text (#0f172a) on slate background (#f8fafc) yields 15.6:1 contrast ratio, satisfying requirements."
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "run_summary": {
+    "old_skill": {
+      "pass_rate": {
+        "mean": 0.5,
+        "stddev": 0.1,
+        "min": 0.4,
+        "max": 0.6
+      },
+      "time_seconds": {
+        "mean": 18.5333,
+        "stddev": 1.7559,
+        "min": 16.7,
+        "max": 20.2
+      },
+      "tokens": {
+        "mean": 0.0,
+        "stddev": 0.0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "with_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 21.0667,
+        "stddev": 2.1733,
+        "min": 18.6,
+        "max": 22.7
+      },
+      "tokens": {
+        "mean": 0.0,
+        "stddev": 0.0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "delta": {
+      "pass_rate": "-0.50",
+      "time_seconds": "-2.5",
+      "tokens": "+0"
+    }
+  },
+  "notes": []
+}

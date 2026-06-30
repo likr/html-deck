@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dense Corporate Presentation (Baseline)</title>
+  <script type="module" src="https://unpkg.com/html-deck@1.0.0-alpha.2"></script>
+  <style>
+    :root {
+      /* Palette */
+      --hd-theme-background-color: #f8fafc;
+      --hd-theme-text-color: #0f172a;
+      --hd-theme-main-color: #1e3a8a;
+      --hd-theme-accent-color: #3b82f6;
+
+      /* Muted colors */
+      --hd-theme-text-muted-color: rgba(from var(--hd-theme-text-color) r g b / 0.6);
+
+      /* Anti-pattern: Abbreviated variables */
+      --hd-card-bg: #ffffff;
+      --hd-layout-heading-color: var(--hd-theme-main-color);
+
+      /* Fixed offsets without safety calculations leading to overlap in dense slides */
+      --hd-slide-header-offset: 80px;
+      --hd-slide-footer-offset: 80px;
+    }
+
+    /* Anti-pattern: Direct element styling */
+    h2 {
+      font-size: 2rem;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <hd-deck aspect-ratio="16:9">
+    <hd-slide>
+      <hd-layout>
+        <h2 slot="heading">Dense Academic Presentation</h2>
+        
+        <p class="hd-text">This content is pushed upwards and collides with the header because there is no dynamic padding compensation for the 80px header offset.</p>
+        
+        <hd-layout-split ratio="1:1">
+          <!-- Anti-pattern: standalone hd-card in layout split column -->
+          <div slot="left">
+            <hd-card>
+              <h3 slot="heading">Topic A Summary</h3>
+              <div class="hd-p-2">
+                This is a dense block of research findings. It has several bullets and detailed figures, but the card does not expand to fit the parent height cleanly.
+              </div>
+            </hd-card>
+          </div>
+          <div slot="right">
+            <hd-card>
+              <h3 slot="heading">Topic B Summary</h3>
+              <div class="hd-p-2">
+                More detailed academic analysis here. Stacking multiple cards like this creates uneven layouts.
+              </div>
+            </hd-card>
+          </div>
+        </hd-layout-split>
+      </hd-layout>
+    </hd-slide>
+  </hd-deck>
+</body>
+</html>

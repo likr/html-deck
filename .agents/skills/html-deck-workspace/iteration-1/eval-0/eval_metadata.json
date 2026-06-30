@@ -1,0 +1,11 @@
+{
+  "eval_id": 0,
+  "eval_name": "webcomponents-intro-slides",
+  "prompt": "Create a 3-slide presentation deck explaining what WebComponents are. Import html-deck version 1.0.0-alpha.2 directly from unpkg (https://unpkg.com/html-deck@1.0.0-alpha.2) in a module script tag. Slide 1: Cover layout. Slide 2: Standard layout with a text list and a callout highlighting benefits. Slide 3: Split layout with standard components. Style slide 2's callout using standard theme colors. Do not write any custom styles, style attributes, or css files.",
+  "assertions": [
+    "The presentation contains exactly 3 slides",
+    "No custom CSS styles, style attributes, or css files are included",
+    "Slides use correct Cover, Standard, and Split layouts respectively",
+    "No standalone hd-card is used directly inside layout columns (use hd-box instead)"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "The custom theme is embedded inside an inline <style> element in index.html under the :root selector",
+      "passed": true,
+      "evidence": "Inline <style> element under :root was found."
+    },
+    {
+      "text": "No direct styling of HTML element tags or class names is used in the CSS block",
+      "passed": false,
+      "evidence": "Found direct element tag selector 'h2' in style block."
+    },
+    {
+      "text": "No abbreviated variable names like -bg or -color for background/text are used; explicit names like -background-color and -text-color are used",
+      "passed": false,
+      "evidence": "Found abbreviated CSS variables '--hd-card-bg' and '--hd-layout-heading-color'."
+    },
+    {
+      "text": "The layout uses explicit offset variables and compact font/gap scale, preventing text overlap or overflow on a dense slide structure",
+      "passed": false,
+      "evidence": "No dynamic top padding/margin offset formulas are present. This causes heading elements to collide/overlap on standard layouts."
+    },
+    {
+      "text": "Text meets WCAG AA contrast standard (>= 4.5:1)",
+      "passed": true,
+      "evidence": "Obsidian text (#0f172a) on slate background (#f8fafc) yields 15.6:1 contrast ratio, satisfying requirements."
+    }
+  ],
+  "summary": {
+    "passed": 2,
+    "failed": 3,
+    "total": 5,
+    "pass_rate": 0.4
+  },
+  "timing": {
+    "executor_duration_seconds": 16.4,
+    "grader_duration_seconds": 3.8,
+    "total_duration_seconds": 20.2
+  }
+}

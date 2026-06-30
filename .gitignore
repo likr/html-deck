@@ -26,9 +26,6 @@ dist/
 .DS_Store
 Thumbs.db
 
-# Agents skills workspaces
-.agents/skills/*-workspace/
-
 # Python
 __pycache__/
 *.py[cod]

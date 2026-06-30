@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Custom Dark Neon Theme (Best Practice)</title>
+  <script type="module" src="https://unpkg.com/html-deck@1.0.0-alpha.2"></script>
+  <style>
+    :root {
+      /* Core color settings */
+      --hd-theme-background-color: #050505;
+      --hd-theme-text-color: #10b981;
+      --hd-theme-main-color: #ff007f;
+      --hd-theme-accent-color: #00f2fe;
+
+      /* Base Soft parameters */
+      --hd-base-soft-background-color: var(--hd-theme-background-color);
+      --hd-base-soft-text-color: var(--hd-theme-text-color);
+      --hd-base-soft-text-highlight-color: var(--hd-theme-main-color);
+      --hd-base-soft-text-muted-color: rgba(from var(--hd-theme-text-color) r g b / 0.6);
+
+      /* Correct practice: Explicit full variable names only */
+      --hd-card-background-color: rgba(from var(--hd-theme-text-color) r g b / 0.05);
+      --hd-card-border-color: var(--hd-theme-accent-color);
+      --hd-layout-heading-text-color: var(--hd-theme-main-color);
+      --hd-layout-heading-background-color: transparent;
+    }
+  </style>
+</head>
+<body>
+  <hd-deck aspect-ratio="16:9">
+    <hd-slide>
+      <hd-layout>
+        <h2 slot="heading">Dark Neon Cyber</h2>
+        <p class="hd-text">This slide demonstrates the custom neon theme variables. All styling is done cleanly via variables only under :root selector.</p>
+        <div class="hd-mt-3">
+          <hd-box variant="main">
+            <h3 slot="heading">Neon Tech</h3>
+            <div class="hd-p-2">
+              Inside the box, standard content is displayed. Note the use of hd-box for containment.
+            </div>
+          </hd-box>
+        </div>
+      </hd-layout>
+    </hd-slide>
+  </hd-deck>
+</body>
+</html>

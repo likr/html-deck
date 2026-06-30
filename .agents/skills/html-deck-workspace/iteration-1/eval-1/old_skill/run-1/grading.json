@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "The custom theme is embedded inside an inline <style> element in index.html under the :root selector",
+      "passed": true,
+      "evidence": "Inline <style> block containing :root overrides was found."
+    },
+    {
+      "text": "No direct styling of HTML element tags or class names is used in the CSS block",
+      "passed": false,
+      "evidence": "Found tag selector 'h2' and class selector '.hd-card' in CSS block."
+    },
+    {
+      "text": "No abbreviated variable names like -bg or -color for background/text are used; explicit names like -background-color and -text-color are used",
+      "passed": false,
+      "evidence": "Found abbreviated variables '--hd-card-bg' and '--hd-layout-heading-color' inside :root block."
+    },
+    {
+      "text": "The theme specifies the exact core colors requested (background: #050505, text: #10b981, main: #ff007f, accent: #00f2fe)",
+      "passed": true,
+      "evidence": "Core variables defined correctly inside inline style :root."
+    },
+    {
+      "text": "Derives secondary/translucent colors using relative color syntax",
+      "passed": true,
+      "evidence": "Muted text color derived with relative color syntax (rgba(from var(...) r g b / 0.6)) was found."
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 2,
+    "total": 5,
+    "pass_rate": 0.6
+  },
+  "timing": {
+    "executor_duration_seconds": 13.9,
+    "grader_duration_seconds": 2.8,
+    "total_duration_seconds": 16.7
+  }
+}

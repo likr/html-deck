@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "The custom theme is embedded inside an inline <style> element in index.html under the :root selector",
+      "passed": true,
+      "evidence": "Inline <style> element under :root was found."
+    },
+    {
+      "text": "No direct styling of HTML element tags or class names is used in the CSS block",
+      "passed": true,
+      "evidence": "No element tags or class selectors are used inside the style block. All overrides are defined under :root."
+    },
+    {
+      "text": "No abbreviated variable names like -bg or -color for background/text are used; explicit names like -background-color and -text-color are used",
+      "passed": true,
+      "evidence": "Theme uses correct explicit variable names like '--hd-card-background-color' and '--hd-layout-heading-text-color'."
+    },
+    {
+      "text": "The layout uses explicit offset variables and compact font/gap scale, preventing text overlap or overflow on a dense slide structure",
+      "passed": true,
+      "evidence": "Theme contains calc formulas like 'calc(var(--hd-slide-header-offset) + 16px)' for heading top padding, which prevents overlap, along with academic scale size overrides."
+    },
+    {
+      "text": "Text meets WCAG AA contrast standard (>= 4.5:1)",
+      "passed": true,
+      "evidence": "Obsidian text (#0f172a) on slate background (#f8fafc) yields 15.6:1 contrast ratio, satisfying requirements."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1.0
+  },
+  "timing": {
+    "executor_duration_seconds": 18.2,
+    "grader_duration_seconds": 4.5,
+    "total_duration_seconds": 22.7
+  }
+}

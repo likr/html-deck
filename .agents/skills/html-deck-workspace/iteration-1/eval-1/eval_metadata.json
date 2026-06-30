@@ -1,0 +1,12 @@
+{
+  "eval_id": 1,
+  "eval_name": "dark-neon-theme",
+  "prompt": "Create a standalone HTML presentation slide that loads html-deck@1.0.0-alpha.2 directly from unpkg. In an inline <style> block, design a custom dark neon theme under the :root selector. The background must be pitch black (#050505), body text bright green (#10b981), primary accent hot pink (#ff007f), and secondary accent neon blue (#00f2fe). Do not use element or class selectors. Derive secondary colors using relative color syntax.",
+  "assertions": [
+    "The custom theme is embedded inside an inline <style> element in index.html under the :root selector",
+    "No direct styling of HTML element tags or class names is used in the CSS block",
+    "No abbreviated variable names like -bg or -color for background/text are used; explicit names like -background-color and -text-color are used",
+    "The theme specifies the exact core colors requested (background: #050505, text: #10b981, main: #ff007f, accent: #00f2fe)",
+    "Derives secondary/translucent colors using relative color syntax"
+  ]
+}

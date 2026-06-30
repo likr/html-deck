@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "The presentation contains exactly 3 slides",
+      "passed": true,
+      "evidence": "Found exactly 3 <hd-slide> elements."
+    },
+    {
+      "text": "No custom CSS styles, style attributes, or css files are included",
+      "passed": true,
+      "evidence": "No custom inline style attributes or <style> tags found. All elements styled via native component attributes (e.g. variant='main')."
+    },
+    {
+      "text": "Slides use correct Cover, Standard, and Split layouts respectively",
+      "passed": true,
+      "evidence": "Layout tags <hd-layout-cover>, <hd-layout>, and <hd-layout-split> are placed inside the slides in correct order."
+    },
+    {
+      "text": "No standalone hd-card is used directly inside layout columns (use hd-box instead)",
+      "passed": true,
+      "evidence": "No <hd-card> elements are used stand-alone. Slide 3 columns correctly utilize <hd-box> components for column-wide containment."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1.0
+  },
+  "timing": {
+    "executor_duration_seconds": 17.8,
+    "grader_duration_seconds": 4.1,
+    "total_duration_seconds": 21.9
+  }
+}

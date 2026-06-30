@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Introduction to WebComponents</title>
+  <script type="module" src="https://unpkg.com/html-deck@1.0.0-alpha.2"></script>
+</head>
+<body>
+  <hd-deck aspect-ratio="16:9">
+    <!-- Slide 1: Cover Layout -->
+    <hd-slide>
+      <hd-layout-cover>
+        <h1 slot="title">WebComponents</h1>
+        <p slot="subtitle">Modern web standard for reusable components</p>
+        <p slot="meta">Author: Web Dev Specialist</p>
+      </hd-layout-cover>
+    </hd-slide>
+
+    <!-- Slide 2: Standard Layout with text list and decorative callout -->
+    <hd-slide>
+      <hd-layout>
+        <h2 slot="heading">Why WebComponents?</h2>
+        <ul class="hd-list">
+          <li><strong>Reusability:</strong> Build once, run anywhere.</li>
+          <li><strong>Encapsulation:</strong> Styles do not leak out or seep in.</li>
+          <li><strong>Standardization:</strong> Built directly into the browser.</li>
+        </ul>
+        <!-- Anti-pattern: Using hd-callout with inline style just for decorative styling -->
+        <hd-callout style="border-left: 5px solid red; background-color: #ffebeb; padding: 10px;">
+          Always use WebComponents for framework-agnostic design systems!
+        </hd-callout>
+      </hd-layout>
+    </hd-slide>
+
+    <!-- Slide 3: Split Layout with standalone hd-cards (Anti-pattern) -->
+    <hd-slide>
+      <hd-layout-split ratio="1:1">
+        <h2 slot="heading">Core Technologies</h2>
+        <!-- Anti-pattern: Using hd-card as a standalone column element instead of hd-box -->
+        <div slot="left">
+          <hd-card>
+            <h3 slot="heading">Custom Elements</h3>
+            <div class="hd-p-2">
+              APIs to define new HTML tags, extending the browser's built-in vocabulary.
+            </div>
+          </hd-card>
+        </div>
+        <div slot="right">
+          <hd-card>
+            <h3 slot="heading">Shadow DOM</h3>
+            <div class="hd-p-2">
+              Provides style encapsulation, keeping CSS scoped to your element.
+            </div>
+          </hd-card>
+        </div>
+      </hd-layout-split>
+    </hd-slide>
+  </hd-deck>
+</body>
+</html>

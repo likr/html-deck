@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Custom Dark Neon Theme (Baseline)</title>
+  <script type="module" src="https://unpkg.com/html-deck@1.0.0-alpha.2"></script>
+  <style>
+    :root {
+      /* Core color settings */
+      --hd-theme-background-color: #050505;
+      --hd-theme-text-color: #10b981;
+      --hd-theme-main-color: #ff007f;
+      --hd-theme-accent-color: #00f2fe;
+
+      /* Muted colors derived using relative color syntax */
+      --hd-theme-text-muted-color: rgba(from var(--hd-theme-text-color) r g b / 0.6);
+
+      /* Anti-pattern: Abbreviated variable names */
+      --hd-card-bg: #111111;
+      --hd-layout-heading-color: var(--hd-theme-main-color);
+      --hd-layout-heading-bg: #0c0d1e;
+    }
+
+    /* Anti-pattern: Direct element selector styling */
+    h2 {
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    /* Anti-pattern: Direct class selector styling */
+    .hd-card {
+      border: 1px solid var(--hd-theme-accent-color);
+    }
+  </style>
+</head>
+<body>
+  <hd-deck aspect-ratio="16:9">
+    <hd-slide>
+      <hd-layout>
+        <h2 slot="heading">Dark Neon Cyber</h2>
+        <p class="hd-text">This slide demonstrates the custom neon theme variables. All styling should be done cleanly via variables only.</p>
+        <hd-card>
+          <h3 slot="heading">Neon Tech</h3>
+          <div class="hd-p-2">
+            Inside the card, standard content is displayed.
+          </div>
+        </hd-card>
+      </hd-layout>
+    </hd-slide>
+  </hd-deck>
+</body>
+</html>
