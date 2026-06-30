@@ -54,7 +54,7 @@
   --hd-main-soft-background-color-inverted: #8a1705;
   --hd-main-soft-text-color-inverted: #fff0eb;
   --hd-main-soft-text-highlight-color-inverted: #ffcc00;
-  --hd-main-soft-text-muted-color-inverted: #df9e94;
+  --hd-main-soft-text-muted-color-inverted: #ffe2de;
 
   /* Main Solid Inverted: White background, Ramen Vermilion Red text */
   --hd-main-solid-background-color-inverted: #ffffff;
@@ -78,7 +78,7 @@
   --hd-accent-soft-background-color-inverted: #7a5f00;
   --hd-accent-soft-text-color-inverted: #fffdeb;
   --hd-accent-soft-text-highlight-color-inverted: #ffcc00;
-  --hd-accent-soft-text-muted-color-inverted: #d6be6b;
+  --hd-accent-soft-text-muted-color-inverted: #fff0bc;
 
   /* Accent Solid Inverted: White background, Noodle Gold text */
   --hd-accent-solid-background-color-inverted: #ffffff;

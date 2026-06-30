@@ -98,6 +98,7 @@ Do not use `<hd-card>`, `<hd-box>`, and `<hd-callout>` simply for visual decorat
 Do not use `<hd-card>` as a standalone, single child element inside layout columns/cells (e.g., inside `<hd-layout-split>` or `<hd-layout-grid>`).
 - `<hd-card>` is designed to emphasize specific information *within* a larger flow of text/content (e.g., sandwiched between other paragraphs). It has `align-self: flex-start` to fit its content height.
 - If you need a standalone container that spans the entire height of a column/cell, use `<hd-box>` instead of `<hd-card>`. `<hd-box>` defaults to `height: 100%` to fill the available layout height.
+- **No Div Wrapper for Box inside Split Layouts**: When placing `<hd-box>` inside `<hd-layout-split>` slots (`left` or `right`), do not wrap it inside a container `div`. Assign the slot attribute directly onto `<hd-box>` (e.g., `<hd-box slot="left">...`). This prevents style leakage and ensures that the box spans the full column height correctly.
 
 ---
 

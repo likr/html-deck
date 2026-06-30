@@ -59,6 +59,22 @@ if (!url) {
         return false;
       }
 
+      // Helper: Check if element belongs to header/footer/notes slots or is the page number
+      function isExcludedFromMarginCheck(element) {
+        if (element.id === 'page-num') return true;
+        let current = element;
+        while (current && current !== document.documentElement) {
+          if (current.getAttribute) {
+            const slot = current.getAttribute('slot');
+            if (slot === 'header' || slot === 'footer' || slot === 'notes') {
+              return true;
+            }
+          }
+          current = current.parentNode || (current.getRootNode && current.getRootNode().host);
+        }
+        return false;
+      }
+
       // Helper: Recursively find all visible content leaf nodes, traversing shadow roots
       function getVisibleLeafElements(root) {
         const elements = [];
@@ -235,16 +251,38 @@ if (!url) {
         }
 
         // 2. Overflow Audits
+        const style = window.getComputedStyle(activeSlide);
+        const parsePx = (val) => {
+          if (!val) return 0;
+          const parsed = parseFloat(val);
+          return isNaN(parsed) ? 0 : parsed;
+        };
+        const marginTop = parsePx(style.getPropertyValue('--hd-slide-margin-top') || style.marginTop);
+        const marginRight = parsePx(style.getPropertyValue('--hd-slide-margin-right') || style.marginRight);
+        const marginBottom = parsePx(style.getPropertyValue('--hd-slide-margin-bottom') || style.marginBottom);
+        const marginLeft = parsePx(style.getPropertyValue('--hd-slide-margin-left') || style.marginLeft);
+
+        const contentLeft = slideRect.left + marginLeft;
+        const contentRight = slideRect.right - marginRight;
+        const contentTop = slideRect.top + marginTop;
+        const contentBottom = slideRect.bottom - marginBottom;
+
         for (const item of leafElements) {
           const el = item.element;
+
+          // Skip if element belongs to header/footer/notes or is page-num
+          if (isExcludedFromMarginCheck(el)) {
+            continue;
+          }
+
           const rect = item.rect;
 
-          // Check if element spills outside the slide bounds (with a 1.5px rounding allowance)
+          // Check if element spills outside the content bounds (with a 1.5px rounding allowance)
           const isOverflowing =
-            rect.left < slideRect.left - 1.5 ||
-            rect.right > slideRect.right + 1.5 ||
-            rect.top < slideRect.top - 1.5 ||
-            rect.bottom > slideRect.bottom + 1.5;
+            rect.left < contentLeft - 1.5 ||
+            rect.right > contentRight + 1.5 ||
+            rect.top < contentTop - 1.5 ||
+            rect.bottom > contentBottom + 1.5;
 
           if (isOverflowing) {
             allWarnings.push({
@@ -254,7 +292,7 @@ if (!url) {
               text: item.text.substring(0, 30),
               selector: getUniqueSelector(el),
               bounds: `[L:${rect.left.toFixed(0)}, R:${rect.right.toFixed(0)}, T:${rect.top.toFixed(0)}, B:${rect.bottom.toFixed(0)}]`,
-              slideBounds: `[L:${slideRect.left.toFixed(0)}, R:${slideRect.right.toFixed(0)}, T:${slideRect.top.toFixed(0)}, B:${slideRect.bottom.toFixed(0)}]`
+              contentBounds: `[L:${contentLeft.toFixed(0)}, R:${contentRight.toFixed(0)}, T:${contentTop.toFixed(0)}, B:${contentBottom.toFixed(0)}]`
             });
           }
         }
@@ -322,10 +360,10 @@ if (!url) {
         console.error("  - Font:     Size: " + warn.sizeStyle + " | Weight: " + warn.weightStyle);
         console.error("  - Ratio:    \x1b[31m" + warn.ratio + ":1\x1b[0m (Required: " + warn.required + ":1)\n");
       } else if (warn.type === 'overflow') {
-        console.error(`${prefix} Slide ${warn.slide} | Canvas Overflow`);
+        console.error(`${prefix} Slide ${warn.slide} | Content Overflow`);
         console.error(`  - Element:  <${warn.tagName.toLowerCase()}> inside selector \x1b[90m${warn.selector}\x1b[0m`);
         console.error(`  - Content:  "${warn.text}"`);
-        console.error(`  - Position: Element bounds ${warn.bounds} vs Slide bounds ${warn.slideBounds}\n`);
+        console.error(`  - Position: Element bounds ${warn.bounds} vs Content bounds ${warn.contentBounds}\n`);
       } else if (warn.type === 'overlap') {
         console.error(`${prefix} Slide ${warn.slide} | Element Overlap`);
         console.error(`  - Node A:   <${warn.elementA.tagName.toLowerCase()}> [${warn.elementA.text}] in \x1b[90m${warn.elementA.selector}\x1b[0m`);
