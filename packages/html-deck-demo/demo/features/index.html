@@ -816,8 +816,7 @@
     const transitionSelect = document.getElementById('transition-select');
     const themeLink = document.getElementById('theme-link');
 
-    themeSelect.addEventListener('change', (e) => {
-      const theme = e.target.value;
+    const updateTheme = (theme) => {
       if (theme && window.themeUrls && window.themeUrls[theme]) {
         themeLink.href = window.themeUrls[theme] + '?t=' + Date.now();
         themeLink.onload = () => {
@@ -827,6 +826,10 @@
         themeLink.href = '';
         deck.sync();
       }
+    };
+
+    themeSelect.addEventListener('change', (e) => {
+      updateTheme(e.target.value);
     });
 
     aspectSelect.addEventListener('change', (e) => {
@@ -837,9 +840,28 @@
       deck.setAttribute('transition', e.target.value);
     });
 
-    // Sync selector initial states with the deck attributes
+    // Check URL parameters for theme
+    const urlParams = new URLSearchParams(window.location.search);
+    const themeParam = urlParams.get('theme');
+    if (themeParam) {
+      let targetTheme = themeParam;
+      if (!targetTheme.startsWith('theme-') && targetTheme !== '') {
+        const prefixed = 'theme-' + targetTheme;
+        if (window.themeUrls && window.themeUrls[prefixed]) {
+          targetTheme = prefixed;
+        }
+      }
+      if (window.themeUrls && window.themeUrls[targetTheme]) {
+        themeSelect.value = targetTheme;
+      }
+    } else {
+      themeSelect.value = "";
+    }
+
+    // Sync selector initial states with the deck attributes and apply theme
     aspectSelect.value = deck.getAttribute('aspect-ratio') || '16:9';
     transitionSelect.value = deck.getAttribute('transition') || 'fade';
+    updateTheme(themeSelect.value);
   </script>
 </body>
 

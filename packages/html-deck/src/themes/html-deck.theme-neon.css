@@ -15,19 +15,19 @@
   --hd-base-soft-text-color: #f1f5f9;
   --hd-base-soft-text-highlight-color: #00f2fe;
   /* Neon Cyan */
-  --hd-base-soft-text-muted-color: #64748b;
+  --hd-base-soft-text-muted-color: #7a8a9e;
 
   /* Solid Surface (Medium bg / Dark text) */
   --hd-base-solid-background-color: #111124;
   --hd-base-solid-text-color: #e2e8f0;
   --hd-base-solid-text-highlight-color: #fe019a;
   /* Neon Pink */
-  --hd-base-solid-text-muted-color: #475569;
+  --hd-base-solid-text-muted-color: #748494;
 
   /* Soft Surface Inverted (Light Cyber Mode) */
   --hd-base-soft-background-color-inverted: radial-gradient(circle at 50% 50%, #f8fafc 0%, #e2e8f0 100%);
   --hd-base-soft-text-color-inverted: #0f172a;
-  --hd-base-soft-text-highlight-color-inverted: #d946ef;
+  --hd-base-soft-text-highlight-color-inverted: #a21caf;
   --hd-base-soft-text-muted-color-inverted: #64748b;
 
   /* Solid Surface Inverted (Light Cyber Solid Mode) */
@@ -42,7 +42,7 @@
   /* Soft Surface */
   --hd-main-soft-background-color: radial-gradient(circle at 50% 50%, #062b33 0%, #020c0f 100%);
   --hd-main-soft-text-color: #00f2fe;
-  --hd-main-soft-text-highlight-color: #fe019a;
+  --hd-main-soft-text-highlight-color: #ff55cc;
   --hd-main-soft-text-muted-color: #008b96;
 
   /* Solid Surface */
@@ -54,7 +54,7 @@
   /* Soft Surface Inverted */
   --hd-main-soft-background-color-inverted: #ecfeff;
   --hd-main-soft-text-color-inverted: #083344;
-  --hd-main-soft-text-highlight-color-inverted: #d946ef;
+  --hd-main-soft-text-highlight-color-inverted: #a21caf;
   --hd-main-soft-text-muted-color-inverted: #0891b2;
 
   /* Solid Surface Inverted */
@@ -68,9 +68,9 @@
      ======================================================== */
   /* Soft Surface */
   --hd-accent-soft-background-color: radial-gradient(circle at 50% 50%, #330628 0%, #0f020c 100%);
-  --hd-accent-soft-text-color: #fe019a;
+  --hd-accent-soft-text-color: #ff55cc;
   --hd-accent-soft-text-highlight-color: #00f2fe;
-  --hd-accent-soft-text-muted-color: #b80170;
+  --hd-accent-soft-text-muted-color: #e260aa;
 
   /* Solid Surface */
   --hd-accent-solid-background-color: linear-gradient(135deg, #fe019a 0%, #f9a8d4 100%);

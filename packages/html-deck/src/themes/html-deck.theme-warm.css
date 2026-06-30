@@ -13,25 +13,25 @@
   /* Soft Surface (Slide default) */
   --hd-base-soft-background-color: linear-gradient(135deg, #f7f4eb 0%, #ede8dc 100%);
   --hd-base-soft-text-color: #363028;
-  --hd-base-soft-text-highlight-color: #c2593f; /* Vibrant Terracotta */
-  --hd-base-soft-text-muted-color: #7c7468;
+  --hd-base-soft-text-highlight-color: #913620; /* Vibrant Terracotta */
+  --hd-base-soft-text-muted-color: #70685c;
 
   /* Solid Surface (Medium bg / Dark text) */
   --hd-base-solid-background-color: #ede8dc;
   --hd-base-solid-text-color: #363028;
-  --hd-base-solid-text-highlight-color: #a3442e;
-  --hd-base-solid-text-muted-color: #7c7468;
+  --hd-base-solid-text-highlight-color: #913620;
+  --hd-base-solid-text-muted-color: #70685c;
 
   /* Soft Surface Inverted (Desert Night) */
   --hd-base-soft-background-color-inverted: linear-gradient(135deg, #2a2421 0%, #1f1a18 100%);
   --hd-base-soft-text-color-inverted: #f7f4eb;
-  --hd-base-soft-text-highlight-color-inverted: #e06b4d; /* Bright Copper */
+  --hd-base-soft-text-highlight-color-inverted: #f4a28c; /* Bright Copper */
   --hd-base-soft-text-muted-color-inverted: #a39a8e;
 
   /* Solid Surface Inverted */
   --hd-base-solid-background-color-inverted: #332b27;
   --hd-base-solid-text-color-inverted: #f7f4eb;
-  --hd-base-solid-text-highlight-color-inverted: #e06b4d;
+  --hd-base-solid-text-highlight-color-inverted: #f4a28c;
   --hd-base-solid-text-muted-color-inverted: #a39a8e;
 
   /* ========================================================
@@ -39,15 +39,15 @@
      ======================================================== */
   /* Soft Surface */
   --hd-main-soft-background-color: linear-gradient(135deg, #faebe3 0%, #f3dcd0 100%);
-  --hd-main-soft-text-color: #cb5334;
-  --hd-main-soft-text-highlight-color: #dfa12d; /* Sunlit Amber Gold */
+  --hd-main-soft-text-color: #9e351b;
+  --hd-main-soft-text-highlight-color: #6e200c;
   --hd-main-soft-text-muted-color: #b67b6b;
 
   /* Solid Surface */
-  --hd-main-solid-background-color: linear-gradient(135deg, #cb5334 0%, #a83d21 100%);
+  --hd-main-solid-background-color: linear-gradient(135deg, #a83d21 0%, #8c331d 100%);
   --hd-main-solid-text-color: #f7f4eb;
-  --hd-main-solid-text-highlight-color: #fdd692;
-  --hd-main-solid-text-muted-color: #f5c9bc;
+  --hd-main-solid-text-highlight-color: #ffe7bd;
+  --hd-main-solid-text-muted-color: #ffffff;
 
   /* Soft Surface Inverted */
   --hd-main-soft-background-color-inverted: #411f16;
@@ -57,8 +57,8 @@
 
   /* Solid Surface Inverted */
   --hd-main-solid-background-color-inverted: #f7f4eb;
-  --hd-main-solid-text-color-inverted: #cb5334;
-  --hd-main-solid-text-highlight-color-inverted: #dfa12d;
+  --hd-main-solid-text-color-inverted: #9e351b;
+  --hd-main-solid-text-highlight-color-inverted: #6e200c;
   --hd-main-solid-text-muted-color-inverted: #b67b6b;
 
   /* ========================================================
@@ -66,9 +66,9 @@
      ======================================================== */
   /* Soft Surface */
   --hd-accent-soft-background-color: linear-gradient(135deg, #fdf6e2 0%, #f9edcb 100%);
-  --hd-accent-soft-text-color: #dfa12d;
-  --hd-accent-soft-text-highlight-color: #cb5334;
-  --hd-accent-soft-text-muted-color: #ba9142;
+  --hd-accent-soft-text-color: #8a5d09;
+  --hd-accent-soft-text-highlight-color: #6e200c;
+  --hd-accent-soft-text-muted-color: #7a5911;
 
   /* Solid Surface */
   --hd-accent-solid-background-color: linear-gradient(135deg, #dfa12d 0%, #c48818 100%);
@@ -79,14 +79,14 @@
   /* Soft Surface Inverted */
   --hd-accent-soft-background-color-inverted: #413216;
   --hd-accent-soft-text-color-inverted: #fdf6e2;
-  --hd-accent-soft-text-highlight-color-inverted: #e06b4d;
-  --hd-accent-soft-text-muted-color-inverted: #b09560;
+  --hd-accent-soft-text-highlight-color-inverted: #f4a28c;
+  --hd-accent-soft-text-muted-color-inverted: #d4b57a;
 
   /* Solid Surface Inverted */
   --hd-accent-solid-background-color-inverted: #2a2421;
-  --hd-accent-solid-text-color-inverted: #dfa12d;
-  --hd-accent-solid-text-highlight-color-inverted: #e06b4d;
-  --hd-accent-solid-text-muted-color-inverted: #ba9142;
+  --hd-accent-solid-text-color-inverted: #fdf6e2;
+  --hd-accent-solid-text-highlight-color-inverted: #ffc966;
+  --hd-accent-solid-text-muted-color-inverted: #e0c592;
 
 
 

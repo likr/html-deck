@@ -16,24 +16,24 @@
    --hd-base-soft-background-color: #000000;
    --hd-base-soft-text-color: #00ff66;
    --hd-base-soft-text-highlight-color: #ffb000;
-   --hd-base-soft-text-muted-color: #006622;
+   --hd-base-soft-text-muted-color: #009933;
 
    /* Solid Surface (Medium bg / Dark text equivalent) */
    --hd-base-solid-background-color: #050a05;
    --hd-base-solid-text-color: #00ff66;
    --hd-base-solid-text-highlight-color: #ffb000;
-   --hd-base-solid-text-muted-color: #006622;
+   --hd-base-solid-text-muted-color: #009933;
 
    /* Soft Surface Inverted (Full block phosphor highlighted) */
    --hd-base-soft-background-color-inverted: #00ff66;
    --hd-base-soft-text-color-inverted: #000000;
-   --hd-base-soft-text-highlight-color-inverted: #ffffff;
+   --hd-base-soft-text-highlight-color-inverted: #000000;
    --hd-base-soft-text-muted-color-inverted: #006622;
 
    /* Solid Surface Inverted (Solid block phosphor highlighted) */
    --hd-base-solid-background-color-inverted: #00ff66;
    --hd-base-solid-text-color-inverted: #000000;
-   --hd-base-solid-text-highlight-color-inverted: #ffffff;
+   --hd-base-solid-text-highlight-color-inverted: #000000;
    --hd-base-solid-text-muted-color-inverted: #006622;
 
    /* ========================================================
@@ -48,13 +48,13 @@
    /* Solid Surface */
    --hd-main-solid-background-color: #00ff66;
    --hd-main-solid-text-color: #000000;
-   --hd-main-solid-text-highlight-color: #ffffff;
+   --hd-main-solid-text-highlight-color: #000000;
    --hd-main-solid-text-muted-color: #006622;
 
    /* Soft Surface Inverted */
    --hd-main-soft-background-color-inverted: #00ff66;
    --hd-main-soft-text-color-inverted: #000000;
-   --hd-main-soft-text-highlight-color-inverted: #ffffff;
+   --hd-main-soft-text-highlight-color-inverted: #000000;
    --hd-main-soft-text-muted-color-inverted: #006622;
 
    /* Solid Surface Inverted */
@@ -75,13 +75,13 @@
    /* Solid Surface */
    --hd-accent-solid-background-color: #ffb000;
    --hd-accent-solid-text-color: #000000;
-   --hd-accent-solid-text-highlight-color: #ffffff;
+   --hd-accent-solid-text-highlight-color: #000000;
    --hd-accent-solid-text-muted-color: #805800;
 
    /* Soft Surface Inverted */
    --hd-accent-soft-background-color-inverted: #ffb000;
    --hd-accent-soft-text-color-inverted: #000000;
-   --hd-accent-soft-text-highlight-color-inverted: #ffffff;
+   --hd-accent-soft-text-highlight-color-inverted: #000000;
    --hd-accent-soft-text-muted-color-inverted: #805800;
 
    /* Solid Surface Inverted */

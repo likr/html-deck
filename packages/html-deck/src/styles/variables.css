@@ -18,7 +18,7 @@
     /* Soft Surface (Light bg / Dark text) */
     --hd-base-soft-background-color: var(--hd-theme-background-color);
     --hd-base-soft-text-color: var(--hd-theme-text-color);
-    --hd-base-soft-text-highlight-color: hsl(from var(--hd-theme-accent-color) h s 41%);
+    --hd-base-soft-text-highlight-color: hsl(from var(--hd-theme-accent-color) h s 38%);
     --hd-base-soft-text-muted-color: rgba(from var(--hd-theme-text-color) r g b / 0.6);
 
     /* Solid Surface (Medium bg / Dark text) */
@@ -43,25 +43,25 @@
     /* Soft Surface (Light bg / Dark text) */
     --hd-main-soft-background-color: color-mix(in srgb, var(--hd-theme-main-color) 6%, var(--hd-theme-background-color));
     --hd-main-soft-text-color: color-mix(in srgb, var(--hd-theme-main-color) 50%, var(--hd-theme-text-color));
-    --hd-main-soft-text-highlight-color: hsl(from var(--hd-theme-accent-color) h s 41%);
+    --hd-main-soft-text-highlight-color: hsl(from var(--hd-theme-accent-color) h s 38%);
     --hd-main-soft-text-muted-color: color-mix(in srgb, var(--hd-theme-main-color) 85%, var(--hd-theme-text-color));
 
     /* Solid Surface (Vibrant bg / Light text) */
     --hd-main-solid-background-color: var(--hd-theme-main-color);
     --hd-main-solid-text-color: var(--hd-theme-background-color);
-    --hd-main-solid-text-highlight-color: hsl(from var(--hd-theme-accent-color) h s 72%);
+    --hd-main-solid-text-highlight-color: hsl(from var(--hd-theme-accent-color) h s 92%);
     --hd-main-solid-text-muted-color: color-mix(in srgb, var(--hd-theme-main-color) 15%, var(--hd-theme-background-color));
 
     /* Soft Surface Inverted (Dark bg / Light text) */
     --hd-main-soft-background-color-inverted: color-mix(in srgb, var(--hd-theme-main-color) 50%, var(--hd-theme-text-color));
     --hd-main-soft-text-color-inverted: color-mix(in srgb, var(--hd-theme-main-color) 6%, var(--hd-theme-background-color));
-    --hd-main-soft-text-highlight-color-inverted: hsl(from var(--hd-theme-accent-color) h s 72%);
+    --hd-main-soft-text-highlight-color-inverted: hsl(from var(--hd-theme-accent-color) h s 92%);
     --hd-main-soft-text-muted-color-inverted: color-mix(in srgb, var(--hd-theme-main-color) 40%, var(--hd-theme-background-color));
 
     /* Solid Surface Inverted (Light bg / Vibrant text) */
     --hd-main-solid-background-color-inverted: var(--hd-theme-background-color);
     --hd-main-solid-text-color-inverted: var(--hd-theme-main-color);
-    --hd-main-solid-text-highlight-color-inverted: hsl(from var(--hd-theme-accent-color) h s 41%);
+    --hd-main-solid-text-highlight-color-inverted: hsl(from var(--hd-theme-accent-color) h s 38%);
     --hd-main-solid-text-muted-color-inverted: color-mix(in srgb, var(--hd-theme-main-color) 85%, var(--hd-theme-text-color));
 
     /* --- Accent Theme (Orange) --- */
@@ -69,7 +69,7 @@
     --hd-accent-soft-background-color: color-mix(in srgb, var(--hd-theme-accent-color) 6%, var(--hd-theme-background-color));
     --hd-accent-soft-text-color: color-mix(in srgb, var(--hd-theme-accent-color) 50%, var(--hd-theme-text-color));
     --hd-accent-soft-text-highlight-color: var(--hd-theme-main-color);
-    --hd-accent-soft-text-muted-color: hsl(from var(--hd-theme-accent-color) h s 41%);
+    --hd-accent-soft-text-muted-color: hsl(from var(--hd-theme-accent-color) h s 38%);
 
     /* Solid Surface (Vibrant bg / Light text) */
     --hd-accent-solid-background-color: var(--hd-theme-accent-color);
@@ -85,7 +85,7 @@
     --hd-accent-solid-background-color-inverted: var(--hd-theme-background-color);
     --hd-accent-solid-text-color-inverted: var(--hd-theme-accent-color);
     --hd-accent-solid-text-highlight-color-inverted: var(--hd-theme-main-color);
-    --hd-accent-solid-text-muted-color-inverted: hsl(from var(--hd-theme-accent-color) h s 41%);
+    --hd-accent-solid-text-muted-color-inverted: hsl(from var(--hd-theme-accent-color) h s 38%);
 
     /* Slide Border parameters */
     --hd-slide-border-width: 0px;

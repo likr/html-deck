@@ -139,16 +139,62 @@ if (!url) {
         return path.slice(-3).join(' > '); // return last 3 ancestors for clarity
       }
 
-      // Helper: Color parsing for rgb/rgba
+      // Helper: Color parsing for rgb/rgba, hex, and color(srgb)
       function parseColor(colorStr) {
-        if (colorStr.startsWith('rgb')) {
-          const match = colorStr.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?\)/);
+        if (!colorStr) return { r: 0, g: 0, b: 0, a: 1.0 };
+        colorStr = colorStr.trim();
+        if (colorStr.startsWith('#')) {
+          let hex = colorStr.slice(1);
+          if (hex.length === 3 || hex.length === 4) {
+            hex = [...hex].map(c => c + c).join('');
+          }
+          const r = parseInt(hex.slice(0, 2), 16);
+          const g = parseInt(hex.slice(2, 4), 16);
+          const b = parseInt(hex.slice(4, 6), 16);
+          let a = 1.0;
+          if (hex.length === 8) {
+            a = parseInt(hex.slice(6, 8), 16) / 255;
+          }
+          return { r, g, b, a };
+        }
+        if (colorStr.startsWith('color')) {
+          // Matches color(srgb R G B / A) or color(srgb R G B)
+          const match = colorStr.match(/color\(srgb\s+([\d.]+)\s+([\d.]+)\s+([\d.]+)(?:\s*\/\s*([\d.%]+))?\)/);
           if (match) {
+            let alpha = 1.0;
+            if (match[4] !== undefined) {
+              const aVal = match[4].trim();
+              if (aVal.endsWith('%')) {
+                alpha = parseFloat(aVal) / 100;
+              } else {
+                alpha = parseFloat(aVal);
+              }
+            }
+            return {
+              r: Math.round(parseFloat(match[1]) * 255),
+              g: Math.round(parseFloat(match[2]) * 255),
+              b: Math.round(parseFloat(match[3]) * 255),
+              a: alpha
+            };
+          }
+        }
+        if (colorStr.startsWith('rgb')) {
+          const match = colorStr.match(/rgba?\((\d+)[,\s]+(\d+)[,\s]+(\d+)(?:[,\s/]+([\d.%]+))?\)/);
+          if (match) {
+            let alpha = 1.0;
+            if (match[4] !== undefined) {
+              const aVal = match[4].trim();
+              if (aVal.endsWith('%')) {
+                alpha = parseFloat(aVal) / 100;
+              } else {
+                alpha = parseFloat(aVal);
+              }
+            }
             return {
               r: parseInt(match[1], 10),
               g: parseInt(match[2], 10),
               b: parseInt(match[3], 10),
-              a: match[4] !== undefined ? parseFloat(match[4]) : 1.0
+              a: alpha
             };
           }
         }
@@ -162,7 +208,17 @@ if (!url) {
 
         while (current && current !== document.documentElement) {
           const style = window.getComputedStyle(current);
-          const bg = parseColor(style.backgroundColor);
+          let bgStr = style.backgroundColor;
+          if (bgStr === 'rgba(0, 0, 0, 0)' || bgStr === 'transparent') {
+            const bgImg = style.backgroundImage;
+            if (bgImg && bgImg !== 'none') {
+              const colorMatch = bgImg.match(/(rgba?\(.*?\)|#[0-9a-fA-F]{3,8})/);
+              if (colorMatch) {
+                bgStr = colorMatch[1];
+              }
+            }
+          }
+          const bg = parseColor(bgStr);
 
           if (bg.a > 0) {
             colors.push(bg);

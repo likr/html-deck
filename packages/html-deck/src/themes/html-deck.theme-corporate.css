@@ -30,7 +30,7 @@
   --corporate-background-color: #fcfcfc;
   --corporate-text-color: #0b132b;
   --corporate-main-color: #0a1931;
-  --corporate-accent-color: #c25e2e;
+  --corporate-accent-color: #964219;
 
   /* --- 48-Color Matrix (Minimal Executive - Derived from 4 Base Colors) --- */
 
@@ -52,20 +52,20 @@
   /* Soft Surface Inverted (Obsidian Dark Mode) */
   --hd-base-soft-background-color-inverted: var(--corporate-text-color);
   --hd-base-soft-text-color-inverted: var(--corporate-background-color);
-  --hd-base-soft-text-highlight-color-inverted: color-mix(in srgb, var(--corporate-accent-color) 80%, var(--corporate-background-color));
+  --hd-base-soft-text-highlight-color-inverted: color-mix(in srgb, var(--corporate-accent-color) 50%, var(--corporate-background-color));
   --hd-base-soft-text-muted-color-inverted: rgba(from var(--corporate-background-color) r g b / 0.6);
 
   /* Solid Surface Inverted */
   --hd-base-solid-background-color-inverted: color-mix(in srgb, var(--corporate-text-color) 88%, var(--corporate-background-color));
   --hd-base-solid-text-color-inverted: var(--corporate-background-color);
-  --hd-base-solid-text-highlight-color-inverted: color-mix(in srgb, var(--corporate-accent-color) 80%, var(--corporate-background-color));
+  --hd-base-solid-text-highlight-color-inverted: color-mix(in srgb, var(--corporate-accent-color) 50%, var(--corporate-background-color));
   --hd-base-solid-text-muted-color-inverted: rgba(from var(--corporate-background-color) r g b / 0.6);
 
   /* ========================================================
      MAIN THEME (Brand Trust Navy) - Classic Deep Navy
      ======================================================== */
   /* Soft Surface */
-  --hd-main-soft-background-color: rgba(from var(--corporate-main-color) r g b / 0.06);
+  --hd-main-soft-background-color: color-mix(in srgb, var(--corporate-main-color) 6%, var(--corporate-background-color));
   --hd-main-soft-text-color: var(--corporate-main-color);
   --hd-main-soft-text-highlight-color: var(--corporate-accent-color);
   --hd-main-soft-text-muted-color: rgba(from var(--corporate-main-color) r g b / 0.65);
@@ -73,13 +73,13 @@
   /* Solid Surface */
   --hd-main-solid-background-color: var(--corporate-main-color);
   --hd-main-solid-text-color: var(--corporate-background-color);
-  --hd-main-solid-text-highlight-color: color-mix(in srgb, var(--corporate-accent-color) 70%, var(--corporate-background-color));
+  --hd-main-solid-text-highlight-color: color-mix(in srgb, var(--corporate-accent-color) 60%, var(--corporate-background-color));
   --hd-main-solid-text-muted-color: rgba(from var(--corporate-background-color) r g b / 0.7);
 
   /* Soft Surface Inverted */
   --hd-main-soft-background-color-inverted: var(--corporate-main-color);
   --hd-main-soft-text-color-inverted: var(--corporate-background-color);
-  --hd-main-soft-text-highlight-color-inverted: color-mix(in srgb, var(--corporate-accent-color) 70%, var(--corporate-background-color));
+  --hd-main-soft-text-highlight-color-inverted: color-mix(in srgb, var(--corporate-accent-color) 50%, var(--corporate-background-color));
   --hd-main-soft-text-muted-color-inverted: rgba(from var(--corporate-background-color) r g b / 0.7);
 
   /* Solid Surface Inverted */
@@ -92,7 +92,7 @@
      ACCENT THEME (Brand Copper) - Classic Copper Accent
      ======================================================== */
   /* Soft Surface */
-  --hd-accent-soft-background-color: rgba(from var(--corporate-accent-color) r g b / 0.06);
+  --hd-accent-soft-background-color: color-mix(in srgb, var(--corporate-accent-color) 6%, var(--corporate-background-color));
   --hd-accent-soft-text-color: var(--corporate-accent-color);
   --hd-accent-soft-text-highlight-color: var(--corporate-main-color);
   --hd-accent-soft-text-muted-color: rgba(from var(--corporate-accent-color) r g b / 0.65);

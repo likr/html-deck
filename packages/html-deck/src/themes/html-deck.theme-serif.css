@@ -40,7 +40,7 @@
   /* Soft Surface */
   --hd-main-soft-background-color: #f5ebeb; /* Rose cream tint */
   --hd-main-soft-text-color: #5c1d1d; /* Deep Burgundy */
-  --hd-main-soft-text-highlight-color: #9c6d1d; /* Gold */
+  --hd-main-soft-text-highlight-color: #5c1d1d; /* Burgundy highlight */
   --hd-main-soft-text-muted-color: #8a4f4f;
 
   /* Solid Surface */
@@ -58,7 +58,7 @@
   /* Solid Surface Inverted */
   --hd-main-solid-background-color-inverted: #faf8f5;
   --hd-main-solid-text-color-inverted: #5c1d1d;
-  --hd-main-solid-text-highlight-color-inverted: #9c6d1d;
+  --hd-main-solid-text-highlight-color-inverted: #5c1d1d;
   --hd-main-solid-text-muted-color-inverted: #8a4f4f;
 
   /* ========================================================
@@ -68,10 +68,10 @@
   --hd-accent-soft-background-color: #fbf7eb; /* Soft gold tint */
   --hd-accent-soft-text-color: #855b13; /* Antique Gold */
   --hd-accent-soft-text-highlight-color: #5c1d1d;
-  --hd-accent-soft-text-muted-color: #a38244;
+  --hd-accent-soft-text-muted-color: #7c5512;
 
   /* Solid Surface */
-  --hd-accent-solid-background-color: #9c6d1d;
+  --hd-accent-solid-background-color: #946617;
   --hd-accent-solid-text-color: #faf8f5;
   --hd-accent-solid-text-highlight-color: #5c1d1d;
   --hd-accent-solid-text-muted-color: #e5c895;
@@ -84,9 +84,9 @@
 
   /* Solid Surface Inverted */
   --hd-accent-solid-background-color-inverted: #faf8f5;
-  --hd-accent-solid-text-color-inverted: #9c6d1d;
+  --hd-accent-solid-text-color-inverted: #855b13;
   --hd-accent-solid-text-highlight-color-inverted: #5c1d1d;
-  --hd-accent-solid-text-muted-color-inverted: #a38244;
+  --hd-accent-solid-text-muted-color-inverted: #8a4f4f;
 
   /* ========================================================
      EDITORIAL DESIGN OVERRIDES & COMPONENTS
