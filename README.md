@@ -2,61 +2,29 @@
 
 An agent-first, lightweight WebComponents slideshow platform designed for humans and AI agents.
 
-## 🚀 Features
+## Features
 
-- 🤖 **Agent-First Design**: Flat DOM tree structures (`<hd-slide>` directly under `<hd-deck>`) and declarative layout components (`<hd-layout>`, `<hd-layout-split>`, etc.) make it incredibly easy for LLM agents to generate, read, and edit presentations.
-- 🎨 **Built-in Modern Themes**: Includes Corporate, Neon Cyberpunk, Warm Sepia, Serif Academic, and Dark Slate themes built with a carefully curated HSL color palette. Global CSS is automatically injected.
-- 👥 **Presenter View**: A local speaker dashboard synchronized using `BroadcastChannel`. Features elapsed time tracking, a clock, slide previews (current/next), speaker notes, and navigation controls.
-- 🖨️ **PDF Export & Printing**: Perfect, landscape-oriented PDF printing via the browser (`Ctrl+P` / `Cmd+P`) without layout shifts or overlap.
-- ⚙️ **Mathematical & Code Blocks**: Easily integrated with Prism.js and KaTeX to support math equation rendering and code syntax highlighting on raw HTML elements.
+- **Agent-First Design**: Flat DOM tree structures (`<hd-slide>` directly under `<hd-deck>`) and declarative layout components (`<hd-layout>`, `<hd-layout-split>`, etc.) make it straightforward for LLM agents to generate, read, and edit presentations.
+- **Built-in Modern Themes**: Includes Corporate, Neon Cyberpunk, Warm Sepia, Serif Academic, and Dark Slate themes built with a carefully curated HSL color palette. Global CSS is automatically injected.
+- **Presenter View**: A local speaker dashboard synchronized using `BroadcastChannel`. Features elapsed time tracking, a clock, slide previews (current/next), speaker notes, and navigation controls.
+- **PDF Export and Printing**: Landscape-oriented PDF printing via the browser without layout shifts or overlap.
+- **Mathematical and Code Blocks**: Easily integrated with Prism.js and KaTeX to support math equation rendering and code syntax highlighting on raw HTML elements.
 
-## 📁 Repository Structure
+## Repository Structure
 
 This repository is organized as a monorepo using npm workspaces:
 
-- **`packages/html-deck`**: Core slideshow library containing WebComponents and CSS presets.
-- **`packages/create-html-deck`**: CLI generator tool to bootstrap new presentation projects.
-- **`packages/html-deck-demo`**: Interactive tutorial and feature demonstration site.
-- **`packages/slides`**: A sample presentation deck.
+- **packages/html-deck**: Core slideshow library containing WebComponents and CSS presets.
+- **packages/create-html-deck**: CLI generator tool to bootstrap new presentation projects.
+- **packages/html-deck-demo**: Interactive tutorial and feature demonstration site.
+- **packages/slides**: A sample presentation deck.
 
----
+## Scaffolding a New Presentation
 
-## 🛠️ Getting Started (Development)
-
-To run the development server or build the monorepo projects locally:
-
-1. **Install dependencies**:
-   ```bash
-   npm install
-   ```
-
-2. **Start the development server**:
-   ```bash
-   npm run dev
-   ```
-   This will run Vite across workspaces to serve the demos and slides.
-
-3. **Build the packages**:
-   ```bash
-   npm run build
-   ```
-
----
-
-## 📦 Scaffolding a New Presentation
-
-To quickly bootstrap a new presentation project with build setups and template files, use the `create-html-deck` CLI:
+To bootstrap a new presentation project with build setups and template files, use the `create-html-deck` CLI:
 
 ```bash
-# 1. Create a new presentation project
 npm create html-deck my-presentation
-
-# 2. Navigate to the project directory
-cd my-presentation
-
-# 3. Install dependencies and start development server
-npm install
-npm run dev
 ```
 
 For more advanced setups, you can customize the scaffolding using options:
@@ -70,9 +38,17 @@ npm create html-deck <project-directory> [options]
 - `--lang <lang>`: Set HTML lang attribute. Examples: `ja`, `en` (default).
 - `--presenter`: Scaffold a local presenter view dashboard (`presenter.html`) and link it.
 
----
+## Developer Skill Integration
 
-## 🧱 Core Markup Structure
+If you are developing presentations with an AI agent in a compatible environment, you can install the `html-deck` skill directly into your workspace by running:
+
+```bash
+npx skills add likr/html-deck@html-deck
+```
+
+This skill provides the agent with structured instructions on markup layouts, styling guides, and theme constraints to ensure code compliance.
+
+## Core Markup Structure
 
 A minimal HTML-Deck slideshow looks like this:
 
@@ -120,9 +96,7 @@ A minimal HTML-Deck slideshow looks like this:
 </html>
 ```
 
----
-
-## 📚 Component Reference Summaries
+## Component Reference Summaries
 
 HTML-Deck includes 9 distinct core WebComponents. Here is a brief summary of the key elements:
 
@@ -138,11 +112,9 @@ HTML-Deck includes 9 distinct core WebComponents. Here is a brief summary of the
 | `<hd-box>` | Box container similar to `<hd-card>` but stretches to 100% height of its grid cell/parent container (attributes: `variant`, `surface`, slots: `heading`, default). |
 | `<hd-callout>` | Highlighted blockquote-like container with a left border marker (attributes: `variant`, slot: default). |
 
-For full properties, attributes, and variables, see the detailed [Components Reference](.agents/skills/html-deck/references/components.md).
+For full properties, attributes, and variables, see the [packages/html-deck README](packages/html-deck/README.md) or the [Components Reference](.agents/skills/html-deck/references/components.md).
 
----
-
-## 🎨 Built-in Themes
+## Built-in Themes
 
 Themes are enabled by loading the corresponding CSS preset stylesheet in the HTML `<head>` after the main library script:
 
@@ -165,41 +137,9 @@ To support all themes, load Google Fonts:
 5. **Warm Sepia** (`html-deck.theme-warm.css`): Warm Ivory background, espresso brown text, Outfit font.
 6. **Serif Academic** (`html-deck.theme-serif.css`): Paper white, Playfair Display headers, Lora body text.
 
-For utility classes (e.g., margins, alignments, absolute positioning), see the [Themes & Styling Reference](.agents/skills/html-deck/references/styling.md).
+For utility classes and theme creation constraints, see the [packages/html-deck README](packages/html-deck/README.md).
 
-### 🛠️ Theme Creation Constraints
-
-When designing custom themes for `html-deck`, you must adhere to the following rules:
-- **CSS Variable Overrides Only**: All custom themes must be created in a dedicated CSS file containing ONLY variable overrides under the `:root` selector.
-- **Direct Selector Prohibition**: Direct styling of HTML element tags (like `hd-slide`, `h1`) or class names (like `.hd-card`) is strictly prohibited.
-- **Relative Color Syntax**: Use CSS Relative Color Syntax (e.g., `rgba(from var(--hd-main-color) r g b / 0.15)`) to derive translucent or muted colors.
-- **Explicit Variable Names**: Do not introduce or use abbreviated variable names like `bg` or `color` for backgrounds or text colors. Always use full, explicit names such as `background-color` and `text-color` (e.g., `--hd-card-background-color` instead of `--hd-card-bg`).
-
----
-
-## 🖨️ PDF Export & Printing
-
-1. Press **Ctrl + P** / **Cmd + P** in Chrome/Chromium.
-2. Set layout/orientation to **Landscape**.
-3. Set margins to **None**.
-4. Check / Enable **Background graphics**.
-5. Save as PDF.
-
-For details on viewport calculations, see the [PDF Export & Printing Reference](.agents/skills/html-deck/references/printing.md).
-
----
-
-## ⚠️ Critical Development Rules
-
-### 1. Escape HTML in Code Blocks
-If you display HTML example templates inside `<pre><code>` blocks, **always escape brackets** (`&lt;` and `&gt;`) if they are evaluated by the browser in the DOM, or set text via JavaScript `.textContent` to prevent them from being parsed as real slides.
-
-### 2. Absolute Units (`px`)
-When writing custom slide styles (fonts, margins, paddings), **always use absolute `px` units**. Avoid `rem` or structural `em` layout units, as they can cause text overflows or alignment shifts during scaling or printing.
-
----
-
-## ⌨️ Keyboard Shortcuts
+## Keyboard Shortcuts
 
 | Key | Action |
 | :--- | :--- |
@@ -208,8 +148,6 @@ When writing custom slide styles (fonts, margins, paddings), **always use absolu
 | `F`, `f` | Toggle Fullscreen |
 | `P`, `p` | Open Presenter View (requires `presenter-url`) |
 
----
-
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
