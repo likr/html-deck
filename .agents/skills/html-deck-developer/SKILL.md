@@ -50,7 +50,7 @@ The project is organized as an **npm workspaces monorepo** under `packages/`:
 - **`packages/html-deck-demo/`** — private demo/landing page package:
   - Uses `html-deck` as a workspace dependency.
   - Built as a multi-page Vite app.
-  - Slides import `html-deck` via `import 'html-deck'` and `import 'html-deck/css'`.
+  - Slides import `html-deck` via `import 'html-deck'`.
 - **`packages/create-html-deck/`** — publishable CLI scaffolding tool.
 - **`packages/slides/`** — private personal slides package.
 

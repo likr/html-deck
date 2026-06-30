@@ -94,20 +94,20 @@
 
   /* UI Component Styling overriding */
   --hd-card-border-radius: 8px;
-  --hd-card-border-color: rgba(from var(--hd-base-soft-text-color) r g b / 0.15);
   --hd-card-box-shadow: 0 4px 10px rgba(from var(--hd-base-soft-text-color) r g b / 0.04);
-  --hd-card-heading-background-color: var(--hd-base-solid-background-color);
-  --hd-card-heading-text-color: var(--hd-base-solid-text-color);
 
   --hd-box-border-radius: 8px;
-  --hd-box-border-color: rgba(from var(--hd-base-soft-text-color) r g b / 0.15);
-  --hd-box-heading-background-color: var(--hd-base-solid-background-color);
-  --hd-box-heading-text-color: var(--hd-base-solid-text-color);
 
   --hd-callout-border-radius: 6px;
-  --hd-callout-background-color: rgba(from var(--hd-main-solid-background-color) r g b / 0.08);
-  --hd-callout-border-color: var(--hd-main-solid-background-color);
 
   --hd-code-background-color: rgba(from var(--hd-base-soft-text-highlight-color) r g b / 0.08);
   --hd-code-text-color: var(--hd-base-soft-text-highlight-color);
+
+  --hd-table-border-color: var(--hd-border-color-default);
 }
+
+* {
+  --hd-border-color-default: rgba(from var(--hd-body-text-color) r g b / 0.15);
+  --hd-border-color-surfaced: rgba(from var(--hd-body-text-color) r g b / 0.3);
+}
+

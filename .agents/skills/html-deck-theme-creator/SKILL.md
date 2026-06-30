@@ -18,15 +18,13 @@ Always read the relevant sub-document using the `view_file` tool to inspect cust
 
 ## 🎨 Theme Customization Core Principles
 
-### 1. Dedicated CSS File for Theme Overrides & Bundle Cascade Order
+### 1. Dedicated CSS File for Theme Overrides
 Create a dedicated CSS file (e.g., `style.css`) to define the custom theme. Do not write CSS variable overrides directly in `<style>` blocks.
 
-To guarantee correct cascade ordering during production builds (preventing the core library variables from overriding your custom rules), **always import the library CSS at the top of your custom theme file using `@import`** instead of importing them separately in the script block:
+The core styling is automatically injected by `html-deck` at runtime. Therefore, you **MUST NOT** import `html-deck/css` (using `@import` or similar) inside your custom theme file, as doing so will cause compilation/resolution errors in build tools like Vite and PostCSS. Simply define your CSS variable overrides under the `:root` selector and import the stylesheet in your script block.
 
 - **Correct Theme Stylesheet (`style.css`)**:
   ```css
-  @import "html-deck/css";
-
   :root {
     --hd-base-soft-background-color: #fffcf5;
     ...
@@ -37,7 +35,7 @@ To guarantee correct cascade ordering during production builds (preventing the c
   ```html
   <script type="module">
     import 'html-deck';
-    import './style.css'; // Only import the stylesheet that imports the core styles
+    import './style.css';
   </script>
   ```
 

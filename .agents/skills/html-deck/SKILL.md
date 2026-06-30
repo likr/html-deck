@@ -50,7 +50,6 @@ Keep the slide DOM flat inside the deck. Do not nest pages inside nested section
   <title>Presentation Title</title>
   <script type="module">
     import 'html-deck';
-    import 'html-deck/css';
     // Import custom theme CSS here *only* if a custom theme file (e.g. theme-custom.css) is explicitly requested or created.
   </script>
 </head>
@@ -98,7 +97,7 @@ To ensure presentation consistency, **you MUST NOT write custom CSS styles, `<st
 - Rely entirely on standard theme stylesheets (e.g., `html-deck.theme-warm.css`), components, and predefined `hd-` utility classes (e.g., `.hd-highlight`, `.hd-mt-3`, `.hd-text-weight-semibold`, `.hd-text-center`).
 - If custom CSS is explicitly requested by the user:
   - **Always use absolute `px` units** for font sizes, paddings, and margins. Avoid `rem` or structural `em` layout units as they break scaled resolution.
-  - Define custom styles in a separate CSS file and import it **after** `html-deck/css`.
+  - Define custom styles in a separate CSS file and import it (e.g., `import './style.css'`).
 
 ### 4. Never Apply `position: relative` directly to `<hd-slide>`
 Applying `position: relative` directly on `<hd-slide>` containers breaks the layout and virtual resolution scaling computations of the slideshow. If you need relative positioning for absolute-positioned child elements, wrap the content in a child `<div>` container and style that wrapper instead.

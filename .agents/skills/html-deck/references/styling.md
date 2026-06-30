@@ -6,19 +6,17 @@
 
 ## 🎨 Built-in Themes
 
-Themes are enabled by loading the corresponding CSS stylesheet in the presentation HTML `<head>` after the main library styles:
+Themes are enabled by importing the corresponding theme CSS in the presentation script block:
 
 ```html
 <script type="module">
   import 'html-deck';
-  import 'html-deck/css';
+  import 'html-deck/theme-warm';
 </script>
-<!-- Load a theme preset -->
-<link rel="stylesheet" href="node_modules/html-deck/dist/html-deck.theme-warm.css">
 ```
 
 > [!IMPORTANT]
-> **Vite Environment CSS Imports**: When developing within a Vite-based project, avoid using inline `<style>` tags or HTML `<link>` tags for custom overrides. Instead, define your custom styling in a dedicated CSS file (e.g. `style.css`) and import it inside the `<script type="module">` tag **after** `html-deck/css` (e.g., `import './style.css'`). This ensures proper style precedence and load order.
+> **Vite Environment CSS Imports**: When developing within a Vite-based project, avoid using inline `<style>` tags or HTML `<link>` tags for custom overrides. Instead, define your custom styling in a dedicated CSS file (e.g. `style.css`) and import it inside the `<script type="module">` tag **after** importing `html-deck` (e.g., `import './style.css'`). This ensures proper style precedence and load order.
 
 ### Theme Presets Details
 
