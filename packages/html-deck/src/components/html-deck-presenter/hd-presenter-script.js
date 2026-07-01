@@ -14,6 +14,10 @@ export class HdPresenterScript extends HTMLElement {
           font-size: var(--hd-presenter-script-size);
           line-height: 1.6;
           color: var(--hd-presenter-text-color);
+          overflow-y: auto;
+          flex-grow: 1;
+          min-height: 0;
+          height: 100%;
         }
         .empty-script {
           color: var(--hd-presenter-text-muted-color);

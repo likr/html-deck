@@ -90,11 +90,11 @@
   スライドHTMLが Light DOM に存在するため、グローバルな `html-deck.css`（`presenter.html` でロード済み）の要素・クラススタイル（`table`, `img`, `.hd-highlight` 等）がShadow DOMの境界を越えてネイティブに適用されます。テーマ変数については、プレビューの Shadow DOM 内の `<style id="preview-styles">` に `:host { --hd-...: ... }` としてインジェクトされ、スロットされた子要素へ継承されます。また、不要なCSSの再パースやチラつきを防ぐため、受信した変数のJSON文字列をキャッシュキーとして比較し、変化がある場合のみスタイル適用を更新します。メイン画面でのテーマ切り替えを即時反映させるため、`<hd-deck>` は `MutationObserver` で `document.head` 内のスタイル更新を監視し、変更時に自動で再同期をトリガーします。
 - **標準レイアウトとカードの利用によるコード簡素化**:
   発表者ビュー（Presenter View）の実装を簡素化するため、`<hd-presenter>`、`<hd-presenter-logo>`、`<hd-presenter-slide-button>`および`<hd-presenter-card>`が導入されました。以前の `<hd-presenter-layout>` は不要となったため廃止・削除されています。
-  - **レイアウトとスロット**: `<hd-presenter>`は、`slot="header"`（上部ヘッダー）、`slot="before"`、`slot="left"`またはデフォルトスロット（左側ペイン）、`slot="right"`（右側ペイン）、`slot="bottom"`（下部ペイン）で構成されます。body要素のデフォルト余白・スクロールのリセットスタイルは自動注入されます。
+  - **レイアウトとスロット**: `<hd-presenter>`は、`slot="header"`（上部ヘッダー）、`slot="before"`、`slot="left"`またはデフォルトスロット（左側ペイン）、`slot="right"`（右側ペイン）、`slot="bottom"`（下部ペイン）で構成されます。body要素のデフォルト余白・スクロールのリセットスタイルは自動注入されます。また、`<hd-presenter-notes>` や `<hd-presenter-script>` などの内容物パネルは、テキスト量が多くなった際にも見切れないよう、`:host` に `overflow-y: auto; height: 100%;` および適切な flex レイアウト用プロパティを適用してスクロール可能に設計してください。
   - **カードレイアウトと成長率**: `<hd-presenter-card>`は`display: flex; flex-direction: column;`で構成され、`title`属性に対応したタイトルヘッダーを自動生成します。`grow`属性を使用して`flex-grow`値を動的に設定できます。
   - **ヘッダー内コンポーネントの自動コンパクト化**: ヘッダー内の要素は、`html-deck-presenter.css`内の `hd-presenter [slot="header"]` セレクタ経由でCSS変数が自動オーバーライドされ、インラインスタイルを一切書かずにコンパクトな見た目に調整されます。
   - **ボタンデザインの統一とスライド移動のアクション**: ヘッダー内に配置されるすべての操作用ボタン（前へ・次へ・スライド表示）は、アシンメトリーを排除するために同一の半透明ボーダー付き（セカンダリ）スタイルを適用し、ホスト要素も `inline-flex` とすることで余計な引き伸ばしを防止します。`<hd-presenter-slide-button>` は、`window.opener` が存在し閉じられていない場合はそれをフォーカスし、それ以外の場合は `slide-url` 属性に指定されたスライドURLを新しいウインドウ/タブで開きます。
-  - **変数定義場所とスコープの局所化**: 発表者ビュー用のCSS変数は、グローバルスライド表示を汚染しないよう `variables.css` ではなく `html-deck-presenter.css` 内の `:root` で定義します。また、スライド内のレイアウトへの影響を最小限にするため、`html-deck-presenter.css` 内のスロット指定セレクタ（`[slot="..."]`）は、必ず `hd-presenter` を前置してスコープを絞り込んでください。
+  - **変数定義場所とスコープの局所化**: 発表者ビュー用のCSS変数は、グローバルスライド表示を汚染しないよう `variables.css` ではなく `html-deck-presenter.css` 内の `:root` で定義します。また、スライド内のレイアウト（例えばプレビュー内の `<hd-layout-split>` など）へのスタイル漏洩や影響を防ぐため、`html-deck-presenter.css` 内のスロット指定セレクタ（`[slot="..."]`）は、必ず子孫セレクタを避け `hd-presenter > [slot="..."]` のように直下の子セレクタを前置してスコープを厳密に制限してください。
   - **変数・単位規約**: 発表者ビュー用のCSS変数はすべて`--hd-presenter-`のプレフィックスを付与して明示的に定義し、フォールバック値は使用せず、絶対サイズ・パディング・ギャップの定義には必ず`px`単位を使用してください。
 
 ---

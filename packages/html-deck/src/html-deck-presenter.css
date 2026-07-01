@@ -27,12 +27,12 @@
 }
 }
 
-hd-presenter .hd-presenter-span-all {
+hd-presenter > .hd-presenter-span-all {
   grid-column: 1 / -1;
 }
 
 /* Header Slot Styling and Alignment scoped to hd-presenter */
-hd-presenter [slot="header"] {
+hd-presenter > [slot="header"] {
   display: flex;
   align-items: center;
   gap: var(--hd-presenter-gap);
@@ -43,34 +43,34 @@ hd-presenter [slot="header"] {
   width: 100%;
 }
 
-hd-presenter [slot="header"] > hd-presenter-logo {
+hd-presenter > [slot="header"] > hd-presenter-logo {
   margin-right: auto;
 }
 
 /* Compact overrides for header descendants scoped to hd-presenter */
-hd-presenter [slot="header"] hd-presenter-timer,
-hd-presenter [slot="header"] hd-presenter-clock {
+hd-presenter > [slot="header"] hd-presenter-timer,
+hd-presenter > [slot="header"] hd-presenter-clock {
   --hd-presenter-timer-size: 18px;
   --hd-presenter-clock-size: 18px;
 }
 
-hd-presenter [slot="header"] hd-presenter-status {
+hd-presenter > [slot="header"] hd-presenter-status {
   --hd-presenter-status-size: 18px;
 }
 
-hd-presenter [slot="header"] hd-presenter-controls {
+hd-presenter > [slot="header"] hd-presenter-controls {
   --hd-presenter-btn-padding: 8px 14px;
   --hd-presenter-btn-font-size: 14px;
 }
 
-hd-presenter [slot="header"] hd-presenter-slide-button {
+hd-presenter > [slot="header"] hd-presenter-slide-button {
   --hd-presenter-btn-padding: 8px 14px;
   --hd-presenter-btn-font-size: 14px;
 }
 
 /* Layout Slots vertical auto-division behavior scoped to hd-presenter */
-hd-presenter [slot="left"],
-hd-presenter [slot="right"] {
+hd-presenter > [slot="left"],
+hd-presenter > [slot="right"] {
   display: flex;
   flex-direction: column;
   gap: var(--hd-presenter-gap);
@@ -78,8 +78,8 @@ hd-presenter [slot="right"] {
   min-height: 0;
 }
 
-hd-presenter [slot="left"] > *,
-hd-presenter [slot="right"] > * {
+hd-presenter > [slot="left"] > *,
+hd-presenter > [slot="right"] > * {
   flex: 1 1 0%;
   min-height: 0;
 }

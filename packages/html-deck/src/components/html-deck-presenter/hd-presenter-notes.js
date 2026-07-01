@@ -14,6 +14,10 @@ export class HdPresenterNotes extends HTMLElement {
           font-size: var(--hd-presenter-notes-size);
           line-height: 1.6;
           color: var(--hd-presenter-text-color);
+          overflow-y: auto;
+          flex-grow: 1;
+          min-height: 0;
+          height: 100%;
         }
         .empty-notes {
           color: var(--hd-presenter-text-muted-color);
