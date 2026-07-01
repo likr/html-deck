@@ -14,6 +14,7 @@ The root container of the presentation slideshow. It manages layout scaling, key
 - `transition` (string): Transition style between slides. Options: `fade`, `none`. Default: `fade`.
 - `hide-page-number` (boolean): If present, disables slide numbers globally.
 - `presenter-url` (string): The path to the presenter dashboard (e.g., `./presenter.html`). When specified, enables the presenter button and `P` shortcut key.
+- `no-controls` (boolean): If present, hides the navigation controls panel at the bottom of the presentation.
 
 #### Slots
 - **Default Slot**: Accepts only slide components (`<hd-slide>`). Nested structure must remain completely flat.
@@ -23,10 +24,24 @@ The root container of the presentation slideshow. It manages layout scaling, key
 - `--hd-body-font`: Global font family for body text. Defaults to `system-ui, sans-serif`.
 
 #### Keyboard Shortcuts
+- `Home`: Go to first slide.
 - `ArrowRight`, `Space`, `Enter`: Go to next slide.
 - `ArrowLeft`, `Backspace`: Go to previous slide.
 - `f`, `F`: Toggle fullscreen mode.
 - `p`, `P`: Open the presenter view in a pop-up window.
+- `s`, `S`: Toggle speech synthesis/reading aloud (only when `enable-speech` is active).
+- `a`, `A`: Toggle auto-play mode (only when `enable-auto-play` is active).
+
+#### Methods
+- `first()`: Navigates to the first slide.
+- `prev()`: Navigates to the previous slide.
+- `next()`: Navigates to the next slide.
+- `goto(index)`: Navigates to the slide at the specified 0-based index.
+- `toggleSpeech()`: Toggles reading aloud slide script.
+- `toggleAutoPlay()`: Toggles automated slide progression.
+- `toggleFullscreen()`: Toggles browser fullscreen mode.
+- `openPresenter()`: Opens the presenter view dashboard.
+- `sync()`: Synchronizes the current presentation state with any connected presenter view dashboard.
 
 ---
 

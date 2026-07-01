@@ -142,3 +142,41 @@ Example:
 - **`s` / `S`**: Toggles reading aloud the current slide script (only when `enable-speech` is active).
 - **`a` / `A`**: Toggles Auto-Play mode on/off (only when `enable-auto-play` is active).
 
+---
+
+## 🎛️ 4. Navigation & Interaction Controls
+
+`html-deck` provides an overlay control panel at the bottom of the slide presentation to facilitate navigation, toggling presentation tools, and viewing options.
+
+### Controls Layout
+The control buttons are positioned in the bottom-left and bottom-right corners of the presentation canvas to keep the screen uncluttered:
+- **Left-Bottom Controls**: Action buttons for speaker features:
+  - **Speech Synthesis (🔊)**: Toggles reading aloud the current slide script.
+  - **Auto Play (⏯)**: Toggles automated progression of slides.
+  - **Fullscreen (⛶)**: Toggles browser fullscreen mode.
+  - **Presenter View (👤)**: Opens the presenter view dashboard window.
+- **Right-Bottom Controls**: Core slide navigation buttons:
+  - **First Slide (⏮)**: Returns to the first slide in the deck.
+  - **Previous Slide (◀)**: Navigates to the preceding slide.
+  - **Next Slide (▶)**: Navigates to the following slide.
+
+### Hiding the Controls Panel
+To hide the controls panel completely, add the `no-controls` attribute to the `<hd-deck>` element:
+```html
+<hd-deck no-controls>
+  <!-- Slides here -->
+</hd-deck>
+```
+
+### Keyboard Shortcuts & Exposing Methods
+These functions can be invoked via keyboard shortcuts or programmatically called on the `<hd-deck>` element instance:
+
+| Feature | Keyboard Shortcut | Javascript Method |
+| :--- | :--- | :--- |
+| First Slide | `Home` | `deck.first()` |
+| Previous Slide | `ArrowLeft` / `Backspace` | `deck.prev()` |
+| Next Slide | `ArrowRight` / `Space` / `Enter` | `deck.next()` |
+| Fullscreen | `f` / `F` | `deck.toggleFullscreen()` |
+| Presenter View | `p` / `P` | `deck.openPresenter()` |
+| Read Aloud | `s` / `S` | `deck.toggleSpeech()` |
+| Auto Play | `a` / `A` | `deck.toggleAutoPlay()` |

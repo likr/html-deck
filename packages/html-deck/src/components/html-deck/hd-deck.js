@@ -38,16 +38,29 @@ TEMPLATE.innerHTML = `
   .controls {
     position: absolute;
     bottom: 20px;
+    left: 20px;
     right: 20px;
     display: flex;
-    gap: 10px;
+    justify-content: space-between;
     z-index: 100;
     opacity: 0.1;
     transition: opacity 0.3s;
+    pointer-events: none;
   }
 
   .controls:hover {
     opacity: 0.9;
+  }
+
+  .controls-left,
+  .controls-right {
+    display: flex;
+    gap: 10px;
+    pointer-events: auto;
+  }
+
+  :host([no-controls]) .controls {
+    display: none !important;
   }
 
   .btn {
@@ -143,12 +156,17 @@ TEMPLATE.innerHTML = `
     <slot></slot>
   </div>
   <div class="controls">
-    <button class="btn" id="prev-btn" title="Previous (Left Arrow)">◀</button>
-    <button class="btn" id="next-btn" title="Next (Right Arrow / Space)">▶</button>
-    <button class="btn" id="speech-btn" title="Read Aloud (S)">🔊</button>
-    <button class="btn" id="autoplay-btn" title="Auto Play (A)">⏯</button>
-    <button class="btn" id="fullscreen-btn" title="Fullscreen (F)">⛶</button>
-    <button class="btn" id="presenter-btn" title="Presenter View (P)">👤</button>
+    <div class="controls-left">
+      <button class="btn" id="speech-btn" title="Read Aloud (S)">🔊</button>
+      <button class="btn" id="autoplay-btn" title="Auto Play (A)">⏯</button>
+      <button class="btn" id="fullscreen-btn" title="Fullscreen (F)">⛶</button>
+      <button class="btn" id="presenter-btn" title="Presenter View (P)">👤</button>
+    </div>
+    <div class="controls-right">
+      <button class="btn" id="first-btn" title="First Slide (Home)">⏮</button>
+      <button class="btn" id="prev-btn" title="Previous (Left Arrow)">◀</button>
+      <button class="btn" id="next-btn" title="Next (Right Arrow / Space)">▶</button>
+    </div>
   </div>
   <div class="progress-container">
     <div class="progress-bar" id="progress"></div>
@@ -158,7 +176,7 @@ TEMPLATE.innerHTML = `
 
 export class HdDeck extends HTMLElement {
   static get observedAttributes() {
-    return ['aspect-ratio', 'presenter-url', 'transition', 'hide-page-number', 'presenter-channel', 'enable-speech', 'enable-auto-play', 'auto-play-interval'];
+    return ['aspect-ratio', 'presenter-url', 'transition', 'hide-page-number', 'presenter-channel', 'enable-speech', 'enable-auto-play', 'auto-play-interval', 'no-controls'];
   }
 
   constructor() {
@@ -250,6 +268,7 @@ export class HdDeck extends HTMLElement {
     this.resizeObserver = new ResizeObserver(this.handleResize);
     this.resizeObserver.observe(this.shadowRoot.querySelector('.deck-wrapper'));
 
+    this.shadowRoot.getElementById('first-btn').addEventListener('click', () => this.first());
     this.shadowRoot.getElementById('prev-btn').addEventListener('click', () => this.prev());
     this.shadowRoot.getElementById('next-btn').addEventListener('click', () => this.next());
     this.shadowRoot.getElementById('speech-btn').addEventListener('click', () => this.toggleSpeech());
@@ -339,6 +358,10 @@ export class HdDeck extends HTMLElement {
     }
 
     switch (event.key) {
+      case 'Home':
+        event.preventDefault();
+        this.first();
+        break;
       case 'ArrowRight':
       case ' ':
       case 'Enter':
@@ -519,6 +542,10 @@ export class HdDeck extends HTMLElement {
     container.style.width = `${baseWidth}px`;
     container.style.height = `${baseHeight}px`;
     container.style.transform = `scale(${scale})`;
+  }
+
+  first() {
+    this.goto(0);
   }
 
   next() {
