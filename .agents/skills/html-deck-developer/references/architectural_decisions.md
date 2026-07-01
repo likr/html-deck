@@ -107,6 +107,9 @@
 - **hd-layout-grid: スロット要素による CSS Grid の構成**:
   - Shadow DOM 内の Grid コンテナ（`display: grid`）の直下にデフォルトの `<slot></slot>` を配置することで、スロットされた Light DOM の子要素を自動的に Grid アイテムとしてレイアウトできます。
   - スライド寸法からはみ出るのを防ぐため、Grid トラック定義（`grid-template-columns` / `grid-template-rows`）には必ず `minmax(0, 1fr)` を使用してください（例: `repeat(N, minmax(0, 1fr))`）。
+- **hd-card / hd-box のヘッダーレス表示における has-heading 属性の制御**:
+  - カードやボックスが見出しスロット (`slot="heading"`) を持たない場合に、空のヘッダー領域や境界線（二重の枠線）が描画されるのを避けるため、コンポーネント自身が `slotchange` イベントを監視して `has-heading` 属性を動的にトグルします。
+  - スタイル定義では、デフォルトで境界線 (`border-top`) を非表示にし、`:host([has-heading])` セレクタが適用されている場合のみ `.body-container` に `border-top` を描画するようにします。これにより、ヘッダーレス時の二重枠線バグを完全に防止します。
 
 ---
 

@@ -143,6 +143,10 @@ export class HdCard extends HTMLElement {
           width: 100%;
           flex-grow: 1;
           padding: var(--hd-card-padding);
+          border-top: none;
+        }
+
+        :host([has-heading]) .body-container {
           border-top: var(--hd-card-border-width) var(--hd-card-border-style) var(--hd-border-color);
         }
       </style>
@@ -151,5 +155,20 @@ export class HdCard extends HTMLElement {
         <slot></slot>
       </div>
     `;
+
+    // Set up slotchange listener to toggle has-heading host attribute
+    const headingSlot = this.shadowRoot.querySelector('slot[name="heading"]');
+    if (headingSlot) {
+      const updateHeading = () => {
+        const hasHeading = headingSlot.assignedElements().length > 0;
+        if (hasHeading) {
+          this.setAttribute('has-heading', '');
+        } else {
+          this.removeAttribute('has-heading');
+        }
+      };
+      headingSlot.addEventListener('slotchange', updateHeading);
+      updateHeading();
+    }
   }
 }
