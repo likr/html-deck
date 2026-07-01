@@ -58,6 +58,7 @@ The following elements are registered when importing `html-deck/presenter`:
 - **`<hd-presenter-status>`**: Index counter of active slides (e.g. `3 / 12`).
 - **`<hd-presenter-preview>`**: Renders scaled previews of slides. Set `type="current"` (active slide) or `type="next"` (upcoming slide preview).
 - **`<hd-presenter-notes>`**: Renders the HTML contents of the `slot="notes"` element of the active slide. Defaults to "No notes." if empty.
+- **`<hd-presenter-script>`**: Renders the HTML contents of the `slot="script"` element of the active slide.
 - **`<hd-presenter-controls>`**: Provides navigation buttons (◀ and ▶).
 
 ### CSS Customization
@@ -68,6 +69,7 @@ Presenter elements can be styled using the following variables (prefixed with `-
 - `--hd-presenter-status-size`
 - `--hd-presenter-preview-size`
 - `--hd-presenter-notes-size`
+- `--hd-presenter-script-size`
 - `--hd-presenter-btn-bg`, `--hd-presenter-btn-hover-bg`
 
 ### BroadcastChannel Sync Mechanism
@@ -108,3 +110,35 @@ The library automatically configures print boundaries to stack slides:
 2. **Print Overrides**:
    Controls, timelines, and UI progress widgets are set to `display: none !important;`.
    Slides are flattened (`opacity: 1`, `visibility: visible`, `position: relative`) and separated using `page-break-after: always !important;` and `break-inside: avoid !important;`.
+
+---
+
+## 🔊 3. Speech Synthesis & Auto-Play Presentation
+
+`html-deck` includes built-in Text-To-Speech (TTS) reading and automated slideshow playback functionality powered by the browser SpeechSynthesis API.
+
+### Enabling Speech Synthesis and Auto-Play
+To use these features, configure the attributes on the `<hd-deck>` element:
+- **`enable-speech`**: Displays the `🔊` (Read Aloud) button in the bottom-right controls panel and enables the corresponding keyboard shortcut.
+- **`enable-auto-play`**: Displays the `⏯` (Auto Play) button in the bottom-right controls panel and enables the corresponding keyboard shortcut.
+- **`auto-play-interval`**: Sets the delay duration (in seconds) to wait before automatically advancing to the next slide when no `slot="script"` reading text is defined on the current slide (default: `5`).
+
+Example:
+```html
+<hd-deck enable-speech enable-auto-play auto-play-interval="3">
+  <!-- Slides here -->
+</hd-deck>
+```
+
+### Script & Speech Mechanics
+1. **Slide Script (`slot="script"`)**: Place a `<div slot="script">` tag inside `<hd-slide>` containing the exact text to read aloud. This text is automatically hidden on the slide canvas but synced to the presenter view.
+2. **Auto-Play Progression**:
+   - When Auto-Play is active, the deck plays the slide script using SpeechSynthesis.
+   - When the speech ends, it automatically triggers `next()` to advance to the next slide.
+   - If no script text is present, it falls back to waiting for the duration specified in the `auto-play-interval` attribute before advancing.
+3. **Manual Navigation**: Manual page transitions (via click, swiping, or keyboard shortcuts) during speech will cancel any active speech and immediately trigger reading the new slide if Auto-Play is active.
+
+### Interaction & Keyboard Shortcuts
+- **`s` / `S`**: Toggles reading aloud the current slide script (only when `enable-speech` is active).
+- **`a` / `A`**: Toggles Auto-Play mode on/off (only when `enable-auto-play` is active).
+

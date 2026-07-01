@@ -327,6 +327,7 @@ HdSlide.baseStyles = `
   }
 
   /* Slotted element styles */
+  ::slotted([slot="script"]),
   ::slotted([slot="notes"]) {
     display: none !important;
   }

@@ -40,6 +40,14 @@ Keep the slide DOM flat inside the deck. Do not nest pages inside nested section
 </html>
 ```
 
+### 👥 Optional Presenter Notes & Script Slots
+
+- **`slot="notes"`**: Contains speaker notes displayed on the presenter view dashboard.
+- **`slot="script"`**: Contains the Text-To-Speech (TTS) reading script text.
+
+> [!IMPORTANT]
+> **`slot="notes"` and `slot="script"` MUST ONLY be created or added if the user explicitly requests them.** Do not proactively add them to slides.
+
 ---
 
 ## 🧱 2. Layout Components

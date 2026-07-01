@@ -19,6 +19,7 @@ import { HdPresenterClock } from './components/html-deck-presenter/hd-presenter-
 import { HdPresenterStatus } from './components/html-deck-presenter/hd-presenter-status.js';
 import { HdPresenterPreview } from './components/html-deck-presenter/hd-presenter-preview.js';
 import { HdPresenterNotes } from './components/html-deck-presenter/hd-presenter-notes.js';
+import { HdPresenterScript } from './components/html-deck-presenter/hd-presenter-script.js';
 import { HdPresenterControls } from './components/html-deck-presenter/hd-presenter-controls.js';
 import { HdPresenterCard } from './components/html-deck-presenter/hd-presenter-card.js';
 import { HdPresenter } from './components/html-deck-presenter/hd-presenter.js';
@@ -30,6 +31,7 @@ customElements.define('hd-presenter-clock', HdPresenterClock);
 customElements.define('hd-presenter-status', HdPresenterStatus);
 customElements.define('hd-presenter-preview', HdPresenterPreview);
 customElements.define('hd-presenter-notes', HdPresenterNotes);
+customElements.define('hd-presenter-script', HdPresenterScript);
 customElements.define('hd-presenter-controls', HdPresenterControls);
 customElements.define('hd-presenter-card', HdPresenterCard);
 customElements.define('hd-presenter', HdPresenter);

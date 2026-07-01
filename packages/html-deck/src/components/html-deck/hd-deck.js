@@ -73,6 +73,27 @@ TEMPLATE.innerHTML = `
     transform: scale(0.95);
   }
 
+  #speech-btn {
+    display: none;
+  }
+
+  #autoplay-btn {
+    display: none;
+  }
+
+  :host([enable-speech]) #speech-btn {
+    display: flex;
+  }
+
+  :host([enable-auto-play]) #autoplay-btn {
+    display: flex;
+  }
+
+  .btn.active {
+    background: var(--hd-primary-color);
+    color: #ffffff;
+  }
+
   /* Progress bar */
   .progress-container {
     position: absolute;
@@ -124,6 +145,8 @@ TEMPLATE.innerHTML = `
   <div class="controls">
     <button class="btn" id="prev-btn" title="Previous (Left Arrow)">◀</button>
     <button class="btn" id="next-btn" title="Next (Right Arrow / Space)">▶</button>
+    <button class="btn" id="speech-btn" title="Read Aloud (S)">🔊</button>
+    <button class="btn" id="autoplay-btn" title="Auto Play (A)">⏯</button>
     <button class="btn" id="fullscreen-btn" title="Fullscreen (F)">⛶</button>
     <button class="btn" id="presenter-btn" title="Presenter View (P)">👤</button>
   </div>
@@ -135,7 +158,7 @@ TEMPLATE.innerHTML = `
 
 export class HdDeck extends HTMLElement {
   static get observedAttributes() {
-    return ['aspect-ratio', 'presenter-url', 'transition', 'hide-page-number', 'presenter-channel'];
+    return ['aspect-ratio', 'presenter-url', 'transition', 'hide-page-number', 'presenter-channel', 'enable-speech', 'enable-auto-play', 'auto-play-interval'];
   }
 
   constructor() {
@@ -147,6 +170,11 @@ export class HdDeck extends HTMLElement {
     this.slides = [];
     this.resizeObserver = null;
     this.channel = null;
+
+    this.isSpeaking = false;
+    this.isAutoPlaying = false;
+    this.utterance = null;
+    this.autoPlayTimeout = null;
 
     // Bind methods
     this.handleKeyDown = this.handleKeyDown.bind(this);
@@ -224,6 +252,8 @@ export class HdDeck extends HTMLElement {
 
     this.shadowRoot.getElementById('prev-btn').addEventListener('click', () => this.prev());
     this.shadowRoot.getElementById('next-btn').addEventListener('click', () => this.next());
+    this.shadowRoot.getElementById('speech-btn').addEventListener('click', () => this.toggleSpeech());
+    this.shadowRoot.getElementById('autoplay-btn').addEventListener('click', () => this.toggleAutoPlay());
     this.shadowRoot.getElementById('fullscreen-btn').addEventListener('click', () => this.toggleFullscreen());
 
     // Show/Hide Presenter button based on presenter-url availability
@@ -271,6 +301,13 @@ export class HdDeck extends HTMLElement {
     this.removeEventListener('touchstart', this.handleTouchStart);
     this.removeEventListener('touchmove', this.handleTouchMove);
     this.removeEventListener('touchend', this.handleTouchEnd);
+    if (this.autoPlayTimeout) {
+      clearTimeout(this.autoPlayTimeout);
+      this.autoPlayTimeout = null;
+    }
+    if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+    }
     if (this.styleObserver) {
       this.styleObserver.disconnect();
       this.styleObserver = null;
@@ -322,6 +359,20 @@ export class HdDeck extends HTMLElement {
       case 'P':
         event.preventDefault();
         this.openPresenter();
+        break;
+      case 's':
+      case 'S':
+        if (this.hasAttribute('enable-speech')) {
+          event.preventDefault();
+          this.toggleSpeech();
+        }
+        break;
+      case 'a':
+      case 'A':
+        if (this.hasAttribute('enable-auto-play')) {
+          event.preventDefault();
+          this.toggleAutoPlay();
+        }
         break;
     }
   }
@@ -492,6 +543,12 @@ export class HdDeck extends HTMLElement {
   }
 
   updateSlides() {
+    if (this.autoPlayTimeout) {
+      clearTimeout(this.autoPlayTimeout);
+      this.autoPlayTimeout = null;
+    }
+    this.cancelSpeech();
+
     const hidePageNum = this.hasAttribute('hide-page-number');
     const totalSlides = this.slides.length;
 
@@ -524,6 +581,12 @@ export class HdDeck extends HTMLElement {
 
     // Sync presenter view
     this.syncPresenter();
+
+    if (this.isAutoPlaying) {
+      this.speakCurrentSlide();
+    } else {
+      this.updateSpeechButtonsState();
+    }
   }
 
   resolveRelativePaths(element) {
@@ -576,7 +639,9 @@ export class HdDeck extends HTMLElement {
     const activeSlide = this.slides[this.currentIndex];
     const activeHTML = activeSlide ? this.resolveRelativePaths(activeSlide) : '';
     const notesEl = activeSlide ? activeSlide.querySelector('[slot="notes"]') : null;
-    const notesText = notesEl ? notesEl.innerHTML : 'No notes.';
+    const notesText = notesEl ? notesEl.innerHTML : 'No speaker notes.';
+    const scriptEl = activeSlide ? activeSlide.querySelector('[slot="script"]') : null;
+    const scriptText = scriptEl ? scriptEl.innerHTML : '';
 
     const nextSlide = this.slides[this.currentIndex + 1];
     const nextTitle = nextSlide ? (nextSlide.getAttribute('title') || `Slide ${this.currentIndex + 2}`) : 'End of Deck';
@@ -589,6 +654,7 @@ export class HdDeck extends HTMLElement {
       index: this.currentIndex,
       total: this.slides.length,
       notes: notesText,
+      script: scriptText,
       activeHTML: activeHTML,
       nextTitle: nextTitle,
       nextHTML: nextHTML,
@@ -614,5 +680,106 @@ export class HdDeck extends HTMLElement {
     window.open(resolvedUrl.href, 'Presenter View', 'width=1000,height=700');
     // Request sync immediately after window opens
     setTimeout(() => this.syncPresenter(), 500);
+  }
+
+  cancelSpeech() {
+    if (this.utterance) {
+      this.utterance.onend = null;
+      this.utterance.onerror = null;
+    }
+    if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+    }
+    this.isSpeaking = false;
+  }
+
+  toggleSpeech() {
+    if (this.isSpeaking) {
+      this.cancelSpeech();
+      this.updateSpeechButtonsState();
+    } else {
+      this.speakCurrentSlide();
+    }
+  }
+
+  toggleAutoPlay() {
+    this.isAutoPlaying = !this.isAutoPlaying;
+    if (this.isAutoPlaying) {
+      this.speakCurrentSlide();
+    } else {
+      if (this.autoPlayTimeout) {
+        clearTimeout(this.autoPlayTimeout);
+        this.autoPlayTimeout = null;
+      }
+      this.cancelSpeech();
+      this.updateSpeechButtonsState();
+    }
+  }
+
+  speakCurrentSlide() {
+    if (this.autoPlayTimeout) {
+      clearTimeout(this.autoPlayTimeout);
+      this.autoPlayTimeout = null;
+    }
+
+    if (typeof window === 'undefined' || !('speechSynthesis' in window)) {
+      return;
+    }
+
+    this.cancelSpeech();
+
+    const activeSlide = this.slides[this.currentIndex];
+    if (!activeSlide) return;
+
+    const scriptEl = activeSlide.querySelector('[slot="script"]');
+    const text = scriptEl ? scriptEl.textContent.trim() : '';
+
+    if (!text) {
+      this.isSpeaking = false;
+      this.updateSpeechButtonsState();
+      if (this.isAutoPlaying) {
+        // If auto-play is enabled but there's no script, wait configured seconds (default 5s) and advance
+        const intervalAttr = this.getAttribute('auto-play-interval');
+        const intervalMs = intervalAttr ? parseFloat(intervalAttr) * 1000 : 5000;
+        this.autoPlayTimeout = setTimeout(() => {
+          this.next();
+        }, intervalMs);
+      }
+      return;
+    }
+
+    this.utterance = new SpeechSynthesisUtterance(text);
+    const lang = activeSlide.getAttribute('lang') || document.documentElement.lang || navigator.language;
+    if (lang) {
+      this.utterance.lang = lang;
+    }
+
+    this.utterance.onend = () => {
+      this.isSpeaking = false;
+      this.updateSpeechButtonsState();
+      if (this.isAutoPlaying) {
+        this.next();
+      }
+    };
+
+    this.utterance.onerror = () => {
+      this.isSpeaking = false;
+      this.updateSpeechButtonsState();
+    };
+
+    this.isSpeaking = true;
+    this.updateSpeechButtonsState();
+    window.speechSynthesis.speak(this.utterance);
+  }
+
+  updateSpeechButtonsState() {
+    const speechBtn = this.shadowRoot.getElementById('speech-btn');
+    const autoplayBtn = this.shadowRoot.getElementById('autoplay-btn');
+    if (speechBtn) {
+      speechBtn.classList.toggle('active', this.isSpeaking);
+    }
+    if (autoplayBtn) {
+      autoplayBtn.classList.toggle('active', this.isAutoPlaying);
+    }
   }
 }

@@ -118,7 +118,7 @@
   </div>
 
   <!-- Slideshow Deck -->
-  <hd-deck transition="fade" presenter-url="presenter.html" aspect-ratio="16:9" presenter-channel="features-channel">
+  <hd-deck transition="fade" presenter-url="presenter.html" aspect-ratio="16:9" presenter-channel="features-channel" enable-speech enable-auto-play auto-play-interval="3">
 
     <!-- Slide 1: Cover Layout -->
     <hd-slide>
@@ -135,6 +135,7 @@
             class="hd-highlight hd-text-weight-bold">P</span> for presenter view.
         </p>
       </hd-layout-cover>
+      <div slot="script">Welcome to the HTML-Deck showcase. This is a comprehensive feature verification slide deck.</div>
       <div slot="notes">
         <h3>Slide 1: Welcome Cover</h3>
         <ul>
@@ -156,6 +157,7 @@
         <p slot="after" class="hd-highlight">After Slot: Positioned directly below the body area.</p>
       </hd-layout>
       <div slot="footer" class="hd-size-6 hd-muted">Slide Footer (Slide Level)</div>
+      <div slot="script">This slide demonstrates the standard layout component. It includes a header, a heading, and before, body, and after slots.</div>
       <div slot="notes">
         <h3>Slide 2: Standard Layout</h3>
         <ul>
@@ -183,6 +185,7 @@
         </div>
         <p slot="after" class="hd-muted">After Slot: Full-width footer annotation.</p>
       </hd-layout-split>
+      <div slot="script">This is the split layout with two equal columns, left and right. Useful for comparing details side by side.</div>
       <div slot="notes">
         <h3>Slide 3: Split Layout</h3>
         <ul>
@@ -207,6 +210,7 @@
             example, or detailed text block.</p>
         </div>
       </hd-layout-split>
+      <div slot="script">This split layout uses a custom ratio where the left sidebar is narrower than the main content panel.</div>
       <div slot="notes">
         <h3>Slide 4: Split Layout Ratios</h3>
         <ul>
@@ -243,6 +247,7 @@
         </hd-box>
         <p slot="after" class="hd-muted">After Slot: Spans the full layout width below the grid cells.</p>
       </hd-layout-grid>
+      <div slot="script">This slide demonstrates the grid layout. It arranges five items across two rows and three columns.</div>
       <div slot="notes">
         <h3>Slide 5: Grid Layout</h3>
         <ul>
@@ -261,6 +266,7 @@
         <p>Adding the <code>center</code> attribute directly to <code>&lt;hd-slide&gt;</code> centers all slide elements
           vertically and horizontally.</p>
       </div>
+      <div slot="script">This slide shows a blank canvas with centering. The elements are vertically and horizontally centered.</div>
       <div slot="notes">
         <h3>Slide 6: Blank Slide Centering</h3>
         <ul>
@@ -282,6 +288,7 @@
             styled sub-headers.</p>
         </hd-card>
       </hd-layout>
+      <div slot="script">This slide introduces cards. Cards are boxed containers with borders and backgrounds, useful for chunking content.</div>
       <div slot="notes">
         <h3>Slide 7: Card Components</h3>
         <ul>
@@ -305,6 +312,7 @@
           </p>
         </hd-box>
       </hd-layout-split>
+      <div slot="script">This slide introduces boxes. Boxes are designed to stretch to 100% height to align adjacent columns.</div>
       <div slot="notes">
         <h3>Slide 8: Box Components</h3>
         <ul>
@@ -334,6 +342,7 @@
             vertical height of its column container side-by-side with the card.</p>
         </hd-box>
       </hd-layout-split>
+      <div slot="script">This slide shows heading-less layouts, cards, and boxes. The header area and divider line are completely hidden.</div>
       <div slot="notes">
         <h3>Slide 9: Heading-less Components</h3>
         <ul>
@@ -364,6 +373,7 @@
           <p>Draws intense focus for alerts, notes, or warnings.</p>
         </hd-callout>
       </hd-layout>
+      <div slot="script">This slide shows callout boxes. Callouts emphasize recommendations or warning alerts.</div>
       <div slot="notes">
         <h3>Slide 10: Callouts</h3>
         <ul>
@@ -383,6 +393,7 @@
           theme's
           secondary soft color scheme, and the header to the solid theme color.</p>
       </hd-layout>
+      <div slot="script">This slide uses the accent variant to switch background and text colors.</div>
       <div slot="notes">
         <h3>Slide 11: Slide Variants</h3>
         <ul>
@@ -401,6 +412,7 @@
         <p>This slide is set to <code>variant="main" surface="solid"</code>. This forces both the slide body and
           heading backgrounds to a solid main color scheme.</p>
       </hd-layout>
+      <div slot="script">This slide uses a solid main surface to force a solid color scheme on both body and heading.</div>
       <div slot="notes">
         <h3>Slide 12: Slide Surfaces</h3>
         <ul>
@@ -419,6 +431,7 @@
         <p>This slide uses <code>heading="base" surface="soft"</code>, which sets the body theme to base-soft while
           overriding the heading theme to base-soft.</p>
       </hd-layout>
+      <div slot="script">This slide overrides the heading slot color to base soft.</div>
       <div slot="notes">
         <h3>Slide 13: Heading Base Override</h3>
         <ul>
@@ -436,6 +449,7 @@
         <p>This slide uses <code>variant="base" inverted</code>, which forces the base-soft-inverted color scheme,
           perfect for section separators.</p>
       </hd-layout>
+      <div slot="script">This slide uses the inverted attribute to flip text and background colors.</div>
       <div slot="notes">
         <h3>Slide 14: Inverted Slides</h3>
         <ul>
@@ -458,6 +472,7 @@
         <p class="hd-size-5 hd-mb-0">Size 5: <code>.hd-size-5</code></p>
         <p class="hd-size-6 hd-mb-0">Size 6: <code>.hd-size-6</code></p>
       </hd-layout>
+      <div slot="script">This slide verifies the six text sizing classes from size one to size six.</div>
       <div slot="notes">
         <h3>Slide 15: Sizing Utilities</h3>
         <ul>
@@ -478,6 +493,7 @@
         <p class="hd-mb-0 hd-text-weight-bold">Bold Weight: <code>.hd-text-weight-bold</code></p>
         <p class="hd-mb-0 hd-text-weight-extrabold">Extrabold Weight: <code>.hd-text-weight-extrabold</code></p>
       </hd-layout>
+      <div slot="script">This slide verifies various font weights from light to extrabold.</div>
       <div slot="notes">
         <h3>Slide 16: Font Weights</h3>
         <ul>
@@ -500,6 +516,7 @@
         <p class="hd-mb-0">Keyboard inputs: press <kbd>Ctrl</kbd> + <kbd>P</kbd> to print</p>
         <p class="hd-mb-0">Highlight tag: this is a <mark>highlighted mark</mark> text</p>
       </hd-layout>
+      <div slot="script">This slide verifies text styling and decoration helpers, like italics, underlines, and marks.</div>
       <div slot="notes">
         <h3>Slide 17: Styles &amp; Transforms</h3>
         <ul>
@@ -518,6 +535,7 @@
         <p class="hd-size-3">This is an <span class="hd-muted">obscured caption</span> to indicate secondary info.</p>
         <p>These modifiers inherit directly from the slide's active variant theme, maintaining harmony.</p>
       </hd-layout>
+      <div slot="script">This slide shows text color modifiers like highlights and muted captions.</div>
       <div slot="notes">
         <h3>Slide 18: Color Modifiers</h3>
         <ul>
@@ -571,6 +589,7 @@
           </div>
         </hd-box>
       </hd-layout-grid>
+      <div slot="script">This slide demonstrates margin and padding utilities from level zero to level six.</div>
       <div slot="notes">
         <h3>Slide 20: Spacing</h3>
         <ul>
@@ -622,6 +641,7 @@
           </div>
         </hd-card>
       </hd-layout-grid>
+      <div slot="script">This slide shows a multi-row grid layout with six cells.</div>
       <div slot="notes">
         <h3>Slide 21: Multi-Row Grid</h3>
         <ul>
@@ -648,6 +668,7 @@
           <p class="hd-text-center">Width 12 (100%): <code>.hd-width-12</code></p>
         </hd-box>
       </hd-layout>
+      <div slot="script">This slide shows grid width sizing on a one-twelfth scale.</div>
       <div slot="notes">
         <h3>Slide 21: Width Utilities</h3>
         <ul>
@@ -689,6 +710,7 @@
           </ol>
         </div>
       </hd-layout-split>
+      <div slot="script">This slide shows nested unordered and ordered lists.</div>
       <div slot="notes">
         <h3>Slide 22: Lists</h3>
         <ul>
@@ -729,6 +751,7 @@
           </tbody>
         </table>
       </hd-layout>
+      <div slot="script">This slide shows standard table formatting.</div>
       <div slot="notes">
         <h3>Slide 23: Tables</h3>
         <ul>
@@ -754,6 +777,7 @@
           <img src="./abstract-tech.png" alt="Abstract Tech Graphic">
         </div>
       </hd-layout-split>
+      <div slot="script">This slide shows image auto-styling with border radius and drop shadows.</div>
       <div slot="notes">
         <h3>Slide 24: Images</h3>
         <ul>
@@ -773,6 +797,7 @@
             notes defined inside the <code>slot="notes"</code> element of each slide.</p>
         </hd-callout>
       </hd-layout>
+      <div slot="script">This slide introduces presenter mode synchronization using BroadcastChannel.</div>
       <div slot="notes">
         <h3>Slide 25: Presenter Notes</h3>
         <p>This is the slot="notes" content that shows up only on the presenter view dashboard screen!</p>
@@ -798,6 +823,7 @@
           </ul>
         </div>
       </hd-layout-split>
+      <div slot="script">This final slide summarizes slide navigation and keyboard shortcuts.</div>
       <div slot="notes">
         <h3>Slide 26: Shortcuts</h3>
         <ul>
