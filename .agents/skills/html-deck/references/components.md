@@ -60,9 +60,8 @@ The unified slide container component. It handles slide transitions, visibility 
 - `hide-page-number` (boolean): If present, disables the page number on this slide.
 - `inverted` (boolean): If present, inverts the background and text color of the slide (switches colors to inverted palette variants, useful for introducing dark slides).
 - `center` (boolean): If present, vertically and horizontally centers content within the slide.
-- `variant` (string): Theme variation for the slide. Options: `default` (heading main-solid, body base-soft), `base` (body base-soft, heading base-solid), `main` (body main-soft, heading main-solid), `accent` (body accent-soft, heading accent-solid).
-- `heading` (string): Specific theme variation for layout heading only, overriding the variant heading theme. Options: `base`, `main`, `accent` (sets heading to y-solid).
-- `surface` (string): Surface override configurations. Options: `soft` (forces heading to soft), `solid` (forces body to solid).
+- `variant` (string): Theme variation for the slide. Options: `base` (body base-soft, heading base-solid), `main` (body main-soft, heading main-solid, default), `accent` (body accent-soft, heading accent-solid).
+- `surface` (string): Surface override configurations. Options: `soft` (forces both heading and body to soft color schemes), `solid` (forces both heading and body to solid color schemes).
 
 #### Slots
 - **Default Slot**: Main content slot. Usually contains one of the layout components below.
@@ -71,7 +70,7 @@ The unified slide container component. It handles slide transitions, visibility 
 - `footer`: Bottom footer annotation slot (automatically positioned at the bottom left of the slide viewport).
 
 #### CSS Variables
-- `--hd-slide-background-color`: Custom background color override.
+- `--hd-slide-background`: Custom background override.
 - `--hd-slide-text-color`: Custom text color override.
 
 ---

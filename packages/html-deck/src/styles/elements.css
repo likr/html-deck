@@ -124,6 +124,18 @@ hd-slide li::marker {
   color: var(--hd-list-marker-color, inherit);
 }
 
+hd-slide ul li::marker {
+  content: var(--hd-list-marker-content, normal);
+}
+
+hd-slide ul ul li::marker {
+  content: var(--hd-list-marker-content-2, normal);
+}
+
+hd-slide ul ul ul li::marker {
+  content: var(--hd-list-marker-content-3, normal);
+}
+
 /* Code block container defaults matching the slide theme */
 hd-slide table {
   width: 100%;

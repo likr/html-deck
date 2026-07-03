@@ -1,0 +1,251 @@
+/* html-deck.theme-nouveau.css - Botanical Art Nouveau Theme for HTML-Deck */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Lora:ital,wght@0,400;0,600;1,400&family=Noto+Serif+JP:wght@300;400;600&family=Shippori+Mincho:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Fonts & Weights */
+  --hd-font-family: 'Noto Serif JP', 'Lora', Georgia, serif;
+  --hd-heading-font: 'Shippori Mincho', 'Cormorant Garamond', Georgia, serif;
+  --hd-body-font: var(--hd-font-family);
+
+  /* --- 4-Color Palette base variables --- */
+  --hd-theme-background-color: #fcf9f2;
+  /* Cream paper */
+  --hd-theme-text-color: #2d2722;
+  /* Charcoal wood */
+  --hd-theme-main-color: #4e5f4b;
+  /* Sage/olive green */
+  --hd-theme-accent-color: #c57863;
+  /* Terracotta clay */
+  --hd-slide-overlay-z-index: -1;
+  /* Push decorative line-art behind slide text/cards */
+
+  /* ========================================================
+     BASE THEME (Standard/Neutral) - Olive & Terracotta
+     ======================================================== */
+  /* Soft Surface (Slide default) */
+  --hd-base-soft-heading-background-color: rgba(from var(--hd-theme-text-color) r g b / 0.15);
+  --hd-base-soft-heading-background: var(--hd-nouveau-heading-art), transparent;
+  --hd-base-soft-heading-text-color: var(--hd-theme-text-color);
+  --hd-base-soft-heading-text-highlight-color: hsl(from var(--hd-theme-accent-color) h s 32%);
+  --hd-base-soft-heading-text-muted-color: rgba(from var(--hd-theme-text-color) r g b / 0.65);
+
+  --hd-base-soft-body-background: var(--hd-theme-background-color);
+  --hd-base-soft-body-text-color: var(--hd-theme-text-color);
+  --hd-base-soft-body-text-highlight-color: hsl(from var(--hd-theme-accent-color) h s 32%);
+  --hd-base-soft-body-text-muted-color: rgba(from var(--hd-theme-text-color) r g b / 0.65);
+
+  --hd-base-soft-border: var(--hd-base-soft-heading-background-color);
+
+  /* Solid Surface */
+  --hd-base-solid-heading-background-color: color-mix(in srgb, var(--hd-theme-main-color) 8%, var(--hd-theme-background-color));
+  --hd-base-solid-heading-background: var(--hd-nouveau-heading-art), var(--hd-base-solid-heading-background-color);
+  --hd-base-solid-heading-text-color: var(--hd-theme-text-color);
+  --hd-base-solid-heading-text-highlight-color: hsl(from var(--hd-theme-accent-color) h s 32%);
+  --hd-base-solid-heading-text-muted-color: rgba(from var(--hd-theme-text-color) r g b / 0.65);
+
+  --hd-base-solid-body-background: color-mix(in srgb, var(--hd-theme-main-color) 8%, var(--hd-theme-background-color));
+  --hd-base-solid-body-text-color: var(--hd-theme-text-color);
+  --hd-base-solid-body-text-highlight-color: hsl(from var(--hd-theme-accent-color) h s 32%);
+  --hd-base-solid-body-text-muted-color: rgba(from var(--hd-theme-text-color) r g b / 0.65);
+
+  --hd-base-solid-border: var(--hd-base-solid-heading-text-color);
+
+  /* Soft Surface Inverted (Deep Charcoal forest) */
+
+  /* Solid Surface Inverted */
+
+  /* ========================================================
+     MAIN THEME (Brand Olive)
+     ======================================================== */
+  /* Soft Surface */
+  --hd-main-soft-heading-background-color: var(--hd-theme-main-color);
+  --hd-main-soft-heading-background: var(--hd-nouveau-heading-art), var(--hd-main-soft-heading-background-color);
+  --hd-main-soft-heading-text-color: var(--hd-theme-background-color);
+  --hd-main-soft-heading-text-highlight-color: #ffd8cc;
+  --hd-main-soft-heading-text-muted-color: rgba(from var(--hd-theme-background-color) r g b / 0.85);
+
+  --hd-main-soft-body-background: color-mix(in srgb, var(--hd-theme-main-color) 8%, var(--hd-theme-background-color));
+  --hd-main-soft-body-text-color: color-mix(in srgb, var(--hd-theme-main-color) 65%, var(--hd-theme-text-color));
+  --hd-main-soft-body-text-highlight-color: hsl(from var(--hd-theme-accent-color) h s 30%);
+  --hd-main-soft-body-text-muted-color: rgba(from var(--hd-main-soft-text-color) r g b / 0.65);
+
+  --hd-main-soft-border: var(--hd-main-soft-heading-background-color);
+
+  /* Solid Surface */
+  --hd-main-solid-heading-background-color: var(--hd-theme-main-color);
+  --hd-main-solid-heading-background: var(--hd-nouveau-heading-art), var(--hd-main-solid-heading-background-color);
+  --hd-main-solid-heading-text-color: var(--hd-theme-background-color);
+  --hd-main-solid-heading-text-highlight-color: #ffd8cc;
+  --hd-main-solid-heading-text-muted-color: rgba(from var(--hd-theme-background-color) r g b / 0.85);
+
+  --hd-main-solid-body-background: var(--hd-theme-main-color);
+  --hd-main-solid-body-text-color: var(--hd-theme-background-color);
+  --hd-main-solid-body-text-highlight-color: #ffd8cc;
+  --hd-main-solid-body-text-muted-color: rgba(from var(--hd-theme-background-color) r g b / 0.85);
+
+  --hd-main-solid-border: var(--hd-main-solid-heading-text-color);
+
+  /* Soft Surface Inverted (Deep Sage) */
+
+  /* Solid Surface Inverted */
+
+  /* ========================================================
+     ACCENT THEME (Brand Terracotta)
+     ======================================================== */
+  /* Soft Surface */
+  --hd-accent-soft-heading-background-color: #b05641;
+  --hd-accent-soft-heading-background: var(--hd-nouveau-heading-art), var(--hd-accent-soft-heading-background-color);
+  --hd-accent-soft-heading-text-color: var(--hd-theme-background-color);
+  --hd-accent-soft-heading-text-highlight-color: #d1dfcd;
+  --hd-accent-soft-heading-text-muted-color: rgba(from var(--hd-theme-background-color) r g b / 0.85);
+
+  --hd-accent-soft-body-background: color-mix(in srgb, var(--hd-theme-accent-color) 8%, var(--hd-theme-background-color));
+  --hd-accent-soft-body-text-color: color-mix(in srgb, var(--hd-theme-accent-color) 65%, var(--hd-theme-text-color));
+  --hd-accent-soft-body-text-highlight-color: hsl(from var(--hd-theme-main-color) h s 28%);
+  --hd-accent-soft-body-text-muted-color: rgba(from var(--hd-accent-soft-body-text-color) r g b / 0.65);
+
+  --hd-accent-soft-border: var(--hd-accent-soft-heading-background-color);
+
+  /* Solid Surface */
+  --hd-accent-solid-heading-background-color: #b05641;
+  --hd-accent-solid-heading-background: var(--hd-nouveau-heading-art), var(--hd-accent-solid-heading-background-color);
+  --hd-accent-solid-heading-text-color: var(--hd-theme-background-color);
+  --hd-accent-solid-heading-text-highlight-color: #d1dfcd;
+  --hd-accent-solid-heading-text-muted-color: rgba(from var(--hd-theme-background-color) r g b / 0.85);
+
+  --hd-accent-solid-body-background: var(--hd-accent-solid-heading-background-color);
+  --hd-accent-solid-body-text-color: var(--hd-theme-background-color);
+  --hd-accent-solid-body-text-highlight-color: #d1dfcd;
+  --hd-accent-solid-body-text-muted-color: rgba(from var(--hd-theme-background-color) r g b / 0.85);
+
+  --hd-accent-solid-border: var(--hd-accent-solid-heading-text-color);
+
+  /* Soft Surface Inverted (Deep Terracotta) */
+
+  /* Solid Surface Inverted */
+
+  /* ========================================================
+     DESIGN OVERRIDES & ORNAMENTED BACKGROUNDS
+     ======================================================== */
+
+  /* Slide Border - borderless canvas */
+  --hd-slide-border-width: 0px;
+
+  /* Typography Scales */
+  --hd-size-1: 52px;
+  --hd-size-2: 36px;
+  --hd-size-3: 20px;
+  --hd-size-4: 16px;
+  --hd-size-5: 13px;
+  --hd-size-6: 11px;
+
+  /* Typography Weights & Spacing */
+  --hd-text-title-font-weight: var(--hd-font-weight-medium);
+  --hd-text-heading-font-weight: var(--hd-font-weight-medium);
+  --hd-text-subheading-font-weight: var(--hd-font-weight-semibold);
+  --hd-text-body-line-height: 1.55;
+  --hd-text-quote-line-height: 1.5;
+
+  /* Heading Dividers - Thin clay double line simulation or organic stroke */
+  --hd-layout-heading-divider-display: none;
+  --hd-layout-heading-divider-height: 1px;
+  --hd-layout-heading-divider-style: solid;
+  --hd-layout-heading-text-align: center;
+
+  /* Component Rounding - Soft gentle curves */
+  --hd-card-border-radius: 12px;
+  --hd-box-border-radius: 12px;
+  --hd-callout-border-radius: 8px;
+  --hd-codeblock-border-radius: 8px;
+  --hd-img-border-radius: 10px;
+
+  /* Component Spacing Overrides for high-density layouts */
+  --hd-card-margin-bottom: 8px;
+  --hd-box-margin-bottom: 8px;
+  --hd-callout-margin-bottom: 8px;
+  --hd-list-margin-bottom: 8px;
+  --hd-list-item-margin-bottom: 4px;
+  --hd-layout-heading-margin: 16px;
+  --hd-layout-before-margin: 8px;
+  --hd-layout-after-margin: 8px;
+
+  /* Card and Container styling */
+  --hd-card-border-width: 1px;
+  --hd-card-border-style: solid;
+  --hd-card-box-shadow: 0 4px 20px rgba(from var(--hd-base-soft-text-color) r g b / 0.03), 0 1px 3px rgba(from var(--hd-base-soft-text-color) r g b / 0.02);
+
+  --hd-box-border-width: 1px;
+  --hd-box-border-style: solid;
+  --hd-box-box-shadow: none;
+
+  --hd-callout-border-width: 0 0 0 3px;
+  --hd-callout-border-style: solid;
+
+  --hd-codeblock-background-color: #24201d;
+  --hd-codeblock-border-color: rgba(from var(--hd-base-soft-text-color) r g b / 0.1);
+  --hd-code-background-color: rgba(from var(--hd-theme-main-color) r g b / 0.08);
+  --hd-code-border-color: rgba(from var(--hd-theme-main-color) r g b / 0.15);
+
+  --hd-kbd-background-color: var(--hd-theme-background-color);
+  --hd-kbd-border-color: rgba(from var(--hd-theme-text-color) r g b / 0.2);
+
+  /* Table Customizations */
+  --hd-table-border-color: rgba(from var(--hd-base-soft-text-color) r g b / 0.1);
+  --hd-table-cell-padding: 12px 16px;
+  --hd-table-header-background-color: rgba(from var(--hd-theme-main-color) r g b / 0.08);
+  --hd-table-header-text-color: var(--hd-theme-main-color);
+  --hd-table-row-striped-background-color: rgba(from var(--hd-theme-main-color) r g b / 0.03);
+
+  /* Lists markers */
+  --hd-list-marker-color: var(--hd-theme-accent-color);
+  --hd-list-style-type: circle;
+  --hd-list-marker-content: "✿  ";
+  --hd-list-marker-content-2: "❀  ";
+  --hd-list-marker-content-3: "♣  ";
+
+  /* ========================================================
+     ART NOUVEAU CORNER OVERLAYS (SVG data-urls)
+     ======================================================== */
+
+  /* Master corner patterns - Relocated to Bottom-Left & Bottom-Right with bottom 64px offset to prevent footer overlap, plus thin double gold rectangular slide borders */
+  --hd-nouveau-corner-normal:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120' fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M 10 110 Q 10 60, 60 10' stroke='%232d382b' stroke-width='2.2' /%3E%3Cpath d='M 18 110 Q 18 68, 62 20' stroke='%232d382b' stroke-width='1.2' /%3E%3Cpath d='M 10 80 Q 30 70, 45 45' stroke='%232d382b' stroke-width='1.5' /%3E%3Cpath d='M 60 10 C 72 10, 78 18, 75 25 C 72 32, 62 28, 65 20 C 68 15, 72 18, 71 22' stroke='%232d382b' stroke-width='1.5' fill='%23dfa495' /%3E%3Cpath d='M 60 10 C 65 14, 62 22, 65 20' stroke='%232d382b' stroke-width='1.0' /%3E%3Cpath d='M 30 75 C 25 70, 20 75, 22 82 Z' fill='%23c5d8c1' stroke='%232d382b' stroke-width='1.5' /%3E%3Cpath d='M 45 45 C 40 38, 32 42, 36 50 Z' fill='%23c5d8c1' stroke='%232d382b' stroke-width='1.5' /%3E%3Cpath d='M 62 20 C 58 12, 48 16, 52 24 Z' fill='%23c5d8c1' stroke='%232d382b' stroke-width='1.5' /%3E%3Ccircle cx='28' cy='58' r='4' fill='%23dfa495' stroke='%232d382b' stroke-width='1.5' /%3E%3Ccircle cx='48' cy='32' r='4' fill='%23dfa495' stroke='%232d382b' stroke-width='1.5' /%3E%3C/svg%3E") bottom 64px left 16px / 110px 110px no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120' fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M 110 110 Q 110 60, 60 10' stroke='%232d382b' stroke-width='2.2' /%3E%3Cpath d='M 102 110 Q 102 68, 58 20' stroke='%232d382b' stroke-width='1.2' /%3E%3Cpath d='M 110 80 Q 90 70, 75 45' stroke='%232d382b' stroke-width='1.5' /%3E%3Cpath d='M 60 10 C 45 5, 38 18, 52 22 C 60 25, 68 15, 60 10 Z' fill='%23c5d8c1' stroke='%232d382b' stroke-width='1.8' /%3E%3Cpath d='M 56 12 Q 54 18 52 22' stroke='%232d382b' stroke-width='1.0' /%3E%3Cpath d='M 90 75 C 95 70, 100 75, 98 82 Z' fill='%23c5d8c1' stroke='%232d382b' stroke-width='1.5' /%3E%3Cpath d='M 75 45 C 80 38, 88 42, 84 50 Z' fill='%23c5d8c1' stroke='%232d382b' stroke-width='1.5' /%3E%3Cpath d='M 58 20 C 62 12, 72 16, 68 24 Z' fill='%23c5d8c1' stroke='%232d382b' stroke-width='1.5' /%3E%3Ccircle cx='92' cy='58' r='4' fill='%23dfa495' stroke='%232d382b' stroke-width='1.5' /%3E%3Ccircle cx='72' cy='32' r='4' fill='%23dfa495' stroke='%232d382b' stroke-width='1.5' /%3E%3C/svg%3E") bottom 64px right 16px / 110px 110px no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450' fill='none'%3E%3Crect x='16' y='16' width='768' height='418' stroke='%23c5a059' stroke-width='1.5' /%3E%3Crect x='20' y='20' width='760' height='410' stroke='%23c5a059' stroke-width='0.8' /%3E%3C/svg%3E") center / 100% 100% no-repeat;
+
+  --hd-nouveau-corner-inverted:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120' fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M 10 110 Q 10 60, 60 10' stroke='%23fcf9f2' stroke-width='2.2' /%3E%3Cpath d='M 18 110 Q 18 68, 62 20' stroke='%23fcf9f2' stroke-width='1.2' /%3E%3Cpath d='M 10 80 Q 30 70, 45 45' stroke='%23fcf9f2' stroke-width='1.5' /%3E%3Cpath d='M 60 10 C 72 10, 78 18, 75 25 C 72 32, 62 28, 65 20 C 68 15, 72 18, 71 22' stroke='%23fcf9f2' stroke-width='1.5' fill='%23dfa495' /%3E%3Cpath d='M 60 10 C 65 14, 62 22, 65 20' stroke='%23fcf9f2' stroke-width='1.0' /%3E%3Cpath d='M 30 75 C 25 70, 20 75, 22 82 Z' fill='%23c5d8c1' stroke='%23fcf9f2' stroke-width='1.5' /%3E%3Cpath d='M 45 45 C 40 38, 32 42, 36 50 Z' fill='%23c5d8c1' stroke='%23fcf9f2' stroke-width='1.5' /%3E%3Cpath d='M 62 20 C 58 12, 48 16, 52 24 Z' fill='%23c5d8c1' stroke='%23fcf9f2' stroke-width='1.5' /%3E%3Ccircle cx='28' cy='58' r='4' fill='%23dfa495' stroke='%23fcf9f2' stroke-width='1.5' /%3E%3Ccircle cx='48' cy='32' r='4' fill='%23dfa495' stroke='%23fcf9f2' stroke-width='1.5' /%3E%3C/svg%3E") bottom 64px left 16px / 110px 110px no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120' fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M 110 110 Q 110 60, 60 10' stroke='%23fcf9f2' stroke-width='2.2' /%3E%3Cpath d='M 102 110 Q 102 68, 58 20' stroke='%23fcf9f2' stroke-width='1.2' /%3E%3Cpath d='M 110 80 Q 90 70, 75 45' stroke='%23fcf9f2' stroke-width='1.5' /%3E%3Cpath d='M 60 10 C 45 5, 38 18, 52 22 C 60 25, 68 15, 60 10 Z' fill='%23c5d8c1' stroke='%23fcf9f2' stroke-width='1.8' /%3E%3Cpath d='M 56 12 Q 54 18 52 22' stroke='%23fcf9f2' stroke-width='1.0' /%3E%3Cpath d='M 90 75 C 95 70, 100 75, 98 82 Z' fill='%23c5d8c1' stroke='%23fcf9f2' stroke-width='1.5' /%3E%3Cpath d='M 75 45 C 80 38, 88 42, 84 50 Z' fill='%23c5d8c1' stroke='%23fcf9f2' stroke-width='1.5' /%3E%3Cpath d='M 58 20 C 62 12, 72 16, 68 24 Z' fill='%23c5d8c1' stroke='%23fcf9f2' stroke-width='1.5' /%3E%3Ccircle cx='92' cy='58' r='4' fill='%23dfa495' stroke='%23fcf9f2' stroke-width='1.5' /%3E%3Ccircle cx='72' cy='32' r='4' fill='%23dfa495' stroke='%23fcf9f2' stroke-width='1.5' /%3E%3C/svg%3E") bottom 64px right 16px / 110px 110px no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450' fill='none'%3E%3Crect x='16' y='16' width='768' height='418' stroke='%23fcf9f2' stroke-width='1.5' /%3E%3Crect x='20' y='20' width='760' height='410' stroke='%23fcf9f2' stroke-width='0.8' /%3E%3C/svg%3E") center / 100% 100% no-repeat;
+
+  --hd-base-soft-overlay-background: var(--hd-nouveau-corner-normal);
+  --hd-main-soft-overlay-background: var(--hd-nouveau-corner-normal);
+  --hd-accent-soft-overlay-background: var(--hd-nouveau-corner-normal);
+
+  --hd-base-solid-overlay-background: var(--hd-nouveau-corner-normal);
+  --hd-main-solid-overlay-background: var(--hd-nouveau-corner-normal);
+  --hd-accent-solid-overlay-background: var(--hd-nouveau-corner-normal);
+}
+
+
+
+/* Nouveau Theme Custom Utilities */
+.hd-nouveau-arch {
+  --hd-card-border-radius: 120px 120px 12px 12px;
+  --hd-box-border-radius: 120px 120px 12px 12px;
+  border-radius: 120px 120px 12px 12px;
+  overflow: hidden;
+}
+
+.hd-nouveau-inner-border {
+  border: 1px dotted var(--hd-text-highlight-color);
+  border-radius: 110px 110px 8px 8px;
+  padding: 16px 16px 12px 16px;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* Slide 1 Cover Frame Overlay (with double arch, top leaf stamp, and faint watermark) */
+.hd-nouveau-cover-overlay {
+  --hd-base-soft-overlay-background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450' fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='16' y='16' width='768' height='418' stroke='%23c5a059' stroke-width='1.5' /%3E%3Crect x='20' y='20' width='760' height='410' stroke='%23c5a059' stroke-width='0.8' /%3E%3Cpath d='M 120 410 V 260 C 120 160, 200 100, 400 100 C 600 100, 680 160, 680 260 V 410 Z' stroke='%23c5a059' stroke-width='1.8' /%3E%3Cpath d='M 124 410 V 262 C 124 165, 204 104, 400 104 C 596 104, 676 165, 676 262 V 410 Z' stroke='%23c5a059' stroke-width='0.8' /%3E%3Cpath d='M 16 70 Q 40 40, 70 16' stroke='%23c5a059' stroke-width='1.5' /%3E%3Cpath d='M 30 30 C 26 22, 18 26, 22 34 Z' fill='%23c5a059' /%3E%3Cpath d='M 784 70 Q 760 40, 730 16' stroke='%23c5a059' stroke-width='1.5' /%3E%3Cpath d='M 770 30 C 774 22, 782 26, 778 34 Z' fill='%23c5a059' /%3E%3Cpath d='M 16 380 Q 40 410, 70 434' stroke='%23c5a059' stroke-width='1.5' /%3E%3Cpath d='M 30 420 C 26 428, 18 424, 22 416 Z' fill='%23c5a059' /%3E%3Cpath d='M 784 380 Q 760 410, 730 434' stroke='%23c5a059' stroke-width='1.5' /%3E%3Cpath d='M 770 420 C 774 428, 782 424, 778 416 Z' fill='%23c5a059' /%3E%3Cpath d='M 390 190 Q 400 165, 410 190 C 400 195, 390 190, 390 190' fill='%23c5a059' /%3E%3Cpath d='M 410 190 Q 400 175, 390 190 C 400 185, 410 190, 410 190' fill='%23c5a059' /%3E%3Cg opacity='0.08' stroke='%23c5a059' stroke-width='1'%3E%3Ccircle cx='400' cy='260' r='80' /%3E%3Cline x1='400' y1='180' x2='400' y2='340' /%3E%3Cline x1='320' y1='260' x2='480' y2='260' /%3E%3Cline x1='343' y1='203' x2='457' y2='317' /%3E%3Cline x1='343' y1='317' x2='457' y2='203' /%3E%3Cpath d='M 400 260 C 380 230, 420 230, 400 260 Z' fill='%23c5a059' /%3E%3Cpath d='M 400 260 C 380 290, 420 290, 400 260 Z' fill='%23c5a059' /%3E%3Cpath d='M 400 260 C 370 250, 370 270, 400 260 Z' fill='%23c5a059' /%3E%3Cpath d='M 400 260 C 430 250, 430 270, 400 260 Z' fill='%23c5a059' /%3E%3C/g%3E%3C/svg%3E") center / 100% 100% no-repeat;
+}

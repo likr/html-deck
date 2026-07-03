@@ -21,21 +21,13 @@
    --hd-base-solid-text-muted-color: #94a3b8;
 
    /* Soft Surface Inverted (Light Slide Mode) */
-   --hd-base-soft-background-color-inverted: #ffffff;
-   --hd-base-soft-text-color-inverted: #0f172a;
    /* Slate 900 */
-   --hd-base-soft-text-highlight-color-inverted: #c2410c;
    /* Orange 700 */
-   --hd-base-soft-text-muted-color-inverted: #475569;
    /* Slate 600 */
 
    /* Solid Surface Inverted (Slate Solid Light Mode) */
-   --hd-base-solid-background-color-inverted: #f1f5f9;
    /* Slate 100 */
-   --hd-base-solid-text-color-inverted: #0f172a;
-   --hd-base-solid-text-highlight-color-inverted: #9a3412;
    /* Deep Orange */
-   --hd-base-solid-text-muted-color-inverted: #475569;
 
    /* ========================================================
      MAIN THEME (Brand Trust Navy/Indigo)
@@ -59,20 +51,12 @@
    --hd-main-solid-text-muted-color: #e0e7ff;
 
    /* Soft Surface Inverted (Light Indigo Mode) */
-   --hd-main-soft-background-color-inverted: #eef2ff;
    /* Indigo 50 */
-   --hd-main-soft-text-color-inverted: #312e81;
    /* Indigo 900 */
-   --hd-main-soft-text-highlight-color-inverted: #c2410c;
    /* Orange 700 */
-   --hd-main-soft-text-muted-color-inverted: #4338ca;
    /* Indigo 700 */
 
    /* Solid Surface Inverted */
-   --hd-main-solid-background-color-inverted: #ffffff;
-   --hd-main-solid-text-color-inverted: #4f46e5;
-   --hd-main-solid-text-highlight-color-inverted: #c2410c;
-   --hd-main-solid-text-muted-color-inverted: #4338ca;
 
    /* ========================================================
      ACCENT THEME (Brand Amber/Orange)
@@ -96,20 +80,12 @@
    --hd-accent-solid-text-muted-color: #fed7aa;
 
    /* Soft Surface Inverted (Light Orange Mode) */
-   --hd-accent-soft-background-color-inverted: #fff7ed;
    /* Orange 50 */
-   --hd-accent-soft-text-color-inverted: #7c2d12;
    /* Orange 900 */
-   --hd-accent-soft-text-highlight-color-inverted: #4338ca;
    /* Indigo 700 */
-   --hd-accent-soft-text-muted-color-inverted: #c2410c;
    /* Orange 700 */
 
    /* Solid Surface Inverted */
-   --hd-accent-solid-background-color-inverted: #ffffff;
-   --hd-accent-solid-text-color-inverted: #ea580c;
-   --hd-accent-solid-text-highlight-color-inverted: #4338ca;
-   --hd-accent-solid-text-muted-color-inverted: #c2410c;
 
 
    /* ========================================================

@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Outfit:wght@400;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Space+Grotesk:wght@400;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Outfit:wght@400;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Space+Grotesk:wght@400;600;700&display=swap"
     rel="stylesheet">
 
   <!-- Load main entry script for the library and its styles -->
@@ -24,6 +24,7 @@
     import themeSerif from 'html-deck/theme-serif?url';
     import themeNeon from 'html-deck/theme-neon?url';
     import themeDotted from 'html-deck/theme-dotted?url';
+    import themeNouveau from 'html-deck/theme-nouveau?url';
 
     window.themeUrls = {
       'theme-dark': themeDark,
@@ -31,7 +32,8 @@
       'theme-corporate': themeCorporate,
       'theme-serif': themeSerif,
       'theme-neon': themeNeon,
-      'theme-dotted': themeDotted
+      'theme-dotted': themeDotted,
+      'theme-nouveau': themeNouveau
     };
   </script>
 
@@ -94,6 +96,7 @@
         <option value="theme-corporate">Corporate</option>
         <option value="theme-serif">Serif</option>
         <option value="theme-neon">Neon</option>
+        <option value="theme-nouveau">Nouveau</option>
         <option value="theme-dotted">Dotted</option>
       </select>
     </div>
@@ -118,7 +121,8 @@
   </div>
 
   <!-- Slideshow Deck -->
-  <hd-deck transition="fade" presenter-url="presenter.html" aspect-ratio="16:9" presenter-channel="features-channel" enable-speech enable-auto-play auto-play-interval="3">
+  <hd-deck transition="fade" presenter-url="presenter.html" aspect-ratio="16:9" presenter-channel="features-channel"
+    enable-speech enable-auto-play auto-play-interval="3">
 
     <!-- Slide 1: Cover Layout -->
     <hd-slide>
@@ -135,7 +139,8 @@
             class="hd-highlight hd-text-weight-bold">P</span> for presenter view.
         </p>
       </hd-layout-cover>
-      <div slot="script">Welcome to the HTML-Deck showcase. This is a comprehensive feature verification slide deck.</div>
+      <div slot="script">Welcome to the HTML-Deck showcase. This is a comprehensive feature verification slide deck.
+      </div>
       <div slot="notes">
         <h3>Slide 1: Welcome Cover</h3>
         <ul>
@@ -157,7 +162,8 @@
         <p slot="after" class="hd-highlight">After Slot: Positioned directly below the body area.</p>
       </hd-layout>
       <div slot="footer" class="hd-size-6 hd-muted">Slide Footer (Slide Level)</div>
-      <div slot="script">This slide demonstrates the standard layout component. It includes a header, a heading, and before, body, and after slots.</div>
+      <div slot="script">This slide demonstrates the standard layout component. It includes a header, a heading, and
+        before, body, and after slots.</div>
       <div slot="notes">
         <h3>Slide 2: Standard Layout</h3>
         <ul>
@@ -185,7 +191,8 @@
         </div>
         <p slot="after" class="hd-muted">After Slot: Full-width footer annotation.</p>
       </hd-layout-split>
-      <div slot="script">This is the split layout with two equal columns, left and right. Useful for comparing details side by side.</div>
+      <div slot="script">This is the split layout with two equal columns, left and right. Useful for comparing details
+        side by side.</div>
       <div slot="notes">
         <h3>Slide 3: Split Layout</h3>
         <ul>
@@ -210,7 +217,8 @@
             example, or detailed text block.</p>
         </div>
       </hd-layout-split>
-      <div slot="script">This split layout uses a custom ratio where the left sidebar is narrower than the main content panel.</div>
+      <div slot="script">This split layout uses a custom ratio where the left sidebar is narrower than the main content
+        panel.</div>
       <div slot="notes">
         <h3>Slide 4: Split Layout Ratios</h3>
         <ul>
@@ -247,7 +255,8 @@
         </hd-box>
         <p slot="after" class="hd-muted">After Slot: Spans the full layout width below the grid cells.</p>
       </hd-layout-grid>
-      <div slot="script">This slide demonstrates the grid layout. It arranges five items across two rows and three columns.</div>
+      <div slot="script">This slide demonstrates the grid layout. It arranges five items across two rows and three
+        columns.</div>
       <div slot="notes">
         <h3>Slide 5: Grid Layout</h3>
         <ul>
@@ -266,7 +275,8 @@
         <p>Adding the <code>center</code> attribute directly to <code>&lt;hd-slide&gt;</code> centers all slide elements
           vertically and horizontally.</p>
       </div>
-      <div slot="script">This slide shows a blank canvas with centering. The elements are vertically and horizontally centered.</div>
+      <div slot="script">This slide shows a blank canvas with centering. The elements are vertically and horizontally
+        centered.</div>
       <div slot="notes">
         <h3>Slide 6: Blank Slide Centering</h3>
         <ul>
@@ -276,48 +286,56 @@
       </div>
     </hd-slide>
 
-    <!-- Slide 7: Cards Container -->
+    <!-- Slide 7: Card Components -->
     <hd-slide>
       <hd-layout>
         <h2 slot="heading">Card Components</h2>
-        <p>Cards are boxed containers with margins, backgrounds, and borders, ideal for grouping chunked information.
-        </p>
+        <hd-card variant="base">
+          <h3 slot="heading">Base Card</h3>
+          <p>Base variant uses neutral soft colors and default borders.</p>
+        </hd-card>
         <hd-card variant="main">
-          <h3 slot="heading">Main Theme Card</h3>
-          <p>Cards support distinct style variants (base, main, accent) and heading slots that automatically render
-            styled sub-headers.</p>
+          <h3 slot="heading">Main Card</h3>
+          <p>Main variant uses brand theme colors for key blocks.</p>
+        </hd-card>
+        <hd-card variant="accent">
+          <h3 slot="heading">Accent Card</h3>
+          <p>Accent variant uses secondary brand colors to draw focus.</p>
         </hd-card>
       </hd-layout>
-      <div slot="script">This slide introduces cards. Cards are boxed containers with borders and backgrounds, useful for chunking content.</div>
+      <div slot="script">This slide introduces cards in three variants: base, main, and accent.</div>
       <div slot="notes">
         <h3>Slide 7: Card Components</h3>
         <ul>
           <li>Uses &lt;hd-card&gt; element.</li>
-          <li>Displays border, padding, and slot behaviors.</li>
+          <li>Displays base, main, and accent variants.</li>
         </ul>
       </div>
     </hd-slide>
 
-    <!-- Slide 8: Boxes Container -->
+    <!-- Slide 8: Box Components -->
     <hd-slide>
-      <hd-layout-split>
+      <hd-layout-grid cols="3">
         <h2 slot="heading">Box Components</h2>
-        <div slot="left">
-          <p>Unlike cards, boxes are configured to stretch to 100% height of their parent flex container.</p>
-          <p>This is extremely useful inside columns to align adjacent blocks at equal heights.</p>
-        </div>
-        <hd-box slot="right" variant="accent">
-          <h3 slot="heading">Full-Height Accent Box</h3>
-          <p>This box stretches to match the height of the left column. Try resizing the window to see how it scales.
-          </p>
+        <hd-box variant="base">
+          <h3 slot="heading">Base Box</h3>
+          <p>Base variant stretches to match adjacent blocks at equal heights.</p>
         </hd-box>
-      </hd-layout-split>
-      <div slot="script">This slide introduces boxes. Boxes are designed to stretch to 100% height to align adjacent columns.</div>
+        <hd-box variant="main">
+          <h3 slot="heading">Main Box</h3>
+          <p>Main variant stretches using brand theme colors.</p>
+        </hd-box>
+        <hd-box variant="accent">
+          <h3 slot="heading">Accent Box</h3>
+          <p>Accent variant stretches using secondary brand colors.</p>
+        </hd-box>
+      </hd-layout-grid>
+      <div slot="script">This slide introduces boxes. Boxes stretch to 100% height to align adjacent columns.</div>
       <div slot="notes">
         <h3>Slide 8: Box Components</h3>
         <ul>
           <li>Uses &lt;hd-box&gt; element.</li>
-          <li>Shows the difference in height scaling compared to &lt;hd-card&gt;.</li>
+          <li>Displays base, main, and accent variants in full-height grids.</li>
         </ul>
       </div>
     </hd-slide>
@@ -342,7 +360,8 @@
             vertical height of its column container side-by-side with the card.</p>
         </hd-box>
       </hd-layout-split>
-      <div slot="script">This slide shows heading-less layouts, cards, and boxes. The header area and divider line are completely hidden.</div>
+      <div slot="script">This slide shows heading-less layouts, cards, and boxes. The header area and divider line are
+        completely hidden.</div>
       <div slot="notes">
         <h3>Slide 9: Heading-less Components</h3>
         <ul>
@@ -383,78 +402,120 @@
       </div>
     </hd-slide>
 
-    <!-- Slide 11: Slide Theme Variations (Variants) -->
+    <!-- Slide 11: Slide Customization (Base Variant) -->
+    <hd-slide variant="base">
+      <div slot="header" class="hd-size-6 hd-muted">Slide Header (Variant: Base)</div>
+      <hd-layout-split ratio="1:1">
+        <h2 slot="heading">Slide Customization: Base</h2>
+        <div slot="left">
+          <p>This slide is configured with <code>variant="base"</code>.</p>
+          <p>The nested card and callout on the right inherit the base theme settings automatically since they have no
+            explicit style attributes.</p>
+        </div>
+        <div slot="right">
+          <hd-card class="hd-mb-3">
+            <h3 slot="heading">Inherited Card</h3>
+            <p>I inherit the slide's active base styling.</p>
+          </hd-card>
+          <hd-callout>
+            <p class="hd-text-weight-bold">Inherited Callout</p>
+            <p>I inherit base styling as well.</p>
+          </hd-callout>
+        </div>
+      </hd-layout-split>
+      <div slot="notes">
+        <h3>Slide 11: Base Slide</h3>
+        <ul>
+          <li>Demonstrates slide-level variant="base".</li>
+          <li>Shows child card and callout inheriting slide styles.</li>
+        </ul>
+      </div>
+    </hd-slide>
+
+    <!-- Slide 12: Slide Customization (Accent Variant) -->
     <hd-slide variant="accent">
       <div slot="header" class="hd-size-6 hd-muted">Slide Header (Variant: Accent)</div>
-      <hd-layout>
-        <h2 slot="heading">Slide Customization: Variants</h2>
-        <p>Slide colors can be configured globally or overridden per-slide using the <code>variant</code> attribute.</p>
-        <p>This slide uses <code>variant="accent"</code>, which switches the body text color and background to the
-          theme's
-          secondary soft color scheme, and the header to the solid theme color.</p>
-      </hd-layout>
-      <div slot="script">This slide uses the accent variant to switch background and text colors.</div>
+      <hd-layout-split ratio="1:1">
+        <h2 slot="heading">Slide Customization: Accent</h2>
+        <div slot="left">
+          <p>This slide is configured with <code>variant="accent"</code>.</p>
+          <p>Notice how the card background and callout left border change to accent colors without any overrides on the
+            elements themselves.</p>
+        </div>
+        <div slot="right">
+          <hd-card class="hd-mb-3">
+            <h3 slot="heading">Inherited Card</h3>
+            <p>I inherit the slide's active accent styling.</p>
+          </hd-card>
+          <hd-callout>
+            <p class="hd-text-weight-bold">Inherited Callout</p>
+            <p>I inherit accent styling as well.</p>
+          </hd-callout>
+        </div>
+      </hd-layout-split>
       <div slot="notes">
-        <h3>Slide 11: Slide Variants</h3>
+        <h3>Slide 12: Accent Slide</h3>
         <ul>
-          <li>Demonstrates slide-level variant customization using the &quot;accent&quot; preset.</li>
-          <li>Variant options include base, main, and accent.</li>
+          <li>Demonstrates slide-level variant="accent".</li>
+          <li>Shows child card and callout inheriting slide accent colors.</li>
         </ul>
       </div>
     </hd-slide>
 
-    <!-- Slide 12: Slide Theme Variations (Surface) -->
-    <hd-slide variant="main" surface="solid">
-      <div slot="header" class="hd-size-6 hd-muted">Slide Header (Variant: Main / Surface: Solid)</div>
-      <hd-layout>
-        <h2 slot="heading">Slide Customization: Surfaces</h2>
-        <p>Fine-tune colors with the <code>surface</code> attribute.</p>
-        <p>This slide is set to <code>variant="main" surface="solid"</code>. This forces both the slide body and
-          heading backgrounds to a solid main color scheme.</p>
-      </hd-layout>
-      <div slot="script">This slide uses a solid main surface to force a solid color scheme on both body and heading.</div>
+    <!-- Slide 13: Slide Customization (Solid Surface) -->
+    <hd-slide surface="solid">
+      <div slot="header" class="hd-size-6 hd-muted">Slide Header (Surface: Solid)</div>
+      <hd-layout-split ratio="1:1">
+        <h2 slot="heading">Slide Customization: Solid</h2>
+        <div slot="left">
+          <p>This slide is configured with <code>surface="solid"</code>.</p>
+          <p>This triggers the solid base color palette, which propagates to the nested components.</p>
+        </div>
+        <div slot="right">
+          <hd-card class="hd-mb-3">
+            <h3 slot="heading">Inherited Card</h3>
+            <p>I inherit the slide's active solid styling.</p>
+          </hd-card>
+          <hd-callout>
+            <p class="hd-text-weight-bold">Inherited Callout</p>
+            <p>I inherit solid styling as well.</p>
+          </hd-callout>
+        </div>
+      </hd-layout-split>
       <div slot="notes">
-        <h3>Slide 12: Slide Surfaces</h3>
+        <h3>Slide 13: Solid Slide</h3>
         <ul>
-          <li>Demonstrates forcing solid background surface states on the slide.</li>
+          <li>Demonstrates slide-level surface="solid".</li>
+          <li>Shows child card and callout inheriting solid surface colors.</li>
         </ul>
       </div>
     </hd-slide>
 
-    <!-- Slide 13: Slide Customization: Heading Base -->
-    <hd-slide heading="base" surface="soft">
-      <div slot="header" class="hd-size-6 hd-muted">Slide Header (Heading: Base / Surface: Soft)</div>
-      <hd-layout>
-        <h2 slot="heading">Slide Customization: Heading Base</h2>
-        <p>The <code>heading</code> attribute overrides the heading slot colors specifically, regardless of the slide's
-          main variant.</p>
-        <p>This slide uses <code>heading="base" surface="soft"</code>, which sets the body theme to base-soft while
-          overriding the heading theme to base-soft.</p>
-      </hd-layout>
-      <div slot="script">This slide overrides the heading slot color to base soft.</div>
+    <!-- Slide 14: Slide Customization (Inverted Mode) -->
+    <hd-slide>
+      <div slot="header" class="hd-size-6 hd-muted">Slide Header (Inverted)</div>
+      <hd-layout-split ratio="1:1">
+        <h2 slot="heading">Slide Customization: Inverted</h2>
+        <div slot="left">
+          <p>This slide is just a standard slide.</p>
+          <p>This triggers high-contrast light-on-dark or dark-on-light colors, automatically propagating down.</p>
+        </div>
+        <div slot="right">
+          <hd-card class="hd-mb-3">
+            <h3 slot="heading">Inherited Card</h3>
+            <p>I inherit the slide's active styling.</p>
+          </hd-card>
+          <hd-callout>
+            <p class="hd-text-weight-bold">Inherited Callout</p>
+            <p>I inherit styling as well.</p>
+          </hd-callout>
+        </div>
+      </hd-layout-split>
       <div slot="notes">
-        <h3>Slide 13: Heading Base Override</h3>
+        <h3>Slide 14: Inverted Slide</h3>
         <ul>
-          <li>Demonstrates heading="base" overriding variant="base".</li>
-        </ul>
-      </div>
-    </hd-slide>
-
-    <!-- Slide 14: Inverted Slide Override -->
-    <hd-slide variant="base" inverted>
-      <div slot="header" class="hd-size-6 hd-muted">Slide Header (Variant: Base / Inverted)</div>
-      <hd-layout>
-        <h2 slot="heading">Inverted Slide Override</h2>
-        <p>The <code>inverted</code> attribute inverts the slide background and text colors completely.</p>
-        <p>This slide uses <code>variant="base" inverted</code>, which forces the base-soft-inverted color scheme,
-          perfect for section separators.</p>
-      </hd-layout>
-      <div slot="script">This slide uses the inverted attribute to flip text and background colors.</div>
-      <div slot="notes">
-        <h3>Slide 14: Inverted Slides</h3>
-        <ul>
-          <li>Demonstrates the inverted attribute override with variant="base".</li>
-          <li>Ensures high-contrast color flipping.</li>
+          <li>Demonstrates slide-level flag.</li>
+          <li>Shows child card and callout inheriting colors.</li>
         </ul>
       </div>
     </hd-slide>
@@ -516,7 +577,8 @@
         <p class="hd-mb-0">Keyboard inputs: press <kbd>Ctrl</kbd> + <kbd>P</kbd> to print</p>
         <p class="hd-mb-0">Highlight tag: this is a <mark>highlighted mark</mark> text</p>
       </hd-layout>
-      <div slot="script">This slide verifies text styling and decoration helpers, like italics, underlines, and marks.</div>
+      <div slot="script">This slide verifies text styling and decoration helpers, like italics, underlines, and marks.
+      </div>
       <div slot="notes">
         <h3>Slide 17: Styles &amp; Transforms</h3>
         <ul>
@@ -594,59 +656,6 @@
         <h3>Slide 20: Spacing</h3>
         <ul>
           <li>Demonstrates spacing utilities using inner padding divs side-by-side.</li>
-        </ul>
-      </div>
-    </hd-slide>
-
-    <!-- Slide 21: Multi-Row Grid Layout -->
-    <hd-slide>
-      <hd-layout-grid cols="2" rows="3">
-        <h2 slot="heading">Multi-Row Grid Layout</h2>
-        <p slot="before" class="hd-muted">Demonstrating grid layout with dynamic columns and rows (cols="2" rows="3"):
-        </p>
-        <hd-card>
-          <div class="hd-p-2">
-            <p class="hd-text-weight-bold">Grid Cell 1</p>
-            <p>Row 1, Column 1</p>
-          </div>
-        </hd-card>
-        <hd-card>
-          <div class="hd-p-2">
-            <p class="hd-text-weight-bold">Grid Cell 2</p>
-            <p>Row 1, Column 2</p>
-          </div>
-        </hd-card>
-        <hd-card>
-          <div class="hd-p-2">
-            <p class="hd-text-weight-bold">Grid Cell 3</p>
-            <p>Row 2, Column 1</p>
-          </div>
-        </hd-card>
-        <hd-card>
-          <div class="hd-p-2">
-            <p class="hd-text-weight-bold">Grid Cell 4</p>
-            <p>Row 2, Column 2</p>
-          </div>
-        </hd-card>
-        <hd-card>
-          <div class="hd-p-2">
-            <p class="hd-text-weight-bold">Grid Cell 5</p>
-            <p>Row 3, Column 1</p>
-          </div>
-        </hd-card>
-        <hd-card>
-          <div class="hd-p-2">
-            <p class="hd-text-weight-bold">Grid Cell 6</p>
-            <p>Row 3, Column 2</p>
-          </div>
-        </hd-card>
-      </hd-layout-grid>
-      <div slot="script">This slide shows a multi-row grid layout with six cells.</div>
-      <div slot="notes">
-        <h3>Slide 21: Multi-Row Grid</h3>
-        <ul>
-          <li>Uses &lt;hd-layout-grid cols="2" rows="3"&gt;</li>
-          <li>Demonstrates dynamic grid spacing and sequential slot layout.</li>
         </ul>
       </div>
     </hd-slide>

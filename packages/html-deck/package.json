@@ -37,6 +37,7 @@
     "./theme-dark": "./src/themes/html-deck.theme-dark.css",
     "./theme-dotted": "./src/themes/html-deck.theme-dotted.css",
     "./theme-neon": "./src/themes/html-deck.theme-neon.css",
+    "./theme-nouveau": "./src/themes/html-deck.theme-nouveau.css",
     "./theme-serif": "./src/themes/html-deck.theme-serif.css",
     "./theme-warm": "./src/themes/html-deck.theme-warm.css",
     "./presenter": {

@@ -2,183 +2,105 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-  /* Fonts & Weights */
-  --hd-font-family: 'Outfit', system-ui, -apple-system, sans-serif;
-  --hd-body-font: var(--hd-font-family);
-  --hd-heading-font: var(--hd-font-family);
+   /* Fonts & Weights */
+   --hd-font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+   --hd-body-font: var(--hd-font-family);
+   --hd-heading-font: var(--hd-font-family);
 
-  /* ========================================================
-     BASE THEME (Standard/Neutral) - Warm Sand Dunes & Deep Charcoal Brown
-     ======================================================== */
-  /* Soft Surface (Slide default) */
-  --hd-base-soft-background-color: linear-gradient(135deg, #f7f4eb 0%, #ede8dc 100%);
-  --hd-base-soft-text-color: #363028;
-  --hd-base-soft-text-highlight-color: #913620; /* Vibrant Terracotta */
-  --hd-base-soft-text-muted-color: #70685c;
+   /* --- 4-Color Palette base variables --- */
+   --hd-theme-background-color: #f7f4eb 0%;
+   --hd-theme-text-color: #363028;
+   --hd-theme-main-color: #a83d21;
+   --hd-theme-accent-color: #dfa12d;
 
-  /* Solid Surface (Medium bg / Dark text) */
-  --hd-base-solid-background-color: #ede8dc;
-  --hd-base-solid-text-color: #363028;
-  --hd-base-solid-text-highlight-color: #913620;
-  --hd-base-solid-text-muted-color: #70685c;
-
-  /* Soft Surface Inverted (Desert Night) */
-  --hd-base-soft-background-color-inverted: linear-gradient(135deg, #2a2421 0%, #1f1a18 100%);
-  --hd-base-soft-text-color-inverted: #f7f4eb;
-  --hd-base-soft-text-highlight-color-inverted: #f4a28c; /* Bright Copper */
-  --hd-base-soft-text-muted-color-inverted: #a39a8e;
-
-  /* Solid Surface Inverted */
-  --hd-base-solid-background-color-inverted: #332b27;
-  --hd-base-solid-text-color-inverted: #f7f4eb;
-  --hd-base-solid-text-highlight-color-inverted: #f4a28c;
-  --hd-base-solid-text-muted-color-inverted: #a39a8e;
-
-  /* ========================================================
-     MAIN THEME (Brand Terracotta) - Rich Desert Clay
-     ======================================================== */
-  /* Soft Surface */
-  --hd-main-soft-background-color: linear-gradient(135deg, #faebe3 0%, #f3dcd0 100%);
-  --hd-main-soft-text-color: #9e351b;
-  --hd-main-soft-text-highlight-color: #6e200c;
-  --hd-main-soft-text-muted-color: #b67b6b;
-
-  /* Solid Surface */
-  --hd-main-solid-background-color: linear-gradient(135deg, #a83d21 0%, #8c331d 100%);
-  --hd-main-solid-text-color: #f7f4eb;
-  --hd-main-solid-text-highlight-color: #ffe7bd;
-  --hd-main-solid-text-muted-color: #ffffff;
-
-  /* Soft Surface Inverted */
-  --hd-main-soft-background-color-inverted: #411f16;
-  --hd-main-soft-text-color-inverted: #faebe3;
-  --hd-main-soft-text-highlight-color-inverted: #fdd692;
-  --hd-main-soft-text-muted-color-inverted: #b67b6b;
-
-  /* Solid Surface Inverted */
-  --hd-main-solid-background-color-inverted: #f7f4eb;
-  --hd-main-solid-text-color-inverted: #9e351b;
-  --hd-main-solid-text-highlight-color-inverted: #6e200c;
-  --hd-main-solid-text-muted-color-inverted: #b67b6b;
-
-  /* ========================================================
-     ACCENT THEME (Brand Ochre) - Sunlit Amber
-     ======================================================== */
-  /* Soft Surface */
-  --hd-accent-soft-background-color: linear-gradient(135deg, #fdf6e2 0%, #f9edcb 100%);
-  --hd-accent-soft-text-color: #8a5d09;
-  --hd-accent-soft-text-highlight-color: #6e200c;
-  --hd-accent-soft-text-muted-color: #7a5911;
-
-  /* Solid Surface */
-  --hd-accent-solid-background-color: linear-gradient(135deg, #dfa12d 0%, #c48818 100%);
-  --hd-accent-solid-text-color: #2a2421;
-  --hd-accent-solid-text-highlight-color: #8b351d;
-  --hd-accent-solid-text-muted-color: #73561a;
-
-  /* Soft Surface Inverted */
-  --hd-accent-soft-background-color-inverted: #413216;
-  --hd-accent-soft-text-color-inverted: #fdf6e2;
-  --hd-accent-soft-text-highlight-color-inverted: #f4a28c;
-  --hd-accent-soft-text-muted-color-inverted: #d4b57a;
-
-  /* Solid Surface Inverted */
-  --hd-accent-solid-background-color-inverted: #2a2421;
-  --hd-accent-solid-text-color-inverted: #fdf6e2;
-  --hd-accent-solid-text-highlight-color-inverted: #ffc966;
-  --hd-accent-solid-text-muted-color-inverted: #e0c592;
-
-
-
-
-  /* ========================================================
+   /* ========================================================
      DESERT OASIS DESIGN OVERRIDES & COMPONENTS
      ======================================================== */
 
-  /* Slide Border Customization - Borderless presentation slides */
-  --hd-slide-border-width: 0px;
+   /* Slide Border Customization - Borderless presentation slides */
+   --hd-slide-border-width: 0px;
 
-  /* Spacing Scale (Gap Scale) */
-  --hd-gap-1: 10px;
-  --hd-gap-2: 18px;
-  --hd-gap-3: 28px;
-  --hd-gap-4: 36px;
-  --hd-gap-5: 48px;
-  --hd-gap-6: 64px;
+   /* Spacing Scale (Gap Scale) */
+   --hd-gap-1: 10px;
+   --hd-gap-2: 18px;
+   --hd-gap-3: 28px;
+   --hd-gap-4: 36px;
+   --hd-gap-5: 48px;
+   --hd-gap-6: 64px;
 
-  /* Slide layout margin parameters */
-  --hd-slide-margin-top: var(--hd-gap-4);
-  --hd-slide-margin-right: var(--hd-gap-5);
-  --hd-slide-margin-bottom: var(--hd-gap-4);
-  --hd-slide-margin-left: var(--hd-gap-5);
+   /* Slide layout margin parameters */
+   --hd-slide-margin-top: var(--hd-gap-4);
+   --hd-slide-margin-right: var(--hd-gap-5);
+   --hd-slide-margin-bottom: var(--hd-gap-4);
+   --hd-slide-margin-left: var(--hd-gap-5);
 
-  /* Heading Dividers - Thin clay color divider */
-  --hd-layout-heading-divider-display: block;
-  --hd-layout-heading-divider-height: 2px;
+   /* Heading Dividers - Thin clay color divider */
+   --hd-layout-heading-divider-display: block;
+   --hd-layout-heading-divider-height: 2px;
 
-  /* Typography Sizing Scale Adjustments */
-  --hd-size-1: 56px;
-  --hd-size-2: 38px;
-  --hd-size-3: 24px;
-  --hd-size-4: 19px;
-  --hd-size-5: 15px;
-  --hd-size-6: 13px;
+   /* Typography Sizing Scale Adjustments */
+   --hd-size-1: 56px;
+   --hd-size-2: 38px;
+   --hd-size-3: 24px;
+   --hd-size-4: 19px;
+   --hd-size-5: 15px;
+   --hd-size-6: 13px;
 
-  /* Typography Line Heights & Letter Spacing */
-  --hd-text-title-letter-spacing: -0.02em;
-  --hd-text-heading-letter-spacing: -0.01em;
-  --hd-text-body-line-height: 1.55;
-  --hd-text-quote-line-height: 1.45;
+   /* Typography Line Heights & Letter Spacing */
+   --hd-text-title-letter-spacing: -0.02em;
+   --hd-text-heading-letter-spacing: -0.01em;
+   --hd-text-body-line-height: 1.55;
+   --hd-text-quote-line-height: 1.45;
 
-  /* Component Rounding - Organic sandstone curves */
-  --hd-card-border-radius: 16px;
-  --hd-box-border-radius: 12px;
-  --hd-callout-border-radius: 12px;
-  --hd-codeblock-border-radius: 10px;
-  --hd-img-border-radius: 12px;
+   /* Component Rounding - Organic sandstone curves */
+   --hd-card-border-radius: 16px;
+   --hd-box-border-radius: 12px;
+   --hd-callout-border-radius: 12px;
+   --hd-codeblock-border-radius: 10px;
+   --hd-img-border-radius: 12px;
 
-  /* Card Decor: Cozy Rounded Floating Box */
-  --hd-card-border-width: 1px;
-  --hd-card-box-shadow: 0 4px 20px rgba(from var(--hd-base-soft-text-color) r g b / 0.04), 0 1px 3px rgba(from var(--hd-base-soft-text-color) r g b / 0.02);
+   /* Card Decor: Cozy Rounded Floating Box */
+   --hd-card-border-width: 1px;
+   --hd-card-box-shadow: 0 4px 20px rgba(from var(--hd-base-soft-text-color) r g b / 0.04), 0 1px 3px rgba(from var(--hd-base-soft-text-color) r g b / 0.02);
 
-  /* Box Decor: Warm Clay Plate */
-  --hd-box-border-width: 1px;
-  --hd-box-box-shadow: none;
+   /* Box Decor: Warm Clay Plate */
+   --hd-box-border-width: 1px;
+   --hd-box-box-shadow: none;
 
-  /* Callout Decor: Sunlit Left-Border Panel */
-  --hd-callout-border-width: 0 0 0 4px;
+   /* Callout Decor: Sunlit Left-Border Panel */
+   --hd-callout-border-width: 0 0 0 4px;
 
-  /* Codeblock Decor: Vintage Dark Clay Terminal */
-  --hd-codeblock-background-color: #27211d;
-  --hd-codeblock-border-color: rgba(from var(--hd-base-soft-text-color) r g b / 0.12);
-  --hd-codeblock-box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.4);
+   /* Codeblock Decor: Vintage Dark Clay Terminal */
+   --hd-codeblock-background-color: #27211d;
+   --hd-codeblock-border-color: rgba(from var(--hd-base-soft-text-color) r g b / 0.12);
+   --hd-codeblock-box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.4);
 
-  /* Image Decor */
-  --hd-img-border-color: rgba(from var(--hd-base-soft-text-color) r g b / 0.08);
-  --hd-img-box-shadow: 0 8px 24px rgba(from var(--hd-base-soft-text-color) r g b / 0.06);
+   /* Image Decor */
+   --hd-img-border-color: rgba(from var(--hd-base-soft-text-color) r g b / 0.08);
+   --hd-img-box-shadow: 0 8px 24px rgba(from var(--hd-base-soft-text-color) r g b / 0.06);
 
-  /* Table Decor: Custom Striping and Header Colors */
-  --hd-table-border-color: rgba(from var(--hd-base-soft-text-color) r g b / 0.1);
-  --hd-table-cell-padding: 10px 14px;
-  --hd-table-header-background-color: var(--hd-main-soft-background-color);
-  --hd-table-header-text-color: var(--hd-main-soft-text-color);
-  --hd-table-row-striped-background-color: rgba(from var(--hd-main-soft-background-color) r g b / 0.3);
-  --hd-table-cell-border-width: 1px;
-  --hd-table-header-border-width: 1px;
+   /* Table Decor: Custom Striping and Header Colors */
+   --hd-table-border-color: rgba(from var(--hd-base-soft-text-color) r g b / 0.1);
+   --hd-table-cell-padding: 10px 14px;
+   --hd-table-header-background-color: var(--hd-main-soft-background-color);
+   --hd-table-header-text-color: var(--hd-main-soft-text-color);
+   --hd-table-row-striped-background-color: rgba(from var(--hd-main-soft-background-color) r g b / 0.3);
+   --hd-table-cell-border-width: 1px;
+   --hd-table-header-border-width: 1px;
 
-  /* Lists Decor: Custom Marker Colors and Shapes */
-  --hd-list-marker-color: var(--hd-accent-soft-text-color);
-  --hd-list-style-type: square;
-  --hd-list-style-type-2: disc;
-  --hd-list-style-type-3: circle;
+   /* Lists Decor: Custom Marker Colors and Shapes */
+   --hd-list-marker-color: var(--hd-accent-soft-text-color);
+   --hd-list-style-type: square;
+   --hd-list-style-type-2: disc;
+   --hd-list-style-type-3: circle;
 
-  /* Scrollbars thumbs */
-  --hd-scrollbar-track-bg: transparent;
-  --hd-scrollbar-thumb-bg: rgba(from var(--hd-base-soft-text-color) r g b / 0.15);
-  --hd-scrollbar-thumb-hover-bg: var(--hd-main-soft-text-color);
+   /* Scrollbars thumbs */
+   --hd-scrollbar-track-bg: transparent;
+   --hd-scrollbar-thumb-bg: rgba(from var(--hd-base-soft-text-color) r g b / 0.15);
+   --hd-scrollbar-thumb-hover-bg: var(--hd-main-soft-text-color);
 }
 
 * {
-  --hd-border-color-default: rgba(from var(--hd-body-text-color) r g b / 0.15);
-  --hd-border-color-surfaced: rgba(from var(--hd-body-text-color) r g b / 0.25);
+   --hd-border-color-default: rgba(from var(--hd-body-text-color) r g b / 0.15);
+   --hd-border-color-surfaced: rgba(from var(--hd-body-text-color) r g b / 0.25);
 }

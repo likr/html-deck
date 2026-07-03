@@ -14,6 +14,12 @@ export class HdLayoutSplit extends HTMLElement {
           width: 100%;
           height: 100%;
           box-sizing: border-box;
+
+          --hd-layout-heading-background: var(--hd-slide-heading-background);
+          --hd-layout-heading-text-color: var(--hd-slide-heading-text-color);
+          --hd-layout-heading-text-highlight-color: var(--hd-slide-heading-text-highlight-color);
+          --hd-layout-heading-text-muted-color: var(--hd-slide-heading-text-muted-color);
+          --hd-layout-heading-divider-background: var(--hd-slide-heading-divider-background);
         }
         .heading-area {
           display: none;
@@ -22,15 +28,14 @@ export class HdLayoutSplit extends HTMLElement {
           width: 100%;
           box-sizing: border-box;
           padding: var(--hd-layout-heading-padding);
-          background: var(--hd-background-color);
-          color: var(--hd-text-color);
+          background: var(--hd-layout-heading-background);
+          color: var(--hd-layout-heading-text-color);
           box-shadow: var(--hd-layout-heading-box-shadow, none);
           text-align: var(--hd-layout-heading-text-align, left);
 
-          --hd-background-color: var(--hd-heading-background-color);
-          --hd-text-color: var(--hd-heading-text-color);
-          --hd-text-highlight-color: var(--hd-heading-text-highlight-color);
-          --hd-text-muted-color: var(--hd-heading-text-muted-color);
+          --hd-text-color: var(--hd-layout-heading-text-color);
+          --hd-text-highlight-color: var(--hd-layout-heading-text-highlight-color);
+          --hd-text-muted-color: var(--hd-layout-heading-text-muted-color);
         }
         :host([has-heading]) .heading-area {
           display: flex;
@@ -38,7 +43,8 @@ export class HdLayoutSplit extends HTMLElement {
         .heading-divider {
           display: none;
           border: none;
-          border-top: var(--hd-layout-heading-divider-height, 1px) var(--hd-layout-heading-divider-style, solid) var(--hd-border-color);
+          height: var(--hd-layout-heading-divider-height, 1px);
+          background: var(--hd-layout-heading-divider-background);
           box-shadow: var(--hd-layout-heading-divider-box-shadow, none);
           margin: 0;
           width: 100%;
@@ -61,7 +67,7 @@ export class HdLayoutSplit extends HTMLElement {
         .heading-area ::slotted(*) {
           font-family: var(--hd-text-heading-font);
           font-size: var(--hd-text-heading-font-size);
-          color: var(--hd-heading-text-color);
+          color: var(--hd-layout-heading-text-color);
           text-shadow: var(--hd-layout-heading-text-shadow, none);
           margin: 0;
         }

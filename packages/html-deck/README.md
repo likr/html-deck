@@ -70,7 +70,7 @@ HTML-Deck includes 9 distinct WebComponents:
 | Component | Description / Slots |
 | :--- | :--- |
 | `<hd-deck>` | Root container. Manages transitions, aspect ratio scaling, routing, and presenter sync. |
-| `<hd-slide>` | Slide container. Supports active state, inverted theme, centering, and theme variants. |
+| `<hd-slide>` | Slide container. Supports active state, centering, and theme variants. |
 | `<hd-layout>` | Standard slide layout component (slots: `heading`, `before`, default, `after`). |
 | `<hd-layout-split>` | Two-column layout component with customizable column ratio (attributes: `ratio`, slots: `heading`, `before`, `left`, `right`, `after`). |
 | `<hd-layout-grid>` | Grid layout component that arranges child elements into columns and rows (attributes: `cols`, `rows`, slots: `heading`, `before`, default, `after`). |

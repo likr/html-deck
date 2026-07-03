@@ -22,17 +22,9 @@
   --hd-base-solid-text-highlight-color: #5c1d1d;
   --hd-base-solid-text-muted-color: #78716c;
 
-  /* Soft Surface Inverted (Deep Ink / Cream text) */
-  --hd-base-soft-background-color-inverted: #1c1917;
-  --hd-base-soft-text-color-inverted: #faf8f5;
-  --hd-base-soft-text-highlight-color-inverted: #f59e0b; /* Bright Amber Gold */
-  --hd-base-soft-text-muted-color-inverted: #a8a29e; /* Muted Warm Gray */
+  /* Soft Surface Inverted (Deep Ink / Cream text) */ /* Bright Amber Gold */ /* Muted Warm Gray */
 
   /* Solid Surface Inverted (Slightly lighter ink bg) */
-  --hd-base-solid-background-color-inverted: #292524;
-  --hd-base-solid-text-color-inverted: #faf8f5;
-  --hd-base-solid-text-highlight-color-inverted: #f59e0b;
-  --hd-base-solid-text-muted-color-inverted: #a8a29e;
 
   /* ========================================================
      MAIN THEME (Brand Burgundy) - Rich Wine Red
@@ -50,16 +42,8 @@
   --hd-main-solid-text-muted-color: #cca7a7;
 
   /* Soft Surface Inverted */
-  --hd-main-soft-background-color-inverted: #3a1010;
-  --hd-main-soft-text-color-inverted: #faf8f5;
-  --hd-main-soft-text-highlight-color-inverted: #f59e0b;
-  --hd-main-soft-text-muted-color-inverted: #c89f9f;
 
   /* Solid Surface Inverted */
-  --hd-main-solid-background-color-inverted: #faf8f5;
-  --hd-main-solid-text-color-inverted: #5c1d1d;
-  --hd-main-solid-text-highlight-color-inverted: #5c1d1d;
-  --hd-main-solid-text-muted-color-inverted: #8a4f4f;
 
   /* ========================================================
      ACCENT THEME (Brand Gold) - Antique Gold
@@ -77,16 +61,8 @@
   --hd-accent-solid-text-muted-color: #e5c895;
 
   /* Soft Surface Inverted */
-  --hd-accent-soft-background-color-inverted: #4c3209;
-  --hd-accent-soft-text-color-inverted: #faf8f5;
-  --hd-accent-soft-text-highlight-color-inverted: #fbbf24;
-  --hd-accent-soft-text-muted-color-inverted: #c6a36f;
 
   /* Solid Surface Inverted */
-  --hd-accent-solid-background-color-inverted: #faf8f5;
-  --hd-accent-solid-text-color-inverted: #855b13;
-  --hd-accent-solid-text-highlight-color-inverted: #5c1d1d;
-  --hd-accent-solid-text-muted-color-inverted: #8a4f4f;
 
   /* ========================================================
      EDITORIAL DESIGN OVERRIDES & COMPONENTS

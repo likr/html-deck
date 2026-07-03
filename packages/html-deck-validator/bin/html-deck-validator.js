@@ -139,66 +139,33 @@ if (!url) {
         return path.slice(-3).join(' > '); // return last 3 ancestors for clarity
       }
 
-      // Helper: Color parsing for rgb/rgba, hex, and color(srgb)
+      // Helper: Color parsing for any CSS color using canvas context
       function parseColor(colorStr) {
         if (!colorStr) return { r: 0, g: 0, b: 0, a: 1.0 };
         colorStr = colorStr.trim();
-        if (colorStr.startsWith('#')) {
-          let hex = colorStr.slice(1);
-          if (hex.length === 3 || hex.length === 4) {
-            hex = [...hex].map(c => c + c).join('');
-          }
-          const r = parseInt(hex.slice(0, 2), 16);
-          const g = parseInt(hex.slice(2, 4), 16);
-          const b = parseInt(hex.slice(4, 6), 16);
-          let a = 1.0;
-          if (hex.length === 8) {
-            a = parseInt(hex.slice(6, 8), 16) / 255;
-          }
-          return { r, g, b, a };
+        if (colorStr === 'transparent' || colorStr === 'rgba(0, 0, 0, 0)') {
+          return { r: 0, g: 0, b: 0, a: 0.0 };
         }
-        if (colorStr.startsWith('color')) {
-          // Matches color(srgb R G B / A) or color(srgb R G B)
-          const match = colorStr.match(/color\(srgb\s+([\d.]+)\s+([\d.]+)\s+([\d.]+)(?:\s*\/\s*([\d.%]+))?\)/);
-          if (match) {
-            let alpha = 1.0;
-            if (match[4] !== undefined) {
-              const aVal = match[4].trim();
-              if (aVal.endsWith('%')) {
-                alpha = parseFloat(aVal) / 100;
-              } else {
-                alpha = parseFloat(aVal);
-              }
-            }
-            return {
-              r: Math.round(parseFloat(match[1]) * 255),
-              g: Math.round(parseFloat(match[2]) * 255),
-              b: Math.round(parseFloat(match[3]) * 255),
-              a: alpha
-            };
-          }
+        
+        if (!window.__colorParserCanvas) {
+          window.__colorParserCanvas = document.createElement('canvas');
+          window.__colorParserCanvas.width = 1;
+          window.__colorParserCanvas.height = 1;
+          window.__colorParserCtx = window.__colorParserCanvas.getContext('2d', { willReadFrequently: true });
         }
-        if (colorStr.startsWith('rgb')) {
-          const match = colorStr.match(/rgba?\((\d+)[,\s]+(\d+)[,\s]+(\d+)(?:[,\s/]+([\d.%]+))?\)/);
-          if (match) {
-            let alpha = 1.0;
-            if (match[4] !== undefined) {
-              const aVal = match[4].trim();
-              if (aVal.endsWith('%')) {
-                alpha = parseFloat(aVal) / 100;
-              } else {
-                alpha = parseFloat(aVal);
-              }
-            }
-            return {
-              r: parseInt(match[1], 10),
-              g: parseInt(match[2], 10),
-              b: parseInt(match[3], 10),
-              a: alpha
-            };
-          }
-        }
-        return { r: 0, g: 0, b: 0, a: 1.0 }; // Fallback black
+        
+        const ctx = window.__colorParserCtx;
+        ctx.clearRect(0, 0, 1, 1);
+        ctx.fillStyle = colorStr;
+        ctx.fillRect(0, 0, 1, 1);
+        const data = ctx.getImageData(0, 0, 1, 1).data;
+        
+        return {
+          r: data[0],
+          g: data[1],
+          b: data[2],
+          a: data[3] / 255.0
+        };
       }
 
       // Helper: Traverse upward to calculate effective background color (handling alphas and slotted elements)

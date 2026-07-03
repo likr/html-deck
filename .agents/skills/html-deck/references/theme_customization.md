@@ -137,12 +137,18 @@ Use this list to override specific properties in your custom stylesheets. Always
 - `--hd-font-family-serif`: Serif font stack for quotes. (Default: `Georgia, serif`)
 - `--hd-size-1` to `--hd-size-6`: Sizing scale (Sizes: `48px`, `32px`, `24px`, `18px`, `14px`, `12px`).
 
-### Semantic Color propagation
-- `--hd-background-color`: Local background.
-- `--hd-text-color`: Local text.
-- `--hd-text-highlight-color`: Local highlight color.
-- `--hd-text-muted-color`: Local muted color.
-- `--hd-border-color`: Local border outline.
+### Semantic Theme Variables
+All themes must override these variables under the `:root` selector using Relative Color Syntax and css `color-mix`. The system dynamically maps these to component-specific variables depending on the active variant/surface/inverted states:
+- `--hd-[base/main/accent]-[soft/solid]-heading-background`: Heading background (color, gradient, or transparent).
+- `--hd-[base/main/accent]-[soft/solid]-heading-text-color`: Heading text color.
+- `--hd-[base/main/accent]-[soft/solid]-heading-text-highlight-color`: Highlighted text color in headings.
+- `--hd-[base/main/accent]-[soft/solid]-heading-text-muted-color`: Muted text color in headings.
+- `--hd-[base/main/accent]-[soft/solid]-body-background`: Body background.
+- `--hd-[base/main/accent]-[soft/solid]-body-text-color`: Body text color.
+- `--hd-[base/main/accent]-[soft/solid]-body-text-highlight-color`: Highlighted text color in bodies.
+- `--hd-[base/main/accent]-[soft/solid]-body-text-muted-color`: Muted text color in bodies.
+- `--hd-[base/main/accent]-[soft/solid]-border[-inverted]`: Border color for container outlines.
+
 
 ### Spacing Scale
 - `--hd-gap-0` (0px) to `--hd-gap-6` (48px) in increments of 8px (except Gap-2 is 16px, Gap-3 is 24px).

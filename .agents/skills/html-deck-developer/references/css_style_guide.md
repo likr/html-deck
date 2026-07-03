@@ -89,51 +89,32 @@
 - **複数属性による配色の上書き優先順位（詳細度）の問題**:
   `variant` と `heading`、`surface` のように複数のカスタマイズ属性を組み合わせて適用する場合、セレクタ同士のCSS詳細度が同一（例: `:host([variant="main"][surface="soft"])` と `:host([heading="base"][surface="soft"])`）だと、宣言の順序に依存してスタイルが決定されます。
   - **解決策**: CSSファイル内での宣言順序を意識し、より特定の目的を持つ属性（例: `heading` 属性）のスタイル定義を必ず汎用的な属性（例: `variant` 属性）よりも**下部（後）に宣言**して、カスケードで上書きされるように制御してください。
-- **レイアウト要素の見出し領域カラー伝播と中間状態変数によるオーバーライド**:
-  レイアウトコンポーネント（`<hd-layout>` など）やコンテナ（`<hd-card>` など）の配色において、見出し領域とボディ領域で異なる配色テーマを適用する場合、`:has(> [slot="heading"])` のような複雑なリレーショナルセレクタによる標準変数の直接上書きは、配下のスロット要素への予期せぬ値のリーク（親スコープからの継承による低コントラスト化）を発生させます。
-  これを防ぐため、グローバルな `*` セレクタ下で中間状態変数（`--hd-heading-*` および `--hd-body-*`）を定義し、Shadow DOM 内ではこれらの中間変数を経由して標準変数（`--hd-background-color`、`--hd-text-color`等）に割り当ててください。
-  - **解決策**:
-    1. グローバル `*` セレクタ（`variables.css`）で基本マッピングを定義します：
-       ```css
-       * {
-         --hd-heading-background-color: var(--hd-solid-background-color);
-         --hd-heading-text-color: var(--hd-solid-text-color);
-         --hd-heading-text-highlight-color: var(--hd-solid-text-highlight-color);
-         --hd-heading-text-muted-color: var(--hd-solid-text-muted-color);
-         --hd-body-background-color: var(--hd-soft-background-color);
-         --hd-body-text-color: var(--hd-soft-text-color);
-         --hd-body-text-highlight-color: var(--hd-soft-text-highlight-color);
-         --hd-body-text-muted-color: var(--hd-soft-text-muted-color);
-       }
-       ```
-    2. `hd-slide` の Shadow DOM（`:host`）で標準変数を `--hd-body-*` にマッピングします：
-       ```css
-       :host {
-         --hd-background-color: var(--hd-body-background-color);
-         --hd-text-color: var(--hd-body-text-color);
-         --hd-text-highlight-color: var(--hd-body-text-highlight-color);
-         --hd-text-muted-color: var(--hd-body-text-muted-color);
-       }
-       ```
-    3. レイアウトコンポーネントの見出し領域（`.heading-area`）では、標準変数を `--hd-heading-*` に再マッピングします：
-       ```css
-       .heading-area {
-         --hd-background-color: var(--hd-heading-background-color);
-         --hd-text-color: var(--hd-heading-text-color);
-         --hd-text-highlight-color: var(--hd-heading-text-highlight-color);
-         --hd-text-muted-color: var(--hd-heading-text-muted-color);
-         
-         background: var(--hd-background-color);
-         color: var(--hd-text-color);
-       }
-       ```
-    4. `hd-card` などのコンテナ型コンポーネントは、`surface` 等の属性に応じてコンポーネント側で `--hd-heading-*` / `--hd-body-*` の設定値のみを切り替えます。これにより、配下の子要素やスロットコンテンツが正しくローカルコンテキストに応じた変数値を参照でき、漏洩やレイアウト崩れを完全に防ぐことができます。
-    5. 境界線の定義ルール：
-       - デフォルトは `--hd-border-color-default` (デフォルト: `var(--hd-heading-background-color)`) を適用。
-       - `surface="soft"` または `solid` が指定された場合は、`--hd-border-color-surfaced` (デフォルト: `var(--hd-heading-text-color)`) で上書き。
-       - テーマ側からは `*` セレクタ下で Relative Color Syntax を用いてこれらをオーバーライド。
-         - 例: `--hd-border-color-default: rgba(from var(--hd-body-text-color) r g b / 0.15);`
-
+  - **レイアウト要素の見出し領域カラー伝播とコンポーネント変数による上書き**:
+    レイアウトコンポーネント（`<hd-layout>` など）やコンテナ（`<hd-card>` など）の配色において、見出し領域とボディ領域で異なる配色テーマを適用する場合、配下への不適切なスタイルリークを防ぐため、コンポーネント固有の接頭辞を持つ独立した変数（`--hd-card-heading-background`、`--hd-layout-heading-background` など）を使用します。
+    - **解決策**:
+      1. 各コンポーネントの `:host` で、デフォルト値として親のスライド変数（`var(--hd-slide-*)`）を継承します：
+         ```css
+         :host {
+           --hd-card-heading-background: var(--hd-slide-heading-background);
+           --hd-card-body-background: var(--hd-slide-background);
+           --hd-card-border-color: var(--hd-slide-border-color);
+         }
+         ```
+      2. 属性（`variant`、`surface`、`inverted`）が明示的に指定された場合、または親スライドの状態を継承する場合（`:host-context(hd-slide[inverted])` など）は、各セレクタでテーマ変数（`--hd-[base/main/accent]-[soft/solid]-[heading/body]-*`）から直接割り当てを行います（中間変数は参照しません）。
+      3. レイアウトコンポーネント（`hd-layout`）では、`:host` においてスライド変数を経由してレイアウト専用の変数を定義し、見出し領域や区切り線でそれらを参照します：
+         ```css
+         :host {
+           --hd-layout-heading-background: var(--hd-slide-heading-background);
+           --hd-layout-heading-divider-background: var(--hd-slide-heading-divider-background);
+         }
+         .heading-area {
+           background: var(--hd-layout-heading-background);
+         }
+         .heading-divider {
+           background: var(--hd-layout-heading-divider-background);
+         }
+         ```
+      4. 境界線は、テーマ内の各バリアント・サーフェス・反転状態に応じた境界線変数（`--hd-[base/main/accent]-[soft/solid]-border[-inverted]`）から動的に解決します。
 ---
 
 ## 7. 統一サイズ・ユーティリティ・命名規則

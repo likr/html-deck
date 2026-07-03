@@ -1,6 +1,6 @@
 # html-deck Standard Built-in Themes Parameters Reference
 
-This document summarizes the core parameters and custom CSS variable overrides configured for each of the 6 standard built-in themes in `html-deck`. Refer to this document when choosing slide themes or designing customized color layouts.
+This document summarizes the core parameters and custom CSS variable overrides configured for each of the 8 standard built-in themes in `html-deck`. Refer to this document when choosing slide themes or designing customized color layouts.
 
 ---
 
@@ -15,6 +15,7 @@ This document summarizes the core parameters and custom CSS variable overrides c
 | **Neon Cyberpunk** (`html-deck.theme-neon.css`) | `'Space Grotesk'` | `#0c0d1e` (Midnight Blue) | `#f1f5f9` (Slate White) | `#00f2fe` (Neon Cyan) | `#fe019a` (Neon Pink) |
 | **Serif Academic** (`html-deck.theme-serif.css`) | `'Lora'` (body)<br>`'Playfair Display'` (headings) | `#f5f4ef` (Paper White) | `#1c1917` (Ink Black) | `#44403c` (Stone Brown) | `#9a3412` (Academic Rust) |
 | **Retro Dot-Matrix** (`html-deck.theme-dotted.css`) | `'DotGothic16'` | `#000000` (Black) | `#00ff66` (Phosphor Green) | `#001a07` (Deep Green) | `#ffb000` (Warning Amber) |
+| **Botanical Nouveau** (`html-deck.theme-nouveau.css`) | `'Lora'` (body)<br>`'Cormorant Garamond'` (headings) | `#fcf9f2` (Cream Paper) | `#2d2722` (Charcoal Wood) | `#4e5f4b` (Sage Green) | `#c57863` (Terracotta) |
 
 ---
 
@@ -108,5 +109,19 @@ All custom theme styles are configured via CSS variables defined under the `:roo
   - Soft Surface: Background: `#001a07` (Deep Phosphor green).
   - Solid Surface: Background: `#00ff66` (Vibrant Phosphor Block Green).
 - **Accent (Amber CRT)**:
-  - Soft Surface: Background: `#1a0f00` (Amber Glow).
+  - Soft Surface: Background: `#1a0f00` (Warning Amber Glow).
   - Solid Surface: Background: `#ffb000` (Warning Amber Block).
+
+### 8. Botanical Art Nouveau (`html-deck.theme-nouveau.css`)
+- **Fonts**: Loaded via `@import Cormorant Garamond` and `@import Lora`. Headings: `'Cormorant Garamond'`, Body: `'Lora'`.
+- **Base (Standard)**:
+  - Soft Surface: Background: `#fcf9f2` (Cream Paper), Text: `#2d2722` (Charcoal Wood).
+- **Main Brand (Sage Green)**:
+  - Soft Surface: Background: Light sage green tint (`#f1f5f0`).
+  - Solid Surface: Background: `#4e5f4b` (Vibrant Sage Green).
+- **Accent (Terracotta)**:
+  - Soft Surface: Background: Light terracotta tint (`#fcf2ef`).
+  - Solid Surface: Background: `#b05641` (Vibrant Terracotta).
+- **Decorations**:
+  - Slide Border Width: `0px` (Borderless).
+  - Background overlay corner line-art ornaments (sage leaves on normal slides, light sage/terracotta leaves on inverted slides).
