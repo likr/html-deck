@@ -40,9 +40,7 @@
 
   --hd-base-solid-border: var(--hd-base-solid-heading-text-color);
 
-  /* Soft Surface Inverted (Full block phosphor highlighted) */
 
-  /* Solid Surface Inverted (Solid block phosphor highlighted) */
 
    /* ========================================================
      MAIN THEME (Brand Green) - Deep green themed
@@ -75,9 +73,7 @@
 
   --hd-main-solid-border: var(--hd-main-solid-heading-text-color);
 
-  /* Soft Surface Inverted */
 
-  /* Solid Surface Inverted */
 
    /* ========================================================
      ACCENT THEME (Warning Amber) - Amber themed
@@ -110,9 +106,7 @@
 
   --hd-accent-solid-border: var(--hd-accent-solid-heading-text-color);
 
-  /* Soft Surface Inverted */
 
-  /* Solid Surface Inverted */
 
    /* ========================================================
      SEMANTIC SLIDE COLORS (Explicit default mappings)

@@ -84,9 +84,9 @@ export class HdBox extends HTMLElement {
         :host([variant="main"]) {
           --hd-box-heading-background-color: var(--hd-main-solid-heading-background-color);
           --hd-box-heading-background: var(--hd-main-solid-heading-background, var(--hd-box-heading-background-color));
-          --hd-box-heading-text-color: var(--hd-main-solid-text-color);
-          --hd-box-heading-text-highlight-color: var(--hd-main-solid-text-highlight-color);
-          --hd-box-heading-text-muted-color: var(--hd-main-solid-text-muted-color);
+          --hd-box-heading-text-color: var(--hd-main-solid-heading-text-color);
+          --hd-box-heading-text-highlight-color: var(--hd-main-solid-heading-text-highlight-color);
+          --hd-box-heading-text-muted-color: var(--hd-main-solid-heading-text-muted-color);
 
           --hd-box-body-background: var(--hd-main-soft-body-background);
           --hd-box-body-text-color: var(--hd-main-soft-body-text-color);
@@ -120,9 +120,9 @@ export class HdBox extends HTMLElement {
         :host([variant="accent"]) {
           --hd-box-heading-background-color: var(--hd-accent-solid-heading-background-color);
           --hd-box-heading-background: var(--hd-accent-solid-heading-background, var(--hd-box-heading-background-color));
-          --hd-box-heading-text-color: var(--hd-accent-solid-text-color);
-          --hd-box-heading-text-highlight-color: var(--hd-accent-solid-text-highlight-color);
-          --hd-box-heading-text-muted-color: var(--hd-accent-solid-text-muted-color);
+          --hd-box-heading-text-color: var(--hd-accent-solid-heading-text-color);
+          --hd-box-heading-text-highlight-color: var(--hd-accent-solid-heading-text-highlight-color);
+          --hd-box-heading-text-muted-color: var(--hd-accent-solid-heading-text-muted-color);
 
           --hd-box-body-background: var(--hd-accent-soft-body-background);
           --hd-box-body-text-color: var(--hd-accent-soft-body-text-color);

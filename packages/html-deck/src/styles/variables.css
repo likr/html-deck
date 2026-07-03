@@ -19,7 +19,7 @@
     --hd-base-soft-heading-background-color: oklch(from var(--hd-theme-background-color) calc(l - 0.1) c h);
     --hd-base-soft-heading-text-color: var(--hd-theme-text-color);
     --hd-base-soft-heading-text-highlight-color: oklch(from var(--hd-theme-accent-color) calc(l - 0.08) c h);
-    --hd-base-soft-heading-text-muted-color: oklch(from var(--hd-theme-text-color) calc(l + 0.3) c h);
+    --hd-base-soft-heading-text-muted-color: oklch(from var(--hd-theme-text-color) calc(l + 0.15) c h);
 
     --hd-base-soft-body-background-color: var(--hd-theme-background-color);
     --hd-base-soft-body-text-color: var(--hd-theme-text-color);
@@ -48,7 +48,7 @@
     --hd-main-soft-heading-background-color: var(--hd-theme-main-color);
     --hd-main-soft-heading-background: var(--hd-main-soft-heading-background-color);
     --hd-main-soft-heading-text-color: var(--hd-theme-background-color);
-    --hd-main-soft-heading-text-highlight-color: oklch(from var(--hd-theme-accent-color) calc(l + 0.35) c h);
+    --hd-main-soft-heading-text-highlight-color: oklch(from var(--hd-theme-accent-color) calc(l + 0.5) c h);
     --hd-main-soft-heading-text-muted-color: var(--hd-theme-muted-color);
 
     --hd-main-soft-body-background-color: var(--hd-theme-background-color);
@@ -78,9 +78,9 @@
     /* Soft Surface (Light bg / Dark text) */
     --hd-accent-soft-heading-background-color: var(--hd-theme-accent-color);
     --hd-accent-soft-heading-background: var(--hd-accent-soft-heading-background-color);
-    --hd-accent-soft-heading-text-color: oklch(from var(--hd-theme-text-color) calc(l - 0.25) c h);
-    --hd-accent-soft-heading-text-highlight-color: oklch(from var(--hd-theme-main-color) calc(l - 0.5) c h);
-    --hd-accent-soft-heading-text-muted-color: oklch(from var(--hd-theme-text-color) calc(l - 0.1) c h);
+    --hd-accent-soft-heading-text-color: var(--hd-theme-background-color);
+    --hd-accent-soft-heading-text-highlight-color: oklch(from var(--hd-theme-main-color) calc(l + 0.5) calc(c * 0.15) h);
+    --hd-accent-soft-heading-text-muted-color: oklch(from var(--hd-theme-background-color) calc(l - 0.02) c h);
 
     --hd-accent-soft-body-background-color: var(--hd-theme-background-color);
     --hd-accent-soft-body-text-color: var(--hd-theme-text-color);

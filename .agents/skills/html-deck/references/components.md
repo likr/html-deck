@@ -58,7 +58,7 @@ The unified slide container component. It handles slide transitions, visibility 
 - `page-index` (number): Dynamic 1-based page index.
 - `page-total` (number): Dynamic total slide count.
 - `hide-page-number` (boolean): If present, disables the page number on this slide.
-- `inverted` (boolean): If present, inverts the background and text color of the slide (switches colors to inverted palette variants, useful for introducing dark slides).
+
 - `center` (boolean): If present, vertically and horizontally centers content within the slide.
 - `variant` (string): Theme variation for the slide. Options: `base` (body base-soft, heading base-solid), `main` (body main-soft, heading main-solid, default), `accent` (body accent-soft, heading accent-solid).
 - `surface` (string): Surface override configurations. Options: `soft` (forces both heading and body to soft color schemes), `solid` (forces both heading and body to solid color schemes).

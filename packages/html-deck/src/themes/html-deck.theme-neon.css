@@ -8,10 +8,8 @@
   /* --- 48-Color Matrix (Tokyo Midnight Cyberpunk) --- */
 
   /* ========================================================
-     BASE THEME (Standard/Neutral) - Dark Cyber Navy by default, Cyber White Inverted
      ======================================================== */
   /* ========================================================
-     BASE THEME (Standard/Neutral) - Dark Cyber Navy by default, Cyber White Inverted
      ======================================================== */
   /* Soft Surface (Slide default) */
   --hd-base-soft-heading-background-color: rgba(from #f1f5f9 r g b / 0.15);
@@ -41,9 +39,7 @@
 
   --hd-base-solid-border: var(--hd-base-solid-heading-text-color);
 
-  /* Soft Surface Inverted (Light Cyber Mode) */
 
-  /* Solid Surface Inverted (Light Cyber Solid Mode) */
 
   /* ========================================================
      MAIN THEME (Brand Cyan) - Neon Cyan themed
@@ -76,9 +72,7 @@
 
   --hd-main-solid-border: var(--hd-main-solid-heading-text-color);
 
-  /* Soft Surface Inverted */
 
-  /* Solid Surface Inverted */
 
   /* ========================================================
      ACCENT THEME (Brand Pink) - Neon Pink themed
@@ -111,9 +105,7 @@
 
   --hd-accent-solid-border: var(--hd-accent-solid-heading-text-color);
 
-  /* Soft Surface Inverted */
 
-  /* Solid Surface Inverted */
 
   /* ========================================================
      SEMANTIC SLIDE COLORS (Explicit default mappings)

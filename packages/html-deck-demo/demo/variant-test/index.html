@@ -9,6 +9,7 @@
   <script type="module">
     import 'html-deck';
   </script>
+  <link rel="stylesheet" href="/../packages/html-deck/src/themes/html-deck.theme-serif.css">
 </head>
 
 <body>
@@ -16,16 +17,14 @@
   <hd-deck transition="fade" aspect-ratio="16:9">
     <hd-slide>
       <div slot="header">
-        Header: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-default">Default
-          text</span>
+        Header: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-default">Default text</span>
       </div>
       <hd-layout-split>
         <h2 slot="heading">
-          Default | <span class="hd-highlight">Accent</span> <span class="hd-muted">Muted</span>
+          Default (No attributes) | <span class="hd-highlight">Accent</span> <span class="hd-muted">Muted</span>
         </h2>
         <p slot="before">
-          Before: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-muted">Muted
-            text</span>
+          Before: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-muted">Muted text</span>
         </p>
 
         <div slot="left">
@@ -34,8 +33,7 @@
             </h3>
             <p>Body: Regular, <span class="hd-highlight">Accent</span>, <span class="hd-muted">Muted</span></p>
           </hd-card>
-          <hd-callout>Body: Regular, <span class="hd-highlight">Accent</span>, <span
-              class="hd-muted">Muted</span></hd-callout>
+          <hd-callout>Body: Regular, <span class="hd-highlight">Accent</span>, <span class="hd-muted">Muted</span></hd-callout>
         </div>
 
         <hd-box slot="right">
@@ -45,30 +43,25 @@
         </hd-box>
 
         <p slot="after">
-          After: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-muted">Muted
-            text</span>
+          After: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-muted">Muted text</span>
         </p>
       </hd-layout-split>
       <div slot="footer">
-        Footer: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-default">Default
-          text</span>
+        Footer: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-default">Default text</span>
       </div>
     </hd-slide>
 
-    <!-- Pattern 1: variant="base" surface="soft" inverted="false" -->
+    <!-- Pattern 1: variant="base" surface="soft" -->
     <hd-slide variant="base" surface="soft">
       <div slot="header">
-        Header: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-default">Default
-          text</span>
+        Header: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-default">Default text</span>
       </div>
       <hd-layout-split>
         <h2 slot="heading">
-          Variant: base, Surface: soft, Inverted: false | <span class="hd-highlight">Accent</span> <span
-            class="hd-muted">Muted</span>
+          Variant: base, Surface: soft | <span class="hd-highlight">Accent</span> <span class="hd-muted">Muted</span>
         </h2>
         <p slot="before">
-          Before: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-muted">Muted
-            text</span>
+          Before: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-muted">Muted text</span>
         </p>
 
         <div slot="left">
@@ -77,8 +70,7 @@
             </h3>
             <p>Body: Regular, <span class="hd-highlight">Accent</span>, <span class="hd-muted">Muted</span></p>
           </hd-card>
-          <hd-callout>Body: Regular, <span class="hd-highlight">Accent</span>, <span
-              class="hd-muted">Muted</span></hd-callout>
+          <hd-callout>Body: Regular, <span class="hd-highlight">Accent</span>, <span class="hd-muted">Muted</span></hd-callout>
         </div>
 
         <hd-box slot="right">
@@ -88,73 +80,25 @@
         </hd-box>
 
         <p slot="after">
-          After: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-muted">Muted
-            text</span>
+          After: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-muted">Muted text</span>
         </p>
       </hd-layout-split>
       <div slot="footer">
-        Footer: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-default">Default
-          text</span>
+        Footer: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-default">Default text</span>
       </div>
     </hd-slide>
 
-    <!-- Pattern 2: variant="base" surface="soft" inverted="false" -->
-    <hd-slide variant="base" surface="soft">
-      <div slot="header">
-        Header: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-default">Default
-          text</span>
-      </div>
-      <hd-layout-split>
-        <h2 slot="heading">
-          Variant: base, Surface: soft, Inverted: true | <span class="hd-highlight">Accent</span> <span
-            class="hd-muted">Muted</span>
-        </h2>
-        <p slot="before">
-          Before: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-muted">Muted
-            text</span>
-        </p>
-
-        <div slot="left">
-          <hd-card>
-            <h3 slot="heading">Card | <span class="hd-highlight">Acc</span> <span class="hd-muted">Mut</span>
-            </h3>
-            <p>Body: Regular, <span class="hd-highlight">Accent</span>, <span class="hd-muted">Muted</span></p>
-          </hd-card>
-          <hd-callout>Body: Regular, <span class="hd-highlight">Accent</span>, <span
-              class="hd-muted">Muted</span></hd-callout>
-        </div>
-
-        <hd-box slot="right">
-          <h3 slot="heading">Box | <span class="hd-highlight">Acc</span> <span class="hd-muted">Mut</span>
-          </h3>
-          <p>Body: Regular, <span class="hd-highlight">Accent</span>, <span class="hd-muted">Muted</span></p>
-        </hd-box>
-
-        <p slot="after">
-          After: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-muted">Muted
-            text</span>
-        </p>
-      </hd-layout-split>
-      <div slot="footer">
-        Footer: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-default">Default
-          text</span>
-      </div>
-    </hd-slide>
-
-    <!-- Pattern 3: variant="base" surface="solid" inverted="false" -->
+    <!-- Pattern 2: variant="base" surface="solid" -->
     <hd-slide variant="base" surface="solid">
       <div slot="header">
-        Header: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-default">Default
-          text</span>
+        Header: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-default">Default text</span>
       </div>
       <hd-layout-split>
         <h2 slot="heading">
-          Variant: base, Surface: solid, Inverted: false | <span class="hd-highlight">Accent</span> <span
-            class="hd-muted">Muted</span>
+          Variant: base, Surface: solid | <span class="hd-highlight">Accent</span> <span class="hd-muted">Muted</span>
         </h2>
         <p slot="before">
-          Before: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-muted">Muted
-            text</span>
+          Before: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-muted">Muted text</span>
         </p>
 
         <div slot="left">
@@ -163,8 +107,7 @@
             </h3>
             <p>Body: Regular, <span class="hd-highlight">Accent</span>, <span class="hd-muted">Muted</span></p>
           </hd-card>
-          <hd-callout>Body: Regular, <span class="hd-highlight">Accent</span>, <span
-              class="hd-muted">Muted</span></hd-callout>
+          <hd-callout>Body: Regular, <span class="hd-highlight">Accent</span>, <span class="hd-muted">Muted</span></hd-callout>
         </div>
 
         <hd-box slot="right">
@@ -174,73 +117,25 @@
         </hd-box>
 
         <p slot="after">
-          After: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-muted">Muted
-            text</span>
+          After: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-muted">Muted text</span>
         </p>
       </hd-layout-split>
       <div slot="footer">
-        Footer: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-default">Default
-          text</span>
+        Footer: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-default">Default text</span>
       </div>
     </hd-slide>
 
-    <!-- Pattern 4: variant="base" surface="solid" inverted="false" -->
-    <hd-slide variant="base" surface="solid">
-      <div slot="header">
-        Header: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-default">Default
-          text</span>
-      </div>
-      <hd-layout-split>
-        <h2 slot="heading">
-          Variant: base, Surface: solid, Inverted: true | <span class="hd-highlight">Accent</span> <span
-            class="hd-muted">Muted</span>
-        </h2>
-        <p slot="before">
-          Before: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-muted">Muted
-            text</span>
-        </p>
-
-        <div slot="left">
-          <hd-card>
-            <h3 slot="heading">Card | <span class="hd-highlight">Acc</span> <span class="hd-muted">Mut</span>
-            </h3>
-            <p>Body: Regular, <span class="hd-highlight">Accent</span>, <span class="hd-muted">Muted</span></p>
-          </hd-card>
-          <hd-callout>Body: Regular, <span class="hd-highlight">Accent</span>, <span
-              class="hd-muted">Muted</span></hd-callout>
-        </div>
-
-        <hd-box slot="right">
-          <h3 slot="heading">Box | <span class="hd-highlight">Acc</span> <span class="hd-muted">Mut</span>
-          </h3>
-          <p>Body: Regular, <span class="hd-highlight">Accent</span>, <span class="hd-muted">Muted</span></p>
-        </hd-box>
-
-        <p slot="after">
-          After: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-muted">Muted
-            text</span>
-        </p>
-      </hd-layout-split>
-      <div slot="footer">
-        Footer: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-default">Default
-          text</span>
-      </div>
-    </hd-slide>
-
-    <!-- Pattern 5: variant="main" surface="soft" inverted="false" -->
+    <!-- Pattern 3: variant="main" surface="soft" -->
     <hd-slide variant="main" surface="soft">
       <div slot="header">
-        Header: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-default">Default
-          text</span>
+        Header: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-default">Default text</span>
       </div>
       <hd-layout-split>
         <h2 slot="heading">
-          Variant: main, Surface: soft, Inverted: false | <span class="hd-highlight">Accent</span> <span
-            class="hd-muted">Muted</span>
+          Variant: main, Surface: soft | <span class="hd-highlight">Accent</span> <span class="hd-muted">Muted</span>
         </h2>
         <p slot="before">
-          Before: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-muted">Muted
-            text</span>
+          Before: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-muted">Muted text</span>
         </p>
 
         <div slot="left">
@@ -249,8 +144,7 @@
             </h3>
             <p>Body: Regular, <span class="hd-highlight">Accent</span>, <span class="hd-muted">Muted</span></p>
           </hd-card>
-          <hd-callout>Body: Regular, <span class="hd-highlight">Accent</span>, <span
-              class="hd-muted">Muted</span></hd-callout>
+          <hd-callout>Body: Regular, <span class="hd-highlight">Accent</span>, <span class="hd-muted">Muted</span></hd-callout>
         </div>
 
         <hd-box slot="right">
@@ -260,73 +154,25 @@
         </hd-box>
 
         <p slot="after">
-          After: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-muted">Muted
-            text</span>
+          After: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-muted">Muted text</span>
         </p>
       </hd-layout-split>
       <div slot="footer">
-        Footer: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-default">Default
-          text</span>
+        Footer: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-default">Default text</span>
       </div>
     </hd-slide>
 
-    <!-- Pattern 6: variant="main" surface="soft" inverted="false" -->
-    <hd-slide variant="main" surface="soft">
-      <div slot="header">
-        Header: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-default">Default
-          text</span>
-      </div>
-      <hd-layout-split>
-        <h2 slot="heading">
-          Variant: main, Surface: soft, Inverted: true | <span class="hd-highlight">Accent</span> <span
-            class="hd-muted">Muted</span>
-        </h2>
-        <p slot="before">
-          Before: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-muted">Muted
-            text</span>
-        </p>
-
-        <div slot="left">
-          <hd-card>
-            <h3 slot="heading">Card | <span class="hd-highlight">Acc</span> <span class="hd-muted">Mut</span>
-            </h3>
-            <p>Body: Regular, <span class="hd-highlight">Accent</span>, <span class="hd-muted">Muted</span></p>
-          </hd-card>
-          <hd-callout>Body: Regular, <span class="hd-highlight">Accent</span>, <span
-              class="hd-muted">Muted</span></hd-callout>
-        </div>
-
-        <hd-box slot="right">
-          <h3 slot="heading">Box | <span class="hd-highlight">Acc</span> <span class="hd-muted">Mut</span>
-          </h3>
-          <p>Body: Regular, <span class="hd-highlight">Accent</span>, <span class="hd-muted">Muted</span></p>
-        </hd-box>
-
-        <p slot="after">
-          After: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-muted">Muted
-            text</span>
-        </p>
-      </hd-layout-split>
-      <div slot="footer">
-        Footer: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-default">Default
-          text</span>
-      </div>
-    </hd-slide>
-
-    <!-- Pattern 7: variant="main" surface="solid" inverted="false" -->
+    <!-- Pattern 4: variant="main" surface="solid" -->
     <hd-slide variant="main" surface="solid">
       <div slot="header">
-        Header: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-default">Default
-          text</span>
+        Header: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-default">Default text</span>
       </div>
       <hd-layout-split>
         <h2 slot="heading">
-          Variant: main, Surface: solid, Inverted: false | <span class="hd-highlight">Accent</span> <span
-            class="hd-muted">Muted</span>
+          Variant: main, Surface: solid | <span class="hd-highlight">Accent</span> <span class="hd-muted">Muted</span>
         </h2>
         <p slot="before">
-          Before: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-muted">Muted
-            text</span>
+          Before: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-muted">Muted text</span>
         </p>
 
         <div slot="left">
@@ -335,8 +181,7 @@
             </h3>
             <p>Body: Regular, <span class="hd-highlight">Accent</span>, <span class="hd-muted">Muted</span></p>
           </hd-card>
-          <hd-callout>Body: Regular, <span class="hd-highlight">Accent</span>, <span
-              class="hd-muted">Muted</span></hd-callout>
+          <hd-callout>Body: Regular, <span class="hd-highlight">Accent</span>, <span class="hd-muted">Muted</span></hd-callout>
         </div>
 
         <hd-box slot="right">
@@ -346,73 +191,25 @@
         </hd-box>
 
         <p slot="after">
-          After: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-muted">Muted
-            text</span>
+          After: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-muted">Muted text</span>
         </p>
       </hd-layout-split>
       <div slot="footer">
-        Footer: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-default">Default
-          text</span>
+        Footer: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-default">Default text</span>
       </div>
     </hd-slide>
 
-    <!-- Pattern 8: variant="main" surface="solid" inverted="false" -->
-    <hd-slide variant="main" surface="solid">
-      <div slot="header">
-        Header: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-default">Default
-          text</span>
-      </div>
-      <hd-layout-split>
-        <h2 slot="heading">
-          Variant: main, Surface: solid, Inverted: true | <span class="hd-highlight">Accent</span> <span
-            class="hd-muted">Muted</span>
-        </h2>
-        <p slot="before">
-          Before: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-muted">Muted
-            text</span>
-        </p>
-
-        <div slot="left">
-          <hd-card>
-            <h3 slot="heading">Card | <span class="hd-highlight">Acc</span> <span class="hd-muted">Mut</span>
-            </h3>
-            <p>Body: Regular, <span class="hd-highlight">Accent</span>, <span class="hd-muted">Muted</span></p>
-          </hd-card>
-          <hd-callout>Body: Regular, <span class="hd-highlight">Accent</span>, <span
-              class="hd-muted">Muted</span></hd-callout>
-        </div>
-
-        <hd-box slot="right">
-          <h3 slot="heading">Box | <span class="hd-highlight">Acc</span> <span class="hd-muted">Mut</span>
-          </h3>
-          <p>Body: Regular, <span class="hd-highlight">Accent</span>, <span class="hd-muted">Muted</span></p>
-        </hd-box>
-
-        <p slot="after">
-          After: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-muted">Muted
-            text</span>
-        </p>
-      </hd-layout-split>
-      <div slot="footer">
-        Footer: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-default">Default
-          text</span>
-      </div>
-    </hd-slide>
-
-    <!-- Pattern 9: variant="accent" surface="soft" inverted="false" -->
+    <!-- Pattern 5: variant="accent" surface="soft" -->
     <hd-slide variant="accent" surface="soft">
       <div slot="header">
-        Header: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-default">Default
-          text</span>
+        Header: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-default">Default text</span>
       </div>
       <hd-layout-split>
         <h2 slot="heading">
-          Variant: accent, Surface: soft, Inverted: false | <span class="hd-highlight">Accent</span> <span
-            class="hd-muted">Muted</span>
+          Variant: accent, Surface: soft | <span class="hd-highlight">Accent</span> <span class="hd-muted">Muted</span>
         </h2>
         <p slot="before">
-          Before: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-muted">Muted
-            text</span>
+          Before: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-muted">Muted text</span>
         </p>
 
         <div slot="left">
@@ -421,8 +218,7 @@
             </h3>
             <p>Body: Regular, <span class="hd-highlight">Accent</span>, <span class="hd-muted">Muted</span></p>
           </hd-card>
-          <hd-callout>Body: Regular, <span class="hd-highlight">Accent</span>, <span
-              class="hd-muted">Muted</span></hd-callout>
+          <hd-callout>Body: Regular, <span class="hd-highlight">Accent</span>, <span class="hd-muted">Muted</span></hd-callout>
         </div>
 
         <hd-box slot="right">
@@ -432,73 +228,25 @@
         </hd-box>
 
         <p slot="after">
-          After: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-muted">Muted
-            text</span>
+          After: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-muted">Muted text</span>
         </p>
       </hd-layout-split>
       <div slot="footer">
-        Footer: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-default">Default
-          text</span>
+        Footer: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-default">Default text</span>
       </div>
     </hd-slide>
 
-    <!-- Pattern 10: variant="accent" surface="soft" inverted="false" -->
-    <hd-slide variant="accent" surface="soft">
-      <div slot="header">
-        Header: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-default">Default
-          text</span>
-      </div>
-      <hd-layout-split>
-        <h2 slot="heading">
-          Variant: accent, Surface: soft, Inverted: true | <span class="hd-highlight">Accent</span> <span
-            class="hd-muted">Muted</span>
-        </h2>
-        <p slot="before">
-          Before: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-muted">Muted
-            text</span>
-        </p>
-
-        <div slot="left">
-          <hd-card>
-            <h3 slot="heading">Card | <span class="hd-highlight">Acc</span> <span class="hd-muted">Mut</span>
-            </h3>
-            <p>Body: Regular, <span class="hd-highlight">Accent</span>, <span class="hd-muted">Muted</span></p>
-          </hd-card>
-          <hd-callout>Body: Regular, <span class="hd-highlight">Accent</span>, <span
-              class="hd-muted">Muted</span></hd-callout>
-        </div>
-
-        <hd-box slot="right">
-          <h3 slot="heading">Box | <span class="hd-highlight">Acc</span> <span class="hd-muted">Mut</span>
-          </h3>
-          <p>Body: Regular, <span class="hd-highlight">Accent</span>, <span class="hd-muted">Muted</span></p>
-        </hd-box>
-
-        <p slot="after">
-          After: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-muted">Muted
-            text</span>
-        </p>
-      </hd-layout-split>
-      <div slot="footer">
-        Footer: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-default">Default
-          text</span>
-      </div>
-    </hd-slide>
-
-    <!-- Pattern 11: variant="accent" surface="solid" inverted="false" -->
+    <!-- Pattern 6: variant="accent" surface="solid" -->
     <hd-slide variant="accent" surface="solid">
       <div slot="header">
-        Header: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-default">Default
-          text</span>
+        Header: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-default">Default text</span>
       </div>
       <hd-layout-split>
         <h2 slot="heading">
-          Variant: accent, Surface: solid, Inverted: false | <span class="hd-highlight">Accent</span> <span
-            class="hd-muted">Muted</span>
+          Variant: accent, Surface: solid | <span class="hd-highlight">Accent</span> <span class="hd-muted">Muted</span>
         </h2>
         <p slot="before">
-          Before: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-muted">Muted
-            text</span>
+          Before: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-muted">Muted text</span>
         </p>
 
         <div slot="left">
@@ -507,8 +255,7 @@
             </h3>
             <p>Body: Regular, <span class="hd-highlight">Accent</span>, <span class="hd-muted">Muted</span></p>
           </hd-card>
-          <hd-callout>Body: Regular, <span class="hd-highlight">Accent</span>, <span
-              class="hd-muted">Muted</span></hd-callout>
+          <hd-callout>Body: Regular, <span class="hd-highlight">Accent</span>, <span class="hd-muted">Muted</span></hd-callout>
         </div>
 
         <hd-box slot="right">
@@ -518,30 +265,25 @@
         </hd-box>
 
         <p slot="after">
-          After: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-muted">Muted
-            text</span>
+          After: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-muted">Muted text</span>
         </p>
       </hd-layout-split>
       <div slot="footer">
-        Footer: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-default">Default
-          text</span>
+        Footer: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-default">Default text</span>
       </div>
     </hd-slide>
 
-    <!-- Pattern 12: variant="accent" surface="solid" inverted="false" -->
-    <hd-slide variant="accent" surface="solid">
+    <!-- Pattern 7: variant="main" -->
+    <hd-slide variant="main">
       <div slot="header">
-        Header: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-default">Default
-          text</span>
+        Header: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-default">Default text</span>
       </div>
       <hd-layout-split>
         <h2 slot="heading">
-          Variant: accent, Surface: solid, Inverted: true | <span class="hd-highlight">Accent</span> <span
-            class="hd-muted">Muted</span>
+          Variant: main, Surface: omitted (should be soft) | <span class="hd-highlight">Accent</span> <span class="hd-muted">Muted</span>
         </h2>
         <p slot="before">
-          Before: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-muted">Muted
-            text</span>
+          Before: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-muted">Muted text</span>
         </p>
 
         <div slot="left">
@@ -550,8 +292,7 @@
             </h3>
             <p>Body: Regular, <span class="hd-highlight">Accent</span>, <span class="hd-muted">Muted</span></p>
           </hd-card>
-          <hd-callout>Body: Regular, <span class="hd-highlight">Accent</span>, <span
-              class="hd-muted">Muted</span></hd-callout>
+          <hd-callout>Body: Regular, <span class="hd-highlight">Accent</span>, <span class="hd-muted">Muted</span></hd-callout>
         </div>
 
         <hd-box slot="right">
@@ -561,13 +302,122 @@
         </hd-box>
 
         <p slot="after">
-          After: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-muted">Muted
-            text</span>
+          After: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-muted">Muted text</span>
         </p>
       </hd-layout-split>
       <div slot="footer">
-        Footer: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-default">Default
-          text</span>
+        Footer: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-default">Default text</span>
+      </div>
+    </hd-slide>
+
+    <!-- Pattern 8: variant="accent" -->
+    <hd-slide variant="accent">
+      <div slot="header">
+        Header: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-default">Default text</span>
+      </div>
+      <hd-layout-split>
+        <h2 slot="heading">
+          Variant: accent, Surface: omitted (should be soft) | <span class="hd-highlight">Accent</span> <span class="hd-muted">Muted</span>
+        </h2>
+        <p slot="before">
+          Before: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-muted">Muted text</span>
+        </p>
+
+        <div slot="left">
+          <hd-card>
+            <h3 slot="heading">Card | <span class="hd-highlight">Acc</span> <span class="hd-muted">Mut</span>
+            </h3>
+            <p>Body: Regular, <span class="hd-highlight">Accent</span>, <span class="hd-muted">Muted</span></p>
+          </hd-card>
+          <hd-callout>Body: Regular, <span class="hd-highlight">Accent</span>, <span class="hd-muted">Muted</span></hd-callout>
+        </div>
+
+        <hd-box slot="right">
+          <h3 slot="heading">Box | <span class="hd-highlight">Acc</span> <span class="hd-muted">Mut</span>
+          </h3>
+          <p>Body: Regular, <span class="hd-highlight">Accent</span>, <span class="hd-muted">Muted</span></p>
+        </hd-box>
+
+        <p slot="after">
+          After: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-muted">Muted text</span>
+        </p>
+      </hd-layout-split>
+      <div slot="footer">
+        Footer: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-default">Default text</span>
+      </div>
+    </hd-slide>
+
+    <!-- Pattern 9: surface="solid" -->
+    <hd-slide surface="solid">
+      <div slot="header">
+        Header: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-default">Default text</span>
+      </div>
+      <hd-layout-split>
+        <h2 slot="heading">
+          Variant: omitted (should be main), Surface: solid | <span class="hd-highlight">Accent</span> <span class="hd-muted">Muted</span>
+        </h2>
+        <p slot="before">
+          Before: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-muted">Muted text</span>
+        </p>
+
+        <div slot="left">
+          <hd-card>
+            <h3 slot="heading">Card | <span class="hd-highlight">Acc</span> <span class="hd-muted">Mut</span>
+            </h3>
+            <p>Body: Regular, <span class="hd-highlight">Accent</span>, <span class="hd-muted">Muted</span></p>
+          </hd-card>
+          <hd-callout>Body: Regular, <span class="hd-highlight">Accent</span>, <span class="hd-muted">Muted</span></hd-callout>
+        </div>
+
+        <hd-box slot="right">
+          <h3 slot="heading">Box | <span class="hd-highlight">Acc</span> <span class="hd-muted">Mut</span>
+          </h3>
+          <p>Body: Regular, <span class="hd-highlight">Accent</span>, <span class="hd-muted">Muted</span></p>
+        </hd-box>
+
+        <p slot="after">
+          After: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-muted">Muted text</span>
+        </p>
+      </hd-layout-split>
+      <div slot="footer">
+        Footer: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-default">Default text</span>
+      </div>
+    </hd-slide>
+
+    <!-- Pattern 10: surface="soft" -->
+    <hd-slide surface="soft">
+      <div slot="header">
+        Header: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-default">Default text</span>
+      </div>
+      <hd-layout-split>
+        <h2 slot="heading">
+          Variant: omitted (should be main), Surface: soft | <span class="hd-highlight">Accent</span> <span class="hd-muted">Muted</span>
+        </h2>
+        <p slot="before">
+          Before: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-muted">Muted text</span>
+        </p>
+
+        <div slot="left">
+          <hd-card>
+            <h3 slot="heading">Card | <span class="hd-highlight">Acc</span> <span class="hd-muted">Mut</span>
+            </h3>
+            <p>Body: Regular, <span class="hd-highlight">Accent</span>, <span class="hd-muted">Muted</span></p>
+          </hd-card>
+          <hd-callout>Body: Regular, <span class="hd-highlight">Accent</span>, <span class="hd-muted">Muted</span></hd-callout>
+        </div>
+
+        <hd-box slot="right">
+          <h3 slot="heading">Box | <span class="hd-highlight">Acc</span> <span class="hd-muted">Mut</span>
+          </h3>
+          <p>Body: Regular, <span class="hd-highlight">Accent</span>, <span class="hd-muted">Muted</span></p>
+        </hd-box>
+
+        <p slot="after">
+          After: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-muted">Muted text</span>
+        </p>
+      </hd-layout-split>
+      <div slot="footer">
+        Footer: Regular text, <span class="hd-highlight">Accent text</span>, and <span class="hd-default">Default text</span>
       </div>
     </hd-slide>
 

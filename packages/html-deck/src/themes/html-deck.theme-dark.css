@@ -1,7 +1,6 @@
 /* html-deck.theme-dark.css - Slate Dark Theme for HTML-Deck */
 :root {
    /* ========================================================
-     BASE THEME (Standard/Neutral) - Slate Dark, Crisp White Inverted
      ======================================================== */
    /* Soft Surface (Slide default) */
    --hd-base-soft-background-color: #0f172a;
@@ -20,12 +19,10 @@
    --hd-base-solid-text-highlight-color: #fb923c;
    --hd-base-solid-text-muted-color: #94a3b8;
 
-   /* Soft Surface Inverted (Light Slide Mode) */
    /* Slate 900 */
    /* Orange 700 */
    /* Slate 600 */
 
-   /* Solid Surface Inverted (Slate Solid Light Mode) */
    /* Slate 100 */
    /* Deep Orange */
 
@@ -50,13 +47,11 @@
    /* Orange 200 */
    --hd-main-solid-text-muted-color: #e0e7ff;
 
-   /* Soft Surface Inverted (Light Indigo Mode) */
    /* Indigo 50 */
    /* Indigo 900 */
    /* Orange 700 */
    /* Indigo 700 */
 
-   /* Solid Surface Inverted */
 
    /* ========================================================
      ACCENT THEME (Brand Amber/Orange)
@@ -79,13 +74,11 @@
    /* Indigo 200 */
    --hd-accent-solid-text-muted-color: #fed7aa;
 
-   /* Soft Surface Inverted (Light Orange Mode) */
    /* Orange 50 */
    /* Orange 900 */
    /* Indigo 700 */
    /* Orange 700 */
 
-   /* Solid Surface Inverted */
 
 
    /* ========================================================

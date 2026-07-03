@@ -138,7 +138,7 @@ Use this list to override specific properties in your custom stylesheets. Always
 - `--hd-size-1` to `--hd-size-6`: Sizing scale (Sizes: `48px`, `32px`, `24px`, `18px`, `14px`, `12px`).
 
 ### Semantic Theme Variables
-All themes must override these variables under the `:root` selector using Relative Color Syntax and css `color-mix`. The system dynamically maps these to component-specific variables depending on the active variant/surface/inverted states:
+All themes must override these variables under the `:root` selector using Relative Color Syntax and css `color-mix`. The system dynamically maps these to component-specific variables depending on the active variant/surface states:
 - `--hd-[base/main/accent]-[soft/solid]-heading-background`: Heading background (color, gradient, or transparent).
 - `--hd-[base/main/accent]-[soft/solid]-heading-text-color`: Heading text color.
 - `--hd-[base/main/accent]-[soft/solid]-heading-text-highlight-color`: Highlighted text color in headings.
@@ -147,7 +147,7 @@ All themes must override these variables under the `:root` selector using Relati
 - `--hd-[base/main/accent]-[soft/solid]-body-text-color`: Body text color.
 - `--hd-[base/main/accent]-[soft/solid]-body-text-highlight-color`: Highlighted text color in bodies.
 - `--hd-[base/main/accent]-[soft/solid]-body-text-muted-color`: Muted text color in bodies.
-- `--hd-[base/main/accent]-[soft/solid]-border[-inverted]`: Border color for container outlines.
+- `--hd-[base/main/accent]-[soft/solid]-border`: Border color for container outlines.
 
 
 ### Spacing Scale

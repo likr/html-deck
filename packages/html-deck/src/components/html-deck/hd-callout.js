@@ -23,14 +23,13 @@ export class HdCallout extends HTMLElement {
           box-shadow: var(--hd-callout-box-shadow);
           text-align: left;
 
-          /* Defaults: Inherit from active slide properties */
-          --hd-callout-heading-background-color: var(--hd-slide-heading-background-color);
-          --hd-callout-heading-background: var(--hd-slide-heading-background, var(--hd-callout-heading-background-color));
-          --hd-callout-background: var(--hd-slide-body-background);
-          --hd-callout-text-color: var(--hd-slide-text-color);
-          --hd-callout-text-highlight-color: var(--hd-slide-text-highlight-color);
-          --hd-callout-text-muted-color: var(--hd-slide-text-muted-color);
-          --hd-callout-border-color: var(--hd-callout-heading-background);
+          /* Defaults: Inherit from active slide properties (but use heading colors for callout background) */
+          --hd-callout-background-color: var(--hd-slide-heading-background-color);
+          --hd-callout-background: var(--hd-slide-heading-background, var(--hd-callout-background-color));
+          --hd-callout-text-color: var(--hd-slide-heading-text-color);
+          --hd-callout-text-highlight-color: var(--hd-slide-heading-text-highlight-color);
+          --hd-callout-text-muted-color: var(--hd-slide-heading-text-muted-color);
+          --hd-callout-border-color: var(--hd-slide-heading-background-color);
 
           /* Propagate highlight and muted variables */
           --hd-text-color: var(--hd-callout-text-color);
@@ -40,77 +39,86 @@ export class HdCallout extends HTMLElement {
 
         /* --- Variant: Base --- */
         :host([variant="base"]) {
-          --hd-callout-heading-background-color: var(--hd-base-solid-heading-background-color);
-          --hd-callout-heading-background: var(--hd-base-solid-heading-background, var(--hd-callout-heading-background-color));
-          --hd-callout-background: var(--hd-base-soft-body-background);
-          --hd-callout-text-color: var(--hd-base-soft-body-text-color);
-          --hd-callout-text-highlight-color: var(--hd-base-soft-body-text-highlight-color);
-          --hd-callout-text-muted-color: var(--hd-base-soft-body-text-muted-color);
-          --hd-callout-border-color: var(--hd-callout-heading-background);
+          --hd-callout-background-color: var(--hd-base-soft-heading-background-color);
+          --hd-callout-background: var(--hd-base-soft-heading-background, var(--hd-callout-background-color));
+          --hd-callout-text-color: var(--hd-base-soft-heading-text-color);
+          --hd-callout-text-highlight-color: var(--hd-base-soft-heading-text-highlight-color);
+          --hd-callout-text-muted-color: var(--hd-base-soft-heading-text-muted-color);
+          --hd-callout-border-color: var(--hd-base-soft-heading-background-color);
         }
         :host-context(hd-slide[surface="solid"]):host([variant="base"]),
         :host([variant="base"][surface="solid"]) {
-          --hd-callout-background: var(--hd-base-solid-body-background);
-          --hd-callout-text-color: var(--hd-base-solid-body-text-color);
-          --hd-callout-text-highlight-color: var(--hd-base-solid-body-text-highlight-color);
-          --hd-callout-text-muted-color: var(--hd-base-solid-body-text-muted-color);
-        }
-        :host-context(hd-slide[surface="soft"]):host([variant="base"]),
-        :host([variant="base"][surface="soft"]) {
-          --hd-callout-background: var(--hd-base-soft-body-background);
+          --hd-callout-background-color: var(--hd-base-soft-body-background-color);
+          --hd-callout-background: var(--hd-base-soft-body-background, var(--hd-callout-background-color));
           --hd-callout-text-color: var(--hd-base-soft-body-text-color);
           --hd-callout-text-highlight-color: var(--hd-base-soft-body-text-highlight-color);
           --hd-callout-text-muted-color: var(--hd-base-soft-body-text-muted-color);
+          --hd-callout-border-color: var(--hd-base-soft-heading-background-color);
+        }
+        :host-context(hd-slide[surface="soft"]):host([variant="base"]),
+        :host([variant="base"][surface="soft"]) {
+          --hd-callout-background-color: var(--hd-base-soft-heading-background-color);
+          --hd-callout-background: var(--hd-base-soft-heading-background, var(--hd-callout-background-color));
+          --hd-callout-text-color: var(--hd-base-soft-heading-text-color);
+          --hd-callout-text-highlight-color: var(--hd-base-soft-heading-text-highlight-color);
+          --hd-callout-text-muted-color: var(--hd-base-soft-heading-text-muted-color);
+          --hd-callout-border-color: var(--hd-base-soft-heading-background-color);
         }
 
         /* --- Variant: Main --- */
         :host([variant="main"]) {
-          --hd-callout-heading-background-color: var(--hd-main-solid-heading-background-color);
-          --hd-callout-heading-background: var(--hd-main-solid-heading-background, var(--hd-callout-heading-background-color));
-          --hd-callout-background: var(--hd-main-soft-body-background);
-          --hd-callout-text-color: var(--hd-main-soft-body-text-color);
-          --hd-callout-text-highlight-color: var(--hd-main-soft-body-text-highlight-color);
-          --hd-callout-text-muted-color: var(--hd-main-soft-body-text-muted-color);
-          --hd-callout-border-color: var(--hd-callout-heading-background);
+          --hd-callout-background-color: var(--hd-main-soft-heading-background-color);
+          --hd-callout-background: var(--hd-main-soft-heading-background, var(--hd-callout-background-color));
+          --hd-callout-text-color: var(--hd-main-soft-heading-text-color);
+          --hd-callout-text-highlight-color: var(--hd-main-soft-heading-text-highlight-color);
+          --hd-callout-text-muted-color: var(--hd-main-soft-heading-text-muted-color);
+          --hd-callout-border-color: var(--hd-main-soft-heading-background-color);
         }
         :host-context(hd-slide[surface="solid"]):host([variant="main"]),
         :host([variant="main"][surface="solid"]) {
-          --hd-callout-background: var(--hd-main-solid-body-background);
-          --hd-callout-text-color: var(--hd-main-solid-body-text-color);
-          --hd-callout-text-highlight-color: var(--hd-main-solid-body-text-highlight-color);
-          --hd-callout-text-muted-color: var(--hd-main-solid-body-text-muted-color);
-        }
-        :host-context(hd-slide[surface="soft"]):host([variant="main"]),
-        :host([variant="main"][surface="soft"]) {
-          --hd-callout-background: var(--hd-main-soft-body-background);
+          --hd-callout-background-color: var(--hd-main-soft-body-background-color);
+          --hd-callout-background: var(--hd-main-soft-body-background, var(--hd-callout-background-color));
           --hd-callout-text-color: var(--hd-main-soft-body-text-color);
           --hd-callout-text-highlight-color: var(--hd-main-soft-body-text-highlight-color);
           --hd-callout-text-muted-color: var(--hd-main-soft-body-text-muted-color);
+          --hd-callout-border-color: var(--hd-main-soft-heading-background-color);
+        }
+        :host-context(hd-slide[surface="soft"]):host([variant="main"]),
+        :host([variant="main"][surface="soft"]) {
+          --hd-callout-background-color: var(--hd-main-soft-heading-background-color);
+          --hd-callout-background: var(--hd-main-soft-heading-background, var(--hd-callout-background-color));
+          --hd-callout-text-color: var(--hd-main-soft-heading-text-color);
+          --hd-callout-text-highlight-color: var(--hd-main-soft-heading-text-highlight-color);
+          --hd-callout-text-muted-color: var(--hd-main-soft-heading-text-muted-color);
+          --hd-callout-border-color: var(--hd-main-soft-heading-background-color);
         }
 
         /* --- Variant: Accent --- */
         :host([variant="accent"]) {
-          --hd-callout-heading-background-color: var(--hd-accent-solid-heading-background-color);
-          --hd-callout-heading-background: var(--hd-accent-solid-heading-background, var(--hd-callout-heading-background-color));
-          --hd-callout-background: var(--hd-accent-soft-body-background);
-          --hd-callout-text-color: var(--hd-accent-soft-body-text-color);
-          --hd-callout-text-highlight-color: var(--hd-accent-soft-body-text-highlight-color);
-          --hd-callout-text-muted-color: var(--hd-accent-soft-body-text-muted-color);
-          --hd-callout-border-color: var(--hd-callout-heading-background);
+          --hd-callout-background-color: var(--hd-accent-soft-heading-background-color);
+          --hd-callout-background: var(--hd-accent-soft-heading-background, var(--hd-callout-background-color));
+          --hd-callout-text-color: var(--hd-accent-soft-heading-text-color);
+          --hd-callout-text-highlight-color: var(--hd-accent-soft-heading-text-highlight-color);
+          --hd-callout-text-muted-color: var(--hd-accent-soft-heading-text-muted-color);
+          --hd-callout-border-color: var(--hd-accent-soft-heading-background-color);
         }
         :host-context(hd-slide[surface="solid"]):host([variant="accent"]),
         :host([variant="accent"][surface="solid"]) {
-          --hd-callout-background: var(--hd-accent-solid-body-background);
-          --hd-callout-text-color: var(--hd-accent-solid-body-text-color);
-          --hd-callout-text-highlight-color: var(--hd-accent-solid-body-text-highlight-color);
-          --hd-callout-text-muted-color: var(--hd-accent-solid-body-text-muted-color);
-        }
-        :host-context(hd-slide[surface="soft"]):host([variant="accent"]),
-        :host([variant="accent"][surface="soft"]) {
-          --hd-callout-background: var(--hd-accent-soft-body-background);
+          --hd-callout-background-color: var(--hd-accent-soft-body-background-color);
+          --hd-callout-background: var(--hd-accent-soft-body-background, var(--hd-callout-background-color));
           --hd-callout-text-color: var(--hd-accent-soft-body-text-color);
           --hd-callout-text-highlight-color: var(--hd-accent-soft-body-text-highlight-color);
           --hd-callout-text-muted-color: var(--hd-accent-soft-body-text-muted-color);
+          --hd-callout-border-color: var(--hd-accent-soft-heading-background-color);
+        }
+        :host-context(hd-slide[surface="soft"]):host([variant="accent"]),
+        :host([variant="accent"][surface="soft"]) {
+          --hd-callout-background-color: var(--hd-accent-soft-heading-background-color);
+          --hd-callout-background: var(--hd-accent-soft-heading-background, var(--hd-callout-background-color));
+          --hd-callout-text-color: var(--hd-accent-soft-heading-text-color);
+          --hd-callout-text-highlight-color: var(--hd-accent-soft-heading-text-highlight-color);
+          --hd-callout-text-muted-color: var(--hd-accent-soft-heading-text-muted-color);
+          --hd-callout-border-color: var(--hd-accent-soft-heading-background-color);
         }
       </style>
       <slot></slot>

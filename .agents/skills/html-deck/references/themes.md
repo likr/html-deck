@@ -124,4 +124,4 @@ All custom theme styles are configured via CSS variables defined under the `:roo
   - Solid Surface: Background: `#b05641` (Vibrant Terracotta).
 - **Decorations**:
   - Slide Border Width: `0px` (Borderless).
-  - Background overlay corner line-art ornaments (sage leaves on normal slides, light sage/terracotta leaves on inverted slides).
+  - Background overlay corner line-art ornaments (sage leaves on normal slides).

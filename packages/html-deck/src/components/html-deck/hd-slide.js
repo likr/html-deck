@@ -86,6 +86,7 @@ HdSlide.baseStyles = `
 
     /* Defaults: Main Soft */
     --hd-slide-heading-background-color: var(--hd-main-soft-heading-background-color);
+    --hd-slide-heading-background: var(--hd-main-soft-heading-background, var(--hd-slide-heading-background-color));
     --hd-slide-heading-text-color: var(--hd-main-soft-heading-text-color);
     --hd-slide-heading-text-highlight-color: var(--hd-main-soft-heading-text-highlight-color);
     --hd-slide-heading-text-muted-color: var(--hd-main-soft-heading-text-muted-color);
@@ -103,72 +104,159 @@ HdSlide.baseStyles = `
     --hd-text-muted-color: var(--hd-slide-body-text-muted-color);
   }
 
-  /* --- 1. Base Soft (Explicit variant selector) --- */
-  :host([variant="base"]),
-  :host([surface="soft"]),
-  :host([variant="base"][surface="soft"]) {
-    --hd-slide-heading-background-color: var(--hd-base-soft-heading-background-color);
-    --hd-slide-heading-text-color: var(--hd-base-soft-heading-text-color);
-    --hd-slide-heading-text-highlight-color: var(--hd-base-soft-heading-text-highlight-color);
-    --hd-slide-heading-text-muted-color: var(--hd-base-soft-heading-text-muted-color);
-
-    --hd-slide-body-background-color: var(--hd-base-soft-body-background-color);
-    --hd-slide-body-text-color: var(--hd-base-soft-body-text-color);
-    --hd-slide-body-text-highlight-color: var(--hd-base-soft-body-text-highlight-color);
-    --hd-slide-body-text-muted-color: var(--hd-base-soft-body-text-muted-color);
-
-    --hd-slide-border-color: var(--hd-base-soft-border);
+  /* --- 1. Surfaces (Defaults to Variant: Main) --- */
+  :host([surface="soft"]) {
+    --hd-slide-heading-background-color: var(--hd-main-soft-heading-background-color);
+    --hd-slide-heading-background: var(--hd-main-soft-heading-background, var(--hd-slide-heading-background-color));
+    --hd-slide-heading-text-color: var(--hd-main-soft-heading-text-color);
+    --hd-slide-heading-text-highlight-color: var(--hd-main-soft-heading-text-highlight-color);
+    --hd-slide-heading-text-muted-color: var(--hd-main-soft-heading-text-muted-color);
+    --hd-slide-body-background-color: var(--hd-main-soft-body-background-color);
+    --hd-slide-body-text-color: var(--hd-main-soft-body-text-color);
+    --hd-slide-body-text-highlight-color: var(--hd-main-soft-body-text-highlight-color);
+    --hd-slide-body-text-muted-color: var(--hd-main-soft-body-text-muted-color);
+    --hd-slide-border-color: var(--hd-main-soft-border);
     --hd-slide-heading-divider-background: var(--hd-slide-border-color);
   }
 
-  /* --- 2. Base Solid --- */
-  :host([surface="solid"]),
-  :host([variant="base"][surface="solid"]) {
-    --hd-slide-heading-background-color: var(--hd-base-solid-heading-background-color);
-    --hd-slide-heading-text-color: var(--hd-base-solid-heading-text-color);
-    --hd-slide-heading-text-highlight-color: var(--hd-base-solid-heading-text-highlight-color);
-    --hd-slide-heading-text-muted-color: var(--hd-base-solid-heading-text-muted-color);
-
-    --hd-slide-body-background-color: var(--hd-base-solid-body-background-color);
-    --hd-slide-body-text-color: var(--hd-base-solid-body-text-color);
-    --hd-slide-body-text-highlight-color: var(--hd-base-solid-body-text-highlight-color);
-    --hd-slide-body-text-muted-color: var(--hd-base-solid-body-text-muted-color);
-
-    --hd-slide-border-color: var(--hd-base-solid-border);
-    --hd-slide-heading-divider-background: var(--hd-slide-border-color);
-  }
-
-
-
-  /* --- 6. Main Solid --- */
-  :host([variant="main"][surface="solid"]) {
+  :host([surface="solid"]) {
     --hd-slide-heading-background-color: var(--hd-main-solid-heading-background-color);
+    --hd-slide-heading-background: var(--hd-main-solid-heading-background, var(--hd-slide-heading-background-color));
     --hd-slide-heading-text-color: var(--hd-main-solid-heading-text-color);
     --hd-slide-heading-text-highlight-color: var(--hd-main-solid-heading-text-highlight-color);
     --hd-slide-heading-text-muted-color: var(--hd-main-solid-heading-text-muted-color);
-
     --hd-slide-body-background-color: var(--hd-main-solid-body-background-color);
     --hd-slide-body-text-color: var(--hd-main-solid-body-text-color);
     --hd-slide-body-text-highlight-color: var(--hd-main-solid-body-text-highlight-color);
     --hd-slide-body-text-muted-color: var(--hd-main-solid-body-text-muted-color);
-
     --hd-slide-border-color: var(--hd-main-solid-border);
     --hd-slide-heading-divider-background: var(--hd-slide-border-color);
   }
 
+  /* --- 2. Variants (Defaults to Surface: Soft) --- */
+  :host([variant="base"]) {
+    --hd-slide-heading-background-color: var(--hd-base-soft-heading-background-color);
+    --hd-slide-heading-background: var(--hd-base-soft-heading-background, var(--hd-slide-heading-background-color));
+    --hd-slide-heading-text-color: var(--hd-base-soft-heading-text-color);
+    --hd-slide-heading-text-highlight-color: var(--hd-base-soft-heading-text-highlight-color);
+    --hd-slide-heading-text-muted-color: var(--hd-base-soft-heading-text-muted-color);
+    --hd-slide-body-background-color: var(--hd-base-soft-body-background-color);
+    --hd-slide-body-text-color: var(--hd-base-soft-body-text-color);
+    --hd-slide-body-text-highlight-color: var(--hd-base-soft-body-text-highlight-color);
+    --hd-slide-body-text-muted-color: var(--hd-base-soft-body-text-muted-color);
+    --hd-slide-border-color: var(--hd-base-soft-border);
+    --hd-slide-heading-divider-background: var(--hd-slide-border-color);
+  }
 
-  /* --- 10. Accent Solid --- */
+  :host([variant="main"]) {
+    --hd-slide-heading-background-color: var(--hd-main-soft-heading-background-color);
+    --hd-slide-heading-background: var(--hd-main-soft-heading-background, var(--hd-slide-heading-background-color));
+    --hd-slide-heading-text-color: var(--hd-main-soft-heading-text-color);
+    --hd-slide-heading-text-highlight-color: var(--hd-main-soft-heading-text-highlight-color);
+    --hd-slide-heading-text-muted-color: var(--hd-main-soft-heading-text-muted-color);
+    --hd-slide-body-background-color: var(--hd-main-soft-body-background-color);
+    --hd-slide-body-text-color: var(--hd-main-soft-body-text-color);
+    --hd-slide-body-text-highlight-color: var(--hd-main-soft-body-text-highlight-color);
+    --hd-slide-body-text-muted-color: var(--hd-main-soft-body-text-muted-color);
+    --hd-slide-border-color: var(--hd-main-soft-border);
+    --hd-slide-heading-divider-background: var(--hd-slide-border-color);
+  }
+
+  :host([variant="accent"]) {
+    --hd-slide-heading-background-color: var(--hd-accent-soft-heading-background-color);
+    --hd-slide-heading-background: var(--hd-accent-soft-heading-background, var(--hd-slide-heading-background-color));
+    --hd-slide-heading-text-color: var(--hd-accent-soft-heading-text-color);
+    --hd-slide-heading-text-highlight-color: var(--hd-accent-soft-heading-text-highlight-color);
+    --hd-slide-heading-text-muted-color: var(--hd-accent-soft-heading-text-muted-color);
+    --hd-slide-body-background-color: var(--hd-accent-soft-body-background-color);
+    --hd-slide-body-text-color: var(--hd-accent-soft-body-text-color);
+    --hd-slide-body-text-highlight-color: var(--hd-accent-soft-body-text-highlight-color);
+    --hd-slide-body-text-muted-color: var(--hd-accent-soft-body-text-muted-color);
+    --hd-slide-border-color: var(--hd-accent-soft-border);
+    --hd-slide-heading-divider-background: var(--hd-slide-border-color);
+  }
+
+  /* --- 3. Combinations --- */
+  :host([variant="base"][surface="soft"]) {
+    --hd-slide-heading-background-color: var(--hd-base-soft-heading-background-color);
+    --hd-slide-heading-background: var(--hd-base-soft-heading-background, var(--hd-slide-heading-background-color));
+    --hd-slide-heading-text-color: var(--hd-base-soft-heading-text-color);
+    --hd-slide-heading-text-highlight-color: var(--hd-base-soft-heading-text-highlight-color);
+    --hd-slide-heading-text-muted-color: var(--hd-base-soft-heading-text-muted-color);
+    --hd-slide-body-background-color: var(--hd-base-soft-body-background-color);
+    --hd-slide-body-text-color: var(--hd-base-soft-body-text-color);
+    --hd-slide-body-text-highlight-color: var(--hd-base-soft-body-text-highlight-color);
+    --hd-slide-body-text-muted-color: var(--hd-base-soft-body-text-muted-color);
+    --hd-slide-border-color: var(--hd-base-soft-border);
+    --hd-slide-heading-divider-background: var(--hd-slide-border-color);
+  }
+
+  :host([variant="base"][surface="solid"]) {
+    --hd-slide-heading-background-color: var(--hd-base-solid-heading-background-color);
+    --hd-slide-heading-background: var(--hd-base-solid-heading-background, var(--hd-slide-heading-background-color));
+    --hd-slide-heading-text-color: var(--hd-base-solid-heading-text-color);
+    --hd-slide-heading-text-highlight-color: var(--hd-base-solid-heading-text-highlight-color);
+    --hd-slide-heading-text-muted-color: var(--hd-base-solid-heading-text-muted-color);
+    --hd-slide-body-background-color: var(--hd-base-solid-body-background-color);
+    --hd-slide-body-text-color: var(--hd-base-solid-body-text-color);
+    --hd-slide-body-text-highlight-color: var(--hd-base-solid-body-text-highlight-color);
+    --hd-slide-body-text-muted-color: var(--hd-base-solid-body-text-muted-color);
+    --hd-slide-border-color: var(--hd-base-solid-border);
+    --hd-slide-heading-divider-background: var(--hd-slide-border-color);
+  }
+
+  :host([variant="main"][surface="soft"]) {
+    --hd-slide-heading-background-color: var(--hd-main-soft-heading-background-color);
+    --hd-slide-heading-background: var(--hd-main-soft-heading-background, var(--hd-slide-heading-background-color));
+    --hd-slide-heading-text-color: var(--hd-main-soft-heading-text-color);
+    --hd-slide-heading-text-highlight-color: var(--hd-main-soft-heading-text-highlight-color);
+    --hd-slide-heading-text-muted-color: var(--hd-main-soft-heading-text-muted-color);
+    --hd-slide-body-background-color: var(--hd-main-soft-body-background-color);
+    --hd-slide-body-text-color: var(--hd-main-soft-body-text-color);
+    --hd-slide-body-text-highlight-color: var(--hd-main-soft-body-text-highlight-color);
+    --hd-slide-body-text-muted-color: var(--hd-main-soft-body-text-muted-color);
+    --hd-slide-border-color: var(--hd-main-soft-border);
+    --hd-slide-heading-divider-background: var(--hd-slide-border-color);
+  }
+
+  :host([variant="main"][surface="solid"]) {
+    --hd-slide-heading-background-color: var(--hd-main-solid-heading-background-color);
+    --hd-slide-heading-background: var(--hd-main-solid-heading-background, var(--hd-slide-heading-background-color));
+    --hd-slide-heading-text-color: var(--hd-main-solid-heading-text-color);
+    --hd-slide-heading-text-highlight-color: var(--hd-main-solid-heading-text-highlight-color);
+    --hd-slide-heading-text-muted-color: var(--hd-main-solid-heading-text-muted-color);
+    --hd-slide-body-background-color: var(--hd-main-solid-body-background-color);
+    --hd-slide-body-text-color: var(--hd-main-solid-body-text-color);
+    --hd-slide-body-text-highlight-color: var(--hd-main-solid-body-text-highlight-color);
+    --hd-slide-body-text-muted-color: var(--hd-main-solid-body-text-muted-color);
+    --hd-slide-border-color: var(--hd-main-solid-border);
+    --hd-slide-heading-divider-background: var(--hd-slide-border-color);
+  }
+
+  :host([variant="accent"][surface="soft"]) {
+    --hd-slide-heading-background-color: var(--hd-accent-soft-heading-background-color);
+    --hd-slide-heading-background: var(--hd-accent-soft-heading-background, var(--hd-slide-heading-background-color));
+    --hd-slide-heading-text-color: var(--hd-accent-soft-heading-text-color);
+    --hd-slide-heading-text-highlight-color: var(--hd-accent-soft-heading-text-highlight-color);
+    --hd-slide-heading-text-muted-color: var(--hd-accent-soft-heading-text-muted-color);
+    --hd-slide-body-background-color: var(--hd-accent-soft-body-background-color);
+    --hd-slide-body-text-color: var(--hd-accent-soft-body-text-color);
+    --hd-slide-body-text-highlight-color: var(--hd-accent-soft-body-text-highlight-color);
+    --hd-slide-body-text-muted-color: var(--hd-accent-soft-body-text-muted-color);
+    --hd-slide-border-color: var(--hd-accent-soft-border);
+    --hd-slide-heading-divider-background: var(--hd-slide-border-color);
+  }
+
   :host([variant="accent"][surface="solid"]) {
     --hd-slide-heading-background-color: var(--hd-accent-solid-heading-background-color);
+    --hd-slide-heading-background: var(--hd-accent-solid-heading-background, var(--hd-slide-heading-background-color));
     --hd-slide-heading-text-color: var(--hd-accent-solid-heading-text-color);
     --hd-slide-heading-text-highlight-color: var(--hd-accent-solid-heading-text-highlight-color);
     --hd-slide-heading-text-muted-color: var(--hd-accent-solid-heading-text-muted-color);
-
     --hd-slide-body-background-color: var(--hd-accent-solid-body-background-color);
     --hd-slide-body-text-color: var(--hd-accent-solid-body-text-color);
     --hd-slide-body-text-highlight-color: var(--hd-accent-solid-body-text-highlight-color);
     --hd-slide-body-text-muted-color: var(--hd-accent-solid-body-text-muted-color);
-
     --hd-slide-border-color: var(--hd-accent-solid-border);
     --hd-slide-heading-divider-background: var(--hd-slide-border-color);
   }
