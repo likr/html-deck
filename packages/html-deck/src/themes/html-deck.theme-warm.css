@@ -8,10 +8,10 @@
    --hd-heading-font: var(--hd-font-family);
 
    /* --- 4-Color Palette base variables --- */
-   --hd-theme-background-color: #f7f4eb 0%;
-   --hd-theme-text-color: #363028;
-   --hd-theme-main-color: #a83d21;
-   --hd-theme-accent-color: #dfa12d;
+   --hd-theme-background-color: #fdfbf7;
+   --hd-theme-text-color: #4a3b32;
+   --hd-theme-main-color: #d97757;
+   --hd-theme-accent-color: #e8a87c;
 
    /* ========================================================
      DESERT OASIS DESIGN OVERRIDES & COMPONENTS
@@ -53,15 +53,15 @@
    --hd-text-quote-line-height: 1.45;
 
    /* Component Rounding - Organic sandstone curves */
-   --hd-card-border-radius: 16px;
-   --hd-box-border-radius: 12px;
-   --hd-callout-border-radius: 12px;
-   --hd-codeblock-border-radius: 10px;
-   --hd-img-border-radius: 12px;
+   --hd-card-border-radius: 24px;
+   --hd-box-border-radius: 20px;
+   --hd-callout-border-radius: 16px;
+   --hd-codeblock-border-radius: 16px;
+   --hd-img-border-radius: 20px;
 
    /* Card Decor: Cozy Rounded Floating Box */
-   --hd-card-border-width: 1px;
-   --hd-card-box-shadow: 0 4px 20px rgba(from var(--hd-base-soft-text-color) r g b / 0.04), 0 1px 3px rgba(from var(--hd-base-soft-text-color) r g b / 0.02);
+   --hd-card-border-width: 0px;
+   --hd-card-box-shadow: 0 8px 32px rgba(from var(--hd-theme-main-color) r g b / 0.1), 0 2px 8px rgba(from var(--hd-theme-main-color) r g b / 0.05);
 
    /* Box Decor: Warm Clay Plate */
    --hd-box-border-width: 1px;
@@ -72,35 +72,35 @@
 
    /* Codeblock Decor: Vintage Dark Clay Terminal */
    --hd-codeblock-background-color: #27211d;
-   --hd-codeblock-border-color: rgba(from var(--hd-base-soft-text-color) r g b / 0.12);
+   --hd-codeblock-border-color: rgba(from var(--hd-base-soft-body-text-color) r g b / 0.12);
    --hd-codeblock-box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.4);
 
    /* Image Decor */
-   --hd-img-border-color: rgba(from var(--hd-base-soft-text-color) r g b / 0.08);
-   --hd-img-box-shadow: 0 8px 24px rgba(from var(--hd-base-soft-text-color) r g b / 0.06);
+   --hd-img-border-color: rgba(from var(--hd-base-soft-body-text-color) r g b / 0.08);
+   --hd-img-box-shadow: 0 8px 24px rgba(from var(--hd-base-soft-body-text-color) r g b / 0.06);
 
    /* Table Decor: Custom Striping and Header Colors */
-   --hd-table-border-color: rgba(from var(--hd-base-soft-text-color) r g b / 0.1);
+   --hd-table-border-color: rgba(from var(--hd-base-soft-body-text-color) r g b / 0.1);
    --hd-table-cell-padding: 10px 14px;
-   --hd-table-header-background-color: var(--hd-main-soft-background-color);
-   --hd-table-header-text-color: var(--hd-main-soft-text-color);
-   --hd-table-row-striped-background-color: rgba(from var(--hd-main-soft-background-color) r g b / 0.3);
+   --hd-table-header-background-color: var(--hd-main-soft-body-background-color);
+   --hd-table-header-text-color: var(--hd-main-soft-body-text-color);
+   --hd-table-row-striped-background-color: rgba(from var(--hd-main-soft-body-background-color) r g b / 0.3);
    --hd-table-cell-border-width: 1px;
    --hd-table-header-border-width: 1px;
 
    /* Lists Decor: Custom Marker Colors and Shapes */
-   --hd-list-marker-color: var(--hd-accent-soft-text-color);
+   --hd-list-marker-color: var(--hd-accent-soft-body-text-color);
    --hd-list-style-type: square;
    --hd-list-style-type-2: disc;
    --hd-list-style-type-3: circle;
 
    /* Scrollbars thumbs */
    --hd-scrollbar-track-bg: transparent;
-   --hd-scrollbar-thumb-bg: rgba(from var(--hd-base-soft-text-color) r g b / 0.15);
-   --hd-scrollbar-thumb-hover-bg: var(--hd-main-soft-text-color);
+   --hd-scrollbar-thumb-bg: rgba(from var(--hd-base-soft-body-text-color) r g b / 0.15);
+   --hd-scrollbar-thumb-hover-bg: var(--hd-main-soft-body-text-color);
 }
 
 * {
-   --hd-border-color-default: rgba(from var(--hd-body-text-color) r g b / 0.15);
-   --hd-border-color-surfaced: rgba(from var(--hd-body-text-color) r g b / 0.25);
+   --hd-border-color-default: rgba(from var(--hd-slide-body-text-color) r g b / 0.15);
+   --hd-border-color-surfaced: rgba(from var(--hd-slide-body-text-color) r g b / 0.25);
 }

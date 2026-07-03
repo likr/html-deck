@@ -7,13 +7,19 @@
    --hd-body-font: var(--hd-font-family);
    --hd-heading-font: var(--hd-font-family);
 
+   /* --- 4-Color Palette base variables --- */
+   --hd-theme-background-color: #000000;
+   --hd-theme-text-color: #00ff66;
+   --hd-theme-main-color: #00ff66;
+   --hd-theme-accent-color: #ffb000;
+
    /* --- 48-Color Matrix (Green Phosphor Terminal) --- */
 
    /* ========================================================
      BASE THEME (Standard/Neutral) - Black bg, Phosphor Green text
      ======================================================== */
   /* Soft Surface (Slide default) */
-  --hd-base-soft-heading-background-color: rgba(from #00ff66 r g b / 0.3);
+  --hd-base-soft-heading-background-color: transparent;
   --hd-base-soft-heading-background: transparent;
   --hd-base-soft-heading-text-color: #00ff66;
   --hd-base-soft-heading-text-highlight-color: #ffb000;
@@ -24,11 +30,11 @@
   --hd-base-soft-body-text-highlight-color: #ffb000;
   --hd-base-soft-body-text-muted-color: #009933;
 
-  --hd-base-soft-border: var(--hd-base-soft-heading-background-color);
+  --hd-base-soft-border: #00ff66;
 
   /* Solid Surface (Medium bg / Dark text equivalent) */
-  --hd-base-solid-heading-background-color: #050a05;
-  --hd-base-solid-heading-background: var(--hd-base-solid-heading-background-color);
+  --hd-base-solid-heading-background-color: transparent;
+  --hd-base-solid-heading-background: transparent;
   --hd-base-solid-heading-text-color: #00ff66;
   --hd-base-solid-heading-text-highlight-color: #ffb000;
   --hd-base-solid-heading-text-muted-color: #009933;
@@ -38,7 +44,7 @@
   --hd-base-solid-body-text-highlight-color: #ffb000;
   --hd-base-solid-body-text-muted-color: #009933;
 
-  --hd-base-solid-border: var(--hd-base-solid-heading-text-color);
+  --hd-base-solid-border: #00ff66;
 
 
 
@@ -46,7 +52,7 @@
      MAIN THEME (Brand Green) - Deep green themed
      ======================================================== */
   /* Soft Surface */
-  --hd-main-soft-heading-background-color: rgba(from #00ff66 r g b / 0.4);
+  --hd-main-soft-heading-background-color: transparent;
   --hd-main-soft-heading-background: transparent;
   --hd-main-soft-heading-text-color: #00ff66;
   --hd-main-soft-heading-text-highlight-color: #ffffff;
@@ -57,11 +63,11 @@
   --hd-main-soft-body-text-highlight-color: #ffffff;
   --hd-main-soft-body-text-muted-color: #008833;
 
-  --hd-main-soft-border: var(--hd-main-soft-heading-background-color);
+  --hd-main-soft-border: #00ff66;
 
   /* Solid Surface */
-  --hd-main-solid-heading-background-color: #00ff66;
-  --hd-main-solid-heading-background: var(--hd-main-solid-heading-background-color);
+  --hd-main-solid-heading-background-color: transparent;
+  --hd-main-solid-heading-background: transparent;
   --hd-main-solid-heading-text-color: #000000;
   --hd-main-solid-heading-text-highlight-color: #000000;
   --hd-main-solid-heading-text-muted-color: #006622;
@@ -71,7 +77,7 @@
   --hd-main-solid-body-text-highlight-color: #000000;
   --hd-main-solid-body-text-muted-color: #006622;
 
-  --hd-main-solid-border: var(--hd-main-solid-heading-text-color);
+  --hd-main-solid-border: #000000;
 
 
 
@@ -79,7 +85,7 @@
      ACCENT THEME (Warning Amber) - Amber themed
      ======================================================== */
   /* Soft Surface */
-  --hd-accent-soft-heading-background-color: rgba(from #ffb000 r g b / 0.4);
+  --hd-accent-soft-heading-background-color: transparent;
   --hd-accent-soft-heading-background: transparent;
   --hd-accent-soft-heading-text-color: #ffb000;
   --hd-accent-soft-heading-text-highlight-color: #00ff66;
@@ -90,11 +96,11 @@
   --hd-accent-soft-body-text-highlight-color: #00ff66;
   --hd-accent-soft-body-text-muted-color: #b37b00;
 
-  --hd-accent-soft-border: var(--hd-accent-soft-heading-background-color);
+  --hd-accent-soft-border: #ffb000;
 
   /* Solid Surface */
-  --hd-accent-solid-heading-background-color: #ffb000;
-  --hd-accent-solid-heading-background: var(--hd-accent-solid-heading-background-color);
+  --hd-accent-solid-heading-background-color: transparent;
+  --hd-accent-solid-heading-background: transparent;
   --hd-accent-solid-heading-text-color: #000000;
   --hd-accent-solid-heading-text-highlight-color: #000000;
   --hd-accent-solid-heading-text-muted-color: #805800;
@@ -104,7 +110,7 @@
   --hd-accent-solid-body-text-highlight-color: #000000;
   --hd-accent-solid-body-text-muted-color: #805800;
 
-  --hd-accent-solid-border: var(--hd-accent-solid-heading-text-color);
+  --hd-accent-solid-border: #000000;
 
 
 
@@ -124,7 +130,6 @@
    /* Layout Spacing Overrides */
    --hd-layout-heading-divider-display: block;
    --hd-layout-heading-divider-height: 2px;
-   --hd-layout-heading-divider-style: dotted;
 
 
    /* Text Selection overrides */
@@ -185,4 +190,8 @@
    --hd-kbd-box-shadow: none;
 
    /* Table borders overrides (using color, not gradient) */
+}
+
+* {
+  --hd-slide-heading-divider-background: repeating-linear-gradient(90deg, var(--hd-text-color) 0, var(--hd-text-color) 4px, transparent 4px, transparent 8px) !important;
 }

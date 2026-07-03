@@ -5,6 +5,12 @@
   --hd-body-font: var(--hd-font-family);
   --hd-heading-font: var(--hd-font-family);
 
+  /* --- 4-Color Palette base variables --- */
+  --hd-theme-background-color: #0c0d1e;
+  --hd-theme-text-color: #f1f5f9;
+  --hd-theme-main-color: #00f2fe;
+  --hd-theme-accent-color: #fe019a;
+
   /* --- 48-Color Matrix (Tokyo Midnight Cyberpunk) --- */
 
   /* ========================================================

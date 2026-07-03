@@ -41,8 +41,8 @@
 
     --hd-base-solid-border: var(--hd-base-solid-heading-text-color);
 
-    
-    
+
+
     /* --- Main Theme (Indigo) --- */
     /* Soft Surface (Light bg / Dark text) */
     --hd-main-soft-heading-background-color: var(--hd-theme-main-color);
@@ -72,8 +72,8 @@
 
     --hd-main-solid-border: var(--hd-main-solid-heading-text-color);
 
-    
-    
+
+
     /* --- Accent Theme (Orange) --- */
     /* Soft Surface (Light bg / Dark text) */
     --hd-accent-soft-heading-background-color: var(--hd-theme-accent-color);
@@ -103,8 +103,8 @@
 
     --hd-accent-solid-border: var(--hd-accent-solid-heading-text-color);
 
-    
-    
+
+
     /* Slide Border parameters */
     --hd-slide-border-width: 0px;
     --hd-slide-border-style: solid;

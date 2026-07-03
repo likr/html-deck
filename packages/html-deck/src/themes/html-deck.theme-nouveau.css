@@ -164,19 +164,23 @@
   --hd-layout-after-margin: 8px;
 
   /* Card and Container styling */
-  --hd-card-border-width: 1px;
-  --hd-card-border-style: solid;
-  --hd-card-box-shadow: 0 4px 20px rgba(from var(--hd-base-soft-text-color) r g b / 0.03), 0 1px 3px rgba(from var(--hd-base-soft-text-color) r g b / 0.02);
+  --hd-card-border-width: 4px;
+  --hd-card-border-style: double;
+  --hd-card-box-shadow: 0 4px 20px rgba(from var(--hd-base-soft-body-text-color) r g b / 0.03), 0 1px 3px rgba(from var(--hd-base-soft-body-text-color) r g b / 0.02);
+  --hd-card-border-radius: 12px;
+  --hd-card-padding: 12px 24px;
 
-  --hd-box-border-width: 1px;
-  --hd-box-border-style: solid;
+  --hd-box-border-width: 4px;
+  --hd-box-border-style: double;
   --hd-box-box-shadow: none;
+  --hd-box-border-radius: 12px;
+  --hd-box-padding: 12px 24px;
 
   --hd-callout-border-width: 0 0 0 3px;
   --hd-callout-border-style: solid;
 
   --hd-codeblock-background-color: #24201d;
-  --hd-codeblock-border-color: rgba(from var(--hd-base-soft-text-color) r g b / 0.1);
+  --hd-codeblock-border-color: rgba(from var(--hd-base-soft-body-text-color) r g b / 0.1);
   --hd-code-background-color: rgba(from var(--hd-theme-main-color) r g b / 0.08);
   --hd-code-border-color: rgba(from var(--hd-theme-main-color) r g b / 0.15);
 
@@ -184,7 +188,7 @@
   --hd-kbd-border-color: rgba(from var(--hd-theme-text-color) r g b / 0.2);
 
   /* Table Customizations */
-  --hd-table-border-color: rgba(from var(--hd-base-soft-text-color) r g b / 0.1);
+  --hd-table-border-color: rgba(from var(--hd-base-soft-body-text-color) r g b / 0.1);
   --hd-table-cell-padding: 12px 16px;
   --hd-table-header-background-color: rgba(from var(--hd-theme-main-color) r g b / 0.08);
   --hd-table-header-text-color: var(--hd-theme-main-color);
@@ -197,6 +201,10 @@
   --hd-list-marker-content-2: "❀  ";
   --hd-list-marker-content-3: "♣  ";
 
+
+}
+
+* {
   /* ========================================================
      ART NOUVEAU CORNER OVERLAYS (SVG data-urls)
      ======================================================== */
@@ -207,38 +215,15 @@
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120' fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M 110 110 Q 110 60, 60 10' stroke='%232d382b' stroke-width='2.2' /%3E%3Cpath d='M 102 110 Q 102 68, 58 20' stroke='%232d382b' stroke-width='1.2' /%3E%3Cpath d='M 110 80 Q 90 70, 75 45' stroke='%232d382b' stroke-width='1.5' /%3E%3Cpath d='M 60 10 C 45 5, 38 18, 52 22 C 60 25, 68 15, 60 10 Z' fill='%23c5d8c1' stroke='%232d382b' stroke-width='1.8' /%3E%3Cpath d='M 56 12 Q 54 18 52 22' stroke='%232d382b' stroke-width='1.0' /%3E%3Cpath d='M 90 75 C 95 70, 100 75, 98 82 Z' fill='%23c5d8c1' stroke='%232d382b' stroke-width='1.5' /%3E%3Cpath d='M 75 45 C 80 38, 88 42, 84 50 Z' fill='%23c5d8c1' stroke='%232d382b' stroke-width='1.5' /%3E%3Cpath d='M 58 20 C 62 12, 72 16, 68 24 Z' fill='%23c5d8c1' stroke='%232d382b' stroke-width='1.5' /%3E%3Ccircle cx='92' cy='58' r='4' fill='%23dfa495' stroke='%232d382b' stroke-width='1.5' /%3E%3Ccircle cx='72' cy='32' r='4' fill='%23dfa495' stroke='%232d382b' stroke-width='1.5' /%3E%3C/svg%3E") bottom 64px right 16px / 110px 110px no-repeat,
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450' fill='none'%3E%3Crect x='16' y='16' width='768' height='418' stroke='%23c5a059' stroke-width='1.5' /%3E%3Crect x='20' y='20' width='760' height='410' stroke='%23c5a059' stroke-width='0.8' /%3E%3C/svg%3E") center / 100% 100% no-repeat;
 
+  --hd-nouveau-corner-inverse:
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120' fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M 10 110 Q 10 60, 60 10' stroke='%23fcf9f2' stroke-width='2.2' /%3E%3Cpath d='M 18 110 Q 18 68, 62 20' stroke='%23fcf9f2' stroke-width='1.2' /%3E%3Cpath d='M 10 80 Q 30 70, 45 45' stroke='%23fcf9f2' stroke-width='1.5' /%3E%3Cpath d='M 60 10 C 72 10, 78 18, 75 25 C 72 32, 62 28, 65 20 C 68 15, 72 18, 71 22' stroke='%23fcf9f2' stroke-width='1.5' fill='%23dfa495' /%3E%3Cpath d='M 60 10 C 65 14, 62 22, 65 20' stroke='%23fcf9f2' stroke-width='1.0' /%3E%3Cpath d='M 30 75 C 25 70, 20 75, 22 82 Z' fill='%23c5d8c1' stroke='%23fcf9f2' stroke-width='1.5' /%3E%3Cpath d='M 45 45 C 40 38, 32 42, 36 50 Z' fill='%23c5d8c1' stroke='%23fcf9f2' stroke-width='1.5' /%3E%3Cpath d='M 62 20 C 58 12, 48 16, 52 24 Z' fill='%23c5d8c1' stroke='%23fcf9f2' stroke-width='1.5' /%3E%3Ccircle cx='28' cy='58' r='4' fill='%23dfa495' stroke='%23fcf9f2' stroke-width='1.5' /%3E%3Ccircle cx='48' cy='32' r='4' fill='%23dfa495' stroke='%23fcf9f2' stroke-width='1.5' /%3E%3C/svg%3E") bottom 64px left 16px / 110px 110px no-repeat,
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120' fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M 110 110 Q 110 60, 60 10' stroke='%23fcf9f2' stroke-width='2.2' /%3E%3Cpath d='M 102 110 Q 102 68, 58 20' stroke='%23fcf9f2' stroke-width='1.2' /%3E%3Cpath d='M 110 80 Q 90 70, 75 45' stroke='%23fcf9f2' stroke-width='1.5' /%3E%3Cpath d='M 60 10 C 45 5, 38 18, 52 22 C 60 25, 68 15, 60 10 Z' fill='%23c5d8c1' stroke='%23fcf9f2' stroke-width='1.8' /%3E%3Cpath d='M 56 12 Q 54 18 52 22' stroke='%23fcf9f2' stroke-width='1.0' /%3E%3Cpath d='M 90 75 C 95 70, 100 75, 98 82 Z' fill='%23c5d8c1' stroke='%23fcf9f2' stroke-width='1.5' /%3E%3Cpath d='M 75 45 C 80 38, 88 42, 84 50 Z' fill='%23c5d8c1' stroke='%23fcf9f2' stroke-width='1.5' /%3E%3Cpath d='M 58 20 C 62 12, 72 16, 68 24 Z' fill='%23c5d8c1' stroke='%23fcf9f2' stroke-width='1.5' /%3E%3Ccircle cx='92' cy='58' r='4' fill='%23dfa495' stroke='%23fcf9f2' stroke-width='1.5' /%3E%3Ccircle cx='72' cy='32' r='4' fill='%23dfa495' stroke='%23fcf9f2' stroke-width='1.5' /%3E%3C/svg%3E") bottom 64px right 16px / 110px 110px no-repeat,
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450' fill='none'%3E%3Crect x='16' y='16' width='768' height='418' stroke='%23fcf9f2' stroke-width='1.5' /%3E%3Crect x='20' y='20' width='760' height='410' stroke='%23fcf9f2' stroke-width='0.8' /%3E%3C/svg%3E") center / 100% 100% no-repeat;
 
-  --hd-base-soft-overlay-background: var(--hd-nouveau-corner-normal);
-  --hd-main-soft-overlay-background: var(--hd-nouveau-corner-normal);
-  --hd-accent-soft-overlay-background: var(--hd-nouveau-corner-normal);
-
-  --hd-base-solid-overlay-background: var(--hd-nouveau-corner-normal);
-  --hd-main-solid-overlay-background: var(--hd-nouveau-corner-normal);
-  --hd-accent-solid-overlay-background: var(--hd-nouveau-corner-normal);
-}
-
-
-
-/* Nouveau Theme Custom Utilities */
-.hd-nouveau-arch {
-  --hd-card-border-radius: 120px 120px 12px 12px;
-  --hd-box-border-radius: 120px 120px 12px 12px;
-  border-radius: 120px 120px 12px 12px;
-  overflow: hidden;
-}
-
-.hd-nouveau-inner-border {
-  border: 1px dotted var(--hd-text-highlight-color);
-  border-radius: 110px 110px 8px 8px;
-  padding: 16px 16px 12px 16px;
-  height: 100%;
-  box-sizing: border-box;
-}
-
-/* Slide 1 Cover Frame Overlay (with double arch, top leaf stamp, and faint watermark) */
-.hd-nouveau-cover-overlay {
-  --hd-base-soft-overlay-background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450' fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='16' y='16' width='768' height='418' stroke='%23c5a059' stroke-width='1.5' /%3E%3Crect x='20' y='20' width='760' height='410' stroke='%23c5a059' stroke-width='0.8' /%3E%3Cpath d='M 120 410 V 260 C 120 160, 200 100, 400 100 C 600 100, 680 160, 680 260 V 410 Z' stroke='%23c5a059' stroke-width='1.8' /%3E%3Cpath d='M 124 410 V 262 C 124 165, 204 104, 400 104 C 596 104, 676 165, 676 262 V 410 Z' stroke='%23c5a059' stroke-width='0.8' /%3E%3Cpath d='M 16 70 Q 40 40, 70 16' stroke='%23c5a059' stroke-width='1.5' /%3E%3Cpath d='M 30 30 C 26 22, 18 26, 22 34 Z' fill='%23c5a059' /%3E%3Cpath d='M 784 70 Q 760 40, 730 16' stroke='%23c5a059' stroke-width='1.5' /%3E%3Cpath d='M 770 30 C 774 22, 782 26, 778 34 Z' fill='%23c5a059' /%3E%3Cpath d='M 16 380 Q 40 410, 70 434' stroke='%23c5a059' stroke-width='1.5' /%3E%3Cpath d='M 30 420 C 26 428, 18 424, 22 416 Z' fill='%23c5a059' /%3E%3Cpath d='M 784 380 Q 760 410, 730 434' stroke='%23c5a059' stroke-width='1.5' /%3E%3Cpath d='M 770 420 C 774 428, 782 424, 778 416 Z' fill='%23c5a059' /%3E%3Cpath d='M 390 190 Q 400 165, 410 190 C 400 195, 390 190, 390 190' fill='%23c5a059' /%3E%3Cpath d='M 410 190 Q 400 175, 390 190 C 400 185, 410 190, 410 190' fill='%23c5a059' /%3E%3Cg opacity='0.08' stroke='%23c5a059' stroke-width='1'%3E%3Ccircle cx='400' cy='260' r='80' /%3E%3Cline x1='400' y1='180' x2='400' y2='340' /%3E%3Cline x1='320' y1='260' x2='480' y2='260' /%3E%3Cline x1='343' y1='203' x2='457' y2='317' /%3E%3Cline x1='343' y1='317' x2='457' y2='203' /%3E%3Cpath d='M 400 260 C 380 230, 420 230, 400 260 Z' fill='%23c5a059' /%3E%3Cpath d='M 400 260 C 380 290, 420 290, 400 260 Z' fill='%23c5a059' /%3E%3Cpath d='M 400 260 C 370 250, 370 270, 400 260 Z' fill='%23c5a059' /%3E%3Cpath d='M 400 260 C 430 250, 430 270, 400 260 Z' fill='%23c5a059' /%3E%3C/g%3E%3C/svg%3E") center / 100% 100% no-repeat;
+  --hd-nouveau-stamp:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40' fill='none' stroke='%23c5a059' stroke-width='1.5'%3E%3Cpath d='M 0 20 Q 20 20, 20 0'/%3E%3Ccircle cx='10' cy='10' r='3.5' fill='%23dfa495' stroke='none'/%3E%3C/svg%3E") top left / 40px 40px no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40' fill='none' stroke='%23c5a059' stroke-width='1.5'%3E%3Cpath d='M 40 20 Q 20 20, 20 0'/%3E%3Ccircle cx='30' cy='10' r='3.5' fill='%23dfa495' stroke='none'/%3E%3C/svg%3E") top right / 40px 40px no-repeat;
+  /* Propagate SVG decorations to all surfaces so that cards, boxes, and slides automatically receive the Art Nouveau stamp */
+  --hd-slide-body-background: var(--hd-nouveau-stamp), var(--hd-body-background-color);
+  --hd-overlay-background: var(--hd-nouveau-corner-normal);
 }

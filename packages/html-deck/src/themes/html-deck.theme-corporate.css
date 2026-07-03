@@ -61,9 +61,15 @@
    --hd-codeblock-border-radius: 4px;
    --hd-img-border-radius: 4px;
 
-   /* Card Design Overrides - Minimal Flat Border, Almost No Shadow */
+   /* Slide Heading Dividers */
+   --hd-layout-heading-divider-display: block;
+   --hd-layout-heading-divider-height: 4px;
+   --hd-layout-heading-divider-background: linear-gradient(90deg, var(--hd-theme-main-color), var(--hd-theme-accent-color));
+
+   /* Card Design Overrides - Minimal Flat Border, Prominent Left Border via box-shadow */
    --hd-card-border-width: 1px;
-   --hd-card-box-shadow: 0 1px 2px rgba(from var(--hd-base-soft-text-color) r g b / 0.04);
+   --hd-card-border-color: rgba(from var(--hd-theme-text-color) r g b / 0.1);
+   --hd-card-box-shadow: inset 4px 0 0 var(--hd-theme-main-color), 0 1px 2px rgba(from var(--hd-base-soft-body-text-color) r g b / 0.04);
 
    /* Box Design Overrides */
    --hd-box-border-width: 1px;
@@ -78,20 +84,24 @@
    --hd-codeblock-box-shadow: none;
 
    /* Table Design Overrides */
-   --hd-table-border-color: rgba(from var(--hd-base-soft-text-color) r g b / 0.08);
+   --hd-table-border-color: rgba(from var(--hd-base-soft-body-text-color) r g b / 0.08);
    --hd-table-cell-padding: 8px 12px;
 
    /* Image Shadow Overrides */
-   --hd-img-border-color: rgba(from var(--hd-base-soft-text-color) r g b / 0.06);
+   --hd-img-border-color: rgba(from var(--hd-base-soft-body-text-color) r g b / 0.06);
    --hd-img-box-shadow: none;
 
    /* Scrollbars thumbs */
    --hd-scrollbar-track-bg: transparent;
-   --hd-scrollbar-thumb-bg: rgba(from var(--hd-base-soft-text-color) r g b / 0.12);
-   --hd-scrollbar-thumb-hover-bg: rgba(from var(--hd-base-soft-text-color) r g b / 0.25);
+   --hd-scrollbar-thumb-bg: rgba(from var(--hd-base-soft-body-text-color) r g b / 0.12);
+   --hd-scrollbar-thumb-hover-bg: rgba(from var(--hd-base-soft-body-text-color) r g b / 0.25);
 }
 
 * {
-   --hd-border-color-default: rgba(from var(--hd-body-text-color) r g b / 0.08);
-   --hd-border-color-surfaced: rgba(from var(--hd-body-text-color) r g b / 0.18);
+   --hd-border-color-default: rgba(from var(--hd-slide-body-text-color) r g b / 0.08);
+   --hd-border-color-surfaced: rgba(from var(--hd-slide-body-text-color) r g b / 0.18);
+}
+
+* {
+  --hd-slide-heading-divider-background: linear-gradient(90deg, var(--hd-theme-main-color), var(--hd-theme-accent-color)) !important;
 }
