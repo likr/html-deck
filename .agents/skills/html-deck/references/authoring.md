@@ -32,7 +32,7 @@ Keep the slide DOM flat inside the deck. Do not nest pages inside nested section
     <hd-slide>
       <hd-layout>
         <h2 slot="heading">Slide Title</h2>
-        <p class="hd-text">Body content here.</p>
+        <p>Body content here.</p>
       </hd-layout>
     </hd-slide>
   </hd-deck>

@@ -7,6 +7,7 @@ function resolveDemoPort() {
     const out = execFileSync(
       process.execPath,
       [
+        '--input-type=commonjs',
         '-e',
         `const http = require('http');
          let written = false;

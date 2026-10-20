@@ -11,8 +11,8 @@ When creating or editing slides using the `html-deck` library:
 ## 2. Theme Creation Constraints
 When designing custom themes for `html-deck`:
 - **CSS Variable Overrides Only**: All custom themes must be created in a dedicated CSS file (e.g., `theme-custom.css`) containing ONLY variable overrides under the `:root` selector.
-- **Direct Selector Prohibition**: Direct styling of HTML element tags (like `hd-slide`, `h1`) or class names (like `.hd-card`) is strictly prohibited.
-- **Relative Color Syntax**: Use CSS Relative Color Syntax (e.g., `rgba(from var(--hd-main-color) r g b / 0.15)`) to derive translucent or muted colors.
+- **Direct Selector Prohibition**: Direct styling of HTML element tags (like `hd-slide`, `h1`) or class names (like `.hd-card`) and universal `*` variable reset blocks are strictly prohibited.
+- **Relative Color Syntax**: Use CSS Relative Color Syntax (e.g., `rgba(from var(--hd-theme-main-color) r g b / 0.15)` or `hsl(from var(--hd-theme-accent-color) h 90% 82%)`) and `color-mix()` to derive translucent, muted, or high-chroma highlight colors.
 - **Explicit Variable Names**: Do not introduce or use abbreviated variable names like `bg` or `color` for backgrounds or text colors. Always use full, explicit names such as `background-color` and `text-color`.
   - ❌ Incorrect: `--hd-layout-heading-bg`, `--hd-card-bg`, `--hd-layout-heading-color`
   -  Correct: `--hd-layout-heading-background-color`, `--hd-card-background-color`, `--hd-layout-heading-text-color`
@@ -29,7 +29,7 @@ When running evaluation cycles via `skill-creator` and the `claude` CLI is unava
 ## 4. Component Styling Overrides (Core Development)
 When writing component styles for `<hd-slide>`, `<hd-card>`, `<hd-box>`, or similar elements:
 - **Prefer Pure CSS Over JS**: Handle attribute-based overrides (e.g. `variant`, `surface`) in pure CSS using `:host([attribute="value"])` selectors in the Shadow DOM stylesheet rather than inline JS style updates.
-- **Declaration Order Precedence**: Since selectors with equal attribute counts (e.g., `:host([variant="main"][surface="soft"])` vs. `:host([heading="accent"][surface="soft"])`) have identical CSS specificity, declare the overriding rules (like `heading` attributes) below the general ones (like `variant` attributes) to ensure the cascade applies correctly.
+- **Declaration Order & Specificity Precedence**: Since selectors with equal attribute counts (e.g., `:host([variant="main"][surface="soft"])` vs. `:host([heading="accent"][surface="soft"])`) have identical CSS specificity, declare the overriding rules (like `heading` attributes) with compound selectors below the general ones (like `variant` attributes) to ensure the cascade applies correctly.
 
 ## 5. Layout Component Spacing Constraints
 When designing or modifying layout components (e.g., `<hd-layout>`, `<hd-layout-cover>`, `<hd-layout-split>`, `<hd-layout-grid>`):
@@ -37,11 +37,10 @@ When designing or modifying layout components (e.g., `<hd-layout>`, `<hd-layout-
 - **Inner Content Wrapper**: Wrap all slot containers (including `before`, `after`, and body/main content) in an inner wrapper div (e.g., `.layout-content` or `.cover-content`) and apply layout-specific padding variables (e.g., `--hd-layout-body-padding`, `--hd-layout-cover-padding`) to that wrapper.
 - **Slotted Margins**: Explicitly define margins for slotted `before` and `after` elements in the layout stylesheet using `--hd-layout-before-margin` and `--hd-layout-after-margin` to ensure layout consistency.
 
-## 6. CSS Variable Propagation via Intermediate State Variables
+## 6. 3-Variant × 2-Surface Color Matrix & Composed-Tree Token Bridging
 
-To prevent style leakage and ensure context-specific colors in layouts or container scopes (e.g., heading areas vs. slide bodies):
-- **Intermediate State Variables**: The library propagates styling via `--hd-heading-*` (for headings/header areas) and `--hd-body-*` (for bodies/content areas) state variables.
-- **Dynamic Mapping**: Inside standard component stylesheets (like `<hd-slide>`, `<hd-card>`, `<hd-box>`, `<hd-callout>`, and layouts), standard variables (`--hd-background-color`, `--hd-text-color`, etc.) are mapped to these intermediate state variables depending on the component's active surface and variant attributes.
-- **Unified Border Variables**: Border outlines are resolved dynamically using `--hd-border-color-default` and `--hd-border-color-surfaced` variables, which themes can override globally.
-- **Details & Specifications**: For the exact universal selectors, local Shadow DOM mappings, and theme overrides, refer to the [css_style_guide.md](file:///home/likr/html-deck/.agents/skills/html-deck-developer/references/css_style_guide.md) (for core developers) and [theme_customization.md](file:///home/likr/html-deck/.agents/skills/html-deck/references/theme_customization.md) (for theme creators).
+To prevent style leakage across Shadow DOM boundaries and ensure context-specific colors in layouts and containers:
+- **48-Color Matrix (`:root`)**: Global theme variables in `variables.css` and `themes/*.css` define the 4-color base palette (`--hd-theme-background-color`, `--hd-theme-text-color`, `--hd-theme-main-color`, `--hd-theme-accent-color`) and the 3-variant (`base`, `main`, `accent`) × 2-surface (`soft`, `solid`) matrix (`--hd-{variant}-{surface}-{heading|body}-{background-color|text-color|text-highlight-color|text-muted-color}` and `--hd-{variant}-{surface}-border`) under `:root` without universal `*` selectors.
+- **Shadow DOM `:host` Resolution & Token Bridging**: Inside component stylesheets (`<hd-slide>`, `<hd-card>`, `<hd-box>`, `<hd-callout>`, and layouts), component-scoped variables resolve on `:host` and bridge the 5 active context tokens (`--hd-background-color`, `--hd-text-color`, `--hd-text-highlight-color`, `--hd-text-muted-color`, `--hd-border-color`) to slotted Light DOM children via composed-tree inheritance.
+- **Details & Specifications**: Refer to [css_style_guide.md](file:///home/likr/html-deck/.agents/skills/html-deck-developer/references/css_style_guide.md) (for core developers) and [theme_customization.md](file:///home/likr/html-deck/.agents/skills/html-deck/references/theme_customization.md) (for theme creators).
 

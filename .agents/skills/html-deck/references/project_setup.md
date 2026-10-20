@@ -23,7 +23,10 @@ npm create html-deck <project-directory> [options]
 
 ### Options
 - `--aspect <ratio>`: Sets the slide aspect ratio. Examples: `16:9` (default), `4:3`, `1.6`.
-- `--presenter`: Automatically includes `presenter-url="presenter.html"` and scaffolds a local presenter view dashboard.
+- `--lang <lang>`: Sets the HTML `lang` attribute. Examples: `ja`, `en` (default).
+- `--presenter`: Automatically includes `presenter-url="presenter.html"`, scaffolds a local presenter view dashboard, and configures multi-page Rollup build inputs in `vite.config.js`.
+- `--help`, `-h`: Displays CLI usage help.
+- `--version`, `-v`: Prints the CLI version.
 
 ---
 

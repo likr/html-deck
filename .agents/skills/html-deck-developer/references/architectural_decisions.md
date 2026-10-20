@@ -46,8 +46,9 @@
   `Ctrl + P` や `Cmd + R` など、ブラウザや OS のデフォルトショートカットと競合して動作を妨げないようにする必要があります。
   - **ルール**: キーダウンイベントハンドラ `handleKeyDown` の先頭で、修飾キーフラグのいずれかが有効な場合は早期リターンします：
     `if (event.ctrlKey || event.metaKey || event.altKey) return;`
-- **Footnote (脚注) の絶対配置**:
-  - **パターン**: `slot="footnote"` が設定された要素は、スライドキャンバスに対して `bottom: 12px; left: 16px;` の絶対配置で左下に配置されます。これは [hd-slide.js](file:///home/likr/html-deck/packages/html-deck/src/components/html-deck/hd-slide.js) の `::slotted([slot="footnote"])` で制御されます。
+- **Header / Footer スロットの絶対配置とコンテキストに応じたコントラスト切り替え**:
+  - **パターン**: `slot="header"` および `slot="footer"` が設定された要素は、スライドキャンバスに対して `top: var(--hd-peripheral-offset)` / `bottom: var(--hd-peripheral-offset)`、`left: var(--hd-slide-margin-left)`、`right: var(--hd-slide-margin-right)` の絶対配置で配置されます。
+  - **コンテキスト切り替え**: スライドに見出しバナーが存在しない場合は `--hd-slide-body-text-muted-color` を使用し、レイアウト見出しバナーが存在する場合（`:host([has-heading]) ::slotted([slot="header"])`）は `--hd-slide-heading-text-muted-color` へ自動的に切り替えることで、濃い見出しバナー上でも高い視認性を維持します。
 - **スロットされたヘッダーラッパーの表示切り替え（トグル）**:
   CSS の `:has()` 内で `::slotted(*)` などの擬似要素を使用することは仕様上無効です（例：`slot:not(:has(::slotted(*)))` は無効なセレクタとなります）。また、Shadow DOM 内の CSS から `:host(:has([slot="heading"]))` や `:host(:not(:has([slot="heading"])))` を使用して Light DOM 内の見出し要素の有無を判別することも、Shadow DOM のカプセル化境界があるためブラウザによっては正しく動作しません。
   - **ルール**: スロットされた要素の有無に基づいて Shadow DOM 内のラッパー（`.heading-area` や `.heading-divider` など）を表示・非表示にするには、JavaScript の `slotchange` イベントリスナーを使用してスロット内要素の有無を判定し、ホスト要素に `has-heading` 属性を動的に付与・削除します。
@@ -118,10 +119,10 @@
   ユーザーが明示的に `import 'html-deck/css'` を記述しなくても済むように、`html-deck.js` および `html-deck-presenter.js` 内で関連するグローバルCSSを自動的に `document.head` に動的注入します。
 - **Vite `?inline` インポートの活用**:
   スタイルシートはメンテナンス性のために別ファイル（`html-deck.css` や `html-deck-presenter.css`）として維持し、JS側からは Vite の `?inline` クエリパラメータを使用してコンパイル・結合されたCSS文字列としてインポートします（例: `import cssText from './html-deck.css?inline'`）。
-- **DOM動的インジェクション**:
-  モジュールロード時に、指定されたID（`hd-global-styles` または `hd-presenter-global-styles`）を持つ `<style>` タグが存在しない場合のみ、`document.head.appendChild()` によってDOMにインジェクションします。これにより、二重ロードや不要な再パースを防ぎます。
-- **後方互換性の維持**:
-  既存のテンプレートや手動で `html-deck/css` を読み込んでいるユーザーのビルドが壊れないよう、パッケージの `package.json` での `css` エクスポート定義と、Viteビルド時におけるCSSファイル抽出・出力用の通常の `import` ステートメントはそのまま残します。
+- **DOM動的インジェクション (`document.head.prepend`) と `@layer`**:
+  モジュールロード時に、指定されたID（`hd-global-styles` または `hd-presenter-global-styles`）を持つ `<style>` タグが存在しない場合のみ、`document.head.prepend()` によって `<head>` の先頭にインジェクションします。さらに内部スタイルシートはすべて `@layer`（`hd-reset`, `hd-variables`, `hd-elements`, `hd-components`, `hd-utilities`）でラップされているため、ユーザーが `<head>` 内に記述または後からインポートした `:root` スタイルが常に優先されます。
+- **パッケージエクスポートの整理**:
+  コアスタイルは `html-deck.js` および `html-deck-presenter.js` にインラインバンドルされるため、`package.json` の `exports` から旧来の `"./css"` および `"./presenter/css"` は削除され、代わりに7つの組み込みテーマ（`"./theme-dark"`, `"./theme-warm"`, `"./theme-corporate"`, `"./theme-neon"`, `"./theme-serif"`, `"./theme-dotted"`, `"./theme-nouveau"`）および `"./themes/*"` が `./dist/themes/...` へマッピングされています。また、カスタム要素登録の副作用をバンドラに伝えるため `"sideEffects": true` が設定されています。
 - **重複したCSSインポートの禁止とビルドエラーの回避**:
   コアスタイルは `html-deck.js` にて自動でインジェクトされるようになったため、カスタムテーマなどのCSSファイル内で `@import "html-deck/css"` やそれに類するインポートを行ってはなりません。これは不要であるだけでなく、PostCSS や Vite のビルドプロセスにおいて解決エラー (`ENOENT: no such file or directory, open 'html-deck/css'`) を引き起こす原因となります。
 

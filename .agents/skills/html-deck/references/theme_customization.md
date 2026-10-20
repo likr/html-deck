@@ -53,17 +53,18 @@ When defining translucent borders, shadows, or secondary tones derived from prim
 }
 ```
 
-### Principle 4: The 4-Color Palette Principle
-To maintain visual harmony, define exactly 4 base variables under the `:root` selector:
-1. **Background Color** (e.g. `--hd-theme-background-color` - default `#ffffff`)
-2. **Text Color** (e.g. `--hd-theme-text-color` - default `#111827`)
-3. **Main Color** (e.g. `--hd-theme-main-color` - default `#4f46e5`)
-4. **Accent Color** (e.g. `--hd-theme-accent-color` - default `#ea580c`)
+### Principle 4: The 4-Color Palette & 48-Color Matrix Principle
+To maintain visual harmony, define 4 base palette variables under the `:root` selector:
+1. **Background Color** (`--hd-theme-background-color` — default `#ffffff`)
+2. **Text Color** (`--hd-theme-text-color` — default `#0f172a`)
+3. **Main Color** (`--hd-theme-main-color` — default `#3730a3`)
+4. **Accent Color** (`--hd-theme-accent-color` — default `#9a3412`)
 
-Avoid hardcoding raw hex/rgb/hsl values for the 48-color matrix. Instead, derive intermediate colors using Relative Color Syntax or CSS `color-mix()`:
-- **Soft Backgrounds**: `rgba(from var(--hd-theme-main-color) r g b / 0.06)`
-- **Muted Texts**: `rgba(from var(--hd-theme-text-color) r g b / 0.6)`
-- **Solid Surfaces**: Bind base colors directly (e.g. `var(--hd-theme-main-color)`).
+From these 4 base tokens, the library derives the **3-variant (`base`, `main`, `accent`) × 2-surface (`soft`, `solid`) × 2-region (`heading`, `body`) × 4-role (`background-color`, `text-color`, `text-highlight-color`, `text-muted-color`)** 48-color matrix plus 6 border tokens (`--hd-{variant}-{surface}-border`):
+- **Soft Backgrounds**: `color-mix(in srgb, var(--hd-theme-main-color) 6%, var(--hd-theme-background-color))`
+- **Solid Surfaces**: Derived from `--hd-theme-main-color`, `--hd-theme-accent-color`, or `--hd-theme-text-color`.
+- **High-Chroma Solid/Banner Highlights**: On dark headers and `solid` surfaces, use HSL Relative Color Syntax (e.g., `hsl(from var(--hd-theme-accent-color) h 92% 80%)`) rather than `color-mix(..., 5%, white)` so highlights retain vivid saturation while meeting WCAG AA contrast (`>= 4.5:1`).
+- **Distinct Muted Text**: Ensure `body-text-muted-color` has both WCAG AA contrast (`>= 4.5:1`) against the surface background and sufficient visual separation (`RGB Δ >= 30`) from primary `body-text-color`.
 
 ### Principle 5: Color Contrast and Readability
 - **WCAG AA Compliance**: Ensure a contrast ratio of at least **4.5:1** for standard text and **3:1** for large heading text against the background.

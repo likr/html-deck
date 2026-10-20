@@ -63,76 +63,39 @@
 
 ## 5. テーマ（Theme）設計とオーバーライドの規則
 - **Skeletonライブラリとしての原則**:
-  `html-deck` はデフォルトでシンプルなスケルトン（白背景、最小限の装飾）であり、外部のテーマCSSファイルで見た目を切り替えます。
+  `html-deck` はデフォルトでインディゴ×バーントオレンジの標準テーマ（`variables.css`）を備え、外部のテーマCSSファイル（`html-deck.theme-*.css`）やカスタムテーマによって見た目を切り替えます。
 - **テーマCSSの記述制限と Cascade Layers による優先度保証**:
-  デフォルトのCSS変数は `variables.css` および `html-deck-presenter.css` 内でそれぞれ `@layer hd-variables`、`@layer hd-presenter-variables` レイヤーにラップされています。
-  テーマCSSは、**レイヤー外（unlayered）の `:root` セレクタ下でCSS変数をオーバーライド**しなければなりません。 unlayered な定義は layered な定義よりも常に優先されるため、これによりCSSの読み込み順序に依存しない確実な上書きが保証されます。
-  テーマCSS内でHTMLタグやクラス名（`hd-slide` や `.hd-card` など）を直接ターゲットにしてはなりません。
-  - カスタムスタイル（枠線、スクロールバー、コードブロック、シャドウなど）が必要な場合、それらの要素にはあらかじめパラメータ化されたCSS変数（`--hd-card-shadow-primary` など）を定義しておき、テーマCSSではその変数をオーバーライドします。
-- **CSS Relative Color Syntax の使用**:
-  テーマCSS内では、透明度や影、ボーダーのバリエーションなどを表現する際に、生の `hex` や `rgba` のカラーリテラルをハードコードしてはなりません。
-  必ず **CSS Relative Color Syntax** を使用し、ベース変数から導出してください。
-  -  例: `rgba(from var(--hd-primary-color) r g b / 0.15)`
+  内部のCSSファイルは `html-deck.css` にて `@layer hd-reset, hd-variables, hd-elements, hd-components, hd-utilities;` のレイヤー順序で宣言され、`document.head.prepend()` で注入されます（発表者ビューは `@layer hd-presenter-variables`）。
+  テーマCSSは、**レイヤー外（unlayered）の `:root` セレクタ下でCSS変数をオーバーライド**しなければなりません。unlayered な定義は layered な定義よりも常に優先されるため、`html:root` のような詳細度ハックを使わずに標準の `:root` だけで読み込み順序に依存しない確実な上書きが保証されます。
+  テーマCSS内でHTMLタグやクラス名（`hd-slide` や `.hd-card` など）、あるいはユニバーサルセレクタ `* { ... }` を直接ターゲットにしてはなりません。
+- **4色ベースパレットと48色マトリクス（3-Variant × 2-Surface）**:
+  すべてのテーマは `:root` 下で4つの基本色（`--hd-theme-background-color`, `--hd-theme-text-color`, `--hd-theme-main-color`, `--hd-theme-accent-color`）を起点とし、`base` / `main` / `accent` の3バリアント × `soft` / `solid` の2サーフェス × `heading` / `body` の2領域 × 4ロール（`background-color`, `text-color`, `text-highlight-color`, `text-muted-color`）の計48変数と、各サーフェスの境界線変数 `--hd-{variant}-{surface}-border` を定義します。
+- **CSS Relative Color Syntax と `color-mix()` の活用**:
+  テーマCSS内では、透明度や影、ボーダー、ハイライト色の導出に **CSS Relative Color Syntax** および `color-mix()` を使用します。
+  - 特にダークバナーや `solid` サーフェス上の強調色（`text-highlight-color`）では、`color-mix(in srgb, accent 5%, white)` を使うと彩度が失われてグレー化するため、**HSL 相対色構文**（例: `hsl(from var(--hd-theme-accent-color) h 90% 82%)`）を用いて高い彩度（Chroma）と WCAG AA コントラスト比（`>= 4.5:1`）を両立させてください。
 
 ---
 
-## 6. 変数の継承と詳細度（Specificity）に関するハマりどころ（トラップ）
-- **静的変数継承のトラップ**:
-  `:root` で他のカスタムプロパティを参照する中間変数（例: `--hd-code-background-color: rgba(from var(--hd-slide-text-color) r g b / 0.05);` など）を定義した場合、値は静的に解決されます。子が属性（`:host([variant="accent"])` など）で参照先の変数をオーバーライドしても、孫要素は親スコープで静的解決された古い値を引き継いでしまいます。
-  - **解決策**: 中間変数を介してスタイルを定義するのではなく、使用する側の要素（例: `hd-slide code`）で直接、基本となるセマンティック変数（例: `var(--hd-body-text-color)`) から Relative Color Syntax 等を用いて色を導出するように設計します。また、カラー設定を少数の「基本セマンティック変数（`--hd-body-text-color` などの8大セマンティック変数）」に集約し、従属変数はそれらから動的に解決させることで、オーバーライドによる記述量を減らしつつ不整合を完全に防止できます。
-- **アクティブ変数のリーク**:
-  グローバルな中間変数（`--hd-color` など）を `:root` に作成してコンポーネントで参照すると、ネストしたコンポーネントが親の variant 設定を意図せず継承してしまいます。
-  - **解決策**: コンポーネントのプロパティは `:root` のベースパレット変数に直接マッピングし、コンポーネント内の属性セレクタ（`:host([variant="main"])`）で個別オーバーライドします。
+## 6. 変数の継承・カプセル化と詳細度（Specificity）に関するハマりどころ（トラップ）
+- **ユニバーサルセレクタ `* { ... }` による変数リセットの禁止（最重要）**:
+  グローバルCSS（`variables.css` やテーマファイル）で `* { --hd-...: ... }` のように CSS 変数を宣言すると、Light DOM 内のあらゆる子要素（`<p>`, `<span class="hd-highlight">`, `<hd-presenter-preview>` 等）で変数が初期値に強制リセットされ、Shadow DOM の `:host` で解決したコンテキスト変数の継承（Composed-Tree Inheritance）が完全に遮断されてしまいます。
+  - **解決策**: グローバルなテーマ変数は必ず `:root` セレクタ下のみで定義し、`*` セレクタによる変数定義は一切行わないでください。
+- **Shadow DOM `:host` でのトークン解決と Composed-Tree ブリッジング**:
+  各コンポーネント（`<hd-slide>`, `<hd-card>`, `<hd-box>`, `<hd-callout>`, `<hd-layout-cover>` 等）は、自身の `:host`（および属性セレクタ `:host([variant="..."])`, `:host([surface="..."])`, `:host([heading="..."])`）上で 48色マトリクスから自身のコンポーネント変数を解決し、同時に以下の5つのアクティブコンテキストトークンを `:host`（および見出しバナー `.heading-area`）上でブリッジします：
+  ```css
+  --hd-background-color: var(--hd-slide-body-background, var(--hd-slide-body-background-color));
+  --hd-text-color: var(--hd-slide-body-text-color);
+  --hd-text-highlight-color: var(--hd-slide-body-text-highlight-color);
+  --hd-text-muted-color: var(--hd-slide-body-text-muted-color);
+  --hd-border-color: var(--hd-slide-border-color);
+  ```
+  これにより、スロットされた Light DOM の子要素（`.hd-highlight`, `.hd-muted`, `code`, `table`, `blockquote` 等）は、親がスライド本文か、見出しバナーか、ネストされたカード/ボックスかを問わず、直近のコンポーネントのコンテキストトークンを自然に継承します。
 - **Shadow DOM 詳細度問題**:
-  Light DOM のグローバルセレクタ（`[slot="heading"]` など）は、Shadow DOM 内の `::slotted(*)` セレクタよりも詳細度が高く、コンポーネント内部 of テーマ/コントラストカラーを上書きしてしまいます。
+  Light DOM のグローバルセレクタ（`[slot="heading"]` など）は、Shadow DOM 内の `::slotted(*)` セレクタよりも詳細度が高く、コンポーネント内部のテーマ/コントラストカラーを上書きしてしまいます。
   - **解決策**: Global CSS (`elements.css` など) 内の slotted 要素用セレクタでは `color: inherit;` を使用し、Shadow DOM 側のスタイルが正しく適用されるようにします。
 - **複数属性による配色の上書き優先順位（詳細度）の問題**:
-  `variant` と `heading`、`surface` のように複数のカスタマイズ属性を組み合わせて適用する場合、セレクタ同士のCSS詳細度が同一（例: `:host([variant="main"][surface="soft"])` と `:host([heading="base"][surface="soft"])`）だと、宣言の順序に依存してスタイルが決定されます。
-  - **解決策**: CSSファイル内での宣言順序を意識し、より特定の目的を持つ属性（例: `heading` 属性）のスタイル定義を必ず汎用的な属性（例: `variant` 属性）よりも**下部（後）に宣言**して、カスケードで上書きされるように制御してください。
-- **レイアウト要素の見出し領域カラー伝播と中間状態変数によるオーバーライド**:
-  レイアウトコンポーネント（`<hd-layout>` など）やコンテナ（`<hd-card>` など）の配色において、見出し領域とボディ領域で異なる配色テーマを適用する場合、`:has(> [slot="heading"])` のような複雑なリレーショナルセレクタによる標準変数の直接上書きは、配下のスロット要素への予期せぬ値のリーク（親スコープからの継承による低コントラスト化）を発生させます。
-  これを防ぐため、グローバルな `*` セレクタ下で中間状態変数（`--hd-heading-*` および `--hd-body-*`）を定義し、Shadow DOM 内ではこれらの中間変数を経由して標準変数（`--hd-background-color`、`--hd-text-color`等）に割り当ててください。
-  - **解決策**:
-    1. グローバル `*` セレクタ（`variables.css`）で基本マッピングを定義します：
-       ```css
-       * {
-         --hd-heading-background-color: var(--hd-solid-background-color);
-         --hd-heading-text-color: var(--hd-solid-text-color);
-         --hd-heading-text-highlight-color: var(--hd-solid-text-highlight-color);
-         --hd-heading-text-muted-color: var(--hd-solid-text-muted-color);
-         --hd-body-background-color: var(--hd-soft-background-color);
-         --hd-body-text-color: var(--hd-soft-text-color);
-         --hd-body-text-highlight-color: var(--hd-soft-text-highlight-color);
-         --hd-body-text-muted-color: var(--hd-soft-text-muted-color);
-       }
-       ```
-    2. `hd-slide` の Shadow DOM（`:host`）で標準変数を `--hd-body-*` にマッピングします：
-       ```css
-       :host {
-         --hd-background-color: var(--hd-body-background-color);
-         --hd-text-color: var(--hd-body-text-color);
-         --hd-text-highlight-color: var(--hd-body-text-highlight-color);
-         --hd-text-muted-color: var(--hd-body-text-muted-color);
-       }
-       ```
-    3. レイアウトコンポーネントの見出し領域（`.heading-area`）では、標準変数を `--hd-heading-*` に再マッピングします：
-       ```css
-       .heading-area {
-         --hd-background-color: var(--hd-heading-background-color);
-         --hd-text-color: var(--hd-heading-text-color);
-         --hd-text-highlight-color: var(--hd-heading-text-highlight-color);
-         --hd-text-muted-color: var(--hd-heading-text-muted-color);
-         
-         background: var(--hd-background-color);
-         color: var(--hd-text-color);
-       }
-       ```
-    4. `hd-card` などのコンテナ型コンポーネントは、`surface` 等の属性に応じてコンポーネント側で `--hd-heading-*` / `--hd-body-*` の設定値のみを切り替えます。これにより、配下の子要素やスロットコンテンツが正しくローカルコンテキストに応じた変数値を参照でき、漏洩やレイアウト崩れを完全に防ぐことができます。
-    5. 境界線の定義ルール：
-       - デフォルトは `--hd-border-color-default` (デフォルト: `var(--hd-heading-background-color)`) を適用。
-       - `surface="soft"` または `solid` が指定された場合は、`--hd-border-color-surfaced` (デフォルト: `var(--hd-heading-text-color)`) で上書き。
-       - テーマ側からは `*` セレクタ下で Relative Color Syntax を用いてこれらをオーバーライド。
-         - 例: `--hd-border-color-default: rgba(from var(--hd-body-text-color) r g b / 0.15);`
+  `variant` と `heading`、`surface` のように複数のカスタマイズ属性を組み合わせて適用する場合、`:host([variant="main"][surface="solid"])` の詳細度は `(0, 2, 0)` であるため、単一属性 `:host([heading="accent"])` `(0, 1, 0)` では上書きできません。
+  - **解決策**: `heading` 属性のオーバーライドルールは必ず `:host([heading="accent"]), :host([heading="accent"][surface="soft"])` および `:host([heading="accent"][surface="solid"])` のように複合セレクタを含め、`variant` 属性ルールよりも**下部（後）に宣言**してカスケードで確実に上書きされるように制御してください。
 
 ---
 

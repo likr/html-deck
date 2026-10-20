@@ -13,7 +13,7 @@ To enable synchronization, you need a main slide deck (`index.html`), a presente
 
 1. **Main Deck (`index.html`)**:
    ```html
-   <hd-deck presenter-url="./presenter.html" aspect-ratio="16:9">
+   <hd-deck presenter-url="./presenter.html" presenter-channel="my-deck" aspect-ratio="16:9">
      <hd-slide>
        <hd-layout>
          <h2 slot="heading">My Title</h2>
@@ -26,7 +26,7 @@ To enable synchronization, you need a main slide deck (`index.html`), a presente
    ```
 
 2. **Presenter View Dashboard (`presenter.html`)**:
-   Create a standard HTML page loading the core presenter scripts:
+   Create a standard HTML page loading the core and presenter scripts and using `<hd-presenter>`:
    ```html
    <!DOCTYPE html>
    <html lang="en">
@@ -39,41 +39,57 @@ To enable synchronization, you need a main slide deck (`index.html`), a presente
      </script>
    </head>
    <body>
-     <!-- Place speaker UI elements -->
-     <hd-presenter-timer></hd-presenter-timer>
-     <hd-presenter-clock></hd-presenter-clock>
-     <hd-presenter-status></hd-presenter-status>
-     <hd-presenter-preview type="current"></hd-presenter-preview>
-     <hd-presenter-preview type="next"></hd-presenter-preview>
-     <hd-presenter-notes></hd-presenter-notes>
-     <hd-presenter-controls></hd-presenter-controls>
+     <hd-presenter presenter-channel="my-deck">
+       <div slot="header">
+         <hd-presenter-logo></hd-presenter-logo>
+         <hd-presenter-status></hd-presenter-status>
+         <hd-presenter-timer></hd-presenter-timer>
+         <hd-presenter-clock></hd-presenter-clock>
+         <hd-presenter-controls></hd-presenter-controls>
+         <hd-presenter-slide-button slide-url="index.html"></hd-presenter-slide-button>
+       </div>
+       <div slot="left">
+         <hd-presenter-card title="Current Slide">
+           <hd-presenter-preview type="current"></hd-presenter-preview>
+         </hd-presenter-card>
+         <hd-presenter-card title="Next Slide Preview">
+           <hd-presenter-preview type="next"></hd-presenter-preview>
+         </hd-presenter-card>
+       </div>
+       <div slot="right">
+         <hd-presenter-card title="Speaker Notes">
+           <hd-presenter-notes></hd-presenter-notes>
+         </hd-presenter-card>
+       </div>
+     </hd-presenter>
    </body>
    </html>
    ```
 
 ### Presenter View Elements
 The following elements are registered when importing `html-deck/presenter`:
+- **`<hd-presenter>`**: Root layout container for the speaker dashboard (slots: `header`, `before`, `left`/default, `right`, `bottom`; attribute: `presenter-channel`).
+- **`<hd-presenter-card>`**: Titled card container for dashboard panels (attributes: `title`, `grow`).
+- **`<hd-presenter-logo>`**: Displays the dashboard brand header.
 - **`<hd-presenter-timer>`**: Stopwatch counting elapsed time since loading. Clicking it resets to `00:00:00`.
 - **`<hd-presenter-clock>`**: Digital clock showing current system time (`HH:MM:SS`).
 - **`<hd-presenter-status>`**: Index counter of active slides (e.g. `3 / 12`).
-- **`<hd-presenter-preview>`**: Renders scaled previews of slides. Set `type="current"` (active slide) or `type="next"` (upcoming slide preview).
+- **`<hd-presenter-preview>`**: Renders scaled previews of slides with full theme CSS variable synchronization. Set `type="current"` (active slide) or `type="next"` (upcoming slide preview).
 - **`<hd-presenter-notes>`**: Renders the HTML contents of the `slot="notes"` element of the active slide. Defaults to "No notes." if empty.
 - **`<hd-presenter-script>`**: Renders the HTML contents of the `slot="script"` element of the active slide.
 - **`<hd-presenter-controls>`**: Provides navigation buttons (◀ and ▶).
+- **`<hd-presenter-slide-button>`**: Focuses the main presentation window or opens `slide-url` in a new tab/window.
 
 ### CSS Customization
-Presenter elements can be styled using the following variables (prefixed with `--hd-presenter-`):
-- `--hd-presenter-font` (default: monospace / sans-serif)
-- `--hd-presenter-timer-size`, `--hd-presenter-timer-color`
-- `--hd-presenter-clock-size`
-- `--hd-presenter-status-size`
-- `--hd-presenter-preview-size`
-- `--hd-presenter-notes-size`
-- `--hd-presenter-script-size`
-- `--hd-presenter-btn-bg`, `--hd-presenter-btn-hover-bg`
+Presenter elements can be styled using variables prefixed with `--hd-presenter-` under `:root`:
+- `--hd-presenter-font`, `--hd-presenter-background-color`, `--hd-presenter-panel-background-color`, `--hd-presenter-text-color`, `--hd-presenter-text-muted-color`
+- `--hd-presenter-primary-color`, `--hd-presenter-primary-hover-color`, `--hd-presenter-accent-color`, `--hd-presenter-border-color`
+- `--hd-presenter-gap`, `--hd-presenter-card-padding`, `--hd-presenter-card-header-background-color`, `--hd-presenter-split-ratio`
+- `--hd-presenter-timer-size`, `--hd-presenter-clock-size`, `--hd-presenter-status-size`, `--hd-presenter-preview-size`, `--hd-presenter-notes-size`, `--hd-presenter-script-size`
+- `--hd-presenter-btn-padding`, `--hd-presenter-btn-font-size`
 
 ### BroadcastChannel Sync Mechanism
-Communication occurs over the native browser `BroadcastChannel` named `hd-deck-channel`. 
+Communication occurs over the native browser `BroadcastChannel` configured by the `presenter-channel` attribute on `<hd-deck>` and `<hd-presenter>` (defaults to `hd-deck-channel`).
 - **Origin constraint**: Because the dashboard and deck communicate in the browser client, they must run on the **same origin** (same domain and port).
 
 ---

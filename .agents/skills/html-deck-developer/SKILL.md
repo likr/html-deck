@@ -39,27 +39,28 @@ To keep the developer skill concise and maintainable, guidelines are organized i
 The project is organized as an **npm workspaces monorepo** under `packages/`:
 
 - **`packages/html-deck/`** — the publishable library package:
-  - `src/components/html-deck/`: Core slide elements (`hd-deck.js`, `hd-slide.js`, etc.).
-  - `src/components/html-deck-presenter/`: Presenter dashboard elements.
-  - `src/html-deck.js`: Main library entry point — imports and dynamically injects core CSS styles as an inline string (`?inline`), and registers all core components.
+  - `src/components/html-deck/`: Core slide elements (`hd-deck.js`, `hd-slide.js`, `hd-layout*.js`, `hd-card.js`, `hd-box.js`, `hd-callout.js`).
+  - `src/components/html-deck-presenter/`: Presenter dashboard elements (`hd-presenter*.js`).
+  - `src/html-deck.js`: Main library entry point — imports and dynamically prepends core CSS styles as an inline string (`?inline`) into `document.head`, and registers all core components.
   - `src/html-deck-presenter.js`: Presenter view entry point.
-  - `src/html-deck.css`: Main CSS entry point that imports all sub-stylesheets from `src/styles/`.
-  - `src/styles/`: Modularized CSS files (e.g., `reset.css`, `variables.css`, `elements.css`, `components.css`, `utilities.css`).
-  - `src/themes/`: Re-located theme files override configurations (e.g., `html-deck.theme-dark.css`, `html-deck.theme-neon.css`, etc.).
-  - `vite.config.js`: Builds `dist/html-deck.js`, `dist/html-deck-presenter.js`, `dist/html-deck.css` using Vite library mode.
-- **`packages/html-deck-demo/`** — private demo/landing page package:
-  - Uses `html-deck` as a workspace dependency.
-  - Built as a multi-page Vite app.
-  - Slides import `html-deck` via `import 'html-deck'`.
-- **`packages/create-html-deck/`** — publishable CLI scaffolding tool.
-- **`packages/slides/`** — private personal slides package.
+  - `src/html-deck.css`: Main CSS entry point that declares `@layer hd-reset, hd-variables, hd-elements, hd-components, hd-utilities;` and imports all sub-stylesheets from `src/styles/`.
+  - `src/styles/`: Modularized CSS files (`reset.css`, `variables.css`, `elements.css`, `components.css`, `utilities.css`).
+  - `src/themes/`: Built-in theme presets (`html-deck.theme-{dark,warm,corporate,neon,serif,dotted,nouveau}.css`).
+  - `vite.config.js`: Builds `dist/html-deck.js`, `dist/html-deck-presenter.js`, and copies `dist/themes/html-deck.theme-*.css` using Vite library mode.
+- **`packages/create-html-deck/`** — publishable CLI scaffolding tool (`npm create html-deck`).
+- **`packages/html-deck-validator/`** — publishable headless Playwright layout and accessibility auditor CLI (`npx html-deck-validator <url>`).
+- **`packages/html-deck-demo/`** — private demo/landing page package (`demo/features/`, `demo/variant-test/`).
+- **`packages/slides/`** — private sample presentations (`slides/introduction/`, `slides/omega/`, `slides/ramen/`).
+- **`tests/`** — automated Playwright E2E test suites (`variant-test.spec.js`, `component-encapsulation.spec.js`) and batch validator runner (`validate-all.js`).
 
-### Build and Development Commands (from the monorepo root):
+### Build, Test, and Development Commands (from the monorepo root):
 ```bash
+npm run build                     # Build all workspace packages
 npm run build -w html-deck        # Build the library dist/
-npm run build -w html-deck-demo   # Build the demo website
 npm run dev -w html-deck-demo     # Dev server for the demo
-npm run dev -w slides             # Dev server for personal slides
+npm run dev -w slides             # Dev server for sample slides
+npm test                          # Run Playwright E2E verification suite (71 tests across 8 themes)
+npm run validate                  # Run html-deck-validator across all demos and sample decks (20 targets)
 ```
 
 - **Conditional Exports Rule**: The library's `package.json` maps `exports` dynamically. The `"development"` condition points to `./src/` files, while the `"default"` condition points to `./dist/` files. This lets Vite resolve source files automatically during development, removing the need for any custom `resolve.alias` configs in consumer workspaces.

@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 import { THEMES, applyTheme } from './helpers/theme-helper.js';
 import { BROWSER_COLOR_HELPERS, getContrastRatio } from './helpers/color-utils.js';
 
-test.describe('Challenger M2 Adversarial Verification Suite', () => {
+test.describe('Component Encapsulation & Token Bridging Suite', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/demo/variant-test/index.html');
     await page.waitForSelector('hd-deck', { state: 'attached' });
