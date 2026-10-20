@@ -1,6 +1,6 @@
 export class HdPresenterSlideButton extends HTMLElement {
   static get observedAttributes() {
-    return ['slide-url'];
+    return [];
   }
 
   constructor() {
@@ -38,9 +38,7 @@ export class HdPresenterSlideButton extends HTMLElement {
         <slot>Show Slides</slot>
       </button>
     `;
-  }
 
-  connectedCallback() {
     this.shadowRoot.getElementById('btn-el').addEventListener('click', () => {
       if (window.opener && !window.opener.closed) {
         window.opener.focus();

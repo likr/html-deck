@@ -22,6 +22,7 @@
     "html"
   ],
   "type": "module",
+  "sideEffects": true,
   "main": "dist/html-deck.js",
   "module": "dist/html-deck.js",
   "exports": {
@@ -29,23 +30,17 @@
       "development": "./src/html-deck.js",
       "default": "./dist/html-deck.js"
     },
-    "./css": {
-      "development": "./src/html-deck.css",
-      "default": "./dist/html-deck.css"
-    },
-    "./theme-corporate": "./src/themes/html-deck.theme-corporate.css",
-    "./theme-dark": "./src/themes/html-deck.theme-dark.css",
-    "./theme-dotted": "./src/themes/html-deck.theme-dotted.css",
-    "./theme-neon": "./src/themes/html-deck.theme-neon.css",
-    "./theme-serif": "./src/themes/html-deck.theme-serif.css",
-    "./theme-warm": "./src/themes/html-deck.theme-warm.css",
+    "./theme-corporate": "./dist/themes/html-deck.theme-corporate.css",
+    "./theme-dark": "./dist/themes/html-deck.theme-dark.css",
+    "./theme-dotted": "./dist/themes/html-deck.theme-dotted.css",
+    "./theme-neon": "./dist/themes/html-deck.theme-neon.css",
+    "./theme-nouveau": "./dist/themes/html-deck.theme-nouveau.css",
+    "./theme-serif": "./dist/themes/html-deck.theme-serif.css",
+    "./theme-warm": "./dist/themes/html-deck.theme-warm.css",
+    "./themes/*": "./dist/themes/*",
     "./presenter": {
       "development": "./src/html-deck-presenter.js",
       "default": "./dist/html-deck-presenter.js"
-    },
-    "./presenter/css": {
-      "development": "./src/html-deck-presenter.css",
-      "default": "./dist/html-deck-presenter.css"
     }
   },
   "files": [

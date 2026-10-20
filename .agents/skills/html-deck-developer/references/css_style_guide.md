@@ -6,7 +6,7 @@
 
 ## 1. CSS変数 (Custom Properties) の定義と参照ルール (最重要)
 - **定義時のデフォルト値設定**:
-  すべてのプレゼンテーション用CSS変数は、[variables.css](file:///home/likr/work/likr/html-deck/packages/html-deck/src/styles/variables.css) の `:root` セレクタ下など、適切な定義場所で**明示的にデフォルト値（初期値）を設定して定義**しなければなりません。
+  すべてのプレゼンテーション用CSS変数は、[variables.css](file:///home/likr/html-deck/packages/html-deck/src/styles/variables.css) の `:root` セレクタ下など、適切な定義場所で**明示的にデフォルト値（初期値）を設定して定義**しなければなりません。
 - **参照時のフォールバック値使用禁止**:
   Shadow DOM 内のスタイルシートやコンポーネント、その他すべての場所でCSS変数を参照する際、`var(--hd-name)` のように直接変数名のみで参照し、**フォールバック値（第2引数）をインラインで指定してはなりません**。
   - ❌ 誤り: `color: var(--hd-primary-color, #0076ff);`
@@ -45,13 +45,13 @@
 スタイルの定義は、その役割に応じて適切なファイル（場所）で行わなければなりません。
 
 1. **標準HTMLのベースライン/グローバルリセット**:
-   - [reset.css](file:///home/likr/work/likr/html-deck/packages/html-deck/src/styles/reset.css) で行います。ワイルドカードの `box-sizing` ルール、マージン・パディングの初期リセット、メディアタグのブロック表示などが該当します。
+   - [reset.css](file:///home/likr/html-deck/packages/html-deck/src/styles/reset.css) で行います。ワイルドカードの `box-sizing` ルール、マージン・パディングの初期リセット、メディアタグのブロック表示などが該当します。
 2. **パブリックなグローバルCSS変数**:
-   - [variables.css](file:///home/likr/work/likr/html-deck/packages/html-deck/src/styles/variables.css) の `:root` セレクタ下で一括定義します。テーマ切り替えのベースとなる変数やフォント定義がこれに該当します。
+   - [variables.css](file:///home/likr/html-deck/packages/html-deck/src/styles/variables.css) の `:root` セレクタ下で一括定義します。テーマ切り替えのベースとなる変数やフォント定義がこれに該当します。
 3. **標準HTML要素のスタイルおよびスロットスルーのデフォルト**:
-   - [elements.css](file:///home/likr/work/likr/html-deck/packages/html-deck/src/styles/elements.css) で行います。スロットされた要素の `color: inherit` 設定や、セマンティックなマークアップのベースが含まれます。
+   - [elements.css](file:///home/likr/html-deck/packages/html-deck/src/styles/elements.css) で行います。スロットされた要素の `color: inherit` 設定や、セマンティックなマークアップのベースが含まれます。
 4. **レイアウトやマークアップの補助ユーティリティ**:
-   - [utilities.css](file:///home/likr/work/likr/html-deck/packages/html-deck/src/styles/utilities.css) または [components.css](file:///home/likr/work/likr/html-deck/packages/html-deck/src/styles/components.css) で行います。
+   - [utilities.css](file:///home/likr/html-deck/packages/html-deck/src/styles/utilities.css) または [components.css](file:///home/likr/html-deck/packages/html-deck/src/styles/components.css) で行います。
 5. **コンポーネント固有のスタイル**:
    - WebComponent の Shadow DOM スタイルシート（各 JS 内）で定義します。コンポーネントの構造や動作に必要な境界内部 of スタイルです。
     - **注意**: レイアウトコンポーネントにおいては、`:host` に対して直接 padding を設定することは避け、必ず `.layout-content` や `.cover-content` などの内部ラッパーに対して設定変数（`--hd-layout-body-padding` や `--hd-layout-cover-padding`）を介して padding を適用してください。

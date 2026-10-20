@@ -10,7 +10,7 @@ if (typeof document !== 'undefined') {
         const style = document.createElement('style');
         style.id = styleId;
         style.textContent = cssText;
-        document.head.appendChild(style);
+        document.head.prepend(style);
     }
 }
 

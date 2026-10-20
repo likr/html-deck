@@ -126,7 +126,7 @@ Presentations operate on rigid aspect-ratio canvasses (e.g., `16:9`). Use the fo
 To ensure slide decks conform to spacing guidelines and are accessible, authors can run the automated validation tool via `npx` against their running slideshow server:
 
 ```bash
-npx html-deck-audit <url>
+npx html-deck-validator <url>
 ```
 
 This tool audits all slides inside the presentation for three categories of issues:

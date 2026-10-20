@@ -1,7 +1,6 @@
 /* components.css - HTML-Deck custom elements and components styling */
 
-
-
+@layer hd-components {
 /* Standard Table Styling (for un-encapsulated tables in slides) */
 hd-slide table {
   width: 100%;
@@ -45,16 +44,16 @@ hd-slide th {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--hd-scrollbar-track-bg);
+  background: var(--hd-scrollbar-track-background-color);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--hd-scrollbar-thumb-bg);
+  background: var(--hd-scrollbar-thumb-background-color);
   border-radius: var(--hd-scrollbar-thumb-radius);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--hd-scrollbar-thumb-hover-bg);
+  background: var(--hd-scrollbar-thumb-hover-background-color);
 }
 
 /* Margin Resets for Last Children */
@@ -98,4 +97,9 @@ hd-box {
 hd-callout {
   margin-bottom: var(--hd-callout-margin-bottom);
   padding: var(--hd-callout-padding);
+}
+
+hd-layout-grid > *:not([slot="before"]):not([slot="after"]):not([slot="heading"]) {
+  margin-bottom: 0 !important;
+}
 }

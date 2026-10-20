@@ -7,86 +7,11 @@
   --hd-body-font: var(--hd-font-family);
   --hd-heading-font: 'Playfair Display', Georgia, serif;
 
-  /* ========================================================
-     BASE THEME (Standard/Neutral) - Warm Cream Paper & Ink Black
-     ======================================================== */
-  /* Soft Surface (Slide default) */
-  --hd-base-soft-background-color: #faf8f5;
-  --hd-base-soft-text-color: #1c1917;
-  --hd-base-soft-text-highlight-color: #5c1d1d; /* Burgundy highlight */
-  --hd-base-soft-text-muted-color: #78716c; /* Stone gray */
-
-  /* Solid Surface (Medium bg / Dark text) */
-  --hd-base-solid-background-color: #f2ede4; /* Slightly darker warm paper */
-  --hd-base-solid-text-color: #1c1917;
-  --hd-base-solid-text-highlight-color: #5c1d1d;
-  --hd-base-solid-text-muted-color: #78716c;
-
-  /* Soft Surface Inverted (Deep Ink / Cream text) */
-  --hd-base-soft-background-color-inverted: #1c1917;
-  --hd-base-soft-text-color-inverted: #faf8f5;
-  --hd-base-soft-text-highlight-color-inverted: #f59e0b; /* Bright Amber Gold */
-  --hd-base-soft-text-muted-color-inverted: #a8a29e; /* Muted Warm Gray */
-
-  /* Solid Surface Inverted (Slightly lighter ink bg) */
-  --hd-base-solid-background-color-inverted: #292524;
-  --hd-base-solid-text-color-inverted: #faf8f5;
-  --hd-base-solid-text-highlight-color-inverted: #f59e0b;
-  --hd-base-solid-text-muted-color-inverted: #a8a29e;
-
-  /* ========================================================
-     MAIN THEME (Brand Burgundy) - Rich Wine Red
-     ======================================================== */
-  /* Soft Surface */
-  --hd-main-soft-background-color: #f5ebeb; /* Rose cream tint */
-  --hd-main-soft-text-color: #5c1d1d; /* Deep Burgundy */
-  --hd-main-soft-text-highlight-color: #5c1d1d; /* Burgundy highlight */
-  --hd-main-soft-text-muted-color: #8a4f4f;
-
-  /* Solid Surface */
-  --hd-main-solid-background-color: #5c1d1d;
-  --hd-main-solid-text-color: #faf8f5;
-  --hd-main-solid-text-highlight-color: #f59e0b;
-  --hd-main-solid-text-muted-color: #cca7a7;
-
-  /* Soft Surface Inverted */
-  --hd-main-soft-background-color-inverted: #3a1010;
-  --hd-main-soft-text-color-inverted: #faf8f5;
-  --hd-main-soft-text-highlight-color-inverted: #f59e0b;
-  --hd-main-soft-text-muted-color-inverted: #c89f9f;
-
-  /* Solid Surface Inverted */
-  --hd-main-solid-background-color-inverted: #faf8f5;
-  --hd-main-solid-text-color-inverted: #5c1d1d;
-  --hd-main-solid-text-highlight-color-inverted: #5c1d1d;
-  --hd-main-solid-text-muted-color-inverted: #8a4f4f;
-
-  /* ========================================================
-     ACCENT THEME (Brand Gold) - Antique Gold
-     ======================================================== */
-  /* Soft Surface */
-  --hd-accent-soft-background-color: #fbf7eb; /* Soft gold tint */
-  --hd-accent-soft-text-color: #855b13; /* Antique Gold */
-  --hd-accent-soft-text-highlight-color: #5c1d1d;
-  --hd-accent-soft-text-muted-color: #7c5512;
-
-  /* Solid Surface */
-  --hd-accent-solid-background-color: #946617;
-  --hd-accent-solid-text-color: #faf8f5;
-  --hd-accent-solid-text-highlight-color: #5c1d1d;
-  --hd-accent-solid-text-muted-color: #e5c895;
-
-  /* Soft Surface Inverted */
-  --hd-accent-soft-background-color-inverted: #4c3209;
-  --hd-accent-soft-text-color-inverted: #faf8f5;
-  --hd-accent-soft-text-highlight-color-inverted: #fbbf24;
-  --hd-accent-soft-text-muted-color-inverted: #c6a36f;
-
-  /* Solid Surface Inverted */
-  --hd-accent-solid-background-color-inverted: #faf8f5;
-  --hd-accent-solid-text-color-inverted: #855b13;
-  --hd-accent-solid-text-highlight-color-inverted: #5c1d1d;
-  --hd-accent-solid-text-muted-color-inverted: #8a4f4f;
+  /* --- 4-Color Palette base variables --- */
+  --hd-theme-background-color: #faf8f5;
+  --hd-theme-text-color: #1c1917;
+  --hd-theme-main-color: #5c1d1d;
+  --hd-theme-accent-color: #855b13;
 
   /* ========================================================
      EDITORIAL DESIGN OVERRIDES & COMPONENTS
@@ -102,7 +27,7 @@
   --hd-size-3: 20px;
   --hd-size-4: 16px;
   --hd-size-5: 13px;
-  --hd-size-6: 10px; /* Reduced from 11px to make header/footer smaller */
+  --hd-size-6: 10px;
 
   /* Spacing & Layout - Academic, refined and dense */
   --hd-gap-1: 6px;
@@ -122,7 +47,7 @@
   --hd-peripheral-offset: 8px;
 
   /* Layout Spacing Configurations (Symmetrical & Compact) */
-  --hd-layout-heading-padding: var(--hd-gap-3) var(--hd-slide-margin-right) var(--hd-gap-3) var(--hd-slide-margin-left); /* Expanded from gap-2 to gap-3 to give heading more breathing room and prevent overlap */
+  --hd-layout-heading-padding: var(--hd-gap-3) var(--hd-slide-margin-right) var(--hd-gap-3) var(--hd-slide-margin-left);
   --hd-layout-body-padding: var(--hd-gap-3) var(--hd-slide-margin-right) var(--hd-gap-3) var(--hd-slide-margin-left);
   --hd-layout-cover-padding: var(--hd-gap-4) var(--hd-slide-margin-right) var(--hd-gap-4) var(--hd-slide-margin-left);
   --hd-layout-heading-margin: var(--hd-gap-3);
@@ -132,6 +57,7 @@
   /* Heading Dividers - Thin, elegant hairline accent color divider */
   --hd-layout-heading-divider-display: block;
   --hd-layout-heading-divider-height: 1px;
+  --hd-layout-heading-divider-background: var(--hd-theme-accent-color);
 
   /* Typography Fine-Tuning */
   --hd-text-title-letter-spacing: -0.01em;
@@ -149,46 +75,49 @@
   /* Card Decor: Minimalist Bookplate Style */
   --hd-card-border-width: 1px;
   --hd-card-padding: var(--hd-gap-2);
-  --hd-card-box-shadow: 0 1px 3px rgba(from var(--hd-base-soft-text-color) r g b / 0.02), 0 6px 18px rgba(from var(--hd-base-soft-text-color) r g b / 0.02);
+  --hd-card-box-shadow: 0 1px 3px rgba(from var(--hd-theme-text-color) r g b / 0.02), 0 6px 18px rgba(from var(--hd-theme-text-color) r g b / 0.02);
 
   /* Box Decor */
   --hd-box-border-width: 1px;
   --hd-box-padding: var(--hd-gap-2);
   --hd-box-box-shadow: none;
 
-  /* Callout Decor: Elegant left-border panel with warm paper tint background */
+  /* Callout Decor: Elegant left-border panel */
   --hd-callout-border-width: 0 0 0 3px;
   --hd-callout-padding: var(--hd-gap-1) var(--hd-gap-2);
 
   /* Codeblock Decor */
-  --hd-codeblock-background-color: #1e1b18; /* Vintage dark charcoal tint for code */
-  --hd-codeblock-border-color: rgba(from var(--hd-base-soft-text-color) r g b / 0.15);
+  --hd-codeblock-background-color: #1e1b18;
+  --hd-codeblock-border-color: rgba(from var(--hd-theme-text-color) r g b / 0.15);
   --hd-codeblock-box-shadow: none;
 
   /* Table Decor */
-  --hd-table-border-color: rgba(from var(--hd-base-soft-text-color) r g b / 0.15);
+  --hd-table-border-color: rgba(from var(--hd-theme-text-color) r g b / 0.15);
   --hd-table-cell-padding: var(--hd-gap-1) var(--hd-gap-2);
 
   /* Blockquote Decor */
   --hd-blockquote-border-width: 3px;
   --hd-blockquote-border-style: solid;
-  --hd-blockquote-border-color: var(--hd-border-color);
+  --hd-blockquote-border-color: var(--hd-theme-accent-color);
   --hd-blockquote-padding-top: 4px;
   --hd-blockquote-padding-right: 0px;
   --hd-blockquote-padding-bottom: 4px;
   --hd-blockquote-padding-left: var(--hd-gap-2);
 
   /* Image Decor */
-  --hd-img-border-color: rgba(from var(--hd-base-soft-text-color) r g b / 0.12);
-  --hd-img-box-shadow: 0 6px 20px rgba(from var(--hd-base-soft-text-color) r g b / 0.04);
+  --hd-img-border-color: rgba(from var(--hd-theme-text-color) r g b / 0.12);
+  --hd-img-box-shadow: 0 6px 20px rgba(from var(--hd-theme-text-color) r g b / 0.04);
 
   /* Scrollbars thumbs */
-  --hd-scrollbar-track-bg: transparent;
-  --hd-scrollbar-thumb-bg: rgba(from var(--hd-base-soft-text-color) r g b / 0.12);
-  --hd-scrollbar-thumb-hover-bg: rgba(from var(--hd-base-soft-text-color) r g b / 0.25);
+  --hd-scrollbar-track-background-color: transparent;
+  --hd-scrollbar-thumb-background-color: rgba(from var(--hd-theme-text-color) r g b / 0.12);
+  --hd-scrollbar-thumb-hover-background-color: rgba(from var(--hd-theme-text-color) r g b / 0.25);
+
+  --hd-border-color-default: rgba(from var(--hd-theme-text-color) r g b / 0.15);
+  --hd-border-color-surfaced: rgba(from var(--hd-theme-text-color) r g b / 0.3);
+
+  /* Accent Solid Overrides for WCAG AA */
+  --hd-accent-solid-heading-text-highlight-color: #fef08a;
+  --hd-accent-solid-body-text-highlight-color: #fef08a;
 }
 
-* {
-  --hd-border-color-default: rgba(from var(--hd-body-text-color) r g b / 0.15);
-  --hd-border-color-surfaced: rgba(from var(--hd-body-text-color) r g b / 0.3);
-}

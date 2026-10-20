@@ -11,10 +11,53 @@ export class HdLayoutCover extends HTMLElement {
           width: 100%;
           box-sizing: border-box;
 
-          /* Variables propagation and re-mapping for slotted cover elements */
-          --hd-text-title-color: var(--hd-body-text-color);
-          --hd-text-subheading-color: var(--hd-body-text-muted-color);
-          --hd-text-caption-color: var(--hd-body-text-muted-color);
+          /* Inherit context tokens from parent slide */
+          --hd-text-title-color: var(--hd-text-color);
+          --hd-text-subheading-color: var(--hd-text-muted-color);
+          --hd-text-caption-color: var(--hd-text-muted-color);
+        }
+
+        /* Variant & surface overrides on hd-layout-cover */
+        :host([variant="base"]),
+        :host([variant="base"][surface="soft"]) {
+          --hd-text-title-color: var(--hd-base-soft-body-text-color);
+          --hd-text-subheading-color: var(--hd-base-soft-body-text-muted-color);
+          --hd-text-caption-color: var(--hd-base-soft-body-text-muted-color);
+        }
+        :host([variant="base"][surface="solid"]) {
+          background: var(--hd-base-solid-body-background-color);
+          --hd-text-title-color: var(--hd-base-solid-body-text-color);
+          --hd-text-subheading-color: var(--hd-base-solid-body-text-muted-color);
+          --hd-text-caption-color: var(--hd-base-solid-body-text-muted-color);
+        }
+        :host([variant="main"]),
+        :host([variant="main"][surface="soft"]) {
+          --hd-text-title-color: var(--hd-main-soft-body-text-color);
+          --hd-text-subheading-color: var(--hd-main-soft-body-text-muted-color);
+          --hd-text-caption-color: var(--hd-main-soft-body-text-muted-color);
+        }
+        :host([variant="main"][surface="solid"]) {
+          background: var(--hd-main-solid-body-background-color);
+          --hd-text-title-color: var(--hd-main-solid-body-text-color);
+          --hd-text-subheading-color: var(--hd-main-solid-body-text-muted-color);
+          --hd-text-caption-color: var(--hd-main-solid-body-text-muted-color);
+        }
+        :host([variant="accent"]),
+        :host([variant="accent"][surface="soft"]) {
+          --hd-text-title-color: var(--hd-accent-soft-body-text-color);
+          --hd-text-subheading-color: var(--hd-accent-soft-body-text-muted-color);
+          --hd-text-caption-color: var(--hd-accent-soft-body-text-muted-color);
+        }
+        :host([variant="accent"][surface="solid"]) {
+          background: var(--hd-accent-solid-body-background-color);
+          --hd-text-title-color: var(--hd-accent-solid-body-text-color);
+          --hd-text-subheading-color: var(--hd-accent-solid-body-text-muted-color);
+          --hd-text-caption-color: var(--hd-accent-solid-body-text-muted-color);
+        }
+        :host([surface="solid"]) {
+          --hd-text-title-color: var(--hd-slide-body-text-color);
+          --hd-text-subheading-color: var(--hd-slide-body-text-muted-color);
+          --hd-text-caption-color: var(--hd-slide-body-text-muted-color);
         }
         .cover-content {
           display: flex;

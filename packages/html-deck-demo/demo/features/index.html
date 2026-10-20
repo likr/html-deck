@@ -24,6 +24,7 @@
     import themeSerif from 'html-deck/theme-serif?url';
     import themeNeon from 'html-deck/theme-neon?url';
     import themeDotted from 'html-deck/theme-dotted?url';
+    import themeNouveau from 'html-deck/theme-nouveau?url';
 
     window.themeUrls = {
       'theme-dark': themeDark,
@@ -31,53 +32,10 @@
       'theme-corporate': themeCorporate,
       'theme-serif': themeSerif,
       'theme-neon': themeNeon,
-      'theme-dotted': themeDotted
+      'theme-dotted': themeDotted,
+      'theme-nouveau': themeNouveau
     };
   </script>
-
-  <style>
-    #controls-panel {
-      position: fixed;
-      top: 12px;
-      right: 12px;
-      z-index: 9999;
-      background: #ffffff;
-      color: #1e293b;
-      padding: 10px;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      border: 1px solid #e2e8f0;
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      font-family: system-ui, sans-serif;
-      font-size: 11px;
-      font-weight: 600;
-    }
-
-    .control-group {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .control-group label {
-      font-weight: 700;
-      font-size: 9px;
-      text-transform: uppercase;
-      color: #64748b;
-    }
-
-    .control-group select {
-      padding: 4px;
-      border: 1px solid #cbd5e1;
-      border-radius: 4px;
-      font-size: 11px;
-      background: #f8fafc;
-      color: #1e293b;
-      cursor: pointer;
-    }
-  </style>
 
 </head>
 
@@ -95,6 +53,7 @@
         <option value="theme-serif">Serif</option>
         <option value="theme-neon">Neon</option>
         <option value="theme-dotted">Dotted</option>
+        <option value="theme-nouveau">Nouveau</option>
       </select>
     </div>
 
@@ -147,7 +106,7 @@
 
     <!-- Slide 2: Standard Layout -->
     <hd-slide>
-      <div slot="header" class="hd-size-6 hd-muted">Slide Header (Slide Level)</div>
+      <span slot="header" class="hd-size-6 hd-muted">Slide Header (Slide Level)</span>
       <hd-layout>
         <h2 slot="heading">Standard Layout Component</h2>
         <p slot="before" class="hd-muted">Before Slot: Renders directly before the main body area.</p>
@@ -156,7 +115,6 @@
           the canvas borders.</p>
         <p slot="after" class="hd-highlight">After Slot: Positioned directly below the body area.</p>
       </hd-layout>
-      <div slot="footer" class="hd-size-6 hd-muted">Slide Footer (Slide Level)</div>
       <div slot="script">This slide demonstrates the standard layout component. It includes a header, a heading, and before, body, and after slots.</div>
       <div slot="notes">
         <h3>Slide 2: Standard Layout</h3>
@@ -360,18 +318,20 @@
         <h2 slot="heading">Callout Boxes</h2>
         <p>Callouts are styled text blocks with thick left-accent borders to emphasize recommendations, warning alerts,
           or quotes.</p>
-        <hd-callout variant="base">
-          <p class="hd-text-weight-bold">Base Callout</p>
-          <p>This is a callout with base styling.</p>
-        </hd-callout>
-        <hd-callout variant="main">
-          <p class="hd-text-weight-bold">Main Callout</p>
-          <p>Subtle theme color formatting for key highlights.</p>
-        </hd-callout>
-        <hd-callout variant="accent">
-          <p class="hd-text-weight-bold">Accent Callout</p>
-          <p>Draws intense focus for alerts, notes, or warnings.</p>
-        </hd-callout>
+        <hd-layout-grid cols="3" class="hd-mt-3">
+          <hd-callout variant="base">
+            <p class="hd-text-weight-bold">Base Callout</p>
+            <p>This is a callout with base styling.</p>
+          </hd-callout>
+          <hd-callout variant="main">
+            <p class="hd-text-weight-bold">Main Callout</p>
+            <p>Subtle theme color formatting for key highlights.</p>
+          </hd-callout>
+          <hd-callout variant="accent">
+            <p class="hd-text-weight-bold">Accent Callout</p>
+            <p>Draws intense focus for alerts, notes, or warnings.</p>
+          </hd-callout>
+        </hd-layout-grid>
       </hd-layout>
       <div slot="script">This slide shows callout boxes. Callouts emphasize recommendations or warning alerts.</div>
       <div slot="notes">
@@ -384,20 +344,19 @@
     </hd-slide>
 
     <!-- Slide 11: Slide Theme Variations (Variants) -->
-    <hd-slide variant="accent">
-      <div slot="header" class="hd-size-6 hd-muted">Slide Header (Variant: Accent)</div>
+    <hd-slide variant="main">
       <hd-layout>
         <h2 slot="heading">Slide Customization: Variants</h2>
         <p>Slide colors can be configured globally or overridden per-slide using the <code>variant</code> attribute.</p>
-        <p>This slide uses <code>variant="accent"</code>, which switches the body text color and background to the
+        <p>This slide uses <code>variant="main"</code>, which switches the body text color and background to the
           theme's
-          secondary soft color scheme, and the header to the solid theme color.</p>
+          primary soft color scheme, and the header to the solid theme color.</p>
       </hd-layout>
-      <div slot="script">This slide uses the accent variant to switch background and text colors.</div>
+      <div slot="script">This slide uses the main variant to switch background and text colors.</div>
       <div slot="notes">
         <h3>Slide 11: Slide Variants</h3>
         <ul>
-          <li>Demonstrates slide-level variant customization using the &quot;accent&quot; preset.</li>
+          <li>Demonstrates slide-level variant customization using the &quot;main&quot; preset.</li>
           <li>Variant options include base, main, and accent.</li>
         </ul>
       </div>
@@ -405,11 +364,10 @@
 
     <!-- Slide 12: Slide Theme Variations (Surface) -->
     <hd-slide variant="main" surface="solid">
-      <div slot="header" class="hd-size-6 hd-muted">Slide Header (Variant: Main / Surface: Solid)</div>
       <hd-layout>
         <h2 slot="heading">Slide Customization: Surfaces</h2>
-        <p>Fine-tune colors with the <code>surface</code> attribute.</p>
-        <p>This slide is set to <code>variant="main" surface="solid"</code>. This forces both the slide body and
+        <p>Fine-tune colors with the surface attribute.</p>
+        <p>This slide is set to variant="main" surface="solid". This forces both the slide body and
           heading backgrounds to a solid main color scheme.</p>
       </hd-layout>
       <div slot="script">This slide uses a solid main surface to force a solid color scheme on both body and heading.</div>
@@ -440,24 +398,6 @@
       </div>
     </hd-slide>
 
-    <!-- Slide 14: Inverted Slide Override -->
-    <hd-slide variant="base" inverted>
-      <div slot="header" class="hd-size-6 hd-muted">Slide Header (Variant: Base / Inverted)</div>
-      <hd-layout>
-        <h2 slot="heading">Inverted Slide Override</h2>
-        <p>The <code>inverted</code> attribute inverts the slide background and text colors completely.</p>
-        <p>This slide uses <code>variant="base" inverted</code>, which forces the base-soft-inverted color scheme,
-          perfect for section separators.</p>
-      </hd-layout>
-      <div slot="script">This slide uses the inverted attribute to flip text and background colors.</div>
-      <div slot="notes">
-        <h3>Slide 14: Inverted Slides</h3>
-        <ul>
-          <li>Demonstrates the inverted attribute override with variant="base".</li>
-          <li>Ensures high-contrast color flipping.</li>
-        </ul>
-      </div>
-    </hd-slide>
 
     <!-- Slide 15: Typography - Sizes -->
     <hd-slide>
@@ -504,18 +444,22 @@
 
     <!-- Slide 17: Typography - Styles & Transforms -->
     <hd-slide>
-      <hd-layout>
+      <hd-layout-grid cols="2">
         <h2 slot="heading">Typography: Styles & Transforms</h2>
-        <p>Standard decoration and case transformations are supported via helper classes:</p>
-        <p class="hd-mb-0 hd-italic">Italic text: <code>.hd-italic</code></p>
-        <p class="hd-mb-0 hd-underlined">Underlined text: <code>.hd-underlined</code></p>
-        <p class="hd-mb-0 hd-capitalized">capitalized text: <code>.hd-capitalized</code></p>
-        <p class="hd-mb-0 hd-lowercase">LOWERCASE TEXT: <code>.hd-lowercase</code></p>
-        <p class="hd-mb-0 hd-uppercase">uppercase text: <code>.hd-uppercase</code></p>
-        <p class="hd-mb-0 "><s>Strikethrough text</s>: HTML <code>&lt;s&gt;</code> element tag</p>
-        <p class="hd-mb-0">Keyboard inputs: press <kbd>Ctrl</kbd> + <kbd>P</kbd> to print</p>
-        <p class="hd-mb-0">Highlight tag: this is a <mark>highlighted mark</mark> text</p>
-      </hd-layout>
+        <p slot="before" class="hd-muted">Standard decoration and case transformations are supported via helper classes:</p>
+        <div>
+          <p class="hd-mb-2 hd-italic">Italic text: <code>.hd-italic</code></p>
+          <p class="hd-mb-2 hd-underlined">Underlined text: <code>.hd-underlined</code></p>
+          <p class="hd-mb-2 hd-capitalized">capitalized text: <code>.hd-capitalized</code></p>
+          <p class="hd-mb-2 hd-lowercase">LOWERCASE TEXT: <code>.hd-lowercase</code></p>
+        </div>
+        <div>
+          <p class="hd-mb-2 hd-uppercase">uppercase text: <code>.hd-uppercase</code></p>
+          <p class="hd-mb-2"><s>Strikethrough text</s>: HTML <code>&lt;s&gt;</code> element tag</p>
+          <p class="hd-mb-2">Keyboard inputs: press <kbd>Ctrl</kbd> + <kbd>P</kbd></p>
+          <p class="hd-mb-2">Highlight tag: this is a <mark>highlighted mark</mark></p>
+        </div>
+      </hd-layout-grid>
       <div slot="script">This slide verifies text styling and decoration helpers, like italics, underlines, and marks.</div>
       <div slot="notes">
         <h3>Slide 17: Styles &amp; Transforms</h3>
@@ -600,9 +544,9 @@
 
     <!-- Slide 21: Multi-Row Grid Layout -->
     <hd-slide>
-      <hd-layout-grid cols="2" rows="3">
+      <hd-layout-grid cols="3" rows="2">
         <h2 slot="heading">Multi-Row Grid Layout</h2>
-        <p slot="before" class="hd-muted">Demonstrating grid layout with dynamic columns and rows (cols="2" rows="3"):
+        <p slot="before" class="hd-muted">Demonstrating grid layout with dynamic columns and rows (cols="3" rows="2"):
         </p>
         <hd-card>
           <div class="hd-p-2">
@@ -619,25 +563,25 @@
         <hd-card>
           <div class="hd-p-2">
             <p class="hd-text-weight-bold">Grid Cell 3</p>
-            <p>Row 2, Column 1</p>
+            <p>Row 1, Column 3</p>
           </div>
         </hd-card>
         <hd-card>
           <div class="hd-p-2">
             <p class="hd-text-weight-bold">Grid Cell 4</p>
-            <p>Row 2, Column 2</p>
+            <p>Row 2, Column 1</p>
           </div>
         </hd-card>
         <hd-card>
           <div class="hd-p-2">
             <p class="hd-text-weight-bold">Grid Cell 5</p>
-            <p>Row 3, Column 1</p>
+            <p>Row 2, Column 2</p>
           </div>
         </hd-card>
         <hd-card>
           <div class="hd-p-2">
             <p class="hd-text-weight-bold">Grid Cell 6</p>
-            <p>Row 3, Column 2</p>
+            <p>Row 2, Column 3</p>
           </div>
         </hd-card>
       </hd-layout-grid>
@@ -645,7 +589,7 @@
       <div slot="notes">
         <h3>Slide 21: Multi-Row Grid</h3>
         <ul>
-          <li>Uses &lt;hd-layout-grid cols="2" rows="3"&gt;</li>
+          <li>Uses &lt;hd-layout-grid cols="3" rows="2"&gt;</li>
           <li>Demonstrates dynamic grid spacing and sequential slot layout.</li>
         </ul>
       </div>

@@ -23,12 +23,12 @@ At the end of **every** development task you complete on the `html-deck` library
 To keep the developer skill concise and maintainable, guidelines are organized into specific reference files. **Before performing any development task, you MUST read the relevant reference files using the `view_file` tool:**
 
 1. **CSS Design & Coding Styles**
-   - **File**: [css_style_guide.md](file:///home/likr/work/likr/html-deck/.agents/skills/html-deck-developer/references/css_style_guide.md)
+   - **File**: [css_style_guide.md](file:///home/likr/html-deck/.agents/skills/html-deck-developer/references/css_style_guide.md)
    - **When to read**: Whenever you are modifying, refactoring, or creating any CSS stylesheets, CSS variables, utility classes, themes, or inline component styles.
    - **Key contents**: Strict CSS rules (custom properties fallbacks, pixel units principle, styling assignment via configuration variables only, styling definitions locations, and themes rules).
 
 2. **Architectural Decisions & Traps**
-   - **File**: [architectural_decisions.md](file:///home/likr/work/likr/html-deck/.agents/skills/html-deck-developer/references/architectural_decisions.md)
+   - **File**: [architectural_decisions.md](file:///home/likr/html-deck/.agents/skills/html-deck-developer/references/architectural_decisions.md)
    - **When to read**: Whenever you are refactoring components logic, layout scripts, event handling, printing styles, presenter view sync, or resolving scaling and rendering bugs.
    - **Key contents**: Lifecycle timing traps (`connectedCallback`, dynamic rendering), sizing & scaling, padding limitations, printing configurations, presenter synchronization, and custom component patterns.
 
@@ -83,7 +83,7 @@ When developing or executing evaluation tests (e.g. for theme-creation, slide st
 Core developers must verify that style variations, components (e.g. `<hd-layout-cover>`), and styling changes do not break presentation layouts or accessibility. Execute the local auditor script from the monorepo root:
 
 ```bash
-node packages/html-deck-validator/bin/html-deck-audit.js <url>
+node packages/html-deck-validator/bin/html-deck-validator.js <url>
 ```
 
 Ensure that all local modifications (e.g., intermediate variable mapping changes, layout bounds) resolve without generating violations.

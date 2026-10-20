@@ -50,6 +50,14 @@ export class HdPresenterControls extends HTMLElement {
     this.handleChannelChange = this.handleChannelChange.bind(this);
     this.channel = null;
     this.presenter = null;
+
+    // Control buttons event listeners (bound once)
+    this.shadowRoot.getElementById('prev').addEventListener('click', () => {
+      if (this.channel) this.channel.postMessage({ type: 'nav', action: 'prev' });
+    });
+    this.shadowRoot.getElementById('next').addEventListener('click', () => {
+      if (this.channel) this.channel.postMessage({ type: 'nav', action: 'next' });
+    });
   }
 
   setupChannel() {
@@ -68,13 +76,6 @@ export class HdPresenterControls extends HTMLElement {
 
   connectedCallback() {
     this.setupChannel();
-
-    this.shadowRoot.getElementById('prev').addEventListener('click', () => {
-      if (this.channel) this.channel.postMessage({ type: 'nav', action: 'prev' });
-    });
-    this.shadowRoot.getElementById('next').addEventListener('click', () => {
-      if (this.channel) this.channel.postMessage({ type: 'nav', action: 'next' });
-    });
     window.addEventListener('keydown', this.handleKeyDown);
 
     this.presenter = this.closest('hd-presenter');
@@ -96,7 +97,7 @@ export class HdPresenterControls extends HTMLElement {
   }
 
   handleKeyDown(event) {
-    if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName) || document.activeElement.isContentEditable) {
+    if (document.activeElement && (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName) || document.activeElement.isContentEditable)) {
       return;
     }
     if (event.ctrlKey || event.metaKey || event.altKey) {

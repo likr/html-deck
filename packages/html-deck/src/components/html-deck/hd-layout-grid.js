@@ -80,6 +80,9 @@ export class HdLayoutGrid extends HTMLElement {
           align-items: stretch;
           width: 100%;
         }
+        .grid-container ::slotted(*) {
+          margin-bottom: 0 !important;
+        }
       </style>
       <div class="heading-area">
         <slot name="heading"></slot>

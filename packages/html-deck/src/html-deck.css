@@ -1,4 +1,6 @@
 /* html-deck.css - Entry Point for HTML-Deck Stylesheets */
+@layer hd-reset, hd-variables, hd-elements, hd-components, hd-utilities;
+
 @import "./styles/reset.css";
 @import "./styles/variables.css";
 @import "./styles/elements.css";

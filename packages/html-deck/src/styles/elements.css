@@ -1,5 +1,6 @@
 /* elements.css - Scoped HTML tag styling for slides */
 
+@layer hd-elements {
 /* Global base tag defaults - inherit everything by default from their parent container */
 h1, h2, h3, h4, h5, h6,
 p, a, ul, ol, li, blockquote, figcaption, caption {
@@ -43,6 +44,14 @@ hd-slide li {
 
 /* Quote */
 hd-slide blockquote {
+  font-family: var(--hd-blockquote-font-family);
+  color: var(--hd-blockquote-color);
+  font-size: var(--hd-blockquote-font-size);
+  font-weight: var(--hd-blockquote-font-weight);
+  line-height: var(--hd-blockquote-line-height);
+  letter-spacing: var(--hd-blockquote-letter-spacing);
+  text-transform: var(--hd-blockquote-text-transform);
+  text-shadow: var(--hd-blockquote-text-shadow);
   margin: 0 0 var(--hd-blockquote-margin-bottom) 0;
   border-left: var(--hd-blockquote-border-width) var(--hd-blockquote-border-style) var(--hd-blockquote-border-color);
   padding-top: var(--hd-blockquote-padding-top);
@@ -124,6 +133,18 @@ hd-slide li::marker {
   color: var(--hd-list-marker-color, inherit);
 }
 
+hd-slide ul li::marker {
+  content: var(--hd-list-marker-content, normal);
+}
+
+hd-slide ul ul li::marker {
+  content: var(--hd-list-marker-content-2, normal);
+}
+
+hd-slide ul ul ul li::marker {
+  content: var(--hd-list-marker-content-3, normal);
+}
+
 /* Code block container defaults matching the slide theme */
 hd-slide table {
   width: 100%;
@@ -145,25 +166,25 @@ hd-slide pre {
 }
 
 hd-slide code:not(pre code) {
-  background-color: rgba(from var(--hd-text-color) r g b / 0.05);
-  color: var(--hd-text-highlight-color);
+  background-color: var(--hd-code-background-color);
+  color: var(--hd-code-color);
   padding: var(--hd-code-padding);
   border-radius: var(--hd-code-border-radius);
   font-family: var(--hd-code-font-family);
   font-size: var(--hd-code-font-size);
-  border: var(--hd-code-border-width) var(--hd-code-border-style) rgba(from var(--hd-text-color) r g b / 0.08);
+  border: var(--hd-code-border-width) var(--hd-code-border-style) var(--hd-code-border-color);
 }
 
 hd-slide kbd {
-  background-color: rgba(from var(--hd-text-color) r g b / 0.05);
-  color: var(--hd-text-color);
+  background-color: var(--hd-kbd-background-color);
+  color: var(--hd-kbd-color);
   padding: var(--hd-kbd-padding);
   border-radius: var(--hd-kbd-border-radius);
   font-family: var(--hd-kbd-font-family);
   font-size: var(--hd-kbd-font-size);
   border-width: var(--hd-kbd-border-width);
   border-style: var(--hd-kbd-border-style);
-  border-color: rgba(from var(--hd-text-color) r g b / 0.15);
+  border-color: var(--hd-kbd-border-color);
   box-shadow: var(--hd-kbd-box-shadow);
 }
 
@@ -193,4 +214,6 @@ hd-slide [slot="title"]::after {
   animation: var(--hd-layout-heading-suffix-animation, none);
   display: inline-block;
 }
+}
+
 

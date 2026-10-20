@@ -16,6 +16,7 @@ This repository is organized as a monorepo using npm workspaces:
 
 - **packages/html-deck**: Core slideshow library containing WebComponents and CSS presets.
 - **packages/create-html-deck**: CLI generator tool to bootstrap new presentation projects.
+- **packages/html-deck-validator**: Headless Playwright auditor validating contrast, overflow, element overlaps, and CSS compliance across presentation slides.
 - **packages/html-deck-demo**: Interactive tutorial and feature demonstration site.
 - **packages/slides**: A sample presentation deck.
 
@@ -103,7 +104,7 @@ HTML-Deck includes 9 distinct core WebComponents. Here is a brief summary of the
 | Component | Description / Slots |
 | :--- | :--- |
 | `<hd-deck>` | Root container. Manages transitions, aspect ratio scaling, routing, and presenter sync. |
-| `<hd-slide>` | Slide container. Supports active state, inverted theme, centering, and theme variants. |
+| `<hd-slide>` | Slide container. Supports active state, centering, surface options, and theme variants. |
 | `<hd-layout>` | Standard slide layout component (slots: `heading`, `before`, default, `after`). |
 | `<hd-layout-split>` | Two-column layout component with customizable column ratio (attributes: `ratio`, slots: `heading`, `before`, `left`, `right`, `after`). |
 | `<hd-layout-grid>` | Grid layout component that arranges child elements into columns and rows (attributes: `cols`, `rows`, slots: `heading`, `before`, default, `after`). |
@@ -132,10 +133,12 @@ To support all themes, load Google Fonts:
 ### Presets
 1. **Default (Minimalist Clean)**: Slate text on a clean white background.
 2. **Dark Slate** (`html-deck.theme-dark.css`): Slate-900 background with light purple/blue highlights.
-3. **Corporate** (`html-deck.theme-corporate.css`): White background, trust navy blue titles, Inter font.
-4. **Neon Cyberpunk** (`html-deck.theme-neon.css`): Jet black background, glowing cyan outlines, Space Grotesk font.
-5. **Warm Sepia** (`html-deck.theme-warm.css`): Warm Ivory background, espresso brown text, Outfit font.
+3. **Warm Sepia** (`html-deck.theme-warm.css`): Warm Ivory background, espresso brown text, Outfit font.
+4. **Corporate** (`html-deck.theme-corporate.css`): White background, trust navy blue titles, Inter font.
+5. **Neon Cyberpunk** (`html-deck.theme-neon.css`): Jet black background, glowing cyan outlines, Space Grotesk font.
 6. **Serif Academic** (`html-deck.theme-serif.css`): Paper white, Playfair Display headers, Lora body text.
+7. **Dotted Blueprint** (`html-deck.theme-dotted.css`): Blueprint grid dots with technical aesthetics.
+8. **Art Nouveau** (`html-deck.theme-nouveau.css`): Elegant vintage organic curves and tones.
 
 For utility classes and theme creation constraints, see the [packages/html-deck README](packages/html-deck/README.md).
 

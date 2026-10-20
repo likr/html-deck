@@ -36,3 +36,14 @@ ENV/
 .pytest_cache/
 .coverage
 htmlcov/
+
+# Skill workspaces
+*-workspace/
+
+# Test artifacts
+playwright-report/
+test-results/
+.playwright-mcp/
+
+# Teamwork scratch & audit logs
+.agents/teamwork/

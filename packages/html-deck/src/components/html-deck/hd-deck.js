@@ -176,7 +176,7 @@ TEMPLATE.innerHTML = `
 
 export class HdDeck extends HTMLElement {
   static get observedAttributes() {
-    return ['aspect-ratio', 'presenter-url', 'transition', 'hide-page-number', 'presenter-channel', 'enable-speech', 'enable-auto-play', 'auto-play-interval', 'no-controls'];
+    return ['aspect-ratio', 'presenter-url', 'transition', 'hide-page-number', 'presenter-channel'];
   }
 
   constructor() {
@@ -201,11 +201,21 @@ export class HdDeck extends HTMLElement {
     this.handleTouchStart = this.handleTouchStart.bind(this);
     this.handleTouchMove = this.handleTouchMove.bind(this);
     this.handleTouchEnd = this.handleTouchEnd.bind(this);
+    this.handleHashChange = this.handleHashChange.bind(this);
 
     this.touchStartX = 0;
     this.touchStartY = 0;
     this.touchStartTime = 0;
     this.isTouchScrollable = false;
+
+    // Control buttons event listeners (bound once)
+    this.shadowRoot.getElementById('first-btn').addEventListener('click', () => this.first());
+    this.shadowRoot.getElementById('prev-btn').addEventListener('click', () => this.prev());
+    this.shadowRoot.getElementById('next-btn').addEventListener('click', () => this.next());
+    this.shadowRoot.getElementById('speech-btn').addEventListener('click', () => this.toggleSpeech());
+    this.shadowRoot.getElementById('autoplay-btn').addEventListener('click', () => this.toggleAutoPlay());
+    this.shadowRoot.getElementById('fullscreen-btn').addEventListener('click', () => this.toggleFullscreen());
+    this.shadowRoot.getElementById('presenter-btn').addEventListener('click', () => this.openPresenter());
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
@@ -249,6 +259,7 @@ export class HdDeck extends HTMLElement {
 
     // Event listeners
     window.addEventListener('keydown', this.handleKeyDown);
+    window.addEventListener('hashchange', this.handleHashChange);
     this.addEventListener('touchstart', this.handleTouchStart, { passive: true });
     this.addEventListener('touchmove', this.handleTouchMove, { passive: false });
     this.addEventListener('touchend', this.handleTouchEnd, { passive: true });
@@ -268,21 +279,11 @@ export class HdDeck extends HTMLElement {
     this.resizeObserver = new ResizeObserver(this.handleResize);
     this.resizeObserver.observe(this.shadowRoot.querySelector('.deck-wrapper'));
 
-    this.shadowRoot.getElementById('first-btn').addEventListener('click', () => this.first());
-    this.shadowRoot.getElementById('prev-btn').addEventListener('click', () => this.prev());
-    this.shadowRoot.getElementById('next-btn').addEventListener('click', () => this.next());
-    this.shadowRoot.getElementById('speech-btn').addEventListener('click', () => this.toggleSpeech());
-    this.shadowRoot.getElementById('autoplay-btn').addEventListener('click', () => this.toggleAutoPlay());
-    this.shadowRoot.getElementById('fullscreen-btn').addEventListener('click', () => this.toggleFullscreen());
-
     // Show/Hide Presenter button based on presenter-url availability
     const presenterUrl = this.getAttribute('presenter-url');
     const presenterBtn = this.shadowRoot.getElementById('presenter-btn');
-    if (presenterUrl) {
-      presenterBtn.style.display = 'flex';
-      presenterBtn.addEventListener('click', () => this.openPresenter());
-    } else {
-      presenterBtn.style.display = 'none';
+    if (presenterBtn) {
+      presenterBtn.style.display = presenterUrl ? 'flex' : 'none';
     }
 
     // BroadcastChannel sync
@@ -317,6 +318,7 @@ export class HdDeck extends HTMLElement {
 
   disconnectedCallback() {
     window.removeEventListener('keydown', this.handleKeyDown);
+    window.removeEventListener('hashchange', this.handleHashChange);
     this.removeEventListener('touchstart', this.handleTouchStart);
     this.removeEventListener('touchmove', this.handleTouchMove);
     this.removeEventListener('touchend', this.handleTouchEnd);
@@ -346,9 +348,22 @@ export class HdDeck extends HTMLElement {
     }
   }
 
+  handleHashChange() {
+    const hash = window.location.hash;
+    if (hash.startsWith('#slide-')) {
+      const pageNum = parseInt(hash.replace('#slide-', ''), 10);
+      if (!isNaN(pageNum) && pageNum >= 1 && this.slides && pageNum <= this.slides.length) {
+        const targetIndex = pageNum - 1;
+        if (targetIndex !== this.currentIndex) {
+          this.goto(targetIndex);
+        }
+      }
+    }
+  }
+
   handleKeyDown(event) {
     // Ignore keys when typing in inputs/textareas
-    if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName) || document.activeElement.isContentEditable) {
+    if (document.activeElement && (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName) || document.activeElement.isContentEditable)) {
       return;
     }
 
