@@ -1,236 +1,184 @@
-/* html-deck.theme-nouveau.css - Botanical Art Nouveau Theme for HTML-Deck */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Lora:ital,wght@0,400;0,600;1,400&family=Noto+Serif+JP:wght@300;400;600&family=Shippori+Mincho:wght@400;500;600;700&display=swap');
+/* html-deck.theme-nouveau.css - Botanical Art Nouveau & Wisteria Filigree Theme for HTML-Deck */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Serif+JP:wght@400;500;600&family=Shippori+Mincho:wght@600;700;800&display=swap');
 
 :root {
-  /* Fonts & Weights */
-  --hd-font-family: 'Noto Serif JP', 'Lora', Georgia, serif;
-  --hd-heading-font: 'Shippori Mincho', 'Cormorant Garamond', Georgia, serif;
+  /* ==========================================================================
+     Typography (Art Nouveau Classical Serif & Display)
+     ========================================================================== */
+  --hd-font-family: 'Lora', 'Noto Serif JP', Georgia, serif;
+  --hd-font-family-serif: 'Lora', 'Noto Serif JP', Georgia, serif;
   --hd-body-font: var(--hd-font-family);
+  --hd-heading-font: 'Shippori Mincho', 'Cormorant Garamond', Georgia, serif;
 
-  /* --- 4-Color Palette base variables --- */
-  --hd-theme-background-color: #fcf9f2;
-  /* Cream paper */
-  --hd-theme-text-color: #2d2722;
-  /* Charcoal wood */
-  --hd-theme-main-color: #4e5f4b;
-  /* Sage/olive green */
-  --hd-theme-accent-color: #c57863;
-  /* Terracotta clay */
-  --hd-slide-overlay-z-index: -1;
-  /* Push decorative line-art behind slide text/cards */
+  /* Art Nouveau Editorial Scale */
+  --hd-size-1: 56px;
+  --hd-size-2: 36px;
+  --hd-size-3: 22px;
+  --hd-size-4: 18px;
+  --hd-size-5: 15px;
+  --hd-size-6: 13px;
 
-  --hd-nouveau-heading-art: transparent;
-  --hd-slide-body-background-color: var(--hd-theme-background-color);
+  --hd-text-title-letter-spacing: 0.02em;
+  --hd-text-heading-letter-spacing: 0.01em;
+  --hd-text-subheading-letter-spacing: 0.02em;
+  --hd-text-peripheral-font: var(--hd-heading-font);
+  --hd-text-peripheral-letter-spacing: 0.1em;
 
-  /* ========================================================
-     BASE THEME (Standard/Neutral) - Olive & Terracotta
-     ======================================================== */
-  /* Soft Surface (Slide default) */
-  --hd-base-soft-heading-background-color: rgba(from var(--hd-theme-text-color) r g b / 0.15);
-  --hd-base-soft-heading-background: var(--hd-nouveau-heading-art), transparent;
+  /* ==========================================================================
+     4-Color Base Palette (Gilded Silk Parchment, Deep Moss Ink, Absinthe Emerald, Wisteria Amethyst)
+     ========================================================================== */
+  --hd-theme-background-color: #f6f2e6;
+  --hd-theme-text-color: #161e17;
+  --hd-theme-main-color: #1b4332;
+  --hd-theme-accent-color: #6b21a8;
+
+  /* ==========================================================================
+     48-Color Matrix (3 Variants × 2 Surfaces × 2 Regions × 4 Roles)
+     ========================================================================== */
+
+  /* --- Base Variant (Gilded Silk Parchment & Botanical Frame) --- */
+  /* Soft Surface */
+  --hd-base-soft-heading-background-color: color-mix(in srgb, var(--hd-theme-main-color) 10%, var(--hd-theme-background-color));
+  --hd-base-soft-heading-background: linear-gradient(90deg, color-mix(in srgb, var(--hd-theme-main-color) 11%, var(--hd-theme-background-color)) 0%, color-mix(in srgb, var(--hd-theme-accent-color) 8%, var(--hd-theme-background-color)) 100%) var(--hd-base-soft-heading-background-color);
   --hd-base-soft-heading-text-color: var(--hd-theme-text-color);
-  --hd-base-soft-heading-text-highlight-color: hsl(from var(--hd-theme-accent-color) h s 32%);
-  --hd-base-soft-heading-text-muted-color: rgba(from var(--hd-theme-text-color) r g b / 0.65);
+  --hd-base-soft-heading-text-highlight-color: color-mix(in srgb, var(--hd-theme-accent-color) 92%, var(--hd-theme-text-color));
+  --hd-base-soft-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-text-color) 76%, var(--hd-theme-background-color));
 
-  --hd-base-soft-body-background: var(--hd-theme-background-color);
+  --hd-base-soft-body-background-color: var(--hd-theme-background-color);
+  --hd-base-soft-body-background:
+    radial-gradient(circle at 50% 30%, color-mix(in srgb, var(--hd-theme-accent-color) 3%, var(--hd-theme-background-color)) 0%, var(--hd-theme-background-color) 80%) var(--hd-base-soft-body-background-color);
   --hd-base-soft-body-text-color: var(--hd-theme-text-color);
-  --hd-base-soft-body-text-highlight-color: hsl(from var(--hd-theme-accent-color) h s 32%);
-  --hd-base-soft-body-text-muted-color: rgba(from var(--hd-theme-text-color) r g b / 0.65);
+  --hd-base-soft-body-text-highlight-color: var(--hd-base-soft-heading-text-highlight-color);
+  --hd-base-soft-body-text-muted-color: color-mix(in srgb, var(--hd-theme-text-color) 74%, var(--hd-theme-background-color));
 
-  --hd-base-soft-border: var(--hd-base-soft-heading-background-color);
+  --hd-base-soft-border: color-mix(in srgb, var(--hd-theme-main-color) 35%, var(--hd-theme-background-color));
 
-  /* Solid Surface */
-  --hd-base-solid-heading-background-color: color-mix(in srgb, var(--hd-theme-main-color) 8%, var(--hd-theme-background-color));
-  --hd-base-solid-heading-background: var(--hd-nouveau-heading-art), var(--hd-base-solid-heading-background-color);
-  --hd-base-solid-heading-text-color: var(--hd-theme-text-color);
-  --hd-base-solid-heading-text-highlight-color: hsl(from var(--hd-theme-accent-color) h s 32%);
-  --hd-base-solid-heading-text-muted-color: rgba(from var(--hd-theme-text-color) r g b / 0.65);
+  /* Solid Surface (Deep Moss Botanical Panel / Gilded Parchment Text) */
+  --hd-base-solid-heading-background-color: var(--hd-theme-text-color);
+  --hd-base-solid-heading-background: var(--hd-base-solid-heading-background-color);
+  --hd-base-solid-heading-text-color: var(--hd-theme-background-color);
+  --hd-base-solid-heading-text-highlight-color: hsl(from var(--hd-theme-accent-color) h 92% 82%);
+  --hd-base-solid-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-text-color) 24%, var(--hd-theme-background-color));
 
-  --hd-base-solid-body-background: color-mix(in srgb, var(--hd-theme-main-color) 8%, var(--hd-theme-background-color));
-  --hd-base-solid-body-text-color: var(--hd-theme-text-color);
-  --hd-base-solid-body-text-highlight-color: hsl(from var(--hd-theme-accent-color) h s 32%);
-  --hd-base-solid-body-text-muted-color: rgba(from var(--hd-theme-text-color) r g b / 0.65);
+  --hd-base-solid-body-background-color: color-mix(in srgb, var(--hd-theme-text-color) 92%, var(--hd-theme-background-color));
+  --hd-base-solid-body-background: var(--hd-base-solid-body-background-color);
+  --hd-base-solid-body-text-color: var(--hd-base-solid-heading-text-color);
+  --hd-base-solid-body-text-highlight-color: var(--hd-base-solid-heading-text-highlight-color);
+  --hd-base-solid-body-text-muted-color: var(--hd-base-solid-heading-text-muted-color);
 
-  --hd-base-solid-border: var(--hd-base-solid-heading-text-color);
+  --hd-base-solid-border: color-mix(in srgb, var(--hd-theme-main-color) 65%, var(--hd-theme-background-color));
 
-
-
-  /* ========================================================
-     MAIN THEME (Brand Olive)
-     ======================================================== */
+  /* --- Main Variant (Botanical Absinthe Emerald) --- */
   /* Soft Surface */
   --hd-main-soft-heading-background-color: var(--hd-theme-main-color);
-  --hd-main-soft-heading-background: var(--hd-nouveau-heading-art), var(--hd-main-soft-heading-background-color);
+  --hd-main-soft-heading-background: var(--hd-main-soft-heading-background-color);
   --hd-main-soft-heading-text-color: var(--hd-theme-background-color);
-  --hd-main-soft-heading-text-highlight-color: #ffd8cc;
-  --hd-main-soft-heading-text-muted-color: rgba(from var(--hd-theme-background-color) r g b / 0.85);
+  --hd-main-soft-heading-text-highlight-color: hsl(from var(--hd-theme-accent-color) h 92% 83%);
+  --hd-main-soft-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-main-color) 20%, var(--hd-theme-background-color));
 
-  --hd-main-soft-body-background: color-mix(in srgb, var(--hd-theme-main-color) 8%, var(--hd-theme-background-color));
-  --hd-main-soft-body-text-color: color-mix(in srgb, var(--hd-theme-main-color) 65%, var(--hd-theme-text-color));
-  --hd-main-soft-body-text-highlight-color: hsl(from var(--hd-theme-accent-color) h s 30%);
-  --hd-main-soft-body-text-muted-color: rgba(from var(--hd-main-soft-body-text-color) r g b / 0.65);
+  --hd-main-soft-body-background-color: color-mix(in srgb, var(--hd-theme-main-color) 8%, var(--hd-theme-background-color));
+  --hd-main-soft-body-background: var(--hd-main-soft-body-background-color);
+  --hd-main-soft-body-text-color: var(--hd-theme-text-color);
+  --hd-main-soft-body-text-highlight-color: color-mix(in srgb, var(--hd-theme-accent-color) 90%, var(--hd-theme-text-color));
+  --hd-main-soft-body-text-muted-color: color-mix(in srgb, color-mix(in srgb, var(--hd-theme-text-color) 65%, var(--hd-theme-main-color)) 72%, var(--hd-theme-background-color));
 
-  --hd-main-soft-border: var(--hd-main-soft-heading-background-color);
+  --hd-main-soft-border: color-mix(in srgb, var(--hd-theme-main-color) 45%, var(--hd-theme-background-color));
 
   /* Solid Surface */
-  --hd-main-solid-heading-background-color: var(--hd-theme-main-color);
-  --hd-main-solid-heading-background: var(--hd-nouveau-heading-art), var(--hd-main-solid-heading-background-color);
+  --hd-main-solid-heading-background-color: color-mix(in srgb, var(--hd-theme-main-color) 80%, var(--hd-theme-text-color));
+  --hd-main-solid-heading-background: var(--hd-main-solid-heading-background-color);
   --hd-main-solid-heading-text-color: var(--hd-theme-background-color);
-  --hd-main-solid-heading-text-highlight-color: #ffd8cc;
-  --hd-main-solid-heading-text-muted-color: rgba(from var(--hd-theme-background-color) r g b / 0.85);
+  --hd-main-solid-heading-text-highlight-color: hsl(from var(--hd-theme-accent-color) h 92% 83%);
+  --hd-main-solid-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-main-color) 20%, var(--hd-theme-background-color));
 
-  --hd-main-solid-body-background: var(--hd-theme-main-color);
-  --hd-main-solid-body-text-color: var(--hd-theme-background-color);
-  --hd-main-solid-body-text-highlight-color: #ffd8cc;
-  --hd-main-solid-body-text-muted-color: rgba(from var(--hd-theme-background-color) r g b / 0.85);
+  --hd-main-solid-body-background-color: color-mix(in srgb, var(--hd-theme-main-color) 90%, var(--hd-theme-text-color));
+  --hd-main-solid-body-background: var(--hd-main-solid-body-background-color);
+  --hd-main-solid-body-text-color: var(--hd-main-solid-heading-text-color);
+  --hd-main-solid-body-text-highlight-color: var(--hd-main-solid-heading-text-highlight-color);
+  --hd-main-solid-body-text-muted-color: var(--hd-main-solid-heading-text-muted-color);
 
-  --hd-main-solid-border: var(--hd-main-solid-heading-text-color);
+  --hd-main-solid-border: color-mix(in srgb, var(--hd-theme-main-color) 65%, var(--hd-theme-background-color));
 
-
-
-  /* ========================================================
-     ACCENT THEME (Brand Terracotta)
-     ======================================================== */
+  /* --- Accent Variant (Wisteria Amethyst Purple) --- */
   /* Soft Surface */
-  --hd-accent-soft-heading-background-color: #b05641;
-  --hd-accent-soft-heading-background: var(--hd-nouveau-heading-art), var(--hd-accent-soft-heading-background-color);
+  --hd-accent-soft-heading-background-color: var(--hd-theme-accent-color);
+  --hd-accent-soft-heading-background: var(--hd-accent-soft-heading-background-color);
   --hd-accent-soft-heading-text-color: var(--hd-theme-background-color);
-  --hd-accent-soft-heading-text-highlight-color: #d1dfcd;
-  --hd-accent-soft-heading-text-muted-color: rgba(from var(--hd-theme-background-color) r g b / 0.85);
+  --hd-accent-soft-heading-text-highlight-color: hsl(from var(--hd-theme-main-color) h 85% 78%);
+  --hd-accent-soft-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-accent-color) 18%, var(--hd-theme-background-color));
 
-  --hd-accent-soft-body-background: color-mix(in srgb, var(--hd-theme-accent-color) 8%, var(--hd-theme-background-color));
-  --hd-accent-soft-body-text-color: color-mix(in srgb, var(--hd-theme-accent-color) 65%, var(--hd-theme-text-color));
-  --hd-accent-soft-body-text-highlight-color: hsl(from var(--hd-theme-main-color) h s 28%);
-  --hd-accent-soft-body-text-muted-color: rgba(from var(--hd-accent-soft-body-text-color) r g b / 0.65);
+  --hd-accent-soft-body-background-color: color-mix(in srgb, var(--hd-theme-accent-color) 8%, var(--hd-theme-background-color));
+  --hd-accent-soft-body-background: var(--hd-accent-soft-body-background-color);
+  --hd-accent-soft-body-text-color: var(--hd-theme-text-color);
+  --hd-accent-soft-body-text-highlight-color: hsl(from var(--hd-theme-main-color) h 82% 20%);
+  --hd-accent-soft-body-text-muted-color: color-mix(in srgb, color-mix(in srgb, var(--hd-theme-text-color) 65%, var(--hd-theme-accent-color)) 72%, var(--hd-theme-background-color));
 
-  --hd-accent-soft-border: var(--hd-accent-soft-heading-background-color);
+  --hd-accent-soft-border: color-mix(in srgb, var(--hd-theme-accent-color) 45%, var(--hd-theme-background-color));
 
   /* Solid Surface */
-  --hd-accent-solid-heading-background-color: #8c3622;
-  --hd-accent-solid-heading-background: var(--hd-nouveau-heading-art), var(--hd-accent-solid-heading-background-color);
-  --hd-accent-solid-heading-text-color: #ffffff;
-  --hd-accent-solid-heading-text-highlight-color: #d1dfcd;
-  --hd-accent-solid-heading-text-muted-color: rgba(255, 255, 255, 0.85);
+  --hd-accent-solid-heading-background-color: color-mix(in srgb, var(--hd-theme-accent-color) 76%, var(--hd-theme-text-color));
+  --hd-accent-solid-heading-background: var(--hd-accent-solid-heading-background-color);
+  --hd-accent-solid-heading-text-color: var(--hd-theme-background-color);
+  --hd-accent-solid-heading-text-highlight-color: hsl(from var(--hd-theme-main-color) h 85% 78%);
+  --hd-accent-solid-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-accent-color) 18%, var(--hd-theme-background-color));
 
-  --hd-accent-solid-body-background: var(--hd-accent-solid-heading-background-color);
-  --hd-accent-solid-body-text-color: #ffffff;
-  --hd-accent-solid-body-text-highlight-color: #d1dfcd;
-  --hd-accent-solid-body-text-muted-color: rgba(255, 255, 255, 0.85);
+  --hd-accent-solid-body-background-color: color-mix(in srgb, var(--hd-theme-accent-color) 84%, var(--hd-theme-text-color));
+  --hd-accent-solid-body-background: var(--hd-accent-solid-body-background-color);
+  --hd-accent-solid-body-text-color: var(--hd-accent-solid-heading-text-color);
+  --hd-accent-solid-body-text-highlight-color: var(--hd-accent-solid-heading-text-highlight-color);
+  --hd-accent-solid-body-text-muted-color: var(--hd-accent-solid-heading-text-muted-color);
 
-  --hd-accent-solid-border: var(--hd-accent-solid-heading-text-color);
+  --hd-accent-solid-border: color-mix(in srgb, var(--hd-theme-accent-color) 65%, var(--hd-theme-background-color));
 
+  /* ==========================================================================
+     Theme Visual & Structural Customizations (Art Nouveau Filigree & Botanical Curves)
+     ========================================================================== */
+  /* Outer Perimeter Filigree Frame (inset 5px..8px with compact corner flourishes clear of 20px peripheral text) */
+  --hd-peripheral-offset: 20px;
+  --hd-slide-overlay-background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 960 540' fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='5' y='5' width='950' height='530' stroke='%23b89758' stroke-width='1.5' stroke-opacity='0.75' /%3E%3Crect x='8' y='8' width='944' height='524' stroke='%23b89758' stroke-width='0.8' stroke-opacity='0.55' /%3E%3Cpath d='M 8 28 Q 18 18, 28 8' stroke='%236b21a8' stroke-width='1.6' stroke-opacity='0.7' /%3E%3Ccircle cx='13' cy='13' r='2.8' fill='%236b21a8' fill-opacity='0.7' /%3E%3Cpath d='M 952 28 Q 942 18, 932 8' stroke='%236b21a8' stroke-width='1.6' stroke-opacity='0.7' /%3E%3Ccircle cx='947' cy='13' r='2.8' fill='%236b21a8' fill-opacity='0.7' /%3E%3Cpath d='M 8 512 Q 18 522, 28 532' stroke='%236b21a8' stroke-width='1.6' stroke-opacity='0.7' /%3E%3Ccircle cx='13' cy='527' r='2.8' fill='%236b21a8' fill-opacity='0.7' /%3E%3Cpath d='M 952 512 Q 942 522, 932 532' stroke='%236b21a8' stroke-width='1.6' stroke-opacity='0.7' /%3E%3Ccircle cx='947' cy='527' r='2.8' fill='%236b21a8' fill-opacity='0.7' /%3E%3C/svg%3E") center / 100% 100% no-repeat;
 
-
-  /* ========================================================
-     DESIGN OVERRIDES & ORNAMENTED BACKGROUNDS
-     ======================================================== */
-
-  /* Slide Border - borderless canvas */
-  --hd-slide-border-width: 0px;
-
-  /* Typography Scales */
-  --hd-size-1: 52px;
-  --hd-size-2: 36px;
-  --hd-size-3: 20px;
-  --hd-size-4: 16px;
-  --hd-size-5: 13px;
-  --hd-size-6: 11px;
-
-  /* Typography Weights & Spacing */
-  --hd-text-title-font-weight: var(--hd-font-weight-medium);
-  --hd-text-heading-font-weight: var(--hd-font-weight-medium);
-  --hd-text-subheading-font-weight: var(--hd-font-weight-semibold);
-  --hd-text-body-line-height: 1.55;
-  --hd-text-quote-line-height: 1.5;
-
-  /* Heading Dividers - Thin clay double line simulation or organic stroke */
-  --hd-layout-heading-divider-display: none;
-  --hd-layout-heading-divider-height: 1px;
-  --hd-layout-heading-divider-style: solid;
   --hd-layout-heading-text-align: center;
+  --hd-layout-heading-box-shadow: inset 0 -2px 0 0 rgba(from var(--hd-theme-accent-color) r g b / 0.65);
+  --hd-layout-heading-divider-display: block;
+  --hd-layout-heading-divider-height: 4px;
+  --hd-layout-heading-divider-style: double;
 
-  /* Component Rounding - Soft gentle curves */
-  --hd-card-border-radius: 12px;
-  --hd-box-border-radius: 12px;
-  --hd-callout-border-radius: 8px;
-  --hd-codeblock-border-radius: 8px;
-  --hd-img-border-radius: 10px;
-
-  /* Component Spacing Overrides for high-density layouts */
-  --hd-card-margin-bottom: 8px;
-  --hd-box-margin-bottom: 8px;
-  --hd-callout-margin-bottom: 8px;
-  --hd-list-margin-bottom: 8px;
-  --hd-list-item-margin-bottom: 4px;
-  --hd-layout-heading-margin: 16px;
-  --hd-layout-before-margin: 8px;
-  --hd-layout-after-margin: 8px;
-
-  /* Card and Container styling */
-  --hd-card-border-width: 4px;
+  /* Graceful Art Nouveau Asymmetric Leaf Containers with Double Outlines */
+  --hd-card-border-radius: 20px 4px 20px 4px;
+  --hd-card-border-width: 3px;
   --hd-card-border-style: double;
-  --hd-card-box-shadow: 0 4px 20px rgba(from var(--hd-base-soft-body-text-color) r g b / 0.03), 0 1px 3px rgba(from var(--hd-base-soft-body-text-color) r g b / 0.02);
-  --hd-card-border-radius: 12px;
-  --hd-card-padding: 12px 24px;
+  --hd-card-box-shadow: 0 8px 24px rgba(from var(--hd-theme-main-color) r g b / 0.1);
 
-  --hd-box-border-width: 4px;
+  --hd-box-border-radius: 16px 4px 16px 4px;
+  --hd-box-border-width: 3px;
   --hd-box-border-style: double;
-  --hd-box-box-shadow: none;
-  --hd-box-border-radius: 12px;
-  --hd-box-padding: 12px 24px;
+  --hd-box-box-shadow: 0 8px 24px rgba(from var(--hd-theme-main-color) r g b / 0.1);
 
-  --hd-callout-border-width: 0 0 0 3px;
-  --hd-callout-border-style: solid;
+  --hd-callout-border-radius: 12px 2px 12px 2px;
+  --hd-callout-border-width: 0 0 0 5px;
+  --hd-callout-border-style: double;
+  --hd-badge-border-radius: 12px 2px 12px 2px;
 
-  --hd-codeblock-background-color: #24201d;
-  --hd-codeblock-border-color: rgba(from var(--hd-base-soft-body-text-color) r g b / 0.1);
-  --hd-code-background-color: rgba(from var(--hd-theme-main-color) r g b / 0.08);
-  --hd-code-border-color: rgba(from var(--hd-theme-main-color) r g b / 0.15);
+  --hd-img-border-radius: 16px 4px 16px 4px;
+  --hd-img-border-width: 3px;
+  --hd-img-border-style: double;
+  --hd-img-box-shadow: 0 10px 24px -2px rgba(from var(--hd-theme-text-color) r g b / 0.14);
 
-  --hd-kbd-background-color: var(--hd-theme-background-color);
-  --hd-kbd-border-color: rgba(from var(--hd-theme-text-color) r g b / 0.2);
-
-  /* Table Customizations */
-  --hd-table-border-color: rgba(from var(--hd-base-soft-body-text-color) r g b / 0.1);
-  --hd-table-cell-padding: 12px 16px;
-  --hd-table-header-background-color: rgba(from var(--hd-theme-main-color) r g b / 0.08);
-  --hd-table-header-text-color: var(--hd-theme-main-color);
-  --hd-table-row-striped-background-color: rgba(from var(--hd-theme-main-color) r g b / 0.03);
-
-  /* Lists markers */
+  /* Botanical Floral List Markers */
+  --hd-list-marker-content: "✿ ";
+  --hd-list-marker-content-2: "❀ ";
+  --hd-list-marker-content-3: "♣ ";
   --hd-list-marker-color: var(--hd-theme-accent-color);
-  --hd-list-style-type: circle;
-  --hd-list-marker-content: "✿  ";
-  --hd-list-marker-content-2: "❀  ";
-  --hd-list-marker-content-3: "♣  ";
+  --hd-list-ol-style-type-3: upper-roman;
 
-  /* ========================================================
-     ART NOUVEAU CORNER OVERLAYS (SVG data-urls)
-     ======================================================== */
+  --hd-blockquote-border-style: double;
+  --hd-blockquote-border-width: 4px;
 
-  /* Master corner patterns - Relocated to Bottom-Left & Bottom-Right with bottom 64px offset to prevent footer overlap, plus thin double gold rectangular slide borders */
-  --hd-nouveau-corner-normal:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120' fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M 10 110 Q 10 60, 60 10' stroke='%232d382b' stroke-width='2.2' /%3E%3Cpath d='M 18 110 Q 18 68, 62 20' stroke='%232d382b' stroke-width='1.2' /%3E%3Cpath d='M 10 80 Q 30 70, 45 45' stroke='%232d382b' stroke-width='1.5' /%3E%3Cpath d='M 60 10 C 72 10, 78 18, 75 25 C 72 32, 62 28, 65 20 C 68 15, 72 18, 71 22' stroke='%232d382b' stroke-width='1.5' fill='%23dfa495' /%3E%3Cpath d='M 60 10 C 65 14, 62 22, 65 20' stroke='%232d382b' stroke-width='1.0' /%3E%3Cpath d='M 30 75 C 25 70, 20 75, 22 82 Z' fill='%23c5d8c1' stroke='%232d382b' stroke-width='1.5' /%3E%3Cpath d='M 45 45 C 40 38, 32 42, 36 50 Z' fill='%23c5d8c1' stroke='%232d382b' stroke-width='1.5' /%3E%3Cpath d='M 62 20 C 58 12, 48 16, 52 24 Z' fill='%23c5d8c1' stroke='%232d382b' stroke-width='1.5' /%3E%3Ccircle cx='28' cy='58' r='4' fill='%23dfa495' stroke='%232d382b' stroke-width='1.5' /%3E%3Ccircle cx='48' cy='32' r='4' fill='%23dfa495' stroke='%232d382b' stroke-width='1.5' /%3E%3C/svg%3E") bottom 64px left 16px / 110px 110px no-repeat,
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120' fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M 110 110 Q 110 60, 60 10' stroke='%232d382b' stroke-width='2.2' /%3E%3Cpath d='M 102 110 Q 102 68, 58 20' stroke='%232d382b' stroke-width='1.2' /%3E%3Cpath d='M 110 80 Q 90 70, 75 45' stroke='%232d382b' stroke-width='1.5' /%3E%3Cpath d='M 60 10 C 45 5, 38 18, 52 22 C 60 25, 68 15, 60 10 Z' fill='%23c5d8c1' stroke='%232d382b' stroke-width='1.8' /%3E%3Cpath d='M 56 12 Q 54 18 52 22' stroke='%232d382b' stroke-width='1.0' /%3E%3Cpath d='M 90 75 C 95 70, 100 75, 98 82 Z' fill='%23c5d8c1' stroke='%232d382b' stroke-width='1.5' /%3E%3Cpath d='M 75 45 C 80 38, 88 42, 84 50 Z' fill='%23c5d8c1' stroke='%232d382b' stroke-width='1.5' /%3E%3Cpath d='M 58 20 C 62 12, 72 16, 68 24 Z' fill='%23c5d8c1' stroke='%232d382b' stroke-width='1.5' /%3E%3Ccircle cx='92' cy='58' r='4' fill='%23dfa495' stroke='%232d382b' stroke-width='1.5' /%3E%3Ccircle cx='72' cy='32' r='4' fill='%23dfa495' stroke='%232d382b' stroke-width='1.5' /%3E%3C/svg%3E") bottom 64px right 16px / 110px 110px no-repeat,
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450' fill='none'%3E%3Crect x='16' y='16' width='768' height='418' stroke='%23c5a059' stroke-width='1.5' /%3E%3Crect x='20' y='20' width='760' height='410' stroke='%23c5a059' stroke-width='0.8' /%3E%3C/svg%3E") center / 100% 100% no-repeat;
+  --hd-table-header-border-width: 3px;
 
-  --hd-nouveau-corner-inverse:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120' fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M 10 110 Q 10 60, 60 10' stroke='%23fcf9f2' stroke-width='2.2' /%3E%3Cpath d='M 18 110 Q 18 68, 62 20' stroke='%23fcf9f2' stroke-width='1.2' /%3E%3Cpath d='M 10 80 Q 30 70, 45 45' stroke='%23fcf9f2' stroke-width='1.5' /%3E%3Cpath d='M 60 10 C 72 10, 78 18, 75 25 C 72 32, 62 28, 65 20 C 68 15, 72 18, 71 22' stroke='%23fcf9f2' stroke-width='1.5' fill='%23dfa495' /%3E%3Cpath d='M 60 10 C 65 14, 62 22, 65 20' stroke='%23fcf9f2' stroke-width='1.0' /%3E%3Cpath d='M 30 75 C 25 70, 20 75, 22 82 Z' fill='%23c5d8c1' stroke='%23fcf9f2' stroke-width='1.5' /%3E%3Cpath d='M 45 45 C 40 38, 32 42, 36 50 Z' fill='%23c5d8c1' stroke='%23fcf9f2' stroke-width='1.5' /%3E%3Cpath d='M 62 20 C 58 12, 48 16, 52 24 Z' fill='%23c5d8c1' stroke='%23fcf9f2' stroke-width='1.5' /%3E%3Ccircle cx='28' cy='58' r='4' fill='%23dfa495' stroke='%23fcf9f2' stroke-width='1.5' /%3E%3Ccircle cx='48' cy='32' r='4' fill='%23dfa495' stroke='%23fcf9f2' stroke-width='1.5' /%3E%3C/svg%3E") bottom 64px left 16px / 110px 110px no-repeat,
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120' fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M 110 110 Q 110 60, 60 10' stroke='%23fcf9f2' stroke-width='2.2' /%3E%3Cpath d='M 102 110 Q 102 68, 58 20' stroke='%23fcf9f2' stroke-width='1.2' /%3E%3Cpath d='M 110 80 Q 90 70, 75 45' stroke='%23fcf9f2' stroke-width='1.5' /%3E%3Cpath d='M 60 10 C 45 5, 38 18, 52 22 C 60 25, 68 15, 60 10 Z' fill='%23c5d8c1' stroke='%23fcf9f2' stroke-width='1.8' /%3E%3Cpath d='M 56 12 Q 54 18 52 22' stroke='%23fcf9f2' stroke-width='1.0' /%3E%3Cpath d='M 90 75 C 95 70, 100 75, 98 82 Z' fill='%23c5d8c1' stroke='%23fcf9f2' stroke-width='1.5' /%3E%3Cpath d='M 75 45 C 80 38, 88 42, 84 50 Z' fill='%23c5d8c1' stroke='%23fcf9f2' stroke-width='1.5' /%3E%3Cpath d='M 58 20 C 62 12, 72 16, 68 24 Z' fill='%23c5d8c1' stroke='%23fcf9f2' stroke-width='1.5' /%3E%3Ccircle cx='92' cy='58' r='4' fill='%23dfa495' stroke='%23fcf9f2' stroke-width='1.5' /%3E%3Ccircle cx='72' cy='32' r='4' fill='%23dfa495' stroke='%23fcf9f2' stroke-width='1.5' /%3E%3C/svg%3E") bottom 64px right 16px / 110px 110px no-repeat,
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450' fill='none'%3E%3Crect x='16' y='16' width='768' height='418' stroke='%23fcf9f2' stroke-width='1.5' /%3E%3Crect x='20' y='20' width='760' height='410' stroke='%23fcf9f2' stroke-width='0.8' /%3E%3C/svg%3E") center / 100% 100% no-repeat;
-
-  --hd-nouveau-stamp:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40' fill='none' stroke='%23c5a059' stroke-width='1.5'%3E%3Cpath d='M 0 20 Q 20 20, 20 0'/%3E%3Ccircle cx='10' cy='10' r='3.5' fill='%23dfa495' stroke='none'/%3E%3C/svg%3E") top left / 40px 40px no-repeat,
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40' fill='none' stroke='%23c5a059' stroke-width='1.5'%3E%3Cpath d='M 40 20 Q 20 20, 20 0'/%3E%3Ccircle cx='30' cy='10' r='3.5' fill='%23dfa495' stroke='none'/%3E%3C/svg%3E") top right / 40px 40px no-repeat;
-
-  /* Propagate SVG decorations to all surfaces so that cards, boxes, and slides automatically receive the Art Nouveau stamp */
-  --hd-slide-body-background: var(--hd-nouveau-stamp), var(--hd-slide-body-background-color, var(--hd-theme-background-color));
-
-  --hd-slide-overlay-background: var(--hd-nouveau-corner-normal);
-  --hd-base-soft-overlay-background: var(--hd-nouveau-corner-normal);
-  --hd-base-solid-overlay-background: var(--hd-nouveau-corner-normal);
-  --hd-main-soft-overlay-background: var(--hd-nouveau-corner-normal);
-  --hd-main-solid-overlay-background: var(--hd-nouveau-corner-inverse);
-  --hd-accent-soft-overlay-background: var(--hd-nouveau-corner-normal);
-  --hd-accent-solid-overlay-background: var(--hd-nouveau-corner-inverse);
+  /* Border Fallbacks */
+  --hd-border-color-default: rgba(from var(--hd-theme-main-color) r g b / 0.28);
+  --hd-border-color-surfaced: rgba(from var(--hd-theme-main-color) r g b / 0.5);
 }

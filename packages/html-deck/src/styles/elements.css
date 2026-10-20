@@ -18,7 +18,7 @@ hd-slide img {
   max-width: var(--hd-img-max-width);
   height: var(--hd-img-height);
   border-radius: var(--hd-img-border-radius);
-  border: var(--hd-img-border-width) var(--hd-img-border-style) var(--hd-img-border-color);
+  border: var(--hd-img-border-width) var(--hd-img-border-style) var(--hd-border-color);
   box-shadow: var(--hd-img-box-shadow);
 }
 
@@ -45,7 +45,7 @@ hd-slide li {
 /* Quote */
 hd-slide blockquote {
   font-family: var(--hd-blockquote-font-family);
-  color: var(--hd-blockquote-color);
+  color: var(--hd-text-muted-color);
   font-size: var(--hd-blockquote-font-size);
   font-weight: var(--hd-blockquote-font-weight);
   line-height: var(--hd-blockquote-line-height);
@@ -53,7 +53,7 @@ hd-slide blockquote {
   text-transform: var(--hd-blockquote-text-transform);
   text-shadow: var(--hd-blockquote-text-shadow);
   margin: 0 0 var(--hd-blockquote-margin-bottom) 0;
-  border-left: var(--hd-blockquote-border-width) var(--hd-blockquote-border-style) var(--hd-blockquote-border-color);
+  border-left: var(--hd-blockquote-border-width) var(--hd-blockquote-border-style) var(--hd-border-color);
   padding-top: var(--hd-blockquote-padding-top);
   padding-right: var(--hd-blockquote-padding-right);
   padding-bottom: var(--hd-blockquote-padding-bottom);
@@ -63,7 +63,7 @@ hd-slide blockquote {
 /* Slide components slots */
 hd-slide [slot="title"] {
   font-family: var(--hd-text-title-font);
-  color: var(--hd-text-title-color);
+  color: var(--hd-text-color);
   font-size: var(--hd-text-title-font-size);
   font-weight: var(--hd-text-title-font-weight);
   line-height: var(--hd-text-title-line-height);
@@ -84,7 +84,7 @@ hd-slide [slot="title"] {
 
 [slot="subtitle"] {
   font-family: var(--hd-text-subheading-font);
-  color: var(--hd-text-subheading-color);
+  color: var(--hd-text-muted-color);
   font-size: var(--hd-text-subheading-font-size);
   font-weight: var(--hd-text-subheading-font-weight);
   line-height: var(--hd-text-subheading-line-height);
@@ -95,7 +95,7 @@ hd-slide [slot="title"] {
 
 [slot="meta"] {
   font-family: var(--hd-text-caption-font);
-  color: var(--hd-text-caption-color);
+  color: var(--hd-text-muted-color);
   font-size: var(--hd-text-caption-font-size);
   font-weight: var(--hd-text-caption-font-weight);
   line-height: var(--hd-text-caption-line-height);
@@ -106,43 +106,43 @@ hd-slide [slot="title"] {
 
 /* Nested List Styles */
 hd-slide ul {
-  list-style-type: var(--hd-list-style-type, disc);
+  list-style-type: var(--hd-list-style-type);
 }
 
 hd-slide ul ul {
-  list-style-type: var(--hd-list-style-type-2, circle);
+  list-style-type: var(--hd-list-style-type-2);
 }
 
 hd-slide ul ul ul {
-  list-style-type: var(--hd-list-style-type-3, square);
+  list-style-type: var(--hd-list-style-type-3);
 }
 
 hd-slide ol {
-  list-style-type: var(--hd-list-ol-style-type, decimal);
+  list-style-type: var(--hd-list-ol-style-type);
 }
 
 hd-slide ol ol {
-  list-style-type: var(--hd-list-ol-style-type-2, lower-alpha);
+  list-style-type: var(--hd-list-ol-style-type-2);
 }
 
 hd-slide ol ol ol {
-  list-style-type: var(--hd-list-ol-style-type-3, lower-roman);
+  list-style-type: var(--hd-list-ol-style-type-3);
 }
 
 hd-slide li::marker {
-  color: var(--hd-list-marker-color, inherit);
+  color: var(--hd-text-highlight-color);
 }
 
 hd-slide ul li::marker {
-  content: var(--hd-list-marker-content, normal);
+  content: var(--hd-list-marker-content);
 }
 
 hd-slide ul ul li::marker {
-  content: var(--hd-list-marker-content-2, normal);
+  content: var(--hd-list-marker-content-2);
 }
 
 hd-slide ul ul ul li::marker {
-  content: var(--hd-list-marker-content-3, normal);
+  content: var(--hd-list-marker-content-3);
 }
 
 /* Code block container defaults matching the slide theme */
@@ -158,34 +158,36 @@ hd-slide table {
 hd-slide pre {
   margin: 0 0 var(--hd-pre-margin-bottom) 0;
   padding: var(--hd-pre-padding) !important;
-  border: var(--hd-codeblock-border-width, 1px) solid var(--hd-codeblock-border-color);
-  border-radius: var(--hd-codeblock-border-radius, 8px);
-  background-color: var(--hd-codeblock-background-color, transparent);
-  box-shadow: var(--hd-codeblock-box-shadow, none);
+  border: var(--hd-codeblock-border-width) var(--hd-codeblock-border-style) var(--hd-border-color);
+  border-radius: var(--hd-codeblock-border-radius);
+  background-color: rgba(from var(--hd-text-color) r g b / 0.05);
+  box-shadow: var(--hd-codeblock-box-shadow);
   overflow: auto;
 }
 
 hd-slide code:not(pre code) {
-  background-color: var(--hd-code-background-color);
-  color: var(--hd-code-color);
+  background-color: rgba(from var(--hd-text-color) r g b / 0.08);
+  color: var(--hd-text-highlight-color);
   padding: var(--hd-code-padding);
   border-radius: var(--hd-code-border-radius);
   font-family: var(--hd-code-font-family);
   font-size: var(--hd-code-font-size);
-  border: var(--hd-code-border-width) var(--hd-code-border-style) var(--hd-code-border-color);
+  border: var(--hd-code-border-width) var(--hd-code-border-style) rgba(from var(--hd-border-color) r g b / 0.6);
+  white-space: nowrap;
 }
 
 hd-slide kbd {
-  background-color: var(--hd-kbd-background-color);
-  color: var(--hd-kbd-color);
+  background-color: rgba(from var(--hd-text-color) r g b / 0.08);
+  color: var(--hd-text-color);
   padding: var(--hd-kbd-padding);
   border-radius: var(--hd-kbd-border-radius);
   font-family: var(--hd-kbd-font-family);
   font-size: var(--hd-kbd-font-size);
   border-width: var(--hd-kbd-border-width);
   border-style: var(--hd-kbd-border-style);
-  border-color: var(--hd-kbd-border-color);
+  border-color: var(--hd-border-color);
   box-shadow: var(--hd-kbd-box-shadow);
+  white-space: nowrap;
 }
 
 hd-slide mark {

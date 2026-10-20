@@ -217,8 +217,11 @@ export class HdBox extends HTMLElement {
           text-transform: var(--hd-text-subheading-text-transform) !important;
           text-shadow: var(--hd-text-subheading-text-shadow) !important;
           margin: 0 !important;
+          --hd-background-color: var(--hd-box-heading-background, var(--hd-box-heading-background-color)) !important;
+          --hd-text-color: var(--hd-box-heading-text-color) !important;
           --hd-text-highlight-color: var(--hd-box-heading-text-highlight-color) !important;
           --hd-text-muted-color: var(--hd-box-heading-text-muted-color) !important;
+          --hd-border-color: var(--hd-box-border-color) !important;
         }
 
         .body-container {

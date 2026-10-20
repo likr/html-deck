@@ -44,10 +44,15 @@ export async function applyTheme(page, themeName) {
       if (el.id === 'hd-global-styles' || el.id === 'hd-test-active-theme' || el.id === 'hd-test-color-helpers') {
         continue;
       }
-      if (el.href && el.href.includes('theme-test')) {
-        el.remove();
-      }
-      if (el.textContent && el.textContent.includes('--hd-base-soft-background-color: #ffffff')) {
+      const viteId = el.getAttribute('data-vite-dev-id') || '';
+      if (
+        (el.href && el.href.includes('theme-test')) ||
+        viteId.includes('theme-test') ||
+        (el.textContent && (
+          el.textContent.includes('--hd-base-soft-background-color') ||
+          el.textContent.includes('--hd-base-soft-body-background-color')
+        ))
+      ) {
         el.remove();
       }
     }

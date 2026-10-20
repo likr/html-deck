@@ -7,107 +7,114 @@
     --hd-body-font: var(--hd-font-family);
     --hd-heading-font: var(--hd-font-family);
 
-    /* 48-Color Matrix */
-    /* --- 4-Color Palette base variables --- */
-    --hd-theme-background-color: oklch(1 0 0);
-    --hd-theme-text-color: #111827;
-    --hd-theme-main-color: oklch(0.48 0.19 280);
-    --hd-theme-accent-color: oklch(0.55 0.18 40);
+    /* ==========================================================================
+       48-Color Matrix (3 Variants × 2 Surfaces × 2 Regions × 4 Roles)
+       ========================================================================== */
 
-    /* --- Base Theme (Standard/Neutral) --- */
-    /* Soft Surface (Light bg / Dark text) */
-    --hd-base-soft-heading-background-color: oklch(from var(--hd-theme-background-color) calc(l - 0.1) c h);
+    /* --- 4-Color Palette Base Variables --- */
+    --hd-theme-background-color: #ffffff;
+    --hd-theme-text-color: #0f172a;
+    --hd-theme-main-color: #3730a3;
+    --hd-theme-accent-color: #9a3412;
+
+    /* --- Base Variant (Neutral Slate) --- */
+    /* Soft Surface (Light neutral header / Pure white body / Dark text) */
+    --hd-base-soft-heading-background-color: color-mix(in srgb, var(--hd-theme-text-color) 7%, var(--hd-theme-background-color));
+    --hd-base-soft-heading-background: var(--hd-base-soft-heading-background-color);
     --hd-base-soft-heading-text-color: var(--hd-theme-text-color);
-    --hd-base-soft-heading-text-highlight-color: oklch(from var(--hd-theme-accent-color) calc(l - 0.08) c h);
-    --hd-base-soft-heading-text-muted-color: oklch(from var(--hd-theme-text-color) calc(l + 0.15) c h);
+    --hd-base-soft-heading-text-highlight-color: color-mix(in srgb, var(--hd-theme-accent-color) 85%, var(--hd-theme-text-color));
+    --hd-base-soft-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-text-color) 76%, var(--hd-theme-background-color));
 
     --hd-base-soft-body-background-color: var(--hd-theme-background-color);
+    --hd-base-soft-body-background: var(--hd-base-soft-body-background-color);
     --hd-base-soft-body-text-color: var(--hd-theme-text-color);
     --hd-base-soft-body-text-highlight-color: var(--hd-base-soft-heading-text-highlight-color);
-    --hd-base-soft-body-text-muted-color: var(--hd-base-soft-heading-text-muted-color);
+    --hd-base-soft-body-text-muted-color: color-mix(in srgb, var(--hd-theme-text-color) 74%, var(--hd-theme-background-color));
 
-    --hd-base-soft-border: var(--hd-base-soft-heading-background-color);
+    --hd-base-soft-border: color-mix(in srgb, var(--hd-theme-text-color) 16%, var(--hd-theme-background-color));
 
-    /* Solid Surface (Medium bg / Dark text) */
-    --hd-base-solid-heading-background-color: var(--hd-base-soft-heading-background-color);
-    --hd-base-solid-heading-text-color: var(--hd-base-soft-heading-text-color);
-    --hd-base-solid-heading-text-highlight-color: var(--hd-base-soft-heading-text-highlight-color);
-    --hd-base-solid-heading-text-muted-color: var(--hd-base-soft-heading-text-muted-color);
+    /* Solid Surface (Deep Slate Ink surface / Crisp light text) */
+    --hd-base-solid-heading-background-color: var(--hd-theme-text-color);
+    --hd-base-solid-heading-background: var(--hd-base-solid-heading-background-color);
+    --hd-base-solid-heading-text-color: var(--hd-theme-background-color);
+    --hd-base-solid-heading-text-highlight-color: hsl(from var(--hd-theme-accent-color) h 92% 76%);
+    --hd-base-solid-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-text-color) 24%, var(--hd-theme-background-color));
 
-    --hd-base-solid-body-background-color: var(--hd-base-solid-heading-background-color);
+    --hd-base-solid-body-background-color: color-mix(in srgb, var(--hd-theme-text-color) 92%, var(--hd-theme-background-color));
+    --hd-base-solid-body-background: var(--hd-base-solid-body-background-color);
     --hd-base-solid-body-text-color: var(--hd-base-solid-heading-text-color);
     --hd-base-solid-body-text-highlight-color: var(--hd-base-solid-heading-text-highlight-color);
     --hd-base-solid-body-text-muted-color: var(--hd-base-solid-heading-text-muted-color);
 
-    --hd-base-solid-border: var(--hd-base-solid-heading-text-color);
+    --hd-base-solid-border: color-mix(in srgb, var(--hd-theme-text-color) 65%, var(--hd-theme-background-color));
 
-
-
-    /* --- Main Theme (Indigo) --- */
-    /* Soft Surface (Light bg / Dark text) */
+    /* --- Main Variant (Electric Indigo) --- */
+    /* Soft Surface (Vibrant indigo header / Soft indigo-tinted body) */
     --hd-main-soft-heading-background-color: var(--hd-theme-main-color);
     --hd-main-soft-heading-background: var(--hd-main-soft-heading-background-color);
     --hd-main-soft-heading-text-color: var(--hd-theme-background-color);
-    --hd-main-soft-heading-text-highlight-color: oklch(from var(--hd-theme-accent-color) calc(l + 0.5) c h);
-    --hd-main-soft-heading-text-muted-color: oklch(from var(--hd-theme-main-color) calc(l + 0.4) calc(c * 0.4) h);
+    --hd-main-soft-heading-text-highlight-color: hsl(from var(--hd-theme-accent-color) h 95% 80%);
+    --hd-main-soft-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-main-color) 20%, var(--hd-theme-background-color));
 
-    --hd-main-soft-body-background-color: var(--hd-theme-background-color);
+    --hd-main-soft-body-background-color: color-mix(in srgb, var(--hd-theme-main-color) 6%, var(--hd-theme-background-color));
+    --hd-main-soft-body-background: var(--hd-main-soft-body-background-color);
     --hd-main-soft-body-text-color: var(--hd-theme-text-color);
-    --hd-main-soft-body-text-highlight-color: var(--hd-theme-accent-color);
-    --hd-main-soft-body-text-muted-color: oklch(from var(--hd-theme-text-color) calc(l + 0.25) c h);
+    --hd-main-soft-body-text-highlight-color: color-mix(in srgb, var(--hd-theme-accent-color) 85%, var(--hd-theme-text-color));
+    --hd-main-soft-body-text-muted-color: color-mix(in srgb, color-mix(in srgb, var(--hd-theme-text-color) 65%, var(--hd-theme-main-color)) 70%, var(--hd-theme-background-color));
 
-    --hd-main-soft-border: var(--hd-main-soft-heading-background-color);
+    --hd-main-soft-border: color-mix(in srgb, var(--hd-theme-main-color) 35%, var(--hd-theme-background-color));
 
-    /* Solid Surface (Vibrant bg / Light text) */
-    --hd-main-solid-heading-background-color: var(--hd-theme-main-color);
+    /* Solid Surface (Deep vibrant indigo surface / Light text) */
+    --hd-main-solid-heading-background-color: color-mix(in srgb, var(--hd-theme-main-color) 78%, var(--hd-theme-text-color));
     --hd-main-solid-heading-background: var(--hd-main-solid-heading-background-color);
     --hd-main-solid-heading-text-color: var(--hd-theme-background-color);
-    --hd-main-solid-heading-text-highlight-color: oklch(from var(--hd-theme-accent-color) calc(l + 0.5) calc(c * 0.5) h);
-    --hd-main-solid-heading-text-muted-color: oklch(from var(--hd-theme-main-color) calc(l + 0.5) calc(c * 0.5) h);
+    --hd-main-solid-heading-text-highlight-color: hsl(from var(--hd-theme-accent-color) h 95% 80%);
+    --hd-main-solid-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-main-color) 20%, var(--hd-theme-background-color));
 
-    --hd-main-solid-body-background-color: var(--hd-main-solid-heading-background-color);
+    --hd-main-solid-body-background-color: color-mix(in srgb, var(--hd-theme-main-color) 86%, var(--hd-theme-text-color));
+    --hd-main-solid-body-background: var(--hd-main-solid-body-background-color);
     --hd-main-solid-body-text-color: var(--hd-main-solid-heading-text-color);
     --hd-main-solid-body-text-highlight-color: var(--hd-main-solid-heading-text-highlight-color);
     --hd-main-solid-body-text-muted-color: var(--hd-main-solid-heading-text-muted-color);
 
-    --hd-main-solid-border: var(--hd-main-solid-heading-text-color);
+    --hd-main-solid-border: color-mix(in srgb, var(--hd-theme-main-color) 55%, var(--hd-theme-background-color));
 
-
-
-    /* --- Accent Theme (Orange) --- */
-    /* Soft Surface (Light bg / Dark text) */
-    --hd-accent-soft-heading-background-color: var(--hd-theme-accent-color);
+    /* --- Accent Variant (Warm Burnt Orange) --- */
+    /* Soft Surface (Vibrant orange header / Soft warm-tinted body) */
+    --hd-accent-soft-heading-background-color: color-mix(in srgb, var(--hd-theme-accent-color) 76%, var(--hd-theme-text-color));
     --hd-accent-soft-heading-background: var(--hd-accent-soft-heading-background-color);
     --hd-accent-soft-heading-text-color: var(--hd-theme-background-color);
-    --hd-accent-soft-heading-text-highlight-color: oklch(from var(--hd-theme-main-color) calc(l + 0.5) calc(c * 0.15) h);
-    --hd-accent-soft-heading-text-muted-color: oklch(from var(--hd-theme-background-color) calc(l - 0.02) c h);
+    --hd-accent-soft-heading-text-highlight-color: hsl(from var(--hd-theme-main-color) h 95% 84%);
+    --hd-accent-soft-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-accent-color) 16%, var(--hd-theme-background-color));
 
-    --hd-accent-soft-body-background-color: var(--hd-theme-background-color);
+    --hd-accent-soft-body-background-color: color-mix(in srgb, var(--hd-theme-accent-color) 6%, var(--hd-theme-background-color));
+    --hd-accent-soft-body-background: var(--hd-accent-soft-body-background-color);
     --hd-accent-soft-body-text-color: var(--hd-theme-text-color);
-    --hd-accent-soft-body-text-highlight-color: var(--hd-theme-main-color);
-    --hd-accent-soft-body-text-muted-color: oklch(from var(--hd-theme-text-color) calc(l + 0.20) c h);
+    --hd-accent-soft-body-text-highlight-color: hsl(from var(--hd-theme-main-color) h 75% 36%);
+    --hd-accent-soft-body-text-muted-color: color-mix(in srgb, color-mix(in srgb, var(--hd-theme-text-color) 65%, var(--hd-theme-accent-color)) 70%, var(--hd-theme-background-color));
 
-    --hd-accent-soft-border: var(--hd-accent-soft-heading-background-color);
+    --hd-accent-soft-border: color-mix(in srgb, var(--hd-theme-accent-color) 35%, var(--hd-theme-background-color));
 
-    /* Solid Surface (Vibrant bg / Light text) */
-    --hd-accent-solid-heading-background-color: var(--hd-theme-accent-color);
+    /* Solid Surface (Deep burnt orange surface / Light text) */
+    --hd-accent-solid-heading-background-color: color-mix(in srgb, var(--hd-theme-accent-color) 62%, var(--hd-theme-text-color));
     --hd-accent-solid-heading-background: var(--hd-accent-solid-heading-background-color);
     --hd-accent-solid-heading-text-color: var(--hd-theme-background-color);
-    --hd-accent-solid-heading-text-highlight-color: oklch(from var(--hd-theme-main-color) calc(l + 0.5) calc(c * 0.15) h);
-    --hd-accent-solid-heading-text-muted-color: oklch(from var(--hd-theme-accent-color) calc(l + 0.5) calc(c * 0.5) h);
+    --hd-accent-solid-heading-text-highlight-color: hsl(from var(--hd-theme-main-color) h 96% 87%);
+    --hd-accent-solid-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-accent-color) 16%, var(--hd-theme-background-color));
 
-    --hd-accent-solid-body-background-color: var(--hd-accent-solid-heading-background-color);
+    --hd-accent-solid-body-background-color: color-mix(in srgb, var(--hd-theme-accent-color) 66%, var(--hd-theme-text-color));
+    --hd-accent-solid-body-background: var(--hd-accent-solid-body-background-color);
     --hd-accent-solid-body-text-color: var(--hd-accent-solid-heading-text-color);
     --hd-accent-solid-body-text-highlight-color: var(--hd-accent-solid-heading-text-highlight-color);
     --hd-accent-solid-body-text-muted-color: var(--hd-accent-solid-heading-text-muted-color);
 
-    --hd-accent-solid-border: var(--hd-accent-solid-heading-text-color);
+    --hd-accent-solid-border: color-mix(in srgb, var(--hd-theme-accent-color) 55%, var(--hd-theme-background-color));
 
     /* Intermediate state variables (default fallbacks) */
-    --hd-heading-background-color: var(--hd-main-solid-heading-background-color);
-    --hd-heading-text-color: var(--hd-main-solid-heading-text-color);
-    --hd-heading-text-highlight-color: var(--hd-main-solid-heading-text-highlight-color);
-    --hd-heading-text-muted-color: var(--hd-main-solid-heading-text-muted-color);
+    --hd-heading-background-color: var(--hd-base-soft-heading-background-color);
+    --hd-heading-text-color: var(--hd-base-soft-heading-text-color);
+    --hd-heading-text-highlight-color: var(--hd-base-soft-heading-text-highlight-color);
+    --hd-heading-text-muted-color: var(--hd-base-soft-heading-text-muted-color);
     --hd-body-background-color: var(--hd-base-soft-body-background-color);
     --hd-body-text-color: var(--hd-base-soft-body-text-color);
     --hd-body-text-highlight-color: var(--hd-base-soft-body-text-highlight-color);
@@ -116,12 +123,11 @@
     /* Fallback slide variables */
     --hd-slide-border-color: var(--hd-border-color-default);
     --hd-slide-body-text-color: var(--hd-theme-text-color);
-    --hd-slide-body-text-muted-color: rgba(from var(--hd-theme-text-color) r g b / 0.6);
+    --hd-slide-body-text-muted-color: rgba(from var(--hd-theme-text-color) r g b / 0.65);
 
     /* Slide Border parameters */
     --hd-slide-border-width: 0px;
     --hd-slide-border-style: solid;
-
 
     /* 6-Level Sizing Scale */
     --hd-size-1: 64px;
@@ -202,7 +208,6 @@
     --hd-text-peripheral-text-transform: uppercase;
     --hd-text-peripheral-text-shadow: none;
 
-
     /* Font Weights */
     --hd-font-weight-light: 300;
     --hd-font-weight-normal: 400;
@@ -217,7 +222,7 @@
     --hd-slide-margin-bottom: var(--hd-gap-5);
     --hd-slide-margin-left: var(--hd-gap-6);
 
-    /* Peripheral Absolute Position Offset (Unified vertical/horizontal margin offset) */
+    /* Peripheral Absolute Position Offset */
     --hd-peripheral-offset: var(--hd-gap-2);
 
     /* Spacing Scale (Gap classes) */
@@ -232,13 +237,16 @@
     /* Layout Spacing Configuration defaults */
     --hd-layout-before-margin: var(--hd-gap-2);
     --hd-layout-after-margin: var(--hd-gap-2);
-    --hd-layout-heading-padding: var(--hd-slide-margin-top) var(--hd-slide-margin-right) var(--hd-gap-3) var(--hd-slide-margin-left);
+    --hd-layout-heading-padding: calc(var(--hd-slide-margin-top) + 9px) var(--hd-slide-margin-right) calc(var(--hd-gap-3) - 9px) var(--hd-slide-margin-left);
     --hd-layout-body-padding: var(--hd-gap-3) var(--hd-slide-margin-right) var(--hd-slide-margin-bottom) var(--hd-slide-margin-left);
     --hd-layout-cover-padding: var(--hd-slide-margin-top) var(--hd-slide-margin-right) var(--hd-slide-margin-bottom) var(--hd-slide-margin-left);
     --hd-layout-heading-margin: var(--hd-gap-4);
     --hd-layout-cover-title-margin-bottom: var(--hd-gap-3);
     --hd-layout-cover-subtitle-margin-bottom: var(--hd-gap-4);
+    --hd-layout-heading-divider-display: none;
+    --hd-layout-heading-divider-height: 1px;
     --hd-layout-heading-divider-style: solid;
+    --hd-layout-heading-divider-box-shadow: none;
 
     /* Component Properties */
     /* Card */
@@ -248,7 +256,7 @@
     --hd-card-font-size: var(--hd-size-4);
     --hd-card-border-width: 1px;
     --hd-card-border-style: solid;
-    --hd-card-box-shadow: 0 4px 12px rgba(from var(--hd-base-soft-body-text-color) r g b / 0.03), 0 1px 2px rgba(from var(--hd-base-soft-body-text-color) r g b / 0.02);
+    --hd-card-box-shadow: 0 4px 12px rgba(from var(--hd-base-soft-body-text-color) r g b / 0.05), 0 1px 2px rgba(from var(--hd-base-soft-body-text-color) r g b / 0.03);
 
     /* Box */
     --hd-box-border-radius: var(--hd-gap-1);
@@ -257,7 +265,7 @@
     --hd-box-font-size: var(--hd-size-4);
     --hd-box-border-width: 1px;
     --hd-box-border-style: solid;
-    --hd-box-box-shadow: 0 4px 12px rgba(from var(--hd-base-soft-body-text-color) r g b / 0.03), 0 1px 2px rgba(from var(--hd-base-soft-body-text-color) r g b / 0.02);
+    --hd-box-box-shadow: 0 4px 12px rgba(from var(--hd-base-soft-body-text-color) r g b / 0.05), 0 1px 2px rgba(from var(--hd-base-soft-body-text-color) r g b / 0.03);
 
     /* Callout */
     --hd-callout-border-radius: var(--hd-gap-1);
@@ -270,7 +278,7 @@
 
     /* Codeblock */
     --hd-codeblock-border-radius: var(--hd-gap-1);
-    --hd-codeblock-background-color: transparent;
+    --hd-codeblock-background-color: rgba(from var(--hd-theme-text-color) r g b / 0.03);
     --hd-codeblock-border-width: 1px;
     --hd-codeblock-border-style: solid;
     --hd-codeblock-border-color: var(--hd-slide-border-color, var(--hd-border-color-default));
@@ -283,10 +291,10 @@
     --hd-table-font-size: var(--hd-size-4);
     --hd-table-header-font-family: var(--hd-heading-font);
     --hd-table-header-font-weight: var(--hd-font-weight-bold);
-    --hd-table-header-background-color: transparent;
+    --hd-table-header-background-color: rgba(from var(--hd-theme-text-color) r g b / 0.04);
     --hd-table-header-text-color: inherit;
     --hd-table-row-background-color: transparent;
-    --hd-table-row-striped-background-color: transparent;
+    --hd-table-row-striped-background-color: rgba(from var(--hd-theme-text-color) r g b / 0.02);
     --hd-table-cell-border-width: 1px;
     --hd-table-header-border-width: 2px;
 
@@ -298,7 +306,7 @@
     --hd-list-font-size: var(--hd-text-body-font-size);
     --hd-list-color: var(--hd-text-body-color);
     --hd-list-line-height: var(--hd-text-body-line-height);
-    --hd-list-marker-color: inherit;
+    --hd-list-marker-color: var(--hd-theme-main-color);
     --hd-list-style-type: disc;
     --hd-list-style-type-2: circle;
     --hd-list-style-type-3: square;
@@ -334,34 +342,34 @@
     --hd-img-border-width: 1px;
     --hd-img-border-style: solid;
     --hd-img-border-color: var(--hd-slide-border-color, var(--hd-border-color-default));
-    --hd-img-box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+    --hd-img-box-shadow: 0 4px 6px -1px rgba(from var(--hd-theme-text-color) r g b / 0.15);
 
     /* Pre block and code styling */
     --hd-pre-margin-bottom: var(--hd-gap-2);
     --hd-pre-padding: var(--hd-gap-1);
 
     /* Inline Code styling */
-    --hd-code-padding: 2px 6px;
+    --hd-code-padding: 0px 5px;
     --hd-code-border-radius: 4px;
     --hd-code-font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
     --hd-code-font-size: 0.85em;
     --hd-code-border-width: 1px;
     --hd-code-border-style: solid;
     --hd-code-background-color: rgba(from var(--hd-theme-text-color) r g b / 0.05);
-    --hd-code-color: var(--hd-theme-accent-color);
-    --hd-code-border-color: rgba(from var(--hd-theme-text-color) r g b / 0.08);
+    --hd-code-color: color-mix(in srgb, var(--hd-theme-accent-color) 85%, var(--hd-theme-text-color));
+    --hd-code-border-color: rgba(from var(--hd-theme-text-color) r g b / 0.1);
 
     /* Keyboard Input styling */
-    --hd-kbd-padding: 2px 5px;
+    --hd-kbd-padding: 0px 5px;
     --hd-kbd-border-radius: 4px;
     --hd-kbd-font-family: var(--hd-body-font);
     --hd-kbd-font-size: 0.85em;
     --hd-kbd-border-width: 1px 1px 3px 1px;
     --hd-kbd-border-style: solid;
-    --hd-kbd-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+    --hd-kbd-box-shadow: 0 1px 0 rgba(from var(--hd-theme-text-color) r g b / 0.1);
     --hd-kbd-background-color: rgba(from var(--hd-theme-text-color) r g b / 0.05);
     --hd-kbd-color: var(--hd-theme-text-color);
-    --hd-kbd-border-color: rgba(from var(--hd-theme-text-color) r g b / 0.15);
+    --hd-kbd-border-color: rgba(from var(--hd-theme-text-color) r g b / 0.18);
 
     /* Highlight Mark styling */
     --hd-mark-padding: 0px 4px;
@@ -378,7 +386,7 @@
     --hd-scrollbar-track-background-color: transparent;
     --hd-scrollbar-thumb-background-color: var(--hd-slide-body-text-color, var(--hd-theme-text-color));
     --hd-scrollbar-thumb-radius: 4px;
-    --hd-scrollbar-thumb-hover-background-color: var(--hd-slide-body-text-muted-color, rgba(from var(--hd-theme-text-color) r g b / 0.6));
+    --hd-scrollbar-thumb-hover-background-color: var(--hd-slide-body-text-muted-color, rgba(from var(--hd-theme-text-color) r g b / 0.65));
 
     /* Split/Grid layout gap variables */
     --hd-layout-split-gap: var(--hd-gap-2);
@@ -397,21 +405,21 @@
     --hd-layout-heading-suffix: "";
     --hd-layout-heading-suffix-animation: none;
 
-    /* Slide Viewport Overlay (e.g., CRT scanline mesh overlay) */
+    /* Slide Viewport Overlay (e.g., CRT scanline mesh or botanical corner art) */
     --hd-slide-overlay-background: none;
     --hd-slide-overlay-mix-blend-mode: normal;
     --hd-slide-overlay-opacity: 1;
 
-    --hd-base-soft-overlay-background: none;
-    --hd-main-soft-overlay-background: none;
-    --hd-accent-soft-overlay-background: none;
+    --hd-base-soft-overlay-background: var(--hd-slide-overlay-background, none);
+    --hd-main-soft-overlay-background: var(--hd-slide-overlay-background, none);
+    --hd-accent-soft-overlay-background: var(--hd-slide-overlay-background, none);
 
-    --hd-base-solid-overlay-background: none;
-    --hd-main-solid-overlay-background: none;
-    --hd-accent-solid-overlay-background: none;
+    --hd-base-solid-overlay-background: var(--hd-slide-overlay-background, none);
+    --hd-main-solid-overlay-background: var(--hd-slide-overlay-background, none);
+    --hd-accent-solid-overlay-background: var(--hd-slide-overlay-background, none);
 
     /* Root Border Fallbacks */
-    --hd-border-color-default: rgba(from var(--hd-theme-text-color) r g b / 0.12);
-    --hd-border-color-surfaced: rgba(from var(--hd-theme-text-color) r g b / 0.24);
+    --hd-border-color-default: rgba(from var(--hd-theme-text-color) r g b / 0.14);
+    --hd-border-color-surfaced: rgba(from var(--hd-theme-text-color) r g b / 0.28);
   }
 }

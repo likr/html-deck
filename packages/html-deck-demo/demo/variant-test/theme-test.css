@@ -8,124 +8,106 @@
   --hd-slide-border-width: 4px;
   --hd-slide-border-style: solid;
 
-  /* Theme Base Tokens */
+  /* 4-Color Palette Base Tokens */
   --hd-theme-background-color: #ffffff;
   --hd-theme-text-color: #111111;
-  --hd-theme-main-color: #6d28d9;
-  --hd-theme-accent-color: #059669;
-  --hd-border-color-default: #e4e4e7;
-  --hd-border-color-surfaced: #d4d4d8;
+  --hd-theme-main-color: #5b21b6;
+  --hd-theme-accent-color: #065f46;
 
   /* ========================================================
-     BASE THEME (Standard/Neutral) - Highly contrasting colors
-     ======================================================== */
-  /* Soft Surface (Slide default / Card base default) */
-  --hd-base-soft-background-color: #ffffff;
-  --hd-base-soft-text-color: #111111;
-  --hd-base-soft-text-highlight-color: #b91c1c;
-  --hd-base-soft-text-muted-color: #52525b;
-
-  --hd-base-soft-body-background-color: #ffffff;
-  --hd-base-soft-body-text-color: #111111;
-  --hd-base-soft-body-text-highlight-color: #b91c1c;
-  --hd-base-soft-body-text-muted-color: #52525b;
-
-  --hd-base-soft-heading-background-color: #f4f4f5;
-  --hd-base-soft-heading-text-color: #09090b;
-  --hd-base-soft-heading-text-highlight-color: #b91c1c;
-  --hd-base-soft-heading-text-muted-color: #52525b;
-  --hd-base-soft-border: #e4e4e7;
-
-  /* Solid Surface (Layout Heading default) */
-  --hd-base-solid-background-color: #18181b;
-  --hd-base-solid-text-color: #fafafa;
-  --hd-base-solid-text-highlight-color: #fb7185;
-  --hd-base-solid-text-muted-color: #a1a1aa;
-
-  --hd-base-solid-body-background-color: #18181b;
-  --hd-base-solid-body-text-color: #fafafa;
-  --hd-base-solid-body-text-highlight-color: #fb7185;
-  --hd-base-solid-body-text-muted-color: #a1a1aa;
-
-  --hd-base-solid-heading-background-color: #27272a;
-  --hd-base-solid-heading-text-color: #ffffff;
-  --hd-base-solid-heading-text-highlight-color: #fb7185;
-  --hd-base-solid-heading-text-muted-color: #a1a1aa;
-  --hd-base-solid-border: #3f3f46;
-
-  /* ========================================================
-     MAIN THEME (Purple) - Indigo / Purple contrast
-     ======================================================== */
-  /* Soft Surface (Callout variant main default) */
-  --hd-main-soft-background-color: #f3e8ff;
-  --hd-main-soft-text-color: #3b0764;
-  --hd-main-soft-text-highlight-color: #831843;
-  --hd-main-soft-text-muted-color: #581c87;
-
-  --hd-main-soft-body-background-color: #f3e8ff;
-  --hd-main-soft-body-text-color: #3b0764;
-  --hd-main-soft-body-text-highlight-color: #831843;
-  --hd-main-soft-body-text-muted-color: #581c87;
-
-  --hd-main-soft-heading-background-color: #6d28d9;
-  --hd-main-soft-heading-text-color: #ffffff;
-  --hd-main-soft-heading-text-highlight-color: #fde047;
-  --hd-main-soft-heading-text-muted-color: #e9d5ff;
-  --hd-main-soft-border: #c084fc;
-
-  /* Solid Surface */
-  --hd-main-solid-background-color: #581c87;
-  --hd-main-solid-text-color: #ffffff;
-  --hd-main-solid-text-highlight-color: #fde047;
-  --hd-main-solid-text-muted-color: #e9d5ff;
-
-  --hd-main-solid-body-background-color: #581c87;
-  --hd-main-solid-body-text-color: #ffffff;
-  --hd-main-solid-body-text-highlight-color: #fde047;
-  --hd-main-solid-body-text-muted-color: #e9d5ff;
-
-  --hd-main-solid-heading-background-color: #3b0764;
-  --hd-main-solid-heading-text-color: #ffffff;
-  --hd-main-solid-heading-text-highlight-color: #fde047;
-  --hd-main-solid-heading-text-muted-color: #e9d5ff;
-  --hd-main-solid-border: #7c3aed;
-
-  /* ========================================================
-     ACCENT THEME (Teal/Emerald) - Teal contrast
+     BASE VARIANT (Neutral Charcoal & White)
      ======================================================== */
   /* Soft Surface */
-  --hd-accent-soft-background-color: #ecfdf5;
-  --hd-accent-soft-text-color: #064e3b;
-  --hd-accent-soft-text-highlight-color: #9a3412;
-  --hd-accent-soft-text-muted-color: #065f46;
+  --hd-base-soft-heading-background-color: color-mix(in srgb, var(--hd-theme-text-color) 7%, var(--hd-theme-background-color));
+  --hd-base-soft-heading-background: var(--hd-base-soft-heading-background-color);
+  --hd-base-soft-heading-text-color: var(--hd-theme-text-color);
+  --hd-base-soft-heading-text-highlight-color: color-mix(in srgb, var(--hd-theme-accent-color) 88%, var(--hd-theme-text-color));
+  --hd-base-soft-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-text-color) 72%, var(--hd-theme-background-color));
 
-  --hd-accent-soft-body-background-color: #ecfdf5;
-  --hd-accent-soft-body-text-color: #064e3b;
-  --hd-accent-soft-body-text-highlight-color: #9a3412;
-  --hd-accent-soft-body-text-muted-color: #065f46;
+  --hd-base-soft-body-background-color: var(--hd-theme-background-color);
+  --hd-base-soft-body-background: var(--hd-base-soft-body-background-color);
+  --hd-base-soft-body-text-color: var(--hd-theme-text-color);
+  --hd-base-soft-body-text-highlight-color: var(--hd-base-soft-heading-text-highlight-color);
+  --hd-base-soft-body-text-muted-color: color-mix(in srgb, var(--hd-theme-text-color) 68%, var(--hd-theme-background-color));
+  --hd-base-soft-border: color-mix(in srgb, var(--hd-theme-text-color) 16%, var(--hd-theme-background-color));
 
-  --hd-accent-soft-heading-background-color: #059669;
-  --hd-accent-soft-heading-text-color: #ffffff;
-  --hd-accent-soft-heading-text-highlight-color: #fef08a;
-  --hd-accent-soft-heading-text-muted-color: #d1fae5;
-  --hd-accent-soft-border: #34d399;
+  /* Solid Surface */
+  --hd-base-solid-heading-background-color: var(--hd-theme-text-color);
+  --hd-base-solid-heading-background: var(--hd-base-solid-heading-background-color);
+  --hd-base-solid-heading-text-color: var(--hd-theme-background-color);
+  --hd-base-solid-heading-text-highlight-color: hsl(from var(--hd-theme-accent-color) h 88% 76%);
+  --hd-base-solid-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-text-color) 22%, var(--hd-theme-background-color));
 
-  /* Solid Surface (Box variant accent default) */
-  --hd-accent-solid-background-color: #064e3b;
-  --hd-accent-solid-text-color: #ffffff;
-  --hd-accent-solid-text-highlight-color: #fef08a;
-  --hd-accent-solid-text-muted-color: #d1fae5;
+  --hd-base-solid-body-background-color: color-mix(in srgb, var(--hd-theme-text-color) 92%, var(--hd-theme-background-color));
+  --hd-base-solid-body-background: var(--hd-base-solid-body-background-color);
+  --hd-base-solid-body-text-color: var(--hd-base-solid-heading-text-color);
+  --hd-base-solid-body-text-highlight-color: var(--hd-base-solid-heading-text-highlight-color);
+  --hd-base-solid-body-text-muted-color: var(--hd-base-solid-heading-text-muted-color);
+  --hd-base-solid-border: color-mix(in srgb, var(--hd-theme-text-color) 65%, var(--hd-theme-background-color));
 
-  --hd-accent-solid-body-background-color: #064e3b;
-  --hd-accent-solid-body-text-color: #ffffff;
-  --hd-accent-solid-body-text-highlight-color: #fef08a;
-  --hd-accent-solid-body-text-muted-color: #d1fae5;
+  /* ========================================================
+     MAIN VARIANT (Royal Violet)
+     ======================================================== */
+  /* Soft Surface */
+  --hd-main-soft-heading-background-color: var(--hd-theme-main-color);
+  --hd-main-soft-heading-background: var(--hd-main-soft-heading-background-color);
+  --hd-main-soft-heading-text-color: var(--hd-theme-background-color);
+  --hd-main-soft-heading-text-highlight-color: hsl(from var(--hd-theme-accent-color) h 88% 78%);
+  --hd-main-soft-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-main-color) 18%, var(--hd-theme-background-color));
 
-  --hd-accent-solid-heading-background-color: #022c22;
-  --hd-accent-solid-heading-text-color: #ffffff;
-  --hd-accent-solid-heading-text-highlight-color: #fef08a;
-  --hd-accent-solid-heading-text-muted-color: #d1fae5;
-  --hd-accent-solid-border: #059669;
+  --hd-main-soft-body-background-color: color-mix(in srgb, var(--hd-theme-main-color) 6%, var(--hd-theme-background-color));
+  --hd-main-soft-body-background: var(--hd-main-soft-body-background-color);
+  --hd-main-soft-body-text-color: var(--hd-theme-text-color);
+  --hd-main-soft-body-text-highlight-color: color-mix(in srgb, var(--hd-theme-accent-color) 88%, var(--hd-theme-text-color));
+  --hd-main-soft-body-text-muted-color: color-mix(in srgb, color-mix(in srgb, var(--hd-theme-text-color) 65%, var(--hd-theme-main-color)) 70%, var(--hd-theme-background-color));
+  --hd-main-soft-border: color-mix(in srgb, var(--hd-theme-main-color) 35%, var(--hd-theme-background-color));
 
-  --hd-callout-border-color: rgba(from var(--hd-text-color) r g b / 0.4);
+  /* Solid Surface */
+  --hd-main-solid-heading-background-color: color-mix(in srgb, var(--hd-theme-main-color) 85%, var(--hd-theme-text-color));
+  --hd-main-solid-heading-background: var(--hd-main-solid-heading-background-color);
+  --hd-main-solid-heading-text-color: var(--hd-theme-background-color);
+  --hd-main-solid-heading-text-highlight-color: hsl(from var(--hd-theme-accent-color) h 88% 78%);
+  --hd-main-solid-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-main-color) 18%, var(--hd-theme-background-color));
+
+  --hd-main-solid-body-background-color: var(--hd-theme-main-color);
+  --hd-main-solid-body-background: var(--hd-main-solid-body-background-color);
+  --hd-main-solid-body-text-color: var(--hd-main-solid-heading-text-color);
+  --hd-main-solid-body-text-highlight-color: var(--hd-main-solid-heading-text-highlight-color);
+  --hd-main-solid-body-text-muted-color: var(--hd-main-solid-heading-text-muted-color);
+  --hd-main-solid-border: color-mix(in srgb, var(--hd-theme-main-color) 55%, var(--hd-theme-background-color));
+
+  /* ========================================================
+     ACCENT VARIANT (Emerald Teal)
+     ======================================================== */
+  /* Soft Surface */
+  --hd-accent-soft-heading-background-color: var(--hd-theme-accent-color);
+  --hd-accent-soft-heading-background: var(--hd-accent-soft-heading-background-color);
+  --hd-accent-soft-heading-text-color: var(--hd-theme-background-color);
+  --hd-accent-soft-heading-text-highlight-color: hsl(from var(--hd-theme-main-color) h 96% 85%);
+  --hd-accent-soft-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-accent-color) 18%, var(--hd-theme-background-color));
+
+  --hd-accent-soft-body-background-color: color-mix(in srgb, var(--hd-theme-accent-color) 6%, var(--hd-theme-background-color));
+  --hd-accent-soft-body-background: var(--hd-accent-soft-body-background-color);
+  --hd-accent-soft-body-text-color: var(--hd-theme-text-color);
+  --hd-accent-soft-body-text-highlight-color: color-mix(in srgb, var(--hd-theme-main-color) 88%, var(--hd-theme-text-color));
+  --hd-accent-soft-body-text-muted-color: color-mix(in srgb, color-mix(in srgb, var(--hd-theme-text-color) 65%, var(--hd-theme-accent-color)) 70%, var(--hd-theme-background-color));
+  --hd-accent-soft-border: color-mix(in srgb, var(--hd-theme-accent-color) 35%, var(--hd-theme-background-color));
+
+  /* Solid Surface */
+  --hd-accent-solid-heading-background-color: color-mix(in srgb, var(--hd-theme-accent-color) 72%, var(--hd-theme-text-color));
+  --hd-accent-solid-heading-background: var(--hd-accent-solid-heading-background-color);
+  --hd-accent-solid-heading-text-color: var(--hd-theme-background-color);
+  --hd-accent-solid-heading-text-highlight-color: hsl(from var(--hd-theme-main-color) h 96% 86%);
+  --hd-accent-solid-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-accent-color) 18%, var(--hd-theme-background-color));
+
+  --hd-accent-solid-body-background-color: color-mix(in srgb, var(--hd-theme-accent-color) 78%, var(--hd-theme-text-color));
+  --hd-accent-solid-body-background: var(--hd-accent-solid-body-background-color);
+  --hd-accent-solid-body-text-color: var(--hd-accent-solid-heading-text-color);
+  --hd-accent-solid-body-text-highlight-color: var(--hd-accent-solid-heading-text-highlight-color);
+  --hd-accent-solid-body-text-muted-color: var(--hd-accent-solid-heading-text-muted-color);
+  --hd-accent-solid-border: color-mix(in srgb, var(--hd-theme-accent-color) 55%, var(--hd-theme-background-color));
+
+  /* Border Fallbacks */
+  --hd-border-color-default: rgba(from var(--hd-theme-text-color) r g b / 0.16);
+  --hd-border-color-surfaced: rgba(from var(--hd-theme-text-color) r g b / 0.28);
 }

@@ -35,7 +35,7 @@ if (args.length > 0) {
   });
 }
 
-function checkUrl(url) {
+function checkUrl(url, expectedContent = null) {
   return new Promise((res) => {
     try {
       const u = new URL(url);
@@ -48,7 +48,22 @@ function checkUrl(url) {
           timeout: 2000,
         },
         (response) => {
-          res(response.statusCode >= 200 && response.statusCode < 400);
+          if (response.statusCode < 200 || response.statusCode >= 400) {
+            response.resume();
+            return res(false);
+          }
+          if (!expectedContent) {
+            response.resume();
+            return res(true);
+          }
+          let body = '';
+          response.setEncoding('utf8');
+          response.on('data', (chunk) => {
+            body += chunk;
+          });
+          response.on('end', () => {
+            res(body.includes(expectedContent));
+          });
         }
       );
       req.on('error', () => res(false));
@@ -112,19 +127,31 @@ async function runBatchValidation() {
   const servers = [];
 
   try {
-    // 1. Ensure demo server is up on port 5173
-    const demoUp = await checkUrl('http://localhost:5173');
-    if (!demoUp) {
-      console.log('Starting demo server on port 5173...');
-      const s1 = await startServer(demoDir, 5173);
+    // 1. Ensure demo server is up (prefer 5173 if it serves demo or is free; else 5175)
+    let demoPort = 5173;
+    if (await checkUrl('http://localhost:5173/demo/variant-test/index.html', '<hd-deck')) {
+      demoPort = 5173;
+    } else if (await checkUrl('http://localhost:5175/demo/variant-test/index.html', '<hd-deck')) {
+      demoPort = 5175;
+    } else {
+      const port5173Busy = await checkUrl('http://localhost:5173');
+      demoPort = port5173Busy ? 5175 : 5173;
+      console.log(`Starting demo server on port ${demoPort}...`);
+      const s1 = await startServer(demoDir, demoPort);
       servers.push(s1);
     }
 
-    // 2. Ensure slides server is up on port 5174
-    const slidesUp = await checkUrl('http://localhost:5174');
-    if (!slidesUp) {
-      console.log('Starting slides server on port 5174...');
-      const s2 = await startServer(slidesDir, 5174);
+    // 2. Ensure slides server is up (reuse 5174 or 5173 if already serving slides; else start on 5174)
+    let slidesPort = 5174;
+    if (await checkUrl('http://localhost:5174/slides/introduction/index.html', '<hd-deck')) {
+      slidesPort = 5174;
+    } else if (await checkUrl('http://localhost:5173/slides/introduction/index.html', '<hd-deck')) {
+      slidesPort = 5173;
+    } else {
+      const port5174Busy = await checkUrl('http://localhost:5174');
+      slidesPort = port5174Busy ? 5176 : 5174;
+      console.log(`Starting slides server on port ${slidesPort}...`);
+      const s2 = await startServer(slidesDir, slidesPort);
       servers.push(s2);
     }
 
@@ -140,14 +167,21 @@ async function runBatchValidation() {
     ];
 
     const targets = [
-      { name: 'demo/features', url: 'http://localhost:5173/demo/features/index.html' },
+      ...themes.map((theme) => ({
+        name: `demo/features (${theme})`,
+        url: `http://localhost:${demoPort}/demo/features/index.html${theme === 'default' ? '' : `?theme=${theme}`}`,
+      })),
       ...themes.map((theme) => ({
         name: `demo/variant-test (${theme})`,
-        url: `http://localhost:5173/demo/variant-test/index.html${theme === 'default' ? '' : `?theme=${theme}`}`,
+        url: `http://localhost:${demoPort}/demo/variant-test/index.html?theme=${theme}`,
       })),
-      { name: 'slides/introduction', url: 'http://localhost:5174/slides/introduction/index.html' },
-      { name: 'slides/omega', url: 'http://localhost:5174/slides/omega/index.html' },
-      { name: 'slides/ramen', url: 'http://localhost:5174/slides/ramen/index.html' },
+      {
+        name: 'demo/variant-test (theme-test)',
+        url: `http://localhost:${demoPort}/demo/variant-test/index.html`,
+      },
+      { name: 'slides/introduction', url: `http://localhost:${slidesPort}/slides/introduction/index.html` },
+      { name: 'slides/omega', url: `http://localhost:${slidesPort}/slides/omega/index.html` },
+      { name: 'slides/ramen', url: `http://localhost:${slidesPort}/slides/ramen/index.html` },
     ];
 
     let allPassed = true;

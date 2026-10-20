@@ -1,56 +1,126 @@
-/* html-deck.theme-dark.css - Dark Mode Theme for HTML-Deck */
+/* html-deck.theme-dark.css - Deep Slate Night Theme for HTML-Deck */
+
 :root {
-   /* --- 4-Color Palette base variables --- */
-   --hd-theme-background-color: #111827; /* Gray 900 */
-   --hd-theme-text-color: #f9fafb; /* Gray 50 */
-   --hd-theme-main-color: #6366f1; /* Indigo 500 */
-   --hd-theme-accent-color: #fb923c; /* Orange 400 */
+  /* ==========================================================================
+     4-Color Base Palette (Midnight Slate, Frost White, Luminous Indigo, Mint Emerald)
+     ========================================================================== */
+  --hd-theme-background-color: #0b1120;
+  --hd-theme-text-color: #f8fafc;
+  --hd-theme-main-color: #6366f1;
+  --hd-theme-accent-color: #34d399;
 
-   /* ========================================================
-     DARK-SPECIFIC COMPONENT OVERRIDES & ELEVATIONS
-     ======================================================== */
+  /* ==========================================================================
+     48-Color Matrix (3 Variants × 2 Surfaces × 2 Regions × 4 Roles)
+     ========================================================================== */
 
-   /* Component Overrides */
-   --hd-card-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4), 0 1px 3px rgba(0, 0, 0, 0.3);
-   --hd-box-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4), 0 1px 3px rgba(0, 0, 0, 0.3);
-   --hd-codeblock-background-color: #0b0f19;
-   --hd-codeblock-border-color: rgba(255, 255, 255, 0.1);
-   --hd-img-border-color: rgba(255, 255, 255, 0.08);
-   --hd-img-box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-   --hd-table-border-color: rgba(255, 255, 255, 0.1);
-   --hd-table-row-striped-background-color: rgba(255, 255, 255, 0.02);
-   --hd-blockquote-border-color: rgba(255, 255, 255, 0.2);
-   --hd-scrollbar-track-background-color: transparent;
-   --hd-scrollbar-thumb-background-color: rgba(from var(--hd-theme-text-color) r g b / 0.15);
-   --hd-scrollbar-thumb-hover-background-color: rgba(from var(--hd-theme-text-color) r g b / 0.3);
+  /* --- Base Variant (Midnight Slate) --- */
+  /* Soft Surface */
+  --hd-base-soft-heading-background-color: color-mix(in srgb, var(--hd-theme-text-color) 7%, var(--hd-theme-background-color));
+  --hd-base-soft-heading-background: var(--hd-base-soft-heading-background-color);
+  --hd-base-soft-heading-text-color: var(--hd-theme-text-color);
+  --hd-base-soft-heading-text-highlight-color: var(--hd-theme-accent-color);
+  --hd-base-soft-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-text-color) 72%, var(--hd-theme-background-color));
 
-   --hd-border-color-default: rgba(from var(--hd-theme-text-color) r g b / 0.1);
-   --hd-border-color-surfaced: rgba(from var(--hd-theme-text-color) r g b / 0.2);
+  --hd-base-soft-body-background-color: var(--hd-theme-background-color);
+  --hd-base-soft-body-background: var(--hd-base-soft-body-background-color);
+  --hd-base-soft-body-text-color: var(--hd-theme-text-color);
+  --hd-base-soft-body-text-highlight-color: var(--hd-theme-accent-color);
+  --hd-base-soft-body-text-muted-color: color-mix(in srgb, var(--hd-theme-text-color) 70%, var(--hd-theme-background-color));
 
-   /* 3-Variant x 2-Surface Token Overrides for Dark Mode */
-   --hd-main-solid-heading-background-color: #4338ca;
-   --hd-main-solid-heading-background: var(--hd-main-solid-heading-background-color);
-   --hd-main-solid-heading-text-color: #ffffff;
-   --hd-main-solid-heading-text-highlight-color: #fde047;
-   --hd-main-solid-heading-text-muted-color: #c7d2fe;
-   --hd-main-solid-body-background-color: var(--hd-main-solid-heading-background-color);
-   --hd-main-solid-body-background: var(--hd-main-solid-heading-background-color);
-   --hd-main-solid-body-text-color: #ffffff;
-   --hd-main-solid-body-text-highlight-color: #fde047;
-   --hd-main-solid-body-text-muted-color: #c7d2fe;
+  --hd-base-soft-border: color-mix(in srgb, var(--hd-theme-text-color) 16%, var(--hd-theme-background-color));
 
-   --hd-accent-soft-heading-text-highlight-color: #fb923c;
-   --hd-accent-soft-body-text-highlight-color: #fb923c;
+  /* Solid Surface (Elevated Dark Slate Panel) */
+  --hd-base-solid-heading-background-color: color-mix(in srgb, var(--hd-theme-text-color) 16%, var(--hd-theme-background-color));
+  --hd-base-solid-heading-background: var(--hd-base-solid-heading-background-color);
+  --hd-base-solid-heading-text-color: var(--hd-theme-text-color);
+  --hd-base-solid-heading-text-highlight-color: var(--hd-theme-accent-color);
+  --hd-base-solid-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-text-color) 76%, var(--hd-theme-background-color));
 
-   --hd-accent-solid-heading-background-color: #9a3412;
-   --hd-accent-solid-heading-background: var(--hd-accent-solid-heading-background-color);
-   --hd-accent-solid-heading-text-color: #ffffff;
-   --hd-accent-solid-heading-text-highlight-color: #fef08a;
-   --hd-accent-solid-heading-text-muted-color: #fed7aa;
-   --hd-accent-solid-body-background-color: var(--hd-accent-solid-heading-background-color);
-   --hd-accent-solid-body-background: var(--hd-accent-solid-heading-background-color);
-   --hd-accent-solid-body-text-color: #ffffff;
-   --hd-accent-solid-body-text-highlight-color: #fef08a;
-   --hd-accent-solid-body-text-muted-color: #fed7aa;
+  --hd-base-solid-body-background-color: color-mix(in srgb, var(--hd-theme-text-color) 11%, var(--hd-theme-background-color));
+  --hd-base-solid-body-background: var(--hd-base-solid-body-background-color);
+  --hd-base-solid-body-text-color: var(--hd-theme-text-color);
+  --hd-base-solid-body-text-highlight-color: var(--hd-theme-accent-color);
+  --hd-base-solid-body-text-muted-color: color-mix(in srgb, var(--hd-theme-text-color) 74%, var(--hd-theme-background-color));
+
+  --hd-base-solid-border: color-mix(in srgb, var(--hd-theme-text-color) 28%, var(--hd-theme-background-color));
+
+  /* --- Main Variant (Luminous Indigo) --- */
+  /* Soft Surface */
+  --hd-main-soft-heading-background-color: color-mix(in srgb, var(--hd-theme-main-color) 34%, var(--hd-theme-background-color));
+  --hd-main-soft-heading-background: var(--hd-main-soft-heading-background-color);
+  --hd-main-soft-heading-text-color: var(--hd-theme-text-color);
+  --hd-main-soft-heading-text-highlight-color: var(--hd-theme-accent-color);
+  --hd-main-soft-heading-text-muted-color: color-mix(in srgb, color-mix(in srgb, var(--hd-theme-text-color) 76%, var(--hd-theme-main-color)) 84%, var(--hd-theme-background-color));
+
+  --hd-main-soft-body-background-color: color-mix(in srgb, var(--hd-theme-main-color) 12%, var(--hd-theme-background-color));
+  --hd-main-soft-body-background: var(--hd-main-soft-body-background-color);
+  --hd-main-soft-body-text-color: var(--hd-theme-text-color);
+  --hd-main-soft-body-text-highlight-color: var(--hd-theme-accent-color);
+  --hd-main-soft-body-text-muted-color: color-mix(in srgb, color-mix(in srgb, var(--hd-theme-text-color) 74%, var(--hd-theme-main-color)) 82%, var(--hd-theme-background-color));
+
+  --hd-main-soft-border: color-mix(in srgb, var(--hd-theme-main-color) 45%, var(--hd-theme-background-color));
+
+  /* Solid Surface */
+  --hd-main-solid-heading-background-color: color-mix(in srgb, var(--hd-theme-main-color) 46%, var(--hd-theme-background-color));
+  --hd-main-solid-heading-background: var(--hd-main-solid-heading-background-color);
+  --hd-main-solid-heading-text-color: var(--hd-theme-text-color);
+  --hd-main-solid-heading-text-highlight-color: hsl(from var(--hd-theme-accent-color) h 88% 74%);
+  --hd-main-solid-heading-text-muted-color: color-mix(in srgb, color-mix(in srgb, var(--hd-theme-text-color) 78%, var(--hd-theme-main-color)) 86%, var(--hd-theme-background-color));
+
+  --hd-main-solid-body-background-color: color-mix(in srgb, var(--hd-theme-main-color) 38%, var(--hd-theme-background-color));
+  --hd-main-solid-body-background: var(--hd-main-solid-body-background-color);
+  --hd-main-solid-body-text-color: var(--hd-theme-text-color);
+  --hd-main-solid-body-text-highlight-color: hsl(from var(--hd-theme-accent-color) h 88% 72%);
+  --hd-main-solid-body-text-muted-color: color-mix(in srgb, color-mix(in srgb, var(--hd-theme-text-color) 78%, var(--hd-theme-main-color)) 85%, var(--hd-theme-background-color));
+
+  --hd-main-solid-border: color-mix(in srgb, var(--hd-theme-main-color) 75%, var(--hd-theme-text-color));
+
+  /* --- Accent Variant (Luminous Mint Emerald) --- */
+  /* Soft Surface */
+  --hd-accent-soft-heading-background-color: color-mix(in srgb, var(--hd-theme-accent-color) 20%, var(--hd-theme-background-color));
+  --hd-accent-soft-heading-background: var(--hd-accent-soft-heading-background-color);
+  --hd-accent-soft-heading-text-color: var(--hd-theme-text-color);
+  --hd-accent-soft-heading-text-highlight-color: hsl(from var(--hd-theme-main-color) h 96% 82%);
+  --hd-accent-soft-heading-text-muted-color: color-mix(in srgb, color-mix(in srgb, var(--hd-theme-text-color) 74%, var(--hd-theme-accent-color)) 82%, var(--hd-theme-background-color));
+
+  --hd-accent-soft-body-background-color: color-mix(in srgb, var(--hd-theme-accent-color) 8%, var(--hd-theme-background-color));
+  --hd-accent-soft-body-background: var(--hd-accent-soft-body-background-color);
+  --hd-accent-soft-body-text-color: var(--hd-theme-text-color);
+  --hd-accent-soft-body-text-highlight-color: hsl(from var(--hd-theme-main-color) h 96% 80%);
+  --hd-accent-soft-body-text-muted-color: color-mix(in srgb, color-mix(in srgb, var(--hd-theme-text-color) 72%, var(--hd-theme-accent-color)) 80%, var(--hd-theme-background-color));
+
+  --hd-accent-soft-border: color-mix(in srgb, var(--hd-theme-accent-color) 42%, var(--hd-theme-background-color));
+
+  /* Solid Surface */
+  --hd-accent-solid-heading-background-color: color-mix(in srgb, var(--hd-theme-accent-color) 24%, var(--hd-theme-background-color));
+  --hd-accent-solid-heading-background: var(--hd-accent-solid-heading-background-color);
+  --hd-accent-solid-heading-text-color: var(--hd-theme-text-color);
+  --hd-accent-solid-heading-text-highlight-color: hsl(from var(--hd-theme-main-color) h 98% 85%);
+  --hd-accent-solid-heading-text-muted-color: color-mix(in srgb, color-mix(in srgb, var(--hd-theme-text-color) 76%, var(--hd-theme-accent-color)) 84%, var(--hd-theme-background-color));
+
+  --hd-accent-solid-body-background-color: color-mix(in srgb, var(--hd-theme-accent-color) 18%, var(--hd-theme-background-color));
+  --hd-accent-solid-body-background: var(--hd-accent-solid-body-background-color);
+  --hd-accent-solid-body-text-color: var(--hd-theme-text-color);
+  --hd-accent-solid-body-text-highlight-color: hsl(from var(--hd-theme-main-color) h 98% 84%);
+  --hd-accent-solid-body-text-muted-color: color-mix(in srgb, color-mix(in srgb, var(--hd-theme-text-color) 76%, var(--hd-theme-accent-color)) 84%, var(--hd-theme-background-color));
+
+  --hd-accent-solid-border: color-mix(in srgb, var(--hd-theme-accent-color) 70%, var(--hd-theme-text-color));
+
+  /* ==========================================================================
+     Theme Visual & Structural Customizations
+     ========================================================================== */
+  --hd-layout-heading-divider-display: block;
+  --hd-layout-heading-divider-height: 1px;
+  --hd-layout-heading-divider-style: solid;
+
+  /* Elevated dark cards & boxes */
+  --hd-card-border-radius: 10px;
+  --hd-card-box-shadow: 0 8px 24px rgba(from var(--hd-theme-background-color) r g b / 0.55), 0 1px 3px rgba(from var(--hd-theme-background-color) r g b / 0.35);
+  --hd-box-border-radius: 10px;
+  --hd-box-box-shadow: 0 8px 24px rgba(from var(--hd-theme-background-color) r g b / 0.55), 0 1px 3px rgba(from var(--hd-theme-background-color) r g b / 0.35);
+  --hd-callout-border-radius: 8px;
+
+  /* Border Fallbacks */
+  --hd-border-color-default: rgba(from var(--hd-theme-text-color) r g b / 0.16);
+  --hd-border-color-surfaced: rgba(from var(--hd-theme-text-color) r g b / 0.28);
 }
-

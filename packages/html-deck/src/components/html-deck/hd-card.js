@@ -218,8 +218,11 @@ export class HdCard extends HTMLElement {
           text-transform: var(--hd-text-subheading-text-transform) !important;
           text-shadow: var(--hd-text-subheading-text-shadow) !important;
           margin: 0 !important;
+          --hd-background-color: var(--hd-card-heading-background, var(--hd-card-heading-background-color)) !important;
+          --hd-text-color: var(--hd-card-heading-text-color) !important;
           --hd-text-highlight-color: var(--hd-card-heading-text-highlight-color) !important;
           --hd-text-muted-color: var(--hd-card-heading-text-muted-color) !important;
+          --hd-border-color: var(--hd-card-border-color) !important;
         }
 
         .body-container {

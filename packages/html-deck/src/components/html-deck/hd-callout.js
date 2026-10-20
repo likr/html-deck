@@ -53,7 +53,7 @@ export class HdCallout extends HTMLElement {
           --hd-callout-body-background-color: var(--hd-base-solid-body-background-color);
           --hd-callout-body-background: var(--hd-base-solid-body-background, var(--hd-callout-body-background-color));
           --hd-callout-body-text-color: var(--hd-base-solid-body-text-color);
-          --hd-callout-body-text-highlight-color: var(--hd-base-solid-heading-text-highlight-color);
+          --hd-callout-body-text-highlight-color: var(--hd-base-solid-body-text-highlight-color);
           --hd-callout-body-text-muted-color: var(--hd-base-solid-body-text-muted-color);
           --hd-callout-border-color: var(--hd-base-solid-border);
         }

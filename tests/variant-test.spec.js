@@ -467,7 +467,7 @@ test.describe('html-deck Playwright Verification Suite', () => {
   // =========================================================================
   test.describe('Tier 4: Real-World Scenarios (WCAG AA Contrast)', () => {
     for (const theme of THEMES) {
-      test(`4.1 WCAG AA Palette Compliance [${theme.name}]: all 6 contexts meet 4.5:1 / 3.0:1`, async ({ page }) => {
+      test(`4.1 WCAG AA Palette Compliance [${theme.name}]: all 6 contexts meet 4.5:1 / 3.0:1 and distinct highlight/muted separation`, async ({ page }) => {
         await applyTheme(page, theme.name);
 
         const paletteRatios = await page.evaluate(() => {
@@ -485,15 +485,21 @@ test.describe('html-deck Playwright Verification Suite', () => {
               const bodyBgRaw = style.getPropertyValue(`${prefix}-body-background-color`).trim();
               const bodyTextRaw = style.getPropertyValue(`${prefix}-body-text-color`).trim();
               const bodyHighlightRaw = style.getPropertyValue(`${prefix}-body-text-highlight-color`).trim();
+              const bodyMutedRaw = style.getPropertyValue(`${prefix}-body-text-muted-color`).trim();
               const headingBgRaw = style.getPropertyValue(`${prefix}-heading-background-color`).trim();
               const headingTextRaw = style.getPropertyValue(`${prefix}-heading-text-color`).trim();
+              const headingHighlightRaw = style.getPropertyValue(`${prefix}-heading-text-highlight-color`).trim();
+              const headingMutedRaw = style.getPropertyValue(`${prefix}-heading-text-muted-color`).trim();
 
               const bg = window.__hdTest.parseColor(bodyBgRaw);
               const text = window.__hdTest.parseColor(bodyTextRaw);
               const highlight = window.__hdTest.parseColor(bodyHighlightRaw);
+              const muted = window.__hdTest.parseColor(bodyMutedRaw);
 
               const hBg = window.__hdTest.parseColor(headingBgRaw);
               const hText = window.__hdTest.parseColor(headingTextRaw);
+              const hHighlight = window.__hdTest.parseColor(headingHighlightRaw);
+              const hMuted = window.__hdTest.parseColor(headingMutedRaw);
 
               items.push({
                 variant,
@@ -501,12 +507,18 @@ test.describe('html-deck Playwright Verification Suite', () => {
                 themeBg,
                 body: { fg: text, bg, rawFg: bodyTextRaw, rawBg: bodyBgRaw },
                 highlight: { fg: highlight, bg, rawFg: bodyHighlightRaw, rawBg: bodyBgRaw },
+                muted: { fg: muted, bg, rawFg: bodyMutedRaw, rawBg: bodyBgRaw },
                 heading: { fg: hText, bg: hBg, rawFg: headingTextRaw, rawBg: headingBgRaw },
+                headingHighlight: { fg: hHighlight, bg: hBg, rawFg: headingHighlightRaw, rawBg: headingBgRaw },
+                headingMuted: { fg: hMuted, bg: hBg, rawFg: headingMutedRaw, rawBg: headingBgRaw },
               });
             }
           }
           return items;
         });
+
+        const rgbDistance = (c1, c2) =>
+          Math.sqrt((c1.r - c2.r) ** 2 + (c1.g - c2.g) ** 2 + (c1.b - c2.b) ** 2);
 
         for (const item of paletteRatios) {
           // Normal body text >= 4.5:1
@@ -516,11 +528,18 @@ test.describe('html-deck Playwright Verification Suite', () => {
             `Theme ${theme.name} ${item.variant}-${item.surface} body text contrast (${bodyRatio.toFixed(2)}:1) for fg:${item.body.rawFg} bg:${item.body.rawBg}`
           ).toBeGreaterThanOrEqual(4.5);
 
-          // Highlight text >= 4.5:1
+          // Body highlight text >= 4.5:1
           const highlightRatio = getContrastRatio(item.highlight.fg, item.highlight.bg, item.themeBg);
           expect(
             highlightRatio,
             `Theme ${theme.name} ${item.variant}-${item.surface} highlight contrast (${highlightRatio.toFixed(2)}:1) for fg:${item.highlight.rawFg} bg:${item.highlight.rawBg}`
+          ).toBeGreaterThanOrEqual(4.5);
+
+          // Body muted text >= 4.5:1
+          const mutedRatio = getContrastRatio(item.muted.fg, item.muted.bg, item.themeBg);
+          expect(
+            mutedRatio,
+            `Theme ${theme.name} ${item.variant}-${item.surface} body muted contrast (${mutedRatio.toFixed(2)}:1) for fg:${item.muted.rawFg} bg:${item.muted.rawBg}`
           ).toBeGreaterThanOrEqual(4.5);
 
           // Heading text >= 3.0:1 (large text)
@@ -529,6 +548,38 @@ test.describe('html-deck Playwright Verification Suite', () => {
             headingRatio,
             `Theme ${theme.name} ${item.variant}-${item.surface} heading contrast (${headingRatio.toFixed(2)}:1) for fg:${item.heading.rawFg} bg:${item.heading.rawBg}`
           ).toBeGreaterThanOrEqual(3.0);
+
+          // Heading highlight text >= 3.0:1
+          const headingHighlightRatio = getContrastRatio(item.headingHighlight.fg, item.headingHighlight.bg, item.themeBg);
+          expect(
+            headingHighlightRatio,
+            `Theme ${theme.name} ${item.variant}-${item.surface} heading highlight contrast (${headingHighlightRatio.toFixed(2)}:1) for fg:${item.headingHighlight.rawFg} bg:${item.headingHighlight.rawBg}`
+          ).toBeGreaterThanOrEqual(3.0);
+
+          // Heading muted text >= 3.0:1
+          const headingMutedRatio = getContrastRatio(item.headingMuted.fg, item.headingMuted.bg, item.themeBg);
+          expect(
+            headingMutedRatio,
+            `Theme ${theme.name} ${item.variant}-${item.surface} heading muted contrast (${headingMutedRatio.toFixed(2)}:1) for fg:${item.headingMuted.rawFg} bg:${item.headingMuted.rawBg}`
+          ).toBeGreaterThanOrEqual(3.0);
+
+          // Highlight must be visually distinct from regular text and muted text
+          expect(
+            rgbDistance(item.highlight.fg, item.body.fg),
+            `Theme ${theme.name} ${item.variant}-${item.surface} body highlight must be distinct from body text`
+          ).toBeGreaterThanOrEqual(45);
+          expect(
+            rgbDistance(item.headingHighlight.fg, item.heading.fg),
+            `Theme ${theme.name} ${item.variant}-${item.surface} heading highlight must be distinct from heading text`
+          ).toBeGreaterThanOrEqual(45);
+          expect(
+            rgbDistance(item.muted.fg, item.body.fg),
+            `Theme ${theme.name} ${item.variant}-${item.surface} body muted must be distinct from body text`
+          ).toBeGreaterThanOrEqual(30);
+          expect(
+            rgbDistance(item.headingMuted.fg, item.heading.fg),
+            `Theme ${theme.name} ${item.variant}-${item.surface} heading muted must be distinct from heading text`
+          ).toBeGreaterThanOrEqual(30);
         }
       });
     }
@@ -598,5 +649,77 @@ test.describe('html-deck Playwright Verification Suite', () => {
       // Filter out any known non-content elements or report
       expect(violations, `Found ${violations.length} contrast violations on variant-test slides`).toEqual([]);
     });
+
+    for (const theme of THEMES) {
+      test(`4.3 Contextual Element Contrast [${theme.name}]: code, kbd, mark, blockquote, and table cells meet WCAG AA in all 6 contexts`, async ({ page }) => {
+        await applyTheme(page, theme.name);
+
+        const elementChecks = await page.evaluate(() => {
+          const container = document.createElement('div');
+          container.style.position = 'fixed';
+          container.style.top = '-9999px';
+          container.style.width = '960px';
+          container.style.height = '540px';
+          document.body.appendChild(container);
+
+          const variants = ['base', 'main', 'accent'];
+          const surfaces = ['soft', 'solid'];
+          const results = [];
+
+          for (const variant of variants) {
+            for (const surface of surfaces) {
+              const slide = document.createElement('hd-slide');
+              slide.setAttribute('variant', variant);
+              slide.setAttribute('surface', surface);
+              slide.innerHTML = `
+                <p>Text with <code class="ctx-code">inline code</code>, <kbd class="ctx-kbd">Ctrl</kbd>, and <mark class="ctx-mark">highlighted mark</mark></p>
+                <blockquote class="ctx-bq">Quoted text inside ${variant}-${surface}</blockquote>
+                <table>
+                  <thead><tr><th class="ctx-th">Header</th></tr></thead>
+                  <tbody>
+                    <tr><td class="ctx-td-odd">Odd Row</td></tr>
+                    <tr><td class="ctx-td-even">Even Row</td></tr>
+                  </tbody>
+                </table>
+              `;
+              container.appendChild(slide);
+
+              const selectors = [
+                { name: 'code', sel: '.ctx-code', minRatio: 4.5 },
+                { name: 'kbd', sel: '.ctx-kbd', minRatio: 4.5 },
+                { name: 'mark', sel: '.ctx-mark', minRatio: 4.5 },
+                { name: 'blockquote', sel: '.ctx-bq', minRatio: 3.0 },
+                { name: 'th', sel: '.ctx-th', minRatio: 4.5 },
+                { name: 'td-even', sel: '.ctx-td-even', minRatio: 4.5 },
+              ];
+
+              for (const item of selectors) {
+                const el = slide.querySelector(item.sel);
+                const fg = window.__hdTest.parseColor(window.getComputedStyle(el).color);
+                const bg = window.__hdTest.getEffectiveBackground(el);
+                results.push({
+                  context: `${variant}-${surface}`,
+                  element: item.name,
+                  minRatio: item.minRatio,
+                  fg,
+                  bg,
+                });
+              }
+            }
+          }
+
+          container.remove();
+          return results;
+        });
+
+        for (const check of elementChecks) {
+          const ratio = getContrastRatio(check.fg, check.bg);
+          expect(
+            ratio,
+            `Theme ${theme.name} ${check.context} <${check.element}> contrast (${ratio.toFixed(2)}:1)`
+          ).toBeGreaterThanOrEqual(check.minRatio);
+        }
+      });
+    }
   });
 });

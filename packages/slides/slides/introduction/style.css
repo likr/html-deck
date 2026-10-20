@@ -1,35 +1,107 @@
 :root {
-    /* Fonts & Weights */
-    --hd-font-family: 'Outfit', 'Noto Sans JP', sans-serif;
-    --hd-body-font: var(--hd-font-family);
-    --hd-heading-font: var(--hd-font-family);
+  /* Fonts & Weights */
+  --hd-font-family: 'Outfit', 'Noto Sans JP', sans-serif;
+  --hd-body-font: var(--hd-font-family);
+  --hd-heading-font: var(--hd-font-family);
 
-    /* Color overrides */
-    /* Soft Surface (Slide default) */
-    --hd-base-soft-background-color: #ffffff;
-    --hd-base-soft-text-color: #1e293b;
-    --hd-base-soft-text-highlight-color: #3b82f6; /* Primary */
-    --hd-base-soft-text-muted-color: #64748b;
+  /* 4-Color Palette Base */
+  --hd-theme-background-color: #ffffff;
+  --hd-theme-text-color: #0f172a;
+  --hd-theme-main-color: #1e40af;
+  --hd-theme-accent-color: #9d174d;
 
-    /* Main theme solid (Blue) */
-    --hd-main-solid-background-color: #3b82f6;
-    --hd-main-solid-text-color: #ffffff;
+  /* Base Variant */
+  --hd-base-soft-heading-background-color: color-mix(in srgb, var(--hd-theme-text-color) 7%, var(--hd-theme-background-color));
+  --hd-base-soft-heading-background: var(--hd-base-soft-heading-background-color);
+  --hd-base-soft-heading-text-color: var(--hd-theme-text-color);
+  --hd-base-soft-heading-text-highlight-color: color-mix(in srgb, var(--hd-theme-accent-color) 88%, var(--hd-theme-text-color));
+  --hd-base-soft-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-text-color) 72%, var(--hd-theme-background-color));
 
-    /* Accent theme solid (Magenta) */
-    --hd-accent-solid-background-color: #ec4899;
-    --hd-accent-solid-text-color: #ffffff;
+  --hd-base-soft-body-background-color: var(--hd-theme-background-color);
+  --hd-base-soft-body-background: var(--hd-base-soft-body-background-color);
+  --hd-base-soft-body-text-color: var(--hd-theme-text-color);
+  --hd-base-soft-body-text-highlight-color: var(--hd-base-soft-heading-text-highlight-color);
+  --hd-base-soft-body-text-muted-color: color-mix(in srgb, var(--hd-theme-text-color) 68%, var(--hd-theme-background-color));
+  --hd-base-soft-border: color-mix(in srgb, var(--hd-theme-text-color) 16%, var(--hd-theme-background-color));
 
-    /* Slide Margins */
-    --hd-slide-margin-top: 60px;
-    --hd-slide-margin-right: 80px;
-    --hd-slide-margin-bottom: 60px;
-    --hd-slide-margin-left: 80px;
+  --hd-base-solid-heading-background-color: var(--hd-theme-text-color);
+  --hd-base-solid-heading-background: var(--hd-base-solid-heading-background-color);
+  --hd-base-solid-heading-text-color: var(--hd-theme-background-color);
+  --hd-base-solid-heading-text-highlight-color: hsl(from var(--hd-theme-accent-color) h 92% 80%);
+  --hd-base-solid-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-text-color) 22%, var(--hd-theme-background-color));
 
-    /* Presenter View Variables */
-    --hd-presenter-font: system-ui, -apple-system, sans-serif;
-    --hd-presenter-timer-size: 1.8rem;
-    --hd-presenter-clock-size: 1.8rem;
-    --hd-presenter-status-size: 2.5rem;
-    --hd-presenter-preview-size: 1.4rem;
-    --hd-presenter-notes-size: 1.6rem;
+  --hd-base-solid-body-background-color: color-mix(in srgb, var(--hd-theme-text-color) 92%, var(--hd-theme-background-color));
+  --hd-base-solid-body-background: var(--hd-base-solid-body-background-color);
+  --hd-base-solid-body-text-color: var(--hd-base-solid-heading-text-color);
+  --hd-base-solid-body-text-highlight-color: var(--hd-base-solid-heading-text-highlight-color);
+  --hd-base-solid-body-text-muted-color: var(--hd-base-solid-heading-text-muted-color);
+  --hd-base-solid-border: color-mix(in srgb, var(--hd-theme-text-color) 65%, var(--hd-theme-background-color));
+
+  /* Main Variant (Vibrant Royal Blue) */
+  --hd-main-soft-heading-background-color: var(--hd-theme-main-color);
+  --hd-main-soft-heading-background: var(--hd-main-soft-heading-background-color);
+  --hd-main-soft-heading-text-color: var(--hd-theme-background-color);
+  --hd-main-soft-heading-text-highlight-color: hsl(from var(--hd-theme-accent-color) h 95% 84%);
+  --hd-main-soft-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-main-color) 18%, var(--hd-theme-background-color));
+
+  --hd-main-soft-body-background-color: color-mix(in srgb, var(--hd-theme-main-color) 6%, var(--hd-theme-background-color));
+  --hd-main-soft-body-background: var(--hd-main-soft-body-background-color);
+  --hd-main-soft-body-text-color: var(--hd-theme-text-color);
+  --hd-main-soft-body-text-highlight-color: color-mix(in srgb, var(--hd-theme-accent-color) 88%, var(--hd-theme-text-color));
+  --hd-main-soft-body-text-muted-color: color-mix(in srgb, color-mix(in srgb, var(--hd-theme-text-color) 65%, var(--hd-theme-main-color)) 70%, var(--hd-theme-background-color));
+  --hd-main-soft-border: color-mix(in srgb, var(--hd-theme-main-color) 35%, var(--hd-theme-background-color));
+
+  --hd-main-solid-heading-background-color: color-mix(in srgb, var(--hd-theme-main-color) 85%, var(--hd-theme-text-color));
+  --hd-main-solid-heading-background: var(--hd-main-solid-heading-background-color);
+  --hd-main-solid-heading-text-color: var(--hd-theme-background-color);
+  --hd-main-solid-heading-text-highlight-color: hsl(from var(--hd-theme-accent-color) h 95% 84%);
+  --hd-main-solid-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-main-color) 18%, var(--hd-theme-background-color));
+
+  --hd-main-solid-body-background-color: var(--hd-theme-main-color);
+  --hd-main-solid-body-background: var(--hd-main-solid-body-background-color);
+  --hd-main-solid-body-text-color: var(--hd-main-solid-heading-text-color);
+  --hd-main-solid-body-text-highlight-color: var(--hd-main-solid-heading-text-highlight-color);
+  --hd-main-solid-body-text-muted-color: var(--hd-main-solid-heading-text-muted-color);
+  --hd-main-solid-border: color-mix(in srgb, var(--hd-theme-main-color) 55%, var(--hd-theme-background-color));
+
+  /* Accent Variant (Vibrant Berry Magenta) */
+  --hd-accent-soft-heading-background-color: var(--hd-theme-accent-color);
+  --hd-accent-soft-heading-background: var(--hd-accent-soft-heading-background-color);
+  --hd-accent-soft-heading-text-color: var(--hd-theme-background-color);
+  --hd-accent-soft-heading-text-highlight-color: hsl(from var(--hd-theme-main-color) h 96% 85%);
+  --hd-accent-soft-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-accent-color) 18%, var(--hd-theme-background-color));
+
+  --hd-accent-soft-body-background-color: color-mix(in srgb, var(--hd-theme-accent-color) 6%, var(--hd-theme-background-color));
+  --hd-accent-soft-body-background: var(--hd-accent-soft-body-background-color);
+  --hd-accent-soft-body-text-color: var(--hd-theme-text-color);
+  --hd-accent-soft-body-text-highlight-color: color-mix(in srgb, var(--hd-theme-main-color) 88%, var(--hd-theme-text-color));
+  --hd-accent-soft-body-text-muted-color: color-mix(in srgb, color-mix(in srgb, var(--hd-theme-text-color) 65%, var(--hd-theme-accent-color)) 70%, var(--hd-theme-background-color));
+  --hd-accent-soft-border: color-mix(in srgb, var(--hd-theme-accent-color) 35%, var(--hd-theme-background-color));
+
+  --hd-accent-solid-heading-background-color: color-mix(in srgb, var(--hd-theme-accent-color) 72%, var(--hd-theme-text-color));
+  --hd-accent-solid-heading-background: var(--hd-accent-solid-heading-background-color);
+  --hd-accent-solid-heading-text-color: var(--hd-theme-background-color);
+  --hd-accent-solid-heading-text-highlight-color: hsl(from var(--hd-theme-main-color) h 96% 86%);
+  --hd-accent-solid-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-accent-color) 18%, var(--hd-theme-background-color));
+
+  --hd-accent-solid-body-background-color: color-mix(in srgb, var(--hd-theme-accent-color) 78%, var(--hd-theme-text-color));
+  --hd-accent-solid-body-background: var(--hd-accent-solid-body-background-color);
+  --hd-accent-solid-body-text-color: var(--hd-accent-solid-heading-text-color);
+  --hd-accent-solid-body-text-highlight-color: var(--hd-accent-solid-heading-text-highlight-color);
+  --hd-accent-solid-body-text-muted-color: var(--hd-accent-solid-heading-text-muted-color);
+  --hd-accent-solid-border: color-mix(in srgb, var(--hd-theme-accent-color) 55%, var(--hd-theme-background-color));
+
+  /* Slide Margins */
+  --hd-slide-margin-top: 50px;
+  --hd-slide-margin-right: 72px;
+  --hd-slide-margin-bottom: 50px;
+  --hd-slide-margin-left: 72px;
+
+  /* Presenter View Variables (using px per css_style_guide.md §3) */
+  --hd-presenter-font: system-ui, -apple-system, sans-serif;
+  --hd-presenter-timer-size: 28px;
+  --hd-presenter-clock-size: 28px;
+  --hd-presenter-status-size: 40px;
+  --hd-presenter-preview-size: 22px;
+  --hd-presenter-notes-size: 26px;
 }
