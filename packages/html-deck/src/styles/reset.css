@@ -1,26 +1,29 @@
 /* reset.css - Minimal CSS Reset for HTML-Deck */
 
-body {
-  margin: 0 !important;
-  padding: 0 !important;
-  box-sizing: border-box;
+@layer hd-reset {
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box;
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  img, picture, svg, video {
+    display: block;
+    max-width: 100%;
+  }
+
+  ::selection {
+    background-color: var(--hd-selection-background-color, #2563eb);
+    color: var(--hd-selection-text-color, #ffffff);
+  }
 }
 
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-}
-
-img, picture, svg, video {
-  display: block;
-  max-width: 100%;
-}
-
-::selection {
-  background-color: var(--hd-selection-background-color, #2563eb);
-  color: var(--hd-selection-text-color, #ffffff);
-}

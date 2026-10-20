@@ -1,194 +1,176 @@
-/* html-deck.theme-serif.css - Premium Literary / Editorial Theme for HTML-Deck */
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+/* html-deck.theme-serif.css - Academic Folio & Fine Letterpress Theme for HTML-Deck */
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400;1,600&display=swap');
 
 :root {
-  /* Fonts & Weights */
-  --hd-font-family: 'Lora', Georgia, 'Times New Roman', Times, serif;
-  --hd-body-font: var(--hd-font-family);
+  /* ==========================================================================
+     Typography (Playfair Display Editorial Headings + Lora Literary Body)
+     ========================================================================== */
+  --hd-body-font: 'Lora', Georgia, Cambria, "Times New Roman", Times, serif;
   --hd-heading-font: 'Playfair Display', Georgia, serif;
+  --hd-font-family-serif: 'Lora', Georgia, serif;
 
-  /* ========================================================
-     BASE THEME (Standard/Neutral) - Warm Cream Paper & Ink Black
-     ======================================================== */
-  /* Soft Surface (Slide default) */
-  --hd-base-soft-background-color: #faf8f5;
-  --hd-base-soft-text-color: #1c1917;
-  --hd-base-soft-text-highlight-color: #5c1d1d; /* Burgundy highlight */
-  --hd-base-soft-text-muted-color: #78716c; /* Stone gray */
+  /* Editorial Sizing Scale */
+  --hd-size-1: 58px;
+  --hd-size-2: 38px;
+  --hd-size-3: 22px;
+  --hd-size-4: 18px;
+  --hd-size-5: 15px;
+  --hd-size-6: 13px;
 
-  /* Solid Surface (Medium bg / Dark text) */
-  --hd-base-solid-background-color: #f2ede4; /* Slightly darker warm paper */
-  --hd-base-solid-text-color: #1c1917;
-  --hd-base-solid-text-highlight-color: #5c1d1d;
-  --hd-base-solid-text-muted-color: #78716c;
-
-  /* Soft Surface Inverted (Deep Ink / Cream text) */
-  --hd-base-soft-background-color-inverted: #1c1917;
-  --hd-base-soft-text-color-inverted: #faf8f5;
-  --hd-base-soft-text-highlight-color-inverted: #f59e0b; /* Bright Amber Gold */
-  --hd-base-soft-text-muted-color-inverted: #a8a29e; /* Muted Warm Gray */
-
-  /* Solid Surface Inverted (Slightly lighter ink bg) */
-  --hd-base-solid-background-color-inverted: #292524;
-  --hd-base-solid-text-color-inverted: #faf8f5;
-  --hd-base-solid-text-highlight-color-inverted: #f59e0b;
-  --hd-base-solid-text-muted-color-inverted: #a8a29e;
-
-  /* ========================================================
-     MAIN THEME (Brand Burgundy) - Rich Wine Red
-     ======================================================== */
-  /* Soft Surface */
-  --hd-main-soft-background-color: #f5ebeb; /* Rose cream tint */
-  --hd-main-soft-text-color: #5c1d1d; /* Deep Burgundy */
-  --hd-main-soft-text-highlight-color: #5c1d1d; /* Burgundy highlight */
-  --hd-main-soft-text-muted-color: #8a4f4f;
-
-  /* Solid Surface */
-  --hd-main-solid-background-color: #5c1d1d;
-  --hd-main-solid-text-color: #faf8f5;
-  --hd-main-solid-text-highlight-color: #f59e0b;
-  --hd-main-solid-text-muted-color: #cca7a7;
-
-  /* Soft Surface Inverted */
-  --hd-main-soft-background-color-inverted: #3a1010;
-  --hd-main-soft-text-color-inverted: #faf8f5;
-  --hd-main-soft-text-highlight-color-inverted: #f59e0b;
-  --hd-main-soft-text-muted-color-inverted: #c89f9f;
-
-  /* Solid Surface Inverted */
-  --hd-main-solid-background-color-inverted: #faf8f5;
-  --hd-main-solid-text-color-inverted: #5c1d1d;
-  --hd-main-solid-text-highlight-color-inverted: #5c1d1d;
-  --hd-main-solid-text-muted-color-inverted: #8a4f4f;
-
-  /* ========================================================
-     ACCENT THEME (Brand Gold) - Antique Gold
-     ======================================================== */
-  /* Soft Surface */
-  --hd-accent-soft-background-color: #fbf7eb; /* Soft gold tint */
-  --hd-accent-soft-text-color: #855b13; /* Antique Gold */
-  --hd-accent-soft-text-highlight-color: #5c1d1d;
-  --hd-accent-soft-text-muted-color: #7c5512;
-
-  /* Solid Surface */
-  --hd-accent-solid-background-color: #946617;
-  --hd-accent-solid-text-color: #faf8f5;
-  --hd-accent-solid-text-highlight-color: #5c1d1d;
-  --hd-accent-solid-text-muted-color: #e5c895;
-
-  /* Soft Surface Inverted */
-  --hd-accent-soft-background-color-inverted: #4c3209;
-  --hd-accent-soft-text-color-inverted: #faf8f5;
-  --hd-accent-soft-text-highlight-color-inverted: #fbbf24;
-  --hd-accent-soft-text-muted-color-inverted: #c6a36f;
-
-  /* Solid Surface Inverted */
-  --hd-accent-solid-background-color-inverted: #faf8f5;
-  --hd-accent-solid-text-color-inverted: #855b13;
-  --hd-accent-solid-text-highlight-color-inverted: #5c1d1d;
-  --hd-accent-solid-text-muted-color-inverted: #8a4f4f;
-
-  /* ========================================================
-     EDITORIAL DESIGN OVERRIDES & COMPONENTS
-     ======================================================== */
-
-  /* Slide Border Customization - Fine thin border around slides */
-  --hd-slide-border-width: 1px;
-  --hd-slide-border-style: solid;
-
-  /* 6-Level Sizing Scale Override for Academic Elegance */
-  --hd-size-1: 54px;
-  --hd-size-2: 32px;
-  --hd-size-3: 20px;
-  --hd-size-4: 16px;
-  --hd-size-5: 13px;
-  --hd-size-6: 10px; /* Reduced from 11px to make header/footer smaller */
-
-  /* Spacing & Layout - Academic, refined and dense */
-  --hd-gap-1: 6px;
-  --hd-gap-2: 12px;
-  --hd-gap-3: 18px;
-  --hd-gap-4: 24px;
-  --hd-gap-5: 36px;
-  --hd-gap-6: 48px;
-
-  /* Slide margins (slimmed) */
-  --hd-slide-margin-top: var(--hd-gap-3);
-  --hd-slide-margin-bottom: var(--hd-gap-3);
-  --hd-slide-margin-left: var(--hd-gap-5);
-  --hd-slide-margin-right: var(--hd-gap-5);
-
-  /* Peripheral Absolute Position Offset (Symmetrical positioning of header and footer) */
-  --hd-peripheral-offset: 8px;
-
-  /* Layout Spacing Configurations (Symmetrical & Compact) */
-  --hd-layout-heading-padding: var(--hd-gap-3) var(--hd-slide-margin-right) var(--hd-gap-3) var(--hd-slide-margin-left); /* Expanded from gap-2 to gap-3 to give heading more breathing room and prevent overlap */
-  --hd-layout-body-padding: var(--hd-gap-3) var(--hd-slide-margin-right) var(--hd-gap-3) var(--hd-slide-margin-left);
-  --hd-layout-cover-padding: var(--hd-gap-4) var(--hd-slide-margin-right) var(--hd-gap-4) var(--hd-slide-margin-left);
-  --hd-layout-heading-margin: var(--hd-gap-3);
-  --hd-layout-cover-title-margin-bottom: var(--hd-gap-2);
-  --hd-layout-cover-subtitle-margin-bottom: var(--hd-gap-3);
-
-  /* Heading Dividers - Thin, elegant hairline accent color divider */
-  --hd-layout-heading-divider-display: block;
-  --hd-layout-heading-divider-height: 1px;
-
-  /* Typography Fine-Tuning */
-  --hd-text-title-letter-spacing: -0.01em;
+  --hd-text-title-letter-spacing: -0.015em;
   --hd-text-heading-letter-spacing: -0.01em;
-  --hd-text-body-line-height: 1.6;
-  --hd-text-quote-line-height: 1.5;
+  --hd-text-subheading-letter-spacing: 0.02em;
+  --hd-text-peripheral-font: var(--hd-heading-font);
+  --hd-text-peripheral-letter-spacing: 0.12em;
 
-  /* Component Rounding - Sharp editorial borders */
-  --hd-card-border-radius: 3px;
-  --hd-box-border-radius: 3px;
-  --hd-callout-border-radius: 3px;
-  --hd-codeblock-border-radius: 3px;
-  --hd-img-border-radius: 3px;
+  /* ==========================================================================
+     4-Color Base Palette (Archival Folio Paper, Letterpress Ink, Imperial Oxblood, Classical Ultramarine Blue)
+     ========================================================================== */
+  --hd-theme-background-color: #f4eee1;
+  --hd-theme-text-color: #1a1311;
+  --hd-theme-main-color: #631422;
+  --hd-theme-accent-color: #1e3a8a;
 
-  /* Card Decor: Minimalist Bookplate Style */
+  /* ==========================================================================
+     48-Color Matrix (3 Variants × 2 Surfaces × 2 Regions × 4 Roles)
+     ========================================================================== */
+
+  /* --- Base Variant (Warm Archival Folio & Letterpress Bookplate) --- */
+  /* Soft Surface */
+  --hd-base-soft-heading-background-color: color-mix(in srgb, var(--hd-theme-main-color) 10%, var(--hd-theme-background-color));
+  --hd-base-soft-heading-background: var(--hd-base-soft-heading-background-color);
+  --hd-base-soft-heading-text-color: var(--hd-theme-text-color);
+  --hd-base-soft-heading-text-highlight-color: color-mix(in srgb, var(--hd-theme-accent-color) 92%, var(--hd-theme-text-color));
+  --hd-base-soft-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-text-color) 76%, var(--hd-theme-background-color));
+
+  --hd-base-soft-body-background-color: var(--hd-theme-background-color);
+  --hd-base-soft-body-background: var(--hd-base-soft-body-background-color);
+  --hd-base-soft-body-text-color: var(--hd-theme-text-color);
+  --hd-base-soft-body-text-highlight-color: var(--hd-base-soft-heading-text-highlight-color);
+  --hd-base-soft-body-text-muted-color: color-mix(in srgb, var(--hd-theme-text-color) 74%, var(--hd-theme-background-color));
+
+  --hd-base-soft-border: color-mix(in srgb, var(--hd-theme-main-color) 32%, var(--hd-theme-background-color));
+
+  /* Solid Surface (Deep Stone Ink Bookplate / Archival Paper Text) */
+  --hd-base-solid-heading-background-color: var(--hd-theme-text-color);
+  --hd-base-solid-heading-background: var(--hd-base-solid-heading-background-color);
+  --hd-base-solid-heading-text-color: var(--hd-theme-background-color);
+  --hd-base-solid-heading-text-highlight-color: hsl(from var(--hd-theme-accent-color) h 94% 80%);
+  --hd-base-solid-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-text-color) 24%, var(--hd-theme-background-color));
+
+  --hd-base-solid-body-background-color: color-mix(in srgb, var(--hd-theme-text-color) 92%, var(--hd-theme-background-color));
+  --hd-base-solid-body-background: var(--hd-base-solid-body-background-color);
+  --hd-base-solid-body-text-color: var(--hd-base-solid-heading-text-color);
+  --hd-base-solid-body-text-highlight-color: var(--hd-base-solid-heading-text-highlight-color);
+  --hd-base-solid-body-text-muted-color: var(--hd-base-solid-heading-text-muted-color);
+
+  --hd-base-solid-border: color-mix(in srgb, var(--hd-theme-text-color) 65%, var(--hd-theme-background-color));
+
+  /* --- Main Variant (Classical Oxblood Burgundy) --- */
+  /* Soft Surface */
+  --hd-main-soft-heading-background-color: var(--hd-theme-main-color);
+  --hd-main-soft-heading-background: var(--hd-main-soft-heading-background-color);
+  --hd-main-soft-heading-text-color: var(--hd-theme-background-color);
+  --hd-main-soft-heading-text-highlight-color: hsl(from var(--hd-theme-accent-color) h 95% 82%);
+  --hd-main-soft-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-main-color) 20%, var(--hd-theme-background-color));
+
+  --hd-main-soft-body-background-color: color-mix(in srgb, var(--hd-theme-main-color) 8%, var(--hd-theme-background-color));
+  --hd-main-soft-body-background: var(--hd-main-soft-body-background-color);
+  --hd-main-soft-body-text-color: var(--hd-theme-text-color);
+  --hd-main-soft-body-text-highlight-color: color-mix(in srgb, var(--hd-theme-accent-color) 90%, var(--hd-theme-text-color));
+  --hd-main-soft-body-text-muted-color: color-mix(in srgb, color-mix(in srgb, var(--hd-theme-text-color) 65%, var(--hd-theme-main-color)) 72%, var(--hd-theme-background-color));
+
+  --hd-main-soft-border: color-mix(in srgb, var(--hd-theme-main-color) 45%, var(--hd-theme-background-color));
+
+  /* Solid Surface */
+  --hd-main-solid-heading-background-color: color-mix(in srgb, var(--hd-theme-main-color) 80%, var(--hd-theme-text-color));
+  --hd-main-solid-heading-background: var(--hd-main-solid-heading-background-color);
+  --hd-main-solid-heading-text-color: var(--hd-theme-background-color);
+  --hd-main-solid-heading-text-highlight-color: hsl(from var(--hd-theme-accent-color) h 95% 82%);
+  --hd-main-solid-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-main-color) 20%, var(--hd-theme-background-color));
+
+  --hd-main-solid-body-background-color: color-mix(in srgb, var(--hd-theme-main-color) 90%, var(--hd-theme-text-color));
+  --hd-main-solid-body-background: var(--hd-main-solid-body-background-color);
+  --hd-main-solid-body-text-color: var(--hd-main-solid-heading-text-color);
+  --hd-main-solid-body-text-highlight-color: var(--hd-main-solid-heading-text-highlight-color);
+  --hd-main-solid-body-text-muted-color: var(--hd-main-solid-heading-text-muted-color);
+
+  --hd-main-solid-border: color-mix(in srgb, var(--hd-theme-main-color) 65%, var(--hd-theme-background-color));
+
+  /* --- Accent Variant (Classical Ultramarine Blue) --- */
+  /* Soft Surface */
+  --hd-accent-soft-heading-background-color: var(--hd-theme-accent-color);
+  --hd-accent-soft-heading-background: var(--hd-accent-soft-heading-background-color);
+  --hd-accent-soft-heading-text-color: var(--hd-theme-background-color);
+  --hd-accent-soft-heading-text-highlight-color: hsl(from var(--hd-theme-main-color) h 92% 83%);
+  --hd-accent-soft-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-accent-color) 18%, var(--hd-theme-background-color));
+
+  --hd-accent-soft-body-background-color: color-mix(in srgb, var(--hd-theme-accent-color) 8%, var(--hd-theme-background-color));
+  --hd-accent-soft-body-background: var(--hd-accent-soft-body-background-color);
+  --hd-accent-soft-body-text-color: var(--hd-theme-text-color);
+  --hd-accent-soft-body-text-highlight-color: color-mix(in srgb, var(--hd-theme-main-color) 88%, var(--hd-theme-text-color));
+  --hd-accent-soft-body-text-muted-color: color-mix(in srgb, color-mix(in srgb, var(--hd-theme-text-color) 65%, var(--hd-theme-accent-color)) 72%, var(--hd-theme-background-color));
+
+  --hd-accent-soft-border: color-mix(in srgb, var(--hd-theme-accent-color) 45%, var(--hd-theme-background-color));
+
+  /* Solid Surface */
+  --hd-accent-solid-heading-background-color: color-mix(in srgb, var(--hd-theme-accent-color) 78%, var(--hd-theme-text-color));
+  --hd-accent-solid-heading-background: var(--hd-accent-solid-heading-background-color);
+  --hd-accent-solid-heading-text-color: var(--hd-theme-background-color);
+  --hd-accent-solid-heading-text-highlight-color: hsl(from var(--hd-theme-main-color) h 92% 83%);
+  --hd-accent-solid-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-accent-color) 18%, var(--hd-theme-background-color));
+
+  --hd-accent-solid-body-background-color: color-mix(in srgb, var(--hd-theme-accent-color) 86%, var(--hd-theme-text-color));
+  --hd-accent-solid-body-background: var(--hd-accent-solid-body-background-color);
+  --hd-accent-solid-body-text-color: var(--hd-accent-solid-heading-text-color);
+  --hd-accent-solid-body-text-highlight-color: var(--hd-accent-solid-heading-text-highlight-color);
+  --hd-accent-solid-body-text-muted-color: var(--hd-accent-solid-heading-text-muted-color);
+
+  --hd-accent-solid-border: color-mix(in srgb, var(--hd-theme-accent-color) 62%, var(--hd-theme-background-color));
+
+  /* ==========================================================================
+     Theme Visual & Structural Customizations (Academic Folio Framing)
+     ========================================================================== */
+  /* Signature 6px Double Oxblood Margin Border on the Slide Canvas */
+  --hd-slide-border-width: 6px;
+  --hd-slide-border-style: double;
+  --hd-slide-border-color: var(--hd-theme-main-color);
+
+  /* Centered Classical Monograph Headings with Ultramarine & Oxblood Double Rule */
+  --hd-layout-heading-text-align: center;
+  --hd-layout-heading-justify-content: center;
+  --hd-layout-heading-box-shadow: inset 0 -2px 0 0 rgba(from var(--hd-theme-accent-color) r g b / 0.65);
+  --hd-layout-heading-divider-display: block;
+  --hd-layout-heading-divider-height: 4px;
+  --hd-layout-heading-divider-style: double;
+
+  /* Classical Crisp Bookplate Corners with Ultramarine Offset Shadow */
+  --hd-card-border-radius: 0px;
   --hd-card-border-width: 1px;
-  --hd-card-padding: var(--hd-gap-2);
-  --hd-card-box-shadow: 0 1px 3px rgba(from var(--hd-base-soft-text-color) r g b / 0.02), 0 6px 18px rgba(from var(--hd-base-soft-text-color) r g b / 0.02);
+  --hd-card-box-shadow: 4px 4px 0px rgba(from var(--hd-theme-accent-color) r g b / 0.18), 0 4px 12px rgba(from var(--hd-theme-text-color) r g b / 0.05);
 
-  /* Box Decor */
+  --hd-box-border-radius: 0px;
   --hd-box-border-width: 1px;
-  --hd-box-padding: var(--hd-gap-2);
-  --hd-box-box-shadow: none;
+  --hd-box-box-shadow: 4px 4px 0px rgba(from var(--hd-theme-accent-color) r g b / 0.16), 0 4px 12px rgba(from var(--hd-theme-text-color) r g b / 0.05);
 
-  /* Callout Decor: Elegant left-border panel with warm paper tint background */
-  --hd-callout-border-width: 0 0 0 3px;
-  --hd-callout-padding: var(--hd-gap-1) var(--hd-gap-2);
+  --hd-callout-border-radius: 0px;
+  --hd-callout-border-width: 0 0 0 4px;
+  --hd-badge-border-radius: 0px;
 
-  /* Codeblock Decor */
-  --hd-codeblock-background-color: #1e1b18; /* Vintage dark charcoal tint for code */
-  --hd-codeblock-border-color: rgba(from var(--hd-base-soft-text-color) r g b / 0.15);
-  --hd-codeblock-box-shadow: none;
+  --hd-img-border-radius: 0px;
+  --hd-img-box-shadow: 0 8px 24px rgba(from var(--hd-theme-text-color) r g b / 0.12);
 
-  /* Table Decor */
-  --hd-table-border-color: rgba(from var(--hd-base-soft-text-color) r g b / 0.15);
-  --hd-table-cell-padding: var(--hd-gap-1) var(--hd-gap-2);
+  /* Classical Lists, Blockquotes & Tables */
+  --hd-list-style-type: circle;
+  --hd-list-marker-color: var(--hd-theme-accent-color);
+  --hd-list-ol-style-type-2: lower-roman;
 
-  /* Blockquote Decor */
   --hd-blockquote-border-width: 3px;
-  --hd-blockquote-border-style: solid;
-  --hd-blockquote-border-color: var(--hd-border-color);
-  --hd-blockquote-padding-top: 4px;
-  --hd-blockquote-padding-right: 0px;
-  --hd-blockquote-padding-bottom: 4px;
-  --hd-blockquote-padding-left: var(--hd-gap-2);
+  --hd-codeblock-border-radius: 0px;
+  --hd-code-border-radius: 0px;
 
-  /* Image Decor */
-  --hd-img-border-color: rgba(from var(--hd-base-soft-text-color) r g b / 0.12);
-  --hd-img-box-shadow: 0 6px 20px rgba(from var(--hd-base-soft-text-color) r g b / 0.04);
-
-  /* Scrollbars thumbs */
-  --hd-scrollbar-track-bg: transparent;
-  --hd-scrollbar-thumb-bg: rgba(from var(--hd-base-soft-text-color) r g b / 0.12);
-  --hd-scrollbar-thumb-hover-bg: rgba(from var(--hd-base-soft-text-color) r g b / 0.25);
-}
-
-* {
-  --hd-border-color-default: rgba(from var(--hd-body-text-color) r g b / 0.15);
-  --hd-border-color-surfaced: rgba(from var(--hd-body-text-color) r g b / 0.3);
+  /* Border Fallbacks */
+  --hd-border-color-default: rgba(from var(--hd-theme-main-color) r g b / 0.25);
+  --hd-border-color-surfaced: rgba(from var(--hd-theme-main-color) r g b / 0.45);
 }

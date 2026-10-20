@@ -1,143 +1,126 @@
-/* html-deck.theme-dark.css - Slate Dark Theme for HTML-Deck */
+/* html-deck.theme-dark.css - Deep Slate Night Theme for HTML-Deck */
+
 :root {
-   /* ========================================================
-     BASE THEME (Standard/Neutral) - Slate Dark, Crisp White Inverted
-     ======================================================== */
-   /* Soft Surface (Slide default) */
-   --hd-base-soft-background-color: #0f172a;
-   /* Slate 900 */
-   --hd-base-soft-text-color: #f8fafc;
-   /* Slate 50 */
-   --hd-base-soft-text-highlight-color: #fb923c;
-   /* Orange 400 */
-   --hd-base-soft-text-muted-color: #94a3b8;
-   /* Slate 400 */
+  /* ==========================================================================
+     4-Color Base Palette (Midnight Slate, Frost White, Luminous Indigo, Mint Emerald)
+     ========================================================================== */
+  --hd-theme-background-color: #0b1120;
+  --hd-theme-text-color: #f8fafc;
+  --hd-theme-main-color: #6366f1;
+  --hd-theme-accent-color: #34d399;
 
-   /* Solid Surface (Medium bg / Dark text) */
-   --hd-base-solid-background-color: #1e293b;
-   /* Slate 800 */
-   --hd-base-solid-text-color: #f8fafc;
-   --hd-base-solid-text-highlight-color: #fb923c;
-   --hd-base-solid-text-muted-color: #94a3b8;
+  /* ==========================================================================
+     48-Color Matrix (3 Variants × 2 Surfaces × 2 Regions × 4 Roles)
+     ========================================================================== */
 
-   /* Soft Surface Inverted (Light Slide Mode) */
-   --hd-base-soft-background-color-inverted: #ffffff;
-   --hd-base-soft-text-color-inverted: #0f172a;
-   /* Slate 900 */
-   --hd-base-soft-text-highlight-color-inverted: #c2410c;
-   /* Orange 700 */
-   --hd-base-soft-text-muted-color-inverted: #475569;
-   /* Slate 600 */
+  /* --- Base Variant (Midnight Slate) --- */
+  /* Soft Surface */
+  --hd-base-soft-heading-background-color: color-mix(in srgb, var(--hd-theme-text-color) 7%, var(--hd-theme-background-color));
+  --hd-base-soft-heading-background: var(--hd-base-soft-heading-background-color);
+  --hd-base-soft-heading-text-color: var(--hd-theme-text-color);
+  --hd-base-soft-heading-text-highlight-color: var(--hd-theme-accent-color);
+  --hd-base-soft-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-text-color) 72%, var(--hd-theme-background-color));
 
-   /* Solid Surface Inverted (Slate Solid Light Mode) */
-   --hd-base-solid-background-color-inverted: #f1f5f9;
-   /* Slate 100 */
-   --hd-base-solid-text-color-inverted: #0f172a;
-   --hd-base-solid-text-highlight-color-inverted: #9a3412;
-   /* Deep Orange */
-   --hd-base-solid-text-muted-color-inverted: #475569;
+  --hd-base-soft-body-background-color: var(--hd-theme-background-color);
+  --hd-base-soft-body-background: var(--hd-base-soft-body-background-color);
+  --hd-base-soft-body-text-color: var(--hd-theme-text-color);
+  --hd-base-soft-body-text-highlight-color: var(--hd-theme-accent-color);
+  --hd-base-soft-body-text-muted-color: color-mix(in srgb, var(--hd-theme-text-color) 70%, var(--hd-theme-background-color));
 
-   /* ========================================================
-     MAIN THEME (Brand Trust Navy/Indigo)
-     ======================================================== */
-   /* Soft Surface (Deep Navy bg) */
-   --hd-main-soft-background-color: #1e1b4b;
-   /* Indigo 955 */
-   --hd-main-soft-text-color: #c7d2fe;
-   /* Indigo 200 */
-   --hd-main-soft-text-highlight-color: #fb923c;
-   /* Orange 400 */
-   --hd-main-soft-text-muted-color: #818cf8;
-   /* Indigo 400 */
+  --hd-base-soft-border: color-mix(in srgb, var(--hd-theme-text-color) 16%, var(--hd-theme-background-color));
 
-   /* Solid Surface (Vibrant Brand Blue) */
-   --hd-main-solid-background-color: #4f46e5;
-   /* Indigo 600 */
-   --hd-main-solid-text-color: #ffffff;
-   --hd-main-solid-text-highlight-color: #ffedd5;
-   /* Orange 200 */
-   --hd-main-solid-text-muted-color: #e0e7ff;
+  /* Solid Surface (Elevated Dark Slate Panel) */
+  --hd-base-solid-heading-background-color: color-mix(in srgb, var(--hd-theme-text-color) 16%, var(--hd-theme-background-color));
+  --hd-base-solid-heading-background: var(--hd-base-solid-heading-background-color);
+  --hd-base-solid-heading-text-color: var(--hd-theme-text-color);
+  --hd-base-solid-heading-text-highlight-color: var(--hd-theme-accent-color);
+  --hd-base-solid-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-text-color) 76%, var(--hd-theme-background-color));
 
-   /* Soft Surface Inverted (Light Indigo Mode) */
-   --hd-main-soft-background-color-inverted: #eef2ff;
-   /* Indigo 50 */
-   --hd-main-soft-text-color-inverted: #312e81;
-   /* Indigo 900 */
-   --hd-main-soft-text-highlight-color-inverted: #c2410c;
-   /* Orange 700 */
-   --hd-main-soft-text-muted-color-inverted: #4338ca;
-   /* Indigo 700 */
+  --hd-base-solid-body-background-color: color-mix(in srgb, var(--hd-theme-text-color) 11%, var(--hd-theme-background-color));
+  --hd-base-solid-body-background: var(--hd-base-solid-body-background-color);
+  --hd-base-solid-body-text-color: var(--hd-theme-text-color);
+  --hd-base-solid-body-text-highlight-color: var(--hd-theme-accent-color);
+  --hd-base-solid-body-text-muted-color: color-mix(in srgb, var(--hd-theme-text-color) 74%, var(--hd-theme-background-color));
 
-   /* Solid Surface Inverted */
-   --hd-main-solid-background-color-inverted: #ffffff;
-   --hd-main-solid-text-color-inverted: #4f46e5;
-   --hd-main-solid-text-highlight-color-inverted: #c2410c;
-   --hd-main-solid-text-muted-color-inverted: #4338ca;
+  --hd-base-solid-border: color-mix(in srgb, var(--hd-theme-text-color) 28%, var(--hd-theme-background-color));
 
-   /* ========================================================
-     ACCENT THEME (Brand Amber/Orange)
-     ======================================================== */
-   /* Soft Surface (Deep Warm Rust bg) */
-   --hd-accent-soft-background-color: #431407;
-   /* Orange 955/Rust */
-   --hd-accent-soft-text-color: #fed7aa;
-   /* Orange 200 */
-   --hd-accent-soft-text-highlight-color: #a5b4fc;
-   /* Indigo 300 */
-   --hd-accent-soft-text-muted-color: #f97316;
-   /* Orange 500 */
+  /* --- Main Variant (Luminous Indigo) --- */
+  /* Soft Surface */
+  --hd-main-soft-heading-background-color: color-mix(in srgb, var(--hd-theme-main-color) 34%, var(--hd-theme-background-color));
+  --hd-main-soft-heading-background: var(--hd-main-soft-heading-background-color);
+  --hd-main-soft-heading-text-color: var(--hd-theme-text-color);
+  --hd-main-soft-heading-text-highlight-color: var(--hd-theme-accent-color);
+  --hd-main-soft-heading-text-muted-color: color-mix(in srgb, color-mix(in srgb, var(--hd-theme-text-color) 76%, var(--hd-theme-main-color)) 84%, var(--hd-theme-background-color));
 
-   /* Solid Surface (Vibrant Orange Accent) */
-   --hd-accent-solid-background-color: #ea580c;
-   /* Orange 600 */
-   --hd-accent-solid-text-color: #ffffff;
-   --hd-accent-solid-text-highlight-color: #c7d2fe;
-   /* Indigo 200 */
-   --hd-accent-solid-text-muted-color: #fed7aa;
+  --hd-main-soft-body-background-color: color-mix(in srgb, var(--hd-theme-main-color) 12%, var(--hd-theme-background-color));
+  --hd-main-soft-body-background: var(--hd-main-soft-body-background-color);
+  --hd-main-soft-body-text-color: var(--hd-theme-text-color);
+  --hd-main-soft-body-text-highlight-color: var(--hd-theme-accent-color);
+  --hd-main-soft-body-text-muted-color: color-mix(in srgb, color-mix(in srgb, var(--hd-theme-text-color) 74%, var(--hd-theme-main-color)) 82%, var(--hd-theme-background-color));
 
-   /* Soft Surface Inverted (Light Orange Mode) */
-   --hd-accent-soft-background-color-inverted: #fff7ed;
-   /* Orange 50 */
-   --hd-accent-soft-text-color-inverted: #7c2d12;
-   /* Orange 900 */
-   --hd-accent-soft-text-highlight-color-inverted: #4338ca;
-   /* Indigo 700 */
-   --hd-accent-soft-text-muted-color-inverted: #c2410c;
-   /* Orange 700 */
+  --hd-main-soft-border: color-mix(in srgb, var(--hd-theme-main-color) 45%, var(--hd-theme-background-color));
 
-   /* Solid Surface Inverted */
-   --hd-accent-solid-background-color-inverted: #ffffff;
-   --hd-accent-solid-text-color-inverted: #ea580c;
-   --hd-accent-solid-text-highlight-color-inverted: #4338ca;
-   --hd-accent-solid-text-muted-color-inverted: #c2410c;
+  /* Solid Surface */
+  --hd-main-solid-heading-background-color: color-mix(in srgb, var(--hd-theme-main-color) 46%, var(--hd-theme-background-color));
+  --hd-main-solid-heading-background: var(--hd-main-solid-heading-background-color);
+  --hd-main-solid-heading-text-color: var(--hd-theme-text-color);
+  --hd-main-solid-heading-text-highlight-color: hsl(from var(--hd-theme-accent-color) h 88% 74%);
+  --hd-main-solid-heading-text-muted-color: color-mix(in srgb, color-mix(in srgb, var(--hd-theme-text-color) 78%, var(--hd-theme-main-color)) 86%, var(--hd-theme-background-color));
 
+  --hd-main-solid-body-background-color: color-mix(in srgb, var(--hd-theme-main-color) 38%, var(--hd-theme-background-color));
+  --hd-main-solid-body-background: var(--hd-main-solid-body-background-color);
+  --hd-main-solid-body-text-color: var(--hd-theme-text-color);
+  --hd-main-solid-body-text-highlight-color: hsl(from var(--hd-theme-accent-color) h 88% 72%);
+  --hd-main-solid-body-text-muted-color: color-mix(in srgb, color-mix(in srgb, var(--hd-theme-text-color) 78%, var(--hd-theme-main-color)) 85%, var(--hd-theme-background-color));
 
-   /* ========================================================
-     DARK-SPECIFIC COMPONENT OVERRIDES & ELEVATIONS
-     ======================================================== */
-   /* Card Design - Elevate with Solid background and proper dark shadow */
-   --hd-card-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.2);
+  --hd-main-solid-border: color-mix(in srgb, var(--hd-theme-main-color) 75%, var(--hd-theme-text-color));
 
-   /* Box Design */
-   --hd-box-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.2);
+  /* --- Accent Variant (Luminous Mint Emerald) --- */
+  /* Soft Surface */
+  --hd-accent-soft-heading-background-color: color-mix(in srgb, var(--hd-theme-accent-color) 20%, var(--hd-theme-background-color));
+  --hd-accent-soft-heading-background: var(--hd-accent-soft-heading-background-color);
+  --hd-accent-soft-heading-text-color: var(--hd-theme-text-color);
+  --hd-accent-soft-heading-text-highlight-color: hsl(from var(--hd-theme-main-color) h 96% 82%);
+  --hd-accent-soft-heading-text-muted-color: color-mix(in srgb, color-mix(in srgb, var(--hd-theme-text-color) 74%, var(--hd-theme-accent-color)) 82%, var(--hd-theme-background-color));
 
-   /* Codeblock Design - Darker background for contrast inside cards/slides */
-   --hd-codeblock-background-color: #0b0f19;
-   --hd-codeblock-border-color: rgba(255, 255, 255, 0.1);
+  --hd-accent-soft-body-background-color: color-mix(in srgb, var(--hd-theme-accent-color) 8%, var(--hd-theme-background-color));
+  --hd-accent-soft-body-background: var(--hd-accent-soft-body-background-color);
+  --hd-accent-soft-body-text-color: var(--hd-theme-text-color);
+  --hd-accent-soft-body-text-highlight-color: hsl(from var(--hd-theme-main-color) h 96% 80%);
+  --hd-accent-soft-body-text-muted-color: color-mix(in srgb, color-mix(in srgb, var(--hd-theme-text-color) 72%, var(--hd-theme-accent-color)) 80%, var(--hd-theme-background-color));
 
-   /* Image border color */
-   --hd-img-border-color: rgba(255, 255, 255, 0.08);
-   --hd-img-box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  --hd-accent-soft-border: color-mix(in srgb, var(--hd-theme-accent-color) 42%, var(--hd-theme-background-color));
 
-   /* Table Decor */
-   --hd-table-border-color: rgba(255, 255, 255, 0.1);
-   --hd-table-row-striped-background-color: rgba(255, 255, 255, 0.02);
+  /* Solid Surface */
+  --hd-accent-solid-heading-background-color: color-mix(in srgb, var(--hd-theme-accent-color) 24%, var(--hd-theme-background-color));
+  --hd-accent-solid-heading-background: var(--hd-accent-solid-heading-background-color);
+  --hd-accent-solid-heading-text-color: var(--hd-theme-text-color);
+  --hd-accent-solid-heading-text-highlight-color: hsl(from var(--hd-theme-main-color) h 98% 85%);
+  --hd-accent-solid-heading-text-muted-color: color-mix(in srgb, color-mix(in srgb, var(--hd-theme-text-color) 76%, var(--hd-theme-accent-color)) 84%, var(--hd-theme-background-color));
 
-   /* Blockquote Decor */
-   --hd-blockquote-border-color: rgba(255, 255, 255, 0.2);
+  --hd-accent-solid-body-background-color: color-mix(in srgb, var(--hd-theme-accent-color) 18%, var(--hd-theme-background-color));
+  --hd-accent-solid-body-background: var(--hd-accent-solid-body-background-color);
+  --hd-accent-solid-body-text-color: var(--hd-theme-text-color);
+  --hd-accent-solid-body-text-highlight-color: hsl(from var(--hd-theme-main-color) h 98% 84%);
+  --hd-accent-solid-body-text-muted-color: color-mix(in srgb, color-mix(in srgb, var(--hd-theme-text-color) 76%, var(--hd-theme-accent-color)) 84%, var(--hd-theme-background-color));
 
-   /* Scrollbars thumbs - Elegant dynamic translucent gray */
-   --hd-scrollbar-track-bg: transparent;
-   --hd-scrollbar-thumb-bg: rgba(from var(--hd-base-soft-text-color) r g b / 0.15);
-   --hd-scrollbar-thumb-hover-bg: rgba(from var(--hd-base-soft-text-color) r g b / 0.3);
+  --hd-accent-solid-border: color-mix(in srgb, var(--hd-theme-accent-color) 70%, var(--hd-theme-text-color));
+
+  /* ==========================================================================
+     Theme Visual & Structural Customizations
+     ========================================================================== */
+  --hd-layout-heading-divider-display: block;
+  --hd-layout-heading-divider-height: 1px;
+  --hd-layout-heading-divider-style: solid;
+
+  /* Elevated dark cards & boxes */
+  --hd-card-border-radius: 10px;
+  --hd-card-box-shadow: 0 8px 24px rgba(from var(--hd-theme-background-color) r g b / 0.55), 0 1px 3px rgba(from var(--hd-theme-background-color) r g b / 0.35);
+  --hd-box-border-radius: 10px;
+  --hd-box-box-shadow: 0 8px 24px rgba(from var(--hd-theme-background-color) r g b / 0.55), 0 1px 3px rgba(from var(--hd-theme-background-color) r g b / 0.35);
+  --hd-callout-border-radius: 8px;
+
+  /* Border Fallbacks */
+  --hd-border-color-default: rgba(from var(--hd-theme-text-color) r g b / 0.16);
+  --hd-border-color-surfaced: rgba(from var(--hd-theme-text-color) r g b / 0.28);
 }

@@ -18,34 +18,34 @@ Always inspect the relevant sub-document using the `view_file` tool to access sp
 ### 1. 🚀 Project Setup
 How to bootstrap a project from scratch.
 - **Topics**: CDN imports, `create-html-deck` CLI scaffolding commands and options.
-- **Link**: [project_setup.md](file:///home/likr/work/likr/html-deck/.agents/skills/html-deck/references/project_setup.md)
+- **Link**: [project_setup.md](file:///home/likr/html-deck/.agents/skills/html-deck/references/project_setup.md)
 
 ### 2. ✍️ Slide Authoring & Design
 How to write and structure slide HTML content.
 - **Topics**: Flat slide deck DOM structures, layouts (`hd-layout`, `hd-layout-split`, `hd-layout-grid`, `hd-layout-cover`), centering content, card vs. box rules, and vertical spacing constraints to prevent canvas overflows.
-- **Link**: [authoring.md](file:///home/likr/work/likr/html-deck/.agents/skills/html-deck/references/authoring.md)
+- **Link**: [authoring.md](file:///home/likr/html-deck/.agents/skills/html-deck/references/authoring.md)
 
 ### 3. 🎨 Theme Customization & Utility Classes
 How to customize styles or apply helper utilities.
 - **Topics**: Custom theme development principles (dedicated stylesheets, variables overrides only, CSS Relative Color Syntax, 4-color principle, contrast standards, preventing header/footer overlap), compact density templates, and the `hd-` CSS utility classes catalog.
-- **Link**: [theme_customization.md](file:///home/likr/work/likr/html-deck/.agents/skills/html-deck/references/theme_customization.md)
+- **Link**: [theme_customization.md](file:///home/likr/html-deck/.agents/skills/html-deck/references/theme_customization.md)
 
 ### 4. 🧮 Library Integrations
 How to connect with popular third-party tools.
 - **Topics**: Rendering equations and formulas with KaTeX, code block syntax highlighting with Prism.js, and importing code files dynamically via Vite raw imports.
-- **Link**: [integration.md](file:///home/likr/work/likr/html-deck/.agents/skills/html-deck/references/integration.md)
+- **Link**: [integration.md](file:///home/likr/html-deck/.agents/skills/html-deck/references/integration.md)
 
 ### 5. 👥 Presentation Features
 How to present and export your deck.
 - **Topics**: Setting up speaker dashboards, utilizing presenter components (timers, clocks, slide previews, speaker notes), and exporting slides cleanly to PDF.
-- **Link**: [features.md](file:///home/likr/work/likr/html-deck/.agents/skills/html-deck/references/features.md)
+- **Link**: [features.md](file:///home/likr/html-deck/.agents/skills/html-deck/references/features.md)
 
 ### 6. 🧩 Components API Reference
 The detailed technical specification for developers.
 - **Topics**: Slots, attributes, events, and shadow DOM configuration details for all custom element tags in the library.
-- **Link**: [components.md](file:///home/likr/work/likr/html-deck/.agents/skills/html-deck/references/components.md)
+- **Link**: [components.md](file:///home/likr/html-deck/.agents/skills/html-deck/references/components.md)
 
 ### 7. 🌈 Theme Parameters Catalog
 Built-in preset parameters.
-- **Topics**: Variables, colors, and typography settings configured for the 6 standard built-in themes (Default, Dark, Warm, Corporate, Neon, Serif, Dotted).
-- **Link**: [themes.md](file:///home/likr/work/likr/html-deck/.agents/skills/html-deck/references/themes.md)
+- **Topics**: Variables, colors, and typography settings configured for the 8 standard built-in themes (Default, Dark, Warm, Corporate, Neon, Serif, Dotted, Nouveau).
+- **Link**: [themes.md](file:///home/likr/html-deck/.agents/skills/html-deck/references/themes.md)

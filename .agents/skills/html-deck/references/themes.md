@@ -1,112 +1,75 @@
-# html-deck Standard Built-in Themes Parameters Reference
+# Built-In Themes Reference
 
-This document summarizes the core parameters and custom CSS variable overrides configured for each of the 6 standard built-in themes in `html-deck`. Refer to this document when choosing slide themes or designing customized color layouts.
+The `html-deck` library includes 8 built-in themes designed around the **3-Variant (`base`, `main`, `accent`) × 2-Surface (`soft`, `solid`)** 48-Color Matrix architecture. Each theme derives its complete color matrix from a 4-color base palette (`--hd-theme-background-color`, `--hd-theme-text-color`, `--hd-theme-main-color`, `--hd-theme-accent-color`) and pairs it with tailored typography, container geometry, shadows, dividers, and surface treatments.
 
----
+## Available Themes
 
-## 🎨 Overview of Built-in Themes
+1. **Default** (No extra import required; bundled in `html-deck`)
+   - **Concept**: *Minimalist Modern Clean*
+   - **Palette**: Crisp daylight white (`#ffffff`), slate ink (`#0f172a`), electric indigo (`#3730a3`), and vibrant burnt orange (`#c2410c`).
+   - **Characteristics**: Clean system sans-serif typography, `8px` rounded containers, subtle tinted `soft` surfaces, deep slate/indigo/burnt-orange `solid` surfaces with high-saturation `hsl(from ...)` cross-highlights, and soft elevation shadows.
+   - **Best For**: General technical presentations, software engineering talks, and clean modern decks.
 
-| Theme Filename | Font Family | Default Background | Default Text Color | Main Brand Variant Accent | Secondary/Highlight Accent |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **Default (Minimalist)** | `system-ui` | `#ffffff` (White) | `#111827` (Dark Slate) | `#4f46e5` (Indigo) | `#ea580c` (Orange) |
-| **Dark Slate** (`html-deck.theme-dark.css`) | `system-ui` | `#0f172a` (Slate 900) | `#f8fafc` (Slate 50) | `#1e1b4b` (Deep Navy) | `#fb923c` (Orange 400) |
-| **Warm Sepia** (`html-deck.theme-warm.css`) | `'Outfit'` | `#f7f4eb` (Warm Sand Dunes) | `#363028` (Charcoal Brown) | `#cb5334` (Desert Terracotta) | `#dfa12d` (Sunlit Amber) |
-| **Corporate** (`html-deck.theme-corporate.css`) | `'Inter'` (body)<br>`'Outfit'` (headings) | `#fcfcfc` (Onyx White) | `#0b132b` (Deep Navy) | `#0a1931` (Trust Navy) | `#c25e2e` (Copper Orange) |
-| **Neon Cyberpunk** (`html-deck.theme-neon.css`) | `'Space Grotesk'` | `#0c0d1e` (Midnight Blue) | `#f1f5f9` (Slate White) | `#00f2fe` (Neon Cyan) | `#fe019a` (Neon Pink) |
-| **Serif Academic** (`html-deck.theme-serif.css`) | `'Lora'` (body)<br>`'Playfair Display'` (headings) | `#f5f4ef` (Paper White) | `#1c1917` (Ink Black) | `#44403c` (Stone Brown) | `#9a3412` (Academic Rust) |
-| **Retro Dot-Matrix** (`html-deck.theme-dotted.css`) | `'DotGothic16'` | `#000000` (Black) | `#00ff66` (Phosphor Green) | `#001a07` (Deep Green) | `#ffb000` (Warning Amber) |
+2. **Dark (`html-deck/theme-dark`)**
+   - **Concept**: *Deep Slate Night*
+   - **Palette**: Midnight slate (`#0b1120`), frost white (`#f8fafc`), luminous indigo (`#6366f1`), and luminous mint emerald (`#34d399`).
+   - **Characteristics**: Elevated dark slate container surfaces, `10px` rounded corners, deep drop shadows, and high-contrast syntax/code blocks with emerald and luminous indigo highlights.
+   - **Best For**: Low-light environments, developer conferences, and dark-mode technical demos.
 
----
+3. **Warm (`html-deck/theme-warm`)**
+   - **Concept**: *Sunlit Adobe & Hibiscus Berry*
+   - **Palette**: Sunlit adobe sand (`#f7efe2`), roasted espresso ink (`#26150d`), warm amber ochre (`#8a4208`), and hibiscus berry rose (`#ac1442`).
+   - **Characteristics**: Geometric rounded `'Outfit'` typography, warm sun-drenched adobe canvas with ambient radiance overlay, generous organic `24px` pillowed container radii, warm drop-shadows, and a dual-tone hibiscus-rose & ochre heading divider.
+   - **Best For**: Design systems, lifestyle, creative storytelling, architecture, and human-centric presentations.
 
-## 🛠️ Theme-Specific Parameters & Variable Mappings
+4. **Corporate (`html-deck/theme-corporate`)**
+   - **Concept**: *Executive Boardroom & Strategic Briefing*
+   - **Palette**: Executive ice slate (`#f0f4f8`), Oxford ink (`#091626`), executive sapphire navy (`#0f3460`), and FinTech emerald-teal (`#046648`).
+   - **Characteristics**: `'Outfit'` headings paired with `'Inter'` body text, left-aligned cover layout, clean ice-slate canvas with a `6px` executive navy-and-emerald top status bar, emerald-accented heading banner rule, crisp `2px` architectural corners, and `5px` emerald left accent bars on cards and boxes.
+   - **Best For**: Business pitches, quarterly reviews, enterprise architecture, and financial reports.
 
-All custom theme styles are configured via CSS variables defined under the `:root` selector. The primary color maps use state variables that propagate styling to specific elements (`--hd-base-*`, `--hd-main-*`, `--hd-accent-*`).
+5. **Neon (`html-deck/theme-neon`)**
+   - **Concept**: *Tokyo Midnight Cyberpunk*
+   - **Palette**: Deep cyber void (`#070913`), ice white (`#f0f6fc`), electric cyan (`#00f2fe`), and laser magenta (`#ff2a85`).
+   - **Characteristics**: `'Space Grotesk'` display headers with neon text-shadow glow, dual radial-glow slide canvas, laser magenta `.hd-highlight` accents on base surfaces, glowing cyan/magenta container borders and box-shadows, and geometric `▸`/`▹`/`▪` list markers.
+   - **Best For**: Gaming, AI/cybersecurity, futuristic tech showcases, and lightning talks.
 
-### 1. Default (Minimalist Clean)
-- **Base (Standard)**:
-  - Soft Surface: `--hd-base-soft-background-color: #ffffff`, `--hd-base-soft-text-color: #111827`
-  - Solid Surface: Background is light grey (`rgba(0,0,0,0.05)`).
-- **Main Brand (Indigo)**:
-  - Soft Surface Background: Light indigo tint (`color-mix(in srgb, #4f46e5 6%, #ffffff)`)
-  - Solid Surface Background: `#4f46e5` (Vibrant Indigo)
-- **Accent (Orange)**:
-  - Soft Surface Background: Light orange tint (`color-mix(in srgb, #ea580c 6%, #ffffff)`)
-  - Solid Surface Background: `#ea580c` (Vibrant Orange)
-- **Typography Scale**: Standard sizes (`64px`, `40px`, `24px`, `20px`, `16px`, `12px`).
+6. **Serif (`html-deck/theme-serif`)**
+   - **Concept**: *Academic Folio & Classical Ultramarine*
+   - **Palette**: Archival folio paper (`#f4eee1`), letterpress ink (`#1a1311`), imperial oxblood burgundy (`#631422`), and classical ultramarine blue (`#1e3a8a`).
+   - **Characteristics**: `'Playfair Display'` centered headings paired with `'Lora'` literary serif body, signature `6px double` oxblood slide frame, ultramarine-and-oxblood double heading rule, crisp `0px` sharp bookplate corners with ultramarine offset shadows, and classical typography proportions.
+   - **Best For**: Academic research papers, humanities, literature, and formal keynote lectures.
 
-### 2. Dark Slate Theme (`html-deck.theme-dark.css`)
-- **Base (Standard)**:
-  - Soft Surface: `--hd-base-soft-background-color: #0f172a` (Slate 900), Text: `#f8fafc` (Slate 50).
-  - Solid Surface: `--hd-base-solid-background-color: #1e293b` (Slate 800).
-- **Main Brand (Deep Navy & Indigo)**:
-  - Soft Surface: Background: `#1e1b4b` (Deep Navy), Text: `#c7d2fe` (Indigo 200).
-  - Solid Surface: Background: `#4f46e5` (Vibrant Indigo).
-- **Accent (Rust/Amber)**:
-  - Soft Surface: Background: `#431407` (Rust/Dark Orange), Text: `#fed7aa` (Orange 200).
-  - Solid Surface: Background: `#ea580c` (Vibrant Orange).
-- **Component Elevations**:
-  - Shadow: `--hd-card-box-shadow: 0 4px 12px rgba(0,0,0,0.3)`
-  - Code Block Background: `#0b0f19` (for high contrast inside dark slides).
+7. **Dotted (`html-deck/theme-dotted`)**
+   - **Concept**: *Retro Phosphor CRT Terminal*
+   - **Palette**: Pure CRT black (`#000000`), phosphor green (`#00ff66`), matrix green (`#00cc52`), and warning amber (`#ffb000`).
+   - **Characteristics**: `'DotGothic16'` pixel monospace font with tuned compact sizing, sharp `0px` corners, `2px dotted` borders and dividers, inverse-video `solid` blocks, animated blinking block/underscore cursors (`█` / `_`), `>` terminal list prompts, and a CRT scanline viewport overlay.
+   - **Best For**: Retro computing, low-level systems/kernel talks, security CTFs, and pixel-art decks.
 
-### 3. Warm Sepia Theme (`html-deck.theme-warm.css`)
-- **Fonts**: Loaded via `@import Outfit`. `--hd-font-family: 'Outfit', sans-serif`.
-- **Base (Standard)**:
-  - Soft Surface: Background: `linear-gradient(135deg, #f7f4eb 0%, #ede8dc 100%)` (Sand Dunes), Text: `#363028` (Charcoal Brown).
-- **Main Brand (Terracotta)**:
-  - Soft Surface: Background: `linear-gradient(135deg, #faebe3 0%, #f3dcd0 100%)` (Light Terracotta).
-  - Solid Surface: Background: `linear-gradient(135deg, #cb5334 0%, #a83d21 100%)` (Vibrant Clay Terracotta).
-- **Accent (Ochre)**:
-  - Soft Surface: Background: `linear-gradient(135deg, #fdf6e2 0%, #f9edcb 100%)` (Light Ochre).
-  - Solid Surface: Background: `linear-gradient(135deg, #dfa12d 0%, #c48818 100%)` (Vibrant Sunlit Ochre).
-- **Decorations**:
-  - Slide Border Width: `0px` (Borderless).
-  - Card background is sand white with subtle warm shadows.
+8. **Nouveau (`html-deck/theme-nouveau`)**
+   - **Concept**: *Botanical Art Nouveau & Wisteria Amethyst*
+   - **Palette**: Gilded silk parchment (`#f6f2e6`), deep moss ink (`#161e17`), botanical celadon emerald (`#1b4332`), and wisteria amethyst purple (`#6b21a8`).
+   - **Characteristics**: `'Shippori Mincho'` / `'Cormorant Garamond'` centered display serif with `'Lora'` / `'Noto Serif JP'` body, signature perimeter filigree frame with wisteria corner flourishes (`5px..8px` inset so peripheral headers/footers remain clear), wisteria-and-celadon double heading rule, asymmetric `20px 4px 20px 4px` botanical leaf-curved containers, and floral list markers (`✿`, `❀`, `♣`).
+   - **Best For**: Art history, cultural/culinary presentations, botanical/organic branding, and refined editorial decks.
 
-### 4. Corporate Theme (`html-deck.theme-corporate.css`)
-- **Fonts**: Loaded via `@import Inter`. `--hd-font-family: 'Inter', sans-serif`, Headings font: `'Outfit'`.
-- **Typography Scale**: Executive-sized compact scale (`48px`, `32px`, `20px`, `16px`, `13px`, `11px`).
-- **Base (Standard)**:
-  - Soft Surface: Background: `#fcfcfc` (Clean Onyx White), Text: `#0b132b` (Deep Obsidian).
-- **Main Brand (Classic Navy)**:
-  - Soft Surface: Background: `rgba(10, 25, 49, 0.06)` (Soft Navy Tint).
-  - Solid Surface: Background: `#0a1931` (Classic Corporate Navy Blue).
-- **Accent (Brand Copper)**:
-  - Soft Surface: Background: `rgba(194, 94, 46, 0.06)` (Soft Copper Tint).
-  - Solid Surface: Background: `#c25e2e` (Vibrant Copper).
+## Usage
 
-### 5. Neon Cyberpunk Theme (`html-deck.theme-neon.css`)
-- **Fonts**: Loaded via `@import Space Grotesk`. `--hd-font-family: 'Space Grotesk', sans-serif`.
-- **Typography Scale**: Compact scale (`52px`, `36px`, `22px`, `18px`, `14px`, `12px`).
-- **Base (Standard)**:
-  - Soft Surface: Background: `radial-gradient(circle at 50% 50%, #0c0d1e 0%, #05050a 100%)` (Midnight Cyber Navy), Text: `#f1f5f9` (Slate White).
-- **Main Brand (Neon Cyan)**:
-  - Soft Surface: Background: `radial-gradient(circle at 50% 50%, #062b33 0%, #020c0f 100%)` (Cyan Midnight Glow).
-  - Solid Surface: Background: `linear-gradient(135deg, #00f2fe 0%, #4facfe 100%)` (Vibrant Cyber Cyan).
-- **Accent (Neon Pink)**:
-  - Soft Surface: Background: `radial-gradient(circle at 50% 50%, #330628 0%, #0f020c 100%)` (Pink Midnight Glow).
-  - Solid Surface: Background: `linear-gradient(135deg, #fe019a 0%, #f9a8d4 100%)` (Vibrant Cyber Pink).
-- **Component Glows**:
-  - Code Block Border: Cyan-phosphor border glow.
-  - Table and Blockquote: Muted cyber-border styles.
+### Via Bundler (Vite, Webpack, Rollup)
 
-### 6. Serif Academic Theme (`html-deck.theme-serif.css`)
-- **Fonts**: Headings use `'Playfair Display'`, body text uses `'Lora'`.
-- **Base (Standard)**:
-  - Soft Surface: Background: `#f5f4ef` (Paper White), Text: `#1c1917` (Stone Ink Black).
-- **Main Brand (Stone Brown)**:
-  - Soft Surface: Background: `#eae7df` (Deep Warm Grey).
-  - Solid Surface: Background: `#44403c` (Deep Stone Brown).
-- **Accent (Rust Academic)**:
-  - Soft Surface: Background: `#f6ece9`.
-  - Solid Surface: Background: `#9a3412` (Rich Rust).
+Import the desired theme after `html-deck` in your module script:
 
-### 7. Retro Dot-Matrix Theme (`html-deck.theme-dotted.css`)
-- **Fonts**: Loaded via `@import DotGothic16`. `--hd-font-family: 'DotGothic16', monospace`.
-- **Base (Standard)**:
-  - Soft Surface: Background: `#000000` (Terminal Black), Text: `#00ff66` (Phosphor Green).
-- **Main Brand (Green Phosphor)**:
-  - Soft Surface: Background: `#001a07` (Deep Phosphor green).
-  - Solid Surface: Background: `#00ff66` (Vibrant Phosphor Block Green).
-- **Accent (Amber CRT)**:
-  - Soft Surface: Background: `#1a0f00` (Amber Glow).
-  - Solid Surface: Background: `#ffb000` (Warning Amber Block).
+```html
+<script type="module">
+  import 'html-deck';
+  import 'html-deck/theme-corporate';
+</script>
+```
+
+### Via CDN (`unpkg`)
+
+Load the theme stylesheet via `<link rel="stylesheet">`:
+
+```html
+<script type="module" src="https://unpkg.com/html-deck"></script>
+<link rel="stylesheet" href="https://unpkg.com/html-deck/dist/themes/html-deck.theme-corporate.css">
+```

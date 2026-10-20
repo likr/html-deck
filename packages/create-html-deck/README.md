@@ -20,7 +20,9 @@ npx create-html-deck <project-directory>
 
 - `--aspect <ratio>`: Set the slide aspect ratio. Examples: `16:9` (default), `4:3`, `1.6`.
 - `--lang <lang>`: Set the HTML `lang` attribute. Examples: `ja`, `en` (default).
-- `--presenter`: Scaffold a local presenter view dashboard (`presenter.html`) and link it.
+- `--presenter`: Scaffold a local presenter view dashboard (`presenter.html`), link it, and configure multi-page Vite builds.
+- `--help`, `-h`: Show CLI help.
+- `--version`, `-v`: Show CLI version.
 
 ## Getting Started in the Scaffolded Project
 

@@ -3,7 +3,20 @@
 import { chromium } from 'playwright';
 
 const url = process.argv[2];
-if (!url) {
+if (!url || url === '--help' || url === '-h') {
+  if (url === '--help' || url === '-h') {
+    console.log(`
+Usage:
+  npx html-deck-validator <url>
+
+Options:
+  -h, --help   Show this help information
+
+Example:
+  npx html-deck-validator http://localhost:5173/slides/ramen/index.html
+    `);
+    process.exit(0);
+  }
   console.error('\x1b[31mError: Please specify the target slideshow URL.\x1b[0m');
   console.error('Usage: npx html-deck-validator <url>');
   console.error('Example: npx html-deck-validator http://localhost:5173/slides/ramen/index.html');
@@ -13,20 +26,25 @@ if (!url) {
 (async () => {
   console.log(`\n\x1b[36m⚡ Starting Slide Validation on: ${url}\x1b[0m\n`);
 
-  const browser = await chromium.launch({ headless: true });
-  const page = await browser.newPage();
-
-  // Forward browser console logs and errors to terminal
-  page.on('console', msg => console.log(`[Browser Console] ${msg.text()}`));
-  page.on('pageerror', err => console.error(`[Browser PageError] ${err.message}`));
+  let browser;
+  let exitCode = 0;
 
   try {
+    browser = await chromium.launch({ headless: true });
+    const page = await browser.newPage();
+
     await page.goto(url, { waitUntil: 'load' });
-    
-    console.log(`Page Loaded. Title: "${await page.title()}"`);
-    const bodyText = await page.content();
-    console.log(`Page body preview (first 500 chars):\n${bodyText.substring(0, 500)}`);
-    
+
+    // Disable transitions and animations during audit to prevent sampling intermediate states
+    await page.addStyleTag({
+      content: `
+        *, *::before, *::after {
+          transition: none !important;
+          animation: none !important;
+        }
+      `
+    });
+
     // Wait for the custom element <hd-deck> to load and mount in the DOM
     await page.waitForSelector('hd-deck', { state: 'attached', timeout: 5000 });
 
@@ -37,9 +55,23 @@ if (!url) {
         return { error: 'Could not find <hd-deck> element on the page.' };
       }
 
+      // Disable transitions on deck and slides
+      deck.setAttribute('transition', 'none');
+
       // Ensure slides are initialized
       if (!deck.slides || deck.slides.length === 0) {
         await new Promise(resolve => setTimeout(resolve, 300));
+      }
+
+      if (deck.slides) {
+        deck.slides.forEach(slide => {
+          slide.setAttribute('transition-style', 'none');
+          if (slide.shadowRoot) {
+            const style = document.createElement('style');
+            style.textContent = '*, *::before, *::after { transition: none !important; animation: none !important; }';
+            slide.shadowRoot.appendChild(style);
+          }
+        });
       }
 
       const slideCount = deck.slides ? deck.slides.length : 0;
@@ -48,6 +80,12 @@ if (!url) {
       }
 
       const allWarnings = [];
+
+      // Reusable 1x1 canvas for modern color space resolution (oklch, lab, color(srgb ...), etc.)
+      const colorCanvas = document.createElement('canvas');
+      colorCanvas.width = 1;
+      colorCanvas.height = 1;
+      const colorCtx = colorCanvas.getContext('2d', { willReadFrequently: true });
 
       // Helper: Custom descendant checker that bridges Shadow DOM boundary
       function isDescendant(parent, child) {
@@ -121,14 +159,17 @@ if (!url) {
         return elements;
       }
 
-      // Helper: Generate clean selectors for reports
+      // Helper: Generate clean selectors for reports, safe with SVGAnimatedString on SVG elements
       function getUniqueSelector(el) {
         if (el.id) return `#${el.id}`;
         let path = [];
         while (el && el.nodeType === Node.ELEMENT_NODE) {
           let selector = el.nodeName.toLowerCase();
-          if (el.className) {
-            const classes = el.className.trim().split(/\s+/).filter(c => c && !c.startsWith('hd-'));
+          const rawClass = typeof el.className === 'string'
+            ? el.className
+            : (typeof el.className === 'object' && el.className?.baseVal ? el.className.baseVal : (el.getAttribute?.('class') || ''));
+          if (rawClass && typeof rawClass === 'string') {
+            const classes = rawClass.trim().split(/\s+/).filter(c => c && !c.startsWith('hd-'));
             if (classes.length) {
               selector += '.' + classes[0]; // grab primary class
             }
@@ -139,10 +180,13 @@ if (!url) {
         return path.slice(-3).join(' > '); // return last 3 ancestors for clarity
       }
 
-      // Helper: Color parsing for rgb/rgba, hex, and color(srgb)
+      // Helper: Color parsing for rgb/rgba, hex, color(srgb ...), oklch, lab, and named colors
       function parseColor(colorStr) {
-        if (!colorStr) return { r: 0, g: 0, b: 0, a: 1.0 };
+        if (!colorStr) return { r: 0, g: 0, b: 0, a: 0.0 };
         colorStr = colorStr.trim();
+        if (colorStr === 'transparent' || colorStr === 'rgba(0, 0, 0, 0)') {
+          return { r: 0, g: 0, b: 0, a: 0.0 };
+        }
         if (colorStr.startsWith('#')) {
           let hex = colorStr.slice(1);
           if (hex.length === 3 || hex.length === 4) {
@@ -157,38 +201,13 @@ if (!url) {
           }
           return { r, g, b, a };
         }
-        if (colorStr.startsWith('color')) {
-          // Matches color(srgb R G B / A) or color(srgb R G B)
-          const match = colorStr.match(/color\(srgb\s+([\d.]+)\s+([\d.]+)\s+([\d.]+)(?:\s*\/\s*([\d.%]+))?\)/);
-          if (match) {
-            let alpha = 1.0;
-            if (match[4] !== undefined) {
-              const aVal = match[4].trim();
-              if (aVal.endsWith('%')) {
-                alpha = parseFloat(aVal) / 100;
-              } else {
-                alpha = parseFloat(aVal);
-              }
-            }
-            return {
-              r: Math.round(parseFloat(match[1]) * 255),
-              g: Math.round(parseFloat(match[2]) * 255),
-              b: Math.round(parseFloat(match[3]) * 255),
-              a: alpha
-            };
-          }
-        }
         if (colorStr.startsWith('rgb')) {
           const match = colorStr.match(/rgba?\((\d+)[,\s]+(\d+)[,\s]+(\d+)(?:[,\s/]+([\d.%]+))?\)/);
           if (match) {
             let alpha = 1.0;
             if (match[4] !== undefined) {
               const aVal = match[4].trim();
-              if (aVal.endsWith('%')) {
-                alpha = parseFloat(aVal) / 100;
-              } else {
-                alpha = parseFloat(aVal);
-              }
+              alpha = aVal.endsWith('%') ? parseFloat(aVal) / 100 : parseFloat(aVal);
             }
             return {
               r: parseInt(match[1], 10),
@@ -198,7 +217,22 @@ if (!url) {
             };
           }
         }
-        return { r: 0, g: 0, b: 0, a: 1.0 }; // Fallback black
+        // Canvas-based parsing for modern CSS Color Module 4 colors (oklch, lab, color(srgb ...), etc.)
+        try {
+          colorCtx.clearRect(0, 0, 1, 1);
+          colorCtx.fillStyle = 'rgba(0, 0, 0, 0)';
+          colorCtx.fillStyle = colorStr;
+          colorCtx.fillRect(0, 0, 1, 1);
+          const data = colorCtx.getImageData(0, 0, 1, 1).data;
+          return {
+            r: data[0],
+            g: data[1],
+            b: data[2],
+            a: data[3] / 255
+          };
+        } catch (e) {
+          return { r: 0, g: 0, b: 0, a: 1.0 };
+        }
       }
 
       // Helper: Traverse upward to calculate effective background color (handling alphas and slotted elements)
@@ -212,7 +246,7 @@ if (!url) {
           if (bgStr === 'rgba(0, 0, 0, 0)' || bgStr === 'transparent') {
             const bgImg = style.backgroundImage;
             if (bgImg && bgImg !== 'none') {
-              const colorMatch = bgImg.match(/(rgba?\(.*?\)|#[0-9a-fA-F]{3,8})/);
+              const colorMatch = bgImg.match(/(color\([^)]+\)|oklch\([^)]+\)|oklab\([^)]+\)|lab\([^)]+\)|lch\([^)]+\)|rgba?\([^)]+\)|hsla?\([^)]+\)|hwb\([^)]+\)|#[0-9a-fA-F]{3,8})/);
               if (colorMatch) {
                 bgStr = colorMatch[1];
               }
@@ -261,8 +295,8 @@ if (!url) {
       // Traversing slides
       for (let i = 0; i < slideCount; i++) {
         deck.goto(i);
-        // Wait 150ms for transition styles and layout computations to resolve
-        await new Promise(resolve => setTimeout(resolve, 150));
+        // Wait 50ms for layout computations to settle without waiting for animations
+        await new Promise(resolve => setTimeout(resolve, 50));
 
         const activeSlide = deck.slides[i];
         const slideIndex = i + 1;
@@ -280,7 +314,15 @@ if (!url) {
           const fgColor = parseColor(style.color);
           const bgColor = getEffectiveBackgroundColor(el);
 
-          const l1 = getLuminance(fgColor);
+          // Composite semi-transparent foreground colors over the effective background color
+          const effectiveFg = (fgColor.a < 1.0) ? {
+            r: Math.round(fgColor.r * fgColor.a + bgColor.r * (1 - fgColor.a)),
+            g: Math.round(fgColor.g * fgColor.a + bgColor.g * (1 - fgColor.a)),
+            b: Math.round(fgColor.b * fgColor.a + bgColor.b * (1 - fgColor.a)),
+            a: 1.0
+          } : fgColor;
+
+          const l1 = getLuminance(effectiveFg);
           const l2 = getLuminance(bgColor);
           const ratio = (Math.max(l1, l2) + 0.05) / (Math.min(l1, l2) + 0.05);
 
@@ -290,6 +332,9 @@ if (!url) {
           const minRatio = isLarge ? 3.0 : 4.5;
 
           if (ratio < minRatio) {
+            const fgText = fgColor.a < 1.0
+              ? `rgba(${fgColor.r}, ${fgColor.g}, ${fgColor.b}, ${fgColor.a.toFixed(2)}) [blended rgb(${effectiveFg.r}, ${effectiveFg.g}, ${effectiveFg.b})]`
+              : `rgb(${fgColor.r}, ${fgColor.g}, ${fgColor.b})`;
             allWarnings.push({
               type: 'contrast',
               slide: slideIndex,
@@ -298,7 +343,7 @@ if (!url) {
               ratio: ratio.toFixed(2),
               required: minRatio,
               selector: getUniqueSelector(el),
-              fgStyle: `rgb(${fgColor.r}, ${fgColor.g}, ${fgColor.b})`,
+              fgStyle: fgText,
               bgStyle: `rgb(${bgColor.r}, ${bgColor.g}, ${bgColor.b})`,
               sizeStyle: style.fontSize,
               weightStyle: style.fontWeight
@@ -307,16 +352,39 @@ if (!url) {
         }
 
         // 2. Overflow Audits
+        // Determine container transform scale factor
+        let scale = 1.0;
+        const container = deck.shadowRoot?.querySelector('.deck-container');
+        if (container) {
+          if (container.style.transform) {
+            const m = container.style.transform.match(/scale\(([\d.]+)\)/);
+            if (m) scale = parseFloat(m[1]);
+          }
+          if (scale === 1.0) {
+            const transform = window.getComputedStyle(container).transform;
+            if (transform && transform !== 'none') {
+              const m = transform.match(/matrix\(([\d.]+)/);
+              if (m) scale = parseFloat(m[1]);
+            }
+          }
+        }
+        if ((scale === 1.0 || isNaN(scale)) && activeSlide.clientHeight > 0) {
+          const derived = slideRect.height / activeSlide.clientHeight;
+          if (!isNaN(derived) && derived > 0) {
+            scale = derived;
+          }
+        }
+
         const style = window.getComputedStyle(activeSlide);
         const parsePx = (val) => {
           if (!val) return 0;
           const parsed = parseFloat(val);
           return isNaN(parsed) ? 0 : parsed;
         };
-        const marginTop = parsePx(style.getPropertyValue('--hd-slide-margin-top') || style.marginTop);
-        const marginRight = parsePx(style.getPropertyValue('--hd-slide-margin-right') || style.marginRight);
-        const marginBottom = parsePx(style.getPropertyValue('--hd-slide-margin-bottom') || style.marginBottom);
-        const marginLeft = parsePx(style.getPropertyValue('--hd-slide-margin-left') || style.marginLeft);
+        const marginTop = parsePx(style.getPropertyValue('--hd-slide-margin-top') || style.marginTop) * scale;
+        const marginRight = parsePx(style.getPropertyValue('--hd-slide-margin-right') || style.marginRight) * scale;
+        const marginBottom = parsePx(style.getPropertyValue('--hd-slide-margin-bottom') || style.marginBottom) * scale;
+        const marginLeft = parsePx(style.getPropertyValue('--hd-slide-margin-left') || style.marginLeft) * scale;
 
         const contentLeft = slideRect.left + marginLeft;
         const contentRight = slideRect.right - marginRight;
@@ -395,13 +463,15 @@ if (!url) {
 
     if (results.error) {
       console.error(`\x1b[31mAudit Failed: ${results.error}\x1b[0m`);
-      process.exit(1);
+      exitCode = 1;
+      return;
     }
 
     const warnings = results.warnings || [];
     if (warnings.length === 0) {
       console.log('\x1b[32m✔ All slides passed! No contrast, overflow, or overlap issues detected.\x1b[0m\n');
-      process.exit(0);
+      exitCode = 0;
+      return;
     }
 
     console.log(`\x1b[31m❌ Found ${warnings.length} audit violations:\x1b[0m\n`);
@@ -427,12 +497,16 @@ if (!url) {
       }
     });
 
-    process.exit(1);
+    exitCode = 1;
 
   } catch (err) {
     console.error('\x1b[31mFatal execution error during slide audit:\x1b[0m', err);
-    process.exit(1);
+    exitCode = 1;
   } finally {
-    await browser.close();
+    if (browser) {
+      await browser.close();
+    }
+    process.exitCode = exitCode;
   }
 })();
+

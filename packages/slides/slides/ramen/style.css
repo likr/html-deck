@@ -1,113 +1,118 @@
-
 :root {
   /* Fonts & Typography */
   --hd-font-family: 'Outfit', 'Noto Sans JP', sans-serif;
   --hd-body-font: var(--hd-font-family);
   --hd-heading-font: var(--hd-font-family);
 
-  --hd-size-1: 56px;
+  --hd-size-1: 54px;
   --hd-size-2: 36px;
-  --hd-size-3: 24px;
+  --hd-size-3: 22px;
   --hd-size-4: 18px;
   --hd-size-5: 14px;
   --hd-size-6: 12px;
 
-  /* --- 48-Color Matrix overrides (Traditional Ramen Shop Theme) --- */
+  /* --- 4-Color Palette (Traditional Ramen Noren & Broth Theme) --- */
+  --hd-theme-background-color: #fffcf5;
+  --hd-theme-text-color: #1a120b;
+  --hd-theme-main-color: #9e1c08;
+  --hd-theme-accent-color: #784300;
 
-  /* Base Soft: Warm Off-White / Bamboo Cream background, Dark Charcoal text */
-  --hd-base-soft-background-color: #fffcf5;
-  --hd-base-soft-text-color: #1a120b;
-  --hd-base-soft-text-highlight-color: #c82c14; /* Ramen Vermilion Red */
-  --hd-base-soft-text-muted-color: #70655c;
+  /* Base Soft: Bamboo Cream background, Sumi Charcoal text */
+  --hd-base-soft-heading-background-color: color-mix(in srgb, var(--hd-theme-accent-color) 9%, var(--hd-theme-background-color));
+  --hd-base-soft-heading-background: var(--hd-base-soft-heading-background-color);
+  --hd-base-soft-heading-text-color: var(--hd-theme-text-color);
+  --hd-base-soft-heading-text-highlight-color: color-mix(in srgb, var(--hd-theme-main-color) 88%, var(--hd-theme-text-color));
+  --hd-base-soft-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-text-color) 72%, var(--hd-theme-background-color));
 
-  /* Base Solid: Soft Wood / Noodle Yellow border/fill, Dark Charcoal text */
-  --hd-base-solid-background-color: #f7ebd3;
-  --hd-base-solid-text-color: #1a120b;
-  --hd-base-solid-text-highlight-color: #c82c14;
-  --hd-base-solid-text-muted-color: #70655c;
+  --hd-base-soft-body-background-color: var(--hd-theme-background-color);
+  --hd-base-soft-body-background: var(--hd-base-soft-body-background-color);
+  --hd-base-soft-body-text-color: var(--hd-theme-text-color);
+  --hd-base-soft-body-text-highlight-color: var(--hd-base-soft-heading-text-highlight-color);
+  --hd-base-soft-body-text-muted-color: color-mix(in srgb, var(--hd-theme-text-color) 68%, var(--hd-theme-background-color));
+  --hd-base-soft-border: color-mix(in srgb, var(--hd-theme-text-color) 20%, var(--hd-theme-background-color));
 
-  /* Base Soft Inverted: Dark Charcoal background, Warm Off-White text */
-  --hd-base-soft-background-color-inverted: #1a120b;
-  --hd-base-soft-text-color-inverted: #fffcf5;
-  --hd-base-soft-text-highlight-color-inverted: #ffcc00; /* Noodle Gold */
-  --hd-base-soft-text-muted-color-inverted: #b3a79d;
+  /* Base Solid: Sumi Ink Noren surface, Bamboo Cream text */
+  --hd-base-solid-heading-background-color: var(--hd-theme-text-color);
+  --hd-base-solid-heading-background: var(--hd-base-solid-heading-background-color);
+  --hd-base-solid-heading-text-color: var(--hd-theme-background-color);
+  --hd-base-solid-heading-text-highlight-color: hsl(from var(--hd-theme-accent-color) h 95% 76%);
+  --hd-base-solid-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-text-color) 22%, var(--hd-theme-background-color));
 
-  /* Base Solid Inverted: Slightly lighter dark wood/charcoal background */
-  --hd-base-solid-background-color-inverted: #2d2218;
-  --hd-base-solid-text-color-inverted: #fffcf5;
-  --hd-base-solid-text-highlight-color-inverted: #ffcc00;
-  --hd-base-solid-text-muted-color-inverted: #b3a79d;
+  --hd-base-solid-body-background-color: color-mix(in srgb, var(--hd-theme-text-color) 92%, var(--hd-theme-background-color));
+  --hd-base-solid-body-background: var(--hd-base-solid-body-background-color);
+  --hd-base-solid-body-text-color: var(--hd-base-solid-heading-text-color);
+  --hd-base-solid-body-text-highlight-color: var(--hd-base-solid-heading-text-highlight-color);
+  --hd-base-solid-body-text-muted-color: var(--hd-base-solid-heading-text-muted-color);
+  --hd-base-solid-border: color-mix(in srgb, var(--hd-theme-text-color) 65%, var(--hd-theme-background-color));
 
-  /* Main Soft: Light Red Tint background, Dark Red text */
-  --hd-main-soft-background-color: #fff0eb;
-  --hd-main-soft-text-color: #8a1705;
-  --hd-main-soft-text-highlight-color: #e5a900;
-  --hd-main-soft-text-muted-color: #a3584c;
+  /* Main Soft: Vermilion Noren header, soft warm broth body */
+  --hd-main-soft-heading-background-color: var(--hd-theme-main-color);
+  --hd-main-soft-heading-background: var(--hd-main-soft-heading-background-color);
+  --hd-main-soft-heading-text-color: var(--hd-theme-background-color);
+  --hd-main-soft-heading-text-highlight-color: hsl(from var(--hd-theme-accent-color) h 95% 80%);
+  --hd-main-soft-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-main-color) 18%, var(--hd-theme-background-color));
 
-  /* Main Solid: Ramen Vermilion Red background, White text */
-  --hd-main-solid-background-color: #c82c14;
-  --hd-main-solid-text-color: #ffffff;
-  --hd-main-solid-text-highlight-color: #ffcc00;
-  --hd-main-solid-text-muted-color: #ffc4ba;
+  --hd-main-soft-body-background-color: color-mix(in srgb, var(--hd-theme-main-color) 6%, var(--hd-theme-background-color));
+  --hd-main-soft-body-background: var(--hd-main-soft-body-background-color);
+  --hd-main-soft-body-text-color: var(--hd-theme-text-color);
+  --hd-main-soft-body-text-highlight-color: color-mix(in srgb, var(--hd-theme-accent-color) 88%, var(--hd-theme-text-color));
+  --hd-main-soft-body-text-muted-color: color-mix(in srgb, color-mix(in srgb, var(--hd-theme-text-color) 65%, var(--hd-theme-main-color)) 72%, var(--hd-theme-background-color));
+  --hd-main-soft-border: color-mix(in srgb, var(--hd-theme-main-color) 36%, var(--hd-theme-background-color));
 
-  /* Main Soft Inverted: Dark Red background, Warm Off-White text */
-  --hd-main-soft-background-color-inverted: #8a1705;
-  --hd-main-soft-text-color-inverted: #fff0eb;
-  --hd-main-soft-text-highlight-color-inverted: #ffcc00;
-  --hd-main-soft-text-muted-color-inverted: #ffe2de;
+  /* Main Solid: Ramen Vermilion Red background, Cream text */
+  --hd-main-solid-heading-background-color: color-mix(in srgb, var(--hd-theme-main-color) 76%, var(--hd-theme-text-color));
+  --hd-main-solid-heading-background: var(--hd-main-solid-heading-background-color);
+  --hd-main-solid-heading-text-color: var(--hd-theme-background-color);
+  --hd-main-solid-heading-text-highlight-color: hsl(from var(--hd-theme-accent-color) h 95% 80%);
+  --hd-main-solid-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-main-color) 18%, var(--hd-theme-background-color));
 
-  /* Main Solid Inverted: White background, Ramen Vermilion Red text */
-  --hd-main-solid-background-color-inverted: #ffffff;
-  --hd-main-solid-text-color-inverted: #c82c14;
-  --hd-main-solid-text-highlight-color-inverted: #ffcc00;
-  --hd-main-solid-text-muted-color-inverted: #ffc4ba;
+  --hd-main-solid-body-background-color: color-mix(in srgb, var(--hd-theme-main-color) 84%, var(--hd-theme-text-color));
+  --hd-main-solid-body-background: var(--hd-main-solid-body-background-color);
+  --hd-main-solid-body-text-color: var(--hd-main-solid-heading-text-color);
+  --hd-main-solid-body-text-highlight-color: var(--hd-main-solid-heading-text-highlight-color);
+  --hd-main-solid-body-text-muted-color: var(--hd-main-solid-heading-text-muted-color);
+  --hd-main-solid-border: color-mix(in srgb, var(--hd-theme-main-color) 55%, var(--hd-theme-background-color));
 
-  /* Accent Soft: Golden Broth Light background, Dark Gold text */
-  --hd-accent-soft-background-color: #fffdeb;
-  --hd-accent-soft-text-color: #7a5f00;
-  --hd-accent-soft-text-highlight-color: #c82c14;
-  --hd-accent-soft-text-muted-color: #9c8024;
+  /* Accent Soft: Rich Golden Broth header, soft noodle-cream body */
+  --hd-accent-soft-heading-background-color: var(--hd-theme-accent-color);
+  --hd-accent-soft-heading-background: var(--hd-accent-soft-heading-background-color);
+  --hd-accent-soft-heading-text-color: var(--hd-theme-background-color);
+  --hd-accent-soft-heading-text-highlight-color: hsl(from var(--hd-theme-main-color) h 95% 84%);
+  --hd-accent-soft-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-accent-color) 18%, var(--hd-theme-background-color));
 
-  /* Accent Solid: Noodle Gold background, Dark Charcoal text */
-  --hd-accent-solid-background-color: #e5a900;
-  --hd-accent-solid-text-color: #1a120b;
-  --hd-accent-solid-text-highlight-color: #c82c14;
-  --hd-accent-solid-text-muted-color: #fffdeb;
+  --hd-accent-soft-body-background-color: color-mix(in srgb, var(--hd-theme-accent-color) 6%, var(--hd-theme-background-color));
+  --hd-accent-soft-body-background: var(--hd-accent-soft-body-background-color);
+  --hd-accent-soft-body-text-color: var(--hd-theme-text-color);
+  --hd-accent-soft-body-text-highlight-color: color-mix(in srgb, var(--hd-theme-main-color) 88%, var(--hd-theme-text-color));
+  --hd-accent-soft-body-text-muted-color: color-mix(in srgb, color-mix(in srgb, var(--hd-theme-text-color) 65%, var(--hd-theme-accent-color)) 72%, var(--hd-theme-background-color));
+  --hd-accent-soft-border: color-mix(in srgb, var(--hd-theme-accent-color) 36%, var(--hd-theme-background-color));
 
-  /* Accent Soft Inverted: Dark Gold background, Golden Broth Light text */
-  --hd-accent-soft-background-color-inverted: #7a5f00;
-  --hd-accent-soft-text-color-inverted: #fffdeb;
-  --hd-accent-soft-text-highlight-color-inverted: #ffcc00;
-  --hd-accent-soft-text-muted-color-inverted: #fff0bc;
+  /* Accent Solid: Rich Golden Miso / Egg Yolk Gold with high-contrast text */
+  --hd-accent-solid-heading-background-color: color-mix(in srgb, var(--hd-theme-accent-color) 76%, var(--hd-theme-text-color));
+  --hd-accent-solid-heading-background: var(--hd-accent-solid-heading-background-color);
+  --hd-accent-solid-heading-text-color: var(--hd-theme-background-color);
+  --hd-accent-solid-heading-text-highlight-color: hsl(from var(--hd-theme-main-color) h 95% 85%);
+  --hd-accent-solid-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-accent-color) 18%, var(--hd-theme-background-color));
 
-  /* Accent Solid Inverted: White background, Noodle Gold text */
-  --hd-accent-solid-background-color-inverted: #ffffff;
-  --hd-accent-solid-text-color-inverted: #e5a900;
-  --hd-accent-solid-text-highlight-color-inverted: #c82c14;
-  --hd-accent-solid-text-muted-color-inverted: #fffdeb;
+  --hd-accent-solid-body-background-color: color-mix(in srgb, var(--hd-theme-accent-color) 84%, var(--hd-theme-text-color));
+  --hd-accent-solid-body-background: var(--hd-accent-solid-body-background-color);
+  --hd-accent-solid-body-text-color: var(--hd-accent-solid-heading-text-color);
+  --hd-accent-solid-body-text-highlight-color: var(--hd-accent-solid-heading-text-highlight-color);
+  --hd-accent-solid-body-text-muted-color: var(--hd-accent-solid-heading-text-muted-color);
+  --hd-accent-solid-border: color-mix(in srgb, var(--hd-theme-accent-color) 55%, var(--hd-theme-background-color));
 
   /* Layout and Spacing overrides */
-  --hd-slide-margin-top: 60px;
-  --hd-slide-margin-right: 80px;
-  --hd-slide-margin-bottom: 60px;
-  --hd-slide-margin-left: 80px;
+  --hd-slide-margin-top: 48px;
+  --hd-slide-margin-right: 68px;
+  --hd-slide-margin-bottom: 48px;
+  --hd-slide-margin-left: 68px;
 
-  /* UI Component Styling overriding */
+  /* UI Component Styling */
   --hd-card-border-radius: 8px;
-  --hd-card-box-shadow: 0 4px 10px rgba(from var(--hd-base-soft-text-color) r g b / 0.04);
-
+  --hd-card-box-shadow: 0 4px 10px rgba(from var(--hd-theme-text-color) r g b / 0.05);
   --hd-box-border-radius: 8px;
-
   --hd-callout-border-radius: 6px;
 
-  --hd-code-background-color: rgba(from var(--hd-base-soft-text-highlight-color) r g b / 0.08);
-  --hd-code-text-color: var(--hd-base-soft-text-highlight-color);
-
-  --hd-table-border-color: var(--hd-border-color-default);
+  --hd-border-color-default: rgba(from var(--hd-theme-text-color) r g b / 0.15);
+  --hd-border-color-surfaced: rgba(from var(--hd-theme-text-color) r g b / 0.30);
 }
-
-* {
-  --hd-border-color-default: rgba(from var(--hd-body-text-color) r g b / 0.15);
-  --hd-border-color-surfaced: rgba(from var(--hd-body-text-color) r g b / 0.3);
-}
-

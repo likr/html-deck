@@ -42,6 +42,7 @@ export class HdLayoutGrid extends HTMLElement {
           box-shadow: var(--hd-layout-heading-divider-box-shadow, none);
           margin: 0;
           width: 100%;
+          pointer-events: none;
         }
         :host([has-heading]) .heading-divider {
           display: var(--hd-layout-heading-divider-display, none);
@@ -79,6 +80,9 @@ export class HdLayoutGrid extends HTMLElement {
           flex-grow: 1;
           align-items: stretch;
           width: 100%;
+        }
+        .grid-container ::slotted(*) {
+          margin-bottom: 0 !important;
         }
       </style>
       <div class="heading-area">

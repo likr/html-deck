@@ -1,184 +1,162 @@
-/* html-deck.theme-warm.css - Sunset Oasis (Desert Terrazzo) Theme for HTML-Deck */
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+/* html-deck.theme-warm.css - Sunlit Adobe & Hibiscus Oasis Theme for HTML-Deck */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 
 :root {
-  /* Fonts & Weights */
-  --hd-font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+  /* ==========================================================================
+     Typography (Warm Humanist Geometry)
+     ========================================================================== */
+  --hd-font-family: 'Outfit', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --hd-body-font: var(--hd-font-family);
   --hd-heading-font: var(--hd-font-family);
 
-  /* ========================================================
-     BASE THEME (Standard/Neutral) - Warm Sand Dunes & Deep Charcoal Brown
-     ======================================================== */
-  /* Soft Surface (Slide default) */
-  --hd-base-soft-background-color: linear-gradient(135deg, #f7f4eb 0%, #ede8dc 100%);
-  --hd-base-soft-text-color: #363028;
-  --hd-base-soft-text-highlight-color: #913620; /* Vibrant Terracotta */
-  --hd-base-soft-text-muted-color: #70685c;
+  --hd-text-title-letter-spacing: -0.02em;
+  --hd-text-heading-letter-spacing: -0.015em;
+  --hd-text-subheading-letter-spacing: 0.01em;
 
-  /* Solid Surface (Medium bg / Dark text) */
-  --hd-base-solid-background-color: #ede8dc;
-  --hd-base-solid-text-color: #363028;
-  --hd-base-solid-text-highlight-color: #913620;
-  --hd-base-solid-text-muted-color: #70685c;
+  /* ==========================================================================
+     4-Color Base Palette (Sunlit Adobe Sand, Roasted Espresso, Amber Ochre, Hibiscus Berry Rose)
+     ========================================================================== */
+  --hd-theme-background-color: #f7efe2;
+  --hd-theme-text-color: #26150d;
+  --hd-theme-main-color: #8a4208;
+  --hd-theme-accent-color: #ac1442;
 
-  /* Soft Surface Inverted (Desert Night) */
-  --hd-base-soft-background-color-inverted: linear-gradient(135deg, #2a2421 0%, #1f1a18 100%);
-  --hd-base-soft-text-color-inverted: #f7f4eb;
-  --hd-base-soft-text-highlight-color-inverted: #f4a28c; /* Bright Copper */
-  --hd-base-soft-text-muted-color-inverted: #a39a8e;
+  /* ==========================================================================
+     48-Color Matrix (3 Variants × 2 Surfaces × 2 Regions × 4 Roles)
+     ========================================================================== */
 
-  /* Solid Surface Inverted */
-  --hd-base-solid-background-color-inverted: #332b27;
-  --hd-base-solid-text-color-inverted: #f7f4eb;
-  --hd-base-solid-text-highlight-color-inverted: #f4a28c;
-  --hd-base-solid-text-muted-color-inverted: #a39a8e;
+  /* --- Base Variant (Sunlit Adobe Sand & Roasted Espresso) --- */
+  /* Soft Surface (Creamy Adobe Canvas & Espresso Typography with Hibiscus Berry Highlight) */
+  --hd-base-soft-heading-background-color: color-mix(in srgb, var(--hd-theme-main-color) 11%, var(--hd-theme-background-color));
+  --hd-base-soft-heading-background: linear-gradient(135deg, color-mix(in srgb, var(--hd-theme-main-color) 13%, var(--hd-theme-background-color)) 0%, color-mix(in srgb, var(--hd-theme-accent-color) 7%, var(--hd-theme-background-color)) 100%) var(--hd-base-soft-heading-background-color);
+  --hd-base-soft-heading-text-color: var(--hd-theme-text-color);
+  --hd-base-soft-heading-text-highlight-color: color-mix(in srgb, var(--hd-theme-accent-color) 92%, var(--hd-theme-text-color));
+  --hd-base-soft-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-text-color) 76%, var(--hd-theme-background-color));
 
-  /* ========================================================
-     MAIN THEME (Brand Terracotta) - Rich Desert Clay
-     ======================================================== */
+  --hd-base-soft-body-background-color: var(--hd-theme-background-color);
+  --hd-base-soft-body-background: linear-gradient(140deg, var(--hd-theme-background-color) 0%, color-mix(in srgb, var(--hd-theme-main-color) 4%, var(--hd-theme-background-color)) 50%, color-mix(in srgb, var(--hd-theme-accent-color) 5%, var(--hd-theme-background-color)) 100%) var(--hd-base-soft-body-background-color);
+  --hd-base-soft-body-text-color: var(--hd-theme-text-color);
+  --hd-base-soft-body-text-highlight-color: var(--hd-base-soft-heading-text-highlight-color);
+  --hd-base-soft-body-text-muted-color: color-mix(in srgb, var(--hd-theme-text-color) 74%, var(--hd-theme-background-color));
+
+  --hd-base-soft-border: color-mix(in srgb, var(--hd-theme-main-color) 28%, var(--hd-theme-background-color));
+
+  /* Solid Surface (Deep Espresso Roast / Warm Adobe Text) */
+  --hd-base-solid-heading-background-color: var(--hd-theme-text-color);
+  --hd-base-solid-heading-background: linear-gradient(135deg, var(--hd-theme-text-color) 0%, color-mix(in srgb, var(--hd-theme-main-color) 20%, var(--hd-theme-text-color)) 100%) var(--hd-base-solid-heading-background-color);
+  --hd-base-solid-heading-text-color: var(--hd-theme-background-color);
+  --hd-base-solid-heading-text-highlight-color: hsl(from var(--hd-theme-accent-color) h 92% 78%);
+  --hd-base-solid-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-text-color) 24%, var(--hd-theme-background-color));
+
+  --hd-base-solid-body-background-color: color-mix(in srgb, var(--hd-theme-text-color) 92%, var(--hd-theme-background-color));
+  --hd-base-solid-body-background: linear-gradient(135deg, var(--hd-base-solid-body-background-color) 0%, var(--hd-theme-text-color) 100%) var(--hd-base-solid-body-background-color);
+  --hd-base-solid-body-text-color: var(--hd-base-solid-heading-text-color);
+  --hd-base-solid-body-text-highlight-color: var(--hd-base-solid-heading-text-highlight-color);
+  --hd-base-solid-body-text-muted-color: var(--hd-base-solid-heading-text-muted-color);
+
+  --hd-base-solid-border: color-mix(in srgb, var(--hd-theme-text-color) 65%, var(--hd-theme-background-color));
+
+  /* --- Main Variant (Warm Amber Ochre Clay) --- */
   /* Soft Surface */
-  --hd-main-soft-background-color: linear-gradient(135deg, #faebe3 0%, #f3dcd0 100%);
-  --hd-main-soft-text-color: #9e351b;
-  --hd-main-soft-text-highlight-color: #6e200c;
-  --hd-main-soft-text-muted-color: #b67b6b;
+  --hd-main-soft-heading-background-color: color-mix(in srgb, var(--hd-theme-main-color) 80%, var(--hd-theme-text-color));
+  --hd-main-soft-heading-background: linear-gradient(135deg, var(--hd-main-soft-heading-background-color) 0%, color-mix(in srgb, var(--hd-theme-main-color) 68%, var(--hd-theme-text-color)) 100%) var(--hd-main-soft-heading-background-color);
+  --hd-main-soft-heading-text-color: var(--hd-theme-background-color);
+  --hd-main-soft-heading-text-highlight-color: hsl(from var(--hd-theme-accent-color) h 95% 84%);
+  --hd-main-soft-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-main-color) 20%, var(--hd-theme-background-color));
+
+  --hd-main-soft-body-background-color: color-mix(in srgb, var(--hd-theme-main-color) 8%, var(--hd-theme-background-color));
+  --hd-main-soft-body-background: linear-gradient(135deg, var(--hd-main-soft-body-background-color) 0%, color-mix(in srgb, var(--hd-theme-main-color) 13%, var(--hd-theme-background-color)) 100%) var(--hd-main-soft-body-background-color);
+  --hd-main-soft-body-text-color: var(--hd-theme-text-color);
+  --hd-main-soft-body-text-highlight-color: color-mix(in srgb, var(--hd-theme-accent-color) 90%, var(--hd-theme-text-color));
+  --hd-main-soft-body-text-muted-color: color-mix(in srgb, color-mix(in srgb, var(--hd-theme-text-color) 65%, var(--hd-theme-main-color)) 72%, var(--hd-theme-background-color));
+
+  --hd-main-soft-border: color-mix(in srgb, var(--hd-theme-main-color) 42%, var(--hd-theme-background-color));
 
   /* Solid Surface */
-  --hd-main-solid-background-color: linear-gradient(135deg, #a83d21 0%, #8c331d 100%);
-  --hd-main-solid-text-color: #f7f4eb;
-  --hd-main-solid-text-highlight-color: #ffe7bd;
-  --hd-main-solid-text-muted-color: #ffffff;
+  --hd-main-solid-heading-background-color: color-mix(in srgb, var(--hd-theme-main-color) 62%, var(--hd-theme-text-color));
+  --hd-main-solid-heading-background: linear-gradient(135deg, var(--hd-main-solid-heading-background-color) 0%, color-mix(in srgb, var(--hd-theme-main-color) 68%, var(--hd-theme-text-color)) 100%) var(--hd-main-solid-heading-background-color);
+  --hd-main-solid-heading-text-color: var(--hd-theme-background-color);
+  --hd-main-solid-heading-text-highlight-color: hsl(from var(--hd-theme-accent-color) h 96% 86%);
+  --hd-main-solid-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-main-color) 20%, var(--hd-theme-background-color));
 
-  /* Soft Surface Inverted */
-  --hd-main-soft-background-color-inverted: #411f16;
-  --hd-main-soft-text-color-inverted: #faebe3;
-  --hd-main-soft-text-highlight-color-inverted: #fdd692;
-  --hd-main-soft-text-muted-color-inverted: #b67b6b;
+  --hd-main-solid-body-background-color: color-mix(in srgb, var(--hd-theme-main-color) 68%, var(--hd-theme-text-color));
+  --hd-main-solid-body-background: linear-gradient(135deg, var(--hd-main-solid-body-background-color) 0%, var(--hd-main-solid-heading-background-color) 100%) var(--hd-main-solid-body-background-color);
+  --hd-main-solid-body-text-color: var(--hd-main-solid-heading-text-color);
+  --hd-main-solid-body-text-highlight-color: var(--hd-main-solid-heading-text-highlight-color);
+  --hd-main-solid-body-text-muted-color: var(--hd-main-solid-heading-text-muted-color);
 
-  /* Solid Surface Inverted */
-  --hd-main-solid-background-color-inverted: #f7f4eb;
-  --hd-main-solid-text-color-inverted: #9e351b;
-  --hd-main-solid-text-highlight-color-inverted: #6e200c;
-  --hd-main-solid-text-muted-color-inverted: #b67b6b;
+  --hd-main-solid-border: color-mix(in srgb, var(--hd-theme-main-color) 60%, var(--hd-theme-background-color));
 
-  /* ========================================================
-     ACCENT THEME (Brand Ochre) - Sunlit Amber
-     ======================================================== */
+  /* --- Accent Variant (Hibiscus Berry Rose) --- */
   /* Soft Surface */
-  --hd-accent-soft-background-color: linear-gradient(135deg, #fdf6e2 0%, #f9edcb 100%);
-  --hd-accent-soft-text-color: #8a5d09;
-  --hd-accent-soft-text-highlight-color: #6e200c;
-  --hd-accent-soft-text-muted-color: #7a5911;
+  --hd-accent-soft-heading-background-color: color-mix(in srgb, var(--hd-theme-accent-color) 84%, var(--hd-theme-text-color));
+  --hd-accent-soft-heading-background: linear-gradient(135deg, var(--hd-accent-soft-heading-background-color) 0%, color-mix(in srgb, var(--hd-theme-accent-color) 74%, var(--hd-theme-text-color)) 100%) var(--hd-accent-soft-heading-background-color);
+  --hd-accent-soft-heading-text-color: var(--hd-theme-background-color);
+  --hd-accent-soft-heading-text-highlight-color: hsl(from var(--hd-theme-main-color) h 95% 78%);
+  --hd-accent-soft-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-accent-color) 18%, var(--hd-theme-background-color));
+
+  --hd-accent-soft-body-background-color: color-mix(in srgb, var(--hd-theme-accent-color) 8%, var(--hd-theme-background-color));
+  --hd-accent-soft-body-background: linear-gradient(135deg, var(--hd-accent-soft-body-background-color) 0%, color-mix(in srgb, var(--hd-theme-accent-color) 13%, var(--hd-theme-background-color)) 100%) var(--hd-accent-soft-body-background-color);
+  --hd-accent-soft-body-text-color: var(--hd-theme-text-color);
+  --hd-accent-soft-body-text-highlight-color: color-mix(in srgb, var(--hd-theme-main-color) 88%, var(--hd-theme-text-color));
+  --hd-accent-soft-body-text-muted-color: color-mix(in srgb, color-mix(in srgb, var(--hd-theme-text-color) 65%, var(--hd-theme-accent-color)) 72%, var(--hd-theme-background-color));
+
+  --hd-accent-soft-border: color-mix(in srgb, var(--hd-theme-accent-color) 42%, var(--hd-theme-background-color));
 
   /* Solid Surface */
-  --hd-accent-solid-background-color: linear-gradient(135deg, #dfa12d 0%, #c48818 100%);
-  --hd-accent-solid-text-color: #2a2421;
-  --hd-accent-solid-text-highlight-color: #8b351d;
-  --hd-accent-solid-text-muted-color: #73561a;
+  --hd-accent-solid-heading-background-color: color-mix(in srgb, var(--hd-theme-accent-color) 68%, var(--hd-theme-text-color));
+  --hd-accent-solid-heading-background: linear-gradient(135deg, var(--hd-accent-solid-heading-background-color) 0%, color-mix(in srgb, var(--hd-theme-accent-color) 74%, var(--hd-theme-text-color)) 100%) var(--hd-accent-solid-heading-background-color);
+  --hd-accent-solid-heading-text-color: var(--hd-theme-background-color);
+  --hd-accent-solid-heading-text-highlight-color: hsl(from var(--hd-theme-main-color) h 96% 80%);
+  --hd-accent-solid-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-accent-color) 18%, var(--hd-theme-background-color));
 
-  /* Soft Surface Inverted */
-  --hd-accent-soft-background-color-inverted: #413216;
-  --hd-accent-soft-text-color-inverted: #fdf6e2;
-  --hd-accent-soft-text-highlight-color-inverted: #f4a28c;
-  --hd-accent-soft-text-muted-color-inverted: #d4b57a;
+  --hd-accent-solid-body-background-color: color-mix(in srgb, var(--hd-theme-accent-color) 74%, var(--hd-theme-text-color));
+  --hd-accent-solid-body-background: linear-gradient(135deg, var(--hd-accent-solid-body-background-color) 0%, var(--hd-accent-solid-heading-background-color) 100%) var(--hd-accent-solid-body-background-color);
+  --hd-accent-solid-body-text-color: var(--hd-accent-solid-heading-text-color);
+  --hd-accent-solid-body-text-highlight-color: var(--hd-accent-solid-heading-text-highlight-color);
+  --hd-accent-solid-body-text-muted-color: var(--hd-accent-solid-heading-text-muted-color);
 
-  /* Solid Surface Inverted */
-  --hd-accent-solid-background-color-inverted: #2a2421;
-  --hd-accent-solid-text-color-inverted: #fdf6e2;
-  --hd-accent-solid-text-highlight-color-inverted: #ffc966;
-  --hd-accent-solid-text-muted-color-inverted: #e0c592;
+  --hd-accent-solid-border: color-mix(in srgb, var(--hd-theme-accent-color) 60%, var(--hd-theme-background-color));
 
+  /* ==========================================================================
+     Theme Visual & Structural Customizations (Organic Rounded Adobe Ceramics)
+     ========================================================================== */
+  /* Slide Viewport Overlay: Warm Sunlit Corner Ambient Radiance */
+  --hd-slide-overlay-background:
+    radial-gradient(circle at 92% 8%, rgba(from var(--hd-theme-accent-color) r g b / 0.08) 0%, transparent 52%),
+    radial-gradient(circle at 8% 92%, rgba(from var(--hd-theme-main-color) r g b / 0.09) 0%, transparent 48%);
 
-
-
-  /* ========================================================
-     DESERT OASIS DESIGN OVERRIDES & COMPONENTS
-     ======================================================== */
-
-  /* Slide Border Customization - Borderless presentation slides */
-  --hd-slide-border-width: 0px;
-
-  /* Spacing Scale (Gap Scale) */
-  --hd-gap-1: 10px;
-  --hd-gap-2: 18px;
-  --hd-gap-3: 28px;
-  --hd-gap-4: 36px;
-  --hd-gap-5: 48px;
-  --hd-gap-6: 64px;
-
-  /* Slide layout margin parameters */
-  --hd-slide-margin-top: var(--hd-gap-4);
-  --hd-slide-margin-right: var(--hd-gap-5);
-  --hd-slide-margin-bottom: var(--hd-gap-4);
-  --hd-slide-margin-left: var(--hd-gap-5);
-
-  /* Heading Dividers - Thin clay color divider */
+  --hd-layout-heading-box-shadow: inset 0 -3px 0 0 rgba(from var(--hd-theme-accent-color) r g b / 0.75);
   --hd-layout-heading-divider-display: block;
   --hd-layout-heading-divider-height: 2px;
+  --hd-layout-heading-divider-style: solid;
 
-  /* Typography Sizing Scale Adjustments */
-  --hd-size-1: 56px;
-  --hd-size-2: 38px;
-  --hd-size-3: 24px;
-  --hd-size-4: 19px;
-  --hd-size-5: 15px;
-  --hd-size-6: 13px;
+  /* Organic Pillowed Ceramics Containers with Warm Drop Shadows */
+  --hd-card-border-radius: 24px;
+  --hd-card-border-width: 2px;
+  --hd-card-box-shadow: 0 12px 32px -4px rgba(from var(--hd-theme-main-color) r g b / 0.14), 0 4px 12px -2px rgba(from var(--hd-theme-accent-color) r g b / 0.08);
 
-  /* Typography Line Heights & Letter Spacing */
-  --hd-text-title-letter-spacing: -0.02em;
-  --hd-text-heading-letter-spacing: -0.01em;
-  --hd-text-body-line-height: 1.55;
-  --hd-text-quote-line-height: 1.45;
+  --hd-box-border-radius: 20px;
+  --hd-box-border-width: 2px;
+  --hd-box-box-shadow: 0 12px 32px -4px rgba(from var(--hd-theme-main-color) r g b / 0.14), 0 4px 12px -2px rgba(from var(--hd-theme-accent-color) r g b / 0.08);
 
-  /* Component Rounding - Organic sandstone curves */
-  --hd-card-border-radius: 16px;
-  --hd-box-border-radius: 12px;
-  --hd-callout-border-radius: 12px;
-  --hd-codeblock-border-radius: 10px;
-  --hd-img-border-radius: 12px;
+  --hd-callout-border-radius: 16px;
+  --hd-callout-border-width: 0 0 0 6px;
+  --hd-callout-box-shadow: 0 6px 18px rgba(from var(--hd-theme-main-color) r g b / 0.1);
 
-  /* Card Decor: Cozy Rounded Floating Box */
-  --hd-card-border-width: 1px;
-  --hd-card-box-shadow: 0 4px 20px rgba(from var(--hd-base-soft-text-color) r g b / 0.04), 0 1px 3px rgba(from var(--hd-base-soft-text-color) r g b / 0.02);
+  --hd-badge-border-radius: 9999px;
+  --hd-img-border-radius: 20px;
+  --hd-img-box-shadow: 0 14px 28px -4px rgba(from var(--hd-theme-text-color) r g b / 0.16);
 
-  /* Box Decor: Warm Clay Plate */
-  --hd-box-border-width: 1px;
-  --hd-box-box-shadow: none;
-
-  /* Callout Decor: Sunlit Left-Border Panel */
-  --hd-callout-border-width: 0 0 0 4px;
-
-  /* Codeblock Decor: Vintage Dark Clay Terminal */
-  --hd-codeblock-background-color: #27211d;
-  --hd-codeblock-border-color: rgba(from var(--hd-base-soft-text-color) r g b / 0.12);
-  --hd-codeblock-box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.4);
-
-  /* Image Decor */
-  --hd-img-border-color: rgba(from var(--hd-base-soft-text-color) r g b / 0.08);
-  --hd-img-box-shadow: 0 8px 24px rgba(from var(--hd-base-soft-text-color) r g b / 0.06);
-
-  /* Table Decor: Custom Striping and Header Colors */
-  --hd-table-border-color: rgba(from var(--hd-base-soft-text-color) r g b / 0.1);
-  --hd-table-cell-padding: 10px 14px;
-  --hd-table-header-background-color: var(--hd-main-soft-background-color);
-  --hd-table-header-text-color: var(--hd-main-soft-text-color);
-  --hd-table-row-striped-background-color: rgba(from var(--hd-main-soft-background-color) r g b / 0.3);
-  --hd-table-cell-border-width: 1px;
-  --hd-table-header-border-width: 1px;
-
-  /* Lists Decor: Custom Marker Colors and Shapes */
-  --hd-list-marker-color: var(--hd-accent-soft-text-color);
+  /* Lists, Blockquotes & Code */
   --hd-list-style-type: square;
-  --hd-list-style-type-2: disc;
-  --hd-list-style-type-3: circle;
+  --hd-list-marker-color: var(--hd-theme-accent-color);
+  --hd-blockquote-border-width: 4px;
+  --hd-codeblock-border-radius: 16px;
+  --hd-code-border-radius: 6px;
 
-  /* Scrollbars thumbs */
-  --hd-scrollbar-track-bg: transparent;
-  --hd-scrollbar-thumb-bg: rgba(from var(--hd-base-soft-text-color) r g b / 0.15);
-  --hd-scrollbar-thumb-hover-bg: var(--hd-main-soft-text-color);
-}
-
-* {
-  --hd-border-color-default: rgba(from var(--hd-body-text-color) r g b / 0.15);
-  --hd-border-color-surfaced: rgba(from var(--hd-body-text-color) r g b / 0.25);
+  /* Border Fallbacks */
+  --hd-border-color-default: rgba(from var(--hd-theme-main-color) r g b / 0.22);
+  --hd-border-color-surfaced: rgba(from var(--hd-theme-main-color) r g b / 0.38);
 }

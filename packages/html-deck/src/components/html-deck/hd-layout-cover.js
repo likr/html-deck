@@ -11,10 +11,113 @@ export class HdLayoutCover extends HTMLElement {
           width: 100%;
           box-sizing: border-box;
 
-          /* Variables propagation and re-mapping for slotted cover elements */
-          --hd-text-title-color: var(--hd-body-text-color);
-          --hd-text-subheading-color: var(--hd-body-text-muted-color);
-          --hd-text-caption-color: var(--hd-body-text-muted-color);
+          /* Inherit context tokens from parent slide */
+          --hd-text-title-color: var(--hd-text-color);
+          --hd-text-subheading-color: var(--hd-text-muted-color);
+          --hd-text-caption-color: var(--hd-text-muted-color);
+        }
+
+        /* Standalone surface overrides */
+        :host([surface="soft"]) {
+          background: var(--hd-base-soft-body-background, var(--hd-base-soft-body-background-color));
+          color: var(--hd-base-soft-body-text-color);
+          --hd-background-color: var(--hd-base-soft-body-background, var(--hd-base-soft-body-background-color));
+          --hd-text-color: var(--hd-base-soft-body-text-color);
+          --hd-text-highlight-color: var(--hd-base-soft-body-text-highlight-color);
+          --hd-text-muted-color: var(--hd-base-soft-body-text-muted-color);
+          --hd-border-color: var(--hd-base-soft-border);
+          --hd-text-title-color: var(--hd-base-soft-body-text-color);
+          --hd-text-subheading-color: var(--hd-base-soft-body-text-muted-color);
+          --hd-text-caption-color: var(--hd-base-soft-body-text-muted-color);
+        }
+        :host([surface="solid"]) {
+          background: var(--hd-base-solid-body-background, var(--hd-base-solid-body-background-color));
+          color: var(--hd-base-solid-body-text-color);
+          --hd-background-color: var(--hd-base-solid-body-background, var(--hd-base-solid-body-background-color));
+          --hd-text-color: var(--hd-base-solid-body-text-color);
+          --hd-text-highlight-color: var(--hd-base-solid-body-text-highlight-color);
+          --hd-text-muted-color: var(--hd-base-solid-body-text-muted-color);
+          --hd-border-color: var(--hd-base-solid-border);
+          --hd-text-title-color: var(--hd-base-solid-body-text-color);
+          --hd-text-subheading-color: var(--hd-base-solid-body-text-muted-color);
+          --hd-text-caption-color: var(--hd-base-solid-body-text-muted-color);
+        }
+
+        /* Variant & surface overrides on hd-layout-cover */
+        :host([variant="base"]),
+        :host([variant="base"][surface="soft"]) {
+          background: var(--hd-base-soft-body-background, var(--hd-base-soft-body-background-color));
+          color: var(--hd-base-soft-body-text-color);
+          --hd-background-color: var(--hd-base-soft-body-background, var(--hd-base-soft-body-background-color));
+          --hd-text-color: var(--hd-base-soft-body-text-color);
+          --hd-text-highlight-color: var(--hd-base-soft-body-text-highlight-color);
+          --hd-text-muted-color: var(--hd-base-soft-body-text-muted-color);
+          --hd-border-color: var(--hd-base-soft-border);
+          --hd-text-title-color: var(--hd-base-soft-body-text-color);
+          --hd-text-subheading-color: var(--hd-base-soft-body-text-muted-color);
+          --hd-text-caption-color: var(--hd-base-soft-body-text-muted-color);
+        }
+        :host([variant="base"][surface="solid"]) {
+          background: var(--hd-base-solid-body-background, var(--hd-base-solid-body-background-color));
+          color: var(--hd-base-solid-body-text-color);
+          --hd-background-color: var(--hd-base-solid-body-background, var(--hd-base-solid-body-background-color));
+          --hd-text-color: var(--hd-base-solid-body-text-color);
+          --hd-text-highlight-color: var(--hd-base-solid-body-text-highlight-color);
+          --hd-text-muted-color: var(--hd-base-solid-body-text-muted-color);
+          --hd-border-color: var(--hd-base-solid-border);
+          --hd-text-title-color: var(--hd-base-solid-body-text-color);
+          --hd-text-subheading-color: var(--hd-base-solid-body-text-muted-color);
+          --hd-text-caption-color: var(--hd-base-solid-body-text-muted-color);
+        }
+        :host([variant="main"]),
+        :host([variant="main"][surface="soft"]) {
+          background: var(--hd-main-soft-body-background, var(--hd-main-soft-body-background-color));
+          color: var(--hd-main-soft-body-text-color);
+          --hd-background-color: var(--hd-main-soft-body-background, var(--hd-main-soft-body-background-color));
+          --hd-text-color: var(--hd-main-soft-body-text-color);
+          --hd-text-highlight-color: var(--hd-main-soft-body-text-highlight-color);
+          --hd-text-muted-color: var(--hd-main-soft-body-text-muted-color);
+          --hd-border-color: var(--hd-main-soft-border);
+          --hd-text-title-color: var(--hd-main-soft-body-text-color);
+          --hd-text-subheading-color: var(--hd-main-soft-body-text-muted-color);
+          --hd-text-caption-color: var(--hd-main-soft-body-text-muted-color);
+        }
+        :host([variant="main"][surface="solid"]) {
+          background: var(--hd-main-solid-body-background, var(--hd-main-solid-body-background-color));
+          color: var(--hd-main-solid-body-text-color);
+          --hd-background-color: var(--hd-main-solid-body-background, var(--hd-main-solid-body-background-color));
+          --hd-text-color: var(--hd-main-solid-body-text-color);
+          --hd-text-highlight-color: var(--hd-main-solid-body-text-highlight-color);
+          --hd-text-muted-color: var(--hd-main-solid-body-text-muted-color);
+          --hd-border-color: var(--hd-main-solid-border);
+          --hd-text-title-color: var(--hd-main-solid-body-text-color);
+          --hd-text-subheading-color: var(--hd-main-solid-body-text-muted-color);
+          --hd-text-caption-color: var(--hd-main-solid-body-text-muted-color);
+        }
+        :host([variant="accent"]),
+        :host([variant="accent"][surface="soft"]) {
+          background: var(--hd-accent-soft-body-background, var(--hd-accent-soft-body-background-color));
+          color: var(--hd-accent-soft-body-text-color);
+          --hd-background-color: var(--hd-accent-soft-body-background, var(--hd-accent-soft-body-background-color));
+          --hd-text-color: var(--hd-accent-soft-body-text-color);
+          --hd-text-highlight-color: var(--hd-accent-soft-body-text-highlight-color);
+          --hd-text-muted-color: var(--hd-accent-soft-body-text-muted-color);
+          --hd-border-color: var(--hd-accent-soft-border);
+          --hd-text-title-color: var(--hd-accent-soft-body-text-color);
+          --hd-text-subheading-color: var(--hd-accent-soft-body-text-muted-color);
+          --hd-text-caption-color: var(--hd-accent-soft-body-text-muted-color);
+        }
+        :host([variant="accent"][surface="solid"]) {
+          background: var(--hd-accent-solid-body-background, var(--hd-accent-solid-body-background-color));
+          color: var(--hd-accent-solid-body-text-color);
+          --hd-background-color: var(--hd-accent-solid-body-background, var(--hd-accent-solid-body-background-color));
+          --hd-text-color: var(--hd-accent-solid-body-text-color);
+          --hd-text-highlight-color: var(--hd-accent-solid-body-text-highlight-color);
+          --hd-text-muted-color: var(--hd-accent-solid-body-text-muted-color);
+          --hd-border-color: var(--hd-accent-solid-border);
+          --hd-text-title-color: var(--hd-accent-solid-body-text-color);
+          --hd-text-subheading-color: var(--hd-accent-solid-body-text-muted-color);
+          --hd-text-caption-color: var(--hd-accent-solid-body-text-muted-color);
         }
         .cover-content {
           display: flex;

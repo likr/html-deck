@@ -30,7 +30,7 @@
   - **パターン**: Shadow DOM 内のラッパー要素（例: `.slide-content`）に padding を定義します。`:host` は `overflow: hidden;` に設定します。
 - **Box-Sizing グローバルリセットの継承トラップ**:
   `* { box-sizing: inherit; }` のような継承ベースのボックスサイズ指定を行うと、ホスト（埋め込み先）ページが `content-box` の場合にカスタム要素内部も `content-box` になり、余白がキャンバスからはみ出します。
-  - **ルール**: [reset.css](file:///home/likr/work/likr/html-deck/packages/html-deck/src/styles/reset.css) では必ず直接的なリセット `* { box-sizing: border-box; }` を適用し、Shadow DOM 内でも明示的に `box-sizing: border-box` を定義します。
+  - **ルール**: [reset.css](file:///home/likr/html-deck/packages/html-deck/src/styles/reset.css) では必ず直接的なリセット `* { box-sizing: border-box; }` を適用し、Shadow DOM 内でも明示的に `box-sizing: border-box` を定義します。
 - **スライドスクロールの廃止**:
   スライド自体の `scrollable` 属性および `height` 属性は廃止されました。
   - **パターン**: スライド全体のスクロールは許可せず、コンテンツが多くてはみ出る場合は、カードなどの局所的なコンテナに対して `style="max-height: 250px; overflow-y: auto;"` のように CSS でスクロールを有効にしてください。
@@ -46,8 +46,9 @@
   `Ctrl + P` や `Cmd + R` など、ブラウザや OS のデフォルトショートカットと競合して動作を妨げないようにする必要があります。
   - **ルール**: キーダウンイベントハンドラ `handleKeyDown` の先頭で、修飾キーフラグのいずれかが有効な場合は早期リターンします：
     `if (event.ctrlKey || event.metaKey || event.altKey) return;`
-- **Footnote (脚注) の絶対配置**:
-  - **パターン**: `slot="footnote"` が設定された要素は、スライドキャンバスに対して `bottom: 12px; left: 16px;` の絶対配置で左下に配置されます。これは [hd-slide.js](file:///home/likr/work/likr/html-deck/packages/html-deck/src/components/html-deck/hd-slide.js) の `::slotted([slot="footnote"])` で制御されます。
+- **Header / Footer スロットの絶対配置とコンテキストに応じたコントラスト切り替え**:
+  - **パターン**: `slot="header"` および `slot="footer"` が設定された要素は、スライドキャンバスに対して `top: var(--hd-peripheral-offset)` / `bottom: var(--hd-peripheral-offset)`、`left: var(--hd-slide-margin-left)`、`right: var(--hd-slide-margin-right)` の絶対配置で配置されます。
+  - **コンテキスト切り替え**: スライドに見出しバナーが存在しない場合は `--hd-slide-body-text-muted-color` を使用し、レイアウト見出しバナーが存在する場合（`:host([has-heading]) ::slotted([slot="header"])`）は `--hd-slide-heading-text-muted-color` へ自動的に切り替えることで、濃い見出しバナー上でも高い視認性を維持します。
 - **スロットされたヘッダーラッパーの表示切り替え（トグル）**:
   CSS の `:has()` 内で `::slotted(*)` などの擬似要素を使用することは仕様上無効です（例：`slot:not(:has(::slotted(*)))` は無効なセレクタとなります）。また、Shadow DOM 内の CSS から `:host(:has([slot="heading"]))` や `:host(:not(:has([slot="heading"])))` を使用して Light DOM 内の見出し要素の有無を判別することも、Shadow DOM のカプセル化境界があるためブラウザによっては正しく動作しません。
   - **ルール**: スロットされた要素の有無に基づいて Shadow DOM 内のラッパー（`.heading-area` や `.heading-divider` など）を表示・非表示にするには、JavaScript の `slotchange` イベントリスナーを使用してスロット内要素の有無を判定し、ホスト要素に `has-heading` 属性を動的に付与・削除します。
@@ -118,12 +119,27 @@
   ユーザーが明示的に `import 'html-deck/css'` を記述しなくても済むように、`html-deck.js` および `html-deck-presenter.js` 内で関連するグローバルCSSを自動的に `document.head` に動的注入します。
 - **Vite `?inline` インポートの活用**:
   スタイルシートはメンテナンス性のために別ファイル（`html-deck.css` や `html-deck-presenter.css`）として維持し、JS側からは Vite の `?inline` クエリパラメータを使用してコンパイル・結合されたCSS文字列としてインポートします（例: `import cssText from './html-deck.css?inline'`）。
-- **DOM動的インジェクション**:
-  モジュールロード時に、指定されたID（`hd-global-styles` または `hd-presenter-global-styles`）を持つ `<style>` タグが存在しない場合のみ、`document.head.appendChild()` によってDOMにインジェクションします。これにより、二重ロードや不要な再パースを防ぎます。
-- **後方互換性の維持**:
-  既存のテンプレートや手動で `html-deck/css` を読み込んでいるユーザーのビルドが壊れないよう、パッケージの `package.json` での `css` エクスポート定義と、Viteビルド時におけるCSSファイル抽出・出力用の通常の `import` ステートメントはそのまま残します。
+- **DOM動的インジェクション (`document.head.prepend`) と `@layer`**:
+  モジュールロード時に、指定されたID（`hd-global-styles` または `hd-presenter-global-styles`）を持つ `<style>` タグが存在しない場合のみ、`document.head.prepend()` によって `<head>` の先頭にインジェクションします。さらに内部スタイルシートはすべて `@layer`（`hd-reset`, `hd-variables`, `hd-elements`, `hd-components`, `hd-utilities`）でラップされているため、ユーザーが `<head>` 内に記述または後からインポートした `:root` スタイルが常に優先されます。
+- **パッケージエクスポートの整理**:
+  コアスタイルは `html-deck.js` および `html-deck-presenter.js` にインラインバンドルされるため、`package.json` の `exports` から旧来の `"./css"` および `"./presenter/css"` は削除され、代わりに7つの組み込みテーマ（`"./theme-dark"`, `"./theme-warm"`, `"./theme-corporate"`, `"./theme-neon"`, `"./theme-serif"`, `"./theme-dotted"`, `"./theme-nouveau"`）および `"./themes/*"` が `./dist/themes/...` へマッピングされています。また、カスタム要素登録の副作用をバンドラに伝えるため `"sideEffects": true` が設定されています。
 - **重複したCSSインポートの禁止とビルドエラーの回避**:
   コアスタイルは `html-deck.js` にて自動でインジェクトされるようになったため、カスタムテーマなどのCSSファイル内で `@import "html-deck/css"` やそれに類するインポートを行ってはなりません。これは不要であるだけでなく、PostCSS や Vite のビルドプロセスにおいて解決エラー (`ENOENT: no such file or directory, open 'html-deck/css'`) を引き起こす原因となります。
+
+---
+
+## 8. ライフサイクルイベント登録・CSS詳細度・コンテキストクエリの落とし穴
+
+- **ライフサイクルにおけるイベントリスナー多重登録バグ**:
+  Shadow DOM 内のボタン（`<button id="prev">`, `<button id="next">` など）のクリックリスナーを `connectedCallback()` で無名関数として登録すると、DOMから切り離されて再接続（reconnect）されるたびに重複して登録され、1回のクリックで複数回のナビゲーションイベントが発火します。
+  - **ルール**: Shadow DOM 内部の固定ボタンに対するイベントリスナーは、`constructor()` 内で1度だけ登録するか、フラグや名前付き関数リスナーで重複登録を防止してください。
+- **コンテナコンポーネントにおける CSS 詳細度の落とし穴 (Rule 4)**:
+  `:host([variant="main"][surface="solid"])` のように2つの属性を持つセレクタは詳細度 `(0, 2, 0)` を持ちます。これに対し `:host([heading="accent"])` のように単一の属性セレクタは詳細度 `(0, 1, 0)` となり、CSS宣言順序で下に記述していても、`surface` が指定された要素上では `variant` 側のルールが優先され `heading` のオーバーライドが無効化されます。
+  - **ルール**: `hd-card` や `hd-box` などの見出し属性によるカスタマイズでは、必ず `:host([heading="accent"]), :host([heading="accent"][surface="soft"]), :host([heading="accent"][surface="solid"])` のように複合セレクタを宣言し、`variant` ルールよりも下の行に記述してカスケードを正しく適用させます。
+- **hd-slide の見出しバナー検出における過剰クエリバグ**:
+  `<hd-slide>` がスライドヘッダーの配色を決定するために `this.querySelector('[has-heading], [slot="heading"]')` で検索すると、スライド本文内に配置された `<hd-card>` や `<hd-box>` の見出しまで拾ってしまい、スライドに見出しバナーが存在しないにもかかわらず誤って `[has-heading]` が付与されてしまいます。
+  - **ルール**: `hd-slide` の見出し検出は、スライド直下またはレイアウト要素（`hd-layout`, `hd-layout-split`, `hd-layout-grid`）にスコープを限定したセレクタ（`:scope > [slot="heading"], hd-layout[has-heading], ...`）を使用してください。
+
 
 
 

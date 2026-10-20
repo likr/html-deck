@@ -1,157 +1,155 @@
-/* html-deck.theme-neon.css - Neon / Tokyo Midnight Cyberpunk Theme for HTML-Deck */
+/* html-deck.theme-neon.css - Tokyo Midnight Cyberpunk Theme for HTML-Deck */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
 :root {
-  /* Fonts & Weights */
-  --hd-font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
-  --hd-body-font: var(--hd-font-family);
-  --hd-heading-font: var(--hd-font-family);
+  /* ==========================================================================
+     Typography (Futuristic Space Grotesk Headings + Inter Body)
+     ========================================================================== */
+  --hd-body-font: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --hd-heading-font: 'Space Grotesk', 'Inter', sans-serif;
 
-  /* --- 48-Color Matrix (Tokyo Midnight Cyberpunk) --- */
+  --hd-text-title-letter-spacing: -0.02em;
+  --hd-text-heading-letter-spacing: -0.01em;
+  --hd-text-subheading-letter-spacing: 0.02em;
 
-  /* ========================================================
-     BASE THEME (Standard/Neutral) - Dark Cyber Navy by default, Cyber White Inverted
-     ======================================================== */
-  /* Soft Surface (Slide default) */
-  --hd-base-soft-background-color: radial-gradient(circle at 50% 50%, #0c0d1e 0%, #05050a 100%);
-  --hd-base-soft-text-color: #f1f5f9;
-  --hd-base-soft-text-highlight-color: #00f2fe;
-  /* Neon Cyan */
-  --hd-base-soft-text-muted-color: #7a8a9e;
+  /* ==========================================================================
+     4-Color Base Palette (Cyber Void, Ice White, Electric Cyan, Laser Magenta)
+     ========================================================================== */
+  --hd-theme-background-color: #070913;
+  --hd-theme-text-color: #f0f6fc;
+  --hd-theme-main-color: #00f2fe;
+  --hd-theme-accent-color: #ff2a85;
 
-  /* Solid Surface (Medium bg / Dark text) */
-  --hd-base-solid-background-color: #111124;
-  --hd-base-solid-text-color: #e2e8f0;
-  --hd-base-solid-text-highlight-color: #fe019a;
-  /* Neon Pink */
-  --hd-base-solid-text-muted-color: #748494;
+  /* ==========================================================================
+     48-Color Matrix (3 Variants × 2 Surfaces × 2 Regions × 4 Roles)
+     ========================================================================== */
 
-  /* Soft Surface Inverted (Light Cyber Mode) */
-  --hd-base-soft-background-color-inverted: radial-gradient(circle at 50% 50%, #f8fafc 0%, #e2e8f0 100%);
-  --hd-base-soft-text-color-inverted: #0f172a;
-  --hd-base-soft-text-highlight-color-inverted: #a21caf;
-  --hd-base-soft-text-muted-color-inverted: #64748b;
-
-  /* Solid Surface Inverted (Light Cyber Solid Mode) */
-  --hd-base-solid-background-color-inverted: #f1f5f9;
-  --hd-base-solid-text-color-inverted: #0f172a;
-  --hd-base-solid-text-highlight-color-inverted: #06b6d4;
-  --hd-base-solid-text-muted-color-inverted: #64748b;
-
-  /* ========================================================
-     MAIN THEME (Brand Cyan) - Neon Cyan themed
-     ======================================================== */
+  /* --- Base Variant (Cyber Void Slate) --- */
   /* Soft Surface */
-  --hd-main-soft-background-color: radial-gradient(circle at 50% 50%, #062b33 0%, #020c0f 100%);
-  --hd-main-soft-text-color: #00f2fe;
-  --hd-main-soft-text-highlight-color: #ff55cc;
-  --hd-main-soft-text-muted-color: #008b96;
+  --hd-base-soft-heading-background-color: color-mix(in srgb, var(--hd-theme-main-color) 9%, var(--hd-theme-background-color));
+  --hd-base-soft-heading-background: linear-gradient(90deg, color-mix(in srgb, var(--hd-theme-main-color) 12%, var(--hd-theme-background-color)) 0%, color-mix(in srgb, var(--hd-theme-main-color) 6%, var(--hd-theme-background-color)) 100%) var(--hd-base-soft-heading-background-color);
+  --hd-base-soft-heading-text-color: var(--hd-theme-text-color);
+  --hd-base-soft-heading-text-highlight-color: color-mix(in srgb, var(--hd-theme-accent-color) 75%, var(--hd-theme-text-color));
+  --hd-base-soft-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-text-color) 74%, var(--hd-theme-background-color));
 
-  /* Solid Surface */
-  --hd-main-solid-background-color: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
-  --hd-main-solid-text-color: #05050a;
-  --hd-main-solid-text-highlight-color: #99005c;
-  --hd-main-solid-text-muted-color: #0f4c5c;
+  --hd-base-soft-body-background-color: var(--hd-theme-background-color);
+  --hd-base-soft-body-background: radial-gradient(circle at 82% 18%, rgba(from var(--hd-theme-main-color) r g b / 0.09) 0%, transparent 55%), radial-gradient(circle at 18% 82%, rgba(from var(--hd-theme-accent-color) r g b / 0.08) 0%, transparent 55%) var(--hd-base-soft-body-background-color);
+  --hd-base-soft-body-text-color: var(--hd-theme-text-color);
+  --hd-base-soft-body-text-highlight-color: color-mix(in srgb, var(--hd-theme-accent-color) 75%, var(--hd-theme-text-color));
+  --hd-base-soft-body-text-muted-color: color-mix(in srgb, var(--hd-theme-text-color) 72%, var(--hd-theme-background-color));
 
-  /* Soft Surface Inverted */
-  --hd-main-soft-background-color-inverted: #ecfeff;
-  --hd-main-soft-text-color-inverted: #083344;
-  --hd-main-soft-text-highlight-color-inverted: #a21caf;
-  --hd-main-soft-text-muted-color-inverted: #0891b2;
+  --hd-base-soft-border: color-mix(in srgb, var(--hd-theme-main-color) 28%, var(--hd-theme-background-color));
 
-  /* Solid Surface Inverted */
-  --hd-main-solid-background-color-inverted: linear-gradient(135deg, #ffffff 0%, #cffafe 100%);
-  --hd-main-solid-text-color-inverted: #00a5b5;
-  --hd-main-solid-text-highlight-color-inverted: #99005c;
-  --hd-main-solid-text-muted-color-inverted: #008b96;
+  /* Solid Surface (Elevated Cyber Matrix Panel) */
+  --hd-base-solid-heading-background-color: color-mix(in srgb, var(--hd-theme-main-color) 18%, var(--hd-theme-background-color));
+  --hd-base-solid-heading-background: var(--hd-base-solid-heading-background-color);
+  --hd-base-solid-heading-text-color: var(--hd-theme-text-color);
+  --hd-base-solid-heading-text-highlight-color: color-mix(in srgb, var(--hd-theme-accent-color) 62%, var(--hd-theme-text-color));
+  --hd-base-solid-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-text-color) 82%, var(--hd-theme-background-color));
 
-  /* ========================================================
-     ACCENT THEME (Brand Pink) - Neon Pink themed
-     ======================================================== */
+  --hd-base-solid-body-background-color: color-mix(in srgb, var(--hd-theme-main-color) 13%, var(--hd-theme-background-color));
+  --hd-base-solid-body-background: var(--hd-base-solid-body-background-color);
+  --hd-base-solid-body-text-color: var(--hd-theme-text-color);
+  --hd-base-solid-body-text-highlight-color: color-mix(in srgb, var(--hd-theme-accent-color) 62%, var(--hd-theme-text-color));
+  --hd-base-solid-body-text-muted-color: color-mix(in srgb, var(--hd-theme-text-color) 78%, var(--hd-theme-background-color));
+
+  --hd-base-solid-border: color-mix(in srgb, var(--hd-theme-main-color) 48%, var(--hd-theme-background-color));
+
+  /* --- Main Variant (Electric Cyan) --- */
   /* Soft Surface */
-  --hd-accent-soft-background-color: radial-gradient(circle at 50% 50%, #330628 0%, #0f020c 100%);
-  --hd-accent-soft-text-color: #ff55cc;
-  --hd-accent-soft-text-highlight-color: #00f2fe;
-  --hd-accent-soft-text-muted-color: #e260aa;
+  --hd-main-soft-heading-background-color: color-mix(in srgb, var(--hd-theme-main-color) 16%, var(--hd-theme-background-color));
+  --hd-main-soft-heading-background: linear-gradient(90deg, var(--hd-main-soft-heading-background-color) 0%, color-mix(in srgb, var(--hd-theme-main-color) 10%, var(--hd-theme-background-color)) 100%) var(--hd-main-soft-heading-background-color);
+  --hd-main-soft-heading-text-color: var(--hd-theme-text-color);
+  --hd-main-soft-heading-text-highlight-color: color-mix(in srgb, var(--hd-theme-accent-color) 38%, var(--hd-theme-text-color));
+  --hd-main-soft-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-main-color) 35%, var(--hd-theme-text-color));
 
-  /* Solid Surface */
-  --hd-accent-solid-background-color: linear-gradient(135deg, #fe019a 0%, #f9a8d4 100%);
-  --hd-accent-solid-text-color: #ffffff;
-  --hd-accent-solid-text-highlight-color: #00f2fe;
-  --hd-accent-solid-text-muted-color: #ffc0e7;
+  --hd-main-soft-body-background-color: color-mix(in srgb, var(--hd-theme-main-color) 8%, var(--hd-theme-background-color));
+  --hd-main-soft-body-background: var(--hd-main-soft-body-background-color);
+  --hd-main-soft-body-text-color: var(--hd-theme-text-color);
+  --hd-main-soft-body-text-highlight-color: color-mix(in srgb, var(--hd-theme-accent-color) 45%, var(--hd-theme-text-color));
+  --hd-main-soft-body-text-muted-color: color-mix(in srgb, var(--hd-theme-main-color) 45%, var(--hd-theme-text-color));
 
-  /* Soft Surface Inverted */
-  --hd-accent-soft-background-color-inverted: #fdf4ff;
-  --hd-accent-soft-text-color-inverted: #4a044e;
-  --hd-accent-soft-text-highlight-color-inverted: #0891b2;
-  --hd-accent-soft-text-muted-color-inverted: #c084fc;
+  --hd-main-soft-border: color-mix(in srgb, var(--hd-theme-main-color) 65%, var(--hd-theme-background-color));
 
-  /* Solid Surface Inverted */
-  --hd-accent-solid-background-color-inverted: linear-gradient(135deg, #ffffff 0%, #f3e8ff 100%);
-  --hd-accent-solid-text-color-inverted: #d946ef;
-  --hd-accent-solid-text-highlight-color-inverted: #4a044e;
-  --hd-accent-solid-text-muted-color-inverted: #c084fc;
+  /* Solid Surface (Deep Cyan Neon Core) */
+  --hd-main-solid-heading-background-color: color-mix(in srgb, var(--hd-theme-main-color) 26%, var(--hd-theme-background-color));
+  --hd-main-solid-heading-background: var(--hd-main-solid-heading-background-color);
+  --hd-main-solid-heading-text-color: var(--hd-theme-text-color);
+  --hd-main-solid-heading-text-highlight-color: color-mix(in srgb, var(--hd-theme-accent-color) 30%, var(--hd-theme-text-color));
+  --hd-main-solid-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-main-color) 25%, var(--hd-theme-text-color));
 
-  /* ========================================================
-     SEMANTIC SLIDE COLORS (Explicit default mappings)
-     ======================================================== */
+  --hd-main-solid-body-background-color: color-mix(in srgb, var(--hd-theme-main-color) 21%, var(--hd-theme-background-color));
+  --hd-main-solid-body-background: var(--hd-main-solid-body-background-color);
+  --hd-main-solid-body-text-color: var(--hd-theme-text-color);
+  --hd-main-solid-body-text-highlight-color: color-mix(in srgb, var(--hd-theme-accent-color) 34%, var(--hd-theme-text-color));
+  --hd-main-solid-body-text-muted-color: color-mix(in srgb, var(--hd-theme-main-color) 28%, var(--hd-theme-text-color));
 
+  --hd-main-solid-border: var(--hd-theme-main-color);
 
+  /* --- Accent Variant (Laser Magenta) --- */
+  /* Soft Surface */
+  --hd-accent-soft-heading-background-color: color-mix(in srgb, var(--hd-theme-accent-color) 26%, var(--hd-theme-background-color));
+  --hd-accent-soft-heading-background: linear-gradient(90deg, var(--hd-accent-soft-heading-background-color) 0%, color-mix(in srgb, var(--hd-theme-accent-color) 18%, var(--hd-theme-background-color)) 100%) var(--hd-accent-soft-heading-background-color);
+  --hd-accent-soft-heading-text-color: var(--hd-theme-text-color);
+  --hd-accent-soft-heading-text-highlight-color: var(--hd-theme-main-color);
+  --hd-accent-soft-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-accent-color) 25%, var(--hd-theme-text-color));
 
-  /* Typography size scale overrides if needed */
-  --hd-size-1: 52px;
-  --hd-size-2: 36px;
-  --hd-size-3: 24px;
-  --hd-size-4: 18px;
-  --hd-size-5: 14px;
-  --hd-size-6: 12px;
+  --hd-accent-soft-body-background-color: color-mix(in srgb, var(--hd-theme-accent-color) 10%, var(--hd-theme-background-color));
+  --hd-accent-soft-body-background: var(--hd-accent-soft-body-background-color);
+  --hd-accent-soft-body-text-color: var(--hd-theme-text-color);
+  --hd-accent-soft-body-text-highlight-color: var(--hd-theme-main-color);
+  --hd-accent-soft-body-text-muted-color: color-mix(in srgb, var(--hd-theme-accent-color) 35%, var(--hd-theme-text-color));
 
-  /* ========================================================
-     CYBERGLOW SPECIFIC DECORATIONS & EFFECTS
-     ======================================================== */
-  --hd-layout-heading-box-shadow: 0 0 15px rgba(from var(--hd-main-soft-text-color) r g b / 0.25);
+  --hd-accent-soft-border: color-mix(in srgb, var(--hd-theme-accent-color) 68%, var(--hd-theme-background-color));
+
+  /* Solid Surface (Deep Magenta Laser Core) */
+  --hd-accent-solid-heading-background-color: color-mix(in srgb, var(--hd-theme-accent-color) 40%, var(--hd-theme-background-color));
+  --hd-accent-solid-heading-background: var(--hd-accent-solid-heading-background-color);
+  --hd-accent-solid-heading-text-color: var(--hd-theme-text-color);
+  --hd-accent-solid-heading-text-highlight-color: var(--hd-theme-main-color);
+  --hd-accent-solid-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-accent-color) 18%, var(--hd-theme-text-color));
+
+  --hd-accent-solid-body-background-color: color-mix(in srgb, var(--hd-theme-accent-color) 34%, var(--hd-theme-background-color));
+  --hd-accent-solid-body-background: var(--hd-accent-solid-body-background-color);
+  --hd-accent-solid-body-text-color: var(--hd-theme-text-color);
+  --hd-accent-solid-body-text-highlight-color: var(--hd-theme-main-color);
+  --hd-accent-solid-body-text-muted-color: color-mix(in srgb, var(--hd-theme-accent-color) 20%, var(--hd-theme-text-color));
+
+  --hd-accent-solid-border: var(--hd-theme-accent-color);
+
+  /* ==========================================================================
+     Theme Visual & Structural Customizations (Cyberpunk Neon Glows)
+     ========================================================================== */
+  --hd-layout-cover-title-text-shadow: 0 0 24px rgba(from var(--hd-theme-main-color) r g b / 0.55);
+  --hd-layout-heading-text-shadow: 0 0 14px rgba(from var(--hd-theme-main-color) r g b / 0.35);
+
   --hd-layout-heading-divider-display: block;
-  --hd-layout-heading-divider-height: 2px;
-  --hd-layout-heading-divider-box-shadow: 0 0 10px var(--hd-main-soft-text-color);
+  --hd-layout-heading-divider-height: 1px;
+  --hd-layout-heading-divider-style: solid;
+  --hd-layout-heading-divider-box-shadow: 0 0 10px rgba(from var(--hd-theme-main-color) r g b / 0.55);
 
-  --hd-layout-cover-title-text-shadow: 0 0 10px var(--hd-main-soft-text-color), 0 0 20px rgba(from var(--hd-main-soft-text-color) r g b / 0.4);
-  --hd-layout-cover-subtitle-text-shadow: 0 0 8px var(--hd-accent-soft-text-color);
-
-  --hd-soft-background-color: linear-gradient(145deg, #111124 0%, #08080f 100%);
-  --hd-solid-background-color: linear-gradient(145deg, #140410 0%, #08080f 100%);
-
+  /* Cyber containers with neon border glow */
+  --hd-card-border-radius: 8px;
   --hd-card-border-width: 1px;
-  --hd-card-box-shadow: 0 0 15px rgba(from var(--hd-main-soft-text-color) r g b / 0.15);
+  --hd-card-box-shadow: 0 0 18px rgba(from var(--hd-theme-main-color) r g b / 0.14), inset 0 0 12px rgba(from var(--hd-theme-main-color) r g b / 0.05);
 
+  --hd-box-border-radius: 8px;
   --hd-box-border-width: 1px;
-  --hd-box-box-shadow: 0 0 15px rgba(from var(--hd-accent-soft-text-color) r g b / 0.15);
+  --hd-box-box-shadow: 0 0 18px rgba(from var(--hd-theme-main-color) r g b / 0.14), inset 0 0 12px rgba(from var(--hd-theme-main-color) r g b / 0.05);
 
-  /* Codeblock Styling */
-  --hd-codeblock-background-color: rgba(from var(--hd-base-solid-background-color) r g b / 0.85);
-  --hd-codeblock-border-color: rgba(from var(--hd-base-soft-text-color) r g b / 0.08);
-  --hd-codeblock-box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.8);
+  --hd-callout-border-radius: 6px;
+  --hd-callout-border-width: 0 0 0 4px;
+  --hd-callout-box-shadow: 0 0 16px rgba(from var(--hd-theme-accent-color) r g b / 0.15);
 
-  /* Scrollbars thumbs */
-  --hd-scrollbar-track-bg: rgba(0, 0, 0, 0.4);
-  --hd-scrollbar-thumb-hover-bg: var(--hd-main-soft-text-color);
+  /* Lists & Code */
+  --hd-list-marker-content: "▸ ";
+  --hd-list-marker-content-2: "▹ ";
+  --hd-list-marker-content-3: "▪ ";
 
-  --hd-soft-background-color: var(--hd-main-soft-background-color);
-  --hd-soft-text-color: var(--hd-main-soft-text-color);
-  --hd-soft-text-highlight-color: var(--hd-main-soft-text-highlight-color);
-  --hd-soft-text-muted-color: var(--hd-main-soft-text-muted-color);
-  --hd-solid-background-color: var(--hd-main-solid-background-color);
-  --hd-solid-text-color: var(--hd-main-solid-text-color);
-  --hd-solid-text-highlight-color: var(--hd-main-solid-text-highlight-color);
-  --hd-solid-text-muted-color: var(--hd-main-solid-text-muted-color);
-}
+  --hd-codeblock-box-shadow: 0 0 14px rgba(from var(--hd-theme-main-color) r g b / 0.12);
 
-* {
-  --hd-heading-background-color: var(--hd-soft-background-color);
-  --hd-heading-text-color: var(--hd-soft-text-color);
-  --hd-heading-text-highlight-color: var(--hd-soft-text-highlight-color);
-  --hd-heading-text-muted-color: var(--hd-soft-text-muted-color);
-  --hd-body-background-color: var(--hd-soft-background-color);
-  --hd-body-text-color: var(--hd-soft-text-color);
-  --hd-body-text-highlight-color: var(--hd-soft-text-highlight-color);
-  --hd-body-text-muted-color: var(--hd-soft-text-muted-color);
-  --hd-border-color-default: var(--hd-heading-text-color);
-  --hd-border-color-surfaced: var(--hd-heading-text-color);
+  /* Border Fallbacks */
+  --hd-border-color-default: rgba(from var(--hd-theme-main-color) r g b / 0.28);
+  --hd-border-color-surfaced: rgba(from var(--hd-theme-main-color) r g b / 0.55);
 }

@@ -1,0 +1,184 @@
+/* html-deck.theme-nouveau.css - Botanical Art Nouveau & Wisteria Filigree Theme for HTML-Deck */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Serif+JP:wght@400;500;600&family=Shippori+Mincho:wght@600;700;800&display=swap');
+
+:root {
+  /* ==========================================================================
+     Typography (Art Nouveau Classical Serif & Display)
+     ========================================================================== */
+  --hd-font-family: 'Lora', 'Noto Serif JP', Georgia, serif;
+  --hd-font-family-serif: 'Lora', 'Noto Serif JP', Georgia, serif;
+  --hd-body-font: var(--hd-font-family);
+  --hd-heading-font: 'Shippori Mincho', 'Cormorant Garamond', Georgia, serif;
+
+  /* Art Nouveau Editorial Scale */
+  --hd-size-1: 56px;
+  --hd-size-2: 36px;
+  --hd-size-3: 22px;
+  --hd-size-4: 18px;
+  --hd-size-5: 15px;
+  --hd-size-6: 13px;
+
+  --hd-text-title-letter-spacing: 0.02em;
+  --hd-text-heading-letter-spacing: 0.01em;
+  --hd-text-subheading-letter-spacing: 0.02em;
+  --hd-text-peripheral-font: var(--hd-heading-font);
+  --hd-text-peripheral-letter-spacing: 0.1em;
+
+  /* ==========================================================================
+     4-Color Base Palette (Gilded Silk Parchment, Deep Moss Ink, Absinthe Emerald, Wisteria Amethyst)
+     ========================================================================== */
+  --hd-theme-background-color: #f6f2e6;
+  --hd-theme-text-color: #161e17;
+  --hd-theme-main-color: #1b4332;
+  --hd-theme-accent-color: #6b21a8;
+
+  /* ==========================================================================
+     48-Color Matrix (3 Variants × 2 Surfaces × 2 Regions × 4 Roles)
+     ========================================================================== */
+
+  /* --- Base Variant (Gilded Silk Parchment & Botanical Frame) --- */
+  /* Soft Surface */
+  --hd-base-soft-heading-background-color: color-mix(in srgb, var(--hd-theme-main-color) 10%, var(--hd-theme-background-color));
+  --hd-base-soft-heading-background: linear-gradient(90deg, color-mix(in srgb, var(--hd-theme-main-color) 11%, var(--hd-theme-background-color)) 0%, color-mix(in srgb, var(--hd-theme-accent-color) 8%, var(--hd-theme-background-color)) 100%) var(--hd-base-soft-heading-background-color);
+  --hd-base-soft-heading-text-color: var(--hd-theme-text-color);
+  --hd-base-soft-heading-text-highlight-color: color-mix(in srgb, var(--hd-theme-accent-color) 92%, var(--hd-theme-text-color));
+  --hd-base-soft-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-text-color) 76%, var(--hd-theme-background-color));
+
+  --hd-base-soft-body-background-color: var(--hd-theme-background-color);
+  --hd-base-soft-body-background:
+    radial-gradient(circle at 50% 30%, color-mix(in srgb, var(--hd-theme-accent-color) 3%, var(--hd-theme-background-color)) 0%, var(--hd-theme-background-color) 80%) var(--hd-base-soft-body-background-color);
+  --hd-base-soft-body-text-color: var(--hd-theme-text-color);
+  --hd-base-soft-body-text-highlight-color: var(--hd-base-soft-heading-text-highlight-color);
+  --hd-base-soft-body-text-muted-color: color-mix(in srgb, var(--hd-theme-text-color) 74%, var(--hd-theme-background-color));
+
+  --hd-base-soft-border: color-mix(in srgb, var(--hd-theme-main-color) 35%, var(--hd-theme-background-color));
+
+  /* Solid Surface (Deep Moss Botanical Panel / Gilded Parchment Text) */
+  --hd-base-solid-heading-background-color: var(--hd-theme-text-color);
+  --hd-base-solid-heading-background: var(--hd-base-solid-heading-background-color);
+  --hd-base-solid-heading-text-color: var(--hd-theme-background-color);
+  --hd-base-solid-heading-text-highlight-color: hsl(from var(--hd-theme-accent-color) h 92% 82%);
+  --hd-base-solid-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-text-color) 24%, var(--hd-theme-background-color));
+
+  --hd-base-solid-body-background-color: color-mix(in srgb, var(--hd-theme-text-color) 92%, var(--hd-theme-background-color));
+  --hd-base-solid-body-background: var(--hd-base-solid-body-background-color);
+  --hd-base-solid-body-text-color: var(--hd-base-solid-heading-text-color);
+  --hd-base-solid-body-text-highlight-color: var(--hd-base-solid-heading-text-highlight-color);
+  --hd-base-solid-body-text-muted-color: var(--hd-base-solid-heading-text-muted-color);
+
+  --hd-base-solid-border: color-mix(in srgb, var(--hd-theme-main-color) 65%, var(--hd-theme-background-color));
+
+  /* --- Main Variant (Botanical Absinthe Emerald) --- */
+  /* Soft Surface */
+  --hd-main-soft-heading-background-color: var(--hd-theme-main-color);
+  --hd-main-soft-heading-background: var(--hd-main-soft-heading-background-color);
+  --hd-main-soft-heading-text-color: var(--hd-theme-background-color);
+  --hd-main-soft-heading-text-highlight-color: hsl(from var(--hd-theme-accent-color) h 92% 83%);
+  --hd-main-soft-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-main-color) 20%, var(--hd-theme-background-color));
+
+  --hd-main-soft-body-background-color: color-mix(in srgb, var(--hd-theme-main-color) 8%, var(--hd-theme-background-color));
+  --hd-main-soft-body-background: var(--hd-main-soft-body-background-color);
+  --hd-main-soft-body-text-color: var(--hd-theme-text-color);
+  --hd-main-soft-body-text-highlight-color: color-mix(in srgb, var(--hd-theme-accent-color) 90%, var(--hd-theme-text-color));
+  --hd-main-soft-body-text-muted-color: color-mix(in srgb, color-mix(in srgb, var(--hd-theme-text-color) 65%, var(--hd-theme-main-color)) 72%, var(--hd-theme-background-color));
+
+  --hd-main-soft-border: color-mix(in srgb, var(--hd-theme-main-color) 45%, var(--hd-theme-background-color));
+
+  /* Solid Surface */
+  --hd-main-solid-heading-background-color: color-mix(in srgb, var(--hd-theme-main-color) 80%, var(--hd-theme-text-color));
+  --hd-main-solid-heading-background: var(--hd-main-solid-heading-background-color);
+  --hd-main-solid-heading-text-color: var(--hd-theme-background-color);
+  --hd-main-solid-heading-text-highlight-color: hsl(from var(--hd-theme-accent-color) h 92% 83%);
+  --hd-main-solid-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-main-color) 20%, var(--hd-theme-background-color));
+
+  --hd-main-solid-body-background-color: color-mix(in srgb, var(--hd-theme-main-color) 90%, var(--hd-theme-text-color));
+  --hd-main-solid-body-background: var(--hd-main-solid-body-background-color);
+  --hd-main-solid-body-text-color: var(--hd-main-solid-heading-text-color);
+  --hd-main-solid-body-text-highlight-color: var(--hd-main-solid-heading-text-highlight-color);
+  --hd-main-solid-body-text-muted-color: var(--hd-main-solid-heading-text-muted-color);
+
+  --hd-main-solid-border: color-mix(in srgb, var(--hd-theme-main-color) 65%, var(--hd-theme-background-color));
+
+  /* --- Accent Variant (Wisteria Amethyst Purple) --- */
+  /* Soft Surface */
+  --hd-accent-soft-heading-background-color: var(--hd-theme-accent-color);
+  --hd-accent-soft-heading-background: var(--hd-accent-soft-heading-background-color);
+  --hd-accent-soft-heading-text-color: var(--hd-theme-background-color);
+  --hd-accent-soft-heading-text-highlight-color: hsl(from var(--hd-theme-main-color) h 85% 78%);
+  --hd-accent-soft-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-accent-color) 18%, var(--hd-theme-background-color));
+
+  --hd-accent-soft-body-background-color: color-mix(in srgb, var(--hd-theme-accent-color) 8%, var(--hd-theme-background-color));
+  --hd-accent-soft-body-background: var(--hd-accent-soft-body-background-color);
+  --hd-accent-soft-body-text-color: var(--hd-theme-text-color);
+  --hd-accent-soft-body-text-highlight-color: hsl(from var(--hd-theme-main-color) h 82% 20%);
+  --hd-accent-soft-body-text-muted-color: color-mix(in srgb, color-mix(in srgb, var(--hd-theme-text-color) 65%, var(--hd-theme-accent-color)) 72%, var(--hd-theme-background-color));
+
+  --hd-accent-soft-border: color-mix(in srgb, var(--hd-theme-accent-color) 45%, var(--hd-theme-background-color));
+
+  /* Solid Surface */
+  --hd-accent-solid-heading-background-color: color-mix(in srgb, var(--hd-theme-accent-color) 76%, var(--hd-theme-text-color));
+  --hd-accent-solid-heading-background: var(--hd-accent-solid-heading-background-color);
+  --hd-accent-solid-heading-text-color: var(--hd-theme-background-color);
+  --hd-accent-solid-heading-text-highlight-color: hsl(from var(--hd-theme-main-color) h 85% 78%);
+  --hd-accent-solid-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-accent-color) 18%, var(--hd-theme-background-color));
+
+  --hd-accent-solid-body-background-color: color-mix(in srgb, var(--hd-theme-accent-color) 84%, var(--hd-theme-text-color));
+  --hd-accent-solid-body-background: var(--hd-accent-solid-body-background-color);
+  --hd-accent-solid-body-text-color: var(--hd-accent-solid-heading-text-color);
+  --hd-accent-solid-body-text-highlight-color: var(--hd-accent-solid-heading-text-highlight-color);
+  --hd-accent-solid-body-text-muted-color: var(--hd-accent-solid-heading-text-muted-color);
+
+  --hd-accent-solid-border: color-mix(in srgb, var(--hd-theme-accent-color) 65%, var(--hd-theme-background-color));
+
+  /* ==========================================================================
+     Theme Visual & Structural Customizations (Art Nouveau Filigree & Botanical Curves)
+     ========================================================================== */
+  /* Outer Perimeter Filigree Frame (inset 5px..8px with compact corner flourishes clear of 20px peripheral text) */
+  --hd-peripheral-offset: 20px;
+  --hd-slide-overlay-background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 960 540' fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='5' y='5' width='950' height='530' stroke='%23b89758' stroke-width='1.5' stroke-opacity='0.75' /%3E%3Crect x='8' y='8' width='944' height='524' stroke='%23b89758' stroke-width='0.8' stroke-opacity='0.55' /%3E%3Cpath d='M 8 28 Q 18 18, 28 8' stroke='%236b21a8' stroke-width='1.6' stroke-opacity='0.7' /%3E%3Ccircle cx='13' cy='13' r='2.8' fill='%236b21a8' fill-opacity='0.7' /%3E%3Cpath d='M 952 28 Q 942 18, 932 8' stroke='%236b21a8' stroke-width='1.6' stroke-opacity='0.7' /%3E%3Ccircle cx='947' cy='13' r='2.8' fill='%236b21a8' fill-opacity='0.7' /%3E%3Cpath d='M 8 512 Q 18 522, 28 532' stroke='%236b21a8' stroke-width='1.6' stroke-opacity='0.7' /%3E%3Ccircle cx='13' cy='527' r='2.8' fill='%236b21a8' fill-opacity='0.7' /%3E%3Cpath d='M 952 512 Q 942 522, 932 532' stroke='%236b21a8' stroke-width='1.6' stroke-opacity='0.7' /%3E%3Ccircle cx='947' cy='527' r='2.8' fill='%236b21a8' fill-opacity='0.7' /%3E%3C/svg%3E") center / 100% 100% no-repeat;
+
+  --hd-layout-heading-text-align: center;
+  --hd-layout-heading-box-shadow: inset 0 -2px 0 0 rgba(from var(--hd-theme-accent-color) r g b / 0.65);
+  --hd-layout-heading-divider-display: block;
+  --hd-layout-heading-divider-height: 4px;
+  --hd-layout-heading-divider-style: double;
+
+  /* Graceful Art Nouveau Asymmetric Leaf Containers with Double Outlines */
+  --hd-card-border-radius: 20px 4px 20px 4px;
+  --hd-card-border-width: 3px;
+  --hd-card-border-style: double;
+  --hd-card-box-shadow: 0 8px 24px rgba(from var(--hd-theme-main-color) r g b / 0.1);
+
+  --hd-box-border-radius: 16px 4px 16px 4px;
+  --hd-box-border-width: 3px;
+  --hd-box-border-style: double;
+  --hd-box-box-shadow: 0 8px 24px rgba(from var(--hd-theme-main-color) r g b / 0.1);
+
+  --hd-callout-border-radius: 12px 2px 12px 2px;
+  --hd-callout-border-width: 0 0 0 5px;
+  --hd-callout-border-style: double;
+  --hd-badge-border-radius: 12px 2px 12px 2px;
+
+  --hd-img-border-radius: 16px 4px 16px 4px;
+  --hd-img-border-width: 3px;
+  --hd-img-border-style: double;
+  --hd-img-box-shadow: 0 10px 24px -2px rgba(from var(--hd-theme-text-color) r g b / 0.14);
+
+  /* Botanical Floral List Markers */
+  --hd-list-marker-content: "✿ ";
+  --hd-list-marker-content-2: "❀ ";
+  --hd-list-marker-content-3: "♣ ";
+  --hd-list-marker-color: var(--hd-theme-accent-color);
+  --hd-list-ol-style-type-3: upper-roman;
+
+  --hd-blockquote-border-style: double;
+  --hd-blockquote-border-width: 4px;
+
+  --hd-table-header-border-width: 3px;
+
+  /* Border Fallbacks */
+  --hd-border-color-default: rgba(from var(--hd-theme-main-color) r g b / 0.28);
+  --hd-border-color-surfaced: rgba(from var(--hd-theme-main-color) r g b / 0.5);
+}

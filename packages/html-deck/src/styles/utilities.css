@@ -1,5 +1,6 @@
 /* utilities.css - Helper and utility classes for HTML-Deck */
 
+@layer hd-utilities {
 /* Font Weights & Styles */
 .hd-text-weight-light {
   font-weight: var(--hd-font-weight-light) !important;
@@ -320,4 +321,6 @@
     display: none !important;
   }
 }
+}
+
 

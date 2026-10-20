@@ -4,6 +4,9 @@
   "license": "MIT",
   "description": "Automated slide layout & accessibility validator for html-deck",
   "type": "module",
+  "scripts": {
+    "test": "node --test"
+  },
   "bin": {
     "html-deck-validator": "./bin/html-deck-validator.js"
   },

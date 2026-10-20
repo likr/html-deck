@@ -1,98 +1,113 @@
-
 :root {
-   /* Fonts & General Styles */
-   --hd-font-family: 'Outfit', system-ui, sans-serif;
-   --hd-body-font: var(--hd-font-family);
-   --hd-heading-font: var(--hd-font-family);
+  /* Fonts & General Styles */
+  --hd-font-family: 'Outfit', system-ui, sans-serif;
+  --hd-body-font: var(--hd-font-family);
+  --hd-heading-font: var(--hd-font-family);
 
-   /* Border width for slides to make it clear */
-   --hd-slide-border-width: 4px;
-   --hd-slide-border-style: solid;
+  /* Border width for slides to make it clear */
+  --hd-slide-border-width: 4px;
+  --hd-slide-border-style: solid;
 
-   /* ========================================================
-     BASE THEME (Standard/Neutral) - Highly contrasting colors
+  /* 4-Color Palette Base Tokens */
+  --hd-theme-background-color: #ffffff;
+  --hd-theme-text-color: #111111;
+  --hd-theme-main-color: #5b21b6;
+  --hd-theme-accent-color: #065f46;
+
+  /* ========================================================
+     BASE VARIANT (Neutral Charcoal & White)
      ======================================================== */
-   /* Soft Surface (Slide default / Card base default) */
-   --hd-base-soft-background-color: #ffffff;
-   --hd-base-soft-text-color: #111111;
-   --hd-base-soft-text-highlight-color: #e11d48;
-   --hd-base-soft-text-muted-color: #71717a;
+  /* Soft Surface */
+  --hd-base-soft-heading-background-color: color-mix(in srgb, var(--hd-theme-text-color) 7%, var(--hd-theme-background-color));
+  --hd-base-soft-heading-background: var(--hd-base-soft-heading-background-color);
+  --hd-base-soft-heading-text-color: var(--hd-theme-text-color);
+  --hd-base-soft-heading-text-highlight-color: color-mix(in srgb, var(--hd-theme-accent-color) 88%, var(--hd-theme-text-color));
+  --hd-base-soft-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-text-color) 72%, var(--hd-theme-background-color));
 
-   /* Solid Surface (Layout Heading default) */
-   --hd-base-solid-background-color: #f4f4f5;
-   --hd-base-solid-text-color: #09090b;
-   --hd-base-solid-text-highlight-color: #dc2626;
-   --hd-base-solid-text-muted-color: #52525b;
+  --hd-base-soft-body-background-color: var(--hd-theme-background-color);
+  --hd-base-soft-body-background: var(--hd-base-soft-body-background-color);
+  --hd-base-soft-body-text-color: var(--hd-theme-text-color);
+  --hd-base-soft-body-text-highlight-color: var(--hd-base-soft-heading-text-highlight-color);
+  --hd-base-soft-body-text-muted-color: color-mix(in srgb, var(--hd-theme-text-color) 68%, var(--hd-theme-background-color));
+  --hd-base-soft-border: color-mix(in srgb, var(--hd-theme-text-color) 16%, var(--hd-theme-background-color));
 
-   /* Soft Surface Inverted */
-   --hd-base-soft-background-color-inverted: #09090b;
-   --hd-base-soft-text-color-inverted: #fafafa;
-   --hd-base-soft-text-highlight-color-inverted: #fb7185;
-   --hd-base-soft-text-muted-color-inverted: #a1a1aa;
+  /* Solid Surface */
+  --hd-base-solid-heading-background-color: var(--hd-theme-text-color);
+  --hd-base-solid-heading-background: var(--hd-base-solid-heading-background-color);
+  --hd-base-solid-heading-text-color: var(--hd-theme-background-color);
+  --hd-base-solid-heading-text-highlight-color: hsl(from var(--hd-theme-accent-color) h 88% 76%);
+  --hd-base-solid-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-text-color) 22%, var(--hd-theme-background-color));
 
-   /* Solid Surface Inverted */
-   --hd-base-solid-background-color-inverted: #18181b;
-   --hd-base-solid-text-color-inverted: #f4f4f5;
-   --hd-base-solid-text-highlight-color-inverted: #fca5a5;
-   --hd-base-solid-text-muted-color-inverted: #71717a;
+  --hd-base-solid-body-background-color: color-mix(in srgb, var(--hd-theme-text-color) 92%, var(--hd-theme-background-color));
+  --hd-base-solid-body-background: var(--hd-base-solid-body-background-color);
+  --hd-base-solid-body-text-color: var(--hd-base-solid-heading-text-color);
+  --hd-base-solid-body-text-highlight-color: var(--hd-base-solid-heading-text-highlight-color);
+  --hd-base-solid-body-text-muted-color: var(--hd-base-solid-heading-text-muted-color);
+  --hd-base-solid-border: color-mix(in srgb, var(--hd-theme-text-color) 65%, var(--hd-theme-background-color));
 
-   /* ========================================================
-     MAIN THEME (Purple) - Indigo / Purple contrast
+  /* ========================================================
+     MAIN VARIANT (Royal Violet)
      ======================================================== */
-   /* Soft Surface (Callout variant main default) */
-   --hd-main-soft-background-color: #f3e8ff;
-   --hd-main-soft-text-color: #4c1d95;
-   --hd-main-soft-text-highlight-color: #db2777;
-   --hd-main-soft-text-muted-color: #7c3aed;
+  /* Soft Surface */
+  --hd-main-soft-heading-background-color: var(--hd-theme-main-color);
+  --hd-main-soft-heading-background: var(--hd-main-soft-heading-background-color);
+  --hd-main-soft-heading-text-color: var(--hd-theme-background-color);
+  --hd-main-soft-heading-text-highlight-color: hsl(from var(--hd-theme-accent-color) h 88% 78%);
+  --hd-main-soft-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-main-color) 18%, var(--hd-theme-background-color));
 
-   /* Solid Surface */
-   --hd-main-solid-background-color: #6d28d9;
-   --hd-main-solid-text-color: #ffffff;
-   --hd-main-solid-text-highlight-color: #fbbf24;
-   --hd-main-solid-text-muted-color: #c084fc;
+  --hd-main-soft-body-background-color: color-mix(in srgb, var(--hd-theme-main-color) 6%, var(--hd-theme-background-color));
+  --hd-main-soft-body-background: var(--hd-main-soft-body-background-color);
+  --hd-main-soft-body-text-color: var(--hd-theme-text-color);
+  --hd-main-soft-body-text-highlight-color: color-mix(in srgb, var(--hd-theme-accent-color) 88%, var(--hd-theme-text-color));
+  --hd-main-soft-body-text-muted-color: color-mix(in srgb, color-mix(in srgb, var(--hd-theme-text-color) 65%, var(--hd-theme-main-color)) 70%, var(--hd-theme-background-color));
+  --hd-main-soft-border: color-mix(in srgb, var(--hd-theme-main-color) 35%, var(--hd-theme-background-color));
 
-   /* Soft Surface Inverted */
-   --hd-main-soft-background-color-inverted: #2e1065;
-   --hd-main-soft-text-color-inverted: #f5f3ff;
-   --hd-main-soft-text-highlight-color-inverted: #fcd34d;
-   --hd-main-soft-text-muted-color-inverted: #a78bfa;
+  /* Solid Surface */
+  --hd-main-solid-heading-background-color: color-mix(in srgb, var(--hd-theme-main-color) 85%, var(--hd-theme-text-color));
+  --hd-main-solid-heading-background: var(--hd-main-solid-heading-background-color);
+  --hd-main-solid-heading-text-color: var(--hd-theme-background-color);
+  --hd-main-solid-heading-text-highlight-color: hsl(from var(--hd-theme-accent-color) h 88% 78%);
+  --hd-main-solid-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-main-color) 18%, var(--hd-theme-background-color));
 
-   /* Solid Surface Inverted */
-   --hd-main-solid-background-color-inverted: #edd8fc;
-   --hd-main-solid-text-color-inverted: #3b0764;
-   --hd-main-solid-text-highlight-color-inverted: #c026d3;
-   --hd-main-solid-text-muted-color-inverted: #6b21a8;
+  --hd-main-solid-body-background-color: var(--hd-theme-main-color);
+  --hd-main-solid-body-background: var(--hd-main-solid-body-background-color);
+  --hd-main-solid-body-text-color: var(--hd-main-solid-heading-text-color);
+  --hd-main-solid-body-text-highlight-color: var(--hd-main-solid-heading-text-highlight-color);
+  --hd-main-solid-body-text-muted-color: var(--hd-main-solid-heading-text-muted-color);
+  --hd-main-solid-border: color-mix(in srgb, var(--hd-theme-main-color) 55%, var(--hd-theme-background-color));
 
-   /* ========================================================
-     ACCENT THEME (Teal/Emerald) - Teal contrast
+  /* ========================================================
+     ACCENT VARIANT (Emerald Teal)
      ======================================================== */
-   /* Soft Surface */
-   --hd-accent-soft-background-color: #ecfdf5;
-   --hd-accent-soft-text-color: #065f46;
-   --hd-accent-soft-text-highlight-color: #d97706;
-   --hd-accent-soft-text-muted-color: #059669;
+  /* Soft Surface */
+  --hd-accent-soft-heading-background-color: var(--hd-theme-accent-color);
+  --hd-accent-soft-heading-background: var(--hd-accent-soft-heading-background-color);
+  --hd-accent-soft-heading-text-color: var(--hd-theme-background-color);
+  --hd-accent-soft-heading-text-highlight-color: hsl(from var(--hd-theme-main-color) h 96% 85%);
+  --hd-accent-soft-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-accent-color) 18%, var(--hd-theme-background-color));
 
-   /* Solid Surface (Box variant accent default) */
-   --hd-accent-solid-background-color: #059669;
-   --hd-accent-solid-text-color: #ffffff;
-   --hd-accent-solid-text-highlight-color: #fde047;
-   --hd-accent-solid-text-muted-color: #6ee7b7;
+  --hd-accent-soft-body-background-color: color-mix(in srgb, var(--hd-theme-accent-color) 6%, var(--hd-theme-background-color));
+  --hd-accent-soft-body-background: var(--hd-accent-soft-body-background-color);
+  --hd-accent-soft-body-text-color: var(--hd-theme-text-color);
+  --hd-accent-soft-body-text-highlight-color: color-mix(in srgb, var(--hd-theme-main-color) 88%, var(--hd-theme-text-color));
+  --hd-accent-soft-body-text-muted-color: color-mix(in srgb, color-mix(in srgb, var(--hd-theme-text-color) 65%, var(--hd-theme-accent-color)) 70%, var(--hd-theme-background-color));
+  --hd-accent-soft-border: color-mix(in srgb, var(--hd-theme-accent-color) 35%, var(--hd-theme-background-color));
 
-   /* Soft Surface Inverted */
-   --hd-accent-soft-background-color-inverted: #064e3b;
-   --hd-accent-soft-text-color-inverted: #ecfdf5;
-   --hd-accent-soft-text-highlight-color-inverted: #f59e0b;
-   --hd-accent-soft-text-muted-color-inverted: #34d399;
+  /* Solid Surface */
+  --hd-accent-solid-heading-background-color: color-mix(in srgb, var(--hd-theme-accent-color) 72%, var(--hd-theme-text-color));
+  --hd-accent-solid-heading-background: var(--hd-accent-solid-heading-background-color);
+  --hd-accent-solid-heading-text-color: var(--hd-theme-background-color);
+  --hd-accent-solid-heading-text-highlight-color: hsl(from var(--hd-theme-main-color) h 96% 86%);
+  --hd-accent-solid-heading-text-muted-color: color-mix(in srgb, var(--hd-theme-accent-color) 18%, var(--hd-theme-background-color));
 
-   /* Solid Surface Inverted */
-   --hd-accent-solid-background-color-inverted: #d1fae5;
-   --hd-accent-solid-text-color-inverted: #047857;
-   --hd-accent-solid-text-highlight-color-inverted: #b91c1c;
-   --hd-accent-solid-text-muted-color-inverted: #059669;
+  --hd-accent-solid-body-background-color: color-mix(in srgb, var(--hd-theme-accent-color) 78%, var(--hd-theme-text-color));
+  --hd-accent-solid-body-background: var(--hd-accent-solid-body-background-color);
+  --hd-accent-solid-body-text-color: var(--hd-accent-solid-heading-text-color);
+  --hd-accent-solid-body-text-highlight-color: var(--hd-accent-solid-heading-text-highlight-color);
+  --hd-accent-solid-body-text-muted-color: var(--hd-accent-solid-heading-text-muted-color);
+  --hd-accent-solid-border: color-mix(in srgb, var(--hd-theme-accent-color) 55%, var(--hd-theme-background-color));
 
-   --hd-callout-border-color: rgba(from var(--hd-text-color) r g b / 0.4);
-
-   /* Layout heading divider overrides */
-   --hd-layout-heading-divider-display: block;
-   --hd-layout-heading-divider-height: 2px;
+  /* Border Fallbacks */
+  --hd-border-color-default: rgba(from var(--hd-theme-text-color) r g b / 0.16);
+  --hd-border-color-surfaced: rgba(from var(--hd-theme-text-color) r g b / 0.28);
 }

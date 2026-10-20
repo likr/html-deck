@@ -1,8 +1,9 @@
-import { defineConfig } from 'vite';
+import { defineConfig } from 'vite';{{rollupImport}}
 
 export default defineConfig({
   server: {
     port: 3000,
     open: true
-  }
+  }{{rollupConfig}}
 });
+

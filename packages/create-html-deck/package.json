@@ -25,6 +25,9 @@
     "scaffolding"
   ],
   "type": "module",
+  "scripts": {
+    "test": "node --test"
+  },
   "bin": {
     "create-html-deck": "bin/create-html-deck.js"
   },
